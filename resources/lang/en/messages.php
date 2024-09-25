@@ -31,7 +31,7 @@ return [
     'Error' => 'Error',
     'Stars' => 'Stars',
     'Notification' => 'Notification',
-    'Settings' => '設定 (settei)',
+    'Settings' => 'Settings',
     'Log out' => 'Log out',
     'Personal Informations' => 'Personal Informations',
     'Change Password' => 'Change Password',

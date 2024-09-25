@@ -1,0 +1,28 @@
+@media screen and (max-width: 1800px){
+    .sidebar {
+        width: 18%;
+    }
+    .Container {
+        width: 82%;
+    }
+    .cod-dashboard-2 {
+        width: 25%;
+        padding: 20px;
+    }
+    .cod-dashboard-8 {
+        width: 75%;
+        border-bottom-right-radius: 20px;
+        padding: 20px 10px;
+    }
+    .card {
+        padding: 8px;
+        border-radius: 20px;
+        min-width: 230px;
+        height: auto;
+        transition: .3s;
+    }
+    .form-search form {
+        position: relative;
+        width: 283px;
+    }
+}

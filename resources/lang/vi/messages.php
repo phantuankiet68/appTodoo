@@ -11,7 +11,7 @@ return [
     'Curriculum Vitae' => 'CV',
     'Application' => 'Ứng dụng',
     'Calendar' => 'Lịch',
-    'Email' => 'Thư điện tử',
+    'Email' => 'Email',
     'Sent' => 'Đã gửi',
     'Compose' => 'Soạn thảo',
     'Writing method' => 'Cách viết',
