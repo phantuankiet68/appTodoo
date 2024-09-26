@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator; 
 use App\Models\CategoryTask;
 
-class TodoController extends Controller
+class CategoryTasksController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $categoryTasks = CategoryTask::paginate(3);
-        return view('todo.index', compact('categoryTasks'));
+        $categoryTasks = CategoryTask::all();
+        return view('category_tasks.index', compact('categoryTasks'));
     }
 
     /**
@@ -37,7 +37,35 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
+        try {
+            // Validate dữ liệu
+            $validator = Validator::make($request->all(), [
+                'name' => 'required|string|max:255',
+                'description' => 'required|string|max:255', 
+                'status' => 'required',
+            ], [
+                'name.required' => __('messages.name_required'),
+                'description.required' => __('messages.description_required'),
+                'status.required' => __('messages.status_required'),
+            ]);
+    
+            if ($validator->fails()) {
+                return redirect()->back()->withErrors($validator)->withInput();
+            }
+            else{
+                CategoryTask::create([
+                    'name' => $request->name,
+                    'description' => $request->description,
+                    'status' => $request->status
+                ]);
         
+                return redirect()->route('todo')->with('success', __('messages.Create_success'));
+            }
+    
+        } catch (\Exception $e) {
+            \Log::error('Error occurred while adding category task: ' . $e->getMessage());
+            return redirect()->back()->with('error', __('messages.error_occurred'))->withInput();
+        }
     }
 
     /**
@@ -84,6 +112,4 @@ class TodoController extends Controller
     {
         //
     }
-
-
 }

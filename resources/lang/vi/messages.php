@@ -50,4 +50,14 @@ return [
     'Prev' => 'Trở lại',
     'Next' => 'Tiếp theo',
     'Add' => 'Thêm',
+    'name_required' => 'Trường tên là bắt buộc.',
+    'description_required' => 'Trường mô tả là bắt buộc.',
+    'status_required' => 'Trường trạng thái là bắt buộc.',
+    'Create_success' => 'Tạo thành công!',
+    'error_occurred' => 'Đã xảy ra lỗi trong quá trình thực hiện.',
+    'Show' => 'Hiện',
+    'Hide' => 'Ẩn',
+
+
+
 ];

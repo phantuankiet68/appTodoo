@@ -50,4 +50,13 @@ return [
     'Prev' => '前の',
     'Next' => '次の',
     'Add' => '追加する',
+    'name_required' => '名前フィールドは必須です。',
+    'description_required' => '説明フィールドは必須です。',
+    'status_required' => 'ステータスフィールドは必須です。',
+    'registration_success' => '登録が成功しました！',
+    'error_occurred' => '処理中にエラーが発生しました。',
+    'Show' => '表示する',
+    'Hide' => '非表示にする',
+
+
 ];

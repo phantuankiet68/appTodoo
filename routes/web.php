@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryTasksController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\WorkflowController;
 use App\Http\Controllers\SalaryController;
@@ -48,7 +49,9 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->middleware('chec
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::group(['middleware' => ['auth', 'verified']], function () {
+    
     Route::resource('dashboard', DashboardController::class);
+    Route::resource('category_task', CategoryTasksController::class);
     Route::resource('todo', TodoController::class);
     Route::resource('work_flow', WorkflowController::class);
     Route::resource('salary', SalaryController::class);
