@@ -57,6 +57,9 @@ return [
     'error_occurred' => '処理中にエラーが発生しました。',
     'Show' => '表示する',
     'Hide' => '非表示にする',
-
+    'Update_success' => '登録が成功しました！',
+    'Are you sure you want to delete?' => ' 本当に削除してもよろしいですか？',
+    'Delete' => '削除',
+    
 
 ];

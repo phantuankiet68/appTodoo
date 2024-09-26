@@ -57,7 +57,9 @@ return [
     'error_occurred' => 'Đã xảy ra lỗi trong quá trình thực hiện.',
     'Show' => 'Hiện',
     'Hide' => 'Ẩn',
-
+    'Update_success' => 'Cập nhật thành công!',
+    'Are you sure you want to delete?' => 'Bạn có chắc chắn muốn xóa không?',
+    'Delete' => 'Xóa',
 
 
 ];

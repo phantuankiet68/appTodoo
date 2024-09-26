@@ -15,8 +15,7 @@ class CategoryTasksController extends Controller
      */
     public function index()
     {
-        $categoryTasks = CategoryTask::all();
-        return view('category_tasks.index', compact('categoryTasks'));
+
     }
 
     /**
@@ -76,7 +75,9 @@ class CategoryTasksController extends Controller
      */
     public function show($id)
     {
-        //
+        $CategoryTask = CategoryTask::findOrFail($id);
+        // Trả về dữ liệu dưới dạng JSON
+        return response()->json($CategoryTask);
     }
 
     /**
@@ -99,7 +100,25 @@ class CategoryTasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // Validate dữ liệu từ request
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'status' => 'required|integer',
+        ]);
+
+        // Tìm đối tượng category_task theo ID
+        $task = CategoryTask::findOrFail($id);
+
+        // Cập nhật thông tin task
+        $task->update([
+            'name' => $validatedData['name'],
+            'description' => $validatedData['description'],
+            'status' => $validatedData['status'],
+        ]);
+
+        // Chuyển hướng về trang danh sách với thông báo thành công
+        return redirect()->route('todo.index')->with('success', 'Task updated successfully');
     }
 
     /**
@@ -110,6 +129,12 @@ class CategoryTasksController extends Controller
      */
     public function destroy($id)
     {
-        //
+       // Tìm đối tượng CategoryTask theo ID và xóa
+        $category_task = CategoryTask::findOrFail($id);
+
+        // Xóa task
+        $category_task->delete();
+        // Chuyển hướng về trang danh sách với thông báo thành công
+        return redirect()->route('todo.index')->with('success', 'Deleted successfully');
     }
 }

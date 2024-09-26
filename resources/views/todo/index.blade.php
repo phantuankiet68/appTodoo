@@ -86,12 +86,12 @@
                                             value="1" {{ $task->status == 1 ? 'checked' : '' }}>
                                     </td>
                                     <td class="text-center">
-                                        <a href="{{ route('category_task.edit', $task->id) }}"><i class="fa-regular fa-pen-to-square edit"></i></a>
-                                        <form action="{{ route('category_task.destroy', $task->id) }}" method="POST" style="display:inline-block;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="button"><i class="fa-solid fa-trash delete"></i></button>
-                                        </form>
+                                        <a href="#" onclick="showEditPopup({{ $task->id }})">
+                                            <i class="fa-regular fa-pen-to-square edit"></i>
+                                        </a>
+                                        <a href="#" onclick="showDeletePopup({{ $task->id }})">
+                                            <i class="fa-solid fa-trash delete"></i>
+                                        </a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -194,12 +194,109 @@
         </div>
     </div>
 </div>
+
+<div class="ModelCreateCategoryTask">
+        <form method="POST" id="edit-form">
+        @csrf
+        @method('PUT')
+        <input type="hidden" id="task-id" value="id"/>
+        <div class="form-input-category">
+            <label for="name">{{ __('messages.Name') }}</label>
+            <input type="text" class="input-name" id="name_task" name="name">
+        </div>
+        <div class="form-textarea-category">
+            <label for="description">{{ __('messages.Description') }}</label>
+            <textarea name="description"  id="description_task" class="textArea_description"></textarea>
+        </div>
+        <div class="form-select-category">
+            <label for="status">{{ __('messages.Status') }}</label>
+            <select name="status" id="status_task">
+                <option value="0" {{ $task->status == 0 ? 'selected' : '' }}>{{ __('messages.Hide') }}</option>
+                <option value="1" {{ $task->status == 1 ? 'selected' : '' }}>{{ __('messages.Show') }}</option>
+            </select>
+        </div>
+        <div class="form-btn">
+            <button>{{ __('messages.Add') }}</button>
+        </div>
+    </form>
+</div>
+
+<div class="ModelDeleteCategoryTask">
+    <form method="POST" id="delete-form">
+        @csrf
+        @method('DELETE')
+        <h5>{{ __('messages.Are you sure you want to delete?') }}</h3>
+        <div class="form-btn-delete">
+            <button>{{ __('messages.Delete') }}</button>
+        </div>
+        <div class="BtnCloseCategoryTask" onclick="closeDeletePopup()">
+            <p>X</p>
+        </div>
+    </form>
+</div>
+
 <script>
-    setTimeout(function() {
-        let alert = document.getElementById('categorytask-alert');
-        if (alert) {
-            alert.style.display = 'none';
+     function showEditPopup(taskId) {
+        const modelCreateCategoryTasks = document.querySelectorAll(".ModelCreateCategoryTask");
+
+        // Kiểm tra nếu ModelCreateCategoryTask hiện tại có kiểu hiển thị là 'none'
+        const isVisible = modelCreateCategoryTasks[0].style.display !== 'none';
+
+        // Lặp qua tất cả các phần tử và thay đổi kiểu hiển thị
+        modelCreateCategoryTasks.forEach(task => {
+            task.style.display = isVisible ? 'none' : 'block';
+        });
+        fetch(`/category_task/${taskId}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.getElementById('task-id').value = taskId;
+            document.getElementById('name_task').value = data.name;
+            document.getElementById('description_task').value = data.description;
+            document.getElementById('status_task').value = data.status;
+            // Bạn có thể điền thêm các trường khác từ 'data' nếu cần
+
+        })
+    }
+    document.getElementById('edit-form').onsubmit = function(event) {
+        event.preventDefault(); // Ngăn form tự động submit
+
+        const taskId = document.getElementById('task-id').value;
+        
+        // Thay đổi action của form trước khi submit
+        this.action = `/category_task/${taskId}`;
+        
+        // Tiếp tục submit form sau khi action được thay đổi
+        this.submit();
+    }
+    function deleteTask(taskId) {
+        const deletePopup = document.querySelector('.ModelDeleteCategoryTask');
+        
+        // Kiểm tra nếu popup đang ẩn (display: none)
+        if (deletePopup.style.display === 'none' || deletePopup.style.display === '') {
+            deletePopup.style.display = 'block'; // Hiển thị popup
+        } else {
+            deletePopup.style.display = 'none'; // Ẩn popup
         }
-    }, 5000);
+    }
+    function closeDeletePopup() {
+        const deletePopup = document.querySelector('.ModelDeleteCategoryTask');
+        
+        // Kiểm tra nếu popup đang ẩn (display: none)
+        if (deletePopup.style.display === 'none' || deletePopup.style.display === '') {
+            deletePopup.style.display = 'block'; // Hiển thị popup
+        } else {
+            deletePopup.style.display = 'none'; // Ẩn popup
+        }
+    }
+    function showDeletePopup(taskId) {
+        const deletePopup = document.querySelector('.ModelDeleteCategoryTask');
+        deletePopup.style.display = 'block';
+
+        // Thay đổi action của form với ID tương ứng
+        const deleteForm = document.getElementById('delete-form');
+        deleteForm.action = `/category_task/${taskId}`;
+    }
+
 </script>
 @endsection
