@@ -145,9 +145,30 @@
                     </form>
                 </div>
                 <div class="header-todo-right">
-                    <button class="btn-add" id="openStaskIssue" fdprocessedid="z9dji27">{{ __('messages.Add New') }}</button>
+                    <button class="btn-add" id="openStaskIssue"  fdprocessedid="z9dji27">{{ __('messages.Add New') }}</button>
                 </div>
             </div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success_task') }}
+                </div>
+            @endif
+
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error_task') }}
+                </div>
+            @endif
             <div class="body-todo body-tables-todo">
                 <div class="recent--patient">
                     <div class="tables">
@@ -155,11 +176,11 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>{{ __('messages.Title') }}</th>
+                                    <th>{{ __('messages.Name') }}</th>
                                     <th style="width:200px;">{{ __('messages.Description') }}</th>
-                                    <th>{{ __('messages.Date Created') }}</th>
+                                    <th>{{ __('messages.Start Date') }}</th>
                                     <th class="text-center">{{ __('messages.Create by') }}</th>
-                                    <th>{{ __('messages.Update') }}</th>
+                                    <th>{{ __('messages.End Date') }}</th>
                                     <th>{{ __('messages.Category') }}</th>
                                     <th>{{ __('messages.Status') }}</th>
                                     <th>{{ __('messages.Settings') }}</th>
@@ -239,33 +260,37 @@
 </div>
 
 <div class="ModelCreate">
-    <form >
+    <form  method="POST" action="{{ route('todo.store') }}" >
+    @csrf
         <h2>{{ __('messages.Add New') }}</h5>
-        <input type="hidden" id="task-id" value="id"/>
+        @if (Auth::check())
+            <input type="hidden" id="task-id" name="user_id" value="{{ Auth::user()->id }}"/>
+        @endif
         <div class="form-input-category">
             <label for="name">{{ __('messages.Name') }}</label>
             <input type="text" class="input-name" id="name_task" name="name">
         </div>
         <div class="form-textarea-category">
             <label for="description">{{ __('messages.Description') }}</label>
-            <textarea id="txtEditor"></textarea> 
+            <textarea id="editor" name="description"></textarea> 
         </div>
         <div class="form-group-info">
             <div class="form-input-category">
-                <label for="name">{{ __('messages.Name') }}</label>
-                <input type="date" class="input-name" id="name_task" name="name">
+                <label for="name">{{ __('messages.Start Date') }}</label>
+                <input type="date" class="input-name" id="name_task" name="date_start">
             </div>
             <div class="form-input-category">
-                <label for="name">{{ __('messages.Name') }}</label>
-                <input type="date" class="input-name" id="name_task" name="name">
+                <label for="name">{{ __('messages.End Date') }}</label>
+                <input type="date" class="input-name" id="name_task" name="date_end">
             </div>
         </div>
         <div class="form-group-info">
             <div class="form-select-category">
                 <label for="status">{{ __('messages.Category') }}</label>
-                <select name="status" id="status">
-                    <option value="0">{{ __('messages.Hide') }}</option>
-                    <option value="1">{{ __('messages.Show') }}</option>
+                <select name="category_id" id="status">
+                @foreach($categoryTasks as $task)
+                    <option value="{{ $task->id }}">{{ $task->name }}</option>
+                @endforeach
                 </select>
             </div>
             <div class="form-select-category">
@@ -277,14 +302,17 @@
             </div>
         </div>
         <div class="form-btn">
-            <button>{{ __('messages.Add') }}</button>
+            <button type="submit">{{ __('messages.Add') }}</button>
         </div>
         <div class="BtnCloseCreate" onclick="closeCreateTaskPopup()">
             <p>X</p>
         </div>
     </form>
 </div>
-
+<script>
+    // Khởi tạo CKEditor trên textarea
+    CKEDITOR.replace('editor');
+</script>
 <script>
      function showEditPopup(taskId) {
         const modelCreateCategoryTasks = document.querySelectorAll(".ModelCreateCategoryTask");

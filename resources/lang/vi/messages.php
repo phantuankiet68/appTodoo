@@ -60,6 +60,8 @@ return [
     'Update_success' => 'Cập nhật thành công!',
     'Are you sure you want to delete?' => 'Bạn có chắc chắn muốn xóa không?',
     'Delete' => 'Xóa',
+    'Start Date' => 'Bắt đấu',
+    'End Date' => 'Kết thúc',
 
 
 ];

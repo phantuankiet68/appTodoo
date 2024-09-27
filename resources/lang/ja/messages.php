@@ -60,6 +60,7 @@ return [
     'Update_success' => '登録が成功しました！',
     'Are you sure you want to delete?' => ' 本当に削除してもよろしいですか？',
     'Delete' => '削除',
-    
+    'Start Date' => ' 開始日',
+    'End Date' => ' 終了日',
 
 ];

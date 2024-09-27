@@ -649,6 +649,16 @@ document.getElementById("showCategoryBtn").addEventListener("click", function() 
 });
 
 
+document.getElementById("openStaskIssue").addEventListener("click", function() {
+  var categoryForm = document.querySelector(".ModelCreate");
+  if (categoryForm.style.display === "none" || categoryForm.style.display === "") {
+      categoryForm.style.display = "block"; // Hiển thị form
+  } else {
+      categoryForm.style.display = "none"; // Ẩn form nếu đã hiển thị
+  }
+});
+
+
 document.addEventListener("DOMContentLoaded", function() {
   const FrontEnd = document.getElementById("FrontEnd");
   const dropDownFrontEnd = document.querySelectorAll(".dropDownFrontEnd");
@@ -874,3 +884,8 @@ function openTab(evt, tabId) {
   document.getElementById(tabId).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
+
+
+
+

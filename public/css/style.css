@@ -1668,8 +1668,13 @@ button.button:hover{
     align-items: center;
     background-color: #dfeeff;
     padding: 2px 0;
-    margin: 0;
+    margin: 0 0 5px 0;
     color: #2099ff;
+}
+
+
+.cke_notifications_area div.cke_notification {
+    display: none;
 }
 
 
@@ -1704,7 +1709,8 @@ button.button:hover{
     justify-content: center;
     padding: 2px 0;
     margin: 0;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border-radius: 5px;
     border: none;
     outline: none;
 }
@@ -1733,8 +1739,8 @@ button.button:hover{
 
 .form-input-category .input-name{
     width: 78%;
-    padding: 7px 10px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    padding: 8px 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border: none;
     outline: none;
     border-radius: 5px;
@@ -1745,7 +1751,7 @@ button.button:hover{
     max-width: 100%;
     width: 100%;
     padding: 7px 10px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border: none;
     outline: none;
     height: 100px;
@@ -1934,7 +1940,7 @@ button.button:hover{
     align-items: center;
     gap: 10px;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .BtnCloseEditTask{
