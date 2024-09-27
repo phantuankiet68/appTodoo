@@ -218,6 +218,9 @@
         <div class="form-btn">
             <button>{{ __('messages.Add') }}</button>
         </div>
+        <div class="BtnCloseEditTask" onclick="closeEditPopup()">
+            <p>X</p>
+        </div>
     </form>
 </div>
 
@@ -230,6 +233,53 @@
             <button>{{ __('messages.Delete') }}</button>
         </div>
         <div class="BtnCloseCategoryTask" onclick="closeDeletePopup()">
+            <p>X</p>
+        </div>
+    </form>
+</div>
+
+<div class="ModelCreate">
+    <form >
+        <h2>{{ __('messages.Add New') }}</h5>
+        <input type="hidden" id="task-id" value="id"/>
+        <div class="form-input-category">
+            <label for="name">{{ __('messages.Name') }}</label>
+            <input type="text" class="input-name" id="name_task" name="name">
+        </div>
+        <div class="form-textarea-category">
+            <label for="description">{{ __('messages.Description') }}</label>
+            <textarea id="txtEditor"></textarea> 
+        </div>
+        <div class="form-group-info">
+            <div class="form-input-category">
+                <label for="name">{{ __('messages.Name') }}</label>
+                <input type="date" class="input-name" id="name_task" name="name">
+            </div>
+            <div class="form-input-category">
+                <label for="name">{{ __('messages.Name') }}</label>
+                <input type="date" class="input-name" id="name_task" name="name">
+            </div>
+        </div>
+        <div class="form-group-info">
+            <div class="form-select-category">
+                <label for="status">{{ __('messages.Category') }}</label>
+                <select name="status" id="status">
+                    <option value="0">{{ __('messages.Hide') }}</option>
+                    <option value="1">{{ __('messages.Show') }}</option>
+                </select>
+            </div>
+            <div class="form-select-category">
+                <label for="status">{{ __('messages.Status') }}</label>
+                <select name="status" id="status">
+                    <option value="0">{{ __('messages.Hide') }}</option>
+                    <option value="1">{{ __('messages.Show') }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-btn">
+            <button>{{ __('messages.Add') }}</button>
+        </div>
+        <div class="BtnCloseCreate" onclick="closeCreateTaskPopup()">
             <p>X</p>
         </div>
     </form>
@@ -297,6 +347,29 @@
         const deleteForm = document.getElementById('delete-form');
         deleteForm.action = `/category_task/${taskId}`;
     }
+    function closeEditPopup() {
+        const editPopup = document.querySelector('.ModelCreateCategoryTask');
+        
+        // Kiểm tra nếu popup đang ẩn (display: none)
+        if (editPopup.style.display === 'none' || editPopup.style.display === '') {
+            editPopup.style.display = 'block'; // Hiển thị popup
+        } else {
+            editPopup.style.display = 'none'; // Ẩn popup
+        }
+    }
+    
+    function closeCreateTaskPopup() {
+        const modelCreateTask = document.querySelector('.ModelCreate');
+        
+        // Kiểm tra nếu popup đang ẩn (display: none)
+        if (modelCreateTask.style.display === 'none' || modelCreateTask.style.display === '') {
+            modelCreateTask.style.display = 'block'; // Hiển thị popup
+        } else {
+            modelCreateTask.style.display = 'none'; // Ẩn popup
+        }
+    }
+
 
 </script>
+
 @endsection
