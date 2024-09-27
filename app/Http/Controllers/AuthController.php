@@ -68,33 +68,28 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         try {
-              // Validate đầu vào
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required|min:6',
-        ]);
+            // Validate đầu vào
+            $request->validate([
+                'email' => 'required|email',
+                'password' => 'required|min:6',
+            ]);
 
-        // Tìm user theo email
-        $existingUser = User::where('email', $request->email)->first();
-
-        if ($existingUser) {
-            // Kiểm tra mật khẩu có khớp với hash trong database không
-            if (Hash::check($request->password, $existingUser->password)) {
-
-                auth()->attempt($request->only('email', 'password'));
-                $user = Auth::user();
+            // Kiểm tra thông tin đăng nhập với Laravel auth
+            if (Auth::attempt($request->only('email', 'password'))) {
+                // Đăng nhập thành công, tạo lại session
                 $request->session()->regenerate();
-            } else {
-                return redirect()->route('login')->with('error', 'Mật khẩu không chính xác!');
+
+                // Chuyển hướng đến trang dashboard hoặc trang mong muốn
+                return redirect()->route('dashboard.index')->with('success', 'Đăng nhập thành công!');
             }
-        } else {
-            // Nếu không tìm thấy user với email này
-            return redirect()->route('login')->with('error', 'Tài khoản không tồn tại!');
-        }
-    
+
+            // Nếu thông tin không khớp, trả về thông báo lỗi
+            return redirect()->route('login.index')->with('error', 'Email hoặc mật khẩu không chính xác!');
+            
         } catch (\Exception $e) {
-            // Xử lý ngoại lệ nếu có lỗi trong quá trình đăng ký
-            return redirect()->back()->with('error', 'Đã xảy ra lỗi trong quá trình đăng ký. Vui lòng thử lại.')->withInput();
+            // Xử lý ngoại lệ nếu có lỗi trong quá trình đăng nhập
+            \Log::error('Error occurred during login: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Đã xảy ra lỗi trong quá trình đăng nhập. Vui lòng thử lại.')->withInput();
         }
     }
 }

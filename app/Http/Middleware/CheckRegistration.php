@@ -18,7 +18,7 @@ class CheckRegistration
     {
         // Nếu người dùng đã đăng nhập, chuyển hướng đến dashboard hoặc trang chủ
         if (Auth::check()) {
-            return redirect('/todo')->with('message', 'Bạn đã đăng nhập!');
+            return redirect('/dashboard')->with('message', 'Bạn đã đăng nhập!');
         }
 
         // Nếu không, cho phép tiếp tục xử lý request

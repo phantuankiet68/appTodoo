@@ -160,13 +160,13 @@
 
             @if (session('success'))
                 <div class="alert alert-success">
-                    {{ session('success_task') }}
+                    {{ session('success') }}
                 </div>
             @endif
 
             @if (session('error'))
                 <div class="alert alert-danger">
-                    {{ session('error_task') }}
+                    {{ session('error') }}
                 </div>
             @endif
             <div class="body-todo body-tables-todo">

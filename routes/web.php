@@ -48,8 +48,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->middleware('check.registration');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
-Route::group(['middleware' => ['auth', 'verified']], function () {
-    
+Route::group(['middleware' => 'auth'], function() {
     Route::resource('dashboard', DashboardController::class);
     Route::resource('category_task', CategoryTasksController::class);
     Route::resource('todo', TodoController::class);
