@@ -177,37 +177,47 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>{{ __('messages.Name') }}</th>
-                                    <th style="width:200px;">{{ __('messages.Description') }}</th>
-                                    <th>{{ __('messages.Start Date') }}</th>
+                                    <th style="width:250px; margin-right: 15px;">{{ __('messages.Description') }}</th>
+                                    <th class="text-center">{{ __('messages.Start Date') }}</th>
                                     <th class="text-center">{{ __('messages.Create by') }}</th>
-                                    <th>{{ __('messages.End Date') }}</th>
+                                    <th class="text-center">{{ __('messages.End Date') }}</th>
                                     <th>{{ __('messages.Category') }}</th>
                                     <th>{{ __('messages.Status') }}</th>
                                     <th>{{ __('messages.Settings') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($todos as $todo)
                                 <tr>
-                                    <td>1</td>
-                                    <td>Cameron Williamson</td>
+                                    <td>{{ $todo->id }}</td>
+                                    <td>{{ $todo->name }}</td>
                                     <td>
-                                        <p class="text-truncate">aaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssssssssss sssssssssssssssssssssssssssss</p>
+                                        <div class="text-truncate">
+                                            {!! $todo->description !!}
+                                        </div>
                                     </td>
-                                    <td>30/07/2022</td>
-                                    <td class="text-center">Admin</td>
-                                    <td>30/07/2022</td>
-                                    <td>Làm việc nhà</td>
-                                    <td class="text-center"> <input type="checkbox" name="" id=""></td>
-                                    <td><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
+                                    <td class="text-center">{{ $todo->date_start }}</td>
+                                    <td class="text-center">{{ $todo->userTodo ? $todo->userTodo->full_name : 'Không có danh mục' }}</td>
+                                    <td class="text-center">{{ $todo->date_end }}</td>
+                                    <td>{{ $todo->categoryTodo ? $todo->categoryTodo->name : 'Không có danh mục' }}</td>
+                                    <td class="text-center"> 
+                                        <input type="checkbox" name="todo[]" id="todo_{{ $todo->id }}" 
+                                            value="1" {{ $todo->status == 1 ? 'checked' : '' }}>
+                                    </td>
+                                    <td class="text-center">
+                                        <a href="#" onclick="showEditTodoPopup({{ $todo->id }})">
+                                            <i class="fa-regular fa-pen-to-square edit"></i>
+                                        </a>
+                                        <a href="#" onclick="showDeleteTodoPopup({{ $todo->id }})">
+                                            <i class="fa-solid fa-trash delete"></i>
+                                        </a>
+                                    </td>
                                 </tr>
-                                
+                                @endforeach
                             </tbody>
                         </table>
-                        <div class="pagination">
-                            <button id="prev" onclick="prevPage()">{{ __('messages.Prev') }}</button>
-                            <span id="page-info">1</span>
-                            <span id="page-info">2</span>
-                            <button id="next" onclick="nextPage()">{{ __('messages.Next') }}</button>
+                        <div class="d-flex justify-content-center link-margin">
+                            {{ $todos->links('') }} <!-- Hoặc pagination::bootstrap-4 nếu bạn sử dụng Bootstrap 4 -->
                         </div>
                     </div>
                 </div>
@@ -309,12 +319,99 @@
         </div>
     </form>
 </div>
+
+<div class="ModelEdit">
+    <form  method="POST" action="{{ route('todo.store') }}" >
+    @csrf
+        <h2>{{ __('messages.Add New') }}</h5>
+        @if (Auth::check())
+            <input type="hidden" id="task-id" name="user_id" value="{{ Auth::user()->id }}"/>
+        @endif
+        <div class="form-input-category">
+            <label for="name">{{ __('messages.Name') }}</label>
+            <input type="text" class="input-name" id="name_task" name="name">
+        </div>
+        <div class="form-textarea-category">
+            <label for="description">{{ __('messages.Description') }}</label>
+            <textarea id="editor1" name="description"></textarea> 
+        </div>
+        <div class="form-group-info">
+            <div class="form-input-category">
+                <label for="name">{{ __('messages.Start Date') }}</label>
+                <input type="date" class="input-name" id="name_task" name="date_start">
+            </div>
+            <div class="form-input-category">
+                <label for="name">{{ __('messages.End Date') }}</label>
+                <input type="date" class="input-name" id="name_task" name="date_end">
+            </div>
+        </div>
+        <div class="form-group-info">
+            <div class="form-select-category">
+                <label for="status">{{ __('messages.Category') }}</label>
+                <select name="category_id" id="status">
+                @foreach($categoryTasks as $task)
+                    <option value="{{ $task->id }}">{{ $task->name }}</option>
+                @endforeach
+                </select>
+            </div>
+            <div class="form-select-category">
+                <label for="status">{{ __('messages.Status') }}</label>
+                <select name="status" id="status">
+                    <option value="0">{{ __('messages.Hide') }}</option>
+                    <option value="1">{{ __('messages.Show') }}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-btn">
+            <button type="submit">{{ __('messages.Add') }}</button>
+        </div>
+        <div class="BtnCloseCreate" onclick="closeEditTodoPopup()">
+            <p>X</p>
+        </div>
+    </form>
+</div>
 <script>
     // Khởi tạo CKEditor trên textarea
     CKEDITOR.replace('editor');
+    CKEDITOR.replace('editor1');
 </script>
 <script>
      function showEditPopup(taskId) {
+        const modelCreateCategoryTasks = document.querySelectorAll(".ModelCreateCategoryTask");
+
+        // Kiểm tra nếu ModelCreateCategoryTask hiện tại có kiểu hiển thị là 'none'
+        const isVisible = modelCreateCategoryTasks[0].style.display !== 'none';
+
+        // Lặp qua tất cả các phần tử và thay đổi kiểu hiển thị
+        modelCreateCategoryTasks.forEach(task => {
+            task.style.display = isVisible ? 'none' : 'block';
+        });
+        fetch(`/category_task/${taskId}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.getElementById('task-id').value = taskId;
+            document.getElementById('name_task').value = data.name;
+            document.getElementById('description_task').value = data.description;
+            document.getElementById('status_task').value = data.status;
+            // Bạn có thể điền thêm các trường khác từ 'data' nếu cần
+
+        })
+    }
+
+    function closeEditTodoPopup() {
+        const editTodoPopup = document.querySelector('.ModelEdit');
+        
+        // Kiểm tra nếu popup đang ẩn (display: none)
+        if (editTodoPopup.style.display === 'none' || editTodoPopup.style.display === '') {
+            editTodoPopup.style.display = 'block'; // Hiển thị popup
+        } else {
+            editTodoPopup.style.display = 'none'; // Ẩn popup
+        }
+    }
+
+
+    function showEditTodoPopup(taskId) {
         const modelCreateCategoryTasks = document.querySelectorAll(".ModelCreateCategoryTask");
 
         // Kiểm tra nếu ModelCreateCategoryTask hiện tại có kiểu hiển thị là 'none'

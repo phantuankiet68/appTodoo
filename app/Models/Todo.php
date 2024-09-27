@@ -17,4 +17,12 @@ class Todo extends Model
         'date_end',
         'status'
     ];
+    public function categoryTodo()
+    {
+        return $this->belongsTo(CategoryTask::class, 'category_id');
+    }
+    public function userTodo()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

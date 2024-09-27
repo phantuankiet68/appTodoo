@@ -16,8 +16,9 @@ class TodoController extends Controller
      */
     public function index()
     {
+        $todos = Todo::with(['categoryTodo', 'userTodo'])->orderBy('id', 'asc')->paginate(2);
         $categoryTasks = CategoryTask::paginate(12);
-        return view('todo.index', compact('categoryTasks'));
+        return view('todo.index', compact('categoryTasks','todos'));
     }
 
     /**
@@ -38,8 +39,9 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'category_id' => 'required|exists:categories,id', 
+        // Validate dữ liệu
+        $validator = Validator::make($request->all(), [
+            'category_id' => 'required|exists:category_tasks,id', 
             'user_id' => 'required|exists:users,id', 
             'name' => 'required|string|max:255', 
             'description' => 'nullable|string', 
@@ -55,7 +57,7 @@ class TodoController extends Controller
             'date_end.required' => __('messages.date_end_required'),
             'status.required' => __('messages.status_required'),
         ]);
-
+    
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }

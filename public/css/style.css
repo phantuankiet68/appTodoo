@@ -1474,19 +1474,15 @@ button.button:hover{
 }
 
 
-.text-truncate {
-    max-width: 100%;
-    width: 300px;
-    font-size: 15px;
-}
+
 
 .body-tables-todo .tables table .text-truncate {
     max-width: 100%;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
 }
 
 
@@ -1873,6 +1869,32 @@ button.button:hover{
 }
 
 .ModelCreate form{
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 3% 30%;
+}
+
+
+.ModelEdit {
+    /* display: none; */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.ModelEdit form{
     position: absolute;
     background-color: white;
     padding: 20px;
