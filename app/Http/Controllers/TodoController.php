@@ -15,7 +15,7 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $categoryTasks = CategoryTask::paginate(3);
+        $categoryTasks = CategoryTask::paginate(12);
         return view('todo.index', compact('categoryTasks'));
     }
 

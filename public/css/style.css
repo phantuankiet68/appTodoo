@@ -1871,6 +1871,67 @@ button.button:hover{
 .dashboard-content.dark-mode .ModelDeleteCategoryTask form h5{
     color: #000;
 }
+.tables .link-margin {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tables .link-margin nav span.rounded-md{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tables .link-margin nav span.rounded-md span {
+    width: 16%;
+    color: #000;
+    text-align: center;
+    /* padding: 4px 0; */
+    padding: 4px 0 0;
+    margin-top: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.tables .link-margin nav span.rounded-md span.border-gray-300{
+    box-shadow: none;
+}
+
+.tables .link-margin nav span.rounded-md span:hover{
+    background: #70beff;
+    color: #fff;
+}
+
+.tables .link-margin nav span.rounded-md span:hover span{
+    background: #70beff;
+    color: #fff;
+}
+
+.tables .link-margin nav a.relative{
+    width: 16%;
+    background: #FFF;
+    color: #000;
+    text-align: center;
+    /* padding: 4px 0; */
+    padding: 4px 0 0;
+    margin-top: 12px;
+    cursor: pointer;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+
+.tables .link-margin nav a.relative:hover{
+    background: #70beff;
+    color: #fff;
+}
+
+.tables .link-margin nav a.relative:hover span{
+    background: #70beff;
+    color: #fff;
+}
+
 
 
 .BtnCloseCategoryTask p{
