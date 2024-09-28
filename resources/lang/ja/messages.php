@@ -62,5 +62,6 @@ return [
     'Delete' => '削除',
     'Start Date' => ' 開始日',
     'End Date' => ' 終了日',
+    'Deleted successfully!' => '正常に削除されました！',
 
 ];

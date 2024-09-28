@@ -62,7 +62,7 @@ return [
     'Delete' => 'Delete',
     'Start Date' => 'Start Date',
     'End Date' => 'End Date',
-    '' => '',
+    'Deleted successfully!' => 'Deleted successfully!',
     '' => '',
     '' => '',
     '' => '',

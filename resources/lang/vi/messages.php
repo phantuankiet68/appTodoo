@@ -62,6 +62,7 @@ return [
     'Delete' => 'Xóa',
     'Start Date' => 'Bắt đấu',
     'End Date' => 'Kết thúc',
+    'Deleted successfully!' => 'Xóa thành công!',
 
 
 ];

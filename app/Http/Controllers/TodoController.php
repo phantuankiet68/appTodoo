@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Auth;
 class TodoController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    * Display a listing of the resource.
+    * @author Phan Tuấn Kiệt
+    * @return \Illuminate\Http\Response
+    */
     public function index()
     {
         $todos = Todo::with(['categoryTodo', 'userTodo'])->where('user_id', Auth::id())->orderBy('id', 'asc')->paginate(2);
@@ -22,30 +22,20 @@ class TodoController extends Controller
         return view('todo.index', compact('categoryTasks','todos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    * Store a newly created resource in storage.
+    * @author Phan Tuấn Kiệt
+    * @param  \Illuminate\Http\Request  $request
+    * @return \Illuminate\Http\Response
+    */
     public function store(Request $request)
     {
-        // Validate dữ liệu
         $validator = Validator::make($request->all(), [
             'category_id' => 'required|exists:category_tasks,id', 
             'user_id' => 'required|exists:users,id', 
             'name' => 'required|string|max:255', 
-            'description' => 'nullable|string', 
+            'description' => 'required|string', 
             'date_start' => 'required|date', 
             'date_end' => 'required|date', 
             'status' => 'required|integer', 
@@ -78,48 +68,62 @@ class TodoController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Display the specified resource.
+    * @author Phan Tuấn Kiệt
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function show($id)
     {
-        //
+        $todos = Todo::findOrFail($id);
+        return response()->json($todos);
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Update the specified resource in storage.
+    * @author Phan Tuấn Kiệt
+    * @param  \Illuminate\Http\Request  $request
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'category_id' => 'required|exists:category_tasks,id', 
+            'user_id' => 'required|exists:users,id', 
+            'name' => 'required|string|max:255', 
+            'description' => 'required|string', 
+            'date_start' => 'required|date', 
+            'date_end' => 'required|date', 
+            'status' => 'required|integer', 
+        ]);
+
+        $task = Todo::findOrFail($id);
+
+        $task->update([
+            'category_id' =>  $validatedData['category_id'],
+            'user_id' => $validatedData['user_id'],
+            'name' => $validatedData['name'],
+            'description' => $validatedData['description'],
+            'date_start' => $validatedData['date_start'],
+            'date_end' => $validatedData['date_end'],
+            'status' => $validatedData['status'],
+        ]);
+
+        return redirect()->route('todo.index')->with('success', 'Task updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    * Remove the specified resource from storage.
+    * @author Phan Tuấn Kiệt
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
     public function destroy($id)
     {
-        //
+        $todos = Todo::findOrFail($id);
+        $todos->delete();
+        return redirect()->route('todo.index')->with('success', 'Deleted successfully');
     }
 
 
