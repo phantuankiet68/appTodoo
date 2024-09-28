@@ -13,13 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('category_tasks', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string('name');
-            $table->string('description');
-            $table->bigInteger('status')->nullable();
-            $table->timestamps();
+        Schema::table('salaries', function (Blueprint $table) {
+            // Example of changing the 'day' column type to string
+            $table->string('day')->change();
         });
     }
 
@@ -30,6 +26,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('category_tasks');
+        Schema::table('salaries', function (Blueprint $table) {
+            // Revert the column change if necessary
+            $table->integer('day')->change();
+        });
     }
 };

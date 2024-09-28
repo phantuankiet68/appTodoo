@@ -398,62 +398,7 @@ if (modal && btn && closeBtn) {
   return new Date(year, month, 0).getDate(); // Ngày cuối cùng của tháng
 }
 
-// Hàm tạo form dựa trên ngày tháng hiện tại
-function generateForm() {
-  const today = new Date();
-  const month = today.getMonth() + 1; // Tháng (lấy từ 0-11 nên cần +1)
-  const year = today.getFullYear();   // Năm
-  const day = today.getDate();        // Ngày hiện tại
 
-  // Tính số ngày trong tháng hiện tại
-  const daysInMonth = getDaysInMonth(month, year);
-
-  // Chọn phần tử form-container
-  const formContainer = document.getElementById('form-container');
-  formContainer.innerHTML = ''; // Xóa nội dung cũ
-
-  // Tạo input cho mỗi ngày trong tháng hiện tại
-  for (let d = 1; d <= daysInMonth; d++) {
-
-
-    // Tạo input cho dữ liệu của ngày
-    const inputData = document.createElement('input');
-    inputData.type = 'text';
-    inputData.name = `day${d}_data`;
-    inputData.placeholder = `Nhập dữ liệu cho ngày ${d}/${month}...`;
-
-    // Tạo nhãn và input cho "Thời gian bắt đầu"
-    const startTimeLabel = document.createElement('label');
-    startTimeLabel.innerText = `Bắt đầu`;
-    const startTimeInput = document.createElement('input');
-    startTimeInput.type = 'time';
-    startTimeInput.name = `day${d}_start_time`;
-
-    // Tạo nhãn và input cho "Thời gian kết thúc"
-    const endTimeLabel = document.createElement('label');
-    endTimeLabel.innerText = `Kết thúc:`;
-    const endTimeInput = document.createElement('input');
-    endTimeInput.type = 'time';
-    endTimeInput.name = `day${d}_end_time`;
-
-    const submitButton = document.createElement('button');
-    submitButton.type = 'submit'; // Có thể thay đổi thành 'button' nếu không cần gửi form
-    submitButton.innerText = 'Gửi'; // Văn bản nút
-
-    // Tạo div bao quanh nhãn và input
-    const formGroup = document.createElement('div');
-    formGroup.classList.add('form-group');
-    formGroup.appendChild(inputData);
-    formGroup.appendChild(startTimeLabel);
-    formGroup.appendChild(startTimeInput);
-    formGroup.appendChild(endTimeLabel);
-    formGroup.appendChild(endTimeInput);
-    formGroup.appendChild(submitButton);
-
-    // Thêm formGroup vào form-container
-    formContainer.appendChild(formGroup);
-  }
-}
 
  // Hàm lấy số ngày trong tháng dựa vào tháng và năm
  function getDaysInMonth(month, year) {
@@ -886,6 +831,32 @@ function openTab(evt, tabId) {
 }
 
 
+function openTab1(evt, tabName) {
+  // Declare all variables
+  let i, tabcontent, tablinks;
+
+  // Get all elements with class="tabcontent" and hide them
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+
+  // Get all elements with class="tablinks" and remove the class "active"
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+
+  // Show the current tab, and add an "active" class to the button that opened the tab
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+// Automatically open Tab 1 on page load
+window.onload = function() {
+  // Simulate a click on the first tab button to show Tab 1 and set focus
+  document.getElementsByClassName('tablinks')[0].click();
+};
 
 
 

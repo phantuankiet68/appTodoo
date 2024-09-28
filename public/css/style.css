@@ -1560,8 +1560,9 @@ button.button:hover{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 10px;
     margin-bottom: 10px;
+    flex-wrap: wrap;
 }
 
 
@@ -1639,9 +1640,116 @@ button.button:hover{
     align-items: center;
 }
 
+
+.form-number-category{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+
+.form-number-category label{
+    width: 50%;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dfeeff;
+    padding: 2px 0;
+    margin: 0;
+    color: #2099ff;
+}
+
+
+.form-number-category .input-name {
+    width: 50%;
+    padding: 8px 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.form-hours-category{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+
+.form-hours-category label{
+    width: 80%;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dfeeff;
+    padding: 2px 0;
+    margin: 0;
+    color: #2099ff;
+}
+
+
+.form-hours-category .input-name {
+    width: 20%;
+    padding: 8px 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    text-align: right;
+}
+
+.space-letping{
+    margin: 10px 0;
+    height: 1px;
+    width: 100%;
+    background-color: #d4d4d4;
+}
+
+
+
+.form-total-category{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+
+.form-total-category label{
+    width: 50%;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dfeeff;
+    padding: 2px 0;
+    margin: 0;
+    color: #2099ff;
+}
+
+
+.form-total-category .input-name {
+    width: 50%;
+    padding: 8px 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    text-align: right;
+}
+
+.mt-5{
+    margin-top: 5px;
+}
+
+
 .form-input-category label{
     width: 20%;
-    height: 34px;
+    height: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -3433,11 +3541,17 @@ button.btn-add{
     cursor: pointer;
 }
 .totalDate{
-    background-color: #e9edf3;
+    width: 110px;
     font-size: 15px;
-    padding: 3px 20px;
+    padding: 10px 10px;
     border-radius: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.Users--right--btns .totalDate{
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
 }
 
 #form-container div button:hover{
@@ -4519,8 +4633,15 @@ button:hover {
 /* Tab content */
 .tabcontent {
     display: none;
-    padding: 20px;
     border-top: 1px solid #ccc;
+}
+
+.jobsalary .tabcontent{
+    height: 77vh;
+}
+
+.jobsalary .tabs .tablinks {
+    width: 50%;
 }
 
 
@@ -4675,4 +4796,60 @@ button:hover {
 .dropdown-menu a.dropdown-item:hover {
     background-color: #e9ecef;
     color: #000;
+}
+
+
+.salary-tap{
+    height: 84vh;
+}
+
+.createDate{
+    padding: 8px 20px;
+    background: #9af5b2;
+    color: #f71313;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.createDate:hover{
+    color: #fff;
+}
+
+
+.saveSubmit{
+    background: #40c3f7;
+    padding: 8px 20px;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    cursor: pointer;
+}
+
+.saveSubmit:hover{
+    background-color: #3491fc;
+}
+
+
+.calculateSalary{
+    width: 100%;
+    height: 310px;
+    border: 1px solid #dddddd;
+    display: flex;
+    justify-content: space-between;
+}
+
+.calculateSalary-9{
+    width: 80%;
+    height: 100%;
+    padding: 10px;
+}
+
+.calculateSalary-3{
+    width: 20%;
+    height: 100%;
+    background-color: #0792ee;
 }
