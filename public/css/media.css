@@ -1,4 +1,4 @@
-@media screen and (max-width: 1800px){
+@media screen and (max-width: 1600px){
     .sidebar {
         width: 18%;
     }
@@ -25,4 +25,19 @@
         position: relative;
         width: 283px;
     }
+    .th-none{
+        display: none;
+    }
+    .td-none{
+        display: none;
+    }
+
+    .FormTable_800{
+        width: 800px;
+        overflow:scroll;
+    }
+    .ScrollTable{
+        width: 1200px;
+    }
+   
 }

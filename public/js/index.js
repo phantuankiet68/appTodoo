@@ -367,30 +367,30 @@ if (modal && btn && closeBtn) {
     });
 } 
 
-// Lấy các phần tử cần thiết
-const modalIssue = document.getElementById("modalStaskIssue");
-const btnIssue = document.getElementById("openStaskIssue");
-const closeBtnIssue = document.querySelector(".closeIssue");
+// // Lấy các phần tử cần thiết
+// const modalIssue = document.getElementById("modalStaskIssue");
+// const btnIssue = document.getElementById("openStaskIssue");
+// const closeBtnIssue = document.querySelector(".closeIssue");
 
-// Kiểm tra xem modal và các phần tử có tồn tại không
-if (modalIssue && btnIssue && closeBtnIssue) {
-    // Khi người dùng click vào nút "Open Modal", modal sẽ hiển thị
-    btnIssue.addEventListener("click", function() {
-      modalIssue.style.display = "block";
-    });
+// // Kiểm tra xem modal và các phần tử có tồn tại không
+// if (modalIssue && btnIssue && closeBtnIssue) {
+//     // Khi người dùng click vào nút "Open Modal", modal sẽ hiển thị
+//     btnIssue.addEventListener("click", function() {
+//       modalIssue.style.display = "block";
+//     });
 
-    // Khi người dùng click vào dấu "x", modal sẽ đóng
-    closeBtnIssue.addEventListener("click", function() {
-      modalIssue.style.display = "none";
-    });
+//     // Khi người dùng click vào dấu "x", modal sẽ đóng
+//     closeBtnIssue.addEventListener("click", function() {
+//       modalIssue.style.display = "none";
+//     });
 
-    // Khi người dùng click ra ngoài modal, modal sẽ đóng
-    window.addEventListener("click", function(event) {
-        if (event.target == modalIssue) {
-          modalIssue.style.display = "none";
-        }
-    });
-}
+//     // Khi người dùng click ra ngoài modal, modal sẽ đóng
+//     window.addEventListener("click", function(event) {
+//         if (event.target == modalIssue) {
+//           modalIssue.style.display = "none";
+//         }
+//     });
+// }
 
 
  // Hàm lấy số ngày trong tháng dựa vào tháng và năm
@@ -649,8 +649,8 @@ document.getElementById("showCategoryBtn").addEventListener("click", function() 
 });
 
 
-document.getElementById("openStaskIssue").addEventListener("click", function() {
-  var categoryForm = document.querySelector(".ModelCreate");
+document.getElementById("openTodoCreate").addEventListener("click", function() {
+  var categoryForm = document.querySelector(".ModelCreateTodo");
   if (categoryForm.style.display === "none" || categoryForm.style.display === "") {
       categoryForm.style.display = "block"; // Hiển thị form
   } else {

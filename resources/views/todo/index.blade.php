@@ -42,6 +42,9 @@
                     <div class="CreateCategory">
                         <form method="POST" action="{{ route('category_task.store') }}">
                         @csrf
+                            @if (Auth::check())
+                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
+                            @endif
                             <div class="form-input-category">
                                 <label for="name">{{ __('messages.Name') }}</label>
                                 <input type="text" class="input-name" id="name" name="name">
@@ -71,7 +74,7 @@
                             <thead>
                                 <tr>
                                     <th>{{ __('messages.Name') }}</th>
-                                    <th>{{ __('messages.Date Created') }}</th>
+                                    <th class="th-none">{{ __('messages.Date Created') }}</th>
                                     <th class="text-center">{{ __('messages.Status') }}</th>
                                     <th class="text-center">{{ __('messages.Settings') }}</th>
                                 </tr>
@@ -80,8 +83,8 @@
                                 @foreach($categoryTasks as $task)
                                 <tr>
                                     <td>{{ $task->name }}</td>
-                                    <td>{{ $task->created_at->format('d-m-Y') }}</td>
-                                    <td class="text-center"> 
+                                    <td class="td-none">{{ $task->created_at->format('d-m-Y') }}</td>
+                                    <td class="text-center "> 
                                         <input type="checkbox" name="status[]" id="status_{{ $task->id }}" 
                                             value="1" {{ $task->status == 1 ? 'checked' : '' }}>
                                     </td>
@@ -145,7 +148,7 @@
                     </form>
                 </div>
                 <div class="header-todo-right">
-                    <button class="btn-add" id="openStaskIssue"  fdprocessedid="z9dji27">{{ __('messages.Add New') }}</button>
+                    <button class="btn-add" id="openTodoCreate"  fdprocessedid="z9dji27">{{ __('messages.Add New') }}</button>
                 </div>
             </div>
             @if ($errors->any())
@@ -170,8 +173,8 @@
                 </div>
             @endif
             <div class="body-todo body-tables-todo">
-                <div class="recent--patient">
-                    <div class="tables">
+                <div class="recent--patient FormTable_800">
+                    <div class="tables ScrollTable">
                         <table>
                             <thead>
                                 <tr>
@@ -242,8 +245,8 @@
         <div class="form-select-category">
             <label for="status">{{ __('messages.Status') }}</label>
             <select name="status" id="status_task">
-                <option value="0" {{ $task->status == 0 ? 'selected' : '' }}>{{ __('messages.Hide') }}</option>
-                <option value="1" {{ $task->status == 1 ? 'selected' : '' }}>{{ __('messages.Show') }}</option>
+                <option value="0">{{ __('messages.Hide') }}</option>
+                <option value="1">{{ __('messages.Show') }}</option>
             </select>
         </div>
         <div class="form-btn">
@@ -269,7 +272,7 @@
     </form>
 </div>
 
-<div class="ModelCreate">
+<div class="ModelCreateTodo">
     <form  method="POST" action="{{ route('todo.store') }}" >
     @csrf
         <h2>{{ __('messages.Add New') }}</h5>
@@ -320,8 +323,8 @@
     </form>
 </div>
 
-<div class="ModelEdit">
-    <form  method="POST" action="{{ route('todo.store') }}" >
+<div class="ModelEditTodo">
+    <form >
     @csrf
         <h2>{{ __('messages.Add New') }}</h5>
         @if (Auth::check())
@@ -484,7 +487,7 @@
     }
     
     function closeCreateTaskPopup() {
-        const modelCreateTask = document.querySelector('.ModelCreate');
+        const modelCreateTask = document.querySelector('.ModelCreateTodo');
         
         // Kiểm tra nếu popup đang ẩn (display: none)
         if (modelCreateTask.style.display === 'none' || modelCreateTask.style.display === '') {

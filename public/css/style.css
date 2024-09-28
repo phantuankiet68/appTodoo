@@ -1855,7 +1855,7 @@ button.button:hover{
 }
 
 
-.ModelCreate {
+.ModelCreateTodo {
     display: none;
     position: fixed; /* Stay in place */
     z-index: 1000; /* Sit on top */
@@ -1864,11 +1864,14 @@ button.button:hover{
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-    justify-content: center;
-    align-items: center;
 }
 
-.ModelCreate form{
+
+.alert-success{
+    color: red;
+}
+
+.ModelCreateTodo form{
     position: absolute;
     background-color: white;
     padding: 20px;
@@ -1881,8 +1884,8 @@ button.button:hover{
 }
 
 
-.ModelEdit {
-    /* display: none; */
+.ModelEditTodo {
+    display: none;
     position: fixed; /* Stay in place */
     z-index: 1000; /* Sit on top */
     left: 0;
@@ -1890,11 +1893,9 @@ button.button:hover{
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-    justify-content: center;
-    align-items: center;
 }
 
-.ModelEdit form{
+.ModelEditTodo form{
     position: absolute;
     background-color: white;
     padding: 20px;

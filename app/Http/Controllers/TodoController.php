@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator; 
 use App\Models\CategoryTask;
 use App\Models\Todo;
+use Illuminate\Support\Facades\Auth;
 
 class TodoController extends Controller
 {
@@ -16,8 +17,8 @@ class TodoController extends Controller
      */
     public function index()
     {
-        $todos = Todo::with(['categoryTodo', 'userTodo'])->orderBy('id', 'asc')->paginate(2);
-        $categoryTasks = CategoryTask::paginate(12);
+        $todos = Todo::with(['categoryTodo', 'userTodo'])->where('user_id', Auth::id())->orderBy('id', 'asc')->paginate(2);
+        $categoryTasks = CategoryTask::where('user_id', Auth::id())->paginate(12);
         return view('todo.index', compact('categoryTasks','todos'));
     }
 
