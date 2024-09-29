@@ -32,7 +32,7 @@
                     <li class="dropDownTodo"><a href="{{ route('todo.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Tasks') }}</a></li>
                     <li class="dropDownTodo"><a href="{{ route('work_flow.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Workflow') }}</a></li>
                     <li class="dropDownTodo"><a href="{{ route('salary.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Salary') }}</a></li>
-                    <li class="dropDownTodo"><a href="{{ route('spend.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Expenses') }}</a></li>
+                    <li class="dropDownTodo"><a href="{{ route('expense.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Expenses') }}</a></li>
                     <li class="bg-grey"><a href="javascript:void(0)" id="issue"><i class="fa-solid fa-box-tissue"></i>{{ __('messages.Issues') }}</a><span id="chevronIssue"><i class="fa-solid fa-chevron-up"></i></span></li>
                     <li class="dropDownIssue"><a href="{{ route('issue.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Issues') }}</a></li>
                     <li class="dropDownIssue"><a href="{{ route('problem_process.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Workflow') }}</a></li>

@@ -5,7 +5,7 @@ use App\Http\Controllers\CategoryTasksController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\WorkflowController;
 use App\Http\Controllers\SalaryController;
-use App\Http\Controllers\SpendController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\IssueController;
 use App\Http\Controllers\ProblemProcessController;
 use App\Http\Controllers\CvController;
@@ -54,7 +54,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('todo', TodoController::class);
     Route::resource('work_flow', WorkflowController::class);
     Route::resource('salary', SalaryController::class);
-    Route::resource('spend', SpendController::class);
+    Route::resource('expense', ExpenseController::class);
     Route::resource('issue', IssueController::class);
     Route::resource('problem_process', ProblemProcessController::class);
     Route::resource('cv', CvController::class);

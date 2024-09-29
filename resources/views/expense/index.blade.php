@@ -6,7 +6,8 @@
 <div class="todo">
     <div class="jobMonthBody">
         <div class="todoCol-5">
-            <form action="">
+            <form action="{{ route('expense.store') }}" method="POST">
+            @csrf
                 <div class="table-spend">
                     @if (Auth::check())
                         <input type="hidden" id="task-id" name="user_id" value="{{ Auth::user()->id }}"/>

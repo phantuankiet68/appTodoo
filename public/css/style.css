@@ -4556,11 +4556,11 @@ list-style: none;
     padding: 5px;
 }
 
-
-
-
-button:hover {
-    background-color: #45a049;
+.noted{
+    display: flex;
+    align-items: center;
+    padding: 10px 5px 0 5px;
+    gap: 0 10px;
 }
 
 #result {
@@ -4852,4 +4852,98 @@ button:hover {
     width: 20%;
     height: 100%;
     background-color: #0792ee;
+}
+
+.table-spend{
+    border: 1px solid #00000026;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.table-spend table thead{
+    background: #00000026;
+    padding: 5px 10px;
+}
+
+.table-spend table thead th{
+    padding: 10px;
+    width: 50%;
+}
+
+.table-spend table thead th:first-child{
+    border-right: 1px solid #00000026;
+    border-top-left-radius: 10px;
+}
+.table-spend table thead th:last-child{
+    border-top-right-radius: 10px;
+}
+.table-spend table tbody tr td{
+    border-bottom: 1px solid #00000026;
+}
+
+.table-spend table tbody tr td:first-child{
+    border-right: 1px solid #00000026;
+    padding: 10px;
+}
+
+.table-spend table tbody tr td:last-child{
+    padding: 0 10px 0 0;
+}
+
+.table-spend table tbody tr td input{
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    padding-left: 5px;
+    border: none;
+    outline: none;
+}
+
+.flex-spend{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.button-spend{
+    width: 100%;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-spend button{
+    background-color: #22adfd;
+    padding: 8px 20px;
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.blink-button {
+    background-color: white;
+    color: red;
+    padding: 10px 10px 0 10px;
+    border: none;
+    border-radius: 3px;
+    font-size: 25px;
+    animation: blink 1s step-start infinite;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
 }
