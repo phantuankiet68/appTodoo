@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryTasksController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\WorkflowController;
 use App\Http\Controllers\SalaryController;
@@ -48,8 +49,11 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->middleware('check.registration');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
+Route::get('/expenses/export-pdf', [ExpenseController::class, 'exportPdf'])->name('expenses.export.pdf');
+
 Route::group(['middleware' => 'auth'], function() {
     Route::resource('dashboard', DashboardController::class);
+    Route::resource('category', CategoryController::class);
     Route::resource('category_task', CategoryTasksController::class);
     Route::resource('todo', TodoController::class);
     Route::resource('work_flow', WorkflowController::class);

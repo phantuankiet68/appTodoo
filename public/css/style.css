@@ -1486,6 +1486,20 @@ button.button:hover{
     white-space: normal;
 }
 
+.body-tables-issue .tables table .text-truncate {
+    max-width: 100%;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    white-space: normal;
+}
+
+.body-tables-issue .tables table p.text-truncate{
+  width: 350px;
+}
+
 
 .header-todo-left{
     display: flex;
@@ -1550,9 +1564,21 @@ button.button:hover{
 
 .title-todo{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
+}
+
+.title-todo-top{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title-todo-bottom a{
+    background-color: #22c52a;
+    color: #fff;
+    padding: 5px 10px;
 }
 
 .header-todo{
@@ -1792,7 +1818,6 @@ button.button:hover{
 .form-select-category{
     display: flex;
     width: 100%;
-    margin: 5px 0 10px 0;
     gap: 10px;
 }
 
@@ -1964,6 +1989,85 @@ button.button:hover{
 }
 
 
+
+
+.ModelCreateCategory {
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.ModelCreateCategory form{
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 13% 42%;
+}
+
+.ModelCreateCategory .form-input-category label {
+    width: 20%;
+    height: 32px;
+    min-width: 105px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dfeeff;
+    padding: 2px 0;
+    margin: 0;
+    color: #2099ff;
+}
+
+
+.ModelEidtCategory {
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.ModelEidtCategory form{
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 13% 42%;
+}
+
+.ModelEidtCategory .form-input-category label {
+    width: 20%;
+    height: 32px;
+    min-width: 105px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dfeeff;
+    padding: 2px 0;
+    margin: 0;
+    color: #2099ff;
+}
+
 .ModelCreateTodo {
     /* display: none; */
     position: fixed; /* Stay in place */
@@ -1981,6 +2085,42 @@ button.button:hover{
 }
 
 .ModelCreateTodo form{
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 3% 30%;
+}
+
+
+
+
+.ModelCreateIssue {
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+}
+
+
+
+
+
+.alert-success{
+    color: red;
+}
+.mt-10{
+    margin-top: 10px;
+}
+.ModelCreateIssue form{
     position: absolute;
     background-color: white;
     padding: 20px;
@@ -2018,6 +2158,7 @@ button.button:hover{
 
 .form-group-info .form-input-category label{
     width: 32%;
+    min-width: 109px;
 }
 
 .form-group-info .form-select-category label{
@@ -2368,8 +2509,6 @@ div.ModelCreateTodo{
 .projectTodoNotify{
     box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
     padding: 10px;
-    height: 82vh;
-    overflow: scroll;
 }
 
 
@@ -3403,7 +3542,7 @@ button.btn-add{
 
 .projecTodoBody .recent--patient {
     width: 100%;
-    height: 76vh;
+    height: 71vh;
 }
 
 
@@ -3654,7 +3793,7 @@ button.btn-add{
 
 
 .header-spend{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .costOfEntry{
@@ -4276,8 +4415,6 @@ label {
 
 .projecTodoBodyNotify {
     padding: 10px;
-    height: 76.2vh;
-    overflow: scroll;
 }
 
 
@@ -4858,6 +4995,8 @@ list-style: none;
     border: 1px solid #00000026;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    width: 100%;
+    height: 83vh;
 }
 
 .table-spend table thead{
@@ -4946,4 +5085,43 @@ list-style: none;
     50% {
         opacity: 0;
     }
+}
+
+.expense_low{
+    background-color: #22adfd;
+    padding: 2px 10px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.expense_normal{
+    background-color: #fda522;
+    padding: 2px 10px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.expense_hight{
+    background-color: red;
+    padding: 2px 10px;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+.btnCategory{
+    padding: 6px 20px;
+    background: #36ca67e3;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
 }

@@ -14,106 +14,106 @@
                     @endif
                     <table>
                         <thead>
-                            <th>Khoản chi tiêu</th>
-                            <th>Số tiền</th>
+                            <th>{{ __('messages.Expense item') }}</th>
+                            <th>{{ __('messages.Amount of money') }}</th>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Ngày hiện tại</td>
+                                <td>{{ __('messages.Current date') }}</td>
                                 <td>
                                     <input type="text" id="current_date" name="current_date" placeholder="Nhập Số tiền chi tiêu....">
                                 </td>
                             </tr>
                             <tr>
-                                <td>Bữa Sáng</td>
+                                <td>{{ __('messages.Breakfast') }}</td>
                                 <td>
                                     <div class="flex-spend">
-                                        <input type="text" id="breakfast" name="breakfast" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        <input type="number" id="breakfast" name="breakfast" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Bữa trưa</td>
+                                <td>{{ __('messages.Lunch') }}</td>
                                 <td>
                                     <div class="flex-spend">
-                                        <input type="text" id="lunch" name="lunch" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        <input type="text" id="lunch" name="lunch" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Bữa chiều</td>
+                                <td>{{ __('messages.Afternoon meal') }}</td>
                                 <td>
                                     <div class="flex-spend">
-                                        <input type="text" id="afternoon_meal" name="afternoon_meal" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        <input type="text" id="afternoon_meal" name="afternoon_meal" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Bữa tối</td>
+                                <td>{{ __('messages.Dinner') }}</td>
                                 <td>
                                     <div class="flex-spend">
-                                        <input type="text" id="dinner" name="dinner" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        <input type="text" id="dinner" name="dinner" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Cà phê</td>
+                                <td>{{ __('messages.Coffee') }}</td>
                                 <td>
                                     <div class="flex-spend">
-                                        <input type="text" id="coffee" name="coffee" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        <input type="text" id="coffee" name="coffee" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Xăng</td>
+                                <td>{{ __('messages.Fuel') }}</td>
                                 <td>
                                     <div class="flex-spend">
-                                        <input type="text" id="fuel" name="fuel" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        <input type="text" id="fuel" name="fuel" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Thể thao</td>
+                                <td>{{ __('messages.Sports') }}</td>
                                 <td>
                                     <div class="flex-spend">
-                                        <input type="text" id="sports" name="sports" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        <input type="text" id="sports" name="sports" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Ví điện tử</td>
+                                <td>{{ __('messages.E-wallet') }}</td>
                                 <td>
                                     <div class="flex-spend">
-                                        <input type="text" id="e_wallet" name="e_wallet" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        <input type="text" id="e_wallet" name="e_wallet" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Mua sắm khác</td>
+                                <td>{{ __('messages.Other shopping') }}</td>
                                 <td>
                                     <div class="flex-spend">
-                                        <input type="text" id="other_shopping" name="other_shopping" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        <input type="text" id="other_shopping" name="other_shopping" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Chi phí khác</td>
+                                <td>{{ __('messages.Other expenses') }}</td>
                                 <td>
                                     <div class="flex-spend">
-                                        <input type="text" id="other_expenses" name="other_expenses" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        <input type="text" id="other_expenses" name="other_expenses" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
                                     </div>
                                 </td>
                             </tr>
                             <tr id="tienTro">
-                                <td>tiền trọ</td>
+                                <td>{{ __('messages.Rent') }}</td>
                                 <td>
                                     <div class="flex-spend">
-                                        <input type="text" id="rent" name="rent" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        <input type="text" id="rent" name="rent" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Tổng chi tiêu hôm nay</td>
+                                <td>{{ __('messages.Total spending today') }}</td>
                                 <td>
                                     <div class="flex-spend">
                                         <input type="text" id="total_spending_today" name="total_spending_today" class="tien" placeholder="Nhập Số tiền chi tiêu....">
@@ -123,83 +123,80 @@
                         </tbody>
                     </table>
                     <div class="noted">
-                        <span class="red">*</span><span>Hãy nhập số tiền chi tiêu vào đây!</span>
+                        <span class="red">*</span><span> {{ __('messages.Please enter the amount spent here!') }}</span>
                     </div>
                     <div class="noted">
-                        <span>Hãy xác nhận trước 12 giờ. Hãy cố gắng quản lí chi tiêu để biết mình đang chi tiêu như thế nào và cần cải cách mức độ chi tiêu ra sao!</span>
+                        <span>{{ __('messages.Please confirm before 12 oclock. Try to manage your expenses to understand how you are spending and how you need to reform your spending level!') }}</span>
                     </div>
                     <div class="button-spend">
-                        <button type="submit">Xác nhận</button>
+                        <button type="submit">{{ __('messages.Confirm') }}</button>
                     </div>
                 </div>
             </form>
         </div>
         <div class="todoCol-5">
             <div class="header-spend">
-                <div class="costOfEntry">
-                    <div class="percentSpend">
-                        <p>Chi phí vào</p>
-                    </div>
-                    <div class="feeSpend">
-                        <p>3000000</p>
-                    </div>
-            </div>
-            <div class="spendWisely">
+                <div class="spendWisely">
                     <div class="percentSpend">
                         <span class="colorOne">30%</span>
-                        <p>Thuê nhà</p>
+                        <p>{{ __('messages.Rent') }}</p>
                     </div>
                     <div class="feeSpend">
-                        <p>3000000</p>
+                        <p>{{ number_format($totalRent, 0, ',', '.') }} VND</p>
                     </div>
-            </div>
-            <div class="spendWisely">
+                </div>
+                <div class="spendWisely">
                     <div class="percentSpend">
                         <span class="colortwo">15%</span>
-                        <p>Tiền ăn</p>
+                        <p>{{ __('messages.Food Expenses') }}</p>
                     </div>
                     <div class="feeSpend">
-                        <p>3000000</p>
+                        <p>{{ number_format($totalFoodExpense, 0, ',', '.') }} VND</p>
                     </div>
                 </div>
                 <div class="spendWisely">
                     <div class="percentSpend">
                         <span class="colorThree">5%</span>
-                        <p>Ví điện tử</p>
+                        <p>{{ __('messages.E-wallet') }}</p>
                     </div>
                     <div class="feeSpend">
-                        <p>3000000</p>
+                        <p>{{ number_format($totalEWallet, 0, ',', '.') }} VND</p>
                     </div>
                 </div>
                 <div class="spendWisely">
                     <div class="percentSpend">
                         <span class="colorFour">5%</span>
-                        <p>Thể thao</p>
+                        <p>{{ __('messages.Sports') }}</p>
                     </div>
                     <div class="feeSpend">
-                        <p>3000000</p>
+                        <p>{{ number_format($totalSports, 0, ',', '.') }} VND</p>
                     </div>
                 </div>
                 <div class="spendWisely">
                     <div class="percentSpend">
                         <span class="colorFive">5%</span>
-                        <p>Mua sắm khác</p>
+                        <p>{{ __('messages.Other shopping') }}</p>
                     </div>
                     <div class="feeSpend">
-                        <p>3000000</p>
+                        <p>{{ number_format($totalOtherExpenses, 0, ',', '.') }} VND</p>
                     </div>
                 </div>
                 <div class="costOffEntry">
                     <div class="percentSpend">
-                        <p>Chi phí ra</p>
+                        <p>{{ __('messages.Expenses') }}</p>
                     </div>
                     <div class="feeSpend">
-                        <p>3000000</p>
+                        <p>{{ number_format($totalAllExpenses, 0, ',', '.') }} VND</p>
                     </div>
-            </div>
+                </div>
             </div>
             <div class="title-todo">
-                <h2>Total</h2>|<span>Spend Wisely</span>
+                <div class="title-todo-top">
+                    <h2>{{ __('messages.Total') }}</h2>|<span>{{ __('messages.Expenses') }}</span>
+                </div>
+                <div class="title-todo-bottom">
+                    <a href="{{ route('expenses.export.pdf') }}">Down PDF</a>
+                </div>
             </div>
             <div class="body-todo">
                 <div class="recent--patient">
@@ -207,85 +204,33 @@
                         <table>
                             <thead>
                                 <tr>
+                                    <th>Date</th>
                                     <th>Name</th>
                                     <th class="text-center">Money</th>
-                                    <th class="text-center">Date</th>
                                     <th class="text-center">Status</th>
-                                    <th class="text-center">Settings</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($expense as $expenses)
                                 <tr>
-                                    <td>Cameron Williamson</td>
-                                    <td class="text-center">3000000</td>
-                                    <td class="text-center">30/07/2022</td>
+                                    <td>{{$expenses -> current_date}}</td>
+                                    <td>{{ $expenses->user ? $expenses->user->full_name : 'Không có danh mục' }}</td>
+                                    <td class="text-center">{{ number_format($expenses -> total_spending_today, 0, ',', '.') }} VND</td>
                                     <td class="text-center">
-                                        <input type="checkbox" name="" id="">
+                                        @if ($expenses->total_spending_today <= 80000)
+                                            <span class="expense_low">Chi phí thấp</span>
+                                        @elseif ($expenses->total_spending_today > 80000 && $expenses->total_spending_today <= 120000)
+                                            <span class="expense_normal">Chi phí vừa</span>
+                                        @else
+                                            <span class="expense_hight">Chi phí cao</span>
+                                        @endif
                                     </td>
-                                    <td class="text-center"><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
                                 </tr>
-                                <tr>
-                                    <td>Cameron Williamson</td>
-                                    <td class="text-center">3000000</td>
-                                    <td class="text-center">30/07/2022</td>
-                                    <td class="text-center">
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td class="text-center"><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                                </tr>
-                                <tr>
-                                    <td>Cameron Williamson</td>
-                                    <td class="text-center">3000000</td>
-                                    <td class="text-center">30/07/2022</td>
-                                    <td class="text-center">
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td class="text-center"><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                                </tr>
-                                <tr>
-                                    <td>Cameron Williamson</td>
-                                    <td class="text-center">3000000</td>
-                                    <td class="text-center">30/07/2022</td>
-                                    <td class="text-center">
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td class="text-center"><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                                </tr>
-                                <tr>
-                                    <td>Cameron Williamson</td>
-                                    <td class="text-center">3000000</td>
-                                    <td class="text-center">30/07/2022</td>
-                                    <td class="text-center">
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td class="text-center"><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                                </tr>
-                                <tr>
-                                    <td>Cameron Williamson</td>
-                                    <td class="text-center">3000000</td>
-                                    <td class="text-center">30/07/2022</td>
-                                    <td class="text-center">
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td class="text-center"><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                                </tr>
-                                <tr>
-                                    <td>Cameron Williamson</td>
-                                    <td class="text-center">3000000</td>
-                                    <td class="text-center">30/07/2022</td>
-                                    <td class="text-center">
-                                        <input type="checkbox" name="" id="">
-                                    </td>
-                                    <td class="text-center"><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                                </tr>
-                            
+                                @endforeach
                             </tbody>
                         </table>
-                        <div class="pagination">
-                            <button id="prev" onclick="prevPage()">Prev</button>
-                            <span id="page-info">1</span>
-                            <span id="page-info">2</span>
-                            <button id="next" onclick="nextPage()">Next</button>
+                        <div class="d-flex justify-content-center link-margin">
+                            {{ $expense->links('') }} <!-- Hoặc pagination::bootstrap-4 nếu bạn sử dụng Bootstrap 4 -->
                         </div>
                     </div>
                 </div>
@@ -296,19 +241,21 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         const today = new Date();
-        const currentDay = today.getDate();  // Lấy ngày hiện tại (số ngày trong tháng)
+        const currentDay = today.getDate();
         const tienTroRow = document.getElementById("tienTro");
-        const formattedDate = today.toLocaleDateString('en-GB'); // Định dạng ngày theo DD/MM/YYYY
         const currentDateInput = document.getElementById("current_date");
         const allTienInputs = document.querySelectorAll(".tien"); 
         const inputs = document.querySelectorAll(".tien");
         const totalInput = document.getElementById("total_spending_today");
 
+        const formattedDate = today.getFullYear() + '-' + 
+                      (today.getMonth() + 1).toString().padStart(2, '0') + '-' + 
+                      today.getDate().toString().padStart(2, '0');
+
 
         allTienInputs.forEach(input => {
-            input.value = 0; // Ví dụ: Thiết lập tất cả các ô nhập liệu "tien" có giá trị mặc định là 0
+            input.value = 0; 
         });
-
         currentDateInput.value = formattedDate;
 
 
@@ -356,5 +303,13 @@
             });
         });
     });
+    function isNumber(evt) {
+        var charCode = evt.which ? evt.which : evt.keyCode;
+        // Chỉ cho phép nhập số (0-9)
+        if (charCode < 48 || charCode > 57) {
+        return false;
+        }
+        return true;
+    }
 </script>
 @endsection

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Category;
+use Illuminate\Support\Facades\Validator; 
+use Illuminate\Support\Facades\Auth;
 class IssueController extends Controller
 {
     /**
@@ -13,7 +15,10 @@ class IssueController extends Controller
      */
     public function index()
     {
-        return view('issue.index');
+        $category = Category::where('user_id', Auth::id())
+                    ->where('key', 3)
+                    ->paginate(12);
+        return view('issue.index', compact('category'));
     }
 
     /**
