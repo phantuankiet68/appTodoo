@@ -21,6 +21,7 @@ use App\Http\Controllers\TableController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocalizationController;
+use App\Http\Controllers\EventController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,6 +60,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('work_flow', WorkflowController::class);
     Route::resource('salary', SalaryController::class);
     Route::resource('expense', ExpenseController::class);
+    Route::get('/calendar', [EventController::class, 'index']);
+    Route::post('/events', [EventController::class, 'store']);
+    Route::put('/events/{id}', [EventController::class, 'update']);
+    Route::delete('/events/{id}', [EventController::class, 'destroy']);
     Route::resource('issue', IssueController::class);
     Route::resource('problem_process', ProblemProcessController::class);
     Route::resource('cv', CvController::class);

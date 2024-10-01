@@ -584,14 +584,6 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-document.getElementById("showCategoryBtn").addEventListener("click", function() {
-  var categoryForm = document.querySelector(".CreateCategory");
-  if (categoryForm.style.display === "none" || categoryForm.style.display === "") {
-      categoryForm.style.display = "block"; // Hiển thị form
-  } else {
-      categoryForm.style.display = "none"; // Ẩn form nếu đã hiển thị
-  }
-});
 
 
 document.getElementById("openTodoCreate").addEventListener("click", function() {

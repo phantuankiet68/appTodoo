@@ -5125,3 +5125,13 @@ list-style: none;
     cursor: pointer;
     border: none;
 }
+
+#calendar{
+    width: 100%;
+    padding: 5px;
+}
+
+#calendar .fc-prev-button,#calendar .fc-button{
+    background-color: #22adfd;
+    border: none;
+}

@@ -62,9 +62,9 @@
                 <table>
                     <thead>
                         <tr>
-                            <th class="t-center" style="width: 120px;">Issue type</th>
+                            <th class="t-center" style="width: 60px;">ID</th>
                             <th>Key</th>
-                            <th style="width: 360px;">Subject</th>
+                            <th>Subject</th>
                             <th>Create_by</th>
                             <th>Status</th>
                             <th>Begin</th>
@@ -80,28 +80,6 @@
                             </td>
                             <td><a class="key_issue" href="https://fontawesome.com/">CRH_185</a></td>
                             <td><p class="text-truncate">aaaaaaaaaaaaaaaaaaaaaaaaaaaaassssssssssssssssssssss ssssssssssssssssssssssssssssssssssss</p></td>
-                            <td>
-                                <div class="table_user">
-                                    <div class="table_user_image">
-                                        <img src="../assets/images/user.jpg" alt="" srcset="">
-                                    </div>
-                                    <p>Tuấn</p>
-                                </div>
-                            </td>
-                            <!-- <td class="pending"><p class="openIssue">Open</p></td> -->
-                            <!-- <td class="pending"><p class="inProgressIssue">In Progress</p></td> -->
-                            <td class="pending"><p class="resolvedIssue">Resolved</p></td>
-                            <td>30/07/2022</td>
-                            <td>30/07/2022</td>
-                            <td>HashTask</td>
-                            <td><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                        </tr>
-                        <tr></tr>
-                            <td class="jus-center">
-                                <p class="td-1">1</p>
-                            </td>
-                            <td><a class="key_issue" href="https://fontawesome.com/">CRH_185</a></td>
-                            <td><p class="text-truncate">aaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssssssssss sssssssssssssssssssssssssssss</p></td>
                             <td>
                                 <div class="table_user">
                                     <div class="table_user_image">

@@ -38,7 +38,7 @@
                     <li class="dropDownIssue"><a href="{{ route('problem_process.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Workflow') }}</a></li>
                     <li class="titleMenu">{{ __('messages.Application') }}</li>
                     <li><a href="{{ route('cv.index') }}"><i class="fa-regular fa-file"></i>{{ __('messages.Curriculum Vitae') }}</a></li>
-                    <li><a href="#"><i class="fa-regular fa-calendar"></i>{{ __('messages.Calendar') }}</a></li>
+                    <li><a href="/calendar"><i class="fa-regular fa-calendar"></i>{{ __('messages.Calendar') }}</a></li>
                     <li class="bg-grey"><a href="javascript:void(0)" id="email"><i class="fa-regular fa-envelope"></i>{{ __('messages.Email') }}</a><span id="chevronEmail"><i class="fa-solid fa-chevron-up"></i></span></li>
                     <li class="dropDownEmail"><a href="{{ route('sent.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Sent') }}</a></li>
                     <li class="dropDownEmail"><a href="#"><i class="fa-regular fa-circle"></i>{{ __('messages.Compose') }}</a></li>
