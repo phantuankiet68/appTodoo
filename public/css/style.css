@@ -2110,6 +2110,19 @@ button.button:hover{
     background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
 }
 
+.btnGenerate{
+    padding: 8px 25px;
+    background-color: #6ac4ff;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.projecTodoBody .tables th,
+.projecTodoBody .tables td{
+    font-size: 15px;
+}
 
 
 
@@ -2191,16 +2204,21 @@ button.button:hover{
     cursor: pointer;
 }
 
+
+
 .BtnCloseCreate{
     position: absolute;
     top: 0;
     right: 0;
     width: 36px;
-    background: rgb(84, 243, 10);
+    background: red;
     color: #fff;
     height: 31px;
     border-bottom-left-radius: 20px;
     cursor: pointer;
+}
+.createAtSup{
+   font-size: 12px;
 }
 
 div.ModelEditTodoForm{
@@ -3591,7 +3609,7 @@ button.btn-add{
     color: #fff;
     border-radius: 10px;
     width: 90px;
-    font-size: 13px;
+    font-size: 11px;
     cursor: pointer;
 }
 .table_user .table_user_image img{
@@ -3603,14 +3621,39 @@ button.btn-add{
     background-color: #4488c5;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center;    
     color: #fff;
     border-radius: 10px;
-    font-size: 13px;
+    font-size: 11px;
     padding: 2px;
-    width: 90px;
+    width: 70px;
     cursor: pointer;
 }
+.normalIssue{
+    background-color: #747474;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    color: #fff;
+    border-radius: 10px;
+    font-size: 11px;
+    padding: 2px;
+    width: 70px;
+    cursor: pointer;
+}
+.importantIssue{
+    background-color: #22adfd;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+    color: #fff;
+    border-radius: 10px;
+    padding: 2px;
+    width: 70px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
 
 .resolvedIssue{
     background-color: #5eb5a6;
@@ -3619,9 +3662,9 @@ button.btn-add{
     align-items: center;
     color: #fff;
     border-radius: 10px;
-    font-size: 13px;
+    font-size: 11px;
     padding: 2px;
-    width: 90px;
+    width: 70px;
     cursor: pointer;
 }
 

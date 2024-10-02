@@ -6,7 +6,7 @@
 <div class="todo">
     <div class="todoHeader topHeaderTodo">
         <div class="topHeader">
-            <h2>Vấn đề</h2> | <span>Trang chủ</span>
+            <h2>{{ __('messages.Issue') }}</h2> | <span>{{ __('messages.Home') }}</span>
         </div>
         <div class="bodyHeader">
             <form action="">
@@ -53,7 +53,7 @@
             </form>
         </div>
         <div class="footerHeader">
-            <button class="btn-add" id="openStaskIssue">Vấn đề mới mới</button>
+            <button class="btn-add" id="openStaskIssue" onclick="openStaskIssue()">{{ __('messages.Add New') }}</button>
         </div>
     </div>
     <div class="projecTodoBody">
@@ -63,237 +63,59 @@
                     <thead>
                         <tr>
                             <th class="t-center" style="width: 60px;">ID</th>
-                            <th>Key</th>
-                            <th>Subject</th>
-                            <th>Create_by</th>
-                            <th>Status</th>
-                            <th>Begin</th>
-                            <th>End</th>
-                            <th>Category</th>
-                            <th>Settings</th>
+                            <th>{{ __('messages.Key') }}</th>
+                            <th>{{ __('messages.Subject') }}</th>
+                            <th>{{ __('messages.Create by') }}</th>
+                            <th>{{ __('messages.Level') }}</th>
+                            <th>{{ __('messages.Status') }}</th>
+                            <th>{{ __('messages.Start Date') }}</th>
+                            <th>{{ __('messages.End Date') }}</th>
+                            <th>{{ __('messages.Category') }}</th>
+                            <th>{{ __('messages.Settings') }}</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($issues as $issue)
                         <tr>
                             <td class="jus-center">
-                                <p class="td-1">1</p>
+                                <p class="td-1">{{$issue->id}}</p>
                             </td>
-                            <td><a class="key_issue" href="https://fontawesome.com/">CRH_185</a></td>
-                            <td><p class="text-truncate">aaaaaaaaaaaaaaaaaaaaaaaaaaaaassssssssssssssssssssss ssssssssssssssssssssssssssssssssssss</p></td>
+                            <td><a class="key_issue" href="https://fontawesome.com/">{{$issue->key}}</a></td>
+                            <td><p class="text-truncate">{!!$issue->description!!}</p></td>
                             <td>
                                 <div class="table_user">
-                                    <div class="table_user_image">
-                                        <img src="../assets/images/user.jpg" alt="" srcset="">
-                                    </div>
-                                    <p>Tuấn</p>
+                                    <p>{{ $issue->user ? $issue->user->full_name : 'Không có danh mục' }}</p>
                                 </div>
                             </td>
-                            <!-- <td class="pending"><p class="openIssue">Open</p></td> -->
-                            <!-- <td class="pending"><p class="inProgressIssue">In Progress</p></td> -->
-                            <td class="pending"><p class="resolvedIssue">Resolved</p></td>
-                            <td>30/07/2022</td>
-                            <td>30/07/2022</td>
-                            <td>HashTask</td>
-                            <td><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
+                            <td class="pending">
+                                @if ($issue->level = 1)
+                                <p class="importantIssue">Important</p>
+                                @else
+                                <p class="normalIssue">Normal</p>
+                                @endif
+                            </td>
+                            <td class="pending">
+                                @if ($issue->status = 2)
+                                <p class="resolvedIssue">Resolved</p>
+                                @elseif ($issue->status = 1)
+                                <p class="inProgressIssue">In Progress</p>
+                                @else
+                                <p class="openIssue">Open</p>
+                                @endif
+                            </td>
+                            <td>{{$issue->start_date}}</td>
+                            <td>{{$issue->end_date}}</td>
+                            <td>{{ $issue->category ? $issue->category->name : 'Không có danh mục' }}</td>
+                            <td class="text-center">
+                                <a href="{{ route('issue.show', $issue->id) }}">
+                                    <i class="fa-regular fa-pen-to-square edit"></i>
+                                </a>
+                                <a href="#" onclick="showDeleteIssuePopup({{ $issue->id }})">
+                                    <i class="fa-solid fa-trash delete"></i>
+                                </a>
+                            </td>
                         </tr>
-                        <tr>
-                            <td class="jus-center">
-                                <p class="td-1">1</p>
-                            </td>
-                            <td><a class="key_issue" href="https://fontawesome.com/">CRH_185</a></td>
-                            <td><p class="text-truncate">aaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssssssssss sssssssssssssssssssssssssssss</p></td>
-                            <td>
-                                <div class="table_user">
-                                    <div class="table_user_image">
-                                        <img src="../assets/images/user.jpg" alt="" srcset="">
-                                    </div>
-                                    <p>Tuấn</p>
-                                </div>
-                            </td>
-                            <td class="pending"><p class="openIssue">Open</p></td>
-                            <!-- <td class="pending"><p class="inProgressIssue">In Progress</p></td> -->
-                            <!-- <td class="pending"><p class="resolvedIssue">Resolved</p></td> -->
-                            <td>30/07/2022</td>
-                            <td>30/07/2022</td>
-                            <td>HashTask</td>
-                            <td><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                        </tr>
-                        <tr>
-                            <td class="jus-center">
-                                <p class="td-1">1</p>
-                            </td>
-                            <td><a class="key_issue" href="https://fontawesome.com/">CRH_185</a></td>
-                            <td><p class="text-truncate">aaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssssssssss sssssssssssssssssssssssssssss</p></td>
-                            <td>
-                                <div class="table_user">
-                                    <div class="table_user_image">
-                                        <img src="../assets/images/user.jpg" alt="" srcset="">
-                                    </div>
-                                    <p>Tuấn</p>
-                                </div>
-                            </td>
-                            <td class="pending"><p class="openIssue">Open</p></td>
-                            <!-- <td class="pending"><p class="inProgressIssue">In Progress</p></td> -->
-                            <!-- <td class="pending"><p class="resolvedIssue">Resolved</p></td> -->
-                            <td>30/07/2022</td>
-                            <td>30/07/2022</td>
-                            <td>HashTask</td>
-                            <td><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                        </tr>
-                        <tr>
-                            <td class="jus-center">
-                                <p class="td-1">1</p>
-                            </td>
-                            <td><a class="key_issue" href="https://fontawesome.com/">CRH_185</a></td>
-                            <td><p class="text-truncate">aaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssssssssss sssssssssssssssssssssssssssss</p></td>
-                            <td>
-                                <div class="table_user">
-                                    <div class="table_user_image">
-                                        <img src="../assets/images/user.jpg" alt="" srcset="">
-                                    </div>
-                                    <p>Tuấn</p>
-                                </div>
-                            </td>
-                            <td class="pending"><p class="openIssue">Open</p></td>
-                            <!-- <td class="pending"><p class="inProgressIssue">In Progress</p></td> -->
-                            <!-- <td class="pending"><p class="resolvedIssue">Resolved</p></td> -->
-                            <td>30/07/2022</td>
-                            <td>30/07/2022</td>
-                            <td>HashTask</td>
-                            <td><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                        </tr>
-                        <tr>
-                            <td class="jus-center">
-                                <p class="td-1">1</p>
-                            </td>
-                            <td><a class="key_issue" href="https://fontawesome.com/">CRH_185</a></td>
-                            <td><p class="text-truncate">aaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssssssssss sssssssssssssssssssssssssssss</p></td>
-                            <td>
-                                <div class="table_user">
-                                    <div class="table_user_image">
-                                        <img src="../assets/images/user.jpg" alt="" srcset="">
-                                    </div>
-                                    <p>Tuấn</p>
-                                </div>
-                            </td>
-                            <td class="pending"><p class="openIssue">Open</p></td>
-                            <!-- <td class="pending"><p class="inProgressIssue">In Progress</p></td> -->
-                            <!-- <td class="pending"><p class="resolvedIssue">Resolved</p></td> -->
-                            <td>30/07/2022</td>
-                            <td>30/07/2022</td>
-                            <td>HashTask</td>
-                            <td><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                        </tr>
-                        <tr>
-                            <td class="jus-center">
-                                <p class="td-1">1</p>
-                            </td>
-                            <td><a class="key_issue" href="https://fontawesome.com/">CRH_185</a></td>
-                            <td><p class="text-truncate">aaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssssssssss sssssssssssssssssssssssssssss</p></td>
-                            <td>
-                                <div class="table_user">
-                                    <div class="table_user_image">
-                                        <img src="../assets/images/user.jpg" alt="" srcset="">
-                                    </div>
-                                    <p>Tuấn</p>
-                                </div>
-                            </td>
-                            <td class="pending"><p class="openIssue">Open</p></td>
-                            <!-- <td class="pending"><p class="inProgressIssue">In Progress</p></td> -->
-                            <!-- <td class="pending"><p class="resolvedIssue">Resolved</p></td> -->
-                            <td>30/07/2022</td>
-                            <td>30/07/2022</td>
-                            <td>HashTask</td>
-                            <td><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                        </tr>
-                        <tr>
-                            <td class="jus-center">
-                                <p class="td-1">1</p>
-                            </td>
-                            <td><a class="key_issue" href="https://fontawesome.com/">CRH_185</a></td>
-                            <td><p class="text-truncate">aaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssssssssss sssssssssssssssssssssssssssss</p></td>
-                            <td>
-                                <div class="table_user">
-                                    <div class="table_user_image">
-                                        <img src="../assets/images/user.jpg" alt="" srcset="">
-                                    </div>
-                                    <p>Tuấn</p>
-                                </div>
-                            </td>
-                            <td class="pending"><p class="openIssue">Open</p></td>
-                            <!-- <td class="pending"><p class="inProgressIssue">In Progress</p></td> -->
-                            <!-- <td class="pending"><p class="resolvedIssue">Resolved</p></td> -->
-                            <td>30/07/2022</td>
-                            <td>30/07/2022</td>
-                            <td>HashTask</td>
-                            <td><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                        </tr>
-                        <tr>
-                            <td class="jus-center">
-                                <p class="td-1">1</p>
-                            </td>
-                            <td><a class="key_issue" href="https://fontawesome.com/">CRH_185</a></td>
-                            <td><p class="text-truncate">aaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssssssssss sssssssssssssssssssssssssssss</p></td>
-                            <td>
-                                <div class="table_user">
-                                    <div class="table_user_image">
-                                        <img src="../assets/images/user.jpg" alt="" srcset="">
-                                    </div>
-                                    <p>Tuấn</p>
-                                </div>
-                            </td>
-                            <td class="pending"><p class="openIssue">Open</p></td>
-                            <!-- <td class="pending"><p class="inProgressIssue">In Progress</p></td> -->
-                            <!-- <td class="pending"><p class="resolvedIssue">Resolved</p></td> -->
-                            <td>30/07/2022</td>
-                            <td>30/07/2022</td>
-                            <td>HashTask</td>
-                            <td><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                        </tr>
-                        <tr>
-                            <td class="jus-center">
-                                <p class="td-1">1</p>
-                            </td>
-                            <td><a class="key_issue" href="https://fontawesome.com/">CRH_185</a></td>
-                            <td><p class="text-truncate">aaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssssssssss sssssssssssssssssssssssssssss</p></td>
-                            <td>
-                                <div class="table_user">
-                                    <div class="table_user_image">
-                                        <img src="../assets/images/user.jpg" alt="" srcset="">
-                                    </div>
-                                    <p>Tuấn</p>
-                                </div>
-                            </td>
-                            <td class="pending"><p class="openIssue">Open</p></td>
-                            <!-- <td class="pending"><p class="inProgressIssue">In Progress</p></td> -->
-                            <!-- <td class="pending"><p class="resolvedIssue">Resolved</p></td> -->
-                            <td>30/07/2022</td>
-                            <td>30/07/2022</td>
-                            <td>HashTask</td>
-                            <td><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                        </tr>
-                        <tr>
-                            <td class="jus-center">
-                                <p class="td-1">1</p>
-                            </td>
-                            <td><a class="key_issue" href="https://fontawesome.com/">CRH_185</a></td>
-                            <td><p class="text-truncate">aaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssssssssss sssssssssssssssssssssssssssss</p></td>
-                            <td>
-                                <div class="table_user">
-                                    <div class="table_user_image">
-                                        <img src="../assets/images/user.jpg" alt="" srcset="">
-                                    </div>
-                                    <p>Tuấn</p>
-                                </div>
-                            </td>
-                            <td class="pending"><p class="openIssue">Open</p></td>
-                            <!-- <td class="pending"><p class="inProgressIssue">In Progress</p></td> -->
-                            <!-- <td class="pending"><p class="resolvedIssue">Resolved</p></td> -->
-                            <td>30/07/2022</td>
-                            <td>30/07/2022</td>
-                            <td>HashTask</td>
-                            <td><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
                 <div class="pagination">
@@ -425,7 +247,7 @@
 </div>
 
 <div class="ModelCreateIssue">
-    <form  method="POST" action="{{ route('todo.store') }}" >
+    <form  method="POST" action="{{ route('issue.store') }}" >
     @csrf
         <h2>{{ __('messages.Add New') }}</h5>
         @if (Auth::check())
@@ -438,7 +260,8 @@
         <div class="form-group-info">
             <div class="form-input-category">
                 <label for="key">{{ __('messages.Key') }}</label>
-                <input type="text" class="input-name" id="key" name="key">
+                <input type="text" class="input-name" id="key_issue" name="key">
+                <button type="button" class="btnGenerate" onclick="generateButton()" >Generate</button>
             </div>
             <div class="form-select-category">
                 <label for="level">{{ __('messages.Level') }}</label>
@@ -470,7 +293,9 @@
             <div class="form-select-category">
                 <label for="status">{{ __('messages.Category') }}</label>
                 <select name="category_id" id="status">
-
+                @foreach($category as $cate)
+                    <option value="{{ $cate->id }}">{{ $cate->name }}</option>
+                @endforeach
                 </select>
             </div>
             <div class="form-select-category">
@@ -485,7 +310,20 @@
         <div class="form-btn">
             <button type="submit">{{ __('messages.Add') }}</button>
         </div>
-        <div class="BtnCloseCreate" onclick="closeCreateTodoPopup()">
+        <div class="BtnCloseCreate" onclick="closeCreateIssuePopup()">
+            <p>X</p>
+        </div>
+    </form>
+</div>
+<div class="modelDeleteFormIssue">
+    <form method="POST" id="delete-issue-form">
+        @csrf
+        @method('DELETE')
+        <h3>{{ __('messages.Are you sure you want to delete?') }}</h3>
+        <div class="form-btn-delete">
+            <button>{{ __('messages.Delete') }}</button>
+        </div>
+        <div class="BtnClose" onclick="closeDeleteIssueFormPopup()">
             <p>X</p>
         </div>
     </form>
@@ -494,7 +332,58 @@
 <script>
     CKEDITOR.replace('editor');
 </script>
+
 <script>
+
+    function openStaskIssue() {
+        const modelCreateIssue = document.querySelector('.ModelCreateIssue');
+        
+        // Kiểm tra nếu popup đang ẩn (display: none)
+        if (modelCreateIssue.style.display === 'none' || modelCreateIssue.style.display === '') {
+            modelCreateIssue.style.display = 'block'; // Hiển thị popup
+        } else {
+            modelCreateIssue.style.display = 'none'; // Ẩn popup
+        }
+    }
+    function closeCreateIssuePopup() {
+        const modelCreateIssue = document.querySelector('.ModelCreateIssue');
+        
+        // Kiểm tra nếu popup đang ẩn (display: none)
+        if (modelCreateIssue.style.display === 'none' || modelCreateIssue.style.display === '') {
+            modelCreateIssue.style.display = 'block'; // Hiển thị popup
+        } else {
+            modelCreateIssue.style.display = 'none'; // Ẩn popup
+        }
+    }
+
+    // Ẩn hiện popup form delete Issue
+    function showDeleteIssuePopup(issueId) {
+        const deletePopup = document.querySelector('.modelDeleteFormIssue');
+        deletePopup.style.display = 'block';
+        const deleteFormIssue = document.getElementById('delete-issue-form');
+        deleteForm.action = `/issue/${issueId}`;
+    }
+
+    // Ẩn hiện popup form delete issue
+    function closeDeleteIssueFormPopup() {
+        const deletePopupDelete = document.querySelector('.modelDeleteFormIssue');
+        if (deletePopupDelete.style.display === 'none' || deletePopupDelete.style.display === '') {
+            deletePopupDelete.style.display = 'block';
+        } else {
+            deletePopupDelete.style.display = 'none';
+        }
+    }
+
+
+    
+
+    function generateButton() {
+        const key_issue = document.getElementById('key_issue');
+        const randomNum = Math.floor(Math.random() * 999) + 1;
+        const newKey = "IS_" + String(randomNum).padStart(3, '0'); // Đảm bảo số có 3 chữ số
+        key_issue.value = newKey;
+    }
+
     function showEditPopup(categoryId) {
         const ModelEditTodoForm = document.querySelectorAll(".ModelEidtCategory");
         const isVisible = ModelEditTodoForm[0].style.display !== 'none';

@@ -117,5 +117,10 @@ return [
     'Level' => '程度',
     'Important' => '重要',
     'Normal' => '普通',
+    'Issue' => '問題',
+    'Home' => '主页',
+    'Key' => '鍵',
+    'Subject' => '件名',
+    'Level' => 'レベル',
 
 ];

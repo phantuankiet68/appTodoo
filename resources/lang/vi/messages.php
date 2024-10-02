@@ -116,5 +116,12 @@ return [
     'Just created' => 'Vừa tạo',
     'Level' => 'Mức độ',
     'Normal' => 'Bình thường',
+    'Issue' => 'Vấn đề',
+    'Home' => 'Trang chủ',
+    'Key' => 'Khóa',
+    'Subject' => 'Chủ đề',
+    'Level' => 'Mức độ',
+
+
 
 ];
