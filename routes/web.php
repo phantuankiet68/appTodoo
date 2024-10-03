@@ -61,10 +61,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('work_flow', WorkflowController::class);
     Route::resource('salary', SalaryController::class);
     Route::resource('expense', ExpenseController::class);
-    Route::get('/calendar', [EventController::class, 'index']);
-    Route::post('/events', [EventController::class, 'store']);
-    Route::put('/events/{id}', [EventController::class, 'update']);
-    Route::delete('/events/{id}', [EventController::class, 'destroy']);
+    Route::get('/events', [EventController::class, 'getEvents']);
+    Route::get('/calendar', [EventController::class, 'index'])->name('calendar.index');
+    Route::post('/event', [EventController::class, 'store'])->name('event.store');
+    Route::put('/event/{id}', [EventController::class, 'update']);
+    Route::delete('/event/{id}', [EventController::class, 'destroy']);
     Route::post('/issue/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::get('/issue/{id}/assign', [AssignController::class, 'show'])->name('assign.show');
     Route::post('/issue/{id}/assign', [AssignController::class, 'assign'])->name('assign.store');

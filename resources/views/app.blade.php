@@ -28,14 +28,12 @@
                 </div>
                 <ul class="nav-menu">
                     <li><a href="{{ route('dashboard.index') }}"><i class="fa-solid fa-house"></i>{{ __('messages.Dashboard') }}</a></li>
+                    <li ><a href="{{ route('issue.index') }}" id="issue"><i class="fa-solid fa-box-tissue"></i>{{ __('messages.Issues') }}</a></li>
                     <li class="bg-grey"><a href="javascript:void(0)" id="todo"><i class="fa-solid fa-cloud"></i>{{ __('messages.Tasks') }}</a><span id="chevronTodo"><i class="fa-solid fa-chevron-up"></i></span></li>
                     <li class="dropDownTodo"><a href="{{ route('todo.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Tasks') }}</a></li>
                     <li class="dropDownTodo"><a href="{{ route('work_flow.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Workflow') }}</a></li>
                     <li class="dropDownTodo"><a href="{{ route('salary.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Salary') }}</a></li>
                     <li class="dropDownTodo"><a href="{{ route('expense.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Expenses') }}</a></li>
-                    <li class="bg-grey"><a href="javascript:void(0)" id="issue"><i class="fa-solid fa-box-tissue"></i>{{ __('messages.Issues') }}</a><span id="chevronIssue"><i class="fa-solid fa-chevron-up"></i></span></li>
-                    <li class="dropDownIssue"><a href="{{ route('issue.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Issues') }}</a></li>
-                    <li class="dropDownIssue"><a href="{{ route('problem_process.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Workflow') }}</a></li>
                     <li class="titleMenu">{{ __('messages.Application') }}</li>
                     <li><a href="{{ route('cv.index') }}"><i class="fa-regular fa-file"></i>{{ __('messages.Curriculum Vitae') }}</a></li>
                     <li><a href="/calendar"><i class="fa-regular fa-calendar"></i>{{ __('messages.Calendar') }}</a></li>

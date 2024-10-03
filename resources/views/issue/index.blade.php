@@ -3,7 +3,7 @@
 @section('title', 'Home Page')
 
 @section('content')
-<div class="todo">
+<div class="todo issueTodo">
     <div class="todoHeader topHeaderTodo">
         <div class="topHeader">
             <h2>{{ __('messages.Issue') }}</h2> | <span>{{ __('messages.Home') }}</span>

@@ -4,58 +4,6 @@
 
 @section('content')
 <div class="todo">
-    <div class="todoHeader topHeaderTodo">
-        <div class="topHeader">
-            <h2>CV</h2> | <span>Trang chủ</span>
-        </div>
-        <div class="bodyHeader">
-            <form action="">
-                <div class="Users--right--btns">
-                    <select name="date" id="date" class="select-dropdown doctor--filter">
-                        <option>Date of Month</option>
-                        <option value="free">Admin</option>
-                        <option value="scheduled">Users</option>
-                    </select>
-                </div>
-            </form>
-            <form action="">
-                <div class="Users--right--btns">
-                    <select name="date" id="date" class="select-dropdown doctor--filter">
-                        <option>Category</option>
-                        <option value="free">Admin</option>
-                        <option value="scheduled">Users</option>
-                    </select>
-                </div>
-            </form>
-            <form action="">
-                <div class="Users--right--btns">
-                    <select name="date" id="date" class="select-dropdown doctor--filter">
-                        <option>Assignment</option>
-                        <option value="free">Admin</option>
-                        <option value="scheduled">Users</option>
-                    </select>
-                </div>
-            </form>
-            <form action="">
-                <div class="Users--right--btns">
-                    <select name="date" id="date" class="select-dropdown doctor--filter">
-                        <option >Filter</option>
-                        <option value="free">Admin</option>
-                        <option value="scheduled">Users</option>
-                    </select>
-                </div>
-            </form>
-            <form action="" class="formSearch">
-                <div class="formInputSearch">
-                    <input type="text" value="">
-                </div>
-                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-        </div>
-        <div class="footerHeader">
-            <button class="btn-add" id="openStaskIssue">CV mới</button>
-        </div>
-    </div>
     <div class="projecTodoBody">
         <div class="CVBody">
             <div class="cv-container-left">

@@ -14,13 +14,12 @@ document.addEventListener('DOMContentLoaded', function() {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
-        events: '/events',
+        events: '/events',  // Lấy dữ liệu sự kiện từ route /events
         editable: true,
         selectable: true,
 
         select: function(info) {
-            // Hiển thị modal để thêm sự kiện mới
-            showCreateCategoryModal(info.startStr, info.endStr);
+            showCreateCalendarModal(info.startStr, info.endStr);
         },
 
         // Cập nhật sự kiện
@@ -41,50 +40,56 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         },
 
-        // Xoá sự kiện
         eventClick: function(info) {
-            if (confirm('Do you want to delete this event?')) {
-                fetch(`/events/${info.event.id}`, {
-                    method: 'DELETE',
-                    headers: {
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                    },
-                })
-                .then(() => {
-                    info.event.remove();
-                });
+            const startDate = info.event.start;  // Đối tượng Date
+            const formattedStartDate = startDate.toISOString().split('T')[0]; // Chuyển đổi thành định dạng YYYY-MM-DD
+        
+            // Cập nhật giá trị vào ô nhập ngày
+            document.getElementById('event_start').value = formattedStartDate;
+        
+            // Nếu có ngày kết thúc, xử lý tương tự
+            if (info.event.end) {
+                const formattedEndDate = info.event.end.toISOString().split('T')[0];
+                document.getElementById('event_end').value = formattedEndDate;
+            } else {
+                document.getElementById('event_end').value = ''; // Nếu không có ngày kết thúc
             }
+        
+            // Cập nhật tiêu đề và mô tả sự kiện
+            document.getElementById('event_title').value = info.event.title;
+        
+            const descriptionInput = CKEDITOR.instances.editor1; // Sử dụng CKEditor với ID đúng
+            if (descriptionInput) {
+                descriptionInput.setData(info.event.extendedProps.description); // Cập nhật nội dung mô tả
+            }
+        
+            // Cập nhật ID sự kiện
+            document.getElementById('event_id').value = info.event.id;
+        
+            // Hiển thị modal
+            const modal = document.querySelector('.ModelEditCalendar');
+            modal.style.display = 'block';
         }
+        
     });
 
     calendar.render();
 });
 
+
 // Hàm hiển thị modal để thêm mới sự kiện
-function showCreateCategoryModal(startDate, endDate) {
-    const modal = document.querySelector('.ModelCreateCategory');
+function showCreateCalendarModal(startDate, endDate) {
+    const modal = document.querySelector('.ModelCreateCalendar');
     
-    // Cập nhật các trường dữ liệu với ngày bắt đầu và ngày kết thúc
-    const dateInput = document.createElement('input');
-    dateInput.type = 'hidden';
-    dateInput.name = 'start';
-    dateInput.value = startDate;
+    const startDateInput = document.getElementById('start_date');
+    startDateInput.value = startDate;
 
-    const endInput = document.createElement('input');
-    endInput.type = 'hidden';
-    endInput.name = 'end';
-    endInput.value = endDate;
+    const endDateInput = document.getElementById('end_date');
+    endDateInput.value = endDate || startDate; 
 
-    const form = modal.querySelector('form');
-    form.appendChild(dateInput);
-    form.appendChild(endInput);
-    
-    // Hiển thị modal
     modal.style.display = 'block';
 }
 
-// Hàm đóng modal
-function closeCreateCategoryFormPopup() {
-    const modal = document.querySelector('.ModelCreateCategory');
-    modal.style.display = 'none';
-}
+
+
+
