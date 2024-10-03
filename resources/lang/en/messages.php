@@ -122,9 +122,9 @@ return [
     'Key' => 'Key',
     'Subject' => 'Subject',
     'Level' => 'Level',
-    '' => '',
-    '' => '',
-
+    'User' => 'User',
+    'Workflow' => 'Workflow',
+    'Download' => 'Download',
 
 
 

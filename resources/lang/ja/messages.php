@@ -122,5 +122,8 @@ return [
     'Key' => '鍵',
     'Subject' => '件名',
     'Level' => 'レベル',
+    'User' => 'ユーザー',
+    'Workflow' => 'ワークフロー',
+    'Download' => 'ダウンロード',
 
 ];

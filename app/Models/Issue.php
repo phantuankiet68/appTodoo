@@ -31,4 +31,8 @@ class Issue extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    public function assignedUsers()
+    {
+        return $this->belongsToMany(User::class, 'issue_users', 'issue_id', 'user_id');
+    }
 }

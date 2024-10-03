@@ -23,6 +23,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\AssignController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,7 +65,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/events', [EventController::class, 'store']);
     Route::put('/events/{id}', [EventController::class, 'update']);
     Route::delete('/events/{id}', [EventController::class, 'destroy']);
-    Route::post('/comment', [CommentController::class, 'store']);
+    Route::post('/issue/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
+    Route::get('/issue/{id}/assign', [AssignController::class, 'show'])->name('assign.show');
+    Route::post('/issue/{id}/assign', [AssignController::class, 'assign'])->name('assign.store');
+    Route::resource('comment', CommentController::class);
     Route::resource('issue', IssueController::class);
     Route::resource('problem_process', ProblemProcessController::class);
     Route::resource('cv', CvController::class);

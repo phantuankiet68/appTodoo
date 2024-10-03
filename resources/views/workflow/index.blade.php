@@ -4,6 +4,42 @@
 
 @section('content')
 <div class="todo">
+<div class="todoHeader">
+        <div class="topHeader">
+            <h2>Email</h2> | <span>Home</span>
+        </div>
+        <div class="bodyHeader">
+            <form action="">
+                <div class="Users--right--btns">
+                    <select name="date" id="date" class="select-dropdown doctor--filter">
+                        <option>Date of Month</option>
+                        <option value="free">Admin</option>
+                        <option value="scheduled">Users</option>
+                    </select>
+                </div>
+            </form>
+            <form action="">
+                <div class="Users--right--btns">
+                    <select name="date" id="date" class="select-dropdown doctor--filter">
+                        <option>Category</option>
+                        <option value="free">Admin</option>
+                        <option value="scheduled">Users</option>
+                    </select>
+                </div>
+            </form>
+            <form action="" class="formSearch">
+                <div class="formInputSearch">
+                    <input type="text" value="">
+                </div>
+                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div class="headerToQuesionRight">
+            <button type="button" class="create"><i class="fa-solid fa-plus"></i> Danh muc</button>
+            <button type="button" class="change"><i class="fa-solid fa-cash-register"></i> Thay đổi</button>
+            <button type="button" class="create"><i class="fa-solid fa-plus"></i> Tạo mới</button>
+        </div>
+    </div>
     <div class="projecTodoBody">
         <div class="projectCol-8">
             <div class="board">                      

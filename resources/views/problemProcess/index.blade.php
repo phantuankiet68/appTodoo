@@ -4,11 +4,45 @@
 
 @section('content')
 <div class="todo">
-    <div class="projecTodoBody">
+    <div class="todoHeader processTop">
+        <div class="topHeader">
+            <h2>{{ __('messages.Workflow') }}</h2> | <span>{{ __('messages.Home') }}</span>
+        </div>
+        <div class="bodyHeader">
+            <form action="">
+                <div class="Users--right--btns">
+                    <select name="date" id="date" class="select-dropdown doctor--filter">
+                        <option>Date of Month</option>
+                        <option value="free">Admin</option>
+                        <option value="scheduled">Users</option>
+                    </select>
+                </div>
+            </form>
+            <form action="">
+                <div class="Users--right--btns">
+                    <select name="date" id="date" class="select-dropdown doctor--filter">
+                        <option>Category</option>
+                        <option value="free">Admin</option>
+                        <option value="scheduled">Users</option>
+                    </select>
+                </div>
+            </form>
+            <form action="" class="formSearch">
+                <div class="formInputSearch">
+                    <input type="text" value="">
+                </div>
+                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div class="headerToQuesionRight">
+            <button type="button" class="change"><i class="fa-solid fa-download"></i> {{ __('messages.Download') }}</button>
+        </div>
+    </div>
+    <div class="projecTodoBody projecTodoBodyProcess">
         <div class="projectCol-8">
             <div class="board">                      
                 <div class="lanes">
-                <div class="swim-lane" id="todo-lane">
+                    <div class="swim-lane" id="todo-lane">
                         <h3 class="heading">TODO</h3>
                         <div class="task" draggable="true">
                             <div class="normal d-flex">

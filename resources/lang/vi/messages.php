@@ -121,7 +121,9 @@ return [
     'Key' => 'Khóa',
     'Subject' => 'Chủ đề',
     'Level' => 'Mức độ',
-
+    'User' => 'Người dùng',
+    'Workflow' => 'Quy trình làm việc',
+    'Download' => 'Tải xuống',
 
 
 ];

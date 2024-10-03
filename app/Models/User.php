@@ -49,4 +49,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(Expense::class);
     }
+    public function assignedIssues()
+    {
+        return $this->belongsToMany(Issue::class, 'issue_users', 'user_id', 'issue_id');
+    }
 }

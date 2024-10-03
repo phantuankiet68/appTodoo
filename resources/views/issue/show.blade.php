@@ -30,12 +30,11 @@
                                 <p><i class="fa-regular fa-circle-right"></i></p>
                             </div>
                             <div class="alternate-list-right">
+                                @foreach($issueUsers as $issueUser)
                                 <div class="assignUser">
-                                    kiet Phan
+                                    {{ $issueUser->user ? $issueUser->user->full_name : 'Không có danh mục' }}
                                 </div>
-                                <div class="assignUser">
-                                    kiet Phan
-                                </div>
+                                @endforeach
                             </div>
                         </li>
                         <li>
@@ -122,22 +121,22 @@
                         </li>
                         <button class="assignUserBtn" onclick="openAssignUser()">Assign User</button>
                         <div class="assignUserBtnTonggle">
-                            <p class="text-center">Assign User</p>
-                            <div class="form-input-category mt-10">
-                                <label for="reference">{{ __('messages.Reference') }}</label>
-                                <input type="text" class="input-name" id="reference" name="reference">
-                            </div>
-                            <div class="form-select-category mt-10">
-                                <label for="status">{{ __('messages.Status') }}</label>
-                                <select name="status" id="status">
-                                    <option value="0">{{ __('messages.Not done') }}</option>
-                                    <option value="1">{{ __('messages.Done') }}</option>
-                                    <option value="2">{{ __('messages.Just created') }}</option>
-                                </select>
-                            </div>
-                            <div class="form-btn">
-                                <button type="submit">{{ __('messages.Add') }}</button>
-                            </div>
+                            <form action="{{ route('assign.store', $issue->id) }}" method="POST">
+                            @csrf
+                                <p class="text-center">Assign User</p>
+                                <input type="hidden" class="input-name" id="issue_id" name="issue_id" value="{{$issue->id}}">
+                                <div class="form-select-category mt-10">
+                                    <label for="user_id">{{ __('messages.User') }}</label>
+                                    <select name="user_id" id="user_id">
+                                    @foreach($users as $user)
+                                        <option value="{{ $user->id }}">{{ $user->full_name }}</option>
+                                    @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-btn">
+                                    <button type="submit">{{ __('messages.Add') }}</button>
+                                </div>
+                            </form>
                         </div>
                     </ul>
                 </div>
@@ -151,108 +150,30 @@
                 </div>
             </div>
             <div class="commentBody">
+                @if($comments->count())
+                @foreach($comments as $comment)
                 <div class="commentBodyBox">
                     <div class="table_user">
                         <div class="table_user_image">
                             <img src="../assets/images/user.jpg" alt="" srcset="">
                         </div>
                         <div class="userAsHome">
-                            <p>Phan Tuấn Kiệt</p>
-                            <p class="createAtSup">create at: 10p</p>
+                            <p>{{ $comment->user->full_name }}</p>
+                            <p class="createAtSup">create at: {{ $comment->created_at->format('d/m/Y') }}</p>
                         </div>
                     </div>
                     <div class="commentDesc">
-                        <p>fos asd a da sdsd sád ád sd s d ds dsad sa ds sd sad sad s ds ds dsa dasd </p>
+                        <p>{{ $comment->comment }}</p>
                     </div>
                 </div>
-                <div class="commentBodyBox">
-                    <div class="table_user">
-                        <div class="table_user_image">
-                            <img src="../assets/images/user.jpg" alt="" srcset="">
-                        </div>
-                        <div class="userAsHome">
-                            <p>Phan Tuấn Kiệt</p>
-                            <p class="createAtSup">create at: 10p</p>
-                        </div>
-                    </div>
-                    <div class="commentDesc">
-                        <p>fos asd a da sdsd sád ád sd s d ds dsad sa ds sd sad sad s ds ds dsa dasd </p>
-                    </div>
-                </div>
-                <div class="commentBodyBox">
-                    <div class="table_user">
-                        <div class="table_user_image">
-                            <img src="../assets/images/user.jpg" alt="" srcset="">
-                        </div>
-                        <div class="userAsHome">
-                            <p>Phan Tuấn Kiệt</p>
-                            <p class="createAtSup">create at: 10p</p>
-                        </div>
-                    </div>
-                    <div class="commentDesc">
-                        <p>fos asd a da sdsd sád ád sd s d ds dsad sa ds sd sad sad s ds ds dsa dasd </p>
-                    </div>
-                </div>
-                <div class="commentBodyBox">
-                    <div class="table_user">
-                        <div class="table_user_image">
-                            <img src="../assets/images/user.jpg" alt="" srcset="">
-                        </div>
-                        <div class="userAsHome">
-                            <p>Phan Tuấn Kiệt</p>
-                            <p class="createAtSup">create at: 10p</p>
-                        </div>
-                    </div>
-                    <div class="commentDesc">
-                        <p>fos asd a da sdsd sád ád sd s d ds dsad sa ds sd sad sad s ds ds dsa dasd </p>
-                    </div>
-                </div>
-                <div class="commentBodyBox">
-                    <div class="table_user">
-                        <div class="table_user_image">
-                            <img src="../assets/images/user.jpg" alt="" srcset="">
-                        </div>
-                        <div class="userAsHome">
-                            <p>Phan Tuấn Kiệt</p>
-                            <p class="createAtSup">create at: 10p</p>
-                        </div>
-                    </div>
-                    <div class="commentDesc">
-                        <p>fos asd a da sdsd sád ád sd s d ds dsad sa ds sd sad sad s ds ds dsa dasd </p>
-                    </div>
-                </div>
-                <div class="commentBodyBox">
-                    <div class="table_user">
-                        <div class="table_user_image">
-                            <img src="../assets/images/user.jpg" alt="" srcset="">
-                        </div>
-                        <div class="userAsHome">
-                            <p>Phan Tuấn Kiệt</p>
-                            <p class="createAtSup">create at: 10p</p>
-                        </div>
-                    </div>
-                    <div class="commentDesc">
-                        <p>fos asd a da sdsd sád ád sd s d ds dsad sa ds sd sad sad s ds ds dsa dasd </p>
-                    </div>
-                </div>
-                <div class="commentBodyBox">
-                    <div class="table_user">
-                        <div class="table_user_image">
-                            <img src="../assets/images/user.jpg" alt="" srcset="">
-                        </div>
-                        <div class="userAsHome">
-                            <p>Phan Tuấn Kiệt</p>
-                            <p class="createAtSup">create at: 10p</p>
-                        </div>
-                    </div>
-                    <div class="commentDesc">
-                        <p>fos asd a da sdsd sád ád sd s d ds dsad sa ds sd sad sad s ds ds dsa dasd </p>
-                    </div>
-                </div>
+                @endforeach
+                @else
+                    <p>No comments available.</p>
+                @endif
             </div>
             <div class="commentFooter">
                 <div class="commentForm">
-                    <form action="/comment" method="POST">
+                    <form action="{{ route('comments.store', $issue->id) }}" method="POST">
                     @csrf
                         <input type="hidden" id="issue_id" name="issue_id" value="{{$issue->id}}"/>
                         @if (Auth::check())

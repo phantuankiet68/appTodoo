@@ -7,6 +7,9 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Validator; 
 use Illuminate\Support\Facades\Auth;
 use App\Models\Issue;
+use App\Models\Comment;
+use App\Models\User;
+use App\Models\IssueUser;
 
 class IssueController extends Controller
 {
@@ -17,7 +20,15 @@ class IssueController extends Controller
      */
     public function index()
     {
-        $issues = Issue::with(['category', 'user'])->where('user_id', Auth::id())->orderBy('id', 'asc')->paginate(11);
+        $userId = Auth::id();
+
+        $issues = Issue::where('user_id', $userId)
+            ->orWhereHas('assignedUsers', function ($query) use ($userId) {
+                $query->where('user_id', $userId);
+            })
+            ->with(['category', 'user'])
+            ->orderBy('id', 'asc')
+            ->paginate(11);
         $category = Category::where('user_id', Auth::id())
                     ->where('key', 3)
                     ->paginate(12);
@@ -77,7 +88,12 @@ class IssueController extends Controller
     public function show($id)
     {
         $issue = Issue::findOrFail($id);
-        return view('issue.show', compact('issue'));
+        $users = User::all();
+
+        $issueUsers = IssueUser::with(['user'])->where('issue_id', $id)->get();
+
+        $comments = Comment::with(['issue', 'user'])->where('issue_id', $id)->paginate(12);
+        return view('issue.show', compact('issue','comments','users','issueUsers'));
     }
 
     /**
