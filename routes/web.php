@@ -25,6 +25,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AssignController;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\VocabularyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,6 +63,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('work_flow', WorkflowController::class);
     Route::resource('salary', SalaryController::class);
     Route::resource('expense', ExpenseController::class);
+    Route::resource('vocabularies', VocabularyController::class);
     Route::post('/send-email', [MailController::class, 'sendMail'])->name('send.email');
     Route::get('/events', [EventController::class, 'getEvents']);
     Route::get('/calendar', [EventController::class, 'index'])->name('calendar.index');
@@ -70,13 +72,15 @@ Route::group(['middleware' => 'auth'], function() {
     Route::delete('/event/{id}', [EventController::class, 'destroy']);
     Route::post('/issue/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::get('/issue/{id}/assign', [AssignController::class, 'show'])->name('assign.show');
-    Route::post('/issue/{id}/assign', [AssignController::class, 'assign'])->name('assign.store');
+    Route::post('/issue/{id}/assign', [AssignController::class, 'assign'])->name('assign.index_add');
     Route::resource('comment', CommentController::class);
     Route::resource('issue', IssueController::class);
     Route::resource('problem_process', ProblemProcessController::class);
     Route::resource('cv', CvController::class);
     Route::resource('sent', SentController::class);
     Route::resource('chat', ChatController::class);
+    Route::resource('japanese', JapaneseController::class);
+    Route::get('add_japanese', [JapaneseController::class, 'addJapanese'])->name('japanese.addJapanese');
     Route::resource('japanese', JapaneseController::class);
     Route::resource('english', EnglishController::class);
     Route::resource('question', QuestionController::class);

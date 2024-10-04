@@ -142,6 +142,9 @@ return [
     '[LinkedIn (if applicable)]' => '[LinkedIn（該当する場合）]',
     'Attachment' => '添付ファイル',
     'File' => 'ファイル',
+    'Meaning of word' => '単語の意味',
+    'Structure' => '構造',
+    'Structural meaning' => '構造的な意味',
 
 
 

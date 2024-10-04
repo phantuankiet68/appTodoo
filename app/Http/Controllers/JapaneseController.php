@@ -86,8 +86,8 @@ class JapaneseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index_add()
+    public function addJapanese()
     {
-        return view('japanese.add');
+        return view('japanese.add.index');
     }
 }

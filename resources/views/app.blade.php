@@ -41,8 +41,8 @@
                     <li><a href="{{ route('sent.index') }}"><i class="fa-regular fa-envelope"></i>{{ __('messages.Email') }}</a></li>
                     <li class="titleMenu">{{ __('messages.Lesson') }}</li>
                     <li class="bg-grey"><a href="javascript:void(0)" id="Japanese"><i class="fa-solid fa-fire"></i>{{ __('messages.Japanese') }}</a><span id="chevronJapanese"><i class="fa-solid fa-chevron-up"></i></span></li>
-                    <li class="dropDownJapanese"><a href="{{ route('todo.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Add New') }}</a></li>
-                    <li class="dropDownJapanese"><a href="{{ route('todo.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Japanese') }}</a></li>
+                    <li class="dropDownJapanese"><a href="{{ route('japanese.addJapanese') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Add New') }}</a></li>
+                    <li class="dropDownJapanese"><a href="{{ route('japanese.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Japanese') }}</a></li>
                     <li><a href="{{ route('english.index') }}"><i class="fa-solid fa-fire"></i>{{ __('messages.English') }}</a></li>
                     <li><a href="{{ route('question.index') }}"><i class="fa-solid fa-clipboard-question"></i>{{ __('messages.Question') }}</a></li>
                     <li class="titleMenu">{{ __('messages.User Interface') }}</li>

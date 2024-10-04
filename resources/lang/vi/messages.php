@@ -141,6 +141,9 @@ return [
     '[LinkedIn (if applicable)]' => '[LinkedIn (nếu có)]',
     'Attachment' => 'Tệp đính kèm',
     'File' => 'Tệp',
+    'Meaning of word' => 'Nghĩa của từ',
+    'Structure' => 'Cấu trúc',
+    'Structural meaning' => 'Nghĩa cấu trúc',
 
 
 ];
