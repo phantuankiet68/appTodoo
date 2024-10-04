@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\Vocabulary;
 
 class VocabularyController extends Controller
 {
@@ -14,9 +14,7 @@ class VocabularyController extends Controller
      */
     public function index()
     {
-        $category = Category::where('key', 5);
-
-        return view('japanese.add.index', compact('category'));
+        return view('japanese.add.index');
     }
 
     // Function to show form for creating vocabulary
@@ -37,13 +35,20 @@ class VocabularyController extends Controller
 
         Vocabulary::create($request->all());
 
-        return redirect()->route('vocabularies.index')->with('success', 'Vocabulary added successfully!');
+        return redirect()->back()->with('success', 'Vocabulary added successfully!');
     }
 
-    // Function to edit a specific vocabulary
-    public function edit(Vocabulary $vocabulary)
+    
+    /**
+    * Display the specified resource.
+    * @author Phan Tuấn Kiệt
+    * @param  int  $id
+    * @return \Illuminate\Http\Response
+    */
+    public function show($id)
     {
-        return view('vocabularies.edit', compact('vocabulary'));
+        $vocabulary = Vocabulary::findOrFail($id);
+        return response()->json($vocabulary);
     }
 
     // Function to update vocabulary in the database
@@ -58,14 +63,14 @@ class VocabularyController extends Controller
 
         $vocabulary->update($request->all());
 
-        return redirect()->route('vocabularies.index')->with('success', 'Vocabulary updated successfully!');
+        return redirect()->back()->with('success', 'Vocabulary updated successfully!');
     }
 
     // Function to delete a specific vocabulary
-    public function destroy(Vocabulary $vocabulary)
+    public function destroy($id)
     {
+        $vocabulary = Vocabulary::findOrFail($id);
         $vocabulary->delete();
-
-        return redirect()->route('vocabularies.index')->with('success', 'Vocabulary deleted successfully!');
+        return redirect()->back()->with('success', 'Deleted successfully');
     }
 }

@@ -144,6 +144,6 @@ return [
     'Meaning of word' => 'Nghĩa của từ',
     'Structure' => 'Cấu trúc',
     'Structural meaning' => 'Nghĩa cấu trúc',
-
+    'Vocabulary' => 'Từ vựng',
 
 ];

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Vocabulary;
 
 class JapaneseController extends Controller
 {
@@ -88,6 +90,8 @@ class JapaneseController extends Controller
      */
     public function addJapanese()
     {
-        return view('japanese.add.index');
+        $category = Category::where('key', 5)->get();
+        $vocabulary = Vocabulary::with(['category'])->paginate(10);
+        return view('japanese.add.index', compact('category','vocabulary'));
     }
 }

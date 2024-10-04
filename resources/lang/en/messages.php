@@ -145,7 +145,7 @@ return [
     'Meaning of word' => 'Meaning of word',
     'Structure' => 'Structure',
     'Structural meaning' => 'Structural meaning',
-    '' => '',
+    'Vocabulary' => 'Vocabulary',
     '' => '',
     '' => '',
     '' => '',

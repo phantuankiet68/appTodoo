@@ -145,7 +145,7 @@ return [
     'Meaning of word' => '単語の意味',
     'Structure' => '構造',
     'Structural meaning' => '構造的な意味',
-
+    'Vocabulary' => '語彙',
 
 
 
