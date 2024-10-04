@@ -505,59 +505,6 @@ if (modalCard && btnCard && closeBtnCard) {
 
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  const issue = document.getElementById("issue");
-  const dropDownIssue = document.querySelectorAll(".dropDownIssue");
-  const chevronIssue = document.getElementById("chevronIssue").querySelector("i");
-
-  // Thêm sự kiện click vào Dashboard
-  issue.addEventListener("click", function(e) {
-      e.preventDefault();  // Ngăn trang reload
-
-      // Duyệt qua từng mục dropDown và chuyển đổi giữa hiển thị và ẩn
-      dropDownIssue.forEach(item => {
-          item.classList.toggle("active");
-      });
-
-      // Chuyển đổi giữa chevron-up và chevron-down
-      if (chevronIssue.classList.contains("fa-chevron-up")) {
-        chevronIssue.classList.remove("fa-chevron-up");
-        chevronIssue.classList.add("fa-chevron-down");
-      } else {
-        chevronIssue.classList.remove("fa-chevron-down");
-        chevronIssue.classList.add("fa-chevron-up");
-      }
-  });
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function() {
-  const Email = document.getElementById("email");
-  const dropDownEmail = document.querySelectorAll(".dropDownEmail");
-  const chevronEmail = document.getElementById("chevronEmail").querySelector("i");
-
-  // Thêm sự kiện click vào Dashboard
-  Email.addEventListener("click", function(e) {
-      e.preventDefault();  // Ngăn trang reload
-
-      // Duyệt qua từng mục dropDown và chuyển đổi giữa hiển thị và ẩn
-      dropDownEmail.forEach(item => {
-          item.classList.toggle("active");
-      });
-
-      // Chuyển đổi giữa chevron-up và chevron-down
-      if (chevronEmail.classList.contains("fa-chevron-up")) {
-        chevronEmail.classList.remove("fa-chevron-up");
-        chevronEmail.classList.add("fa-chevron-down");
-      } else {
-        chevronEmail.classList.remove("fa-chevron-down");
-        chevronEmail.classList.add("fa-chevron-up");
-      }
-  });
-});
-
-
 
 document.addEventListener("DOMContentLoaded", function() {
   const Todo = document.getElementById("todo");
@@ -585,15 +532,32 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
+document.addEventListener("DOMContentLoaded", function() {
+  const Japanese = document.getElementById("Japanese");
+  const dropDownJapanese = document.querySelectorAll(".dropDownJapanese");
+  const chevronJapanese = document.getElementById("chevronJapanese").querySelector("i");
 
-document.getElementById("openTodoCreate").addEventListener("click", function() {
-  var categoryForm = document.querySelector(".ModelCreateTodo");
-  if (categoryForm.style.display === "none" || categoryForm.style.display === "") {
-      categoryForm.style.display = "block"; // Hiển thị form
-  } else {
-      categoryForm.style.display = "none"; // Ẩn form nếu đã hiển thị
-  }
+  // Thêm sự kiện click vào Dashboard
+  Japanese.addEventListener("click", function(e) {
+      e.preventDefault();  // Ngăn trang reload
+
+      // Duyệt qua từng mục dropDown và chuyển đổi giữa hiển thị và ẩn
+      dropDownJapanese.forEach(item => {
+          item.classList.toggle("active");
+      });
+
+      // Chuyển đổi giữa chevron-up và chevron-down
+      if (chevronJapanese.classList.contains("fa-chevron-up")) {
+        chevronJapanese.classList.remove("fa-chevron-up");
+        chevronJapanese.classList.add("fa-chevron-down");
+      } else {
+        chevronJapanese.classList.remove("fa-chevron-down");
+        chevronJapanese.classList.add("fa-chevron-up");
+      }
+  });
 });
+
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -806,7 +770,7 @@ function openTab(evt, tabId) {
   var i, tabcontent, tablinks;
 
   // Ẩn tất cả các tab
-  tabcontent = document.getElementsByClassName("tabcontent");
+tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = "none";
   }
@@ -818,7 +782,7 @@ function openTab(evt, tabId) {
   }
 
   // Hiển thị tab hiện tại và thêm class "active" vào nút đã được nhấn
-  document.getElementById(tabId).style.display = "block";
+  document.getElementById(tabId).style.display = "flex";
   evt.currentTarget.className += " active";
 }
 

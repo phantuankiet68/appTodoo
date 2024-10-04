@@ -4,98 +4,139 @@
 
 @section('content')
 <div class="todo">
-    <div class="todoHeader">
-        <div class="topHeader">
-            <h2>Email</h2> | <span>Home</span>
-        </div>
-        <div class="bodyHeader">
-            <form action="">
-                <div class="Users--right--btns">
-                    <select name="date" id="date" class="select-dropdown doctor--filter">
-                        <option>Date of Month</option>
-                        <option value="free">Admin</option>
-                        <option value="scheduled">Users</option>
-                    </select>
-                </div>
-            </form>
-            <form action="">
-                <div class="Users--right--btns">
-                    <select name="date" id="date" class="select-dropdown doctor--filter">
-                        <option>Category</option>
-                        <option value="free">Admin</option>
-                        <option value="scheduled">Users</option>
-                    </select>
-                </div>
-            </form>
-            <form action="" class="formSearch">
-                <div class="formInputSearch">
-                    <input type="text" value="">
-                </div>
-                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-        </div>
-        <div class="footerHeader">
-            <button id="openModalEmail" class="btn-add">write a message</button>
-        </div>
-    </div>
     <div class="email-container">
         <div class="email-container-left">
-            <h4>All Email</h4>
-            <ul>
-                <li><a href="#" onclick="showLesson('lesson1')">Phan Tuấn Kiệt</a></li>
-                <li><a href="#" onclick="showLesson('lesson2')">Đoàn Thi thu Trang</a></li>
-                <li><a href="#" onclick="showLesson('lesson3')">VJP-Connect</a></li>
-            </ul>
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+            <form action="{{ route('send.email') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+                <h4>{{ __('messages.Compose a message') }}</h4>
+                <div class="form-input-category mt-10">
+                    @if (Auth::check())
+                        <input type="hidden" class="input-name" id="email" name="send_email" value="{{ Auth::user()->email }}">
+                    @endif
+                    <input type="hidden" class="input-name" id="subject" name="subject" value="">
+                </div>
+                <div class="form-input-category mt-10">
+                    <label for="name">{{ __('messages.Subject') }}</label>
+                    <input type="text" class="input-name" id="subject" name="subject" value="{{ __('messages.[LAMPART] Confirmation of.....') }}"  oninput="updateSubject()">
+                </div>
+                <div class="form-input-category mt-10">
+                    <label for="name">{{ __('messages.Send to') }}</label>
+                    <input type="text" class="input-name" id="email" name="to_email" value="{{ __('messages.nguyenvana@gmail.com') }}"  oninput="updateEmail()">
+                </div>
+                <div class="form-input-category mt-10">
+                    <label for="name">{{ __('messages.Cc') }}</label>
+                    <input type="text" class="input-name" id="cc" name="cc" value="{{ __('messages.nguyenvana@gmail.com') }}" oninput="updateCc()">
+                </div>
+                <div class="form-textarea-category">
+                    <label for="description">{{ __('messages.Description') }}</label>
+                    <textarea id="editor" name="description"></textarea> 
+                </div>
+                <div class="form-input-category mt-10">
+                    <label for="file">{{ __('messages.File') }}</label>
+                    <input type="file" class="input-name" id="file" name="file" multiple onchange="updateFileNames()">
+                </div>
+                <div class="form-btn mt-50">
+                    <button type="submit">{{ __('messages.Send to') }}</button>
+                </div>
+            </form>
         </div>
         <div class="email-container-right">
-            <div class="email-content lesson1">
-                <h2>[LAMPART] Xác nhận thông tin ứng tuyển vị trí Thực Tập Sinh PHP</h2>
-                <p><b>Recruit</b><i> < recruit@lampart-vn.com > </i></p>
-                <p class="spaceWait">.........................................................................................................................................................................................................................................</p>
-                <p>Chào bạn, <br/>
-                    Trước hết, cám ơn bạn đã quan tâm và ứng tuyển vào vị trí Thực Tập Sinh PHP của công ty Lampart.<br/>
-                    Để hỗ trợ cho quá trình review CV, nhờ bạn bổ sung CV Tiếng Anh (nếu chưa có) và cung cấp đầy đủ thông tin ở form đính kèm mail.<br/>
-                    ***Lưu ý: Chúng tôi sẽ tiến hành xử lý hồ sơ ứng tuyển của bạn khi nhận được form thông tin hoàn chỉnh, vui lòng kiểm tra kỹ thông tin trước khi gửi lại.<br/>
-                    Sau khi bạn xác nhận những thông tin trên, phía công ty Lampart sẽ review CV và dựa vào kết quả review để tiến hành các bước tuyển dụng tiếp theo.<br/>
-                    Để hỗ trợ quá trình đánh giá được diễn ra sớm nhất, nhờ bạn hoàn tất Form đính kèm với đầy đủ thông tin và gửi lại cho chúng tôi trước 10:00 AM ngày 21/08/2024 nhé.<br/>
-                    (Sau thời gian này nếu không nhận được thông tin điền form từ bạn, chúng tôi hiểu rằng bạn không còn quan tâm tới Lampart nữa và sẽ ngưng quy trình tuyển dụng đối với hồ sơ của bạn)<br/>
-                    Thông tin tham khảo:<br/>
-                    Quy trình tuyển dụng - Vị trí Internship<br/>
-                    Vòng 1: Thực hiện test trực tiếp tại văn phòng<br/>
-                    Vòng 2: Phỏng vấn trực tiếp tại văn phòng<br/>
-                </p>
-                <p class="spaceWait">.........................................................................................................................................................................................................................................</p>
-                <p><b> 2 tệp đính kèm</b>: Gmail đã quét</p>
-                <div class="dis-flex">
-                    <div class="cardEmail">
-                        <img src="./a-path.png" alt="File Image" class="cardEmail-img">
+            <div class="email-content">
+                <div class="email-subject">
+                    <h2 id="Tsubject">{{ __('messages.[LAMPART] Confirmation of.....') }}</h2>
+                    @if (Auth::check())
+                    <p>< <i>{{ Auth::user()->email }}</i> ></p>
+                    @endif
+                </div>
+                <div class="email-subject">
+                    <p>{{ __('messages.To') }}: < <i id="Temail">{{ __('messages.nguyenvana@gmail.com') }} </i> ></p>
+                    <p>{{ __('messages.Cc') }}: < <i id="TCc">{{ __('messages.nguyenvana@gmail.com') }} </i> ></p>
+                </div>
+                <p class="spaceWait">...................................................................................................................................................</p>
+                <div id="Idescription">
+                    {{ __('messages.Dear Human Resources Department,') }} <br/><br/>
+                    {{ __('messages.My name is [Your Name], and I am currently seeking job opportunities in the field of Information Technology. I am pleased to submit my application for the position of [Position Name] at [Company Name], which I found on [Source of Information, e.g., company website, LinkedIn, etc.].') }}<br/><br/>
+                    {{ __('messages.I believe that my knowledge and experience will allow me to contribute positively to [Company Name], and I am eager to discuss further how I can contribute to the success of the team.') }}<br/><br/>
+                    {{ __('messages.Thank you for considering my application. I look forward to hearing from you and hope to have the opportunity to interview.')}}<br/><br/>
+                    <br/>
+                    {{ __('messages.Best regards,')}}<br/>
+                    {{ __('messages.Phan Tuan Kiet')}}<br/>
+                    {{ __('messages.[Phone Number]')}}: 0909.....<br/>
+                    <p>{{ __('messages.[Email]')}}:  @if (Auth::check()) < <i>{{ Auth::user()->email }}</i> ></p> @endif
+                    {{ __('messages.[LinkedIn (if applicable)]')}}<br/>
+                </div>
+                <p class="spaceWait">...................................................................................................................................................</p>
+                <p><b>{{ __('messages.Attachment')}}:</b></p>
+                <div class="cardfileEmail">
+                    <div class="cardEmail Tfile" style="display: none;">
+                        <img src="{{asset('assets/images/file.jpg')}}" alt="File Image" class="cardEmail-img">
                         <div class="cardEmail-info">
-                            <p>Image-File.jpg</p>
-                            <p>1.7 MB</p>
-                        </div>
-                        <div class="cardEmail-actions">
-                            <button onclick="addToDrive()">Add to Drive</button>
+                            <p class="file-name"></p>
                         </div>
                     </div>
-                    <div class="cardEmail">
-                        <img src="./a-path.png" alt="File Image" class="cardEmail-img">
+                    <div class="cardEmail Tfile" style="display: none;">
+                        <img src="{{asset('assets/images/file.jpg')}}" alt="File Image" class="cardEmail-img">
                         <div class="cardEmail-info">
-                            <p>Image-File.jpg</p>
-                            <p>1.7 MB</p>
-                        </div>
-                        <div class="cardEmail-actions">
-                            <button onclick="addToDrive()">Add to Drive</button>
+                            <p class="file-name"></p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="lesson-content lesson2" style="display:none;">
-                Bài 2: Giới thiệu về một ngày làm việc của bạn.
-            </div>
-            <div class="lesson-content lesson3" style="display:none;">
-                Bài 3: Giới thiệu về sở thích của bạn
             </div>
         </div>
     </div>
 </div>
+<script>
+    CKEDITOR.replace('editor');
+    CKEDITOR.on('instanceReady', function() {
+        var descriptionContent = document.getElementById('Idescription').innerHTML;
+        CKEDITOR.instances.editor.setData(descriptionContent);
+    });
+
+    // Cập nhật nội dung của Idescription mỗi khi có thay đổi trong CKEditor
+    CKEDITOR.instances.editor.on('change', function() {
+        var editorData = CKEDITOR.instances.editor.getData();
+        document.getElementById('Idescription').innerHTML = editorData;
+    });
+</script>
+<script>
+     function updateSubject() {
+        var inputValue = document.getElementById("subject").value;
+        document.getElementById("Tsubject").innerText = inputValue;
+    }
+    function updateEmail() {
+        var inputValue = document.getElementById("email").value;
+        document.getElementById("Temail").innerText = inputValue;
+    }
+    function updateCc() {
+        var inputValue = document.getElementById("cc").value;
+        document.getElementById("TCc").innerText = inputValue;
+    }
+    function updateFileNames() {
+        const fileInput = document.getElementById('file');
+        const fileCards = document.querySelectorAll('.Tfile'); // Chọn tất cả phần tử có class Tfile
+        
+        // Ẩn tất cả các thẻ Tfile trước khi hiển thị file mới
+        fileCards.forEach(card => {
+            card.style.display = 'none';
+            card.querySelector('.file-name').textContent = ''; // Reset nội dung tên file
+        });
+
+        // Lặp qua các file đã chọn và hiển thị tương ứng
+        Array.from(fileInput.files).forEach((file, index) => {
+            if (fileCards[index]) {
+                fileCards[index].style.display = 'block'; // Hiển thị thẻ Tfile tương ứng
+                fileCards[index].querySelector('.file-name').textContent = file.name; // Cập nhật tên file
+            }
+        });
+    }
+</script>
 @endsection

@@ -24,6 +24,7 @@ use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AssignController;
+use App\Http\Controllers\MailController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,6 +62,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('work_flow', WorkflowController::class);
     Route::resource('salary', SalaryController::class);
     Route::resource('expense', ExpenseController::class);
+    Route::post('/send-email', [MailController::class, 'sendMail'])->name('send.email');
     Route::get('/events', [EventController::class, 'getEvents']);
     Route::get('/calendar', [EventController::class, 'index'])->name('calendar.index');
     Route::post('/event', [EventController::class, 'store'])->name('event.store');

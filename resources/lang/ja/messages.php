@@ -125,5 +125,25 @@ return [
     'User' => 'ユーザー',
     'Workflow' => 'ワークフロー',
     'Download' => 'ダウンロード',
+    'Compose a message' => 'メッセージを作成する',
+    'Send to' => '送信先',
+    'Cc' => 'カーボンコピー',
+    '[LAMPART] Confirmation of.....' => '[LAMPART] PHPインターンシップ応募情報の確認...',
+    'To' => '宛先',
+    'nguyenvana@gmail.com' => 'nguyenvana@gmail.com',
+    'Dear Human Resources Department,' => '人事部門へ,',
+    'My name is [Your Name], and I am currently seeking job opportunities in the field of Information Technology. I am pleased to submit my application for the position of [Position Name] at [Company Name], which I found on [Source of Information, e.g., company website, LinkedIn, etc.].' => '私の名前は[Tên Bạn]で、現在情報技術の分野で仕事の機会を探しています。[情報源、例えば：会社のウェブサイト、LinkedInなど]で見つけた[Tên Vị Trí]のポジションに応募いたします。',
+    'I believe that my knowledge and experience will allow me to contribute positively to [Company Name], and I am eager to discuss further how I can contribute to the success of the team.' => '私の知識と経験が[Tên Công Ty]に積極的に貢献できると信じています。チームの成功にどのように貢献できるかをさらにお話しできる機会を楽しみにしています。',
+    'Thank you for considering my application. I look forward to hearing from you and hope to have the opportunity to interview.' => '私の応募を検討していただきありがとうございます。ご返答を楽しみにしており、面接の機会をいただけることを願っています。',
+    'Best regards,' => '敬具,',
+    'Phan Tuan Kiet' => 'ファン・トゥアン・キエット',
+    '[Phone Number]' => '[電話番号]',
+    '[Email]' => '[メール]',
+    '[LinkedIn (if applicable)]' => '[LinkedIn（該当する場合）]',
+    'Attachment' => '添付ファイル',
+    'File' => 'ファイル',
+
+
+
 
 ];

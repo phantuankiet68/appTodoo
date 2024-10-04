@@ -124,6 +124,23 @@ return [
     'User' => 'Người dùng',
     'Workflow' => 'Quy trình làm việc',
     'Download' => 'Tải xuống',
+    'Compose a message' => 'Soạn tin nhắn',
+    'Send to' => 'Gửi đến',
+    'Cc' => 'Cc',
+    '[LAMPART] Confirmation of.....' => '[LAMPART] Xác nhận thông tin.....',
+    'To' => 'Đến',
+    'nguyenvana@gmail.com' => 'nguyenvana@gmail.com',
+    'Dear Human Resources Department,' => 'Kính gửi phòng nhân sự,',
+    'My name is [Your Name], and I am currently seeking job opportunities in the field of Information Technology. I am pleased to submit my application for the position of [Position Name] at [Company Name], which I found on [Source of Information, e.g., company website, LinkedIn, etc.].' => 'Tôi tên là [Tên Bạn], hiện đang tìm kiếm cơ hội việc làm trong lĩnh vực Công nghệ Thông tin. Tôi rất vui được gửi đơn ứng tuyển cho vị trí [Tên Vị Trí] tại [Tên Công Ty] mà tôi thấy trên [Nguồn Thông Tin, ví dụ: website công ty, LinkedIn, v.v.].',
+    'I believe that my knowledge and experience will allow me to contribute positively to [Company Name], and I am eager to discuss further how I can contribute to the success of the team.' => 'Tôi tin rằng sự am hiểu và kinh nghiệm của tôi sẽ giúp tôi đóng góp tích cực vào [Tên Công Ty], và tôi rất mong có cơ hội thảo luận thêm về cách tôi có thể đóng góp vào thành công của đội ngũ.',
+    'Thank you for considering my application. I look forward to hearing from you and hope to have the opportunity to interview.' => 'Xin cảm ơn quý công ty đã xem xét đơn ứng tuyển của tôi. Tôi rất mong nhận được phản hồi từ quý công ty và hy vọng có cơ hội tham gia phỏng vấn.',
+    'Best regards,' => 'Trân trọng,',
+    'Phan Tuan Kiet' => 'Phan Tuấn Kiệt',
+    '[Phone Number]' => '[Số điện thoại]',
+    '[Email]' => '[Email]',
+    '[LinkedIn (if applicable)]' => '[LinkedIn (nếu có)]',
+    'Attachment' => 'Tệp đính kèm',
+    'File' => 'Tệp',
 
 
 ];
