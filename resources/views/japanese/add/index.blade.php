@@ -71,7 +71,7 @@
                                             <td>{{$voca->meaning_of_word}}</td>
                                             <td>{{$voca->romaji}}</td>
                                             <td>{{ $voca->category ? $voca->category->name : 'Không có danh mục' }}</td>
-                                            <td>{{$voca->created_at}}</td>
+                                            <td>{{ $voca->created_at->format('Y-m-d') }}</td>
                                             <td class="text-center">
                                                 <a href="#" onclick="showEditVocabularyPopup({{ $voca->id }})">
                                                     <i class="fa-regular fa-pen-to-square edit"></i>
@@ -97,12 +97,32 @@
             <div class="add-col-100">
                 <div class="projectTodoNotify">
                     <div class="projectTodoNotifyHeader">
-                        <form action="" class="formSearch">
-                            <div class="formInputSearch">
-                                <input type="text" value="">
-                            </div>
-                            <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </form>
+                        <div class="bodyHeader">
+                            <form action="">
+                                <div class="Users--right--btns">
+                                    <select name="date" id="date" class="select-dropdown doctor--filter">
+                                        <option>Date of Month</option>
+                                        <option value="free">Admin</option>
+                                        <option value="scheduled">Users</option>
+                                    </select>
+                                </div>
+                            </form>
+                            <form action="">
+                                <div class="Users--right--btns">
+                                    <select name="date" id="date" class="select-dropdown doctor--filter">
+                                        <option>Category</option>
+                                        <option value="free">Admin</option>
+                                        <option value="scheduled">Users</option>
+                                    </select>
+                                </div>
+                            </form>
+                            <form action="" class="formSearch">
+                                <div class="formInputSearch">
+                                    <input type="text" value="">
+                                </div>
+                                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                        </div>
                         <button class="btnCategory" onclick="CreateCategoryForm()">{{ __('messages.Add New') }}</button>
                     </div>
                     <div class="body-category-todo mt-10">
@@ -113,17 +133,31 @@
                                         <tr>
                                             <th>{{ __('messages.Structure') }}</th>
                                             <th>{{ __('messages.Structural meaning') }}</th>
+                                            <th>Ví dụ</th>
+                                            <th class="text-center">Create at</th>
+                                            <th>{{ __('messages.Category') }}</th>
                                             <th class="text-center">{{ __('messages.Settings') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>あまり~ない : không ~ lắm</td>
+                                            <td>
+                                                <div class="text-truncate">
+                                                    あまり~ない : không ~ lắm
+                                                </div>
+                                            </td>
                                             <td>
                                                 <div class="text-truncate">
                                                     「あまり」là phó từ biểu thị mức độ. Khi làm chức năng bổ nghĩa cho tính từ thì 「あまり」 được đặt trước tính từ.
                                                 </div>
                                             </td>
+                                            <td>
+                                                <div class="text-truncate">
+                                                    「あまり」là phó từ biểu thị mức độ. Khi làm chức năng bổ nghĩa cho tính từ thì 「あまり」 được đặt trước tính từ.
+                                                </div>
+                                            </td>
+                                            <td>2024-10-04 14:36:25</td>
+                                            <td>lesson 1</td>
                                             <td class="text-center">
                                                 <a href="#" onclick="showEditPopup()">
                                                     <i class="fa-regular fa-pen-to-square edit"></i>

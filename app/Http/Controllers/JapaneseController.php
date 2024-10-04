@@ -91,7 +91,7 @@ class JapaneseController extends Controller
     public function addJapanese()
     {
         $category = Category::where('key', 5)->get();
-        $vocabulary = Vocabulary::with(['category'])->paginate(10);
+        $vocabulary = Vocabulary::with(['category'])->where('language_id', 3)->paginate(10);
         return view('japanese.add.index', compact('category','vocabulary'));
     }
 }
