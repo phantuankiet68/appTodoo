@@ -27,6 +27,7 @@ class VocabularyController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'language_id' => 'required|integer',
             'category_id' => 'required|integer',
             'name' => 'required|string|max:255',
             'meaning_of_word' => 'required|string|max:255',
@@ -55,6 +56,7 @@ class VocabularyController extends Controller
     public function update(Request $request, Vocabulary $vocabulary)
     {
         $request->validate([
+            'language_id' => 'required|integer',
             'category_id' => 'required|integer',
             'name' => 'required|string|max:255',
             'meaning_of_word' => 'required|string|max:255',

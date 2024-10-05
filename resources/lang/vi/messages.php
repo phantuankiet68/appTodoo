@@ -145,5 +145,10 @@ return [
     'Structure' => 'Cấu trúc',
     'Structural meaning' => 'Nghĩa cấu trúc',
     'Vocabulary' => 'Từ vựng',
+    'Create at' => 'Tạo tại',
+    'Romaji' => 'Romaji',
+    'Example' => 'Ví dụ',
+    'Meaning of Example' => 'Nghĩa Ví dụ',
+
 
 ];

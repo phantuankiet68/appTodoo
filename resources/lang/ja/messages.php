@@ -146,7 +146,10 @@ return [
     'Structure' => '構造',
     'Structural meaning' => '構造的な意味',
     'Vocabulary' => '語彙',
-
+    'Create at' => '「作成日」',
+    'Romaji' => '「ローマ字」',
+    'Example' => '「例」',
+    'Meaning of Example' => '例の意味',
 
 
 ];

@@ -14,11 +14,11 @@
         </div>
     </div>
     <div class="tab-buttons">
-        <button class="tab-btn active" onclick="openTabVocadulary(event, 'tab1')">{{ __('messages.Vocabulary') }}</button>
+        <button class="tab-btn" onclick="openTabVocadulary(event, 'tab1')">{{ __('messages.Vocabulary') }}</button>
         <button class="tab-btn" onclick="openTabVocadulary(event, 'tab2')">{{ __('messages.Structure') }}</button>
         <button class="tab-btn" onclick="openTabVocadulary(event, 'tab3')">Tab 3</button>
     </div>
-        <div id="tab1" class="tab-content active">
+        <div id="tab1" class="tab-content">
             <div class="add-col-100">
                 <div class="projectTodoNotify">
                     <div class="projectTodoNotifyHeader">
@@ -58,7 +58,7 @@
                                         <tr>
                                             <th>{{ __('messages.Name') }}</th>
                                             <th>{{ __('messages.Meaning of word') }}</th>
-                                            <th>Romaji</th>
+                                            <th>{{ __('messages.Romaji') }}</th>
                                             <th>{{ __('messages.Category') }}</th>
                                             <th>{{ __('messages.Create at') }}</th>
                                             <th class="text-center">{{ __('messages.Settings') }}</th>
@@ -123,7 +123,7 @@
                                 <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
                         </div>
-                        <button class="btnCategory" onclick="CreateCategoryForm()">{{ __('messages.Add New') }}</button>
+                        <button class="btnCategory" onclick="CreateStructureForm()">{{ __('messages.Add New') }}</button>
                     </div>
                     <div class="body-category-todo mt-10">
                         <div class="recent--patient">
@@ -133,42 +133,47 @@
                                         <tr>
                                             <th>{{ __('messages.Structure') }}</th>
                                             <th>{{ __('messages.Structural meaning') }}</th>
-                                            <th>Ví dụ</th>
+                                            <th>{{ __('messages.Example') }}</th>
                                             <th class="text-center">Create at</th>
                                             <th>{{ __('messages.Category') }}</th>
                                             <th class="text-center">{{ __('messages.Settings') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($structures as $structure)
                                         <tr>
                                             <td>
                                                 <div class="text-truncate">
-                                                    あまり~ない : không ~ lắm
+                                                    {{$structure->structure}}
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="text-truncate">
-                                                    「あまり」là phó từ biểu thị mức độ. Khi làm chức năng bổ nghĩa cho tính từ thì 「あまり」 được đặt trước tính từ.
+                                                    「{{$structure->meaning_of_structure}}
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="text-truncate">
-                                                    「あまり」là phó từ biểu thị mức độ. Khi làm chức năng bổ nghĩa cho tính từ thì 「あまり」 được đặt trước tính từ.
+                                                    「{{$structure->example}}
                                                 </div>
                                             </td>
-                                            <td>2024-10-04 14:36:25</td>
-                                            <td>lesson 1</td>
+                                            <td>{{ $structure->created_at->format('Y-m-d') }}</td>
+                                            <td>{{ $structure->category ? $structure->category->name : 'Không có danh mục' }}</td>
                                             <td class="text-center">
-                                                <a href="#" onclick="showEditPopup()">
+                                                <a href="#" onclick="showEditStructure({{ $structure->id }})">
                                                     <i class="fa-regular fa-pen-to-square edit"></i>
                                                 </a>
-                                                <a href="#" onclick="showDeletePopup()">
+                                                <a href="#" onclick="showDeleteStructure({{ $structure->id }})">
                                                     <i class="fa-solid fa-trash delete"></i>
                                                 </a>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
+                                <div class="d-flex justify-content-center link-margin">
+                                    {{ $structures->links('') }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -254,7 +259,8 @@
 <div class="modelCreateVocabulary">
     <form method="POST" action="{{ route('vocabularies.store') }}">
     @csrf
-        <h2>{{ __('messages.Update') }}</h5>
+        <h2>{{ __('messages.Add New') }}</h5>
+        <input type="hidden" id="language_id" name="language_id" value="3"/>
         <div class="form-select-category mt-10">
             <label for="category_id">{{ __('messages.Category') }}</label>
             <select name="category_id" id="category_id">
@@ -276,7 +282,7 @@
             <input type="text" class="input-name" id="romaji" name="romaji">
         </div>
         <div class="form-btn">
-            <button>{{ __('messages.Update') }}</button>
+            <button>{{ __('messages.Add') }}</button>
         </div>
         <div class="BtnCloseCategoryTask" onclick="closeFormVocabularyPopup()">
             <p>X</p>
@@ -288,8 +294,9 @@
     <form method="POST" id="edit-vocabulary-form">
         @csrf
         @method('PUT')
-        <h2>{{ __('messages.Add New') }}</h5>
+        <h2>{{ __('messages.Update') }}</h5>
         <input type="hidden" id="voca_id" value="id"/>
+        <input type="hidden" id="language_id" name="language_id" value="3"/>
         <div class="form-select-category mt-10">
             <label for="category_id">{{ __('messages.Category') }}</label>
             <select name="category_id" id="voca_category_id">
@@ -311,7 +318,7 @@
             <input type="text" class="input-name" id="voca_romaji" name="romaji">
         </div>
         <div class="form-btn">
-            <button>{{ __('messages.Add') }}</button>
+            <button>{{ __('messages.Update') }}</button>
         </div>
         <div class="BtnCloseCategoryTask" onclick="closeEditVocabularyPopup()">
             <p>X</p>
@@ -333,7 +340,204 @@
     </form>
 </div>
 
+<div class="modelCreateFrom" id="Structure">
+    <form method="POST" action="{{ route('structures.store') }}">
+    @csrf
+        <h2>{{ __('messages.Add New') }}</h5>
+        <input type="hidden" name="language_id" value="3"/>
+        <div class="form-select-category mt-10">
+            <label for="category_id">{{ __('messages.Category') }}</label>
+            <select name="category_id">
+                @foreach($category as $cate)
+                    <option value="{{ $cate->id }}">{{ $cate->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Structure') }}</label>
+            <input type="text" class="input-name" name="structure">
+        </div>
+        <div class="form-textarea-category">
+            <label for="description">{{ __('messages.Structural meaning') }}</label>
+            <textarea class="textarea" name="meaning_of_structure"></textarea> 
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Example') }}</label>
+            <input type="text" class="input-name" name="example">
+        </div>
+        <div class="form-textarea-category">
+            <label for="description">{{ __('messages.Meaning of Example') }}</label>
+            <textarea class="textarea" name="meaning_of_example"></textarea> 
+        </div>  
+        <div class="form-btn">
+            <button>{{ __('messages.Add') }}</button>
+        </div>
+        <div class="BtnCloseCategoryTask" onclick="closeFormStructurePopup()">
+            <p>X</p>
+        </div>
+    </form>
+</div>
+
+<div class="modelEditForm" id="editStructure">
+    <form method="POST" id="edit-structure">
+        @csrf
+        @method('PUT')
+        <h2>{{ __('messages.Update') }}</h5>
+        <input type="hidden" id="structure_id" value="id"/>
+        <input type="hidden" id="language_id" name="language_id" value="3"/>
+        <div class="form-select-category mt-10">
+            <label for="category_id">{{ __('messages.Category') }}</label>
+            <select name="category_id" id="category_id">
+                @foreach($category as $cate)
+                    <option value="{{ $cate->id }}">{{ $cate->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Structure') }}</label>
+            <input type="text" class="input-name" id="structure" name="structure">
+        </div>
+        <div class="form-textarea-category">
+            <label for="description">{{ __('messages.Structural meaning') }}</label>
+            <textarea class="textarea" id="meaning_of_structure" name="meaning_of_structure"></textarea> 
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Example') }}</label>
+            <input type="text" class="input-name" id="example" name="example">
+        </div>
+        <div class="form-textarea-category">
+            <label for="description">{{ __('messages.Meaning of Example') }}</label>
+            <textarea class="textarea" id="meaning_of_example" name="meaning_of_example"></textarea> 
+        </div>  
+        <div class="form-btn">
+            <button>{{ __('messages.Add') }}</button>
+        </div>
+        <div class="BtnCloseCategoryTask" onclick="closeEditStructure()">
+            <p>X</p>
+        </div>
+    </form>
+</div>
+
+<div class="modelDelete" id="DeleteStructure">
+    <form method="POST" id="delete-Structure">
+        @csrf
+        @method('DELETE')
+        <h3>{{ __('messages.Are you sure you want to delete?') }}</h3>
+        <div class="form-btn-delete">
+            <button>{{ __('messages.Delete') }}</button>
+        </div>
+        <div class="BtnCloseCategoryTask" onclick="closeDeleteStructure()">
+            <p>X</p>
+        </div>
+    </form>
+</div>
+
 <script>
+    function CreateStructureForm(){
+        const modelCreateStructure = document.getElementById('Structure')
+        if (modelCreateStructure.style.display === 'none' || modelCreateStructure.style.display === '') {
+            modelCreateStructure.style.display = 'block'; 
+        } else {
+            modelCreateStructure.style.display = 'none';
+        }
+    }
+
+    function closeFormStructurePopup() {
+        const modelCreateStructure = document.document.getElementById('Structure')
+        if (modelCreateStructure.style.display === 'none' || modelCreateStructure.style.display === '') {
+            modelCreateStructure.style.display = 'block'; 
+        } else {
+            modelCreateStructure.style.display = 'none';
+        }
+    }
+
+    function showEditStructure(StructureId) {
+        const modelEditStructure = document.getElementById('editStructure');
+        modelEditStructure.style.display = 'block';
+
+        fetch(`/structures/${StructureId}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.getElementById('structure_id').value = StructureId;
+            document.getElementById('language_id').value = data.language_id;
+            document.getElementById('category_id').value = data.category_id;
+            document.getElementById('structure').value = data.structure;
+            document.getElementById('meaning_of_structure').value = data.meaning_of_structure;
+            document.getElementById('example').value = data.example;
+            document.getElementById('meaning_of_example').value = data.meaning_of_example;
+        })
+    }
+
+    document.getElementById('edit-structure').onsubmit = function(event) {
+        event.preventDefault();
+        const structureIdElement = document.getElementById('structure_id');
+        if (!structureIdElement) {
+            console.error('Element with ID structure_id not found');
+            return;
+        }
+        const structureId = structureIdElement.value;
+        console.log('structure ID:', structureId);
+        if (!structureId) {
+            console.error('structure ID is empty');
+            return;
+        }
+        this.action = `/structures/${structureId}`;
+        console.log('Form action set to:', this.action);
+        try {
+            this.submit();
+        } catch (error) {
+            console.error('Error during form submission:', error);
+        }
+    };
+
+    function closeEditStructure() {
+        const modelEditStructure = document.getElementById('editStructure');
+        if (modelEditStructure.style.display === 'none' || modelEditStructure.style.display === '') {
+            modelEditStructure.style.display = 'block'; 
+        } else {
+            modelEditStructure.style.display = 'none';
+        }
+    }
+
+    // Ẩn hiện popup form delete todo
+    function showDeleteStructure(StructureId) {
+        if (!StructureId) {
+            console.error('Structure ID is not provided or is invalid');
+            return;
+        }
+        const deleteStructure = document.getElementById('DeleteStructure');
+        if (!deleteStructure) {
+            console.error('Delete Structure element not found');
+            return;
+        }
+
+        deleteStructure.style.display = 'block';
+        console.log('Delete Structure displayed');
+
+        const deleteFormStructure = document.getElementById('delete-Structure');
+        if (!deleteFormStructure) {
+            console.error('Delete Structure form not found');
+            return;
+        }
+
+        deleteFormStructure.action = `/structures/${StructureId}`;
+        console.log('Delete form action set to:', deleteFormStructure.action);
+    }
+
+    // Ẩn hiện popup form delete todo
+    function closeDeleteStructure() {
+        const deleteStructure = document.getElementById('DeleteStructure');
+        if (deleteStructure.style.display === 'none' || deleteStructure.style.display === '') {
+            deleteStructure.style.display = 'block';
+        } else {
+            deleteStructure.style.display = 'none';
+        }
+    }
+
+
+    
+
     function CreateVocabularyForm(){
         const modelCreateVocabulary = document.querySelector('.modelCreateVocabulary');
         if (modelCreateVocabulary.style.display === 'none' || modelCreateVocabulary.style.display === '') {
@@ -368,6 +572,11 @@
                 document.getElementById('voca_id').value = VocabularyId;
             } else {
                 console.error('Element with ID voca_id not found');
+            }
+            if (document.getElementById('language_id')) {
+                document.getElementById('language_id').value = data.language_id;
+            } else {
+                console.error('Element with ID language_id not found');
             }
             if (document.getElementById('voca_category_id')) {
                 document.getElementById('voca_category_id').value = data.category_id;
@@ -470,34 +679,32 @@
             modelCreateTask.style.display = 'none';
         }
     }
+
     function openTabVocadulary(event, tabId) {
         var tabContents = document.querySelectorAll('.tab-content');
         tabContents.forEach(function(tabContent) {
             tabContent.classList.remove('active');
         });
-
-        // Tắt trạng thái active của tất cả các nút
         var tabButtons = document.querySelectorAll('.tab-btn');
         tabButtons.forEach(function(btn) {
             btn.classList.remove('active');
         });
 
         document.getElementById(tabId).classList.add('active');
-        
-        // Thêm class active vào nút được chọn
         event.currentTarget.classList.add('active');
-
-        // Bật tab 1 thì tắt tab 2 và tab 3
-        if (tabId === 'tab1') {
-            document.getElementById('tab2').classList.remove('active');
-            document.getElementById('tab3').classList.remove('active');
-        }
-
-        // Bật tab 2 thì tắt tab 1
-        if (tabId === 'tab2') {
-            document.getElementById('tab1').classList.remove('active');
-        }
+        localStorage.setItem('activeTab', tabId);
     }
+
+    window.onload = function() {
+        var activeTab = localStorage.getItem('activeTab');
+        if (activeTab) {
+            document.getElementById(activeTab).classList.add('active');
+            document.querySelector(`button[onclick="openTabVocadulary(event, '${activeTab}')"]`).classList.add('active');
+        } else {
+            document.getElementById('tab1').classList.add('active');
+            document.querySelector(`button[onclick="openTabVocadulary(event, 'tab1')"]`).classList.add('active');
+        }
+    };
 </script>
 
 @endsection

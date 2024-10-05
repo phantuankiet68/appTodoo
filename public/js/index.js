@@ -808,11 +808,3 @@ function openTab1(evt, tabName) {
   evt.currentTarget.className += " active";
 }
 
-// Automatically open Tab 1 on page load
-window.onload = function() {
-  // Simulate a click on the first tab button to show Tab 1 and set focus
-  document.getElementsByClassName('tablinks')[0].click();
-};
-
-
-

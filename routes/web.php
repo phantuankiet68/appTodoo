@@ -26,6 +26,8 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AssignController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\VocabularyController;
+use App\Http\Controllers\StructureController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,6 +66,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('salary', SalaryController::class);
     Route::resource('expense', ExpenseController::class);
     Route::resource('vocabularies', VocabularyController::class);
+    Route::resource('structures', StructureController::class);
     Route::post('/send-email', [MailController::class, 'sendMail'])->name('send.email');
     Route::get('/events', [EventController::class, 'getEvents']);
     Route::get('/calendar', [EventController::class, 'index'])->name('calendar.index');

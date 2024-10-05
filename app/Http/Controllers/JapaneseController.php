@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Vocabulary;
-
+use App\Models\Structure;
 class JapaneseController extends Controller
 {
     /**
@@ -92,6 +92,7 @@ class JapaneseController extends Controller
     {
         $category = Category::where('key', 5)->get();
         $vocabulary = Vocabulary::with(['category'])->where('language_id', 3)->paginate(10);
-        return view('japanese.add.index', compact('category','vocabulary'));
+        $structures = Structure::with(['category'])->where('language_id', 3)->paginate(10);
+        return view('japanese.add.index', compact('category','vocabulary','structures'));
     }
 }

@@ -1,4 +1,130 @@
 /* Model xóa Todo */
+.modelCreateFrom {
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modelCreateFrom form{
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 8% 31%;
+}
+
+.modelCreateFrom .form-input-category label{
+    width: 32%;
+}
+
+.modelCreateFrom .form-input-category input{
+    width: 75%;
+    padding: 8px 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+/* Model xóa Todo */
+.modelEditForm {
+    /* display: none; */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+    justify-content: center;
+    align-items: center;
+}
+
+.modelEditForm form{
+    position: absolute;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 8% 31%;
+}
+
+.modelEditForm .form-input-category label{
+    width: 32%;
+}
+
+.modelEditForm .form-input-category input{
+    width: 75%;
+    padding: 8px 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+#Structure{
+    display: none;
+}
+
+#editStructure{
+    display: none;
+}
+
+#DeleteStructure{
+    display: none;
+}
+
+#DeleteVocabulary{
+    display: none;
+}
+
+
+
+.modelDelete {
+    position: fixed; 
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5); 
+    justify-content: center;
+    align-items: center;
+}
+
+
+.dashboard-content.dark-mode .modelDelete form h5{
+    color: #000;
+}
+
+
+.modelDelete form{
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 15% auto;
+}
+
+
+/* Model xóa Todo */
 
 
 .modelDelete {
