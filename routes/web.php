@@ -27,6 +27,7 @@ use App\Http\Controllers\AssignController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\VocabularyController;
 use App\Http\Controllers\StructureController;
+use App\Http\Controllers\QuizItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('expense', ExpenseController::class);
     Route::resource('vocabularies', VocabularyController::class);
     Route::resource('structures', StructureController::class);
+    Route::resource('quizs', QuizItemController::class);
     Route::post('/send-email', [MailController::class, 'sendMail'])->name('send.email');
     Route::get('/events', [EventController::class, 'getEvents']);
     Route::get('/calendar', [EventController::class, 'index'])->name('calendar.index');

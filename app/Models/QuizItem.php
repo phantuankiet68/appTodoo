@@ -20,8 +20,6 @@ class QuizItem extends Model
         'answer_c',
         'answer_d',
         'answer_correct',
-        'total_wrong',
-        'total_answers',
     ];
 
     // Optionally, define relationships

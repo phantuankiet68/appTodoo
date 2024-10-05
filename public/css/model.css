@@ -75,6 +75,17 @@
     border-radius: 5px;
 }
 
+.quizItem .tables table .text-truncate {
+    max-width: 100%;
+    width: 160px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    white-space: normal;
+}
+
 #Structure{
     display: none;
 }
@@ -84,6 +95,15 @@
 }
 
 #DeleteStructure{
+    display: none;
+}
+
+
+#QuizItem{
+    display: none;
+}
+
+#editQuizItem{
     display: none;
 }
 

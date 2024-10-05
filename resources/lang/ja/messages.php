@@ -150,6 +150,7 @@ return [
     'Romaji' => '「ローマ字」',
     'Example' => '「例」',
     'Meaning of Example' => '例の意味',
-
+    'Answer' => '答え',
+    'Correct answer' => '正解',
 
 ];

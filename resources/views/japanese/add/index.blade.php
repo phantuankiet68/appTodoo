@@ -149,12 +149,12 @@
                                             </td>
                                             <td>
                                                 <div class="text-truncate">
-                                                    「{{$structure->meaning_of_structure}}
+                                                    {{$structure->meaning_of_structure}}
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="text-truncate">
-                                                    「{{$structure->example}}
+                                                    {{$structure->example}}
                                                 </div>
                                             </td>
                                             <td>{{ $structure->created_at->format('Y-m-d') }}</td>
@@ -190,37 +190,67 @@
                             </div>
                             <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
-                        <button class="btnCategory" onclick="CreateCategoryForm()">{{ __('messages.Add New') }}</button>
+                        <button class="btnCategory" onclick="CreateQuizItemForm()">{{ __('messages.Add New') }}</button>
                     </div>
-                    <div class="body-category-todo mt-10">
+                    <div class="body-category-todo mt-10 quizItem">
                         <div class="recent--patient">
                             <div class="tables">
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>{{ __('messages.Name') }}</th>
-                                            <th>{{ __('messages.Meaning of word') }}</th>
-                                            <th class="text-center">{{ __('messages.Status') }}</th>
+                                            <th>{{ __('messages.Question') }}</th>
+                                            <th>{{ __('messages.Answer') }} A</th>
+                                            <th>{{ __('messages.Answer') }} B</th>
+                                            <th>{{ __('messages.Answer') }} C</th>
+                                            <th>{{ __('messages.Answer') }} D</th>
+                                            <th class="text-center">{{ __('messages.Correct answer') }}</th>
+                                            <th class="text-center">{{ __('messages.Category') }}</th>
+                                            <th class="text-center">{{ __('messages.Create at') }}</th>
                                             <th class="text-center">{{ __('messages.Settings') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($QuizItems as $quiz)
                                         <tr>
-                                            <td>今日は</td>
-                                            <td> Chào buổi trưa</td>
-                                            <td class="text-center "> 
-                                                <input type="checkbox" name="" id="status" value="1">
+                                            <td>{{$quiz->question}}</td>
+                                            <td>
+                                                <div class="text-truncate">
+                                                    {{$quiz->answer_a}}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="text-truncate">
+                                                    {{$quiz->answer_b}}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="text-truncate">
+                                                    {{$quiz->answer_c}}
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="text-truncate">
+                                                    {{$quiz->answer_d}}
+                                                </div>
+                                            </td>
+                                            <td class="text-center">{{$quiz->answer_correct}}</td>
+                                            <td class="text-center">{{$quiz->category ? $quiz->category->name : 'Không có danh mục' }}</td>
+                                            <td class="text-center">{{$quiz->created_at->format('Y-m-d') }}</td>
                                             <td class="text-center">
-                                                <a href="#" onclick="showEditPopup()">
+                                                <a href="#" onclick="showEditQuizItem({{$quiz->id}})">
                                                     <i class="fa-regular fa-pen-to-square edit"></i>
                                                 </a>
-                                                <a href="#" onclick="showDeletePopup()">
+                                                <a href="#" onclick="showDeleteQuizItem({{$quiz->id}})">
                                                     <i class="fa-solid fa-trash delete"></i>
                                                 </a>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
+                                <div class="d-flex justify-content-center link-margin">
+                                    {{ $QuizItems->links('') }}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -432,7 +462,147 @@
     </form>
 </div>
 
+<div class="modelCreateFrom" id="QuizItem">
+    <form method="POST" action="{{ route('quizs.store') }}">
+    @csrf
+        <h2>{{ __('messages.Add New') }}</h5>
+        <input type="hidden" name="language_id" value="3"/>
+        <div class="form-select-category mt-10">
+            <label for="category_id">{{ __('messages.Category') }}</label>
+            <select name="category_id">
+                @foreach($category as $cate)
+                    <option value="{{ $cate->id }}">{{ $cate->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Question') }}</label>
+            <input type="text" class="input-name" name="question">
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Answer') }} A</label>
+            <input type="text" class="input-name" name="answer_a">
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Answer') }} B</label>
+            <input type="text" class="input-name" name="answer_b">
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Answer') }} C</label>
+            <input type="text" class="input-name" name="answer_c">
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Answer') }} D</label>
+            <input type="text" class="input-name" name="answer_d">
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Correct answer') }}</label>
+            <input type="text" class="input-name" name="answer_correct">
+        </div>
+        <div class="form-btn">
+            <button>{{ __('messages.Add') }}</button>
+        </div>
+        <div class="BtnCloseCategoryTask" onclick="closeFormQuizItem()">
+            <p>X</p>
+        </div>
+    </form>
+</div>
+<div class="modelEditForm" id="editQuizItem">
+    <form method="POST" id="edit-QuizItem">
+        @csrf
+        @method('PUT')
+        <h2>{{ __('messages.Update') }}</h5>
+        <input type="hidden" id="quiz_id" value="id"/>
+        <input type="hidden" id="language_id" name="language_id" value="3"/>
+        <div class="form-select-category mt-10">
+            <label for="category_id">{{ __('messages.Category') }}</label>
+            <select name="category_id" id="category_id">
+                @foreach($category as $cate)
+                    <option value="{{ $cate->id }}">{{ $cate->name }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Question') }}</label>
+            <input type="text" class="input-name" id="question" name="question">
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Answer') }} A</label>
+            <input type="text" class="input-name" id="answer_a" name="answer_a">
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Answer') }} B</label>
+            <input type="text" class="input-name" id="answer_b" name="answer_b">
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Answer') }} C</label>
+            <input type="text" class="input-name" id="answer_c" name="answer_c">
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Answer') }} D</label>
+            <input type="text" class="input-name" id="answer_d" name="answer_d">
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Correct answer') }}</label>
+            <input type="text" class="input-name" id="answer_correct" name="answer_correct">
+        </div>
+        <div class="form-btn">
+            <button>{{ __('messages.Update') }}</button>
+        </div>
+        <div class="BtnCloseCategoryTask" onclick="closeEditQuizItem()">
+            <p>X</p>
+        </div>
+    </form>
+</div>
+
+
 <script>
+    function CreateQuizItemForm(){
+        const modelCreateQuizItem = document.getElementById('QuizItem')
+        if (modelCreateQuizItem.style.display === 'none' || modelCreateQuizItem.style.display === '') {
+            modelCreateQuizItem.style.display = 'block'; 
+        } else {
+            modelCreateQuizItem.style.display = 'none';
+        }
+    }
+
+    function closeFormQuizItem() {
+        const modelCreateQuizItem = document.getElementById('QuizItem')
+        if (modelCreateQuizItem.style.display === 'none' || modelCreateQuizItem.style.display === '') {
+            modelCreateQuizItem.style.display = 'block'; 
+        } else {
+            modelCreateQuizItem.style.display = 'none';
+        }
+    }
+
+    function showEditQuizItem(QuizItemId) {
+        const modelEditQuizItem = document.getElementById('editQuizItem');
+        modelEditQuizItem.style.display = 'block';
+
+        fetch(`/quizs/${QuizItemId}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.getElementById('quiz_id').value = QuizItemId;
+            document.getElementById('language_id').value = data.language_id;
+            document.getElementById('category_id').value = data.category_id;
+            document.getElementById('question').value = data.question;
+            document.getElementById('answer_a').value = data.answer_a;
+            document.getElementById('answer_b').value = data.answer_b;
+            document.getElementById('answer_c').value = data.answer_c;
+            document.getElementById('answer_d').value = data.answer_d;
+            document.getElementById('answer_correct').value = data.answer_correct;
+        })
+    }
+
+    // Chức năng cập nhật thông tin qua API cho todo
+    document.getElementById('edit-QuizItem').onsubmit = function(event) {
+        event.preventDefault();
+        const QuizItemId = document.getElementById('quiz_id').value;
+        this.action = `/quizs/${QuizItemId}`;
+        this.submit();
+    }
+
     function CreateStructureForm(){
         const modelCreateStructure = document.getElementById('Structure')
         if (modelCreateStructure.style.display === 'none' || modelCreateStructure.style.display === '') {
@@ -443,7 +613,7 @@
     }
 
     function closeFormStructurePopup() {
-        const modelCreateStructure = document.document.getElementById('Structure')
+        const modelCreateStructure = document.getElementById('Structure')
         if (modelCreateStructure.style.display === 'none' || modelCreateStructure.style.display === '') {
             modelCreateStructure.style.display = 'block'; 
         } else {

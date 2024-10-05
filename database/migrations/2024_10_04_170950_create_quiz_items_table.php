@@ -23,8 +23,6 @@ return new class extends Migration
             $table->string('answer_c');
             $table->string('answer_d');
             $table->char('answer_correct', 1);
-            $table->integer('total_wrong')->default(0);
-            $table->integer('total_answers')->default(0);
             $table->timestamps();
             $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

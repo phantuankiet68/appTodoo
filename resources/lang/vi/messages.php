@@ -149,6 +149,7 @@ return [
     'Romaji' => 'Romaji',
     'Example' => 'Ví dụ',
     'Meaning of Example' => 'Nghĩa Ví dụ',
-
+    'Answer' => 'Đáp án',
+    'Correct answer' => 'Đáp án đúng',
 
 ];
