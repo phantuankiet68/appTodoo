@@ -151,5 +151,13 @@ return [
     'Meaning of Example' => 'Nghĩa Ví dụ',
     'Answer' => 'Đáp án',
     'Correct answer' => 'Đáp án đúng',
+    'Food' => 'Món ăn',
+    'Monday' => 'Thứ hai',
+    'Tuesday' => 'Thứ ba',
+    'Wednesday' => 'Thứ tư',
+    'Thursday' => 'Thứ năm',
+    'Friday' => 'Thứ sáu',
+    'Saturday' => 'Thứ bảy',
+    'Sunday' => 'Chủ nhật',
 
 ];

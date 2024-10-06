@@ -16,7 +16,7 @@
     <div class="tab-buttons">
         <button class="tab-btn" onclick="openTabVocadulary(event, 'tab1')">{{ __('messages.Vocabulary') }}</button>
         <button class="tab-btn" onclick="openTabVocadulary(event, 'tab2')">{{ __('messages.Structure') }}</button>
-        <button class="tab-btn" onclick="openTabVocadulary(event, 'tab3')">Tab 3</button>
+        <button class="tab-btn" onclick="openTabVocadulary(event, 'tab3')">{{ __('messages.Question') }}</button>
     </div>
         <div id="tab1" class="tab-content">
             <div class="add-col-100">
@@ -212,7 +212,11 @@
                                     <tbody>
                                         @foreach($QuizItems as $quiz)
                                         <tr>
-                                            <td>{{$quiz->question}}</td>
+                                            <td>
+                                                <div class="text-truncate">
+                                                    {{$quiz->question}}
+                                                </div>
+                                            </td>
                                             <td>
                                                 <div class="text-truncate">
                                                     {{$quiz->answer_a}}
@@ -463,7 +467,7 @@
 </div>
 
 <div class="modelCreateFrom" id="QuizItem">
-    <form method="POST" action="{{ route('quizs.store') }}">
+    <form method="POST" action="{{ route('quiz.store') }}">
     @csrf
         <h2>{{ __('messages.Add New') }}</h5>
         <input type="hidden" name="language_id" value="3"/>
@@ -508,7 +512,7 @@
     </form>
 </div>
 <div class="modelEditForm" id="editQuizItem">
-    <form method="POST" id="edit-QuizItem">
+    <form method="POST" id="edit-quiz-form">
         @csrf
         @method('PUT')
         <h2>{{ __('messages.Update') }}</h5>
@@ -523,27 +527,27 @@
             </select>
         </div>
         <div class="form-input-category mt-10">
-            <label for="name">{{ __('messages.Question') }}</label>
+            <label for="question">{{ __('messages.Question') }}</label>
             <input type="text" class="input-name" id="question" name="question">
         </div>
         <div class="form-input-category mt-10">
-            <label for="name">{{ __('messages.Answer') }} A</label>
+            <label for="answer_a">{{ __('messages.Answer') }} A</label>
             <input type="text" class="input-name" id="answer_a" name="answer_a">
         </div>
         <div class="form-input-category mt-10">
-            <label for="name">{{ __('messages.Answer') }} B</label>
+            <label for="answer_b">{{ __('messages.Answer') }} B</label>
             <input type="text" class="input-name" id="answer_b" name="answer_b">
         </div>
         <div class="form-input-category mt-10">
-            <label for="name">{{ __('messages.Answer') }} C</label>
+            <label for="answer_c">{{ __('messages.Answer') }} C</label>
             <input type="text" class="input-name" id="answer_c" name="answer_c">
         </div>
         <div class="form-input-category mt-10">
-            <label for="name">{{ __('messages.Answer') }} D</label>
+            <label for="answer_d">{{ __('messages.Answer') }} D</label>
             <input type="text" class="input-name" id="answer_d" name="answer_d">
         </div>
         <div class="form-input-category mt-10">
-            <label for="name">{{ __('messages.Correct answer') }}</label>
+            <label for="answer_correct">{{ __('messages.Correct answer') }}</label>
             <input type="text" class="input-name" id="answer_correct" name="answer_correct">
         </div>
         <div class="form-btn">
@@ -579,7 +583,7 @@
         const modelEditQuizItem = document.getElementById('editQuizItem');
         modelEditQuizItem.style.display = 'block';
 
-        fetch(`/quizs/${QuizItemId}`)
+        fetch(`/quiz/${QuizItemId}`)
         .then(response => response.json())
         .then(data => {
             console.log(data);
@@ -595,11 +599,10 @@
         })
     }
 
-    // Chức năng cập nhật thông tin qua API cho todo
-    document.getElementById('edit-QuizItem').onsubmit = function(event) {
+    document.getElementById('edit-quiz-form').onsubmit = function(event) {
         event.preventDefault();
-        const QuizItemId = document.getElementById('quiz_id').value;
-        this.action = `/quizs/${QuizItemId}`;
+        const quizId = document.getElementById('quiz_id').value;
+        this.action = `/quiz/${quizId}`;
         this.submit();
     }
 

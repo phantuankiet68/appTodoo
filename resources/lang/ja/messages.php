@@ -152,5 +152,13 @@ return [
     'Meaning of Example' => '例の意味',
     'Answer' => '答え',
     'Correct answer' => '正解',
+    'Food' => '料理',
+    'Monday' => '月曜日',
+    'Tuesday' => '火曜日',
+    'Wednesday' => '水曜日',
+    'Thursday' => '木曜日',
+    'Friday' => '金曜日',
+    'Saturday' => '土曜日',
+    'Sunday' => '日曜日',
 
 ];

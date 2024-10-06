@@ -28,6 +28,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\VocabularyController;
 use App\Http\Controllers\StructureController;
 use App\Http\Controllers\QuizItemController;
+use App\Http\Controllers\FoodController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,9 +67,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('work_flow', WorkflowController::class);
     Route::resource('salary', SalaryController::class);
     Route::resource('expense', ExpenseController::class);
+    Route::resource('food', FoodController::class);
     Route::resource('vocabularies', VocabularyController::class);
     Route::resource('structures', StructureController::class);
-    Route::resource('quizs', QuizItemController::class);
+    Route::resource('quiz', QuizItemController::class);
     Route::post('/send-email', [MailController::class, 'sendMail'])->name('send.email');
     Route::get('/events', [EventController::class, 'getEvents']);
     Route::get('/calendar', [EventController::class, 'index'])->name('calendar.index');

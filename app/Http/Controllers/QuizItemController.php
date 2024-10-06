@@ -61,7 +61,7 @@ class QuizItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, QuizItem $quizs)
+    public function update(Request $request, $id)
     {
         $request->validate([
             'language_id' => 'required',
@@ -73,10 +73,10 @@ class QuizItemController extends Controller
             'answer_d' => 'required',
             'answer_correct' => 'required',
         ]);
+        $issue = QuizItem::findOrFail($id);
+        $issue->update($request->all());
 
-        $quizs->update($request->all());
-
-        return redirect()->back()->with('success', 'Vocabulary updated successfully!');
+        return redirect()->back()->with('success', 'Quiz item updated successfully!');
     }
 
     /**

@@ -35,6 +35,7 @@
                     <li class="dropDownTodo"><a href="{{ route('work_flow.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Workflow') }}</a></li>
                     <li class="dropDownTodo"><a href="{{ route('salary.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Salary') }}</a></li>
                     <li class="dropDownTodo"><a href="{{ route('expense.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Expenses') }}</a></li>
+                    <li class="dropDownTodo"><a href="{{ route('food.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Food') }}</a></li>
                     <li class="titleMenu">{{ __('messages.Application') }}</li>
                     <li><a href="{{ route('cv.index') }}"><i class="fa-regular fa-file"></i>{{ __('messages.Curriculum Vitae') }}</a></li>
                     <li><a href="/calendar"><i class="fa-regular fa-calendar"></i>{{ __('messages.Calendar') }}</a></li>
