@@ -1,224 +1,3 @@
-// // script.js
-
-// const sampleCanvas = document.getElementById('sample-area');
-// const drawCanvas = document.getElementById('draw-area');
-// const sampleCtx = sampleCanvas.getContext('2d');
-// const drawCtx = drawCanvas.getContext('2d');
-// const feedback = document.getElementById('feedback');
-// const nextCharButton = document.getElementById('next-char');
-
-// sampleCanvas.width = drawCanvas.width = 200;
-// sampleCanvas.height = drawCanvas.height = 200;
-
-// let isDrawing = false;
-// let lastX = 0;
-// let lastY = 0;
-// let strokeCount = 0;
-// let maxStrokes = 1; // Số nét tối đa cho ký tự hiện tại
-// let currentCharIndex = 0;
-
-// // Mảng chứa ký tự Hiragana cùng với hình ảnh mẫu và số nét
-// const hiraganaChars = [
-//     { character: 'あ', image: 'a-path.png', strokes: 3 },
-//     { character: 'い', image: 'i-path.png', strokes: 2 },
-//     // Thêm nhiều ký tự hơn nếu cần
-// ];
-
-// function loadCharacter() {
-//     const character = hiraganaChars[currentCharIndex];
-//     const img = new Image();
-//     img.src = character.image;
-
-//     img.onload = () => {
-//         // Xóa canvas và vẽ lại hình ảnh mẫu chữ trên canvas mẫu
-//         sampleCtx.clearRect(0, 0, sampleCanvas.width, sampleCanvas.height);
-//         sampleCtx.drawImage(img, 0, 0, sampleCanvas.width, sampleCanvas.height);
-        
-//         // Xóa canvas luyện vẽ
-//         drawCtx.clearRect(0, 0, drawCanvas.width, drawCanvas.height);
-        
-//         // Đặt lại trạng thái
-//         feedback.textContent = '';
-//         nextCharButton.disabled = true;
-//         strokeCount = 0;
-//         maxStrokes = character.strokes;
-//     };
-
-//     img.onerror = () => {
-//         feedback.textContent = 'Không thể tải hình ảnh mẫu.';
-//     };
-// }
-
-// // Tải ký tự đầu tiên khi trang load
-// loadCharacter();
-
-// drawCanvas.addEventListener('mousedown', (e) => {
-//     isDrawing = true;
-//     strokeCount++; // Tăng số lần vẽ lên mỗi khi bắt đầu vẽ một nét mới
-//     [lastX, lastY] = [e.offsetX, e.offsetY];
-// });
-
-// drawCanvas.addEventListener('mousemove', draw);
-// drawCanvas.addEventListener('mouseup', () => {
-//     isDrawing = false;
-//     if (strokeCount <= maxStrokes) {
-//         checkStroke(); // Kiểm tra nét vẽ khi nhả chuột
-//     } else {
-//         feedback.textContent = 'Bạn đã vẽ sai. Hãy thử lại.';
-//         strokeCount = 0;
-//         drawCtx.clearRect(0, 0, drawCanvas.width, drawCanvas.height);
-//     }
-// });
-// drawCanvas.addEventListener('mouseout', () => isDrawing = false);
-
-// function draw(e) {
-//     if (!isDrawing) return;
-//     drawCtx.beginPath();
-//     drawCtx.moveTo(lastX, lastY);
-//     drawCtx.lineTo(e.offsetX, e.offsetY);
-//     drawCtx.strokeStyle = '#333';
-//     drawCtx.lineWidth = 4;
-//     drawCtx.stroke();
-//     [lastX, lastY] = [e.offsetX, e.offsetY];
-// }
-
-// function checkStroke() {
-//     // Kiểm tra số nét hiện tại có đúng với số nét tối đa không
-//     if (strokeCount === maxStrokes) {
-//         feedback.textContent = 'Bạn đã vẽ đúng!';
-//         nextCharButton.disabled = false;
-//     } else {
-//         feedback.textContent = 'Bạn đã vẽ sai. Hãy thử lại.';
-//     }
-// }
-
-// nextCharButton.addEventListener('click', () => {
-//     currentCharIndex = (currentCharIndex + 1) % hiraganaChars.length;
-//     loadCharacter();
-// });
-
-// script.js
-
-// script.js
-// script.js
-
-// script.js
-
-// const questions = [
-//     {
-//         question: "How is the weather today?",
-//         options: [
-//             "Cool all day",
-//             "Rainy in the early morning",
-//             "Windy at noon",
-//             "Sunny during the day"
-//         ],
-//         correctAnswer: "Sunny during the day"
-//     },
-//     {
-//         question: "What is your favorite season?",
-//         options: [
-//             "Spring",
-//             "Summer",
-//             "Autumn",
-//             "Winter"
-//         ],
-//         correctAnswer: "Summer"
-//     },
-//     {
-//         question: "Which activity do you prefer?",
-//         options: [
-//             "Reading a book",
-//             "Playing sports",
-//             "Watching movies",
-//             "Traveling"
-//         ],
-//         correctAnswer: "Traveling"
-//     },
-//     // Add more questions as needed
-// ];
-
-// let currentQuestionIndex = 0;
-// let correctAnswersCount = 0;
-// let incorrectAnswersCount = 0;
-
-// const questionContainer = document.getElementById('question-container');
-// const quizForm = document.getElementById('quiz-form');
-// const feedbackContainer = document.getElementById('feedback');
-
-// function loadQuestion() {
-//     // Clear previous question and feedback
-//     questionContainer.innerHTML = '';
-//     feedbackContainer.innerHTML = '';
-
-//     if (currentQuestionIndex < questions.length) {
-//         const questionData = questions[currentQuestionIndex];
-
-//         // Create question element
-//         const questionElement = document.createElement('div');
-//         questionElement.classList.add('question');
-//         questionElement.innerHTML = `<p>${questionData.question}</p>`;
-
-//         // Create options
-//         questionData.options.forEach((option, index) => {
-//             const optionElement = document.createElement('label');
-//             optionElement.innerHTML = `
-//                 <input type="radio" name="option" value="${option}">
-//                 ${option}
-//             `;
-//             questionElement.appendChild(optionElement);
-//             questionElement.appendChild(document.createElement('br'));
-//         });
-
-//         questionContainer.appendChild(questionElement);
-//     } else {
-//         // Show result at the end of the quiz
-//         displayResult();
-//         quizForm.style.display = 'none';
-//     }
-// }
-
-// function displayResult() {
-//     feedbackContainer.innerHTML = `
-//         <h2>Quiz Completed!</h2>
-//         <p>Correct Answers: ${correctAnswersCount}</p>
-//         <p>Incorrect Answers: ${incorrectAnswersCount}</p>
-//     `;
-//     feedbackContainer.style.color = '#007bff';
-// }
-
-// quizForm.addEventListener('submit', (e) => {
-//     e.preventDefault();
-
-//     const selectedOption = document.querySelector('input[name="option"]:checked');
-//     if (selectedOption) {
-//         const answer = selectedOption.value;
-//         const correctAnswer = questions[currentQuestionIndex].correctAnswer;
-
-//         if (answer === correctAnswer) {
-//             correctAnswersCount++;
-//             feedbackContainer.innerHTML = 'Correct!';
-//             feedbackContainer.style.color = 'green';
-//         } else {
-//             incorrectAnswersCount++;
-//             feedbackContainer.innerHTML = `Incorrect! The correct answer was: ${correctAnswer}`;
-//             feedbackContainer.style.color = 'red';
-//         }
-
-//         // Move to the next question after a short delay
-//         setTimeout(() => {
-//             currentQuestionIndex++;
-//             loadQuestion();
-//         }, 1500);
-//     } else {
-//         alert('Please select an option before submitting.');
-//     }
-// });
-
-// // Load the first question when the page loads
-// loadQuestion();
-
-
 // dashboard
 document.addEventListener("DOMContentLoaded", function() {
     const dropdowns = document.querySelectorAll('.dropdown > a');
@@ -557,6 +336,56 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+  const English = document.getElementById("English");
+  const dropDownEnglish = document.querySelectorAll(".dropDownEnglish");
+  const chevronEnglish = document.getElementById("chevronEnglish").querySelector("i");
+
+  // Thêm sự kiện click vào Dashboard
+  English.addEventListener("click", function(e) {
+      e.preventDefault();  // Ngăn trang reload
+
+      // Duyệt qua từng mục dropDown và chuyển đổi giữa hiển thị và ẩn
+      dropDownEnglish.forEach(item => {
+          item.classList.toggle("active");
+      });
+
+      // Chuyển đổi giữa chevron-up và chevron-down
+      if (chevronEnglish.classList.contains("fa-chevron-up")) {
+        chevronEnglish.classList.remove("fa-chevron-up");
+        chevronEnglish.classList.add("fa-chevron-down");
+      } else {
+        chevronEnglish.classList.remove("fa-chevron-down");
+        chevronEnglish.classList.add("fa-chevron-up");
+      }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const Question = document.getElementById("Question");
+  const dropDownQuestion = document.querySelectorAll(".dropDownQuestion");
+  const chevronQuestion = document.getElementById("chevronQuestion").querySelector("i");
+
+  // Thêm sự kiện click vào Dashboard
+  Question.addEventListener("click", function(e) {
+      e.preventDefault(); 
+      
+      dropDownQuestion.forEach(item => {
+          item.classList.toggle("active");
+      });
+
+      // Chuyển đổi giữa chevron-up và chevron-down
+      if (chevronQuestion.classList.contains("fa-chevron-up")) {
+        chevronQuestion.classList.remove("fa-chevron-up");
+        chevronQuestion.classList.add("fa-chevron-down");
+      } else {
+        chevronQuestion.classList.remove("fa-chevron-down");
+        chevronQuestion.classList.add("fa-chevron-up");
+      }
+  });
+});
+
 
 
 
@@ -719,51 +548,6 @@ function openTab(evt, tabName) {
 }
 
 
-function checkAnswers() {
-  let score = 0;
-  let incorrectAnswers = [];
-  const totalQuestions = 10;  // Đổi thành tổng số câu hỏi (ở đây là 10)
-
-  // Đáp án đúng
-  const answers = {
-      q1: "a",  // Đáp án đúng câu 1
-      q2: "a",  // Đáp án đúng câu 2
-      q3: "b",  // Đáp án đúng câu 3 (thêm tiếp cho các câu khác)
-      q4: "c",
-      q5: "b",
-      q6: "c",
-      q7: "a",
-      q8: "b",
-      q9: "c",
-      q10: "a"
-  };
-
-  // Kiểm tra từng câu trả lời
-  for (let i = 1; i <= totalQuestions; i++) {
-      let selectedAnswer = document.querySelector(`input[name="q${i}"]:checked`);
-      if (selectedAnswer) {
-          if (selectedAnswer.value === answers[`q${i}`]) {
-              score++;
-          } else {
-              incorrectAnswers.push(i);  // Lưu câu sai vào mảng
-          }
-      } else {
-          incorrectAnswers.push(i);  // Nếu không chọn câu nào, coi như sai
-      }
-  }
-
-  // Hiển thị kết quả
-  const resultDiv = document.getElementById('result');
-  const wrongCount = incorrectAnswers.length;
-  const correctCount = score;
-
-  resultDiv.innerHTML = `
-      <p>Bạn đạt ${score} trên ${totalQuestions}</p>
-      <p>Câu trả lời đúng: ${correctCount}</p>
-      <p>Câu trả lời sai: ${wrongCount}</p>
-      ${wrongCount > 0 ? `<p>Câu hỏi trả lời sai: ${incorrectAnswers.join(', ')}</p>` : ''}
-  `;
-}
 
 
 function openTab(evt, tabId) {

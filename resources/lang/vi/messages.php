@@ -159,5 +159,12 @@ return [
     'Friday' => 'Thứ sáu',
     'Saturday' => 'Thứ bảy',
     'Sunday' => 'Chủ nhật',
+    'Short paragraph' => 'Đoạn văn ngắn',
+    'Congratulations to you.'=>'Chúc mừng bạn.',
+    'You have passed the test with a perfect score, exceeding my expectations!'=>'Bạn đã vượt qua bài kiểm tra với số lương câu đúng tuyệt đối hơn tôi mong đợi của tôi!',
+    'Usually'=>'Thông thường',
+    'Interview'=>'Phỏng vấn',
+    'Language'=>'Ngôn ngữ',
+    'Learn vocabulary'=>'Học từ vựng',
 
 ];

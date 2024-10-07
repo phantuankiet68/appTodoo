@@ -160,5 +160,12 @@ return [
     'Friday' => '金曜日',
     'Saturday' => '土曜日',
     'Sunday' => '日曜日',
+    'Short paragraph' => '短い段落',
+    'Congratulations to you.'=>'おめでとうございます.',
+    'You have passed the test with a perfect score, exceeding my expectations!'=>'あなたは私の期待を超えて、完璧なスコアでテストに合格しました!',
+    'Usually'=>'通常',
+    'Interview'=>'面接',
+    'Language'=>'言語',
+    'Learn vocabulary'=>' 語彙を学ぶ',
 
 ];

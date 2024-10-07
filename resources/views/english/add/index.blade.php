@@ -295,7 +295,7 @@
     <form method="POST" action="{{ route('vocabularies.store') }}">
     @csrf
         <h2>{{ __('messages.Add New') }}</h5>
-        <input type="hidden" id="language_id" name="language_id" value="3"/>
+        <input type="hidden" id="language_id" name="language_id" value="2"/>
         <div class="form-select-category mt-10">
             <label for="category_id">{{ __('messages.Category') }}</label>
             <select name="category_id" id="category_id">
@@ -331,7 +331,7 @@
         @method('PUT')
         <h2>{{ __('messages.Update') }}</h5>
         <input type="hidden" id="voca_id" value="id"/>
-        <input type="hidden" id="language_id" name="language_id" value="3"/>
+        <input type="hidden" id="language_id" name="language_id" value="2"/>
         <div class="form-select-category mt-10">
             <label for="category_id">{{ __('messages.Category') }}</label>
             <select name="category_id" id="voca_category_id">
@@ -379,7 +379,7 @@
     <form method="POST" action="{{ route('structures.store') }}">
     @csrf
         <h2>{{ __('messages.Add New') }}</h5>
-        <input type="hidden" name="language_id" value="3"/>
+        <input type="hidden" name="language_id" value="2"/>
         <div class="form-select-category mt-10">
             <label for="category_id">{{ __('messages.Category') }}</label>
             <select name="category_id">
@@ -419,7 +419,7 @@
         @method('PUT')
         <h2>{{ __('messages.Update') }}</h5>
         <input type="hidden" id="structure_id" value="id"/>
-        <input type="hidden" id="language_id" name="language_id" value="3"/>
+        <input type="hidden" id="language_id" name="language_id" value="2"/>
         <div class="form-select-category mt-10">
             <label for="category_id">{{ __('messages.Category') }}</label>
             <select name="category_id" id="category_id">
@@ -471,7 +471,7 @@
     <form method="POST" action="{{ route('quiz.store') }}">
     @csrf
         <h2>{{ __('messages.Add New') }}</h5>
-        <input type="hidden" name="language_id" value="3"/>
+        <input type="hidden" name="language_id" value="2"/>
         <div class="form-select-category mt-10">
             <label for="category_id">{{ __('messages.Category') }}</label>
             <select name="category_id">
@@ -518,7 +518,7 @@
         @method('PUT')
         <h2>{{ __('messages.Update') }}</h5>
         <input type="hidden" id="quiz_id" value="id"/>
-        <input type="hidden" id="language_id" name="language_id" value="3"/>
+        <input type="hidden" id="language_id" name="language_id" value="2"/>
         <div class="form-select-category mt-10">
             <label for="category_id">{{ __('messages.Category') }}</label>
             <select name="category_id" id="category_id">
@@ -566,7 +566,7 @@
     <form  method="POST" action="{{ route('paragraph.store') }}" enctype="multipart/form-data">
     @csrf
         <h2>{{ __('messages.Add New') }}</h5>
-        <input type="hidden" name="language_id" value="3"/>
+        <input type="hidden" name="language_id" value="2"/>
         <div class="form-select-category mt-10">
             <label for="category_id">{{ __('messages.Category') }}</label>
             <select name="category_id">

@@ -98,6 +98,10 @@
     display: none;
 }
 
+#Paragraph{
+    display: none;
+}
+
 
 #QuizItem{
     display: none;
@@ -490,4 +494,45 @@
 
 .add-col-100 .projectTodoNotify .tables{ 
     padding:5px;
+}
+
+.formTab{
+    height: 80vh;
+    overflow: scroll;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+.sidebar ul li.dropDownQuestion {
+    display: none;
+}
+
+.sidebar ul li.dropDownQuestion.active {
+    display: flex;
+    margin-left: 10px;
+}
+
+.questionItem .tables table th,
+.questionItem .tables table td{
+    font-size: 15px;
+}
+
+.eye {
+    padding: 5px;
+    color: #4e96f5;
+    cursor: pointer;
+}
+
+.eye:hover {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.questionItem .tables table .text-truncate {
+    max-width: 100%;
+    width: 250px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    white-space: normal;
 }

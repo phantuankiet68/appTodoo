@@ -2912,11 +2912,13 @@ h3{
 }
 .formVocalory{
     width: 31.7%;
-    padding: 20px;
+    padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border-radius: 5px;
+    max-height: 140px;
 }
 
 .formVocalory h4{
@@ -2935,8 +2937,6 @@ h3{
 
 .japanese-container-right{
     width: 80%;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    padding: 10px;
 }
 
 .dashboard-content.dark-mode .japanese-container-right{
@@ -3010,6 +3010,7 @@ h3{
 
 .japanese-container-right .error-content .error-content-right .tab button{
     width: 33.3%;
+    border: 1px solid #d7d9db;
 }
 
 .lesson-content-right{
@@ -3101,6 +3102,8 @@ h3{
 
 .error-content-right .tabcontent{
     height: 80vh;
+    border-top: 0;
+    
 }
 
 .listFormVocalory{
@@ -3125,6 +3128,10 @@ h3{
     display: flex;
     flex-direction: column;
     gap: 5px;
+    border-radius: 5px;
+}
+.submitBtn{
+    margin-bottom: 50px;
 }
 
 .formGrammar p{
@@ -4558,7 +4565,9 @@ label {
 /* Định dạng cho các nút tab */
 .tab {
     overflow: hidden;
-    border-bottom: 1px solid #ccc;
+    border-bottom: none;
+    display: flex;
+    gap: 10px;
 }
 
 /* Định dạng cho các nút bên trong tab */
@@ -4797,9 +4806,16 @@ list-style: none;
 }
 
 .question {
-    width: 47.7%;
+    width: 48.7%;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    padding: 5px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.formResult{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .mt-20{
@@ -4840,7 +4856,8 @@ list-style: none;
     padding: 8px 30px;
     font-size: 16px;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 5px;
+    border: none;
 }
 
 
@@ -5226,14 +5243,32 @@ list-style: none;
 
 
 .btnCategory{
-    padding: 6px 20px;
-    background: #36ca67e3;
+    padding: 10px 20px;
+    background: #36e73d;
     color: #fff;
     font-size: 15px;
-    font-weight: 600;
     border-radius: 5px;
     cursor: pointer;
     border: none;
+}
+.lessonList{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.japanese-container-left .lessonList button {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding: 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    background-color: #fff;
+    border: none;
+}
+.btnCategory i{
+    color: #fff;
+    font-size: 15px;
 }
 
 #calendar{
@@ -5540,4 +5575,11 @@ list-style: none;
 .projecTodoBodyProcess .projectTodoNotify {
     height: 76vh;
     overflow:scroll;
+}
+
+.headerToQuesionRight button.short-paragraph {
+    width: 170px;
+    background-color: #36e73d;
+    color: #fff;
+    font-size: 15px;
 }

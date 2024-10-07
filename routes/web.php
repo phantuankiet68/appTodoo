@@ -29,6 +29,7 @@ use App\Http\Controllers\VocabularyController;
 use App\Http\Controllers\StructureController;
 use App\Http\Controllers\QuizItemController;
 use App\Http\Controllers\FoodController;
+use App\Http\Controllers\ParagraphController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,6 +72,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('vocabularies', VocabularyController::class);
     Route::resource('structures', StructureController::class);
     Route::resource('quiz', QuizItemController::class);
+    Route::post('/paragraph/store', [ParagraphController::class, 'store'])->name('paragraph.store');
+    Route::post('/quiz/submit', [JapaneseController::class, 'submitQuiz'])->name('quiz.submit');
     Route::post('/send-email', [MailController::class, 'sendMail'])->name('send.email');
     Route::get('/events', [EventController::class, 'getEvents']);
     Route::get('/calendar', [EventController::class, 'index'])->name('calendar.index');
@@ -89,6 +92,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('japanese', JapaneseController::class);
     Route::get('add_japanese', [JapaneseController::class, 'addJapanese'])->name('japanese.addJapanese');
     Route::resource('japanese', JapaneseController::class);
+    Route::get('add_english', [EnglishController::class, 'addEnglish'])->name('english.addEnglish');
     Route::resource('english', EnglishController::class);
     Route::resource('question', QuestionController::class);
     Route::resource('component', ComponentController::class);

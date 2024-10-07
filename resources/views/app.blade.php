@@ -44,8 +44,15 @@
                     <li class="bg-grey"><a href="javascript:void(0)" id="Japanese"><i class="fa-solid fa-fire"></i>{{ __('messages.Japanese') }}</a><span id="chevronJapanese"><i class="fa-solid fa-chevron-up"></i></span></li>
                     <li class="dropDownJapanese"><a href="{{ route('japanese.addJapanese') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Add New') }}</a></li>
                     <li class="dropDownJapanese"><a href="{{ route('japanese.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Japanese') }}</a></li>
-                    <li><a href="{{ route('english.index') }}"><i class="fa-solid fa-fire"></i>{{ __('messages.English') }}</a></li>
-                    <li><a href="{{ route('question.index') }}"><i class="fa-solid fa-clipboard-question"></i>{{ __('messages.Question') }}</a></li>
+                    <li class="dropDownJapanese"><a href="{{ route('japanese.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Learn vocabulary') }}</a></li>
+                    <li class="bg-grey"><a href="javascript:void(0)" id="English"><i class="fa-solid fa-fire"></i>{{ __('messages.English') }}</a><span id="chevronEnglish"><i class="fa-solid fa-chevron-up"></i></span></li>
+                    <li class="dropDownEnglish"><a href="{{ route('english.addEnglish') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Add New') }}</a></li>
+                    <li class="dropDownEnglish"><a href="{{ route('english.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.English') }}</a></li>
+                    <li class="dropDownEnglish"><a href="{{ route('english.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Learn vocabulary') }}</a></li>
+                    <li class="bg-grey"><a href="javascript:void(0)" id="Question"><i class="fa-solid fa-fire"></i>{{ __('messages.Question') }}</a><span id="chevronQuestion"><i class="fa-solid fa-chevron-up"></i></span></li>
+                    <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Usually') }}</a></li>
+                    <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Interview') }}</a></li>
+                    <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Language') }}</a></li>
                     <li class="titleMenu">{{ __('messages.User Interface') }}</li>
                     <li class="bg-grey"><a href="javascript:void(0)" id="code"><i class="fa-brands fa-codepen"></i>{{ __('messages.Code') }}</a><span id="codeChevron"><i class="fa-solid fa-chevron-up"></i></span></li>
                     <li class="dropDownCode"><a href="{{ route('component.index') }}"><i class="fa-solid fa-expand"></i>{{ __('messages.Component') }}</a></li>
