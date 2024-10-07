@@ -9,6 +9,12 @@
             <h2>Email</h2> | <span>Home</span>
         </div>
         <div class="bodyHeader">
+            <form action="" class="formSearch">
+                <div class="formInputSearch">
+                    <input type="text" value="">
+                </div>
+                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
             <form action="">
                 <div class="Users--right--btns">
                     <select name="date" id="date" class="select-dropdown doctor--filter">
@@ -26,12 +32,6 @@
                         <option value="scheduled">Users</option>
                     </select>
                 </div>
-            </form>
-            <form action="" class="formSearch">
-                <div class="formInputSearch">
-                    <input type="text" value="">
-                </div>
-                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
         <div class="headerToQuesionRight">

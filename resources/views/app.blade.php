@@ -49,7 +49,7 @@
                     <li class="dropDownEnglish"><a href="{{ route('english.addEnglish') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Add New') }}</a></li>
                     <li class="dropDownEnglish"><a href="{{ route('english.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.English') }}</a></li>
                     <li class="dropDownEnglish"><a href="{{ route('english.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Learn vocabulary') }}</a></li>
-                    <li class="bg-grey"><a href="javascript:void(0)" id="Question"><i class="fa-solid fa-fire"></i>{{ __('messages.Question') }}</a><span id="chevronQuestion"><i class="fa-solid fa-chevron-up"></i></span></li>
+                    <li class="bg-grey"><a href="javascript:void(0)" id="Question"><i class="fa-solid fa-fire"></i>{{ __('messages.Learn more') }}</a><span id="chevronQuestion"><i class="fa-solid fa-chevron-up"></i></span></li>
                     <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Usually') }}</a></li>
                     <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Interview') }}</a></li>
                     <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Language') }}</a></li>

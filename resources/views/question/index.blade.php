@@ -7,6 +7,12 @@
     <div class="questions">
     <div class="headerToQuesion">
         <div class="headerToQuesionLeft">
+            <form action="" class="formSearch">
+                <div class="formInputSearch">
+                    <input type="text" value="">
+                </div>
+                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
             <form action="">
                 <div class="Users--right--btns">
                     <select name="date" id="date" class="select-dropdown doctor--filter">
@@ -34,61 +40,173 @@
                     </select>
                 </div>
             </form>
-            <form action="" class="formSearch">
-                <div class="formInputSearch">
-                    <input type="text" value="">
-                </div>
-                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
         </div>
         <div class="headerToQuesionRight">
-            <button type="button" class="change"><i class="fa-solid fa-cash-register"></i> Thay đổi</button>
             <button type="button" class="down"><i class="fa-solid fa-download"></i> DownLoad</button>
-            <button type="button" class="create"><i class="fa-solid fa-plus"></i> Tạo mới</button>
+            <button type="button" class="create" onclick="CreateQuestionForm()"><i class="fa-solid fa-plus"></i> Tạo mới</button>
         </div>
     </div>
-    <div class="body-todo questionItem">
-        <div class="recent--patient">
-            <div class="tables">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Câu hỏi</th>
-                            <th>Trả lời</th>
-                            <th>Ngày tạo</th>
-                            <th class="text-center">Người tạo</th>
-                            <th>Cập nhật</th>
-                            <th class="text-center">hiển thị</th>
-                            <th class="text-center">Trạng thái</th>
-                            <th class="text-center">Settings</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><p class="keyId">1</p></td>
-                            <td>
-                                <div class="text-truncate">
-                                    Cameron Williamson ádsd đ áds d á ds sad
-                                </div>
-                            </td>
-                            <td>
-                                <div class="text-truncate">
-                                    aaaaaaaaaaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssssssssss sssssssssssssssssssssssssssss
-                                </div>
-                            </td>
-                            <td>30/07/2022</td>
-                            <td class="text-center">Male</td>
-                            <td>30/07/2022</td>
-                            <td class="text-center"><span><i class="fa-solid fa-eye eye"></i></span></td>
-                            <td class="text-center"> <input type="checkbox" name="" id=""></td>
-                            <td class="text-center"><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="body-todo">
+        <div class="questionList hover-container">
+            @foreach($questions as $item)
+            <div class="questionItem" onclick="showEditQuestion({{$item->id}})">
+                <div class="questionContent">
+                    <span class="questionTop">Câu hỏi: </span>
+                    <p class="questionBottom">{{$item->question}}</p>
+                </div>
+                <div class="answerContent mt-10">
+                    <span class="answerTop">Câu trả lời: </span>
+                    <p class="answerBottom">{{$item->answer}}</p>
+                </div>
+                <button class="hover-text" >Click để xem chi tiết</button>
             </div>
+            @endforeach
         </div>
     </div>
     </div>
 </div>
+<div class="modelCreateFrom" id="createQuestion">
+    <form method="POST" action="{{ route('question.store') }}">
+    @csrf
+        <h2>{{ __('messages.Add New') }}</h5>
+        @if (Auth::check())
+            <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
+        @endif
+        <div class="form-textarea-category">
+            <label for="description">{{ __('messages.Question') }}</label>
+            <textarea class="textareaQuestion" name="question"></textarea> 
+        </div>
+        <div class="form-textarea-category">
+            <label for="description">{{ __('messages.Structural meaning') }}</label>
+            <textarea class="textareaQuestion" name="answer"></textarea> 
+        </div>
+        <div class="form-btn">
+            <button>{{ __('messages.Add') }}</button>
+        </div>
+        <div class="BtnCloseCategoryTask" onclick="closeQuestionForm()">
+            <p>X</p>
+        </div>
+    </form>
+</div>
+
+<div class="model" id="showQuestionForm">
+    <div class="modelShowFrom">
+        <div class="buttonAction">
+            <button class="show"><i class="fa-solid fa-eye"></i> show</button>
+            <button class="edit"><i class="fa-solid fa-pen-to-square"></i> edit</button>
+            <button class="delete"><i class="fa-solid fa-trash"></i> delete</button>
+        </div>
+        <form method="POST" action="{{ route('question.store') }}">
+        @csrf
+            <h2>{{ __('messages.Add New') }}</h5>
+            @if (Auth::check())
+                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
+            @endif
+            <div class="form-textarea-category">
+                <label for="description">{{ __('messages.Question') }}</label>
+                <textarea class="textareaQuestion" name="question"></textarea> 
+            </div>
+            <div class="form-textarea-category">
+                <label for="description">{{ __('messages.Structural meaning') }}</label>
+                <textarea class="textareaQuestion" name="answer"></textarea> 
+            </div>
+            <div class="form-btn">
+                <button>{{ __('messages.Add') }}</button>
+            </div>
+            <div class="BtnCloseCategoryTask" onclick="closeQuestionForm()">
+                <p>X</p>
+            </div>
+        </form>
+    </div>    
+</div>
+
+
+
+<div class="modelEditForm" id="editStructure">
+    <form method="POST" id="edit-structure">
+        @csrf
+        @method('PUT')
+        <h2>{{ __('messages.Update') }}</h5>
+        <input type="hidden" id="structure_id" value="id"/>
+        <input type="hidden" id="language_id" name="language_id" value="2"/>
+
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Structure') }}</label>
+            <input type="text" class="input-name" id="structure" name="structure">
+        </div>
+        <div class="form-textarea-category">
+            <label for="description">{{ __('messages.Structural meaning') }}</label>
+            <textarea class="textarea" id="meaning_of_structure" name="meaning_of_structure"></textarea> 
+        </div>
+        <div class="form-input-category mt-10">
+            <label for="name">{{ __('messages.Example') }}</label>
+            <input type="text" class="input-name" id="example" name="example">
+        </div>
+        <div class="form-textarea-category">
+            <label for="description">{{ __('messages.Meaning of Example') }}</label>
+            <textarea class="textarea" id="meaning_of_example" name="meaning_of_example"></textarea> 
+        </div>  
+        <div class="form-btn">
+            <button>{{ __('messages.Add') }}</button>
+        </div>
+        <div class="BtnCloseCategoryTask" onclick="closeEditStructure()">
+            <p>X</p>
+        </div>
+    </form>
+</div>
+
+<div class="modelDelete" id="DeleteStructure">
+    <form method="POST" id="delete-Structure">
+        @csrf
+        @method('DELETE')
+        <h3>{{ __('messages.Are you sure you want to delete?') }}</h3>
+        <div class="form-btn-delete">
+            <button>{{ __('messages.Delete') }}</button>
+        </div>
+        <div class="BtnCloseCategoryTask" onclick="closeDeleteStructure()">
+            <p>X</p>
+        </div>
+    </form>
+</div>
+
+<script>
+    function CreateQuestionForm(){
+        const createQuestion = document.getElementById('createQuestion')
+        if (createQuestion.style.display === 'none' || createQuestion.style.display === '') {
+            createQuestion.style.display = 'block'; 
+        } else {
+            createQuestion.style.display = 'none';
+        }
+    }
+
+    function closeQuestionForm() {
+        const createQuestion = document.getElementById('createQuestion')
+        if (createQuestion.style.display === 'none' || createQuestion.style.display === '') {
+            createQuestion.style.display = 'block'; 
+        } else {
+            createQuestion.style.display = 'none';
+        }
+    }
+    function showEditQuestion(questionId) {
+        const showQuestionForm = document.getElementById('showQuestionForm');
+        showQuestionForm.style.display = 'block';
+
+        fetch(`/quiz/${QuizItemId}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            document.getElementById('quiz_id').value = QuizItemId;
+            document.getElementById('language_id').value = data.language_id;
+            document.getElementById('category_id').value = data.category_id;
+            document.getElementById('question').value = data.question;
+            document.getElementById('answer_a').value = data.answer_a;
+            document.getElementById('answer_b').value = data.answer_b;
+            document.getElementById('answer_c').value = data.answer_c;
+            document.getElementById('answer_d').value = data.answer_d;
+            document.getElementById('answer_correct').value = data.answer_correct;
+        })
+    }
+
+
+</script>
 @endsection

@@ -166,5 +166,6 @@ return [
     'Interview'=>'Phỏng vấn',
     'Language'=>'Ngôn ngữ',
     'Learn vocabulary'=>'Học từ vựng',
+    'Learn more'=>'Học thêm',
 
 ];

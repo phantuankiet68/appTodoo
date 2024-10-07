@@ -2210,6 +2210,7 @@ button.button:hover{
     background: red;
     height: 31px;
     border-bottom-left-radius: 20px;
+    border-top-right-radius: 5px;
     cursor: pointer;
 }
 

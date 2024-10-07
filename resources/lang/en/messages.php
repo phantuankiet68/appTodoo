@@ -167,7 +167,7 @@ return [
     'Interview'=>'Interview',
     'Language'=>'Language',
     'Learn vocabulary'=>'Learn vocabulary',
-    ''=>'',
+    'Learn more'=>'Learn more',
     ''=>'',''=>'',
     ''=>'',
     ''=>'',

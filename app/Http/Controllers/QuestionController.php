@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Question;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
@@ -13,17 +15,8 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        return view('question.index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $questions = Question::where('user_id', Auth::id())->get();
+        return view('question.index', compact('questions'));
     }
 
     /**
@@ -34,7 +27,18 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'question' => 'required',
+            'answer' => 'required',
+        ]);
+
+        Question::create([
+            'user_id' => auth()->id(),
+            'question' => $request->question,
+            'answer' => $request->answer,
+        ]);
+
+        return redirect()->route('question.index')->with('success', 'Question created successfully.');
     }
 
     /**

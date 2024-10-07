@@ -167,5 +167,6 @@ return [
     'Interview'=>'面接',
     'Language'=>'言語',
     'Learn vocabulary'=>' 語彙を学ぶ',
+    'Learn more'=>'追加で学ぶ',
 
 ];
