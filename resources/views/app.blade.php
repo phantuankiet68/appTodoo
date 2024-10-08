@@ -26,7 +26,7 @@
                     <h2>{{ Auth::user()->full_name }}</h2>
                 @endif
                 </div>
-                <ul class="nav-menu">
+                <ul class="nav-menu mt-20">
                     <li><a href="{{ route('dashboard.index') }}"><i class="fa-solid fa-house"></i>{{ __('messages.Dashboard') }}</a></li>
                     <li><a href="{{ route('chat.index') }}"><i class="fa-regular fa-message"></i>{{ __('messages.Message') }}</a></li>
                     <li ><a href="{{ route('issue.index') }}" id="issue"><i class="fa-solid fa-box-tissue"></i>{{ __('messages.Issues') }}</a></li>
@@ -50,14 +50,13 @@
                     <li class="dropDownEnglish"><a href="{{ route('english.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.English') }}</a></li>
                     <li class="dropDownEnglish"><a href="{{ route('english.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Learn vocabulary') }}</a></li>
                     <li class="bg-grey"><a href="javascript:void(0)" id="Question"><i class="fa-solid fa-fire"></i>{{ __('messages.Learn more') }}</a><span id="chevronQuestion"><i class="fa-solid fa-chevron-up"></i></span></li>
-                    <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Usually') }}</a></li>
-                    <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Interview') }}</a></li>
-                    <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Language') }}</a></li>
+                    <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Question') }}</a></li>
+                    <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Word') }}</a></li>
+                    <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Excel') }}</a></li>
                     <li class="titleMenu">{{ __('messages.User Interface') }}</li>
                     <li class="bg-grey"><a href="javascript:void(0)" id="code"><i class="fa-brands fa-codepen"></i>{{ __('messages.Code') }}</a><span id="codeChevron"><i class="fa-solid fa-chevron-up"></i></span></li>
                     <li class="dropDownCode"><a href="{{ route('component.index') }}"><i class="fa-solid fa-expand"></i>{{ __('messages.Component') }}</a></li>
                     <li class="dropDownCode"><a href="{{ route('color.index') }}"><i class="fa-solid fa-fill"></i>{{ __('messages.Color') }}</a></li>
-                    <li class="dropDownCode"><a href="{{ route('table.index') }}"><i class="fa-solid fa-table-list"></i>{{ __('messages.Table') }}</a></li>
                     <li class="bg-grey"><a href="javascript:void(0)" id="FrontEnd"><i class="fa-brands fa-codepen"></i>{{ __('messages.Front-end') }}</a><span id="chevronFrontEnd"><i class="fa-solid fa-chevron-up"></i></span></li>
                     <li class="dropDownFrontEnd"><a href="#"><i class="fa-regular fa-circle"></i>HTML</a></li>
                     <li class="dropDownFrontEnd"><a href="#"><i class="fa-regular fa-circle"></i>CSS</a></li>

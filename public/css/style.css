@@ -151,12 +151,12 @@ li{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 60px;
 }
 
 .sidebar .box-logo{
-   width: 80px;
-   height: 80px;
+   width: 60px;
+   height: 60px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -240,6 +240,7 @@ li{
     cursor: pointer;
     border: 1px solid #ebebeb;
     border-radius: 5px;
+    background: #a2e4f7e3;
 }
 
 .sidebar.dark-mode ul li:hover {
@@ -269,10 +270,6 @@ li{
 .sidebar.hidden {
     display: none;
 }
-.bg-grey{
-    background-color: #f1f0f0cf;
-    border-radius: 5px;
-}
 
 .sidebar ul li.dropDown {
     display: none;
@@ -284,6 +281,7 @@ li{
 .nav-menu .dropDownCode.active {
     display: block;
     margin-left: 10px;
+    width: 90%;
 }
 
 .Container .cod-top-header.dark-mode{
@@ -340,6 +338,7 @@ li{
 .nav-menu .dropDownIssue.active {
     display: block;
     margin-left: 10px;
+    width: 90%;
 }
 
 
@@ -349,6 +348,7 @@ li{
 .nav-menu .dropDownEmail.active {
     display: block;
     margin-left: 10px;
+    width: 90%;
 }
 
 
@@ -358,6 +358,7 @@ li{
 .nav-menu .dropDownTodo.active {
     display: block;
     margin-left: 10px;
+    width: 95%;
 }
 
 
@@ -367,6 +368,7 @@ li{
 .nav-menu .dropDownJapanese.active {
     display: block;
     margin-left: 10px;
+    width: 95%;
 }
 
 
@@ -376,6 +378,7 @@ li{
 .nav-menu .dropDownEnglish.active {
     display: block;
     margin-left: 10px;
+    width: 95%;
 }
 
 
@@ -385,6 +388,7 @@ li{
 .nav-menu .dropDownQuesion.active {
     display: block;
     margin-left: 10px;
+    width: 95%;
 }
 
 .sidebar ul li.dropDownFrontEnd {
@@ -393,6 +397,7 @@ li{
 .nav-menu .dropDownFrontEnd.active {
     display: block;
     margin-left: 10px;
+    width: 90%;
 }
 
 .sidebar ul li.dropDownBackEnd {
@@ -436,11 +441,13 @@ ul.nav-menu li:focus-within span i{
 }
 
 .sidebar ul li.titleMenu{
-    font-weight: 300;
-    margin-top: 5px;
+    font-weight: bold;
     margin-bottom: 0;
     color: #cecece;
     border: none;
+    background: #fff;
+    font-size: 13px;
+    text-transform: uppercase;
 }
 .sidebar ul li.titleMenu:hover{
     background-color: #fff;
@@ -454,13 +461,17 @@ ul.nav-menu li:focus-within span i{
 .sidebar ul li:hover i{
     color: #fff;
 }
+
+.sidebar ul li a i{
+    color: #fff;
+}
 .sidebar ul li:hover span{
     color: #fff;
 }
 
 .sidebar ul li a{
     width: 90%;
-    color: #353333;
+    color: #0c0808;
     font-size: 14px;
     font-weight: 400;
     font-family: "Poppins", sans-serif;
@@ -490,12 +501,12 @@ ul.nav-menu li:focus-within span i{
     width: 10%;
     text-align: right;
     color: #353333;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 400;
     font-family: "Poppins", sans-serif;
 }
 .sidebar ul li a i{
-    color: #353333;
+    color: #5c4545;
     font-size: 15px;
     margin-right: 10px;
 }
@@ -1525,9 +1536,9 @@ button.button:hover{
 }
 
 .formInputSearch input{
-    width: 150px;
-    padding: 3px 6px;
-    font-size: 16px;
+    width: 300px;
+    padding: 5px 6px;
+    font-size: 15px;
     outline: none;
     border: 1px solid #c4c4c4;
 }
@@ -1537,9 +1548,10 @@ button.button:hover{
 }
 
 .add-search{
-    padding: 6px 5px 5px;
+    padding: 6px 9px 6px;
     background: #40c3f7;
     border: 0;
+    font-size: 15px;
     cursor: pointer;
 }
 .add-search i{
@@ -2332,6 +2344,10 @@ div.ModelCreateTodo{
 
 .BtnCloseCategoryTask p{
     color:#fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
 }
 
 
@@ -3948,7 +3964,7 @@ button.btn-add{
     padding: 10px;
 }
 .component-container-right{
-    width: 82%;
+    width: 100%;
     padding: 10px;
     border: 1px solid #e2e2e2;
     margin-left: 13px;
@@ -3991,7 +4007,7 @@ button.btn-add{
 .c_card {
     padding: 5px;
     position: relative;
-    width: 23.5%;
+    width: 24%;
     height: 200px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;

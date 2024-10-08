@@ -58,7 +58,6 @@
                     <span class="answerTop">Câu trả lời: </span>
                     <p class="answerBottom">{{$item->answer}}</p>
                 </div>
-                <button class="hover-text" >Click để xem chi tiết</button>
             </div>
             @endforeach
         </div>
@@ -92,84 +91,73 @@
 <div class="model" id="showQuestionForm">
     <div class="modelShowFrom">
         <div class="buttonAction">
-            <button class="show"><i class="fa-solid fa-eye"></i> show</button>
-            <button class="edit"><i class="fa-solid fa-pen-to-square"></i> edit</button>
-            <button class="delete"><i class="fa-solid fa-trash"></i> delete</button>
+            <button class="show" onclick="showTab('show')"><i class="fa-solid fa-eye"></i> Show</button>
+            <button class="edit" onclick="showTab('edit')"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+            <button class="delete" onclick="showTab('delete')"><i class="fa-solid fa-trash"></i> Delete</button>
         </div>
-        <form method="POST" action="{{ route('question.store') }}">
-        @csrf
-            <h2>{{ __('messages.Add New') }}</h5>
-            @if (Auth::check())
-                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
-            @endif
-            <div class="form-textarea-category">
-                <label for="description">{{ __('messages.Question') }}</label>
-                <textarea class="textareaQuestion" name="question"></textarea> 
-            </div>
-            <div class="form-textarea-category">
-                <label for="description">{{ __('messages.Structural meaning') }}</label>
-                <textarea class="textareaQuestion" name="answer"></textarea> 
-            </div>
-            <div class="form-btn">
-                <button>{{ __('messages.Add') }}</button>
-            </div>
-            <div class="BtnCloseCategoryTask" onclick="closeQuestionForm()">
-                <p>X</p>
-            </div>
-        </form>
-    </div>    
-</div>
 
+        <div class="showContentQuestion" id="show">
+            <div class="popupShowQuestion">
+                <span class="questionTop">Câu hỏi: </span>
+                <p class="questionBottom" id="showQuestion1"></p>
+            </div>
+            <div class="popupShowQuestion mt-10">
+                <span class="answerTop">Câu trả lời: </span>
+                <p class="answerBottom" id="showQuestion2"></p>
+            </div>
+        </div>
 
+        <div class="editContentQuestion" id="edit" style="display: none;">
+            <form method="POST" id="edit-question-form">
+            @csrf
+            @method('PUT')
+                <input type="hidden" id="question_id" name="question_id"/>
+                @if (Auth::check())
+                    <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
+                @endif
+                <div class="form-textarea-category">
+                    <label for="description">{{ __('messages.Question') }}</label>
+                    <textarea class="textareaQuestion" name="question" id="question"></textarea> 
+                </div>
+                <div class="form-textarea-category">
+                    <label for="description">{{ __('messages.Structural meaning') }}</label>
+                    <textarea class="textareaQuestion" name="answer" id="answer"></textarea> 
+                </div>
+                <div class="form-btn">
+                    <button>{{ __('messages.Update') }}</button>
+                </div>
+            </form>
+        </div>
 
-<div class="modelEditForm" id="editStructure">
-    <form method="POST" id="edit-structure">
-        @csrf
-        @method('PUT')
-        <h2>{{ __('messages.Update') }}</h5>
-        <input type="hidden" id="structure_id" value="id"/>
-        <input type="hidden" id="language_id" name="language_id" value="2"/>
-
-        <div class="form-input-category mt-10">
-            <label for="name">{{ __('messages.Structure') }}</label>
-            <input type="text" class="input-name" id="structure" name="structure">
+        <div class="deleteContentQuestion" id="delete" style="display: none;">
+            <form method="POST" id="delete-Question">
+                @csrf
+                @method('DELETE')
+                <h3 class="text-center">{{ __('messages.Are you sure you want to delete?') }}</h3>
+                <p id="deleteQuestion"></p>
+                <div class="form-btn-delete">
+                    <button type="submit">{{ __('messages.Delete') }}</button>
+                </div>
+            </form>
         </div>
-        <div class="form-textarea-category">
-            <label for="description">{{ __('messages.Structural meaning') }}</label>
-            <textarea class="textarea" id="meaning_of_structure" name="meaning_of_structure"></textarea> 
-        </div>
-        <div class="form-input-category mt-10">
-            <label for="name">{{ __('messages.Example') }}</label>
-            <input type="text" class="input-name" id="example" name="example">
-        </div>
-        <div class="form-textarea-category">
-            <label for="description">{{ __('messages.Meaning of Example') }}</label>
-            <textarea class="textarea" id="meaning_of_example" name="meaning_of_example"></textarea> 
-        </div>  
-        <div class="form-btn">
-            <button>{{ __('messages.Add') }}</button>
-        </div>
-        <div class="BtnCloseCategoryTask" onclick="closeEditStructure()">
+        <div class="BtnCloseCategoryTask" onclick="closeShowQuestion()">
             <p>X</p>
         </div>
-    </form>
+    </div>
 </div>
 
-<div class="modelDelete" id="DeleteStructure">
-    <form method="POST" id="delete-Structure">
-        @csrf
-        @method('DELETE')
-        <h3>{{ __('messages.Are you sure you want to delete?') }}</h3>
-        <div class="form-btn-delete">
-            <button>{{ __('messages.Delete') }}</button>
-        </div>
-        <div class="BtnCloseCategoryTask" onclick="closeDeleteStructure()">
-            <p>X</p>
-        </div>
-    </form>
-</div>
+
 
 <script>
+      function showTab(tab) {
+        // Ẩn tất cả các tab
+        document.getElementById('show').style.display = 'none';
+        document.getElementById('edit').style.display = 'none';
+        document.getElementById('delete').style.display = 'none';
+
+        // Hiển thị tab được nhấn
+        document.getElementById(tab).style.display = 'block';
+    }
     function CreateQuestionForm(){
         const createQuestion = document.getElementById('createQuestion')
         if (createQuestion.style.display === 'none' || createQuestion.style.display === '') {
@@ -191,20 +179,39 @@
         const showQuestionForm = document.getElementById('showQuestionForm');
         showQuestionForm.style.display = 'block';
 
-        fetch(`/quiz/${QuizItemId}`)
+        fetch(`/question/${questionId}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
-            document.getElementById('quiz_id').value = QuizItemId;
-            document.getElementById('language_id').value = data.language_id;
-            document.getElementById('category_id').value = data.category_id;
-            document.getElementById('question').value = data.question;
-            document.getElementById('answer_a').value = data.answer_a;
-            document.getElementById('answer_b').value = data.answer_b;
-            document.getElementById('answer_c').value = data.answer_c;
-            document.getElementById('answer_d').value = data.answer_d;
-            document.getElementById('answer_correct').value = data.answer_correct;
+            document.getElementById('question_id').value = questionId;
+            document.getElementById('showQuestion1').innerHTML = data.question;
+            document.getElementById('showQuestion2').innerHTML = data.answer;
+            document.getElementById('question').innerHTML = data.question;
+            document.getElementById('answer').innerHTML = data.answer;
+            document.getElementById('deleteQuestion').innerHTML = data.question;
         })
+    }
+    
+    document.getElementById('edit-question-form').onsubmit = function(event) {
+        event.preventDefault();
+        const questionId = document.getElementById('question_id').value;
+        this.action = `/question/${questionId}`;
+        this.submit();
+    }
+
+    document.getElementById('delete-Question').onsubmit = function(event) {
+        event.preventDefault();
+        const questionId = document.getElementById('question_id').value;
+        this.action = `/question/${questionId}`;
+        this.submit();
+    }
+
+    function closeShowQuestion() {
+        const showQuestionForm = document.getElementById('showQuestionForm')
+        if (showQuestionForm.style.display === 'none' || showQuestionForm.style.display === '') {
+            showQuestionForm.style.display = 'block'; 
+        } else {
+            showQuestionForm.style.display = 'none';
+        }
     }
 
 

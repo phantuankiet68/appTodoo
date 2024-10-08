@@ -168,5 +168,8 @@ return [
     'Language'=>'言語',
     'Learn vocabulary'=>' 語彙を学ぶ',
     'Learn more'=>'追加で学ぶ',
-
+    'Word'=>'単語',
+    'Excel'=>'エクセル',
+    'Link'=>'リンク',
+    'Save changes'=>'変更を保存する',
 ];

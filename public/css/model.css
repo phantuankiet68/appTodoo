@@ -1,4 +1,28 @@
 /* Model xóa Todo */
+
+.modelCreateFromBig {
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    max-width: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.modelCreateFromBig .modelForm{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.modelFormLeft,.modelFormRight{
+    width: 50%;
+}
+
 .modelCreateFrom {
     position: fixed; /* Stay in place */
     z-index: 1000; /* Sit on top */
@@ -183,6 +207,12 @@
 
 #showQuestionForm{
     display: none;
+}
+
+
+.showContentQuestion{
+    width: 100%;
+    margin: 20px 0;
 }
 
 
@@ -579,6 +609,7 @@
 .sidebar ul li.dropDownQuestion.active {
     display: flex;
     margin-left: 10px;
+    width: 95%;
 }
 
 .questionItem .tables table th,
@@ -623,7 +654,7 @@
     cursor: pointer;
 }
 
-.questionContent .questionTop{
+.questionTop{
     color: red;
 }
 
@@ -640,7 +671,7 @@
 }
 
 
-.answerContent .answerTop{
+.answerTop{
     color: rgb(255, 175, 63);
 }
 
@@ -664,33 +695,95 @@
     outline: none;
     border-radius: 5px;
     padding: 5px;
-}
-.hover-container {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-}
-
-.hover-text {
-    visibility: hidden;
-    background-color: #7adafd;
-    color: #fff;
-    text-align: center;
-    border-radius: 5px;
-    padding: 5px 10px;
-    position: absolute;
-    top: 5px;
-    left: 13.8%;
     font-size: 15px;
-    transform: translateX(-50%);
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.3s;
-    border: none;
-    cursor: pointer;
+}
+.questionItem:hover{
+    box-shadow: rgba(35, 188, 253, 0.12) 0px 2px 4px 0px, rgba(30, 187, 255, 0.32) 0px 2px 16px 0px;
+    border: 1px solid #6ac4ff;
+}
+.editContentQuestion,.deleteContentQuestion{
+    width: 100%;
+    margin: 20px 0;
 }
 
-.hover-container:hover .hover-text {
-    visibility: visible;
-    opacity: 1;
+#file-input {
+    display: none;
+}
+
+.preview {
+    padding: 32px 30px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    max-width: 263px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    margin-top: 5px;
+}
+
+.preview .img-preview {
+    width: 100%;
+    height: auto;
+}
+.preview .img-preview img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.preview label {
+    font-size: 15px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 8px;
+    padding: 5px 20px;
+    background-color: rgb(101, 101, 255);
+    margin-top: 20px;
+}
+
+.modelContent{
+    display: flex;
+    gap: 10px;
+}
+.modelContentDescription{
+    width: 50%;
+}
+.textareaBigSize {
+    resize: none;
+    height: 315px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 15px;
+}
+.modelFormRight .form-textarea-category{
+    margin-top: 0;
+}
+.modelFormRight .form-textarea-category .mt-10{
+    margin-top: 10px;
+}
+.saveAction{
+    width: 100%;
+    display: flex;
+}
+.saveAction button{
+    width: 13%;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    background-color:#2099ff;
+    color: #fff;
+    font-size: 16px;
+}
+.saveAction h2{
+    width: 75%;
+}
+
+#createComponent{
+    display: none;
 }

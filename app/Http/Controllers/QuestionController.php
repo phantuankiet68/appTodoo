@@ -49,18 +49,8 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $questions = Question::findOrFail($id);
+        return response()->json($questions);
     }
 
     /**
@@ -72,7 +62,15 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'user_id' => 'required',
+            'question' => 'required',
+            'answer' => 'required',
+        ]);
+        $questions = Question::findOrFail($id);
+        $questions->update($request->all());
+
+        return redirect()->back()->with('success', 'Quiz item updated successfully!');
     }
 
     /**
@@ -83,6 +81,8 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $questions = Question::findOrFail($id);
+        $questions->delete();
+        return redirect()->back()->with('success', 'Deleted successfully');
     }
 }

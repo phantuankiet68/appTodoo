@@ -167,5 +167,9 @@ return [
     'Language'=>'Ngôn ngữ',
     'Learn vocabulary'=>'Học từ vựng',
     'Learn more'=>'Học thêm',
+    'Word'=>'Word',
+    'Excel'=>'Excel',
+    'Link'=>'liên kết',
+    'Save changes'=>'Lưu thay đổi',
 
 ];
