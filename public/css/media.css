@@ -177,6 +177,14 @@
         gap: 15px;
         flex-wrap: wrap;
     }
+    .c_card {
+        padding: 5px;
+        position: relative;
+        width: 23.65%;
+        height: 200px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
     
    
 }

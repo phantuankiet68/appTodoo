@@ -25,7 +25,7 @@ class ParagraphController extends Controller
 
         // Lưu hình ảnh nếu có
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
+            $imagePath = $request->file('image')->store('images', 'public/assets');
             $validatedData['image'] = $imagePath;
         }
 

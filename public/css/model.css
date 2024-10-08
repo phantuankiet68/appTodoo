@@ -4,7 +4,7 @@
     padding: 10px;
     position: absolute;
     width: 100%;
-    max-width: 60%;
+    max-width: 76%;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -142,14 +142,14 @@
     z-index: 1;
 }
 
-.modelShowFrom .buttonAction .show{
+.buttonAction .show{
     background-color: #6ac4ff;
     margin-right: 5px;
 }
-.modelShowFrom .buttonAction .edit{
+.buttonAction .edit{
     background-color: #f19f2c;
 }
-.modelShowFrom .buttonAction .delete{
+.buttonAction .delete{
     background-color: #f12c2c;
 }
 
@@ -162,7 +162,7 @@
     font-weight: bold;
 }
 
-.modelShowFrom .buttonAction button {
+.buttonAction button {
     padding: 8px 15px;
     background-color: #6ac4ff;
     border: none;
@@ -215,8 +215,44 @@
     margin: 20px 0;
 }
 
+#showComponentForm{
+    display: none;
+}
 
+.showCodeComponent{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
 
+.popupShowCode{
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    width: 33%;
+    height: 380px;
+    overflow: scroll;
+    padding: 10px;
+}
+
+.popupShowCode p{
+    font-size: 13px;
+}
+
+.showContentComponent{
+    width: 100%;
+    margin: 20px 0;
+}
+.showNameComponent{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.titleEditError{
+    width: 100%;
+    padding: 20px;
+}
 .modelDelete {
     position: fixed; 
     z-index: 1000;
