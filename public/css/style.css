@@ -240,7 +240,7 @@ li{
     cursor: pointer;
     border: 1px solid #ebebeb;
     border-radius: 5px;
-    background: #a2e4f7e3;
+    background: #d5efff3d;
 }
 
 .sidebar.dark-mode ul li:hover {
@@ -3959,15 +3959,27 @@ button.btn-add{
 }
 
 .component-container-left{
-    width: 18%;
+    width: 25%;
     border: 1px solid #e2e2e2;
     padding: 10px;
 }
 .component-container-right{
+    width: 85%;
+    padding: 10px;
+    border: 1px solid #e2e2e2;
+    overflow: scroll;
+}
+.component-color{
     width: 100%;
     padding: 10px;
     border: 1px solid #e2e2e2;
-    margin-left: 13px;
+    overflow: scroll;
+}
+
+.html-container{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e2e2e2;
     overflow: scroll;
 }
 
@@ -4000,7 +4012,7 @@ button.btn-add{
 .component-card{
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
@@ -4009,14 +4021,15 @@ button.btn-add{
     position: relative;
     width: 24%;
     height: 200px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: rgb(141 220 255 / 12%) 0px 2px 4px 0px, rgb(76 201 255 / 32%) 0px 2px 16px 0px;
     overflow: hidden;
+    border-radius: 10px;
 }
 
 .color_card {
     position: relative; /* Để đặt note tương đối với phần tử này */
     width: 10%; /* Đặt kích thước cho thẻ color_card (có thể thay đổi) */
-    height: 50px;
+    height: 80px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border-radius: 5px;
 }
@@ -4035,14 +4048,14 @@ button.btn-add{
     top: 0;
     left: 0;
     width: 100%;
-    height: auto;
-    background-color: #a0cbfc;
+    height: 100%;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
 
 .color-box p{
-    color: #fff;
+    text-align: center;
+    color: #000;
     font-size: 13px;
     width: 100%;
     overflow: scroll;

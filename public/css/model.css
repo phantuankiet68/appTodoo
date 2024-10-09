@@ -19,9 +19,49 @@
     gap: 10px;
 }
 
+.modelCreateFromNormal {
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    max-width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.modelCreateFromNormal .modelForm{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.modelCreateFromSmall {
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    max-width: 20%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.modelCreateFromNSmall .modelForm{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
 .modelFormLeft,.modelFormRight{
     width: 50%;
 }
+
+
 
 .modelCreateFrom {
     position: fixed; /* Stay in place */
@@ -237,7 +277,13 @@
 .popupShowCode p{
     font-size: 13px;
 }
-
+.p-color{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .showContentComponent{
     width: 100%;
     margin: 20px 0;
@@ -247,6 +293,10 @@
     flex-direction: column;
     gap: 10px;
     margin-bottom: 20px;
+}
+
+#createColor{
+    display: none;
 }
 
 .titleEditError{
@@ -806,7 +856,7 @@
     display: flex;
 }
 .saveAction button{
-    width: 13%;
+    width: 18%;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -815,6 +865,25 @@
     background-color:#2099ff;
     color: #fff;
     font-size: 16px;
+}
+
+.modelCreateFromNormal .preview{
+    margin: 0;
+    max-width: 231px;
+    width: 100%;
+}
+.mb-10{
+    margin-bottom: 10px;
+}
+
+.mx-10{
+    margin: 10px 0;
+}
+.form-textarea-big{
+    width: 74%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
 }
 .saveAction h2{
     width: 75%;

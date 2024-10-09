@@ -30,6 +30,7 @@ use App\Http\Controllers\StructureController;
 use App\Http\Controllers\QuizItemController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\ParagraphController;
+use App\Http\Controllers\HtmlController;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +97,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('english', EnglishController::class);
     Route::resource('question', QuestionController::class);
     Route::resource('component', ComponentController::class);
-    Route::resource('color', ColorController::class);
+    Route::resource('colors', ColorController::class);
     Route::resource('table', TableController::class);
+    Route::resource('htmls', HtmlController::class);
 });
