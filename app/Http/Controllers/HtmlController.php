@@ -14,7 +14,8 @@ class HtmlController extends Controller
      */
     public function index()
     {
-        return view('html.index');
+        $html = Html::with(['category'])->where('category_id', 24)->get();
+        return view('html.index',compact('html'));
     }
 
     /**
@@ -53,7 +54,7 @@ class HtmlController extends Controller
             $relativePath = $filename;
         }
     
-        Component::create([
+        Html::create([
             'user_id' => $request->user_id,
             'category_id' => $request->category_id,
             'name' => $request->name,

@@ -27,19 +27,21 @@
         </div>
         <div class="headerToQuesionRight">
             <button type="button" class="change"><i class="fa-solid fa-cash-register"></i> Thay đổi</button>
-            <button type="button" class="create" onclick="CreateComponentForm()"><i class="fa-solid fa-plus"></i> Tạo mới</button>
+            <button type="button" class="create" onclick="CreateHtmlForm()"><i class="fa-solid fa-plus"></i> Tạo mới</button>
         </div>
     </div>
     <div class="component-container">
         <div class="html-container">
             <div class="component-card">
+                @foreach($htmls as $item)
                 <div class="c_card">
                     <img src="" alt="Image Description" />
                     <div class="overlay">
                         Thông tin hiển thị
-                        <button onclick="showEditComponent()">xem</button>
+                        <button onclick="showEditHtml()">xem</button>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -84,7 +86,7 @@
                 </div>
             </div>
         </form>
-        <div class="BtnCloseCategoryTask" onclick="closeComponentForm()">
+        <div class="BtnCloseCategoryTask" onclick="closeHtmlForm()">
             <p>X</p>
         </div>
     </div>
@@ -204,21 +206,21 @@
         // Hiển thị tab được nhấn
         document.getElementById(tab).style.display = 'block';
     }
-     function CreateComponentForm(){
-        const CreateComponentForm = document.getElementById('createComponent')
-        if (CreateComponentForm.style.display === 'none' || CreateComponentForm.style.display === '') {
-            CreateComponentForm.style.display = 'block'; 
+     function CreateHtmlForm(){
+        const CreateHtmlForm = document.getElementById('createHtml')
+        if (CreateHtmlForm.style.display === 'none' || CreateHtmlForm.style.display === '') {
+            CreateHtmlForm.style.display = 'block'; 
         } else {
-            CreateComponentForm.style.display = 'none';
+            CreateHtmlForm.style.display = 'none';
         }
     }
 
-    function closeComponentForm() {
-        const CreateComponentForm = document.getElementById('createComponent')
-        if (CreateComponentForm.style.display === 'none' || CreateComponentForm.style.display === '') {
-            CreateComponentForm.style.display = 'block'; 
+    function closeHtmlForm() {
+        const CreateHtmlForm = document.getElementById('createHtml')
+        if (CreateHtmlForm.style.display === 'none' || CreateHtmlForm.style.display === '') {
+            CreateHtmlForm.style.display = 'block'; 
         } else {
-            CreateComponentForm.style.display = 'none';
+            CreateHtmlForm.style.display = 'none';
         }
     }
     const input = document.getElementById('file-input');

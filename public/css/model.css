@@ -892,3 +892,7 @@
 #createComponent{
     display: none;
 }
+
+#createHtml{
+    display: none;
+}
