@@ -121,7 +121,7 @@
                         </li>
                         <button class="assignUserBtn" onclick="openAssignUser()">Assign User</button>
                         <div class="assignUserBtnTonggle">
-                            <form action="{{ route('assign.store', $issue->id) }}" method="POST">
+                            <form action="{{ route('assign.index_add', $issue->id) }}" method="POST">
                             @csrf
                                 <p class="text-center">Assign User</p>
                                 <input type="hidden" class="input-name" id="issue_id" name="issue_id" value="{{$issue->id}}">

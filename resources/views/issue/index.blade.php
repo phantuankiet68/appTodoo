@@ -9,24 +9,17 @@
             <h2>{{ __('messages.Issue') }}</h2> | <span>{{ __('messages.Home') }}</span>
         </div>
         <div class="bodyHeader">
-            <form action="">
+            <form action="{{ route('issue.searchSelect') }}" method="GET" id="categoryForm">
                 <div class="Users--right--btns">
-                    <select name="date" id="date" class="select-dropdown doctor--filter">
-                        <option>Date of Month</option>
-                        <option value="free">Admin</option>
-                        <option value="scheduled">Users</option>
+                    <select name="category_id" id="category" class="select-dropdown doctor--filter" onchange="document.getElementById('categoryForm').submit();">
+                        <option value="">Category</option>
+                        @foreach($category as $cat)
+                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                        @endforeach
                     </select>
                 </div>
             </form>
-            <form action="">
-                <div class="Users--right--btns">
-                    <select name="date" id="date" class="select-dropdown doctor--filter">
-                        <option>Category</option>
-                        <option value="free">Admin</option>
-                        <option value="scheduled">Users</option>
-                    </select>
-                </div>
-            </form>
+            
             <form action="">
                 <div class="Users--right--btns">
                     <select name="date" id="date" class="select-dropdown doctor--filter">
@@ -36,16 +29,7 @@
                     </select>
                 </div>
             </form>
-            <form action="">
-                <div class="Users--right--btns">
-                    <select name="date" id="date" class="select-dropdown doctor--filter">
-                        <option >Filter</option>
-                        <option value="free">Admin</option>
-                        <option value="scheduled">Users</option>
-                    </select>
-                </div>
-            </form>
-            <form action="" class="formSearch">
+            <form action="" class="formSearch formIssue">
                 <div class="formInputSearch">
                     <input type="text" value="">
                 </div>
@@ -53,6 +37,7 @@
             </form>
         </div>
         <div class="footerHeader">
+            <button class="btn-show" id="openStaskIssue" onclick="openCategoryIssue()">Show Category</button>
             <button class="btn-add" id="openStaskIssue" onclick="openStaskIssue()">{{ __('messages.Add New') }}</button>
         </div>
     </div>
@@ -75,6 +60,7 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if($issues->count())
                         @foreach($issues as $issue)
                         <tr>
                             <td class="jus-center">
@@ -116,6 +102,9 @@
                             </td>
                         </tr>
                         @endforeach
+                        @else
+                            <p>No issues found for this category.</p>
+                        @endif
                     </tbody>
                 </table>
                 <div class="pagination">
@@ -126,7 +115,7 @@
                 </div>
             </div>
         </div>
-        <div class="projecTodoBodyNotify">
+        <div class="categoryHidden">
             <div class="projectTodoNotify">
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -245,75 +234,76 @@
         </div>
     </form>
 </div>
-
-<div class="ModelCreateIssue">
-    <form  method="POST" action="{{ route('issue.store') }}" >
-    @csrf
-        <h2>{{ __('messages.Add New') }}</h5>
-        @if (Auth::check())
-            <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
-        @endif
-        <div class="form-input-category">
-            <label for="subject">{{ __('messages.Subject') }}</label>
-            <input type="text" class="input-name" id="subject" name="subject">
-        </div>
-        <div class="form-group-info">
+<div class="model" id="ModelCreateIssue">
+    <div class="ModelCreateIssue">
+        <form  method="POST" class="modelForm" action="{{ route('issue.store') }}" >
+        @csrf
+            <h2>{{ __('messages.Add New') }}</h5>
+            @if (Auth::check())
+                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
+            @endif
             <div class="form-input-category">
-                <label for="key">{{ __('messages.Key') }}</label>
-                <input type="text" class="input-name" id="key_issue" name="key">
-                <button type="button" class="btnGenerate" onclick="generateButton()" >Generate</button>
+                <label for="subject">{{ __('messages.Subject') }}</label>
+                <input type="text" class="input-name" id="subject" name="subject">
             </div>
-            <div class="form-select-category">
-                <label for="level">{{ __('messages.Level') }}</label>
-                <select name="level" id="level">
-                    <option value="0">{{ __('messages.Normal') }}</option>
-                    <option value="1">{{ __('messages.Important') }}</option>
-                </select>
+            <div class="form-group-info">
+                <div class="form-input-category">
+                    <label for="key">{{ __('messages.Key') }}</label>
+                    <input type="text" class="input-name" id="key_issue" name="key">
+                    <button type="button" class="btnGenerate" onclick="generateButton()" >Generate</button>
+                </div>
+                <div class="form-select-category">
+                    <label for="level">{{ __('messages.Level') }}</label>
+                    <select name="level" id="level">
+                        <option value="0">{{ __('messages.Normal') }}</option>
+                        <option value="1">{{ __('messages.Important') }}</option>
+                    </select>
+                </div>
             </div>
-        </div>
-        <div class="form-textarea-category">
-            <label for="description">{{ __('messages.Description') }}</label>
-            <textarea id="editor" name="description"></textarea> 
-        </div>
-        <div class="form-input-category mt-10">
-            <label for="reference">{{ __('messages.Reference') }}</label>
-            <input type="text" class="input-name" id="reference" name="reference">
-        </div>
-        <div class="form-group-info">
-            <div class="form-input-category">
-                <label for="start_date">{{ __('messages.Start Date') }}</label>
-                <input type="date" class="input-name" id="start_date" name="start_date">
+            <div class="form-textarea-category">
+                <label for="description">{{ __('messages.Description') }}</label>
+                <textarea id="editor" name="description"></textarea> 
             </div>
-            <div class="form-input-category">
-                <label for="end_date">{{ __('messages.End Date') }}</label>
-                <input type="date" class="input-name" id="end_date" name="end_date">
+            <div class="form-input-category mt-10">
+                <label for="reference">{{ __('messages.Reference') }}</label>
+                <input type="text" class="input-name" id="reference" name="reference">
             </div>
-        </div>
-        <div class="form-group-info">
-            <div class="form-select-category">
-                <label for="status">{{ __('messages.Category') }}</label>
-                <select name="category_id" id="status">
-                @foreach($category as $cate)
-                    <option value="{{ $cate->id }}">{{ $cate->name }}</option>
-                @endforeach
-                </select>
+            <div class="form-group-info">
+                <div class="form-input-category">
+                    <label for="start_date">{{ __('messages.Start Date') }}</label>
+                    <input type="date" class="input-name" id="start_date" name="start_date">
+                </div>
+                <div class="form-input-category">
+                    <label for="end_date">{{ __('messages.End Date') }}</label>
+                    <input type="date" class="input-name" id="end_date" name="end_date">
+                </div>
             </div>
-            <div class="form-select-category">
-                <label for="status">{{ __('messages.Status') }}</label>
-                <select name="status" id="status">
-                    <option value="0">{{ __('messages.Not done') }}</option>
-                    <option value="1">{{ __('messages.Done') }}</option>
-                    <option value="2">{{ __('messages.Just created') }}</option>
-                </select>
+            <div class="form-group-info">
+                <div class="form-select-category">
+                    <label for="status">{{ __('messages.Category') }}</label>
+                    <select name="category_id" id="status">
+                    @foreach($category as $cate)
+                        <option value="{{ $cate->id }}">{{ $cate->name }}</option>
+                    @endforeach
+                    </select>
+                </div>
+                <div class="form-select-category">
+                    <label for="status">{{ __('messages.Status') }}</label>
+                    <select name="status" id="status">
+                        <option value="0">{{ __('messages.Not done') }}</option>
+                        <option value="1">{{ __('messages.Done') }}</option>
+                        <option value="2">{{ __('messages.Just created') }}</option>
+                    </select>
+                </div>
             </div>
-        </div>
-        <div class="form-btn">
-            <button type="submit">{{ __('messages.Add') }}</button>
-        </div>
-        <div class="BtnCloseCreate" onclick="closeCreateIssuePopup()">
-            <p>X</p>
-        </div>
-    </form>
+            <div class="form-btn">
+                <button type="submit">{{ __('messages.Add') }}</button>
+            </div>
+            <div class="BtnCloseCreate" onclick="closeCreateIssuePopup()">
+                <p>X</p>
+            </div>
+        </form>
+    </div>
 </div>
 <div class="modelDeleteFormIssue">
     <form method="POST" id="delete-issue-form">
@@ -334,25 +324,28 @@
 </script>
 
 <script>
-
-    function openStaskIssue() {
-        const modelCreateIssue = document.querySelector('.ModelCreateIssue');
-        
-        // Kiểm tra nếu popup đang ẩn (display: none)
-        if (modelCreateIssue.style.display === 'none' || modelCreateIssue.style.display === '') {
-            modelCreateIssue.style.display = 'block'; // Hiển thị popup
+    function openCategoryIssue(){
+        const openCategoryIssue = document.querySelector('.categoryHidden');
+        if (openCategoryIssue.style.display === 'none' || openCategoryIssue.style.display === '') {
+            openCategoryIssue.style.display = 'block'; // Hiển thị popup
         } else {
-            modelCreateIssue.style.display = 'none'; // Ẩn popup
+            openCategoryIssue.style.display = 'none'; // Ẩn popup
+        }
+    }
+    function openStaskIssue() {
+        const ModelCreateIssue = document.getElementById('ModelCreateIssue')
+        if (ModelCreateIssue.style.display === 'none' || ModelCreateIssue.style.display === '') {
+            ModelCreateIssue.style.display = 'block'; 
+        } else {
+            ModelCreateIssue.style.display = 'none';
         }
     }
     function closeCreateIssuePopup() {
-        const modelCreateIssue = document.querySelector('.ModelCreateIssue');
-        
-        // Kiểm tra nếu popup đang ẩn (display: none)
-        if (modelCreateIssue.style.display === 'none' || modelCreateIssue.style.display === '') {
-            modelCreateIssue.style.display = 'block'; // Hiển thị popup
+        const ModelCreateIssue = document.getElementById('ModelCreateIssue')
+        if (ModelCreateIssue.style.display === 'none' || ModelCreateIssue.style.display === '') {
+            ModelCreateIssue.style.display = 'block'; 
         } else {
-            modelCreateIssue.style.display = 'none'; // Ẩn popup
+            ModelCreateIssue.style.display = 'none';
         }
     }
 

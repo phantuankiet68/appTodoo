@@ -61,7 +61,7 @@
                     <li class="dropDownFrontEnd"><a href="{{ route('codes.index') }}"><i class="fa-regular fa-circle"></i>HTML/CSS</a></li>
                     <li class="dropDownFrontEnd"><a href="{{ route('javascripts.index') }}"><i class="fa-regular fa-circle"></i>Javascript</a></li>
                     <li class="dropDownFrontEnd"><a href="{{ route('vuejs.index') }}"><i class="fa-regular fa-circle"></i>VueJS</a></li>
-                    <li class="dropDownFrontEnd"><a href="#"><i class="fa-regular fa-circle"></i>ReactJS</a></li>
+                    <li class="dropDownFrontEnd"><a href="{{ route('reactjs.index') }}"><i class="fa-regular fa-circle"></i>ReactJS</a></li>
                     <li class="dropDownFrontEnd"><a href="#"><i class="fa-regular fa-circle"></i>JqueryJS</a></li>
                     <li class="dropDownFrontEnd"><a href="#"><i class="fa-regular fa-circle"></i>Angular</a></li>
                     <li class="bg-grey"><a href="javascript:void(0)" id="BackEnd"><i class="fa-brands fa-codepen"></i>{{ __('messages.Back-end') }}</a><span id="chevronBackEnd"><i class="fa-solid fa-chevron-up"></i></span></li>

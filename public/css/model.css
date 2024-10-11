@@ -1,4 +1,35 @@
 /* Model xóa Todo */
+.ModelCreateIssue {
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    max-width: 60%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.modelCreateFromBig .modelForm{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+
+#ModelCreateIssue{
+    display: none;
+}
+
+.model .BtnCloseCreate p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+}
 
 .modelCreateFromBig {
     padding: 10px;
@@ -938,4 +969,48 @@
 
 #createHtml{
     display: none;
+}
+
+
+.categoryHidden {
+    display: none;
+    padding: 5px;
+    right: 28px;
+    position: fixed;
+    top: 16%;
+    z-index: 10;
+    background: #fff;
+    width: 25%;
+    border-left: 1px solid #dfdfdf;
+    border-right: 1px solid #dfdfdf;
+    box-shadow: rgb(141 220 255 / 12%) 0px 2px 4px 0px, rgb(76 201 255 / 32%) 0px 2px 16px 0px;
+}
+
+.dashboard-content.dark-mode .categoryHidden{
+    border-left: 1px solid #1571bf;
+    border-right: 1px solid #1571bf;
+    background-color: #555555;
+}
+
+.dashboard-content.dark-mode .categoryHidden .projectTodoNotify{
+    border: 1px solid #1571bf;
+    background-color: #555555;
+}
+
+.dashboard-content.dark-mode .categoryHidden .projectTodoNotify .tables table th,
+.dashboard-content.dark-mode .categoryHidden .projectTodoNotify .tables table td{
+   padding: 5px;
+}
+
+
+.btn-show {
+    padding: 8px 20px;
+    background: #40c3f7;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 5px;
+    margin: 0 5px;
+    border: none;
+    cursor: pointer;
 }

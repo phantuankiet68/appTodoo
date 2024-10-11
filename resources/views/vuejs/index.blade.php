@@ -51,6 +51,9 @@
     </div>
 </div>
 
+
+
+
 <div class="model" id="createJavascript">
     <div class="modelCreateFromNormal">
         <form method="POST" action="{{ route('javascripts.store') }}" enctype="multipart/form-data">
@@ -59,7 +62,7 @@
                 <button type="submit">Save changes</button>
                 <h2 class="text-center">{{ __('messages.Add New') }}</h5>
             </div>
-            <input type="hidden" name="category_id" id="" value="26"/>
+            <input type="hidden" name="category_id" id="" value="27"/>
             <div class="form-input-category">
                 <label for="name">{{ __('messages.Name') }}</label>
                 <input type="text" class="input-name" id="" name="name">

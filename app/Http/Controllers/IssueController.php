@@ -40,10 +40,33 @@ class IssueController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function search(Request $request)
     {
-        //
+        $userId = Auth::id();
+    
+        // Lấy tất cả danh mục của user
+        $category = Category::where('user_id', $userId)
+                            ->where('key', 3)
+                            ->get();
+    
+        // Tạo query để lấy issues
+        $issuesQuery = Issue::where('user_id', $userId)
+            ->orWhereHas('assignedUsers', function ($query) use ($userId) {
+                $query->where('user_id', $userId);
+            })
+            ->with(['category', 'user']);
+    
+        // Kiểm tra nếu có giá trị category_id từ request
+        if ($request->filled('category_id')) {
+            $issuesQuery->where('category_id', $request->category_id);
+        }
+    
+        // Thực thi query và phân trang kết quả
+        $issues = $issuesQuery->orderBy('id', 'asc')->paginate(11);
+    
+        return view('issue.index', compact('category', 'issues'));
     }
+    
 
     /**
      * Store a newly created resource in storage.

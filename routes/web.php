@@ -33,6 +33,7 @@ use App\Http\Controllers\ParagraphController;
 use App\Http\Controllers\CodeController;
 use App\Http\Controllers\JavascriptController;
 use App\Http\Controllers\VuejsController;
+use App\Http\Controllers\ReactjsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -85,6 +86,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/issue/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::get('/issue/{id}/assign', [AssignController::class, 'show'])->name('assign.show');
     Route::post('/issue/{id}/assign', [AssignController::class, 'assign'])->name('assign.index_add');
+    Route::get('/issue/search', [IssueController::class, 'search'])->name('issue.searchSelect');
     Route::resource('comment', CommentController::class);
     Route::resource('issue', IssueController::class);
     Route::resource('problem_process', ProblemProcessController::class);
@@ -103,4 +105,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('codes', CodeController::class);
     Route::resource('javascripts', JavascriptController::class);
     Route::resource('vuejs', VuejsController::class);
+    Route::resource('reactjs', ReactjsController::class);
 });
