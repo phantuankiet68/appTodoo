@@ -35,10 +35,14 @@
             <div class="component-card">
                 @foreach($htmls as $item)
                 <div class="c_card">
-                    <img src="" alt="Image Description" />
+                    <img src="{{ asset('assets/images/' . $item->image) }}" alt="Image Description" />
                     <div class="overlay">
                         Thông tin hiển thị
-                        <button onclick="showEditHtml()">xem</button>
+                        @if($item->id)
+                            <button onclick="showEditContent({{ $item->id }})">xem</button>
+                        @else
+                            <p>ID is not available for this item.</p>
+                        @endif
                     </div>
                 </div>
                 @endforeach
@@ -93,7 +97,7 @@
 </div>
 
 
-<div class="model" id="showComponentForm">
+<div class="model" id="showHtmlForm">
     <div class="modelCreateFromBig">
         <div class="buttonAction">
             <button class="show" onclick="showTab('show')"><i class="fa-solid fa-eye"></i> Show</button>
@@ -103,19 +107,16 @@
 
         <div class="showContentComponent" id="show">
             <div class="showNameComponent">
-                <h3 id="shownamecomponent"></h3>
+                <h3 id="shownamehtml"></h3>
                 <p id="showdescriptioncomponent"></p>
                 <a href="" target="_blank" id="showlinkcomponent"></a>
             </div>
             <div class="showCodeComponent">
-                <div class="popupShowCode">
+                <div class="popupShowHtml">
                     <p id="showcomponent1"></p>
                 </div>
-                <div class="popupShowCode">
+                <div class="popupShowHtml">
                     <p id="showcomponent2"></p>
-                </div>
-                <div class="popupShowCode">
-                    <p id="showcomponent3"></p>
                 </div>
             </div>
         </div>
@@ -153,22 +154,13 @@
     CKEDITOR.replace('editor2');
 </script>
 <script>
-    function showEditComponent(componentId) {
-        const showComponentForm = document.getElementById('showComponentForm');
-        showComponentForm.style.display = 'block';
-        fetch(`/component/${componentId}`)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('component_id').value = data.id;
-            document.getElementById('shownamecomponent').innerHTML = data.name;
-            document.getElementById('showdescriptioncomponent').innerHTML = data.description;
-            document.getElementById('showlinkcomponent').innerHTML = data.link;
-            document.getElementById('showlinkcomponent').href = data.link;
-            document.getElementById('showcomponent1').innerHTML = data.c_html;
-            document.getElementById('showcomponent2').innerHTML = data.c_css;
-            document.getElementById('showcomponent3').innerHTML = data.c_javascript;
-            document.getElementById('deleteComponent').innerHTML = data.name;
-        })
+    function showEditContent(htmlId) {
+        console.log('htmlId:', htmlId); // This should log the correct ID
+        if (!htmlId) {
+            console.error('No HTML ID provided!');
+            return; // Exit the function if ID is not valid
+        }
+        // Proceed with the fetch request as before...
     }
     document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('delete-Component').onsubmit = function(event) {
