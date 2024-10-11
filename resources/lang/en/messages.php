@@ -172,7 +172,7 @@ return [
     'Excel'=>'Excel',
     'Link'=>'Link',
     'Save changes'=>'Save changes',
-    ''=>'',
+    'You have successfully created a new category!'=>'You have successfully created a new category!',
     ''=>'',
     ''=>'',
 

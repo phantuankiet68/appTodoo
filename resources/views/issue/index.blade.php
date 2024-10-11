@@ -8,32 +8,33 @@
         <div class="topHeader">
             <h2>{{ __('messages.Issue') }}</h2> | <span>{{ __('messages.Home') }}</span>
         </div>
-        <div class="bodyHeader">
-            <form action="{{ route('issue.searchSelect') }}" method="GET" id="categoryForm">
+        <div class="bodyHeader formSearchIssue">
+            <form action="{{ route('issue.index') }}" method="GET" id="filterForm" class="formSearch formIssue">
                 <div class="Users--right--btns">
-                    <select name="category_id" id="category" class="select-dropdown doctor--filter" onchange="document.getElementById('categoryForm').submit();">
-                        <option value="">Category</option>
-                        @foreach($category as $cat)
-                            <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                    <select name="category_id" id="category" class="select-dropdown doctor--filter" onchange="updateFilters();">
+                        <option value="All" {{ request('category_id') == 'All' ? 'selected' : '' }}>All</option>
+                        @foreach($categories as $cat)
+                            <option value="{{ $cat->id }}" {{ request('category_id') == $cat->id ? 'selected' : '' }}>{{ $cat->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
+            
+                <div class="formInputSearch">
+                    <select name="user_id" id="user" class="select-dropdown" onchange="updateFilters();">
+                        <option value="">Chọn người dùng</option>
+                        @foreach($users as $user)
+                            <option value="{{ $user->id }}" {{ request('user_id') == $user->id ? 'selected' : '' }}>
+                                {{ $user->full_name }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
             </form>
-            
-            <form action="">
-                <div class="Users--right--btns">
-                    <select name="date" id="date" class="select-dropdown doctor--filter">
-                        <option>Assignment</option>
-                        <option value="free">Admin</option>
-                        <option value="scheduled">Users</option>
-                    </select>
-                </div>
-            </form>
-            <form action="" class="formSearch formIssue">
+            <form action="{{ route('issue.index') }}" method="GET" class="formSearch formIssue">
                 <div class="formInputSearch">
-                    <input type="text" value="">
+                    <input type="text" name="search" placeholder="Search by subject, key, description, start date, end date" value="{{ request('search') }}">
                 </div>
-                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button type="submit" class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
         <div class="footerHeader">
@@ -44,6 +45,11 @@
     <div class="projecTodoBody">
         <div class="recent--patient body-tables-issue">
             <div class="tables">
+                @if ($issues->isEmpty())
+                    <div class="alert alert-warning">
+                        Không tìm thấy kết quả nào cho từ khóa "<strong>{{ $search }}</strong>". Vui lòng thử lại với từ khóa khác.
+                    </div>
+                @else
                 <table>
                     <thead>
                         <tr>
@@ -60,7 +66,6 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @if($issues->count())
                         @foreach($issues as $issue)
                         <tr>
                             <td class="jus-center">
@@ -102,36 +107,16 @@
                             </td>
                         </tr>
                         @endforeach
-                        @else
-                            <p>No issues found for this category.</p>
-                        @endif
                     </tbody>
                 </table>
-                <div class="pagination">
-                    <button id="prev" onclick="prevPage()">Prev</button>
-                    <span id="page-info">1</span>
-                    <span id="page-info">2</span>
-                    <button id="next" onclick="nextPage()">Next</button>
+                @endif
+                <div class="d-flex justify-content-center link-margin">
+                    {{ $issues->links() }}
                 </div>
             </div>
         </div>
         <div class="categoryHidden">
             <div class="projectTodoNotify">
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-
-                @if (session('success_create'))
-                    <div class="alert alert-success">
-                        {{ session('success_create') }}
-                    </div>
-                @endif
                 <div class="projectTodoNotifyHeader">
                     <h3>{{ __('messages.Category') }}</h3>
                     <button class="btnCategory" onclick="CreateCategoryForm()">{{ __('messages.Add New') }}</button>
@@ -148,7 +133,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                               @foreach($category as $cate)
+                               @foreach($categories as $cate)
                                 <tr>
                                     <td>{{$cate->name}}</td>
                                     <td class="text-center "> 
@@ -166,9 +151,6 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        <div class="d-flex justify-content-center link-margin">
-                          
-                        </div>
                     </div>
                 </div>
             </div>
@@ -176,6 +158,23 @@
         </div>
     </div>
 </div>
+
+@if (session('success_create'))
+    <div id="popup-category" class="popup-category success">
+        {{ session('success_create') }}
+    </div>
+@endif
+
+
+@if ($errors->any())
+    <div id="popup-category" class="popup-category error">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 <div class="ModelCreateCategory">
     <form method="POST" action="{{ route('category.store') }}">
@@ -282,7 +281,7 @@
                 <div class="form-select-category">
                     <label for="status">{{ __('messages.Category') }}</label>
                     <select name="category_id" id="status">
-                    @foreach($category as $cate)
+                    @foreach($categories as $cate)
                         <option value="{{ $cate->id }}">{{ $cate->name }}</option>
                     @endforeach
                     </select>
@@ -324,6 +323,36 @@
 </script>
 
 <script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.querySelector('#popup-category');
+        if (popup) {
+            popup.style.display = 'block';
+
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 5000);
+        }
+    });
+
+    function updateFilters() {
+        // Lấy giá trị của category_id và user_id
+        const categoryId = document.getElementById('category').value;
+        const userId = document.getElementById('user').value;
+
+        // Tạo URL với các tham số query
+        let url = '{{ route('issue.index') }}?';
+        if (categoryId) {
+            url += 'category_id=' + categoryId + '&';
+        }
+        if (userId) {
+            url += 'user_id=' + userId;
+        }
+
+        // Chuyển hướng tới URL mới
+        window.location.href = url;
+    }
+
     function openCategoryIssue(){
         const openCategoryIssue = document.querySelector('.categoryHidden');
         if (openCategoryIssue.style.display === 'none' || openCategoryIssue.style.display === '') {

@@ -18,54 +18,64 @@ class IssueController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+    public function index(Request $request)
     {
         $userId = Auth::id();
+        
+        $categoryId = $request->get('category_id');
+        $userFilterId = $request->get('user_id');
+        $search = $request->get('search');
+    
+        try {
+            $issuesQuery = Issue::with(['category', 'user'])
+                ->where(function($query) use ($userId) {
+                    $query->where('user_id', $userId)
+                        ->orWhereHas('assignedUsers', function ($query) use ($userId) {
+                            $query->where('user_id', $userId);
+                        });
+                })
+                ->orderBy('id', 'asc');
 
-        $issues = Issue::where('user_id', $userId)
-            ->orWhereHas('assignedUsers', function ($query) use ($userId) {
-                $query->where('user_id', $userId);
-            })
-            ->with(['category', 'user'])
-            ->orderBy('id', 'asc')
-            ->paginate(11);
-        $category = Category::where('user_id', Auth::id())
-                    ->where('key', 3)
-                    ->paginate(12);
-        return view('issue.index', compact('category','issues'));
-    }
+            if ($categoryId && $categoryId !== 'All') {
+                $issuesQuery->where('category_id', $categoryId);
+            }
+    
+            if ($userFilterId) {
+                $issuesQuery->where('user_id', $userFilterId);
+            }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function search(Request $request)
-    {
-        $userId = Auth::id();
+            if ($search) {
+                $issuesQuery->where(function($query) use ($search) {
+                    $query->where('subject', 'like', '%' . $search . '%')
+                        ->orWhere('key', 'like', '%' . $search . '%')
+                        ->orWhere('description', 'like', '%' . $search . '%')
+                        ->orWhere('start_date', 'like', '%' . $search . '%')
+                        ->orWhere('end_date', 'like', '%' . $search . '%');
+                });
+            }
     
-        // Lấy tất cả danh mục của user
-        $category = Category::where('user_id', $userId)
-                            ->where('key', 3)
-                            ->get();
+            $issues = $issuesQuery->paginate(11);
     
-        // Tạo query để lấy issues
-        $issuesQuery = Issue::where('user_id', $userId)
-            ->orWhereHas('assignedUsers', function ($query) use ($userId) {
-                $query->where('user_id', $userId);
-            })
-            ->with(['category', 'user']);
+            $categories = Category::where('user_id', $userId)
+                        ->where('key', 3)
+                        ->get(); 
     
-        // Kiểm tra nếu có giá trị category_id từ request
-        if ($request->filled('category_id')) {
-            $issuesQuery->where('category_id', $request->category_id);
+            $users = User::all();
+    
+            return view('issue.index', compact('categories', 'users', 'issues', 'search'));
+    
+        } catch (\Exception $e) {
+            Log::error('Error fetching issues: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lấy danh sách vấn đề. Vui lòng thử lại.');
         }
-    
-        // Thực thi query và phân trang kết quả
-        $issues = $issuesQuery->orderBy('id', 'asc')->paginate(11);
-    
-        return view('issue.index', compact('category', 'issues'));
     }
+     
+    
+
+
+
+
     
 
     /**

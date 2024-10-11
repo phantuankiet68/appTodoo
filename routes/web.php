@@ -86,7 +86,6 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/issue/{id}/comments', [CommentController::class, 'store'])->name('comments.store');
     Route::get('/issue/{id}/assign', [AssignController::class, 'show'])->name('assign.show');
     Route::post('/issue/{id}/assign', [AssignController::class, 'assign'])->name('assign.index_add');
-    Route::get('/issue/search', [IssueController::class, 'search'])->name('issue.searchSelect');
     Route::resource('comment', CommentController::class);
     Route::resource('issue', IssueController::class);
     Route::resource('problem_process', ProblemProcessController::class);

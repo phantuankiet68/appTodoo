@@ -39,7 +39,7 @@ class CategoryController extends Controller
                 'status' => $request->status
             ]);
     
-            return redirect()->back()->with('success_create', __('messages.Create_success'));
+            return redirect()->back()->with('success_create', __('messages.You have successfully created a new category!'));
         }
     }
 
