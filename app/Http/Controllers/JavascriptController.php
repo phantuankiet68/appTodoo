@@ -14,7 +14,7 @@ class JavascriptController extends Controller
      */
     public function index()
     {
-        $javascripts = Javascript::where('category_id', 25)->paginate(12);
+        $javascripts = Javascript::where('category_id', 26)->paginate(12);
         return view('javascript.index', compact('javascripts'));
     }
 

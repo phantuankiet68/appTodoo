@@ -15,7 +15,7 @@ class CodeController extends Controller
      */
     public function index()
     {
-        $codes = Code::where('category_id', 24)->paginate(12);
+        $codes = Code::where('category_id', 25)->paginate(12);
         return view('code.index', compact('codes'));
     }
 

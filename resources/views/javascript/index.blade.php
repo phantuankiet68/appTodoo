@@ -59,7 +59,7 @@
                 <button type="submit">Save changes</button>
                 <h2 class="text-center">{{ __('messages.Add New') }}</h5>
             </div>
-            <input type="hidden" name="category_id" id="" value="25"/>
+            <input type="hidden" name="category_id" id="" value="26"/>
             <div class="form-input-category">
                 <label for="name">{{ __('messages.Name') }}</label>
                 <input type="text" class="input-name" id="" name="name">
