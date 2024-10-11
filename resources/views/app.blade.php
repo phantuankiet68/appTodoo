@@ -58,9 +58,9 @@
                     <li class="dropDownCode"><a href="{{ route('component.index') }}"><i class="fa-solid fa-expand"></i>{{ __('messages.Component') }}</a></li>
                     <li class="dropDownCode"><a href="{{ route('colors.index') }}"><i class="fa-solid fa-fill"></i>{{ __('messages.Color') }}</a></li>
                     <li class="bg-grey"><a href="javascript:void(0)" id="FrontEnd"><i class="fa-brands fa-codepen"></i>{{ __('messages.Front-end') }}</a><span id="chevronFrontEnd"><i class="fa-solid fa-chevron-up"></i></span></li>
-                    <li class="dropDownFrontEnd"><a href="{{ route('htmls.index') }}"><i class="fa-regular fa-circle"></i>HTML/CSS</a></li>
-                    <li class="dropDownFrontEnd"><a href="#"><i class="fa-regular fa-circle"></i>Javascript</a></li>
-                    <li class="dropDownFrontEnd"><a href="#"><i class="fa-regular fa-circle"></i>VueJS</a></li>
+                    <li class="dropDownFrontEnd"><a href="{{ route('codes.index') }}"><i class="fa-regular fa-circle"></i>HTML/CSS</a></li>
+                    <li class="dropDownFrontEnd"><a href="{{ route('javascripts.index') }}"><i class="fa-regular fa-circle"></i>Javascript</a></li>
+                    <li class="dropDownFrontEnd"><a href="{{ route('vuejs.index') }}"><i class="fa-regular fa-circle"></i>VueJS</a></li>
                     <li class="dropDownFrontEnd"><a href="#"><i class="fa-regular fa-circle"></i>ReactJS</a></li>
                     <li class="dropDownFrontEnd"><a href="#"><i class="fa-regular fa-circle"></i>JqueryJS</a></li>
                     <li class="dropDownFrontEnd"><a href="#"><i class="fa-regular fa-circle"></i>Angular</a></li>

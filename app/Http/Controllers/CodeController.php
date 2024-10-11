@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Javascript;
+use App\Models\Code;
+use Illuminate\Support\Facades\Auth;
 
-class JavascriptController extends Controller
+class CodeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class JavascriptController extends Controller
      */
     public function index()
     {
-        $javascripts = Javascript::where('category_id', 25)->paginate(12);
-        return view('javascript.index', compact('javascripts'));
+        $codes = Code::where('category_id', 24)->paginate(12);
+        return view('code.index', compact('codes'));
     }
 
     /**
@@ -53,7 +54,7 @@ class JavascriptController extends Controller
             $relativePath = $filename;
         }
     
-        Javascript::create([
+        Code::create([
             'user_id' => $request->user_id,
             'category_id' => $request->category_id,
             'name' => $request->name,
@@ -62,7 +63,7 @@ class JavascriptController extends Controller
             'code' => $request->code,
             'link' => $request->link,
         ]);
-        return redirect()->route('javascripts.index')->with('success', 'Project created successfully.');
+        return redirect()->route('codes.index')->with('success', 'Project created successfully.');
     }
 
     /**
@@ -73,8 +74,8 @@ class JavascriptController extends Controller
      */
     public function show($id)
     {
-        $javascripts = Javascript::findOrFail($id);
-        return response()->json($javascripts);
+        $codes = Code::findOrFail($id);
+        return response()->json($codes);
     }
 
     /**
@@ -97,7 +98,7 @@ class JavascriptController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        //
     }
 
     /**
@@ -108,8 +109,8 @@ class JavascriptController extends Controller
      */
     public function destroy($id)
     {
-        $javascripts = Javascript::findOrFail($id);
-        $javascripts->delete();
+        $codes = Code::findOrFail($id);
+        $codes->delete();
         return redirect()->back()->with('success', 'Deleted successfully');
     }
 }

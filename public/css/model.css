@@ -291,13 +291,56 @@
 .showNameComponent{
     display: flex;
     flex-direction: column;
-    gap: 10px;
     margin-bottom: 20px;
+}
+
+.link_blank{
+    color: #0ac238;
+}
+
+#createJavascript{
+  display: none;
 }
 
 #createColor{
     display: none;
 }
+
+.component-card{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.Javascript-container{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+#showJavascriptForm{
+  display: none;
+}
+
+.popupShowJavascript{
+    width: 50%;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    height: 380px;
+    overflow: scroll;
+    padding: 10px;
+}
+
+.c_card {
+    padding: 5px;
+    position: relative;
+    width: 24%;
+    height: 200px;
+    box-shadow: rgb(141 220 255 / 12%) 0px 2px 4px 0px, rgb(76 201 255 / 32%) 0px 2px 16px 0px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
 
 .titleEditError{
     width: 100%;

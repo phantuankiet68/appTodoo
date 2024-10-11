@@ -27,19 +27,19 @@
         </div>
         <div class="headerToQuesionRight">
             <button type="button" class="change"><i class="fa-solid fa-cash-register"></i> Thay đổi</button>
-            <button type="button" class="create" onclick="CreateHtmlForm()"><i class="fa-solid fa-plus"></i> Tạo mới</button>
+            <button type="button" class="create" onclick="createJavascript()"><i class="fa-solid fa-plus"></i> Tạo mới</button>
         </div>
     </div>
     <div class="component-container">
-        <div class="html-container">
+        <div class="Javascript-container">
             <div class="component-card">
-                @foreach($htmls as $item)
+                @foreach($javascripts as $item)
                 <div class="c_card">
                     <img src="{{ asset('assets/images/' . $item->image) }}" alt="Image Description" />
                     <div class="overlay">
                         Thông tin hiển thị
                         @if($item->id)
-                            <button onclick="showEditContent({{ $item->id }})">xem</button>
+                            <button onclick="showEditJavascript({{ $item->id }})">xem</button>
                         @else
                             <p>ID is not available for this item.</p>
                         @endif
@@ -51,15 +51,15 @@
     </div>
 </div>
 
-<div class="model" id="createHtml">
+<div class="model" id="createJavascript">
     <div class="modelCreateFromNormal">
-        <form method="POST" action="{{ route('htmls.store') }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route('javascripts.store') }}" enctype="multipart/form-data">
         @csrf
             <div class="saveAction mb-10">
                 <button type="submit">Save changes</button>
                 <h2 class="text-center">{{ __('messages.Add New') }}</h5>
             </div>
-            <input type="hidden" name="category_id" id="" value="24"/>
+            <input type="hidden" name="category_id" id="" value="27"/>
             <div class="form-input-category">
                 <label for="name">{{ __('messages.Name') }}</label>
                 <input type="text" class="input-name" id="" name="name">
@@ -90,14 +90,14 @@
                 </div>
             </div>
         </form>
-        <div class="BtnCloseCategoryTask" onclick="closeHtmlForm()">
+        <div class="BtnCloseCategoryTask" onclick="closeJavascriptForm()">
             <p>X</p>
         </div>
     </div>
 </div>
 
 
-<div class="model" id="showHtmlForm">
+<div class="model" id="showJavascriptForm">
     <div class="modelCreateFromBig">
         <div class="buttonAction">
             <button class="show" onclick="showTab('show')"><i class="fa-solid fa-eye"></i> Show</button>
@@ -107,16 +107,16 @@
 
         <div class="showContentComponent" id="show">
             <div class="showNameComponent">
-                <h3 id="shownamehtml"></h3>
+                <h3 id="shownamecode"></h3>
                 <p id="showdescriptioncomponent"></p>
-                <a href="" target="_blank" id="showlinkcomponent"></a>
+                <a href="" target="_blank" class="link_blank" id="showlinkcode"></a>
             </div>
             <div class="showCodeComponent">
-                <div class="popupShowHtml">
-                    <p id="showcomponent1"></p>
+                <div class="popupShowJavascript">
+                    <p id="showcode"></p>
                 </div>
-                <div class="popupShowHtml">
-                    <p id="showcomponent2"></p>
+                <div class="popupShowJavascript">
+                    <p id="showdescriptioncode"></p>
                 </div>
             </div>
         </div>
@@ -129,18 +129,18 @@
         </div>
 
         <div class="deleteContentQuestion" id="delete" style="display: none;">
-            <form method="POST" id="delete-Component">
+            <form method="POST" id="delete-Code">
                 @csrf
                 @method('DELETE')
-                <input type="hidden" id="component_id" value="{{ $component->id ?? '' }}" />
+                <input type="hidden" id="javascript_id" name="javascript_id" />
                 <h3 class="text-center">{{ __('messages.Are you sure you want to delete?') }}</h3>
-                <p class="text-center" id="deleteComponent">{{ $component->name ?? '' }}</p> 
+                <p class="text-center" id="shownamecodedelete"></p> 
                 <div class="form-btn-delete">
                     <button type="submit">{{ __('messages.Delete') }}</button>
                 </div>
-            </form>            
+            </form>
         </div>
-        <div class="BtnCloseCategoryTask" onclick="closeDeleteComponentForm()">
+        <div class="BtnCloseCategoryTask" onclick="closeDeleteCodeForm()">
             <p>X</p>
         </div>
     </div>
@@ -154,39 +154,43 @@
     CKEDITOR.replace('editor2');
 </script>
 <script>
-    function showEditContent(htmlId) {
-        console.log('htmlId:', htmlId); // This should log the correct ID
-        if (!htmlId) {
-            console.error('No HTML ID provided!');
-            return; // Exit the function if ID is not valid
-        }
-        // Proceed with the fetch request as before...
+    function showEditJavascript(javascriptId) {
+        const showEditJavascript = document.getElementById('showJavascriptForm');
+        showEditJavascript.style.display = 'block';
+        fetch(`/javascripts/${javascriptId}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('javascript_id').value = data.id;
+            document.getElementById('shownamecode').innerHTML = data.name;
+            document.getElementById('showdescriptioncode').innerHTML = data.description;
+            document.getElementById('showcode').innerHTML = data.code;
+            document.getElementById('showlinkcode').innerHTML = data.link;
+            document.getElementById('showlinkcode').href = data.link;
+            document.getElementById('shownamecodedelete').innerHTML = data.name;
+        })
     }
     document.addEventListener('DOMContentLoaded', function() {
-        document.getElementById('delete-Component').onsubmit = function(event) {
-            event.preventDefault(); // Ngăn chặn hành động mặc định của form
-            
-            const componentIdElement = document.getElementById('component_id');
-            const componentId = componentIdElement.value; // Lấy giá trị component_id
-
-            // Kiểm tra nếu componentId không rỗng
-            if (componentId) {
-                this.action = `/component/${componentId}`; // Thiết lập action cho form
-                this.submit(); // Gửi form
+        document.getElementById('delete-Code').onsubmit = function(event) {
+            event.preventDefault();
+            const javascriptIdElement = document.getElementById('javascript_id');
+            const javascriptId = javascriptIdElement.value; 
+            if (javascriptId) {
+                this.action = `/javascripts/${javascriptId}`;
+                this.submit(); 
             } else {
-                console.error('Component ID is missing.'); // Ghi log lỗi nếu không tìm thấy ID
+                console.error('javascript ID is missing.');
             }
         };
     });
 
 
 
-    function closeDeleteComponentForm() {
-        const closeDeleteComponentForm = document.getElementById('showComponentForm')
-        if (closeDeleteComponentForm.style.display === 'none' || closeDeleteComponentForm.style.display === '') {
-            closeDeleteComponentForm.style.display = 'block'; 
+    function closeDeleteCodeForm() {
+        const showJavascriptForm = document.getElementById('showJavascriptForm')
+        if (showJavascriptForm.style.display === 'none' || showJavascriptForm.style.display === '') {
+            showJavascriptForm.style.display = 'block'; 
         } else {
-            closeDeleteComponentForm.style.display = 'none';
+            showJavascriptForm.style.display = 'none';
         }
     }
     function showTab(tab) {
@@ -198,21 +202,21 @@
         // Hiển thị tab được nhấn
         document.getElementById(tab).style.display = 'block';
     }
-     function CreateHtmlForm(){
-        const CreateHtmlForm = document.getElementById('createHtml')
-        if (CreateHtmlForm.style.display === 'none' || CreateHtmlForm.style.display === '') {
-            CreateHtmlForm.style.display = 'block'; 
+     function createJavascript(){
+        const CreateJavascriptForm = document.getElementById('createJavascript')
+        if (CreateJavascriptForm.style.display === 'none' || CreateJavascriptForm.style.display === '') {
+            CreateJavascriptForm.style.display = 'block'; 
         } else {
-            CreateHtmlForm.style.display = 'none';
+            CreateJavascriptForm.style.display = 'none';
         }
     }
 
-    function closeHtmlForm() {
-        const CreateHtmlForm = document.getElementById('createHtml')
-        if (CreateHtmlForm.style.display === 'none' || CreateHtmlForm.style.display === '') {
-            CreateHtmlForm.style.display = 'block'; 
+    function closeJavascriptForm() {
+        const CreateJavascriptForm = document.getElementById('createJavascript')
+        if (CreateJavascriptForm.style.display === 'none' || CreateJavascriptForm.style.display === '') {
+            CreateJavascriptForm.style.display = 'block'; 
         } else {
-            CreateHtmlForm.style.display = 'none';
+            CreateJavascriptForm.style.display = 'none';
         }
     }
     const input = document.getElementById('file-input');

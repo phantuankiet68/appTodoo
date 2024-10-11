@@ -30,8 +30,9 @@ use App\Http\Controllers\StructureController;
 use App\Http\Controllers\QuizItemController;
 use App\Http\Controllers\FoodController;
 use App\Http\Controllers\ParagraphController;
-use App\Http\Controllers\HtmlController;
-
+use App\Http\Controllers\CodeController;
+use App\Http\Controllers\JavascriptController;
+use App\Http\Controllers\VuejsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -99,5 +100,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('component', ComponentController::class);
     Route::resource('colors', ColorController::class);
     Route::resource('table', TableController::class);
-    Route::resource('htmls', HtmlController::class);
+    Route::resource('codes', CodeController::class);
+    Route::resource('javascripts', JavascriptController::class);
+    Route::resource('vuejs', VuejsController::class);
 });
