@@ -13,7 +13,7 @@
                     </div>
                     <div class="userAsHome">
                         <p>{{ $issue->user ? $issue->user->full_name : 'Không có danh mục' }}</p>
-                        <p class="createAtSup">create at: {{$issue->created_at}}</p>
+                        <p class="createAtSup">{{ __('messages.Create at') }}: {{$issue->created_at}}</p>
                     </div>
                 </div>
                 <div class="issueHeader-title">
@@ -26,7 +26,7 @@
                     <ul class="alternate-list">
                         <li>
                             <div class="alternate-list-left">
-                                <p>Assign</p>
+                                <p>{{ __('messages.Assign') }}</p>
                                 <p><i class="fa-regular fa-circle-right"></i></p>
                             </div>
                             <div class="alternate-list-right">
@@ -39,20 +39,20 @@
                         </li>
                         <li>
                             <div class="alternate-list-left">
-                                <p>Priority</p>
+                                <p>{{ __('messages.Priority') }}</p>
                                 <p><i class="fa-regular fa-circle-right"></i></p>
                             </div>
                             <div class="alternate-list-right">
                                 @if ($issue->level = 1)
-                                <div class="priorityYes">Priority</div>
+                                <div class="priorityYes">{{ __('messages.Priority') }}</div>
                                 @else
-                                <div class="priorityNormal">Normal</div>
+                                <div class="priorityNormal">{{ __('messages.Normal') }}</div>
                                 @endif
                             </div>
                         </li>
                         <li>
                             <div class="alternate-list-left">
-                                <p>Category</p>
+                                <p>{{ __('messages.Category') }}</p>
                                 <p><i class="fa-regular fa-circle-right"></i></p>
                             </div>
                             <div class="alternate-list-right">
@@ -61,20 +61,20 @@
                         </li>
                         <li>
                             <div class="alternate-list-left">
-                                <p>Level</p>
+                                <p>{{ __('messages.Level') }}</p>
                                 <p><i class="fa-regular fa-circle-right"></i></p>
                             </div>
                             <div class="alternate-list-right">
                                 @if ($issue->level = 1)
-                                <div class="priorityImportant">Important</div>
+                                <div class="priorityImportant">{{ __('messages.Important') }}</div>
                                 @else
-                                <div class="priorityNormal">Normal</div>
+                                <div class="priorityNormal">{{ __('messages.Normal') }}</div>
                                 @endif
                             </div>
                         </li>
                         <li>
                             <div class="alternate-list-left">
-                                <p>Start date</p>
+                                <p>{{ __('messages.Start Date') }}</p>
                                 <p><i class="fa-regular fa-circle-right"></i></p>
                             </div>
                             <div class="alternate-list-right">
@@ -83,7 +83,7 @@
                         </li>
                         <li>
                             <div class="alternate-list-left">
-                                <p>End date</p>
+                                <p>{{ __('messages.End Date') }}</p>
                                 <p><i class="fa-regular fa-circle-right"></i></p>
                             </div>
                             <div class="alternate-list-right">
@@ -92,13 +92,13 @@
                         </li>
                         <li>
                             <div class="alternate-list-left">
-                                <p>Reffence</p>
+                                <p>{{ __('messages.Reference') }}</p>
                                 <p><i class="fa-regular fa-circle-right"></i></p>
                             </div>
                             <div class="alternate-list-right">
                                 <div class="linkBlank">
                                     <a href="{{ $issue->reference }}">
-                                        link
+                                        {{ __('messages.Link') }}
                                     </a>
                                 </div>
                                 <p>{{ $issue->reference }}</p>
@@ -106,20 +106,20 @@
                         </li>
                         <li>
                             <div class="alternate-list-left">
-                                <p>Status</p>
+                                <p>{{ __('messages.Status') }}</p>
                                 <p><i class="fa-regular fa-circle-right"></i></p>
                             </div>
                             <div class="alternate-list-right">
                                 @if ($issue->stutus = 2)
-                                <div class="StatusInpross">Inpross</div>
+                                <div class="StatusInpross">{{ __('messages.In progress') }}</div>
                                 @elseif ($issue->stutus = 1)
-                                <div class="StatusDone">Done</div>
+                                <div class="StatusDone">{{ __('messages.Done') }}</div>
                                 @else
-                                <div class="StatusOpen">Open</div>
+                                <div class="StatusOpen">{{ __('messages.Open') }}</div>
                                 @endif
                             </div>
                         </li>
-                        <button class="assignUserBtn" onclick="openAssignUser()">Assign User</button>
+                        <button class="assignUserBtn" onclick="openAssignUser()">{{ __('messages.Assign') }}</button>
                         <div class="assignUserBtnTonggle">
                             <form action="{{ route('assign.index_add', $issue->id) }}" method="POST">
                             @csrf
@@ -144,9 +144,9 @@
         </div>
         <div class="col-4">
             <div class="commentHeader">
-                <h3>Comments</h3>
+                <h3>{{ __('messages.Comment') }}</h3>
                 <div class="commentHeaderList">
-                    <button type="button">All Comment</button>
+                    <button type="button">{{ __('messages.All') }}</button>
                 </div>
             </div>
             <div class="commentBody">
@@ -159,7 +159,7 @@
                         </div>
                         <div class="userAsHome">
                             <p>{{ $comment->user->full_name }}</p>
-                            <p class="createAtSup">create at: {{ $comment->created_at->format('d/m/Y') }}</p>
+                            <p class="createAtSup">{{ __('messages.Create at') }}: {{ $comment->created_at->format('d/m/Y') }}</p>
                         </div>
                     </div>
                     <div class="commentDesc">
@@ -181,7 +181,7 @@
                         @endif
                         <div class="form-input-comment">
                             <input type="text" name="comment" id="comment">
-                            <button type="submit">Comment</button>
+                            <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
                         </div>
                     </form>
                 </div>

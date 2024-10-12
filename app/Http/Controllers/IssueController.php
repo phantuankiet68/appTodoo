@@ -88,29 +88,42 @@ class IssueController extends Controller
     {
         $request->validate([
             'subject' => 'required|string|max:255',
-            'key' => 'nullable|string|max:255',
-            'description' => 'nullable|string',
-            'start_date' => 'nullable|date',
-            'end_date' => 'nullable|date|after_or_equal:start_date',
+            'key' => 'required|string|max:255',
+            'description' => 'required|string',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
             'category_id' => 'required|exists:categories,id',
             'status' => 'required|integer',
+        ], [
+            'subject.required' => __('validation.subject_required'),
+            'key.required' => __('validation.key_required'),
+            'description.required' => __('validation.description_required'),
+            'description.string' => __('validation.description_string'),
+            'start_date.required' => __('validation.start_date_required'),
+            'start_date.date' => __('validation.start_date_date'),
+            'end_date.required' => __('validation.end_date_required'),
+            'end_date.date' => __('validation.end_date_date'),
+            'end_date.after_or_equal' => __('validation.end_date_after_or_equal'),
+            'category_id.required' => __('validation.category_id_required'),
+            'category_id.exists' => __('validation.category_id_exists'),
+            'status.required' => __('validation.status_required'),
+            'status.integer' => __('validation.status_integer'),
         ]);
-
+  
         Issue::create([
             'user_id' => Auth::id(),
             'subject' => $request->subject,
             'key' => $request->key,
-            'level' => $request->level,
             'description' => $request->description,
-            'reference' => $request->reference,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'category_id' => $request->category_id,
             'status' => $request->status,
         ]);
-
+    
         return redirect()->route('issue.index')->with('success', 'Issue created successfully');
     }
+    
 
     /**
      * Display the specified resource.

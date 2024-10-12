@@ -172,4 +172,18 @@ return [
     'Excel'=>'エクセル',
     'Link'=>'リンク',
     'Save changes'=>'変更を保存する',
+    'You have successfully created a new category!'=>'カテゴリーを新しく作成しました！',
+    'You have successfully update a new category!'=>'カテゴリーを新しく更新しました！',
+    'All'=>'全部',
+    'Select user'=>'ユーザーを選択',
+    'Search by subject, key, description...'=>'件名、キー、説明で検索...',
+    'Show Category'=>'カテゴリーを表示',
+    'Assign'=>'割り当て',
+    'Priority'=>'優先度',
+    'In progress'=>'進行中',
+    'Open'=>'オープン',
+    'Comment'=>'コメント',
+    'No results found for the keyword'=>'キーワードに対する結果は見つかりませんでした.',
+    'Please try again with a different keyword.'=>'別のキーワードで再試行してください.',
+
 ];

@@ -12,7 +12,7 @@
             <form action="{{ route('issue.index') }}" method="GET" id="filterForm" class="formSearch formIssue">
                 <div class="Users--right--btns">
                     <select name="category_id" id="category" class="select-dropdown doctor--filter" onchange="updateFilters();">
-                        <option value="All" {{ request('category_id') == 'All' ? 'selected' : '' }}>All</option>
+                        <option value="All" {{ request('category_id') == 'All' ? 'selected' : '' }}>{{ __('messages.All') }}</option>
                         @foreach($categories as $cat)
                             <option value="{{ $cat->id }}" {{ request('category_id') == $cat->id ? 'selected' : '' }}>{{ $cat->name }}</option>
                         @endforeach
@@ -21,7 +21,7 @@
             
                 <div class="formInputSearch">
                     <select name="user_id" id="user" class="select-dropdown" onchange="updateFilters();">
-                        <option value="">Chọn người dùng</option>
+                        <option value="">{{ __('messages.Select user') }}</option>
                         @foreach($users as $user)
                             <option value="{{ $user->id }}" {{ request('user_id') == $user->id ? 'selected' : '' }}>
                                 {{ $user->full_name }}
@@ -32,13 +32,13 @@
             </form>
             <form action="{{ route('issue.index') }}" method="GET" class="formSearch formIssue">
                 <div class="formInputSearch">
-                    <input type="text" name="search" placeholder="Search by subject, key, description, start date, end date" value="{{ request('search') }}">
+                    <input type="text" name="search" placeholder="{{ __('messages.Search by subject, key, description...') }}" value="{{ request('search') }}">
                 </div>
                 <button type="submit" class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
         <div class="footerHeader">
-            <button class="btn-show" id="openStaskIssue" onclick="openCategoryIssue()">Show Category</button>
+            <button class="btn-show" id="openStaskIssue" onclick="openCategoryIssue()">{{ __('messages.Show Category') }}</button>
             <button class="btn-add" id="openStaskIssue" onclick="openStaskIssue()">{{ __('messages.Add New') }}</button>
         </div>
     </div>
@@ -46,8 +46,9 @@
         <div class="recent--patient body-tables-issue">
             <div class="tables">
                 @if ($issues->isEmpty())
-                    <div class="alert alert-warning">
-                        Không tìm thấy kết quả nào cho từ khóa "<strong>{{ $search }}</strong>". Vui lòng thử lại với từ khóa khác.
+                    <div class="alert alert-warning alert-search">
+                        <span> {{ __('messages.No results found for the keyword') }}"<strong>{{ $search }}</strong>"</span>
+                        <p>{{ __('messages.Please try again with a different keyword.') }}</p>
                     </div>
                 @else
                 <table>
@@ -59,10 +60,11 @@
                             <th>{{ __('messages.Create by') }}</th>
                             <th>{{ __('messages.Level') }}</th>
                             <th>{{ __('messages.Status') }}</th>
+                            <th class="text-center">{{ __('messages.Notification') }}</th>
                             <th>{{ __('messages.Start Date') }}</th>
                             <th>{{ __('messages.End Date') }}</th>
                             <th>{{ __('messages.Category') }}</th>
-                            <th>{{ __('messages.Settings') }}</th>
+                            <th class="text-center">{{ __('messages.Settings') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,20 +81,32 @@
                                 </div>
                             </td>
                             <td class="pending">
-                                @if ($issue->level = 1)
-                                <p class="importantIssue">Important</p>
+                                @if ($issue->level == 1)
+                                <p class="importantIssue">{{ __('messages.Important') }}</p>
                                 @else
-                                <p class="normalIssue">Normal</p>
+                                <p class="normalIssue">{{ __('messages.Normal') }}</p>
                                 @endif
                             </td>
                             <td class="pending">
-                                @if ($issue->status = 2)
-                                <p class="resolvedIssue">Resolved</p>
-                                @elseif ($issue->status = 1)
-                                <p class="inProgressIssue">In Progress</p>
+                                @if ($issue->status == 2)
+                                    <p class="resolvedIssue">{{ __('messages.Done') }}</p>
+                                @elseif ($issue->status == 1)
+                                    <p class="inProgressIssue">{{ __('messages.In progress') }}</p>
                                 @else
-                                <p class="openIssue">Open</p>
+                                    <p class="openIssue">{{ __('messages.Open') }}</p>
                                 @endif
+                            </td>
+                            <td>
+                                <div class="notification-cut">
+                                    @php
+                                        $currentDate = \Carbon\Carbon::now();
+                                    @endphp
+                                    @if ($issue->status != 2 && \Carbon\Carbon::parse($issue->end_date)->lt($currentDate))
+                                        <span class="notification-red"></span>
+                                    @else
+                                        <span class="notification-green"></span>
+                                    @endif
+                                </div>
                             </td>
                             <td>{{$issue->start_date}}</td>
                             <td>{{$issue->end_date}}</td>
@@ -159,9 +173,31 @@
     </div>
 </div>
 
+@if (session('success'))
+    <div id="popup-category" class="popup-category success">
+        {{ session('success') }}
+    </div>
+@endif
+
 @if (session('success_create'))
     <div id="popup-category" class="popup-category success">
         {{ session('success_create') }}
+    </div>
+@endif
+
+@if (session('success_update'))
+    <div id="popup-category" class="popup-category success">
+        {{ session('success_update') }}
+    </div>
+@endif
+
+@if ($errors->any())
+    <div id="popup-category" class="popup-category error">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
     </div>
 @endif
 

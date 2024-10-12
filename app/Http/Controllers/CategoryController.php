@@ -26,6 +26,9 @@ class CategoryController extends Controller
             'name' => 'required|string|max:255',
             'key' => 'required', 
             'status' => 'required',
+        ],[
+            'user_id.required' => __('messages.user_id'),
+            'name.required' => __('messages.name_required'),
         ]);
 
         if ($validator->fails()) {
@@ -80,7 +83,7 @@ class CategoryController extends Controller
             'status' => $validatedData['status'],
         ]);
 
-        return redirect()->route('issue.index')->with('success', 'Task updated successfully');
+        return redirect()->back()->with('success_update', __('messages.You have successfully update a new category!'));
     }
 
     /**

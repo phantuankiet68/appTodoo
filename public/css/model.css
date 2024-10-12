@@ -42,7 +42,7 @@
 .popup-category {
     width: 30%;
     position: fixed;
-    top: 20px;
+    bottom: 50px;
     right: 0;
     padding: 10px 30px;
     border-radius: 5px;
@@ -1047,7 +1047,7 @@
 
 
 .btn-show {
-    padding: 8px 20px;
+    padding: 6px 20px;
     background: #40c3f7;
     color: #fff;
     font-size: 15px;
@@ -1056,4 +1056,72 @@
     margin: 0 5px;
     border: none;
     cursor: pointer;
+}
+
+.dashboard-content.dark-mode .col-8{
+    background-color: #555555;
+    border: 1px solid #1571bf;
+}
+.dashboard-content.dark-mode .col-8 .table_user {
+    background-color: #555555;
+    border-bottom: 1px solid #1571bf;
+}
+.dashboard-content.dark-mode .col-8 .issueHeader .issueHeader-body{
+    background-color: #555555;
+}
+
+.dashboard-content.dark-mode .col-8 .issueHeader .issueHeader-footer ul li {
+    background-color: #555555;
+}
+
+.dashboard-content.dark-mode .col-4{
+    border-top: 1px solid #1571bf;
+    border-right: 1px solid #1571bf;
+    border-bottom: 1px solid #1571bf;
+}
+
+.dashboard-content.dark-mode .col-4 .commentBodyBox:last-child {
+    border-bottom: 1px solid #1571bf;
+}
+
+.dashboard-content.dark-mode .col-4 .commentBodyBox {
+    border-top: 1px solid #1571bf;
+}
+
+
+.notification-cut{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.notification-green{
+    width: 5px;
+    height: 5px;
+    background-color: #0ac238;
+}
+
+.notification-green {
+    width: 12px;
+    height: 12px;
+    background-color: #0ac238;
+    border-radius: 50%;
+}
+
+.notification-red{
+    width: 12px;
+    height: 12px;
+    background-color: #f12f2f;
+    border-radius: 50%;
+}
+.alert-search{
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.alert-search span{
+    color: red;
 }

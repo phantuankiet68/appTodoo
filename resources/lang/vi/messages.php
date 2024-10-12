@@ -172,4 +172,18 @@ return [
     'Link'=>'liên kết',
     'Save changes'=>'Lưu thay đổi',
 
+    'You have successfully created a new category!'=>'Bạn đã tạo thành công một danh mục mới!',
+    'You have successfully update a new category!'=>'Bạn đã cập nhật thành công danh mục mới!',
+    'All'=>'Tất cả',
+    'Select user'=>'Chọn người dùng',
+    'Search by subject, key, description...'=>'Tìm kiếm theo chủ đề, khóa, mô tả...',
+    'Show Category'=>'Hiển thị danh mục',
+    'Assign'=>'Phân công',
+    'Priority'=>'Ưu tiên',
+    'In progress'=>'Đang tiến hành',
+    'Open'=>'Mở',
+    'Comment'=>'Bình luận',
+    'No results found for the keyword'=>'Không tìm thấy kết quả nào cho từ khóa.',
+    'Please try again with a different keyword.'=>'Vui lòng thử lại với từ khóa khác.',
+
 ];
