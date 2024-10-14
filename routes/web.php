@@ -69,7 +69,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('category_task', CategoryTasksController::class);
     Route::resource('todo', TodoController::class);
     Route::resource('work_flow', WorkflowController::class);
-    Route::resource('salary', SalaryController::class);
+    Route::resource('salaries', SalaryController::class);
     Route::resource('expense', ExpenseController::class);
     Route::resource('food', FoodController::class);
     Route::resource('vocabularies', VocabularyController::class);

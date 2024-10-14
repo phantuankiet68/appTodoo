@@ -1791,7 +1791,7 @@ button.button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #dfeeff;
+    background-color: #ffe7df;
     padding: 2px 0;
     margin: 0;
     color: #2099ff;
@@ -1809,7 +1809,7 @@ button.button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #dfeeff;
+    background-color: #ffe7df;
     padding: 2px 0;
     margin: 0 0 5px 0;
     color: #2099ff;
@@ -3644,8 +3644,8 @@ button.btn-add{
     border-radius: 10px;
     font-size: 11px;
     padding: 2px;
-    width: 70px;
     cursor: pointer;
+    width: 90px;
 }
 .normalIssue{
     background-color: #747474;
@@ -3656,7 +3656,7 @@ button.btn-add{
     border-radius: 10px;
     font-size: 11px;
     padding: 2px;
-    width: 70px;
+    width: 90px;
     cursor: pointer;
 }
 .importantIssue{

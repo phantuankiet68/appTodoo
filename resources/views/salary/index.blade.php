@@ -6,11 +6,65 @@
 <div class="todo">
     <div class="jobMonthBody">
         <div class="todoCol-5">
-        <form action="{{ route('salary.store') }}" method="POST" class="salary-tap">
-            @csrf
-            <div id="form-container"></div>
-            <button class="createDate" type="button" onclick="generateForm()">{{ __('messages.Create Form') }}</button>
-        </form>
+            <div class="todoHeader topHeaderTodo">
+                <div class="topHeader">
+                    <h2>{{ __('messages.Salary') }}</h2> | <span>{{ __('messages.Home') }}</span>
+                </div>
+            </div>
+            <div class="salaryBody">
+                <form  method="POST" action="{{ route('salaries.store') }}">
+                @csrf
+                    <h2 class="text-center">{{ __('messages.Add New') }}</h5>
+                    @if (Auth::check())
+                        <input type="hidden" class="input-name" name="user_id" value="{{ Auth::user()->id }}" readonly/>
+                    @endif
+                    <div class="form-input-category mt-10">
+                        <label for="reference">{{ __('messages.Name') }}</label>
+                        @if (Auth::check())
+                            <input type="text" class="input-name" name="name" value="{{ Auth::user()->full_name }}" readonly/>
+                        @endif
+                    </div>
+                    <div class="form-input-category mt-10">
+                        <label for="reference">{{ __('messages.Date Created') }}</label>
+                        <input type="text" class="input-name" id="current_date" name="current_date" readonly>
+                    </div>
+                    <div class="form-textarea-category">
+                        <label for="description">{{ __('messages.Description') }}</label>
+                        <textarea class="textarea" name="description"></textarea> 
+                    </div>
+                    <div class="form-group-info">
+                        <div class="form-input-category">
+                            <label for="name">{{ __('messages.Start Date') }}</label>
+                            <input type="time" class="input-name" id="current_time_start" name="current_time_start">
+                        </div>
+                        <div class="form-input-category">
+                            <label for="name">{{ __('messages.End Date') }}</label>
+                            <input type="time" class="input-name" id="current_time_end" name="current_time_end">
+                        </div>
+                    </div>
+                    <div class="form-input-category mt-10">
+                        <label for="reference">{{ __('messages.Total working time') }}</label>
+                        <input type="text" class="input-name" name="total_working_time" readonly>
+                    </div>
+                    <div class="form-group-info">
+                        <div class="form-input-category">
+                            <label for="name">{{ __('messages.Start Date') }}</label>
+                            <input type="time" class="input-name" id="current_time_overtime_start" name="date_start" value="08:00">
+                        </div>
+                        <div class="form-input-category">
+                            <label for="name">{{ __('messages.End Date') }}</label>
+                            <input type="time" class="input-name" id="current_time_overtime_end" name="date_end" value="17:10">
+                        </div>
+                    </div>
+                    <div class="form-input-category mt-10">
+                        <label for="reference">{{ __('messages.Total overtime') }}</label>
+                        <input type="text" class="input-name" id="total_overtime" name="total_overtime" readonly>
+                    </div>
+                    <div class="form-btn">
+                        <button type="submit">{{ __('messages.Add New') }}</button>
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="todoCol-5 jobsalary">
             <div class="tabs">
@@ -241,49 +295,100 @@
 </div>
 
 <script>
-function generateForm() {
     const today = new Date();
-    const month = today.getMonth() + 1;
-    const year = today.getFullYear();
-    const daysInMonth = getDaysInMonth(month, year);
 
-    const formContainer = document.getElementById('form-container');
-    formContainer.innerHTML = ''; 
+    const formattedDate = today.getFullYear() + '-' + 
+                            String(today.getMonth() + 1).padStart(2, '0') + '-' + 
+                            String(today.getDate()).padStart(2, '0');
 
-    for (let d = 1; d <= daysInMonth; d++) {
-        const formGroup = document.createElement('div');
-        formGroup.classList.add('form-group');
+    document.getElementById('current_date').value = formattedDate;
+    document.getElementById('current_time_start').value = "08:00";
+    document.getElementById('current_time_end').value = "17:10";
+    document.getElementById('current_time_overtime_start').value = "17:10";
+    document.getElementById('current_time_overtime_end').value = "17:10";
 
-        // Input cho dữ liệu
-        const inputData = document.createElement('input');
-        inputData.type = 'text';
-        inputData.name = `day${d}_data`;
-        inputData.placeholder = `{{ __('messages.Enter data for the day') }} ${d}/${month}...`;
+    function calculateOvertime() {
+        const startTime = document.getElementById('current_time_overtime_start').value;
+        const endTime = document.getElementById('current_time_overtime_end').value;
 
-        // Input cho thời gian bắt đầu
-        const startTimeLabel = document.createElement('label');
-        startTimeLabel.innerText = `{{ __('messages.Start') }}`;
-        const startTimeInput = document.createElement('input');
-        startTimeInput.type = 'time';
-        startTimeInput.name = `day${d}_start_time`;
+        // Chuyển đổi thời gian sang phút
+        const [startHours, startMinutes] = startTime.split(':').map(Number);
+        const [endHours, endMinutes] = endTime.split(':').map(Number);
 
-        // Input cho thời gian kết thúc
-        const endTimeLabel = document.createElement('label');
-        endTimeLabel.innerText = `{{ __('messages.End') }}:`;
-        const endTimeInput = document.createElement('input');
-        endTimeInput.type = 'time';
-        endTimeInput.name = `day${d}_end_time`;
+        const startTotalMinutes = startHours * 60 + startMinutes;
+        const endTotalMinutes = endHours * 60 + endMinutes;
 
-        formGroup.appendChild(inputData);
-        formGroup.appendChild(startTimeLabel);
-        formGroup.appendChild(startTimeInput);
-        formGroup.appendChild(endTimeLabel);
-        formGroup.appendChild(endTimeInput);
+        // Tính tổng thời gian làm thêm
+        let totalMinutes = endTotalMinutes - startTotalMinutes;
 
-        formContainer.appendChild(formGroup);
+        // Nếu thời gian end nhỏ hơn start, điều chỉnh qua ngày hôm sau
+        if (totalMinutes < 0) {
+            totalMinutes += 24 * 60;
+        }
+
+        // Nếu thời gian bắt đầu và kết thúc giống nhau
+        if (totalMinutes === 0 && startTime !== endTime) {
+            document.getElementById('total_overtime').value = "không";
+        } else {
+            const overtimeHours = Math.floor(totalMinutes / 60);
+            const overtimeMinutes = totalMinutes % 60;
+
+            document.getElementById('total_overtime').value = `${overtimeHours} giờ ${overtimeMinutes} phút`;
+        }
     }
-}
 
+    document.getElementById('current_time_overtime_start').addEventListener('input', calculateOvertime);
+    document.getElementById('current_time_overtime_end').addEventListener('input', calculateOvertime);
+    calculateOvertime();
+    function calculateWorkingTime() {
+        const startTime = document.getElementById('current_time_start').value;
+        const endTime = document.getElementById('current_time_end').value;
+
+        // Kiểm tra nếu chưa chọn thời gian
+        if (!startTime || !endTime) {
+            return;
+        }
+
+        // Chuyển đổi thời gian sang phút
+        const [startHours, startMinutes] = startTime.split(':').map(Number);
+        const [endHours, endMinutes] = endTime.split(':').map(Number);
+
+        const startTotalMinutes = startHours * 60 + startMinutes;
+        const endTotalMinutes = endHours * 60 + endMinutes;
+
+        // Tính tổng thời gian làm việc
+        let totalMinutes = endTotalMinutes - startTotalMinutes;
+
+        // Nếu thời gian end nhỏ hơn start, điều chỉnh qua ngày hôm sau
+        if (totalMinutes < 0) {
+            totalMinutes += 24 * 60;
+        }
+
+        // Trừ 65 phút từ tổng thời gian làm việc
+        totalMinutes -= 70;
+
+        // Đảm bảo tổng số phút không âm
+        if (totalMinutes < 0) {
+            totalMinutes = 0;
+        }
+
+        // Chuyển đổi tổng thời gian thành giờ và phút
+        const workingHours = Math.floor(totalMinutes / 60);
+        const workingMinutes = totalMinutes % 60;
+
+        // Hiển thị tổng thời gian làm việc
+        document.querySelector('input[name="total_working_time"]').value = `${workingHours} giờ ${workingMinutes} phút`;
+    }
+
+    // Lắng nghe sự kiện thay đổi thời gian
+    document.getElementById('current_time_start').addEventListener('input', calculateWorkingTime);
+    document.getElementById('current_time_end').addEventListener('input', calculateWorkingTime);
+
+    // Gọi hàm để tính toán ngay từ đầu (nếu cần)
+    calculateWorkingTime();
+
+</script>
+<script>
 function getDaysInMonth(month, year) {
     return new Date(year, month, 0).getDate();
 }

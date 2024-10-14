@@ -53,40 +53,47 @@ class SalaryController extends Controller
      */
     public function store(Request $request)
     {
-        $userId = Auth::id(); // Lấy user_id từ người dùng hiện tại
+        $request->validate([
+            'user_id' => 'required|exists:users,id', 
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'date_create' => 'required|date',
+            'current_time_start' => 'required|date_format:H:i',
+            'current_time_end' => 'required|date_format:H:i',
+            'total_working_time' => 'nullable|string',
+            'total_overtime' => 'nullable|string',
+        ]);
 
-        foreach ($request->all() as $key => $value) {
-            if (preg_match('/day(\d+)_data/', $key, $matches)) {
-                $day = $matches[1]; // Lấy số ngày từ key
-    
-                // Tạo ngày tháng năm từ ngày, tháng hiện tại
-                $month = date('m'); // Tháng hiện tại
-                $year = date('Y'); // Năm hiện tại
-    
-                // Tạo đối tượng Carbon từ ngày hiện tại và format theo `Y-m-d`
-                $fullDate = Carbon::create($year, $month, $day)->format('Y-m-d');
-    
-                // Kiểm tra nếu dữ liệu nhập vào không rỗng
-                $startTime = $request->input("day{$day}_start_time");
-                $endTime = $request->input("day{$day}_end_time");
-    
-                if (empty($value) || empty($startTime) || empty($endTime)) {
-                    return redirect()->back()->withErrors("Dữ liệu cho ngày {$day} không được để trống.");
-                }
-    
-                // Lưu thông tin vào cơ sở dữ liệu
-                Salary::create([
-                    'day' => $day,
-                    'data' => $value,
-                    'start_time' => $startTime,
-                    'end_time' => $endTime,
-                    'user_id' => $userId,
-                    'full_date' => $fullDate, // Lưu ngày theo định dạng `Y-m-d`
-                ]);
-            }
-        }
-    
-        return redirect()->back()->with('success', 'Dữ liệu đã được lưu thành công!');
+        $salary = Salary::create([
+            'user_id' => $request->user_id,
+            'name' => $request->name,
+            'description' => $request->description,
+            'date_create' => $request->date_create,
+            'current_time_start' => $request->current_time_start,
+            'current_time_end' => $request->current_time_end,
+            'total_working_time' => $request->total_working_time,
+            'total_overtime' => $request->total_overtime,
+        ]);
+
+        return redirect()->route('salaries.index')->with('success', 'Issue created successfully');
+    }
+
+    private function calculateWorkingTime($startTime, $endTime)
+    {
+        $start = \Carbon\Carbon::createFromFormat('H:i', $startTime);
+        $end = \Carbon\Carbon::createFromFormat('H:i', $endTime);
+        $workingHours = $start->diffInMinutes($end);
+        
+        return floor($workingHours / 60) . ' giờ ' . ($workingHours % 60) . ' phút';
+    }
+
+    private function calculateOvertime($overtimeStart, $overtimeEnd)
+    {
+        $start = \Carbon\Carbon::createFromFormat('H:i', $overtimeStart);
+        $end = \Carbon\Carbon::createFromFormat('H:i', $overtimeEnd);
+        $overtimeMinutes = $start->diffInMinutes($end);
+        
+        return floor($overtimeMinutes / 60) . ' giờ ' . ($overtimeMinutes % 60) . ' phút';
     }
 
     /**

@@ -185,5 +185,7 @@ return [
     'Comment'=>'Bình luận',
     'No results found for the keyword'=>'Không tìm thấy kết quả nào cho từ khóa.',
     'Please try again with a different keyword.'=>'Vui lòng thử lại với từ khóa khác.',
+    'Total working time'=>'Tổng thời gian',
+    'Total overtime'=>'Tổng thời gian',
 
 ];
