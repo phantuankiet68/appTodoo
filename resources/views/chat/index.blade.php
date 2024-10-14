@@ -46,7 +46,7 @@
                             <div class="titlePost">
                                 <h3>Recent Stories</h3>
                             </div>
-                            <p></p>
+                            <p class="space"></p>
                             <div class="recentStoriesView">
                                 <div class="recentView">
                                     <div class="recentViewUser">
