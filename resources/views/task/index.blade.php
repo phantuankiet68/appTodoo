@@ -5,150 +5,69 @@
 @section('content')
 <div class="todo">
     <div class="TodoBodyContent">
-        <div class="col-3">
-            <div class="title-todo">
-                <h2>{{ __('messages.Category') }}</h2>|<span>{{ __('messages.Tasks') }}</span>
-            </div>
-            @if ($errors->any())
-                <div class="alert alert-danger">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+        <div class="categoryTodo">
+            <div class="projectTodoNotify">
+                <div class="projectTodoNotifyHeader">
+                    <span>{{ __('messages.Category') }}</span>
+                    <button class="btnCategory" onclick="CreateCategoryForm()"><i class="fa-solid fa-plus"></i> {{ __('messages.Add New') }}</button>
                 </div>
-            @endif
-
-            @if (session('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            @if (session('error'))
-                <div class="alert alert-danger">
-                    {{ session('error') }}
-                </div>
-            @endif
-            <div class="header-todo">
-                <form action="" class="formSearch">
-                    <div class="formInputSearch">
-                        <input type="text" value="">
-                    </div>
-                    <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
-                <div class="headerTopSpeed">
-                    <button class="btn-add" id="showCategoryBtn">{{ __('messages.Add New') }}</button>
-                    <div class="CreateCategory">
-                        <form method="POST" action="{{ route('category_task.store') }}">
-                        @csrf
-                            @if (Auth::check())
-                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
-                            @endif
-                            <div class="form-input-category">
-                                <label for="name">{{ __('messages.Name') }}</label>
-                                <input type="text" class="input-name" id="name" name="name">
-                            </div>
-                            <div class="form-textarea-category">
-                                <label for="description">{{ __('messages.Description') }}</label>
-                                <textarea name="description"  id="description" class="textArea_description"></textarea>
-                            </div>
-                            <div class="form-select-category">
-                                <label for="status">{{ __('messages.Status') }}</label>
-                                <select name="status" id="status">
-                                    <option value="0">{{ __('messages.Hide') }}</option>
-                                    <option value="1">{{ __('messages.Show') }}</option>
-                                </select>
-                            </div>
-                            <div class="form-btn">
-                                <button>{{ __('messages.Add') }}</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="body-category-todo">
-                <div class="recent--patient">
-                    <div class="tables">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>{{ __('messages.Name') }}</th>
-                                    <th class="th-none">{{ __('messages.Date Created') }}</th>
-                                    <th class="text-center">{{ __('messages.Status') }}</th>
-                                    <th class="text-center">{{ __('messages.Settings') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($categoryTasks as $task)
-                                <tr>
-                                    <td>{{ $task->name }}</td>
-                                    <td class="td-none">{{ $task->created_at->format('d-m-Y') }}</td>
-                                    <td class="text-center "> 
-                                        <input type="checkbox" name="status[]" id="status_{{ $task->id }}" 
-                                            value="1" {{ $task->status == 1 ? 'checked' : '' }}>
-                                    </td>
-                                    <td class="text-center">
-                                        <a href="#" onclick="showEditPopup({{ $task->id }})">
-                                            <i class="fa-regular fa-pen-to-square edit"></i>
-                                        </a>
-                                        <a href="#" onclick="showDeletePopup({{ $task->id }})">
-                                            <i class="fa-solid fa-trash delete"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                        <div class="d-flex justify-content-center link-margin">
-                            {{ $categoryTasks->links('') }} <!-- Hoặc pagination::bootstrap-4 nếu bạn sử dụng Bootstrap 4 -->
+                <div class="body-category-todo">
+                    <div class="recent--patient">
+                        <div class="tables">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>{{ __('messages.Name') }}</th>
+                                        <th class="th-none">{{ __('messages.Date Created') }}</th>
+                                        <th class="text-center">{{ __('messages.Status') }}</th>
+                                        <th class="text-center">{{ __('messages.Settings') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($categoryTasks as $task)
+                                    <tr>
+                                        <td>{{ $task->name }}</td>
+                                        <td class="td-none">{{ $task->created_at->format('d-m-Y') }}</td>
+                                        <td class="text-center "> 
+                                            <input type="checkbox" name="status[]" id="status_{{ $task->id }}" 
+                                                value="1" {{ $task->status == 1 ? 'checked' : '' }}>
+                                        </td>
+                                        <td class="text-center">
+                                            <a href="#" onclick="showEditPopup({{ $task->id }})">
+                                                <i class="fa-regular fa-pen-to-square edit"></i>
+                                            </a>
+                                            <a href="#" onclick="showDeletePopup({{ $task->id }})">
+                                                <i class="fa-solid fa-trash delete"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-9">
-            <div class="title-todo">
-                <h2>{{ __('messages.Project') }}</h2>|<span>{{ __('messages.Tasks') }}</span>
-            </div>
-            <div class="header-todo-Content">
-                <div class="header-todo-left">
-                    <form action="">
-                        <div class="Users--right--btns">
-                            <select name="date" id="date" class="select-dropdown doctor--filter">
-                                <option>Fillter</option>
-                                <option value="free">Done</option>
-                                <option value="scheduled">Unfinished</option>
-                            </select>
-                        </div>
-                    </form>
-                    <form action="">
-                        <div class="Users--right--btns">
-                            <select name="date" id="date" class="select-dropdown doctor--filter">
-                                <option>Category</option>
-                                <option value="free">Admin</option>
-                                <option value="scheduled">Users</option>
-                            </select>
-                        </div>
-                    </form>
-                    <form action="">
-                        <div class="Users--right--btns">
-                            <select name="date" id="date" class="select-dropdown doctor--filter">
-                                <option>Assignment</option>
-                                <option value="free">Admin</option>
-                                <option value="scheduled">Users</option>
-                            </select>
-                        </div>
-                    </form>
-                    <form action="" class="formSearch">
-                        <div class="formInputSearch">
-                            <input type="text" value="">
-                        </div>
-                        <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
+            <div class="todoHeader topHeaderTodo">
+                <div class="topHeader">
+                    <h2>{{ __('messages.Issue') }}</h2> | <span>{{ __('messages.Home') }}</span>
                 </div>
-                <div class="header-todo-right">
-                    <button class="btn-add" id="openTodoCreate"  fdprocessedid="z9dji27">{{ __('messages.Add New') }}</button>
+                <div class="header-todo-Content">
+                    <div class="header-todo-left">
+                        <form action="" class="formSearch">
+                            <div class="formInputSearch">
+                                <input type="text" value="">
+                            </div>
+                            <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div class="header-todo-right">
+                        <button class="btn-down" id="openStaskIssue" onclick="openCategoryIssue()"><i class="fa-solid fa-download"></i> {{ __('messages.Download') }}</button>
+                        <button class="btn-show" id="openStaskIssue" onclick="openCategoryIssue()"><i class="fa-solid fa-eye"></i> {{ __('messages.Category') }}</button>
+                        <button class="btn-add" id="openStaskIssue" onclick="openStaskIssue()"><i class="fa-solid fa-plus"></i> {{ __('messages.Add New') }}</button>
+                    </div>
                 </div>
             </div>
             @if ($errors->any())
@@ -173,7 +92,7 @@
                 </div>
             @endif
             <div class="body-todo body-tables-todo">
-                <div class="recent--patient FormTable_800">
+                <div class="recent--patient">
                     <div class="tables ScrollTable">
                         <table>
                             <thead>
@@ -190,28 +109,28 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach($todos as $todo)
+                                @foreach($tasks as $item)
                                 <tr>
-                                    <td>{{ $todo->id }}</td>
-                                    <td>{{ $todo->name }}</td>
+                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $item->name }}</td>
                                     <td>
                                         <div class="text-truncate" style="width: 250px;">
-                                            {!! $todo->description !!}
+                                            {!! $item->description !!}
                                         </div>
                                     </td>
-                                    <td class="text-center">{{ $todo->date_start }}</td>
-                                    <td class="text-center">{{ $todo->userTodo ? $todo->userTodo->full_name : 'Không có danh mục' }}</td>
-                                    <td class="text-center">{{ $todo->date_end }}</td>
-                                    <td>{{ $todo->categoryTodo ? $todo->categoryTodo->name : 'Không có danh mục' }}</td>
+                                    <td class="text-center">{{ $item->date_start }}</td>
+                                    <td class="text-center">{{ $item->userTodo ? $item->userTodo->full_name : 'Không có danh mục' }}</td>
+                                    <td class="text-center">{{ $item->date_end }}</td>
+                                    <td>{{ $item->categoryTodo ? $item->categoryTodo->name : 'Không có danh mục' }}</td>
                                     <td class="text-center"> 
-                                        <input type="checkbox" name="todo[]" id="todo_{{ $todo->id }}" 
-                                            value="1" {{ $todo->status == 1 ? 'checked' : '' }}>
+                                        <input type="checkbox" name="todo[]" id="todo_{{ $item->id }}" 
+                                            value="1" {{ $item->status == 1 ? 'checked' : '' }}>
                                     </td>
                                     <td class="text-center">
-                                        <a href="#" onclick="showEditTodoPopup({{ $todo->id }})">
+                                        <a href="#" onclick="showEditTodoPopup({{ $item->id }})">
                                             <i class="fa-regular fa-pen-to-square edit"></i>
                                         </a>
-                                        <a href="#" onclick="showDeleteTodoPopup({{ $todo->id }})">
+                                        <a href="#" onclick="showDeleteTodoPopup({{ $item->id }})">
                                             <i class="fa-solid fa-trash delete"></i>
                                         </a>
                                     </td>
@@ -220,7 +139,7 @@
                             </tbody>
                         </table>
                         <div class="d-flex justify-content-center link-margin">
-                            {{ $todos->links('') }} <!-- Hoặc pagination::bootstrap-4 nếu bạn sử dụng Bootstrap 4 -->
+                            {{ $tasks->links('') }} <!-- Hoặc pagination::bootstrap-4 nếu bạn sử dụng Bootstrap 4 -->
                         </div>
                     </div>
                 </div>
@@ -273,7 +192,7 @@
 </div>
 
 <div class="ModelCreateTodo">
-    <form  method="POST" action="{{ route('todo.store') }}" >
+    <form  method="POST" action="{{ route('tasks.store') }}" >
     @csrf
         <h2>{{ __('messages.Add New') }}</h5>
         @if (Auth::check())
@@ -397,6 +316,14 @@
 </script>
 <script>
 
+function openCategoryIssue(){
+    const openCategoryIssue = document.querySelector('.categoryTodo');
+    if (openCategoryIssue.style.display === 'none' || openCategoryIssue.style.display === '') {
+        openCategoryIssue.style.display = 'block'; // Hiển thị popup
+    } else {
+        openCategoryIssue.style.display = 'none'; // Ẩn popup
+    }
+}
 // Chức năng đóng category task
 function closeCreateTodoPopup() {
     const modelCreateTask = document.querySelector('.ModelCreateTodo');
@@ -417,7 +344,7 @@ function showEditTodoPopup(todoId) {
     ModelEditTodoForm.forEach(task => {
         task.style.display = isVisible ? 'none' : 'block';
     });
-    fetch(`/todo/${todoId}`)
+    fetch(`/tasks/${todoId}`)
     .then(response => response.json())
     .then(data => {
         console.log(data);
@@ -435,7 +362,7 @@ function showEditTodoPopup(todoId) {
 document.getElementById('edit-todo-form').onsubmit = function(event) {
     event.preventDefault();
     const todoId = document.getElementById('todo-id').value;
-    this.action = `/todo/${todoId}`;
+    this.action = `/tasks/${todoId}`;
     this.submit();
 }
 
@@ -455,7 +382,7 @@ function showDeleteTodoPopup(todoId) {
     const deletePopup = document.querySelector('.modelDeleteFormTodo');
     deletePopup.style.display = 'block';
     const deleteFormTodo = document.getElementById('delete-todo-form');
-    deleteForm.action = `/todo/${todoId}`;
+    deleteForm.action = `/tasks/${todoId}`;
 }
 
 // Ẩn hiện popup form delete todo

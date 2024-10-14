@@ -38,8 +38,8 @@
             </form>
         </div>
         <div class="footerHeader">
-            <button class="btn-show" id="openStaskIssue" onclick="openCategoryIssue()">{{ __('messages.Show Category') }}</button>
-            <button class="btn-add" id="openStaskIssue" onclick="openStaskIssue()">{{ __('messages.Add New') }}</button>
+            <button class="btn-show" id="openStaskIssue" onclick="openCategoryIssue()"><i class="fa-solid fa-eye"></i> {{ __('messages.Category') }}</button>
+            <button class="btn-add" id="openStaskIssue" onclick="openStaskIssue()"><i class="fa-solid fa-plus"></i> {{ __('messages.Add New') }}</button>
         </div>
     </div>
     <div class="projecTodoBody">
@@ -136,38 +136,38 @@
                     <button class="btnCategory" onclick="CreateCategoryForm()">{{ __('messages.Add New') }}</button>
                 </div>
                 <div class="body-category-todo">
-                <div class="recent--patient">
-                    <div class="tables">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>{{ __('messages.Name') }}</th>
-                                    <th class="text-center">{{ __('messages.Status') }}</th>
-                                    <th class="text-center">{{ __('messages.Settings') }}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                               @foreach($categories as $cate)
-                                <tr>
-                                    <td>{{$cate->name}}</td>
-                                    <td class="text-center "> 
-                                        <input type="checkbox" name="status[]" id="status_{{ $cate->id }}" 
-                                            value="1" {{ $cate->status == 1 ? 'checked' : '' }}>
-                                    <td class="text-center">
-                                        <a href="#" onclick="showEditPopup({{ $cate->id }})">
-                                            <i class="fa-regular fa-pen-to-square edit"></i>
-                                        </a>
-                                        <a href="#" onclick="showDeletePopup({{ $cate->id }})">
-                                            <i class="fa-solid fa-trash delete"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                    <div class="recent--patient">
+                        <div class="tables">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>{{ __('messages.Name') }}</th>
+                                        <th class="text-center">{{ __('messages.Status') }}</th>
+                                        <th class="text-center">{{ __('messages.Settings') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($categories as $cate)
+                                    <tr>
+                                        <td>{{$cate->name}}</td>
+                                        <td class="text-center "> 
+                                            <input type="checkbox" name="status[]" id="status_{{ $cate->id }}" 
+                                                value="1" {{ $cate->status == 1 ? 'checked' : '' }}>
+                                        <td class="text-center">
+                                            <a href="#" onclick="showEditPopup({{ $cate->id }})">
+                                                <i class="fa-regular fa-pen-to-square edit"></i>
+                                            </a>
+                                            <a href="#" onclick="showDeletePopup({{ $cate->id }})">
+                                                <i class="fa-solid fa-trash delete"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>

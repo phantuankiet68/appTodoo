@@ -290,23 +290,70 @@ document.addEventListener("DOMContentLoaded", function() {
   const dropDownTodo = document.querySelectorAll(".dropDownTodo");
   const chevronTodo = document.getElementById("chevronTodo").querySelector("i");
 
-  // Thêm sự kiện click vào Dashboard
-  Todo.addEventListener("click", function(e) {
-      e.preventDefault();  // Ngăn trang reload
+  const isTodoOpen = localStorage.getItem("todoOpen") === "true";
+  if (isTodoOpen) {
+      dropDownTodo.forEach(item => {
+          item.classList.add("active");
+      });
+      chevronTodo.classList.remove("fa-chevron-up");
+      chevronTodo.classList.add("fa-chevron-down");
 
-      // Duyệt qua từng mục dropDown và chuyển đổi giữa hiển thị và ẩn
+      if (dropDownTodo.length > 0) {
+          dropDownTodo[0].focus(); 
+      }
+  }
+
+  Todo.addEventListener("click", function(e) {
+      e.preventDefault(); 
+
       dropDownTodo.forEach(item => {
           item.classList.toggle("active");
       });
 
-      // Chuyển đổi giữa chevron-up và chevron-down
       if (chevronTodo.classList.contains("fa-chevron-up")) {
-        chevronTodo.classList.remove("fa-chevron-up");
-        chevronTodo.classList.add("fa-chevron-down");
+          chevronTodo.classList.remove("fa-chevron-up");
+          chevronTodo.classList.add("fa-chevron-down");
+          localStorage.setItem("todoOpen", "true"); 
+
+          if (dropDownTodo.length > 0) {
+              dropDownTodo[0].focus();
+          }
       } else {
-        chevronTodo.classList.remove("fa-chevron-down");
-        chevronTodo.classList.add("fa-chevron-up");
+          chevronTodo.classList.remove("fa-chevron-down");
+          chevronTodo.classList.add("fa-chevron-up");
+          localStorage.setItem("todoOpen", "false"); 
       }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const navItems = document.querySelectorAll('.nav-menu li');
+
+  // Kiểm tra localStorage để giữ trạng thái
+  const activeItem = localStorage.getItem('activeNavItem');
+  if (activeItem) {
+      navItems.forEach(item => {
+          const link = item.querySelector('a'); // Lấy phần tử <a>
+          if (link && link.getAttribute('href') === activeItem) {
+              item.classList.add('activeBox');
+          }
+      });
+  }
+
+  navItems.forEach(item => {
+      item.addEventListener('click', function() {
+          // Xóa class activeBox từ tất cả các mục
+          navItems.forEach(i => i.classList.remove('activeBox'));
+          // Thêm class activeBox vào mục được click
+          item.classList.add('activeBox');
+
+          // Lưu trạng thái vào localStorage
+          const link = item.querySelector('a'); // Lấy phần tử <a>
+          if (link) {
+              localStorage.setItem('activeNavItem', link.getAttribute('href'));
+          }
+      });
   });
 });
 
