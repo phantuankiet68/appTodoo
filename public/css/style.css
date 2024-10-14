@@ -440,6 +440,73 @@ ul.nav-menu li:focus-within span i{
     color: #fff;
 }
 
+.dark-mode .sidebar ul li.activeBox{
+    background-color: #3491fc;
+}
+.dark-mode .sidebar ul li.activeBox a{
+    background-color: #3491fc;
+}
+.dark-mode .sidebar ul li.activeBox a i{
+    background-color: #3491fc;
+}
+
+.dark-mode .sidebar ul li.bg-grey.activeBox{
+    background-color: #555555;
+    color: #fff;
+}
+.dark-mode .sidebar ul li.bg-grey.activeBox a{
+    background-color: #555555;
+    color: #fff;
+}
+.dark-mode .sidebar ul li.bg-grey.activeBox a i{
+    background-color: #555555;
+    color: #fff;
+}
+
+
+
+.sidebar ul li.activeBox{
+    background-color: #3491fc;
+    color: #fff;
+}
+.sidebar ul li.activeBox a{
+    background-color: #3491fc;
+    color: #fff;
+}
+.sidebar ul li.activeBox a i{
+    background-color: #3491fc;
+    color: #fff;
+}
+
+.sidebar ul li.bg-grey.activeBox{
+    background: #d5efff3d;
+    color: #0c0808;
+}
+.sidebar ul li.bg-grey.activeBox a{
+    background: #d5efff3d;
+    color: #0c0808;
+}
+.sidebar ul li.bg-grey.activeBox a i{
+    background: #d5efff3d;
+    color: #0c0808;
+}
+
+.sidebar ul li.bg-grey.activeBox:hover{
+    background-color: #3491fc;
+    color: #fff;
+}
+.sidebar ul li.bg-grey.activeBox:hover a{
+    background-color: #3491fc;
+    color: #fff;
+}
+.sidebar ul li.bg-grey.activeBox:hover a i{
+    background-color: #3491fc;
+    color: #fff;
+}
+
+
+
+
 .sidebar ul li.titleMenu{
     font-weight: bold;
     margin-bottom: 0;
@@ -1437,6 +1504,7 @@ button.button:hover{
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    gap: 10px;
     height: auto;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     padding: 5px 10px;
@@ -1470,11 +1538,10 @@ button.button:hover{
 }
 
 .header-todo-right button.btn-add{
-    padding: 6px 20px;
+    padding: 8px 20px;
     background: #27df65;
     color: #fff;
     font-size: 15px;
-    font-weight: 600;
     border-radius: 5px;
     margin: 0 5px;
 }
@@ -1525,7 +1592,6 @@ button.button:hover{
     background: #36e73d;
     color: #fff;
     font-size: 15px;
-    font-weight: 600;
     border-radius: 5px;
     margin: 0 5px;
 }
@@ -1791,7 +1857,7 @@ button.button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffe7df;
+    background-color: #dfeeff;
     padding: 2px 0;
     margin: 0;
     color: #2099ff;
@@ -1809,7 +1875,7 @@ button.button:hover{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffe7df;
+    background-color: #dfeeff;
     padding: 2px 0;
     margin: 0 0 5px 0;
     color: #2099ff;
@@ -2576,7 +2642,7 @@ div.ModelCreateTodo{
 }
 
 .col-9{
-    width: 70%;
+    width: 100%;
     padding: 10px;
 }
 
@@ -3644,8 +3710,8 @@ button.btn-add{
     border-radius: 10px;
     font-size: 11px;
     padding: 2px;
+    width: 70px;
     cursor: pointer;
-    width: 90px;
 }
 .normalIssue{
     background-color: #747474;
@@ -3656,7 +3722,7 @@ button.btn-add{
     border-radius: 10px;
     font-size: 11px;
     padding: 2px;
-    width: 90px;
+    width: 70px;
     cursor: pointer;
 }
 .importantIssue{
@@ -5241,7 +5307,7 @@ list-style: none;
 
 
 .btnCategory{
-    padding: 10px 20px;
+    padding: 8px 20px;
     background: #36e73d;
     color: #fff;
     font-size: 15px;
