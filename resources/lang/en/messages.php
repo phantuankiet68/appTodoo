@@ -187,7 +187,7 @@ return [
     'Please try again with a different keyword.'=>'Please try again with a different keyword.',
     'Total working time'=>'Total working time',
     'Total overtime'=>'Total overtime',
-    ''=>'',
+    'Task created successfully'=>'Task created successfully',
     ''=>'',
     ''=>'',
     ''=>'',

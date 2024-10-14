@@ -14,5 +14,12 @@ return [
     'category_id_exists' => 'Danh mục đã chọn không tồn tại.',
     'status_required' => 'Trường trạng thái là bắt buộc.',
     'status_integer' => 'Trạng thái phải là một số nguyên.',
-
+    'user_id_required' => 'Trường user_id là bắt buộc.',
+    'user_id_exists' => 'User không tồn tại.',
+    'name_required' => 'Trường tên là bắt buộc.',
+    'name_string' => 'Tên phải là chuỗi.',
+    'name_max' => 'Tên không được vượt quá 255 ký tự.',
+    'description_nullable' => 'Mô tả có thể bỏ trống.',
+    'current_start_date' => 'Ngày bắt đầu phải là một ngày hợp lệ.',
+    'status_integer' => 'Trạng thái phải là một số nguyên.',
 ];

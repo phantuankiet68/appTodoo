@@ -1088,6 +1088,14 @@ span.circle-white{
     justify-content: center;
 }
 
+.TaskBodyContent {
+    height: 77vh;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
 .header-todo .btn-add {
     padding: 6px 20px;
     background: #27df65;;
@@ -2146,17 +2154,6 @@ button.button:hover{
     color: #2099ff;
 }
 
-.ModelCreateTodo {
-    /* display: none; */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
-}
-
 
 .alert-success{
     color: red;
@@ -2281,9 +2278,6 @@ div.ModelEditTodoForm{
     display: none;
 }
 
-div.ModelCreateTodo{
-    display: none;
-}
 
 .ModelCreate h2{
     color: #007BFF;
@@ -3710,7 +3704,7 @@ button.btn-add{
     border-radius: 10px;
     font-size: 11px;
     padding: 2px;
-    width: 70px;
+    width: 90px;
     cursor: pointer;
 }
 .normalIssue{
@@ -3722,7 +3716,7 @@ button.btn-add{
     border-radius: 10px;
     font-size: 11px;
     padding: 2px;
-    width: 70px;
+    width: 90px;
     cursor: pointer;
 }
 .importantIssue{

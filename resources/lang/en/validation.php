@@ -14,4 +14,12 @@ return [
     'category_id_exists' => 'The selected category does not exist.',
     'status_required' => 'The status field is required.',
     'status_integer' => 'The status must be an integer.',
+    'user_id_required' => 'The user_id field is required.',
+    'user_id_exists' => 'User does not exist.',
+    'name_required' => 'The name field is required.',
+    'name_string' => 'The name must be a string.',
+    'name_max' => 'The name may not be greater than 255 characters.',
+    'description_nullable' => 'The description field may be null.',
+    'current_start_date' => 'The start date must be a valid date.',
+    'status_integer' => 'The status must be an integer.',
 ];

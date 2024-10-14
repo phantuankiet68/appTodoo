@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryTasksController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TodoController;
+use App\Http\Controllers\TaskController;
 use App\Http\Controllers\WorkflowController;
 use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\ExpenseController;
@@ -68,6 +69,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('category', CategoryController::class);
     Route::resource('category_task', CategoryTasksController::class);
     Route::resource('todo', TodoController::class);
+    Route::resource('tasks', TaskController::class);
     Route::resource('work_flow', WorkflowController::class);
     Route::resource('salaries', SalaryController::class);
     Route::resource('expense', ExpenseController::class);
