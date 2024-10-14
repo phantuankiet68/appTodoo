@@ -33,7 +33,7 @@
                     <li class="bg-grey"><a href="javascript:void(0)" id="todo"><i class="fa-solid fa-cloud"></i>{{ __('messages.Tasks') }}</a><span id="chevronTodo"><i class="fa-solid fa-chevron-up"></i></span></li>
                     <li class="dropDownTodo"><a href="{{ route('todo.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Tasks') }}</a></li>
                     <li class="dropDownTodo"><a href="{{ route('work_flow.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Workflow') }}</a></li>
-                    <li class="dropDownTodo"><a href="{{ route('salary.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Salary') }}</a></li>
+                    <li class="dropDownTodo"><a href="{{ route('salaries.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Salary') }}</a></li>
                     <li class="dropDownTodo"><a href="{{ route('expense.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Expenses') }}</a></li>
                     <li class="dropDownTodo"><a href="{{ route('food.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Food') }}</a></li>
                     <li class="titleMenu">{{ __('messages.Application') }}</li>
