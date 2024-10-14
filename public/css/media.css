@@ -36,6 +36,9 @@
         width: 800px;
         overflow:scroll;
     }
+    .ScrollTable{
+        width: 1200px;
+    }
     .projecTodoBody .tables th,
     .projecTodoBody .tables td{
         font-size: 13px;
@@ -214,11 +217,5 @@
         font-size: 14px;
         position: relative;
     }
-    .header-todo-Content {
-        display: flex;
-        width: 100%;
-        align-items: center;
-        justify-content: space-between;
-        margin: 3px 0;
-    }
+   
 }

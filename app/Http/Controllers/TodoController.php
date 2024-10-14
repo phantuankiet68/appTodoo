@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator; 
 use App\Models\CategoryTask;
-use App\Models\Task;
+use App\Models\Todo;
 use Illuminate\Support\Facades\Auth;
 
-class TaskController extends Controller
+class TodoController extends Controller
 {
     /**
     * Display a listing of the resource.
@@ -18,10 +17,12 @@ class TaskController extends Controller
     */
     public function index()
     {
-        $tasks = Task::with(['category', 'user'])->where('user_id', Auth::id())->orderBy('id', 'asc')->paginate(2);
+        $todos = Todo::with(['categoryTodo', 'userTodo'])->where('user_id', Auth::id())->orderBy('id', 'asc')->paginate(2);
         $categoryTasks = CategoryTask::where('user_id', Auth::id())->paginate(12);
-        return view('task.index', compact('categoryTasks','tasks'));
+        return view('todo.index', compact('categoryTasks','todos'));
     }
+
+
     /**
     * Store a newly created resource in storage.
     * @author Phan Tuấn Kiệt
@@ -52,7 +53,7 @@ class TaskController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
         else{
-            Task::create([
+            Todo::create([
                 'category_id' => $request->category_id,
                 'user_id' => $request->user_id,
                 'name' => $request->name,
@@ -62,7 +63,7 @@ class TaskController extends Controller
                 'status' => $request->status,
             ]);
     
-            return redirect()->route('tasks.index')->with('success', __('messages.Create_success'));
+            return redirect()->route('todo.index')->with('success', __('messages.Create_success'));
         }
     }
 
@@ -74,10 +75,9 @@ class TaskController extends Controller
     */
     public function show($id)
     {
-        $tasks = Task::findOrFail($id);
-        return response()->json($tasks);
+        $todos = Todo::findOrFail($id);
+        return response()->json($todos);
     }
-
 
     /**
     * Update the specified resource in storage.
@@ -98,7 +98,7 @@ class TaskController extends Controller
             'status' => 'required|integer', 
         ]);
 
-        $task = Task::findOrFail($id);
+        $task = Todo::findOrFail($id);
 
         $task->update([
             'category_id' =>  $validatedData['category_id'],
@@ -110,7 +110,7 @@ class TaskController extends Controller
             'status' => $validatedData['status'],
         ]);
 
-        return redirect()->route('tasks.index')->with('success', 'Task updated successfully');
+        return redirect()->route('todo.index')->with('success', 'Task updated successfully');
     }
 
     /**
@@ -121,8 +121,10 @@ class TaskController extends Controller
     */
     public function destroy($id)
     {
-        $tasks = Task::findOrFail($id);
-        $tasks->delete();
-        return redirect()->route('tasks.index')->with('success', 'Deleted successfully');
+        $todos = Todo::findOrFail($id);
+        $todos->delete();
+        return redirect()->route('todo.index')->with('success', 'Deleted successfully');
     }
+
+
 }

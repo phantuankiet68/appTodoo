@@ -1047,22 +1047,11 @@
 
 
 .btn-show {
-    padding: 8px 20px;
+    padding: 6px 20px;
     background: #40c3f7;
     color: #fff;
     font-size: 15px;
-    border-radius: 5px;
-    margin: 0 5px;
-    border: none;
-    cursor: pointer;
-}
-
-
-.btn-down {
-    padding: 8px 20px;
-    background: #40c3f7;
-    color: #fff;
-    font-size: 15px;
+    font-weight: 600;
     border-radius: 5px;
     margin: 0 5px;
     border: none;
@@ -1135,48 +1124,4 @@
 
 .alert-search span{
     color: red;
-}
-
-.active {
-    background-color: #f0f0f0;
-    font-weight: bold;
-}
-
-.categoryTodo {
-    display: none;
-    height: 80vh;
-    padding: 5px;
-    right: 30px;
-    position: fixed;
-    top: 17%;
-    z-index: 10;
-    background: #fff;
-    width: 25%;
-    border-left: 1px solid #dfdfdf;
-    border-right: 1px solid #dfdfdf;
-    box-shadow: rgb(141 220 255 / 12%) 0px 2px 4px 0px, rgb(76 201 255 / 32%) 0px 2px 16px 0px;
-}
-
-.dashboard-content.dark-mode .categoryTodo {
-    border-left: 1px solid #1571bf;
-    border-right: 1px solid #1571bf;
-    background-color: #555555;
-}
-
-.dashboard-content.dark-mode .categoryTodo .projectTodoNotify {
-    border: 1px solid #1571bf;
-    background-color: #555555;
-}
-
-.dashboard-content.dark-mode .categoryTodo .projectTodoNotifyHeader{
-    margin-bottom: 10px;
-}
-
-.dashboard-content.dark-mode .categoryTodo .projectTodoNotify .tables table th, .dashboard-content.dark-mode .categoryTodo .projectTodoNotify .tables table td {
-    padding: 5px;
-}
-.dashboard-content.dark-mode .categoryTodo .tables {
-    border: 1px solid #1571bf;
-    height: 71vh;
-    overflow: scroll;
 }

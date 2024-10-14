@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Task extends Model
+class Todo extends Model
 {
     use HasFactory;
     protected $fillable = [
@@ -17,11 +17,11 @@ class Task extends Model
         'date_end',
         'status'
     ];
-    public function category()
+    public function categoryTodo()
     {
         return $this->belongsTo(CategoryTask::class, 'category_id');
     }
-    public function user()
+    public function userTodo()
     {
         return $this->belongsTo(User::class, 'user_id');
     }
