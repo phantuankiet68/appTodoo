@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Workflow;
 
 class WorkflowController extends Controller
 {
@@ -13,7 +14,8 @@ class WorkflowController extends Controller
      */
     public function index()
     {
-        return view('workflow.index');
+        $workflows = Workflow::with('user')->get();
+        return view('workflow.index',compact('workflows'));
     }
 
     /**
@@ -21,11 +23,14 @@ class WorkflowController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function updateStatus(Request $request, $id)
     {
-        //
-    }
+        $workflow = Workflow::findOrFail($id);
+        $workflow->status = $request->input('status');
+        $workflow->save();
 
+        return response()->json(['success' => true]);
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -34,9 +39,18 @@ class WorkflowController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'current_start' => 'nullable|date',
+            'status' => 'required|in:open,doing,testing,done',
+        ]);
 
+        Workflow::create($request->all());
+
+        return redirect()->route('workflows.index')->with('success', 'Workflow created successfully.');
+    }
     /**
      * Display the specified resource.
      *

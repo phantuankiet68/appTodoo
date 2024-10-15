@@ -14,7 +14,6 @@
             <div class="salaryBody">
                 <form  method="POST" action="{{ route('salaries.store') }}">
                 @csrf
-                    <h2 class="text-center">{{ __('messages.Add New') }}</h5>
                     @if (Auth::check())
                         <input type="hidden" class="input-name" name="user_id" value="{{ Auth::user()->id }}" readonly/>
                     @endif
@@ -30,7 +29,7 @@
                     </div>
                     <div class="form-textarea-category">
                         <label for="description">{{ __('messages.Description') }}</label>
-                        <textarea class="textarea" name="description"></textarea> 
+                        <textarea class="textareaDescription" name="description"></textarea> 
                     </div>
                     <div class="form-group-info">
                         <div class="form-input-category">

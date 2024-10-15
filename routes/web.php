@@ -70,7 +70,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('category_task', CategoryTasksController::class);
     Route::resource('todo', TodoController::class);
     Route::resource('tasks', TaskController::class);
-    Route::resource('work_flow', WorkflowController::class);
+    Route::resource('workflows', WorkflowController::class);
+    Route::patch('/update-status/{id}', [WorkflowController::class, 'updateStatus']);
     Route::resource('salaries', SalaryController::class);
     Route::resource('expense', ExpenseController::class);
     Route::resource('food', FoodController::class);

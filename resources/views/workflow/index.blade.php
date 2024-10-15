@@ -8,508 +8,294 @@
         <div class="topHeader">
             <h2>Email</h2> | <span>Home</span>
         </div>
-        <div class="bodyHeader">
-            <form action="">
-                <div class="Users--right--btns">
-                    <select name="date" id="date" class="select-dropdown doctor--filter">
-                        <option>Date of Month</option>
-                        <option value="free">Admin</option>
-                        <option value="scheduled">Users</option>
-                    </select>
-                </div>
-            </form>
-            <form action="">
-                <div class="Users--right--btns">
-                    <select name="date" id="date" class="select-dropdown doctor--filter">
-                        <option>Category</option>
-                        <option value="free">Admin</option>
-                        <option value="scheduled">Users</option>
-                    </select>
-                </div>
-            </form>
-            <form action="" class="formSearch">
-                <div class="formInputSearch">
-                    <input type="text" value="">
-                </div>
-                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-        </div>
         <div class="headerToQuesionRight">
-            <button type="button" class="create"><i class="fa-solid fa-plus"></i> Danh muc</button>
             <button type="button" class="change"><i class="fa-solid fa-cash-register"></i> Thay đổi</button>
-            <button type="button" class="create"><i class="fa-solid fa-plus"></i> Tạo mới</button>
+            <button type="button" class="create" onclick="openWordFlow()"><i class="fa-solid fa-plus"></i> Tạo mới</button>
         </div>
     </div>
-    <div class="projecTodoBody">
+    <div class="projecTodoBody mt-10">
         <div class="projectCol-8">
             <div class="board">                      
                 <div class="lanes">
-                <div class="swim-lane" id="todo-lane">
-                        <h3 class="heading">TODO</h3>
-                        <div class="task" draggable="true">
-                            <div class="normal d-flex">
-                                <h3>Set up nature</h3>
-                                <div class="bar-icon-click">
-                                    <i class="fa-regular fa-eye"></i>
-                                </div>
-                            </div>
-                            <p>Learn about VB.Net, set up the Visual Studio environment</p>
-                            <div class="progress-container">
-                                <div class="progress-bar" style="width: 75%;"></div>
-                                <div class="progress-bar-box">
-                                    <span>75%</span>
-                                </div>
-                            </div>
-                            <div class="listAction">
-                                <div class="actionComunicate">
-                                    <span><i class="fa-regular fa-comment"></i><sup>3</sup></span>
-                                    <span><i class="fa-solid fa-users"></i><sup>3</sup></span>
-                                </div>
-                                <div class="actionUsers">
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
+                    <div class="swim-lane" id="todo-lane">
+                        <h3 class="heading">Open</h3> 
+                        @foreach ($workflows as $item)
+                            @if ($item->status === 'open')
+                                <div class="task" draggable="true" data-id="{{ $item->id }}">
+                                    <div class="normal d-flex">
+                                        <h3>{{ $item->name }}</h3>
+                                        <div class="bar-icon-click" onclick="showWorkflowPopup({{ $item->id }})">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </div>
                                     </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
+                                    <div class="text-description">{!! $item->description !!}</div>
+                                    <div class=" mt-10">
+                                        <p>{{ __('messages.Date Created') }}: {{ $item->current_start }}</p>
+                                        <p>{{ __('messages.Create by') }}: {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
                                     </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
+                                    <div class="progress-container mt-10">
+                                        <div class="progress-bar" style="width: 75%;"></div>
+                                        <div class="progress-bar-box">
+                                            <span>75%</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="task" draggable="true">
-                            <div class="normal d-flex">
-                                <h3>Set up nature</h3>
-                                <div class="bar-icon-click">
-                                    <i class="fa-regular fa-eye"></i>
-                                </div>
-                            </div>
-                            <p>Learn about VB.Net, set up the Visual Studio environment</p>
-                            <div class="progress-container">
-                                <div class="progress-bar" style="width: 75%;"></div>
-                                <div class="progress-bar-box">
-                                    <span>75%</span>
-                                </div>
-                            </div>
-                            <div class="listAction">
-                                <div class="actionComunicate">
-                                    <span><i class="fa-regular fa-comment"></i><sup>3</sup></span>
-                                    <span><i class="fa-solid fa-users"></i><sup>3</sup></span>
-                                </div>
-                                <div class="actionUsers">
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task" draggable="true">
-                            <div class="normal d-flex">
-                                <h3>Set up nature</h3>
-                                <div class="bar-icon-click">
-                                    <i class="fa-regular fa-eye"></i>
-                                </div>
-                            </div>
-                            <p>Learn about VB.Net, set up the Visual Studio environment</p>
-                            <div class="progress-container">
-                                <div class="progress-bar" style="width: 75%;"></div>
-                                <div class="progress-bar-box">
-                                    <span>75%</span>
-                                </div>
-                            </div>
-                            <div class="listAction">
-                                <div class="actionComunicate">
-                                    <span><i class="fa-regular fa-comment"></i><sup>3</sup></span>
-                                    <span><i class="fa-solid fa-users"></i><sup>3</sup></span>
-                                </div>
-                                <div class="actionUsers">
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="task" draggable="true">
-                            <div class="normal d-flex">
-                                <h3>Set up nature</h3>
-                                <div class="bar-icon-click">
-                                    <i class="fa-regular fa-eye"></i>
-                                </div>
-                            </div>
-                            <p>Learn about VB.Net, set up the Visual Studio environment</p>
-                            <div class="progress-container">
-                                <div class="progress-bar" style="width: 75%;"></div>
-                                <div class="progress-bar-box">
-                                    <span>75%</span>
-                                </div>
-                            </div>
-                            <div class="listAction">
-                                <div class="actionComunicate">
-                                    <span><i class="fa-regular fa-comment"></i><sup>3</sup></span>
-                                    <span><i class="fa-solid fa-users"></i><sup>3</sup></span>
-                                </div>
-                                <div class="actionUsers">
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            @endif
+                        @endforeach
                     </div>
             
                     <div class="swim-lane">
                         <h3 class="heading">Doing</h3>
-                        <div class="task" draggable="true">
-                            <div class="normal d-flex">
-                                <h3>Set up nature</h3>
-                                <div class="bar-icon-click">
-                                    <i class="fa-regular fa-eye"></i>
-                                </div>
-                            </div>
-                            <p>Learn about VB.Net, set up the Visual Studio environment</p>
-                            <div class="progress-container">
-                                <div class="progress-bar" style="width: 75%;"></div>
-                                <div class="progress-bar-box">
-                                    <span>75%</span>
-                                </div>
-                            </div>
-                            <div class="listAction">
-                                <div class="actionComunicate">
-                                    <span><i class="fa-regular fa-comment"></i><sup>3</sup></span>
-                                    <span><i class="fa-solid fa-users"></i><sup>3</sup></span>
-                                </div>
-                                <div class="actionUsers">
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
+                        @foreach ($workflows as $item)
+                            @if ($item->status === 'doing')
+                                <div class="task" draggable="true" data-id="{{ $item->id }}">
+                                    <div class="normal d-flex">
+                                        <h3>{{ $item->name }}</h3>
+                                        <div class="bar-icon-click" onclick="showWorkflowPopup({{ $item->id }})">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </div>
                                     </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
+                                    <div class="text-description">{!! $item->description !!}</div>
+                                    <div class=" mt-10">
+                                        <p>{{ __('messages.Date Created') }}: {{ $item->current_start }}</p>
+                                        <p>{{ __('messages.Create by') }}: {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
                                     </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
+                                    <div class="progress-container">
+                                        <div class="progress-bar" style="width: 75%;"></div>
+                                        <div class="progress-bar-box">
+                                            <span>75%</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="task" draggable="true">
-                            <div class="normal d-flex">
-                                <h3>Set up nature</h3>
-                                <div class="bar-icon-click">
-                                    <i class="fa-regular fa-eye"></i>
-                                </div>
-                            </div>
-                            <p>Learn about VB.Net, set up the Visual Studio environment</p>
-                            <div class="progress-container">
-                                <div class="progress-bar" style="width: 75%;"></div>
-                                <div class="progress-bar-box">
-                                    <span>75%</span>
-                                </div>
-                            </div>
-                            <div class="listAction">
-                                <div class="actionComunicate">
-                                    <span><i class="fa-regular fa-comment"></i><sup>3</sup></span>
-                                    <span><i class="fa-solid fa-users"></i><sup>3</sup></span>
-                                </div>
-                                <div class="actionUsers">
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            @endif
+                        @endforeach
                     </div>
             
                     <div class="swim-lane">
                         <h3 class="heading">Testing</h3>
-                        <div class="task" draggable="true">
-                            <div class="normal d-flex">
-                                <h3>Set up nature</h3>
-                                <div class="bar-icon-click">
-                                    <i class="fa-regular fa-eye"></i>
-                                </div>
-                            </div>
-                            <p>Learn about VB.Net, set up the Visual Studio environment</p>
-                            <div class="progress-container">
-                                <div class="progress-bar" style="width: 75%;"></div>
-                                <div class="progress-bar-box">
-                                    <span>75%</span>
-                                </div>
-                            </div>
-                            <div class="listAction">
-                                <div class="actionComunicate">
-                                    <span><i class="fa-regular fa-comment"></i><sup>3</sup></span>
-                                    <span><i class="fa-solid fa-users"></i><sup>3</sup></span>
-                                </div>
-                                <div class="actionUsers">
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
+                        @foreach ($workflows as $item)
+                            @if ($item->status === 'testing')
+                                <div class="task" draggable="true" data-id="{{ $item->id }}">
+                                    <div class="normal d-flex">
+                                        <h3>{{ $item->name }}</h3>
+                                        <div class="bar-icon-click" onclick="showWorkflowPopup({{ $item->id }})">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </div>
                                     </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
+                                    <div class="text-description">{!! $item->description !!}</div>
+                                    <div class=" mt-10">
+                                        <p>{{ __('messages.Date Created') }}: {{ $item->current_start }}</p>
+                                        <p>{{ __('messages.Create by') }}: {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
                                     </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
+                                    <div class="progress-container">
+                                        <div class="progress-bar" style="width: 75%;"></div>
+                                        <div class="progress-bar-box">
+                                            <span>75%</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="task" draggable="true">
-                            <div class="normal d-flex">
-                                <h3>Set up nature</h3>
-                                <div class="bar-icon-click">
-                                    <i class="fa-regular fa-eye"></i>
-                                </div>
-                            </div>
-                            <p>Learn about VB.Net, set up the Visual Studio environment</p>
-                            <div class="progress-container">
-                                <div class="progress-bar" style="width: 75%;"></div>
-                                <div class="progress-bar-box">
-                                    <span>75%</span>
-                                </div>
-                            </div>
-                            <div class="listAction">
-                                <div class="actionComunicate">
-                                    <span><i class="fa-regular fa-comment"></i><sup>3</sup></span>
-                                    <span><i class="fa-solid fa-users"></i><sup>3</sup></span>
-                                </div>
-                                <div class="actionUsers">
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            @endif
+                        @endforeach
                     </div>
                     <div class="swim-lane">
                         <h3 class="heading">Done</h3>
-                        <div class="task" draggable="true">
-                            <div class="normal d-flex">
-                                <h3>Set up nature</h3>
-                                <div class="bar-icon-click">
-                                    <i class="fa-regular fa-eye"></i>
-                                </div>
-                            </div>
-                            <p>Learn about VB.Net, set up the Visual Studio environment</p>
-                            <div class="progress-container">
-                                <div class="progress-bar" style="width: 75%;"></div>
-                                <div class="progress-bar-box">
-                                    <span>75%</span>
-                                </div>
-                            </div>
-                            <div class="listAction">
-                                <div class="actionComunicate">
-                                    <span><i class="fa-regular fa-comment"></i><sup>3</sup></span>
-                                    <span><i class="fa-solid fa-users"></i><sup>3</sup></span>
-                                </div>
-                                <div class="actionUsers">
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
+                        @foreach ($workflows as $item)
+                            @if ($item->status === 'done')
+                                <div class="task" draggable="true" data-id="{{ $item->id }}">
+                                    <div class="normal d-flex">
+                                        <h3>{{ $item->name }}</h3>
+                                        <div class="bar-icon-click" onclick="showWorkflowPopup({{ $item->id }})">
+                                            <i class="fa-regular fa-eye"></i>
+                                        </div>
                                     </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
+                                    <div class="text-description">{!! $item->description !!}</div>
+                                    <div class=" mt-10">
+                                        <p>{{ __('messages.Date Created') }}: {{ $item->current_start }}</p>
+                                        <p>{{ __('messages.Create by') }}: {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
                                     </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
+                                    <div class="progress-container">
+                                        <div class="progress-bar" style="width: 75%;"></div>
+                                        <div class="progress-bar-box">
+                                            <span>75%</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="task" draggable="true">
-                            <div class="normal d-flex">
-                                <h3>Set up nature</h3>
-                                <div class="bar-icon-click">
-                                    <i class="fa-regular fa-eye"></i>
-                                </div>
-                            </div>
-                            <p>Learn about VB.Net, set up the Visual Studio environment</p>
-                            <div class="progress-container">
-                                <div class="progress-bar" style="width: 75%;"></div>
-                                <div class="progress-bar-box">
-                                    <span>75%</span>
-                                </div>
-                            </div>
-                            <div class="listAction">
-                                <div class="actionComunicate">
-                                    <span><i class="fa-regular fa-comment"></i><sup>3</sup></span>
-                                    <span><i class="fa-solid fa-users"></i><sup>3</sup></span>
-                                </div>
-                                <div class="actionUsers">
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                    <div class="images-users">
-                                        <img src="./assets/images/user1.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            @endif
+                        @endforeach
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="projectCol-2">
-            <div class="projectTodoNotify">
-                <div class="projectTodoNotifyHeader">
-                    <h3>Recent Update</h3>
-                    <i class="fa-solid fa-caret-up"></i>
-                </div>
-                <div class="projectTodoNotifyBody">
-                    <a href="">
-                        <div class="notifyUsers">
-                            <div class="imgNotify">
-                                <div class="imagesNotify">
-                                    <img src="./assets/images/user1.jpg" alt="">
-                                </div>
-                                <span> Bakusumi</span>
-                            </div>
-                            <div class="updateContentNotify">
-                                <p>update <button type="button">comment</button></p>
-                            </div>
-                        </div>
-                        <div class="notifyBodyContent">
-                            <h4>TAKAYAMA_GAS_USR_KIKAN-211 請求書・コンビニ払込票の出力順</h5>
-                            <span>@筒井　亮太 様 <br> 
-                                ありがとうございます。<br>
-                                印刷会社様に確認を取ってみます。
-                            </span>
-                        </div>
-                        <div class="footerTodoNotify">
-                            <div class="getDate">
-                                <span>update 25 phút trước</span>
-                            </div>
-                            <div class="getIconStars">
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="projectTodoNotifyBody">
-                    <a href="">
-                        <div class="notifyUsers">
-                            <div class="imgNotify">
-                                <div class="imagesNotify">
-                                    <img src="./assets/images/user1.jpg" alt="">
-                                </div>
-                                <span> Bakusumi</span>
-                            </div>
-                            <div class="updateContentNotify">
-                                <p>update <button type="button">comment</button></p>
-                            </div>
-                        </div>
-                        <div class="notifyBodyContent">
-                            <h4>TAKAYAMA_GAS_USR_KIKAN-211 請求書・コンビニ払込票の出力順</h5>
-                            <span>@筒井　亮太 様 <br> 
-                                ありがとうございます。<br>
-                                印刷会社様に確認を取ってみます。
-                            </span>
-                        </div>
-                        <div class="footerTodoNotify">
-                            <div class="getDate">
-                                <span>update 25 phút trước</span>
-                            </div>
-                            <div class="getIconStars">
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="projectTodoNotifyBody">
-                    <a href="">
-                        <div class="notifyUsers">
-                            <div class="imgNotify">
-                                <div class="imagesNotify">
-                                    <img src="./assets/images/user1.jpg" alt="">
-                                </div>
-                                <span> Bakusumi</span>
-                            </div>
-                            <div class="updateContentNotify">
-                                <p>update <button type="button">comment</button></p>
-                            </div>
-                        </div>
-                        <div class="notifyBodyContent">
-                            <h4>TAKAYAMA_GAS_USR_KIKAN-211 請求書・コンビニ払込票の出力順</h5>
-                            <span>@筒井　亮太 様 <br> 
-                                ありがとうございます。<br>
-                                印刷会社様に確認を取ってみます。
-                            </span>
-                        </div>
-                        <div class="footerTodoNotify">
-                            <div class="getDate">
-                                <span>update 25 phút trước</span>
-                            </div>
-                            <div class="getIconStars">
-
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="projectTodoNotifyBody">
-                    <a href="">
-                        <div class="notifyUsers">
-                            <div class="imgNotify">
-                                <div class="imagesNotify">
-                                    <img src="./assets/images/user1.jpg" alt="">
-                                </div>
-                                <span> Bakusumi</span>
-                            </div>
-                            <div class="updateContentNotify">
-                                <p>update <button type="button">comment</button></p>
-                            </div>
-                        </div>
-                        <div class="notifyBodyContent">
-                            <h4>TAKAYAMA_GAS_USR_KIKAN-211 請求書・コンビニ払込票の出力順</h5>
-                            <span>@筒井　亮太 様 <br> 
-                                ありがとうございます。<br>
-                                印刷会社様に確認を取ってみます。
-                            </span>
-                        </div>
-                        <div class="footerTodoNotify">
-                            <div class="getDate">
-                                <span>update 25 phút trước</span>
-                            </div>
-                            <div class="getIconStars">
-
-                            </div>
-                        </div>
-                    </a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
+<div class="model" id="createWordFlow">
+    <div class="ModelCreateTodo">
+        <form method="POST" action="{{ route('workflows.store') }}">
+        @csrf
+            <h2>{{ __('messages.Add New Workflow') }}</h2>
+            @if (Auth::check())
+                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
+            @endif
+            <div class="form-input-category">
+                <label for="name">{{ __('messages.Name') }}</label>
+                <input type="text" class="input-name" name="name" required>
+            </div>
+            <div class="form-textarea-category">
+                <label for="description">{{ __('messages.Description') }}</label>
+                <textarea id="editor" name="description"></textarea>
+            </div>
+            <div class="form-group-info">
+                <div class="form-input-category">
+                    <label for="current_start">{{ __('messages.Start Date') }}</label>
+                    <input type="date" class="input-name" id="current_start" name="current_start">
+                </div>
+                <div class="form-select-category">
+                    <label for="status">{{ __('messages.Status') }}</label>
+                    <select name="status" id="status" required>
+                        <option value="open">{{ __('messages.Open') }}</option>
+                        <option value="doing">{{ __('messages.Doing') }}</option>
+                        <option value="testing">{{ __('messages.Testing') }}</option>
+                        <option value="done">{{ __('messages.Done') }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-btn">
+                <button type="submit">{{ __('messages.Add New') }}</button>
+            </div>
+            <div class="BtnCloseCreate" onclick="closeCreateWorkflow()">
+                <p>X</p>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="model" id="showWorkflow">
+    <div class="ModelCreateTodo">
+        <div class="title-show">
+            <span>Name: <b id="showName"></b></span>
+            <div class="div-flex">Create by: <p id="showUser"></p></div>
+            <p>Date created: <i id="showCurrentDate"></i></p>
+        </div>
+        <div class="showContentComponent" id="show">
+            <div class="showWorkflowComponent">
+                <div id="showDescription"></div>
+            </div>
+        </div>
+        <div class="BtnCloseCreate" onclick="closeShowWorkflow()">
+            <p>X</p>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    CKEDITOR.replace('editor');
+</script>
+
+<script>
+showWorkflowPopup
+
+function showWorkflowPopup(taskId) {
+    const showWorkflowPopup = document.getElementById('showWorkflow');
+    showWorkflowPopup.style.display = 'block';
+    fetch(`/tasks/${taskId}`)
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        document.getElementById('showUser').innerHTML = data.user.full_name;
+        document.getElementById('showCurrentDate').innerHTML = data.current_start;
+        document.getElementById('showName').innerHTML = data.name;
+        document.getElementById('showDescription').innerHTML = data.description;
+    })
+}
+
+
+function closeShowWorkflow() {
+    const showWorkflow = document.getElementById('showWorkflow')
+    if (showWorkflow.style.display === 'none' || showWorkflow.style.display === '') {
+        showWorkflow.style.display = 'block'; 
+    } else {
+        showWorkflow.style.display = 'none';
+    }
+}
+
+
+window.onload = function() {
+    const today = new Date();
+    today.setDate(today.getDate() + 1); 
+
+    const dd = String(today.getDate()).padStart(2, '0'); 
+    const mm = String(today.getMonth() + 1).padStart(2, '0'); 
+    const yyyy = today.getFullYear(); 
+
+    const formattedDate = `${yyyy}-${mm}-${dd}`;
+    document.getElementById("current_start").value = formattedDate; 
+}
+
+function openWordFlow() {
+    const CreateWordFlow = document.getElementById('createWordFlow')
+    if (CreateWordFlow.style.display === 'none' || CreateWordFlow.style.display === '') {
+        CreateWordFlow.style.display = 'block'; 
+    } else {
+        CreateWordFlow.style.display = 'none';
+    }
+}
+
+function closeCreateWorkflow() {
+    const CreateWordFlow = document.getElementById('createWordFlow')
+    if (CreateWordFlow.style.display === 'none' || CreateWordFlow.style.display === '') {
+        CreateWordFlow.style.display = 'block'; 
+    } else {
+        CreateWordFlow.style.display = 'none';
+    }
+}
+const tasks = document.querySelectorAll('.task');
+const lanes = document.querySelectorAll('.swim-lane');
+
+tasks.forEach(task => {
+    task.addEventListener('dragstart', () => {
+        task.classList.add('dragging');
+    });
+
+    task.addEventListener('dragend', () => {
+        task.classList.remove('dragging');
+        // Cập nhật trạng thái
+        const status = task.closest('.swim-lane').querySelector('.heading').textContent.toLowerCase();
+        updateTaskStatus(task.dataset.id, status);
+    });
+});
+
+lanes.forEach(lane => {
+    lane.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        const draggingTask = document.querySelector('.dragging');
+        lane.appendChild(draggingTask);
+    });
+});
+
+function updateTaskStatus(taskId, newStatus) {
+    fetch(`/update-status/${taskId}`, {
+        method: 'PATCH', // hoặc 'PUT', tùy thuộc vào API của bạn
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRF-TOKEN': '{{ csrf_token() }}' // Thêm token CSRF nếu cần
+        },
+        body: JSON.stringify({ status: newStatus })
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+        // Cập nhật lại UI nếu cần
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+}
+</script>
 @endsection
