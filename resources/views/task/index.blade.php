@@ -6,10 +6,10 @@
 <div class="todo">
     <div class="todoHeader topHeaderTodo">
         <div class="topHeader">
-            <h2>{{ __('messages.Issue') }}</h2> | <span>{{ __('messages.Home') }}</span>
+            <h2>{{ __('messages.Tasks') }}</h2> | <span>{{ __('messages.Home') }}</span>
         </div>
         <div class="bodyHeader formSearchIssue">
-            <form action="{{ route('issue.index') }}" method="GET" class="formSearch formIssue">
+            <form action="{{ route('tasks.index') }}" method="GET" class="formSearch formIssue">
                 <div class="formInputSearch">
                     <input type="text" name="search" placeholder="{{ __('messages.Search by subject, key, description...') }}" value="{{ request('search') }}">
                 </div>
@@ -33,9 +33,8 @@
                                     <th style="width:250px; margin-right: 15px;">{{ __('messages.Description') }}</th>
                                     <th class="text-center">{{ __('messages.Start Date') }}</th>
                                     <th class="text-center">{{ __('messages.Create by') }}</th>
-                                    <th class="text-center">{{ __('messages.Show') }}</th>
                                     <th class="text-center">{{ __('messages.Status') }}</th>
-                                    <th class="text-center">{{ __('messages.Settings') }}</th>
+                                    <th class="text-center">{{ __('messages.Show') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -52,20 +51,12 @@
                                     </td>
                                     <td class="text-center">{{ $item->current_start }}</td>
                                     <td class="text-center">{{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</td>
-                                    <td class="text-center">
-                                        <button class="btn-show"><i class="fa-regular fa-eye"></i></button>
-                                    </td>
                                     <td class="text-center"> 
                                         <input type="checkbox" name="todo[]" id="todo_{{ $item->id }}" 
                                             value="1" {{ $item->status == 1 ? 'checked' : '' }}>
                                     </td>
                                     <td class="text-center">
-                                        <a href="#" onclick="showEditTodoPopup({{ $item->id }})">
-                                            <i class="fa-regular fa-pen-to-square edit"></i>
-                                        </a>
-                                        <a href="#" onclick="showDeleteTodoPopup({{ $item->id }})">
-                                            <i class="fa-solid fa-trash delete"></i>
-                                        </a>
+                                        <button class="btn-show" onclick="showTaskPopup({{ $item->id }})"><i class="fa-regular fa-eye"></i></button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -144,9 +135,51 @@
     </div>
 </div>
 
+<div class="model" id="showTask">
+    <div class="ModelCreateTodo">
+        <div class="buttonAction">
+            <button class="show" onclick="showTab('show')"><i class="fa-solid fa-eye"></i> Show</button>
+            <button class="edit" onclick="showTab('edit')"><i class="fa-solid fa-pen-to-square"></i> Edit</button>
+            <button class="delete" onclick="showTab('delete')"><i class="fa-solid fa-trash"></i> Delete</button>
+        </div>
+
+        <div class="showContentComponent" id="show">
+            <div class="showNameComponent">
+               <span>{{ __('messages.Create by') }}: <b id="showUser"></b></span>
+               <p>{{ __('messages.Date Created') }}: <i id="showCurrentDate"></i></p>
+            </div>
+            <span id="showName"></span>
+            <div id="showDescription"></div>
+        </div>
+
+        <div class="editContentQuestion" id="edit" style="display: none;">
+            <div class="titleEditError">
+                <h2>🌟 Khám Phá Sự Đơn Giản trong Quản Lý Component! 🌟</h2>
+                <p>Chúng tôi rất vui mừng thông báo rằng chức năng Chỉnh sửa (Edit) cho Component đang trong quá trình hoàn thiện! Với tính năng này, bạn sẽ có khả năng cập nhật và điều chỉnh nội dung một cách dễ dàng, giúp nội dung của bạn luôn nổi bật và phù hợp. Bên cạnh đó, tính năng Thêm cho phép bạn bổ sung những Component mới đầy sáng tạo, trong khi tính năng Xóa giúp loại bỏ những thành phần không còn cần thiết. Chúng tôi đang nỗ lực mang đến cho bạn trải nghiệm quản lý Component tốt nhất, giúp tối ưu hóa quy trình làm việc và nâng cao giá trị cho dự án của bạn. Hãy cùng chờ đón những cập nhật thú vị sắp tới!</p>
+            </div>
+        </div>
+
+        <div class="deleteContentQuestion" id="delete" style="display: none;">
+            <form method="POST" id="delete-Code">
+                @csrf
+                @method('DELETE')
+                <input type="hidden" id="task_id" name="task_id" />
+                <h3 class="text-center">{{ __('messages.Are you sure you want to delete?') }}</h3>
+                <p class="text-center" id="showNameDelete"></p> 
+                <div class="form-btn-delete">
+                    <button type="submit">{{ __('messages.Delete') }}</button>
+                </div>
+            </form>
+        </div>
+        <div class="BtnCloseCategoryTask" onclick="closeDeleteTask()">
+            <p>X</p>
+        </div>
+    </div>
+</div>
 
 
-<div class="ModelEditTodoForm">
+
+<!-- <div class="ModelEditTodoForm">
     <form method="POST" id="edit-todo-form">
         @csrf
         @method('PUT')
@@ -189,21 +222,7 @@
             <p>X</p>
         </div>
     </form>
-</div>
-
-<div class="modelDeleteFormTodo">
-    <form method="POST" id="delete-todo-form">
-        @csrf
-        @method('DELETE')
-        <h3>{{ __('messages.Are you sure you want to delete?') }}</h3>
-        <div class="form-btn-delete">
-            <button>{{ __('messages.Delete') }}</button>
-        </div>
-        <div class="BtnCloseCategoryTask" onclick="closeDeleteTodoFormPopup()">
-            <p>X</p>
-        </div>
-    </form>
-</div>
+</div> -->
 
 
 <script>
@@ -211,7 +230,12 @@
     CKEDITOR.replace('editor1');
 </script>
 <script>
-
+function showTab(tab) {
+    document.getElementById('show').style.display = 'none';
+    document.getElementById('edit').style.display = 'none';
+    document.getElementById('delete').style.display = 'none';
+    document.getElementById(tab).style.display = 'block';
+}
 window.onload = function() {
     const today = new Date();
     today.setDate(today.getDate() + 1); 
@@ -253,136 +277,32 @@ function closeCreateTask() {
     }
 }
 
-
-
-function closeCreateTodoPopup() {
-    const modelCreateTask = document.querySelector('.ModelCreateTodo');
-    
-    // Kiểm tra nếu popup đang ẩn (display: none)
-    if (modelCreateTask.style.display === 'none' || modelCreateTask.style.display === '') {
-        modelCreateTask.style.display = 'block'; // Hiển thị popup
-    } else {
-        modelCreateTask.style.display = 'none'; // Ẩn popup
-    }
-}
-
 // Xử lý hiển thị thông tin vào form edit todo
-function showEditTodoPopup(todoId) {
-    const ModelEditTodoForm = document.querySelectorAll(".ModelEditTodoForm");
-    const isVisible = ModelEditTodoForm[0].style.display !== 'none';
-
-    ModelEditTodoForm.forEach(task => {
-        task.style.display = isVisible ? 'none' : 'block';
-    });
-    fetch(`/todo/${todoId}`)
+function showTaskPopup(taskId) {
+    const showTaskPopup = document.getElementById('showTask');
+    showTaskPopup.style.display = 'block';
+    fetch(`/tasks/${taskId}`)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
-        document.getElementById('todo-id').value = todoId;
-        document.getElementById('todo-category-id').value = data.category_id;
-        document.getElementById('todo-name').value = data.name;
-        CKEDITOR.instances['editor1'].setData(data.description); // Dùng CKEditor API
-        document.getElementById('todo-date-start').value = data.date_start;
-        document.getElementById('todo-date-end').value = data.date_end;
-        document.getElementById('todo-status').value = data.status;
+        document.getElementById('showUser').innerHTML = data.user.full_name;
+        document.getElementById('showCurrentDate').innerHTML = data.current_start;
+        document.getElementById('showName').innerHTML = data.name;
+        document.getElementById('showNameDelete').innerHTML = data.name;
+        document.getElementById('showDescription').innerHTML = data.description;
+        document.getElementById('task_id').value = data.id;
     })
 }
 
-// Chức năng cập nhật thông tin qua API cho todo
-document.getElementById('edit-todo-form').onsubmit = function(event) {
-    event.preventDefault();
-    const todoId = document.getElementById('todo-id').value;
-    this.action = `/todo/${todoId}`;
-    this.submit();
-}
 
-// Ẩn hiện popup form edit todo
-function closeEditTodoFromPopup() {
-    const editTodoPopup = document.querySelector('.ModelEditTodoForm');
-    
-    if (editTodoPopup.style.display === 'none' || editTodoPopup.style.display === '') {
-        editTodoPopup.style.display = 'block'; // Hiển thị popup
+function closeDeleteTask() {
+    const showTaskPopup = document.getElementById('showTask')
+    if (showTaskPopup.style.display === 'none' || showTaskPopup.style.display === '') {
+        showTaskPopup.style.display = 'block'; 
     } else {
-        editTodoPopup.style.display = 'none'; // Ẩn popup
+        showTaskPopup.style.display = 'none';
     }
 }
 
-// Ẩn hiện popup form delete todo
-function showDeleteTodoPopup(todoId) {
-    const deletePopup = document.querySelector('.modelDeleteFormTodo');
-    deletePopup.style.display = 'block';
-    const deleteFormTodo = document.getElementById('delete-todo-form');
-    deleteForm.action = `/todo/${todoId}`;
-}
-
-// Ẩn hiện popup form delete todo
-function closeDeleteTodoFormPopup() {
-    const deletePopupDelete = document.querySelector('.modelDeleteFormTodo');
-    if (deletePopupDelete.style.display === 'none' || deletePopupDelete.style.display === '') {
-        deletePopupDelete.style.display = 'block';
-    } else {
-        deletePopupDelete.style.display = 'none';
-    }
-}
-
-// Xử lý hiển thị thông tin vào form edit category task
-function showEditPopup(taskId) {
-    const modelCreateCategoryTasks = document.querySelectorAll(".ModelCreateCategoryTask");
-
-    const isVisible = modelCreateCategoryTasks[0].style.display !== 'none';
-
-    modelCreateCategoryTasks.forEach(task => {
-        task.style.display = isVisible ? 'none' : 'block';
-    });
-    fetch(`/category_task/${taskId}`)
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        document.getElementById('task-id').value = taskId;
-        document.getElementById('name_task').value = data.name;
-        document.getElementById('description_task').value = data.description;
-        document.getElementById('status_task').value = data.status;
-    })
-}
-
-// Chức năng cập nhật thông tin qua API cho category task
-document.getElementById('edit-task-form').onsubmit = function(event) {
-    event.preventDefault();
-    const taskId = document.getElementById('task-id').value;
-    
-    this.action = `/category_task/${taskId}`;
-    this.submit();
-}
-
-// Chức năng đóng category task
-function closeEditPopup() {
-    const modelCreateTask = document.querySelector('.ModelCreateCategoryTask');
-    
-    // Kiểm tra nếu popup đang ẩn (display: none)
-    if (modelCreateTask.style.display === 'none' || modelCreateTask.style.display === '') {
-        modelCreateTask.style.display = 'block'; // Hiển thị popup
-    } else {
-        modelCreateTask.style.display = 'none'; // Ẩn popup
-    }
-}
-
-// Chức năng xóa thông tin qua API cho category task
-function showDeletePopup(taskId) {
-    const deletePopup = document.querySelector('.ModelDeleteCategoryTask');
-    deletePopup.style.display = 'block';
-    const deleteForm = document.getElementById('delete-form');
-    deleteForm.action = `/category_task/${taskId}`;
-}
-
-// Kiểm tra nếu popup đang ẩn (display: none)
-function closeDeletePopup() {
-    const deletePopup = document.querySelector('.ModelDeleteCategoryTask');
-    if (deletePopup.style.display === 'none' || deletePopup.style.display === '') {
-        deletePopup.style.display = 'block'; 
-    } else {
-        deletePopup.style.display = 'none';
-    }
-}
 
 
 

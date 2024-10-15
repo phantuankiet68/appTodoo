@@ -15,17 +15,36 @@ class TaskController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tasks = Task::with(['user'])->where('user_id', Auth::id())->orderBy('id', 'asc')->paginate(2);
-        // $tasks = Task::with(['user'])
-        // ->where('user_id', Auth::id())
-        // ->whereDate('current_start', now()->format('Y-m-d')) 
-        // ->orderBy('id', 'asc')
-        // ->paginate(2);
-        return view('task.index', compact('tasks'));
+        $search = $request->get('search');
+        $userId = Auth::id();
+    
+        try {
+            $taskQuery = Task::with(['user'])
+                ->where(function($query) use ($userId) {
+                    $query->where('user_id', $userId);
+                })
+                ->orderBy('id', 'asc');
+    
+            // If search query is present
+            if ($search) {
+                $taskQuery->where(function($query) use ($search) {
+                    $query->where('name', 'like', '%' . $search . '%')
+                        ->orWhere('description', 'like', '%' . $search . '%')
+                        ->orWhereRaw('DATE_FORMAT(current_date, "%Y-%m-%d") LIKE ?', ['%' . $search . '%']); // Date format search
+                });
+            }
+    
+            // Paginate the results
+            $tasks = $taskQuery->paginate(11);
+    
+            return view('task.index', compact('tasks', 'search'));
+    
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lấy danh sách công việc. Vui lòng thử lại.');
+        }
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -68,7 +87,8 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
+        $tasks = Task::with(['user'])->findOrFail($id);
+        return response()->json($tasks);
     }
 
     /**

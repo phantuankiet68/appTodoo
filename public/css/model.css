@@ -18,6 +18,25 @@
     gap: 10px;
 }
 
+#showTask{
+    display: none;
+}
+
+.dashboard-content.dark-mode .showContentComponent span{
+    color: #000;
+}
+
+.dashboard-content.dark-mode .showContentComponent p{
+    color: #000;
+}
+
+.dashboard-content.dark-mode .showContentComponent ul li{
+    color: #000;
+}
+
+.dashboard-content.dark-mode .showContentComponent div{
+    color: #000;
+}
 
 .ModelCreateTodo {
     padding: 10px;
