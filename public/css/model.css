@@ -18,7 +18,36 @@
     gap: 10px;
 }
 
+.dashboard-content.dark-mode .totalDate{
+    background-color: #fff;
+    box-shadow: rgb(141 220 255 / 12%) 0px 2px 4px 0px, rgb(76 201 255 / 32%) 0px 2px 16px 0px;
+}
 
+.dashboard-content.dark-mode .blink-button {
+    background: center;
+    color: #fff;
+}
+
+.dashboard-content.dark-mode .projectTodoNotify{
+    background-color: #555555;
+    border: 1px solid #1571bf;
+}
+.Container.dark-mode .popupShowQuestion .questionBottom{
+    color: #000;
+}
+
+.Container.dark-mode .popupShowQuestion .answerBottom{
+    color: #000;
+}
+
+.dashboard-content.dark-mode .formTab {
+    background-color: #555555;
+}
+
+.dashboard-content.dark-mode .table-spend table tbody tr td input {
+    background: center;
+    color: #fff;
+}
 .textareaDescription {
     resize: none;
     height: 300px;

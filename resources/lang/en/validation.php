@@ -22,4 +22,11 @@ return [
     'description_nullable' => 'The description field may be null.',
     'current_start_date' => 'The start date must be a valid date.',
     'status_integer' => 'The status must be an integer.',
+    'required' => 'The :attribute field is required.',
+    'exists' => 'The selected :attribute is invalid.',
+    'date' => 'The :attribute is not a valid date.',
+    'date_format' => 'The :attribute does not match the format :format.',
+    'max' => [
+        'string' => 'The :attribute may not be greater than :max characters.',
+    ],
 ];

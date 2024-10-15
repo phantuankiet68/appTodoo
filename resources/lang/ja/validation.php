@@ -22,4 +22,11 @@ return [
     'description_nullable' => '説明フィールドはnullであることができます。',
     'current_start_date' => '開始日は有効な日付である必要があります。',
     'status_integer' => 'ステータスは整数である必要があります。',
+    'required' => ':attribute は必須項目です。',
+    'exists' => '選択された :attribute は無効です。',
+    'date' => ':attribute は有効な日付ではありません。',
+    'date_format' => ':attribute の形式は :format と一致しません。',
+    'max' => [
+        'string' => ':attribute は :max 文字以下でなければなりません。',
+    ],
 ];

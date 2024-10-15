@@ -16,23 +16,78 @@ class SalaryController extends Controller
     */
     public function index()
     {
-        $salary = Salary::with(['user'])
+        $salaries = Salary::with(['user'])
             ->where('user_id', Auth::id())
             ->orderBy('id', 'asc')
             ->paginate(2);
         
-        foreach ($salary as $sala) {
-            $startTime = Carbon::parse($sala->start_time);
-            $endTime = Carbon::parse($sala->end_time);
-        
-            // Calculate the difference in hours, then subtract 1 hour
-            $totalHours = $endTime->diffInHours($startTime) - 1; // Subtract 1 hour for break/lunch
-        
-            // Store the calculated hours in the $sala object to pass it to the view
-            $sala->working_hours = $totalHours;
+        foreach ($salaries as $item) {
+            $startTime = Carbon::parse($item->start_time);
+            $endTime = Carbon::parse($item->end_time);
+            $totalHours = $endTime->diffInHours($startTime) - 1; 
+            $item->working_hours = $totalHours;
         }
 
-        return view('salary.index', compact('salary'));
+        $month1 = Salary::where('user_id', Auth::id())
+        ->whereMonth('date_create', 1)
+        ->whereYear('date_create', Carbon::now()->year) 
+        ->count();  
+
+        $month2 = Salary::where('user_id', Auth::id())
+        ->whereMonth('date_create', 2)
+        ->whereYear('date_create', Carbon::now()->year) 
+        ->count(); 
+
+        $month3 = Salary::where('user_id', Auth::id())
+        ->whereMonth('date_create', 3)
+        ->whereYear('date_create', Carbon::now()->year) 
+        ->count();  
+
+        $month4 = Salary::where('user_id', Auth::id())
+        ->whereMonth('date_create', 4)
+        ->whereYear('date_create', Carbon::now()->year) 
+        ->count();  
+
+        $month5 = Salary::where('user_id', Auth::id())
+        ->whereMonth('date_create', 5)
+        ->whereYear('date_create', Carbon::now()->year) 
+        ->count(); 
+
+        $month6 = Salary::where('user_id', Auth::id())
+        ->whereMonth('date_create', 6)
+        ->whereYear('date_create', Carbon::now()->year) 
+        ->count(); 
+        $month7 = Salary::where('user_id', Auth::id())
+        ->whereMonth('date_create', 7)
+        ->whereYear('date_create', Carbon::now()->year) 
+        ->count(); 
+
+        $month8 = Salary::where('user_id', Auth::id())
+        ->whereMonth('date_create', 8)
+        ->whereYear('date_create', Carbon::now()->year) 
+        ->count();  
+        
+        $month9 = Salary::where('user_id', Auth::id())
+        ->whereMonth('date_create', 9)
+        ->whereYear('date_create', Carbon::now()->year) 
+        ->count();  
+
+        $month10 = Salary::where('user_id', Auth::id())
+        ->whereMonth('date_create', 10)
+        ->whereYear('date_create', Carbon::now()->year) 
+        ->count(); 
+
+        $month11 = Salary::where('user_id', Auth::id())
+        ->whereMonth('date_create', 11)
+        ->whereYear('date_create', Carbon::now()->year) 
+        ->count(); 
+
+        $month12 = Salary::where('user_id', Auth::id())
+        ->whereMonth('date_create', 12)
+        ->whereYear('date_create', Carbon::now()->year) 
+        ->count();  
+
+        return view('salary.index', compact('salaries','month1','month2','month3','month4','month5','month6','month7','month8','month9','month10','month11','month12'));
     }
 
     /**
@@ -62,9 +117,22 @@ class SalaryController extends Controller
             'current_time_end' => 'required|date_format:H:i',
             'total_working_time' => 'nullable|string',
             'total_overtime' => 'nullable|string',
+        ], [
+            'user_id.required' => __('validation.user_id_required'),
+            'user_id.exists' => __('validation.user_id_exists'),
+            'name.required' => __('validation.name_required'),
+            'name.string' => __('validation.name_string'),
+            'name.max' => __('validation.name_max'),
+            'date_create.required' => __('validation.date_create_required'),
+            'date_create.date' => __('validation.date_create_date'),
+            'current_time_start.required' => __('validation.current_time_start_required'),
+            'current_time_start.date_format' => __('validation.current_time_start_format'),
+            'current_time_end.required' => __('validation.current_time_end_required'),
+            'current_time_end.date_format' => __('validation.current_time_end_format'),
         ]);
+        
 
-        $salary = Salary::create([
+        Salary::create([
             'user_id' => $request->user_id,
             'name' => $request->name,
             'description' => $request->description,
@@ -76,24 +144,6 @@ class SalaryController extends Controller
         ]);
 
         return redirect()->route('salaries.index')->with('success', 'Issue created successfully');
-    }
-
-    private function calculateWorkingTime($startTime, $endTime)
-    {
-        $start = \Carbon\Carbon::createFromFormat('H:i', $startTime);
-        $end = \Carbon\Carbon::createFromFormat('H:i', $endTime);
-        $workingHours = $start->diffInMinutes($end);
-        
-        return floor($workingHours / 60) . ' giờ ' . ($workingHours % 60) . ' phút';
-    }
-
-    private function calculateOvertime($overtimeStart, $overtimeEnd)
-    {
-        $start = \Carbon\Carbon::createFromFormat('H:i', $overtimeStart);
-        $end = \Carbon\Carbon::createFromFormat('H:i', $overtimeEnd);
-        $overtimeMinutes = $start->diffInMinutes($end);
-        
-        return floor($overtimeMinutes / 60) . ' giờ ' . ($overtimeMinutes % 60) . ' phút';
     }
 
     /**

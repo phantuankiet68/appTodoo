@@ -25,7 +25,7 @@
                     </div>
                     <div class="form-input-category mt-10">
                         <label for="reference">{{ __('messages.Date Created') }}</label>
-                        <input type="text" class="input-name" id="current_date" name="current_date" readonly>
+                        <input type="text" class="input-name" id="current_date" name="date_create" readonly>
                     </div>
                     <div class="form-textarea-category">
                         <label for="description">{{ __('messages.Description') }}</label>
@@ -72,9 +72,6 @@
             </div>
 
             <div id="Tab1" class="tabcontent" style="display: block;">
-                <div class="title-todo">
-                    <h2>{{ __('messages.Date') }}</h2>|<span>{{ __('messages.Work or Task') }}</span>
-                </div>
                 <div class="header-todo">
                     @php
                         $currentLanguage = app()->getLocale(); // Get the current language
@@ -83,108 +80,108 @@
                     <div class="Users--right--btns">
                         <button class="totalDate">
                             @if ($currentLanguage === 'ja')
-                                1{{ __('messages.Month') }}: 2
+                                1{{ __('messages.Month') }}: {{$month1}}
                             @else
-                                {{ __('messages.Month') }} 1: 30
+                                {{ __('messages.Month') }} 1: {{$month1}}
                             @endif
                         </button>
                     </div>
                     <div class="Users--right--btns">
                         <button class="totalDate">
                             @if ($currentLanguage === 'ja')
-                                2{{ __('messages.Month') }}: 2
+                                2{{ __('messages.Month') }}: {{$month2}}
                             @else
-                                {{ __('messages.Month') }} 2: 64
+                                {{ __('messages.Month') }} 2: {{$month2}}
                             @endif
                         </button>
                     </div>
                     <div class="Users--right--btns">
                         <button class="totalDate">
                             @if ($currentLanguage === 'ja')
-                                3{{ __('messages.Month') }}: 2
+                                3{{ __('messages.Month') }}: {{$month3}}
                             @else
-                                {{ __('messages.Month') }} 3: 2
+                                {{ __('messages.Month') }} 3: {{$month3}}
                             @endif
                         </button>
                     </div>
                     <div class="Users--right--btns">
                         <button class="totalDate">
                             @if ($currentLanguage === 'ja')
-                                4{{ __('messages.Month') }}: 2
+                                4{{ __('messages.Month') }}: {{$month4}}
                             @else
-                                {{ __('messages.Month') }} 4: 2
+                                {{ __('messages.Month') }} 4: {{$month4}}
                             @endif
                         </button>
                     </div>
                     <div class="Users--right--btns">
                         <button class="totalDate">
                             @if ($currentLanguage === 'ja')
-                                5{{ __('messages.Month') }}: 2
+                                5{{ __('messages.Month') }}: {{$month5}}
                             @else
-                                {{ __('messages.Month') }} 5: 2
+                                {{ __('messages.Month') }} 5: {{$month5}}
                             @endif
                         </button>
                     </div>
                     <div class="Users--right--btns">
                         <button class="totalDate">
                             @if ($currentLanguage === 'ja')
-                                6{{ __('messages.Month') }}: 2
+                                6{{ __('messages.Month') }}: {{$month6}}
                             @else
-                                {{ __('messages.Month') }} 6: 2
+                                {{ __('messages.Month') }} 6: {{$month6}}
                             @endif
                         </button>
                     </div>
                     <div class="Users--right--btns">
                         <button class="totalDate">
                             @if ($currentLanguage === 'ja')
-                                7{{ __('messages.Month') }}: 2
+                                7{{ __('messages.Month') }}: {{$month7}}
                             @else
-                                {{ __('messages.Month') }} 7: 30
+                                {{ __('messages.Month') }} 7: {{$month7}}
                             @endif
                         </button>
                     </div>
                     <div class="Users--right--btns">
                         <button class="totalDate">
                             @if ($currentLanguage === 'ja')
-                                8{{ __('messages.Month') }}: 2
+                                8{{ __('messages.Month') }}: {{$month8}}
                             @else
-                                {{ __('messages.Month') }} 8: 64
+                                {{ __('messages.Month') }} 8: {{$month8}}
                             @endif
                         </button>
                     </div>
                     <div class="Users--right--btns">
                         <button class="totalDate">
                             @if ($currentLanguage === 'ja')
-                                9{{ __('messages.Month') }}: 2
+                                9{{ __('messages.Month') }}:  {{$month9}}
                             @else
-                                {{ __('messages.Month') }} 9: 2
+                                {{ __('messages.Month') }} 9: {{$month9}}
                             @endif
                         </button>
                     </div>
                     <div class="Users--right--btns">
                         <button class="totalDate">
                             @if ($currentLanguage === 'ja')
-                                10{{ __('messages.Month') }}: 2
+                                10{{ __('messages.Month') }}: {{$month10}}
                             @else
-                                {{ __('messages.Month') }} 10: 2
+                                {{ __('messages.Month') }} 10: {{$month10}}
                             @endif
                         </button>
                     </div>
                     <div class="Users--right--btns">
                         <button class="totalDate">
                             @if ($currentLanguage === 'ja')
-                                11{{ __('messages.Month') }}: 2
+                                11{{ __('messages.Month') }}: {{$month11}}
                             @else
-                                {{ __('messages.Month') }} 11: 2
+                                {{ __('messages.Month') }} 11: {{$month11}}
                             @endif
                         </button>
                     </div>
                     <div class="Users--right--btns">
                         <button class="totalDate">
                             @if ($currentLanguage === 'ja')
-                                12{{ __('messages.Month') }}: 2
+                                12{{ __('messages.Month') }}: {{$month12}}
                             @else
-                                {{ __('messages.Month') }} 12: 2
+                                {{ __('messages.Month') }} 12: {{$month12}}
                             @endif
                         </button>
                     </div>
@@ -197,6 +194,7 @@
                                 <thead>
                                     <tr>
                                         <th>{{ __('messages.Name') }}</th>
+                                        <th>{{ __('messages.Description') }}</th>
                                         <th class="text-center">{{ __('messages.Date Created') }}</th>
                                         <th class="text-center">{{ __('messages.Time Job') }}</th>
                                         <th class="text-center">{{ __('messages.Status') }}</th>
@@ -204,18 +202,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($salary as $sala)
+                                    @foreach($salaries as $item)
                                     <tr>
                                         <td>
-                                            <div class="text-truncate" style="width: 200px;">
-                                                {{ $sala->data }}   
+                                            <div class="text-truncate" style="width: 100px;">
+                                                {{ $item->name }}   
                                             </div>
                                         </td>
-                                        <td class="text-center">{{ $sala->full_date }}</td>
-                                        <td class="text-center">{{ $sala->working_hours }} {{ __('messages.Hour') }}
+                                        <td>
+                                            <div class="text-truncate" style="width: 100px;">
+                                                {{ $item->description }}
+                                            </div>
+                                        </td>
+                                        <td class="text-center">{{ $item->date_create }}</td>
+                                        <td class="text-center">{{ $item->total_working_time }}
                                         <td class="text-center"> 
-                                            <input type="checkbox" name="sala[]" id="sala{{ $sala->id }}" 
-                                                value="1" {{ $sala->status == 1 ? 'checked' : '' }}>
+                                            <input type="checkbox" name="sala[]" id="sala{{ $item->id }}" 
+                                                value="1" {{ $item->status == 1 ? 'checked' : '' }}>
                                         </td>
                                         <td class="text-center"><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
                                     </tr>
@@ -293,7 +296,40 @@
     </div>
 </div>
 
+@if (session('success'))
+    <div id="popup-category" class="popup-category success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if (session('success_update'))
+    <div id="popup-category" class="popup-category success">
+        {{ session('success_update') }}
+    </div>
+@endif
+
+
+@if ($errors->any())
+    <div id="popup-category" class="popup-category error">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.querySelector('#popup-category');
+        if (popup) {
+            popup.style.display = 'block';
+
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 5000);
+        }
+    });
     const today = new Date();
 
     const formattedDate = today.getFullYear() + '-' + 
