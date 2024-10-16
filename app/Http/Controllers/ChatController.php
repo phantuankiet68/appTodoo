@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Post;
+use App\Models\PostImage;
 class ChatController extends Controller
 {
     /**
@@ -11,9 +12,16 @@ class ChatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        return view('chat.index');
+        $posts = Post::with(['user', 'images'])
+            ->whereHas('images', function($query) {
+                $query->whereColumn('post_id', 'posts.id');
+            })
+            ->orderBy('id', 'desc')
+            ->paginate(8);
+        return view('chat.index',compact('posts'));
     }
 
     /**

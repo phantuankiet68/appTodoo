@@ -35,6 +35,7 @@ use App\Http\Controllers\CodeController;
 use App\Http\Controllers\JavascriptController;
 use App\Http\Controllers\VuejsController;
 use App\Http\Controllers\ReactjsController;
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,6 +69,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('dashboard', DashboardController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('category_task', CategoryTasksController::class);
+    Route::resource('posts', PostController::class);
     Route::resource('todo', TodoController::class);
     Route::resource('tasks', TaskController::class);
     Route::resource('workflows', WorkflowController::class);

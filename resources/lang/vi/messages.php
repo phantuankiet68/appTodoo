@@ -187,5 +187,5 @@ return [
     'Please try again with a different keyword.'=>'Vui lòng thử lại với từ khóa khác.',
     'Total working time'=>'Tổng thời gian',
     'Total overtime'=>'Tổng thời gian',
-
+    'Location'=>'Vị trí',
 ];

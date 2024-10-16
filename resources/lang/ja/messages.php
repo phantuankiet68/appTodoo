@@ -187,5 +187,6 @@ return [
     'Please try again with a different keyword.'=>'別のキーワードで再試行してください.',
     'Total working time'=>'総勤務時間',
     'Total overtime'=>'総残業時間',
+    'Location'=>'Location',
 
 ];

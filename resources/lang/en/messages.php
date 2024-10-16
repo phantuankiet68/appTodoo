@@ -188,7 +188,7 @@ return [
     'Total working time'=>'Total working time',
     'Total overtime'=>'Total overtime',
     'Task created successfully'=>'Task created successfully',
-    ''=>'',
+    'Location'=>'Location',
     ''=>'',
     ''=>'',
     ''=>'',
