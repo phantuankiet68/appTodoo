@@ -39,14 +39,12 @@ class CommentController extends Controller
     {
         $issue = Issue::findOrFail($id);
 
-        // Tạo comment mới
         Comment::create([
             'issue_id' => $issue->id,
-            'user_id' => auth()->id(), // nếu bạn có hệ thống user
+            'user_id' => auth()->id(),
             'comment' => $request->comment,
         ]);
 
-        // Chuyển hướng về trang chi tiết issue
         return redirect()->route('issue.show', $issue->id)->with('success', 'Comment added successfully!');
     }
 

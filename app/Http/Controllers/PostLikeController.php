@@ -3,38 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\PostLike;
 use App\Models\Post;
-use App\Models\PostImage;
-use App\Models\PostComment;
-class ChatController extends Controller
+
+class PostLikeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    
-     public function index()
-     {
-        $posts = Post::with(['user', 'images', 'comments','likes'])
-        ->whereHas('images', function($query) {
-            $query->whereColumn('post_id', 'posts.id');
-        })
-        ->whereHas('comments', function($query) {
-            $query->whereColumn('post_id', 'posts.id');
-        })
-        ->withCount(['comments' => function ($query) {
-            $query->whereColumn('post_id', 'posts.id');
-        }])
-        ->withCount(['likes' => function ($query) {
-            $query->whereColumn('post_id', 'posts.id');
-        }])
-        ->having('comments_count', '>', 0)
-        ->orderBy('id', 'desc')
-        ->paginate(8);
-     
-         return view('chat.index', compact('posts'));
-     }
+    public function index()
+    {
+        //
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -52,9 +34,15 @@ class ChatController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
-        //
+        $posts = Post::findOrFail($id);
+        PostLike::create([
+            'post_id' => $posts->id,
+            'user_id' => auth()->id(), 
+        ]);
+
+        return redirect()->route('chat.index', $posts->id)->with('success', 'Comment added successfully!');
     }
 
     /**

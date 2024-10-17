@@ -85,22 +85,40 @@
                             <div class="descriptionContent">
                                 {!!$item->description!!}
                             </div>
-                            <div class="imagePost">
-                            @if($item->images->isNotEmpty())
-                                @foreach($item->images as $image)
-                                    <img src="{{ asset($image->image_path) }}" alt="Image" srcset="">
-                                @endforeach
-                            @else
-                                <p>No images available for this post.</p>
-                            @endif
+                            <div class="carousel">
+                                <div class="list">
+                                    @if($item->images->isNotEmpty())
+                                        @foreach($item->images as $image)
+                                        <div class="item" style="--background: #EA3D41;">
+                                            <img src="{{ asset($image->image_path) }}" alt="Image" srcset=""  class="fruit">
+                                        </div>
+                                        @endforeach
+                                    @else
+                                        <p>No images available for this post.</p>
+                                    @endif 
+                                </div>
+                                <div class="leaves"></div>
+                                <div class="shadow"></div>
+
+                                <div class="arrow">
+                                    <button id="prev"><</button>
+                                    <button id="next">></button>
+                                </div>
+
+                                <div class="carousel-info">
+                                    Slide <span id="current-slide">1</span> of <span id="total-slides"></span>
+                                </div>
                             </div>
                             <div class="localPost">
                                 <i class="fa-solid fa-location-dot"></i> <p>{{$item->location}}</p>
                             </div>
                             <div class="spaceBettween">
                                 <div class="infoIcon">
-                                    <button><i class="fa-solid fa-heart"></i> 2 lượt</button>
-                                    <button><i class="fa-solid fa-comment"></i> 2 lượt</button>
+                                    <form action="{{ route('postlikes.store', $item->id) }}" method="POST">
+                                        @csrf
+                                        <button><i class="fa-solid fa-heart"></i> {{ $item->likes_count }}</button>
+                                    </form>
+                                    <button><i class="fa-solid fa-comment"></i> {{ $item->comments_count }}</button>
                                     <button><i class="fa-solid fa-share-from-square"></i> 2 lượt</button>
                                 </div>
                             </div>
@@ -112,24 +130,44 @@
                                         </div>
                                     </div>
                                     <div class="commentContentPost">
-                                        <input type="text">
+                                        <input type="text" id="commentContentPost" oninput="updateComment()">
                                         <button><i class="fa-solid fa-face-smile"></i></button>
                                         <button><i class="fa-solid fa-image"></i></button>
-                                        <button class="btnSendComment"><i class="fa-solid fa-paper-plane"></i></button>
+                                    </div>
+                                    <div class="commentSendPost">
+                                        <form action="{{ route('postcomments.store', $item->id) }}" method="POST">
+                                        @csrf
+                                            <input type="hidden" id="post_id" name="post_id" value="{{$item->id}}"/>
+                                            @if (Auth::check())
+                                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
+                                            @endif
+                                            <input type="hidden" id="comment" name="comment"/>
+                                            <button class="btnSendComment"><i class="fa-solid fa-paper-plane"></i></button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
-                            <div class="commentShare">
-                                <div class="commentUserSharePost">
-                                    <div class="commentUserImage">
-                                        <img src="{{asset('assets/images/user2.jpg')}}" alt="" srcset="">
+                            @if($item->images->isNotEmpty())
+                                @foreach($item->comments as $comment)
+                                <div class="commentShare">
+                                    <div class="commentUserSharePost">
+                                        <div class="commentUserImage">
+                                            <img src="{{asset('assets/images/user2.jpg')}}" alt="" srcset="">
+                                        </div>
+                                    </div>
+                                    <div class="commentSection">
+                                        <div class="commentShareContent">
+                                            <div class="commentShareUser">
+                                                <i class="fa-solid fa-heart"></i> <p>{{$comment->user->full_name}}</p> <i class="fa-solid fa-heart"></i>
+                                            </div>
+                                            <p>{{$comment->comment}}</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="commentShareContent">
-                                    <p>🎯 Tiện ích nhanh chóng, phù hợp với mọi người :lắp ráp tinh dầuvà tận</p>
-                                    <span>Date create:</span>
-                                </div>
-                            </div>
+                                @endforeach
+                            @else
+                                <p>No images available for this post.</p>
+                            @endif 
                         </div>
                     </div>
                     @endforeach
@@ -274,6 +312,10 @@
 </div>
 
 <script>
+    function updateComment() {
+        let commentContent = document.getElementById('commentContentPost').value;
+        document.getElementById('comment').value = commentContent;
+    }
     document.addEventListener('DOMContentLoaded', function() {
         const popup = document.querySelector('#popup-category');
         if (popup) {

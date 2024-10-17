@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator; 
 use App\Models\Post;
 use App\Models\PostImage;
 
@@ -38,13 +38,15 @@ class PostController extends Controller
     public function store(Request $request)
     {
         try {
-            $validatedData = $request->validate([
+            $validator = Validator::make($request->all(), [
                 'location' => 'required|string|max:255',
                 'description' => 'nullable|string',
                 'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:5120',
             ]);
-
-            // Create the post
+        
+            if ($validator->fails()) {
+               return redirect()->back()->withErrors($validator)->withInput();
+            }
             $post = Post::create([
                 'user_id' => auth()->id(),
                 'location' => $request->location,
@@ -116,4 +118,5 @@ class PostController extends Controller
     {
         //
     }
+    
 }

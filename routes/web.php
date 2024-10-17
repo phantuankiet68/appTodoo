@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\TodoController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\WorkflowController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\IssueController;
@@ -35,7 +36,10 @@ use App\Http\Controllers\CodeController;
 use App\Http\Controllers\JavascriptController;
 use App\Http\Controllers\VuejsController;
 use App\Http\Controllers\ReactjsController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostCommentController;
+use App\Http\Controllers\PostLikeController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,6 +74,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('category', CategoryController::class);
     Route::resource('category_task', CategoryTasksController::class);
     Route::resource('posts', PostController::class);
+    Route::post('/post/{id}/comments', [PostCommentController::class, 'store'])->name('postcomments.store');
+    Route::post('/post/{id}/likes', [PostLikeController::class, 'store'])->name('postlikes.store');
     Route::resource('todo', TodoController::class);
     Route::resource('tasks', TaskController::class);
     Route::resource('workflows', WorkflowController::class);
