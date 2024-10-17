@@ -44,11 +44,11 @@
                     <li class="bg-grey"><a href="javascript:void(0)" id="Japanese"><i class="fa-solid fa-fire"></i>{{ __('messages.Japanese') }}</a><span id="chevronJapanese"><i class="fa-solid fa-chevron-up"></i></span></li>
                     <li class="dropDownJapanese"><a href="{{ route('japanese.addJapanese') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Add New') }}</a></li>
                     <li class="dropDownJapanese"><a href="{{ route('japanese.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Japanese') }}</a></li>
-                    <li class="dropDownJapanese"><a href="{{ route('japanese.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Learn vocabulary') }}</a></li>
+                    <li class="dropDownJapanese"><a href="{{ route('learn_more.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Learn vocabulary') }}</a></li>
                     <li class="bg-grey"><a href="javascript:void(0)" id="English"><i class="fa-solid fa-fire"></i>{{ __('messages.English') }}</a><span id="chevronEnglish"><i class="fa-solid fa-chevron-up"></i></span></li>
                     <li class="dropDownEnglish"><a href="{{ route('english.addEnglish') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Add New') }}</a></li>
                     <li class="dropDownEnglish"><a href="{{ route('english.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.English') }}</a></li>
-                    <li class="dropDownEnglish"><a href="{{ route('english.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Learn vocabulary') }}</a></li>
+                    <li class="dropDownEnglish"><a href="{{ route('learn_more_english.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Learn vocabulary') }}</a></li>
                     <li class="bg-grey"><a href="javascript:void(0)" id="Question"><i class="fa-solid fa-fire"></i>{{ __('messages.Learn more') }}</a><span id="chevronQuestion"><i class="fa-solid fa-chevron-up"></i></span></li>
                     <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Question') }}</a></li>
                     <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Word') }}</a></li>
@@ -106,8 +106,8 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="lang/vi"><img src="{{asset('assets/images/vietnam.jpg')}}" width="25px"> Việt Nam</a>
-                                    <a class="dropdown-item" href="lang/en"><img src="{{asset('assets/images/english.jpg')}}" width="25px"> English</a>
                                     <a class="dropdown-item" href="lang/ja"><img src="{{asset('assets/images/japan.jpg')}}" width="25px"> Japan</a>
+                                    <a class="dropdown-item" href="lang/en"><img src="{{asset('assets/images/english.jpg')}}" width="25px"> English</a>
                                 </div>
                             </li>
                         </div>

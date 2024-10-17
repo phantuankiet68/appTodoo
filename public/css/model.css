@@ -12,6 +12,23 @@
     border-radius: 5px;
 }
 
+.ModelCreateUpdate {
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    max-width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+#showLearnMore{
+    display: none;
+}
+
 .modelCreateFromBig .modelForm{
     display: flex;
     justify-content: space-between;
@@ -1247,10 +1264,6 @@
     color: red;
 }
 
-.active {
-    background-color: #f0f0f0;
-    font-weight: bold;
-}
 
 .categoryTodo {
     display: none;
@@ -2000,8 +2013,8 @@ p.space {
 }
 
 
-#prev,
-#next{
+#prevPost,
+#nextPost{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -2017,12 +2030,24 @@ p.space {
     cursor: pointer;
     z-index: 15;
 }
-#prev{
+#prevPost{
     left: 20px;
 }
-#next{
+#nextPost{
     right: 20px;
 }
+
+.body-tables-todo .tables table .prop-text .text-truncate{
+    max-width: 100%;
+    width: 250px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    white-space: normal;
+}
+
 
 #prev:hover, #next:hover {
     background-color: #0cbaff;
@@ -2143,4 +2168,91 @@ p.space {
     background-color: #fff;
     color: #858585;
     cursor: pointer;
+}
+
+.learnMore {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 20px;
+    height: 77vh;
+    overflow: scroll;
+}
+
+.learnMore .tables {
+    padding: 10px;
+    border-left: 1px solid #e7e7e7;
+    border-right: 1px solid #e7e7e7;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
+.learnMore-container{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+}
+
+
+.learnMore-container form.formCreate{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+.formSearchInput{
+    display: flex;
+}
+
+.formSearchInput input {
+    width: 479px;
+    padding: 5px 6px;
+    font-size: 15px;
+    outline: none;
+    border: 1px solid #c4c4c4;
+}
+
+
+.saveChange button{
+    padding: 7px 20px;
+    background-color: #3491fc;
+    font-size: 15px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.learnMore-container .form-input-category label{
+    width: 30%;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #dfeeff;
+    padding: 2px 5px;
+    margin: 0;
+    color: #2099ff;
+}
+
+.learnMore-table{
+    width: 100%;
+}
+
+
+.learnMore-table .tables table .prop-text .text-truncate{
+    max-width: 100%;
+    width: 250px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    white-space: normal;
+}
+.showContentComponent .saveChange{
+    width: 100%;
+}
+.showContentComponent .saveChange button{
+    width: 100%;
 }

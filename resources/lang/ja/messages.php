@@ -188,5 +188,9 @@ return [
     'Total working time'=>'総勤務時間',
     'Total overtime'=>'総残業時間',
     'Location'=>'Location',
+    'Add New Workflow'=>' 新しいワークフローを追加する',
+    'Meaning'=>'意味',
+
+
 
 ];

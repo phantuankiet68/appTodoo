@@ -709,8 +709,8 @@ function fileHandle(value) {
 
 document.addEventListener('DOMContentLoaded', () => {
   let list = document.querySelectorAll('.carousel .list .item');
-  let next = document.getElementById('next');
-  let prev = document.getElementById('prev');
+  let next = document.getElementById('nextPost');
+  let prev = document.getElementById('prevPost');
 
   let currentSlideElement = document.getElementById('current-slide');
   let totalSlidesElement = document.getElementById('total-slides');

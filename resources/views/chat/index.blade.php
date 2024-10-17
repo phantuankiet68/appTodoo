@@ -101,8 +101,8 @@
                                 <div class="shadow"></div>
 
                                 <div class="arrow">
-                                    <button id="prev"><</button>
-                                    <button id="next">></button>
+                                    <button id="prevPost"><</button>
+                                    <button id="nextPost">></button>
                                 </div>
 
                                 <div class="carousel-info">

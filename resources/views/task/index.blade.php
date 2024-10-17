@@ -33,6 +33,7 @@
                                     <th style="width:250px; margin-right: 15px;">{{ __('messages.Description') }}</th>
                                     <th class="text-center">{{ __('messages.Start Date') }}</th>
                                     <th class="text-center">{{ __('messages.Create by') }}</th>
+                                    <th class="text-center">{{ __('messages.Start Date') }}</th>
                                     <th class="text-center">{{ __('messages.Status') }}</th>
                                     <th class="text-center">{{ __('messages.Show') }}</th>
                                 </tr>
@@ -43,7 +44,11 @@
                                     <td class="jus-center">
                                         <p class="td-1">{{ $item->id }}</p>
                                     </td>
-                                    <td>{{ $item->name }}</td>
+                                    <td class="prop-text" style="width: 350px;">
+                                        <div class="text-truncate">
+                                            {{ $item->name }}
+                                        </div>
+                                    </td>
                                     <td>
                                         <div class="text-truncate" style="width: 250px;">
                                             {!! $item->description !!}
@@ -51,6 +56,7 @@
                                     </td>
                                     <td class="text-center">{{ $item->current_start }}</td>
                                     <td class="text-center">{{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</td>
+                                    <th class="text-center">{{ $item->created_at->format('d/m/Y') }}</th>
                                     <td class="text-center"> 
                                         <input type="checkbox" name="todo[]" id="todo_{{ $item->id }}" 
                                             value="1" {{ $item->status == 1 ? 'checked' : '' }}>
@@ -110,7 +116,8 @@
             </div>
             <div class="form-textarea-category">
                 <label for="description">{{ __('messages.Description') }}</label>
-                <textarea id="editor" name="description"></textarea>
+                @include('components.editor')
+                <input type="text" name="description" id="hiddenContent" style="display:none;">
             </div>
             <div class="form-group-info">
                 <div class="form-input-category">
@@ -224,12 +231,22 @@
     </form>
 </div> -->
 
+<script>
+function updateComment() {
+    let commentContent = document.getElementById('commentContentPost').value;
+    document.getElementById('comment').value = commentContent;
+}
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.querySelector('#popup-category');
+    if (popup) {
+        popup.style.display = 'block';
 
-<script>
-    CKEDITOR.replace('editor');
-    CKEDITOR.replace('editor1');
-</script>
-<script>
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 5000);
+    }
+});
+
 function showTab(tab) {
     document.getElementById('show').style.display = 'none';
     document.getElementById('edit').style.display = 'none';

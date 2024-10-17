@@ -188,4 +188,9 @@ return [
     'Total working time'=>'Tổng thời gian',
     'Total overtime'=>'Tổng thời gian',
     'Location'=>'Vị trí',
+    'Add New Workflow'=>' Thêm Quy Trình Mới',
+    'Meaning'=>'Nghĩa',
+
+
+    
 ];

@@ -38,6 +38,9 @@ use App\Http\Controllers\VuejsController;
 use App\Http\Controllers\ReactjsController;
 use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostLikeController;
+use App\Http\Controllers\LearnMoreController;
+use App\Http\Controllers\LearnMoreEngLishController;
+
 
 
 /*
@@ -84,6 +87,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('expense', ExpenseController::class);
     Route::resource('food', FoodController::class);
     Route::resource('vocabularies', VocabularyController::class);
+    Route::resource('learn_more', LearnMoreController::class);
+    Route::resource('learn_more_english', LearnMoreEngLishController::class);
     Route::resource('structures', StructureController::class);
     Route::resource('quiz', QuizItemController::class);
     Route::post('/paragraph/store', [ParagraphController::class, 'store'])->name('paragraph.store');

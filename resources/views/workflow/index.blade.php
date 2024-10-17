@@ -143,7 +143,8 @@
             </div>
             <div class="form-textarea-category">
                 <label for="description">{{ __('messages.Description') }}</label>
-                <textarea id="editor" name="description"></textarea>
+                @include('components.editor')
+                <input type="text" name="description" id="hiddenContent" style="display:none;">
             </div>
             <div class="form-group-info">
                 <div class="form-input-category">
@@ -189,12 +190,24 @@
 </div>
 
 
-<script>
-    CKEDITOR.replace('editor');
-</script>
 
 <script>
-showWorkflowPopup
+
+function updateComment() {
+    let commentContent = document.getElementById('commentContentPost').value;
+    document.getElementById('comment').value = commentContent;
+}
+document.addEventListener('DOMContentLoaded', function() {
+    const popup = document.querySelector('#popup-category');
+    if (popup) {
+        popup.style.display = 'block';
+
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 5000);
+    }
+});
+
 
 function showWorkflowPopup(taskId) {
     const showWorkflowPopup = document.getElementById('showWorkflow');
