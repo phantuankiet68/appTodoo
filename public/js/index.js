@@ -653,7 +653,7 @@ function addLink() {
 }
 
 
-
+//Content Editor
 
 const content = document.getElementById('content');
 
@@ -706,6 +706,61 @@ function fileHandle(value) {
 	}
 }
 
+
+//Content Editor 2
+
+const content2 = document.getElementById('content2');
+
+content2.addEventListener('mouseenter', function () {
+	const a = content2.querySelectorAll('a');
+	a.forEach(item=> {
+		item.addEventListener('mouseenter', function () {
+			content2.setAttribute('contenteditable', false);
+			item.target = '_blank';
+		})
+		item.addEventListener('mouseleave', function () {
+			content2.setAttribute('contenteditable', true);
+		})
+	})
+})
+
+
+const showCode2 = document.getElementById('show-code');
+let active2 = false;
+
+showCode.addEventListener('click', function () {
+	showCode2.dataset.active2 = !active2;
+	active2 = !active2
+	if(active2) {
+		content2.textContent = content2.innerHTML;
+		content2.setAttribute('contenteditable', false);
+	} else {
+		content2.innerHTML = content2.textContent;
+		content2.setAttribute('contenteditable', true);
+	}
+})
+
+
+
+const filename2 = document.getElementById('filename2');
+
+function fileHandle(value) {
+	if(value === 'new') {
+		content2.innerHTML = '';
+		filename.value = 'untitled';
+	} else if(value === 'txt') {
+		const blob = new Blob([content2.innerText])
+		const url = URL.createObjectURL(blob)
+		const link = document.createElement('a');
+		link.href = url;
+		link.download = `${filename.value}.txt`;
+		link.click();
+	} else if(value === 'pdf') {
+		html2pdf(content2).save(filename.value);
+	}
+}
+
+//Content Editor 3
 
 document.addEventListener('DOMContentLoaded', () => {
   let list = document.querySelectorAll('.carousel .list .item');
