@@ -707,112 +707,59 @@ function fileHandle(value) {
 }
 
 
-//Content Editor 2
-
-const content2 = document.getElementById('content2');
-
-content2.addEventListener('mouseenter', function () {
-	const a = content2.querySelectorAll('a');
-	a.forEach(item=> {
-		item.addEventListener('mouseenter', function () {
-			content2.setAttribute('contenteditable', false);
-			item.target = '_blank';
-		})
-		item.addEventListener('mouseleave', function () {
-			content2.setAttribute('contenteditable', true);
-		})
-	})
-})
 
 
-const showCode2 = document.getElementById('show-code');
-let active2 = false;
+// document.addEventListener('DOMContentLoaded', () => {
+//   let list = document.querySelectorAll('.carousel .list .item');
+//   let next = document.getElementById('nextPost');
+//   let prev = document.getElementById('prevPost');
 
-showCode.addEventListener('click', function () {
-	showCode2.dataset.active2 = !active2;
-	active2 = !active2
-	if(active2) {
-		content2.textContent = content2.innerHTML;
-		content2.setAttribute('contenteditable', false);
-	} else {
-		content2.innerHTML = content2.textContent;
-		content2.setAttribute('contenteditable', true);
-	}
-})
+//   let currentSlideElement = document.getElementById('current-slide');
+//   let totalSlidesElement = document.getElementById('total-slides');
 
+//   let count = list.length;
+//   let number = 0; 
 
+//   totalSlidesElement.textContent = count;
 
-const filename2 = document.getElementById('filename2');
+//   // Thêm class 'number' cho item đầu tiên
+//   list[number].classList.add('number'); 
 
-function fileHandle(value) {
-	if(value === 'new') {
-		content2.innerHTML = '';
-		filename.value = 'untitled';
-	} else if(value === 'txt') {
-		const blob = new Blob([content2.innerText])
-		const url = URL.createObjectURL(blob)
-		const link = document.createElement('a');
-		link.href = url;
-		link.download = `${filename.value}.txt`;
-		link.click();
-	} else if(value === 'pdf') {
-		html2pdf(content2).save(filename.value);
-	}
-}
+//   // Hàm chuyển slide
+//   next.onclick = () => {
+//       number = (number + 1) % count; // Tăng số lên 1 và quay về 0 nếu lớn hơn count - 1
+//       changeCarousel();
+//   }
 
-//Content Editor 3
+//   prev.onclick = () => {
+//       number = (number - 1 + count) % count; // Giảm số xuống 1 và quay về count - 1 nếu số nhỏ hơn 0
+//       changeCarousel();
+//   }
 
-document.addEventListener('DOMContentLoaded', () => {
-  let list = document.querySelectorAll('.carousel .list .item');
-  let next = document.getElementById('nextPost');
-  let prev = document.getElementById('prevPost');
-
-  let currentSlideElement = document.getElementById('current-slide');
-  let totalSlidesElement = document.getElementById('total-slides');
-
-  let count = list.length;
-  let number = 0; 
-
-  totalSlidesElement.textContent = count;
-
-  // Thêm class 'number' cho item đầu tiên
-  list[number].classList.add('number'); 
-
-  // Hàm chuyển slide
-  next.onclick = () => {
-      number = (number + 1) % count; // Tăng số lên 1 và quay về 0 nếu lớn hơn count - 1
-      changeCarousel();
-  }
-
-  prev.onclick = () => {
-      number = (number - 1 + count) % count; // Giảm số xuống 1 và quay về count - 1 nếu số nhỏ hơn 0
-      changeCarousel();
-  }
-
-  function changeCarousel() {
-      // Ẩn tất cả các hình ảnh
-      list.forEach(item => {
-          item.classList.add('hidden'); // Ẩn tất cả các item
-          item.classList.remove('number'); // Bỏ class 'number' cho tất cả các item
-      });
+//   function changeCarousel() {
+//       // Ẩn tất cả các hình ảnh
+//       list.forEach(item => {
+//           item.classList.add('hidden'); // Ẩn tất cả các item
+//           item.classList.remove('number'); // Bỏ class 'number' cho tất cả các item
+//       });
       
-      // Hiện hình ảnh hiện tại
-      list[number].classList.remove('hidden');
-      list[number].classList.add('number'); // Thêm lớp 'number' cho hình ảnh hiện tại
+//       // Hiện hình ảnh hiện tại
+//       list[number].classList.remove('hidden');
+//       list[number].classList.add('number'); // Thêm lớp 'number' cho hình ảnh hiện tại
 
-      // Cập nhật số thứ tự slide hiện tại
-      currentSlideElement.textContent = number + 1;
+//       // Cập nhật số thứ tự slide hiện tại
+//       currentSlideElement.textContent = number + 1;
 
-      // Kiểm tra nếu đang ở ảnh cuối cùng
-      next.style.display = (number === count - 1) ? "none" : "block"; // Ẩn/hiện nút next
+//       // Kiểm tra nếu đang ở ảnh cuối cùng
+//       next.style.display = (number === count - 1) ? "none" : "block"; // Ẩn/hiện nút next
 
-      // Kiểm tra nếu đang ở ảnh đầu tiên
-      prev.style.display = (number === 0) ? "none" : "block"; // Ẩn/hiện nút prev
+//       // Kiểm tra nếu đang ở ảnh đầu tiên
+//       prev.style.display = (number === 0) ? "none" : "block"; // Ẩn/hiện nút prev
 
-      clearInterval(refreshInterval);
-  }
+//       clearInterval(refreshInterval);
+//   }
 
-  // Auto-run sau 3 giây
-  let refreshInterval = setInterval(() => { next.click() }, 3000);
-});
+//   // Auto-run sau 3 giây
+//   let refreshInterval = setInterval(() => { next.click() }, 3000);
+// });
 

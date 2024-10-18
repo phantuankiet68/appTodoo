@@ -1324,7 +1324,7 @@
 .chat_row{
     width: 100%;
     display: flex;
-    gap: 20px;
+    gap: 10px;
 }
 
 .chat-left{
@@ -2255,4 +2255,8 @@ p.space {
 }
 .showContentComponent .saveChange button{
     width: 100%;
+}
+
+.body-tables-todo .tables table td, .body-tables-todo .tables table th {
+    font-weight: normal;
 }

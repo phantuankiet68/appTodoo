@@ -309,9 +309,75 @@
         border: none;
         outline: none;
     }
-    .chat-right{
+    .chat_row .chat-right{
         width: 30%;
+        height: 85vh;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 10px 10px 10px 0px;
     }
+    .chat_row .chat-right .infoUser {
+        width: 90%;
+        height: auto;
+        padding: 5px;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .chat_row .chat-right .infoUser .salesYellow {
+        width: 100%;
+        height: 120px;
+        background-image: linear-gradient(to right, #ffc3a0 0%, #ffafbd 100%);
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+    }
+
+    .chat_post .chatUserList {
+        position: absolute;
+        height: 86.2vh;
+        width: 55px;
+        background-color: #fff;
+        top: 95px;
+        right: 11px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+        gap: 10px;
+        overflow: scroll;
+    }
+
+    .chat_post .chat-center .createPost{
+        width: 100%;
+        background-color: #ffff;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .chat_post .recentStoriesView{
+        width: 100%;
+        display: flex;
+        gap:5px;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    .chat_post .recentStoriesView .recentView .recentViewImage {
+        width: 100%;
+        height: 215px;
+    }
+
+    .chatUserItem .chatUserItemImage {
+        width: 38px;
+        height: 38px;
+    }
+
     
     .spaceBettween{
         display: flex;
@@ -366,22 +432,10 @@
        border-radius: 5px
     }
     
-    .recentStoriesView{
-        width: 100%;
-        display: flex;
-        gap:20px;
-        align-items: center;
-        padding: 20px 0;
-    }
     
     .recentStoriesView .recentView{
         width: 23%;
         position: relative;
-    }
-    
-    .recentStoriesView .recentView .recentViewImage{
-        width: 100%;
-        height: 280px;
     }
     
     .recentStoriesView .recentView .recentViewImage img{
@@ -417,6 +471,28 @@
         object-fit: cover;
         border-radius: 50%;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+
+    .form-textarea-category .toolbar .head {
+        display: flex;
+        grid-gap: 4px;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+    }
+    .form-textarea-category .toolbar .btn-toolbar button {
+        background: #fff;
+        border: 2px solid #ddd;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 33px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+    }
+    .dashboard-content.dark-mode .form-textarea-category #content{
+        color: #000;
     }
     
     .descriptionContent{
