@@ -44,13 +44,13 @@
                                     <td class="jus-center">
                                         <p class="td-1">{{ $item->id }}</p>
                                     </td>
-                                    <td class="prop-text" style="width: 350px;">
+                                    <td class="prop-text" style="width: 250px;">
                                         <div class="text-truncate">
                                             {{ $item->name }}
                                         </div>
                                     </td>
-                                    <td>
-                                        <div class="text-truncate" style="width: 250px;">
+                                    <td class="prop-text">
+                                        <div class="text-truncate" style="width: 350px;">
                                             {!! $item->description !!}
                                         </div>
                                     </td>
@@ -104,7 +104,7 @@
 
 <div class="model" id="CreateTask">
     <div class="ModelCreateTodo">
-        <form method="POST" action="{{ route('tasks.store') }}">
+        <form id="contentForm" method="POST" action="{{ route('tasks.store') }}">
             @csrf
             <h2>{{ __('messages.Add New') }}</h2>
             @if (Auth::check())
@@ -115,9 +115,8 @@
                 <input type="text" class="input-name" name="name">
             </div>
             <div class="form-textarea-category">
-                <label for="description">{{ __('messages.Description') }}</label>
-                @include('components.editor')
-                <input type="text" name="description" id="hiddenContent" style="display:none;">
+                <label for="description">{{ __('messages.Structural meaning') }}</label>
+                <textarea class="textarea" name="description" id="editor1"></textarea>
             </div>
             <div class="form-group-info">
                 <div class="form-input-category">
@@ -156,14 +155,42 @@
                <p>{{ __('messages.Date Created') }}: <i id="showCurrentDate"></i></p>
             </div>
             <span id="showName"></span>
-            <div id="showDescription"></div>
+            <div id="showDescriptionEdit"></div>
         </div>
 
         <div class="editContentQuestion" id="edit" style="display: none;">
-            <div class="titleEditError">
-                <h2>🌟 Khám Phá Sự Đơn Giản trong Quản Lý Component! 🌟</h2>
-                <p>Chúng tôi rất vui mừng thông báo rằng chức năng Chỉnh sửa (Edit) cho Component đang trong quá trình hoàn thiện! Với tính năng này, bạn sẽ có khả năng cập nhật và điều chỉnh nội dung một cách dễ dàng, giúp nội dung của bạn luôn nổi bật và phù hợp. Bên cạnh đó, tính năng Thêm cho phép bạn bổ sung những Component mới đầy sáng tạo, trong khi tính năng Xóa giúp loại bỏ những thành phần không còn cần thiết. Chúng tôi đang nỗ lực mang đến cho bạn trải nghiệm quản lý Component tốt nhất, giúp tối ưu hóa quy trình làm việc và nâng cao giá trị cho dự án của bạn. Hãy cùng chờ đón những cập nhật thú vị sắp tới!</p>
-            </div>
+            <form method="POST" id="edit-task-form" action="">
+                @csrf
+                @method('PUT')
+                <input type="hidden" id="task_id" name="task_id" value=""/>
+                @if (Auth::check())
+                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
+                @endif
+                <div class="form-input-category">
+                    <label for="name">{{ __('messages.Name') }}</label>
+                    <input type="text" class="input-name" name="name" id="showNameEdit">
+                </div>
+                <div class="form-textarea-category">
+                    <label for="description">{{ __('messages.Structural meaning') }}</label>
+                    <textarea class="textarea" name="description" id="editor"></textarea>
+                </div>
+                <div class="form-group-info">
+                    <div class="form-input-category">
+                        <label for="current_start">{{ __('messages.Start Date') }}</label>
+                        <input type="date" class="input-name" id="showCurrentEdit" name="current_start">
+                    </div>
+                    <div class="form-select-category">
+                        <label for="status">{{ __('messages.Status') }}</label>
+                        <select name="status" id="status">
+                            <option value="1">{{ __('messages.Show') }}</option>
+                            <option value="0">{{ __('messages.Hide') }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-btn">
+                    <button type="submit">{{ __('messages.Update') }}</button>
+                </div>
+            </form>
         </div>
 
         <div class="deleteContentQuestion" id="delete" style="display: none;">
@@ -186,56 +213,16 @@
 
 
 
-<!-- <div class="ModelEditTodoForm">
-    <form method="POST" id="edit-todo-form">
-        @csrf
-        @method('PUT')
-        <h2>{{ __('messages.Update') }}</h5>
-        <input type="hidden" id="todo-id" value="id"/>
-        @if (Auth::check())
-            <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
-        @endif
-        <div class="form-input-category">
-            <label for="name">{{ __('messages.Name') }}</label>
-            <input type="text" class="input-name" id="todo-name" name="name">
-        </div>
-        <div class="form-textarea-category">
-            <label for="description">{{ __('messages.Description') }}</label>
-            <textarea id="editor1" name="description"><div id="todo-description"></div></textarea> 
-        </div>
-        <div class="form-group-info">
-            <div class="form-input-category">
-                <label for="name">{{ __('messages.Start Date') }}</label>
-                <input type="date" class="input-name" id="todo-date-start" name="date_start">
-            </div>
-            <div class="form-input-category">
-                <label for="name">{{ __('messages.End Date') }}</label>
-                <input type="date" class="input-name" id="todo-date-end" name="date_end">
-            </div>
-        </div>
-        <div class="form-group-info">
-            <div class="form-select-category">
-                <label for="todo-status">{{ __('messages.Status') }}</label>
-                <select name="status" id="todo-status">
-                    <option value="0">{{ __('messages.Hide') }}</option>
-                    <option value="1">{{ __('messages.Show') }}</option>
-                </select>
-            </div>
-        </div>
-        <div class="form-btn">
-            <button type="submit">{{ __('messages.Update') }}</button>
-        </div>
-        <div class="BtnCloseCreate" onclick="closeEditTodoFromPopup()">
-            <p>X</p>
-        </div>
-    </form>
-</div> -->
-
 <script>
-function updateComment() {
-    let commentContent = document.getElementById('commentContentPost').value;
-    document.getElementById('comment').value = commentContent;
-}
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contentForm');
+    if (form) {
+        form.onsubmit = function() {
+            document.getElementById('hiddenContent').value = document.getElementById('content').innerHTML;
+        };
+    }
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     const popup = document.querySelector('#popup-category');
     if (popup) {
@@ -253,6 +240,7 @@ function showTab(tab) {
     document.getElementById('delete').style.display = 'none';
     document.getElementById(tab).style.display = 'block';
 }
+
 window.onload = function() {
     const today = new Date();
     today.setDate(today.getDate() + 1); 
@@ -294,22 +282,56 @@ function closeCreateTask() {
     }
 }
 
-// Xử lý hiển thị thông tin vào form edit todo
 function showTaskPopup(taskId) {
     const showTaskPopup = document.getElementById('showTask');
     showTaskPopup.style.display = 'block';
     fetch(`/tasks/${taskId}`)
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('showUser').innerHTML = data.user.full_name;
-        document.getElementById('showCurrentDate').innerHTML = data.current_start;
-        document.getElementById('showName').innerHTML = data.name;
-        document.getElementById('showNameDelete').innerHTML = data.name;
-        document.getElementById('showDescription').innerHTML = data.description;
-        document.getElementById('task_id').value = data.id;
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok: ' + response.statusText);
+        }
+        return response.json();
     })
+    .then(data => {
+        if (data) {
+            document.getElementById('showUser').innerHTML = data.user.full_name || "N/A";
+            document.getElementById('showCurrentDate').innerHTML = data.current_start || "N/A";
+            document.getElementById('showName').innerHTML = data.name || "N/A";
+            document.getElementById('showNameEdit').value = data.name || "";
+            document.getElementById('showDescriptionEdit').innerHTML = data.description;
+            document.getElementById('showCurrentEdit').value = data.current_start || "";
+            document.getElementById('showNameDelete').innerHTML = data.name || "";
+            if (editorInstance) {
+                editorInstance.setData(data.description);
+            } else {
+                console.error("Editor instance not found.");
+            }
+            document.getElementById('task_id').value = data.id || "";
+        } else {
+            console.error("No data received.");
+        }
+    })
+    .catch(error => console.error('Error fetching task:', error));
 }
 
+document.getElementById('edit-task-form').onsubmit = function(event) {
+    event.preventDefault();
+
+    const taskIdInput = document.getElementById('task_id');
+    if (!taskIdInput) {
+        console.error("Task ID input not found.");
+        return;
+    }
+
+    const taskId = taskIdInput.value;
+    if (!taskId) {
+        console.error("Task ID is empty.");
+        return;
+    }
+
+    this.action = `/tasks/${taskId}`; 
+    this.submit();
+}
 
 function closeDeleteTask() {
     const showTaskPopup = document.getElementById('showTask')

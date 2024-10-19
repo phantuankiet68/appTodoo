@@ -25,7 +25,7 @@ class TaskController extends Controller
                 ->where(function($query) use ($userId) {
                     $query->where('user_id', $userId);
                 })
-                ->orderBy('id', 'asc');
+                ->orderBy('id', 'desc');
     
             // If search query is present
             if ($search) {
@@ -37,7 +37,7 @@ class TaskController extends Controller
             }
     
             // Paginate the results
-            $tasks = $taskQuery->paginate(11);
+            $tasks = $taskQuery->paginate(9);
     
             return view('task.index', compact('tasks', 'search'));
     
@@ -92,17 +92,6 @@ class TaskController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -111,7 +100,18 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'current_start' => 'nullable|date',
+            'status' => 'nullable|integer',
+        ]);
+
+        $task = Task::findOrFail($id);
+        $task->update($validatedData);
+
+        return redirect()->route('tasks.index')->with('success', 'Task updated successfully');
     }
 
     /**

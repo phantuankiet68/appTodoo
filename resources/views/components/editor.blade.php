@@ -55,5 +55,5 @@
     </div>
 </div>
 <div id="content" contenteditable="true" spellcheck="false">
-    Lorem, ipsum.
+    
 </div>

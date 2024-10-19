@@ -592,5 +592,13 @@
     .commentShareContent span{
         font-size: 13px;
     }
-   
+    .body-tables-todo .tables table .text-truncate{
+        max-width: 100%;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        white-space: normal;
+    }
 }

@@ -2260,3 +2260,7 @@ p.space {
 .body-tables-todo .tables table td, .body-tables-todo .tables table th {
     font-weight: normal;
 }
+
+.ck-content {
+    height: 236px;
+}

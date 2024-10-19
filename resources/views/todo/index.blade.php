@@ -420,7 +420,6 @@ function showEditTodoPopup(todoId) {
     fetch(`/todo/${todoId}`)
     .then(response => response.json())
     .then(data => {
-        console.log(data);
         document.getElementById('todo-id').value = todoId;
         document.getElementById('todo-category-id').value = data.category_id;
         document.getElementById('todo-name').value = data.name;
