@@ -4,15 +4,6 @@
 
 @section('content')
 <div class="todo">
-<div class="todoHeader">
-        <div class="topHeader">
-            <h2>Email</h2> | <span>Home</span>
-        </div>
-        <div class="headerToQuesionRight">
-            <button type="button" class="change"><i class="fa-solid fa-cash-register"></i> Thay đổi</button>
-            <button type="button" class="create" onclick="openWordFlow()"><i class="fa-solid fa-plus"></i> Tạo mới</button>
-        </div>
-    </div>
     <div class="projecTodoBody mt-10">
         <div class="projectCol-8">
             <div class="board">                      
@@ -129,48 +120,6 @@
     </div>
 </div>
 
-<div class="model" id="createWordFlow">
-    <div class="ModelCreateTodo">
-        <form method="POST" action="{{ route('workflows.store') }}">
-        @csrf
-            <h2>{{ __('messages.Add New Workflow') }}</h2>
-            @if (Auth::check())
-                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
-            @endif
-            <div class="form-input-category">
-                <label for="name">{{ __('messages.Name') }}</label>
-                <input type="text" class="input-name" name="name" required>
-            </div>
-            <div class="form-textarea-category">
-                <label for="description">{{ __('messages.Description') }}</label>
-                @include('components.editor')
-                <input type="text" name="description" id="hiddenContent" style="display:none;">
-            </div>
-            <div class="form-group-info">
-                <div class="form-input-category">
-                    <label for="current_start">{{ __('messages.Start Date') }}</label>
-                    <input type="date" class="input-name" id="current_start" name="current_start">
-                </div>
-                <div class="form-select-category">
-                    <label for="status">{{ __('messages.Status') }}</label>
-                    <select name="status" id="status" required>
-                        <option value="open">{{ __('messages.Open') }}</option>
-                        <option value="doing">{{ __('messages.Doing') }}</option>
-                        <option value="testing">{{ __('messages.Testing') }}</option>
-                        <option value="done">{{ __('messages.Done') }}</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-btn">
-                <button type="submit">{{ __('messages.Add New') }}</button>
-            </div>
-            <div class="BtnCloseCreate" onclick="closeCreateWorkflow()">
-                <p>X</p>
-            </div>
-        </form>
-    </div>
-</div>
-
 <div class="model" id="showWorkflow">
     <div class="ModelCreateTodo">
         <div class="title-show">
@@ -191,24 +140,7 @@
 
 
 
-<script>
-
-function updateComment() {
-    let commentContent = document.getElementById('commentContentPost').value;
-    document.getElementById('comment').value = commentContent;
-}
-document.addEventListener('DOMContentLoaded', function() {
-    const popup = document.querySelector('#popup-category');
-    if (popup) {
-        popup.style.display = 'block';
-
-        setTimeout(() => {
-            popup.style.display = 'none';
-        }, 5000);
-    }
-});
-
-
+<script>s
 function showWorkflowPopup(taskId) {
     const showWorkflowPopup = document.getElementById('showWorkflow');
     showWorkflowPopup.style.display = 'block';
@@ -234,35 +166,6 @@ function closeShowWorkflow() {
 }
 
 
-window.onload = function() {
-    const today = new Date();
-    today.setDate(today.getDate() + 1); 
-
-    const dd = String(today.getDate()).padStart(2, '0'); 
-    const mm = String(today.getMonth() + 1).padStart(2, '0'); 
-    const yyyy = today.getFullYear(); 
-
-    const formattedDate = `${yyyy}-${mm}-${dd}`;
-    document.getElementById("current_start").value = formattedDate; 
-}
-
-function openWordFlow() {
-    const CreateWordFlow = document.getElementById('createWordFlow')
-    if (CreateWordFlow.style.display === 'none' || CreateWordFlow.style.display === '') {
-        CreateWordFlow.style.display = 'block'; 
-    } else {
-        CreateWordFlow.style.display = 'none';
-    }
-}
-
-function closeCreateWorkflow() {
-    const CreateWordFlow = document.getElementById('createWordFlow')
-    if (CreateWordFlow.style.display === 'none' || CreateWordFlow.style.display === '') {
-        CreateWordFlow.style.display = 'block'; 
-    } else {
-        CreateWordFlow.style.display = 'none';
-    }
-}
 const tasks = document.querySelectorAll('.task');
 const lanes = document.querySelectorAll('.swim-lane');
 

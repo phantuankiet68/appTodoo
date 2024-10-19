@@ -2747,6 +2747,7 @@ div.ModelEditTodoForm{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 16px;
 }
 
 .task p{
