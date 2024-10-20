@@ -33,7 +33,7 @@ class LearnMoreEngLishController extends Controller
                 });
             }
     
-            $learn_more = $learnQuery->paginate(11);
+            $learn_more = $learnQuery->paginate(6);
     
             return view('learnMoreEnglish.index', compact('learn_more'));
     
@@ -56,6 +56,7 @@ class LearnMoreEngLishController extends Controller
             'meaning_of_vocabulary' => 'required|string|max:255',
             'example' => 'nullable|string|max:255',
             'meaning_of_example' => 'nullable|string|max:255',
+            'status' => 'required',
         ]);
 
         LearnMore::create($request->all());

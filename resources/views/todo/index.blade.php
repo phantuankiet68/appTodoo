@@ -376,6 +376,7 @@
     </form>
 </div>
 
+
 <div class="modelDeleteFormTodo">
     <form method="POST" id="delete-todo-form">
         @csrf

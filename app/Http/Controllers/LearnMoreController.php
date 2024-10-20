@@ -32,7 +32,7 @@ class LearnMoreController extends Controller
                 });
             }
     
-            $learn_more = $learnQuery->paginate(11);
+            $learn_more = $learnQuery->paginate(6);
     
             return view('learnMore.index', compact('learn_more'));
     
@@ -53,8 +53,9 @@ class LearnMoreController extends Controller
             'language_id' => 'required|exists:languages,id',
             'vocabulary' => 'required|string|max:255',
             'meaning_of_vocabulary' => 'required|string|max:255',
-            'example' => 'nullable|string|max:255',
-            'meaning_of_example' => 'nullable|string|max:255',
+            'example' => 'required|string|max:255',
+            'meaning_of_example' => 'required|string|max:255',
+            'status' => 'required',
         ]);
 
         LearnMore::create($request->all());

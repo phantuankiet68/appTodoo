@@ -289,6 +289,53 @@ document.addEventListener("DOMContentLoaded", function() {
   const Todo = document.getElementById("todo");
   const dropDownTodo = document.querySelectorAll(".dropDownTodo");
   const chevronTodo = document.getElementById("chevronTodo").querySelector("i");
+  const Japanese = document.getElementById("Japanese");
+  const dropDownJapanese = document.querySelectorAll(".dropDownJapanese");
+  const chevronJapanese = document.getElementById("chevronJapanese").querySelector("i");
+
+  const isJapaneseOpen = localStorage.getItem("japaneseOpen") === "true";
+  if (isJapaneseOpen) {
+      dropDownJapanese.forEach(item => {
+          item.classList.add("active");
+      });
+      chevronJapanese.classList.remove("fa-chevron-up");
+      chevronJapanese.classList.add("fa-chevron-down");
+
+      if (dropDownJapanese.length > 0) {
+          dropDownJapanese[0].focus(); 
+      }
+  }
+
+  Japanese.addEventListener("click", function(e) {
+      e.preventDefault(); 
+
+      // Ẩn dropDownTodo khi hiển thị dropDownJapanese
+      dropDownTodo.forEach(item => {
+          item.classList.remove("active");
+      });
+      chevronTodo.classList.remove("fa-chevron-down");
+      chevronTodo.classList.add("fa-chevron-up");
+      localStorage.setItem("todoOpen", "false"); 
+
+      // Hiển thị/ẩn dropDownJapanese
+      dropDownJapanese.forEach(item => {
+          item.classList.toggle("active");
+      });
+
+      if (chevronJapanese.classList.contains("fa-chevron-up")) {
+          chevronJapanese.classList.remove("fa-chevron-up");
+          chevronJapanese.classList.add("fa-chevron-down");
+          localStorage.setItem("japaneseOpen", "true");
+
+          if (dropDownJapanese.length > 0) {
+              dropDownJapanese[0].focus();
+          }
+      } else {
+          chevronJapanese.classList.remove("fa-chevron-down");
+          chevronJapanese.classList.add("fa-chevron-up");
+          localStorage.setItem("japaneseOpen", "false");
+      }
+  });
 
   const isTodoOpen = localStorage.getItem("todoOpen") === "true";
   if (isTodoOpen) {
@@ -306,6 +353,15 @@ document.addEventListener("DOMContentLoaded", function() {
   Todo.addEventListener("click", function(e) {
       e.preventDefault(); 
 
+      // Ẩn dropDownJapanese khi hiển thị dropDownTodo
+      dropDownJapanese.forEach(item => {
+          item.classList.remove("active");
+      });
+      chevronJapanese.classList.remove("fa-chevron-down");
+      chevronJapanese.classList.add("fa-chevron-up");
+      localStorage.setItem("japaneseOpen", "false"); 
+
+      // Hiển thị/ẩn dropDownTodo
       dropDownTodo.forEach(item => {
           item.classList.toggle("active");
       });
@@ -325,6 +381,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
   });
 });
+
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -358,30 +415,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  const Japanese = document.getElementById("Japanese");
-  const dropDownJapanese = document.querySelectorAll(".dropDownJapanese");
-  const chevronJapanese = document.getElementById("chevronJapanese").querySelector("i");
-
-  // Thêm sự kiện click vào Dashboard
-  Japanese.addEventListener("click", function(e) {
-      e.preventDefault();  // Ngăn trang reload
-
-      // Duyệt qua từng mục dropDown và chuyển đổi giữa hiển thị và ẩn
-      dropDownJapanese.forEach(item => {
-          item.classList.toggle("active");
-      });
-
-      // Chuyển đổi giữa chevron-up và chevron-down
-      if (chevronJapanese.classList.contains("fa-chevron-up")) {
-        chevronJapanese.classList.remove("fa-chevron-up");
-        chevronJapanese.classList.add("fa-chevron-down");
-      } else {
-        chevronJapanese.classList.remove("fa-chevron-down");
-        chevronJapanese.classList.add("fa-chevron-up");
-      }
-  });
-});
 
 document.addEventListener("DOMContentLoaded", function() {
   const English = document.getElementById("English");

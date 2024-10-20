@@ -601,4 +601,21 @@
         display: -webkit-box;
         white-space: normal;
     }
+    .learnMore-table .recent--patient .tables table tr th{
+        font-size: 13px;
+    }
+    .learnMore-table .recent--patient .tables table tr td{
+        font-size: 13px;
+        font-weight: normal;
+    }
+    .learnMore .learnMore-table .tables table .prop-text .text-truncate {
+        max-width: 100%;
+        width: 150px;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        white-space: normal;
+    }
 }

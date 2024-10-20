@@ -146,8 +146,8 @@
 .popup-category {
     width: 30%;
     position: fixed;
-    bottom: 50px;
-    right: 0;
+    top: 120px;
+    left: 0;
     padding: 10px 30px;
     border-radius: 5px;
     z-index: 9999;
@@ -2171,13 +2171,11 @@ p.space {
 }
 
 .learnMore {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
     gap: 20px;
-    height: 77vh;
-    overflow: scroll;
 }
 
 .learnMore .tables {
@@ -2195,11 +2193,6 @@ p.space {
 }
 
 
-.learnMore-container form.formCreate{
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-}
 .formSearchInput{
     display: flex;
 }
@@ -2212,10 +2205,21 @@ p.space {
     border: 1px solid #c4c4c4;
 }
 
+.form-group-info .form-select-category{
+    width: 50%;
+}
+.form-group-info .form-select-category label {
+    width: 29%;
+}
+
+.saveChange{
+    width: 50%;
+}
 
 .saveChange button{
-    padding: 7px 20px;
-    background-color: #3491fc;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #40c3f7;
     font-size: 15px;
     color: #fff;
     border: none;
@@ -2263,4 +2267,67 @@ p.space {
 
 .ck-content {
     height: 236px;
+}
+
+.menuMove{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    width: 80px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+}
+.menuMove .nav-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-45deg);
+}
+.nav-content .toggle-btn,
+.nav-content span a{
+    height: 43px;
+    width: 43px;
+    background: #f3be87;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+.nav-content .toggle-btn{
+    font-size: 25px;
+    color: #fff;
+    z-index: 100;
+    cursor: pointer;
+    transform: rotate(-225deg);
+    transition: all 0.6s ease;
+}
+.menuMove.open .toggle-btn{
+    transform: rotate(0deg);
+}
+.nav-content span{
+    position: absolute;
+    transition: all 0.6s ease;
+    opacity: 0;
+}
+.menuMove.open .nav-content span{
+    transform: rotate(calc(var(--i) * (360deg/8))) translateY(70px);
+    opacity: 1;
+}
+.nav-content span a{
+    text-decoration: none;
+    transform: rotate(45deg);
+}
+.nav-content span a i{
+    font-size: 24px;
+    color: #fff;
+    transform: rotate(calc(var(--i) * (360deg/ -8)));
+    opacity: 0.8;
+    transition: 0.2s;
+}
+.nav-content span a:hover i{
+    opacity: 1;
 }

@@ -15,6 +15,7 @@ class LearnMore extends Model
         'meaning_of_vocabulary',
         'example',
         'meaning_of_example',
+        'status',
     ];
 
     public function user()
