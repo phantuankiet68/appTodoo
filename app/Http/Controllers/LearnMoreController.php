@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\LearnMore;
+use PDF;
 
 class LearnMoreController extends Controller
 {
@@ -91,5 +92,27 @@ class LearnMoreController extends Controller
         $learnMore = LearnMore::findOrFail($id);
         $learnMore->delete();
         return redirect()->route('learn_more.index')->with('success', 'Deleted successfully');
+    }
+
+    public function exportPdf()
+    {
+        $learn_more = LearnMore::where('language_id', 3)->orderBy('id', 'asc')->get();
+        $pdf = PDF::loadView('learnMore.pdf', compact('learn_more'))
+                ->setPaper('a3', 'landscape')
+                ->set_option('isHtml5ParserEnabled', true)
+                ->set_option('isUnicodeEnabled', true);
+        return $pdf->download('learnMore.pdf');
+    }
+    public function addTest($status = null)
+    {
+        if (is_null($status)) {
+            $status = 1;
+        }
+    
+        $tests = LearnMore::where('language_id', 3)
+                          ->where('status', $status)
+                          ->orderBy('id', 'asc')
+                          ->get();
+        return view('learnMore.test.index', compact('tests'));
     }
 }

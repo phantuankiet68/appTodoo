@@ -71,6 +71,7 @@ Route::get('/login', [AuthController::class, 'showLoginForm'])->middleware('chec
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/expenses/export-pdf', [ExpenseController::class, 'exportPdf'])->name('expenses.export.pdf');
+Route::get('/learn-more/pdf', [LearnMoreController::class, 'exportPdf'])->name('learn_more.pdf');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::resource('dashboard', DashboardController::class);
@@ -88,6 +89,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('food', FoodController::class);
     Route::resource('vocabularies', VocabularyController::class);
     Route::resource('learn_more', LearnMoreController::class);
+    Route::get('/learn_more_test', [LearnMoreController::class, 'addTest'])->name('learn_more_test.index');
+    Route::get('/learn_more_test/test/{status}', [LearnMoreController::class, 'addTest'])->name('learn_more_test.test');
     Route::resource('learn_more_english', LearnMoreEngLishController::class);
     Route::resource('structures', StructureController::class);
     Route::resource('quiz', QuizItemController::class);

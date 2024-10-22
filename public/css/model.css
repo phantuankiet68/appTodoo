@@ -2271,7 +2271,7 @@ p.space {
 
 .menuMove{
     position: absolute;
-    top: 20px;
+    top: 60px;
     right: 0;
     width: 80px;
     height: 300px;
@@ -2322,7 +2322,7 @@ p.space {
     transform: rotate(45deg);
 }
 .nav-content span a i{
-    font-size: 24px;
+    font-size: 20px;
     color: #fff;
     transform: rotate(calc(var(--i) * (360deg/ -8)));
     opacity: 0.8;
@@ -2330,4 +2330,132 @@ p.space {
 }
 .nav-content span a:hover i{
     opacity: 1;
+}
+.hrefList{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.hrefList .hrefTest{
+    padding: 8px 0px;
+}
+.hrefList .hrefTest a{
+    padding: 8px 29px;
+    border: 1px solid #e7e7e7;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.hrefTest {
+    display: none;
+}
+
+.hrefTest.active {
+    display: block;
+}
+
+.hrefList .slider-controls button#prevBtn{
+    background: #40c3f7;
+    padding: 10px 25px;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.hrefList .slider-controls button#nextBtn{
+    background: #40c3f7;
+    padding: 10px 25px;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    border: none;
+    cursor: pointer;
+}
+.learnMore-test{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    height: 68vh;
+    overflow: scroll;
+}
+
+.learnMore-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+
+.learnMore-list .learnMore-item:nth-child(1){
+    width: 15%;
+}
+.learnMore-list .learnMore-item:nth-child(2){
+    width: 15%;
+}
+
+.learnMore-list .learnMore-item:nth-child(3){
+    width: 35%;
+}
+.learnMore-list .learnMore-item:nth-child(4){
+    width: 35%;
+}
+
+.learnMore-list .learnMore-item input{
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #e7e7e7;
+    outline: none;
+    font-size: 15px;
+}
+
+.learnMore-setting{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.learnMore-setting a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 19%;
+    background: #40c3f7;
+    padding: 10px 25px;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    border: none;
+    cursor: pointer;
+}
+.learnMore-setting button{
+    width: 19%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: #40c3f7;
+    padding: 10px 25px;
+    font-size: 13px;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
+    border: none;
+    cursor: pointer;
+}
+.hrefTest a.active{
+    background: #f3c68c;
+    color: #fff;
 }

@@ -176,19 +176,19 @@
                 <i class='bx bx-plus'></i>
               </div>
               <span style="--i:1;">
-                <a href="#"><i class='bx bxs-home'></i></a>
+                <a href="#"  onclick="reloadPage(event);"><i class="fa-solid fa-spinner"></i></a>
               </span>
               <span style="--i:2;">
-                <a href="#"><i class='bx bxs-camera'></i></a>
+                <a href="#"><i class="fa-solid fa-square-plus"></i></a>
               </span>
               <span style="--i:3;">
-                <a href="#"><i class='bx bxs-alarm' ></i></a>
+                <a href="{{ route('learn_more_test.index') }}"><i class="fa-solid fa-check-to-slot"></i></a>
               </span>
               <span style="--i:4;">
-                <a href="#"><i class='bx bxs-map' ></i></a>
+                <a href="{{ route('learn_more.pdf') }}"><i class="fa-solid fa-circle-down"></i></a>
               </span>
               <span style="--i:5;">
-                <a href="#"><i class="fa-solid fa-house"></i></a>
+                <a href="{{ route('learn_more.index') }}"><i class="fa-solid fa-house"></i></a>
               </span>
             </div>
         </div>
@@ -268,6 +268,10 @@
 @endif
 
 <script>
+    function reloadPage(event) {
+        event.preventDefault();
+        window.location.reload();
+    }
     const nav = document.querySelector(".menuMove"),
         toggleBtn = nav.querySelector(".toggle-btn");
         toggleBtn.addEventListener("click" , () =>{
