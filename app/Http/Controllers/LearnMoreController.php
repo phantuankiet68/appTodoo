@@ -23,7 +23,7 @@ class LearnMoreController extends Controller
                 ->where(function($query) use ($userId) {
                     $query->where('user_id', $userId);
                 })
-                ->orderBy('id', 'asc'); 
+                ->orderBy('id', 'desc'); 
             if ($search) {
                 $learnQuery->where(function($query) use ($search) {
                     $query->where('vocabulary', 'like', '%' . $search . '%')

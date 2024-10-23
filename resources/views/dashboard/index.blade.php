@@ -89,20 +89,7 @@
         </div>
     </div>
 </div>
-<div class="cod-dashboard-8 cod-dashboard-form-8">
-    <div class="dashboard-chart">
-        <div style="height: 500px;">
-            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
-        </div>
-        <div class="">
-            <main class="cd__main">
-                <div id="container">
-                    <div class="svg"></div>
-                    <div id="tag"></div>
-                </div>
-            </main>
-        </div>
-    </div>
+<div class="cod-dashboard-8">
     <div class="dashboard-weather">
         <div class="dashboard-clock">
             <div class="clock">
@@ -122,6 +109,11 @@
                 <button type="submit">Tìm kiếm</button>
             </form>
             <div id="weather-result"></div>
+        </div>
+    </div>
+    <div class="dashboard-chart">
+        <div style="height: 380px;">
+            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
         </div>
     </div>
 </div>
@@ -263,10 +255,10 @@ function toggleDataSeries(e) {
                 console.log(data);
                 result.innerHTML = `
                     <div class="days-forecast">
-                        <p>Dự báo ngày ${formattedDate}</h2>
+                        <p class="text-center">Dự báo ngày ${formattedDate}</h2>
                         <ul class="weather-cards">
                             <li class="card mb-4">
-                                <h3>( ___${data.name}___ )</h3>
+                                <p>( ___${data.name}___ )</p>
                                 <p>Nhiệt độ: ${data.main.temp}°C</p>
                                 <p>Tốc độ gió: Nhẹ</p>
                                 <p>Mô tả: ${data.weather[0].description}</p>

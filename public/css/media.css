@@ -618,4 +618,19 @@
         display: -webkit-box;
         white-space: normal;
     }
+    .learnMore .hrefList {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .learnMore .hrefList .hrefTest a {
+        padding: 8px 10px;
+        border: 1px solid #e7e7e7;
+        font-size: 14px;
+        border-radius: 5px;
+    }   
 }

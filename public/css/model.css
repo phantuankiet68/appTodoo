@@ -2462,12 +2462,11 @@ p.space {
     color: #fff;
 }
 .dashboard-weather{
-    width: 30%;
+    width: 100%;
     height: auto;
     border: 1px solid #e7e7e7;
     padding: 10px;
     display: flex;
-    flex-direction: column;
     gap: 10px;
     border-radius: 10px;
 }
@@ -2543,11 +2542,15 @@ p.space {
 .dashboardCalendar th, .dashboardCalendar td {
     border: 1px solid #ccc;
     padding: 10px;
+    font-size: 14px;
 }
 
 .dashboardCalendar td.active {
     background: #0cbaff;
     color: #fff;
+}
+.link-margin nav{
+    width: 50%;
 }
 
 .dashboardWeather{
@@ -2607,7 +2610,7 @@ p.space {
     margin: 5px 0 -12px 0;
 }
 .dashboard-chart{
-    width: 70%;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;

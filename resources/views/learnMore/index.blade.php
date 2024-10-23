@@ -36,7 +36,7 @@
                     <div class="form-select-category">
                         <label for="todo-status">{{ __('messages.Status') }}</label>
                         <select name="status" id="todo-status">
-                            <option value="1">{{ __('messages.Lesson 1') }}</option>
+                            <option value="4">{{ __('messages.Lesson 1') }}</option>
                             <option value="1">{{ __('messages.Lesson 2') }}</option>
                             <option value="1">{{ __('messages.Lesson 3') }}</option>
                             <option value="1">{{ __('messages.Lesson 4') }}</option>
