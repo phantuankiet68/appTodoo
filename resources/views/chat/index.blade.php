@@ -85,30 +85,15 @@
                             <div class="descriptionContent">
                                 {!!$item->description!!}
                             </div>
-                            <div class="carousel">
-                                <div class="list">
-                                    @if($item->images->isNotEmpty())
-                                        @foreach($item->images as $image)
-                                        <div class="item" style="--background: #EA3D41;">
-                                            <img src="{{ asset($image->image_path) }}" alt="Image" srcset=""  class="fruit">
-                                        </div>
-                                        @endforeach
-                                    @else
-                                        <p>No images available for this post.</p>
-                                    @endif 
+                            @if($item->images->isNotEmpty())
+                                @foreach($item->images as $image)
+                                <div class="carousel-slide">
+                                    <img src="{{ asset($image->image_path) }}" alt="Image" class="fruit">
                                 </div>
-                                <div class="leaves"></div>
-                                <div class="shadow"></div>
-
-                                <div class="arrow">
-                                    <button id="prevPost"><</button>
-                                    <button id="nextPost">></button>
-                                </div>
-
-                                <div class="carousel-info">
-                                    Slide <span id="current-slide">1</span> of <span id="total-slides"></span>
-                                </div>
-                            </div>
+                                @endforeach
+                            @else
+                                <p>No images available for this post.</p>
+                            @endif
                             <div class="localPost">
                                 <i class="fa-solid fa-location-dot"></i> <p>{{$item->location}}</p>
                             </div>
@@ -312,6 +297,7 @@
 </div>
 
 <script>
+    
     function updateComment() {
         let commentContent = document.getElementById('commentContentPost').value;
         document.getElementById('comment').value = commentContent;

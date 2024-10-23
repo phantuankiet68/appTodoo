@@ -16,25 +16,16 @@ class ChatController extends Controller
     
      public function index()
      {
-        $posts = Post::with(['user', 'images', 'comments','likes'])
-        ->whereHas('images', function($query) {
-            $query->whereColumn('post_id', 'posts.id');
-        })
-        ->whereHas('comments', function($query) {
-            $query->whereColumn('post_id', 'posts.id');
-        })
-        ->withCount(['comments' => function ($query) {
-            $query->whereColumn('post_id', 'posts.id');
-        }])
-        ->withCount(['likes' => function ($query) {
-            $query->whereColumn('post_id', 'posts.id');
-        }])
-        ->having('comments_count', '>', 0)
-        ->orderBy('id', 'desc')
-        ->paginate(8);
-     
-         return view('chat.index', compact('posts'));
-     }
+        $posts = Post::with(['user', 'images', 'comments', 'likes'])
+        ->whereHas('images')  // Only get posts that have images
+        ->withCount('comments')  // Count comments for each post
+        ->withCount('likes')  // Count likes for each post
+        ->orderBy('comments_count', 'desc')  // Order by the number of comments (posts with comments appear first)
+        ->orderBy('id', 'desc')  // Then order by post ID, descending
+        ->get();
+
+        return view('chat.index', compact('posts'));
+    }
 
     /**
      * Show the form for creating a new resource.
