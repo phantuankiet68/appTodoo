@@ -118,6 +118,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('english', EnglishController::class);
     Route::resource('question', QuestionController::class);
     Route::resource('component', ComponentController::class);
+    Route::get('/test_code', [ComponentController::class, 'testCode'])->name('test_code.index');
     Route::resource('colors', ColorController::class);
     Route::resource('table', TableController::class);
     Route::resource('codes', CodeController::class);

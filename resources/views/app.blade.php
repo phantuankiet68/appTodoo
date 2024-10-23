@@ -55,6 +55,7 @@
                     <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Word') }}</a></li>
                     <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Excel') }}</a></li>
                     <li class="titleMenu">{{ __('messages.User Interface') }}</li>
+                    <li><a href="{{ route('test_code.index') }}"><i class="fa-solid fa-check-to-slot"></i>{{ __('messages.Test code') }}</a></li>
                     <li class="bg-grey"><a href="javascript:void(0)" id="code"><i class="fa-brands fa-codepen"></i>{{ __('messages.Code') }}</a><span id="codeChevron"><i class="fa-solid fa-chevron-up"></i></span></li>
                     <li class="dropDownCode"><a href="{{ route('component.index') }}"><i class="fa-solid fa-expand"></i>{{ __('messages.Component') }}</a></li>
                     <li class="dropDownCode"><a href="{{ route('colors.index') }}"><i class="fa-solid fa-fill"></i>{{ __('messages.Color') }}</a></li>

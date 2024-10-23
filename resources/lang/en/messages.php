@@ -242,8 +242,8 @@ return [
     'Lesson 49'=>'Lesson 49',
     'Lesson 50'=>'Lesson 50',
     'CSS'=>'CSS',
-    ''=>'',''=>'',
-
+    'Test code'=>'Test code',
+    ''=>'',
     ''=>'',''=>'',
     ''=>'',
     ''=>'',

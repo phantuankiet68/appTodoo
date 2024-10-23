@@ -241,6 +241,7 @@ return [
     'Lesson 49'=>'学習 49',
     'Lesson 50'=>'学習 50',
     'CSS'=>'CSS',
+    'Test code'=>'テストコード',
 
 
 ];

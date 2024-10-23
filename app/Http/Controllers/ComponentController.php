@@ -117,4 +117,9 @@ class ComponentController extends Controller
         $component->delete();
         return redirect()->back()->with('success', 'Deleted successfully');
     }
+
+    public function testCode()
+    {
+        return view('testCode.index');
+    }
 }
