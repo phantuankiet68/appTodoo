@@ -40,12 +40,12 @@ class ComponentController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'c_html' => 'nullable|string',
-            'c_css' => 'nullable|string',
-            'c_javascript' => 'nullable|string',
-            'link' => 'nullable|string|max:255',
+            'description' => 'required|string',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'c_html' => 'required|string',
+            'c_css' => 'required|string',
+            'c_javascript' => 'required|string',
+            'link' => 'required|string|max:255',
         ]);
     
         // Handle file upload

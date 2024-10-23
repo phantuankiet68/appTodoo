@@ -85,16 +85,17 @@
                     </div>
                 </div>
                 <div class="modelFormRight">
-                    <div class="form-textarea-category">
+                    <div class="form-input-category">
+                        <label for="name">{{ __('messages.Link') }}</label>
+                        <input type="text" class="input-name" name="link">
+                    </div>
+                    <div class="form-textarea-category  mt-10">
+                        <label for="description">{{ __('messages.CSS') }}</label>
                         <textarea id="editor1" name="c_css"></textarea> 
                     </div>
                     <div class="form-textarea-category">
                         <label for="description" class="mt-10">Javascript</label>
                         <textarea id="editor2" name="c_javascript"></textarea> 
-                    </div>
-                    <div class="form-input-category mt-10">
-                        <label for="name">{{ __('messages.Link') }}</label>
-                        <input type="text" class="input-name" name="link">
                     </div>
                 </div>
             </div>
@@ -104,6 +105,22 @@
         </div>
     </div>
 </div>
+
+@if (session('success'))
+    <div id="popup-category" class="popup-category success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if ($errors->any())
+    <div id="popup-category" class="popup-category error">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
 
 <div class="model" id="showComponentForm">
@@ -116,8 +133,8 @@
 
         <div class="showContentComponent" id="show">
             <div class="showNameComponent">
-                <h3 id="shownamecomponent"></h3>
-                <p id="showdescriptioncomponent"></p>
+                <h3 id="showname"></h3>
+                <p id="showdescription"></p>
                 <a href="" target="_blank" id="showlinkcomponent"></a>
             </div>
             <div class="showCodeComponent">
@@ -161,20 +178,54 @@
 
 
 <script>
-    CKEDITOR.replace('editor');
-    CKEDITOR.replace('editor1');
-    CKEDITOR.replace('editor2');
+ClassicEditor
+  .create(document.querySelector('#editor'))
+  .then(editor => {
+    editorInstance = editor; 
+  })
+  .catch(error => {
+      console.error(error);
+  });
+
+ClassicEditor
+  .create(document.querySelector('#editor1'))
+  .then(editor => {
+    console.log(editor) 
+  })
+  .catch(error => {
+      console.error(error);
+  });
+ClassicEditor
+  .create(document.querySelector('#editor2'))
+  .then(editor => {
+    console.log(editor) 
+  })
+  .catch(error => {
+      console.error(error);
+  });
 </script>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.querySelector('#popup-category');
+        if (popup) {
+            popup.style.display = 'block';
+
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 5000);
+        }
+    });
+
     function showEditComponent(componentId) {
         const showComponentForm = document.getElementById('showComponentForm');
         showComponentForm.style.display = 'block';
         fetch(`/component/${componentId}`)
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             document.getElementById('component_id').value = data.id;
-            document.getElementById('shownamecomponent').innerHTML = data.name;
-            document.getElementById('showdescriptioncomponent').innerHTML = data.description;
+            document.getElementById('showname').innerHTML = data.name;
+            document.getElementById('showdescription').innerHTML = data.description;
             document.getElementById('showlinkcomponent').innerHTML = data.link;
             document.getElementById('showlinkcomponent').href = data.link;
             document.getElementById('showcomponent1').innerHTML = data.c_html;

@@ -212,7 +212,25 @@
 </div>
 
 
+<script>
+ClassicEditor
+  .create(document.querySelector('#editor'))
+  .then(editor => {
+    editorInstance = editor; 
+  })
+  .catch(error => {
+      console.error(error);
+  });
 
+ClassicEditor
+  .create(document.querySelector('#editor1'))
+  .then(editor => {
+    console.log(editor) 
+  })
+  .catch(error => {
+      console.error(error);
+  });
+</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('contentForm');

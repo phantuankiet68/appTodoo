@@ -1077,20 +1077,17 @@
     gap: 10px;
 }
 .modelContentDescription{
-    width: 50%;
+    width: 62%;
 }
 .textareaBigSize {
     resize: none;
-    height: 315px;
+    height: 291px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border: none;
     outline: none;
     border-radius: 5px;
     padding: 5px;
     font-size: 15px;
-}
-.modelFormRight .form-textarea-category{
-    margin-top: 0;
 }
 .modelFormRight .form-textarea-category .mt-10{
     margin-top: 10px;

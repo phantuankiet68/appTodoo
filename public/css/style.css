@@ -3996,7 +3996,7 @@ button.btn-add{
     padding: 10px;
 }
 .component-container-right{
-    width: 85%;
+    width: 100%;
     padding: 10px;
     border: 1px solid #e2e2e2;
     overflow: scroll;

@@ -240,6 +240,6 @@ return [
     'Lesson 48'=>'Bài 48',
     'Lesson 49'=>'Bài 49',
     'Lesson 50'=>'Bài 50',
-
+    'CSS'=>'CSS',
     
 ];
