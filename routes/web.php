@@ -111,6 +111,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('cv', CvController::class);
     Route::resource('sent', SentController::class);
     Route::resource('chat', ChatController::class);
+    Route::get('/info', [ChatController::class, 'indexInfo'])->name('info.index');
     Route::resource('japanese', JapaneseController::class);
     Route::get('add_japanese', [JapaneseController::class, 'addJapanese'])->name('japanese.addJapanese');
     Route::resource('japanese', JapaneseController::class);

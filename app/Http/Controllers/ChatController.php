@@ -14,14 +14,16 @@ class ChatController extends Controller
      * @return \Illuminate\Http\Response
      */
     
-     public function index()
-     {
+    public function index()
+    {
         $posts = Post::with(['user', 'images', 'comments', 'likes'])
-        ->whereHas('images')  // Only get posts that have images
-        ->withCount('comments')  // Count comments for each post
-        ->withCount('likes')  // Count likes for each post
-        ->orderBy('comments_count', 'desc')  // Order by the number of comments (posts with comments appear first)
-        ->orderBy('id', 'desc')  // Then order by post ID, descending
+        ->whereHas('images', function($query) {
+            $query->select('id', 'post_id');
+        })  
+        ->withCount('comments')
+        ->withCount('likes')
+        ->orderBy('comments_count', 'asc')
+        ->orderBy('id', 'asc')
         ->get();
 
         return view('chat.index', compact('posts'));
@@ -32,9 +34,9 @@ class ChatController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function indexInfo()
     {
-        //
+        return view('chat.info.index');
     }
 
     /**

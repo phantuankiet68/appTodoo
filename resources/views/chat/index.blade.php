@@ -86,11 +86,17 @@
                                 {!!$item->description!!}
                             </div>
                             @if($item->images->isNotEmpty())
-                                @foreach($item->images as $image)
-                                <div class="carousel-slide">
-                                    <img src="{{ asset($image->image_path) }}" alt="Image" class="fruit">
-                                </div>
-                                @endforeach
+                                <section class="wrapper" data-post-id="{{ $item->id }}">
+                                <i class="fa-solid fa-arrow-left button prev" style="visibility: hidden;"></i>
+                                    <div class="image-container">
+                                        <div class="carousel">
+                                            @foreach($item->images as $image)
+                                                <img src="{{ asset($image->image_path) }}" alt="Image" class="fruit">
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <i class="fa-solid fa-arrow-right button next"></i>
+                                </section>
                             @else
                                 <p>No images available for this post.</p>
                             @endif
@@ -181,8 +187,10 @@
                                 <p>Publish</p>
                             </div>
                             <div class="actionUserChatTeam">
-                                <p><i class="fa-solid fa-camera-retro"></i></p>
-                                <p>Photo</p>
+                                <a href="{{ route('info.index') }}">
+                                    <p><i class="fa-solid fa-camera-retro"></i></p>
+                                    <p>Photo</p>
+                                </a>
                             </div>
                             <div class="actionUserChatTeam">
                                 <p><i class="fa-brands fa-linkedin"></i></p>
@@ -289,7 +297,7 @@
                 <button type="submit">{{ __('messages.Add New') }}</button>
             </div>
 
-            <div class="BtnCloseCreate" onclick="closeCreateWorkflow()">
+            <div class="BtnCloseCreate" onclick="closeCreatePost()">
                 <p>X</p>
             </div>
         </form>
@@ -297,7 +305,60 @@
 </div>
 
 <script>
-    
+
+// Lấy tất cả các wrapper của các bài post
+const wrappers = document.querySelectorAll(".wrapper");
+
+wrappers.forEach(wrapper => {
+    const carousel = wrapper.querySelector(".carousel"),
+          images = wrapper.querySelectorAll(".fruit"),
+          prevButton = wrapper.querySelector(".prev"),
+          nextButton = wrapper.querySelector(".next");
+
+    let imageIndex = 0; // Bắt đầu từ ảnh đầu tiên cho mỗi bài post
+
+    // Cập nhật hiển thị của carousel
+    const slideImage = () => {
+        // Di chuyển carousel dựa trên chỉ số ảnh hiện tại
+        carousel.style.transform = `translateX(-${imageIndex * 100}%)`;
+
+        // Kiểm tra và ẩn/hiện nút Prev và Next
+        if (imageIndex === 0) {
+            prevButton.style.visibility = "hidden"; // Ẩn Prev nếu ở ảnh đầu tiên
+        } else {
+            prevButton.style.visibility = "visible";
+        }
+
+        if (imageIndex === images.length - 1) {
+            nextButton.style.visibility = "hidden"; // Ẩn Next nếu ở ảnh cuối cùng
+        } else {
+            nextButton.style.visibility = "visible";
+        }
+    };
+
+    // Khi người dùng click nút Next
+    nextButton.addEventListener("click", () => {
+        if (imageIndex < images.length - 1) {
+            imageIndex++;
+            slideImage();
+        }
+    });
+
+    // Khi người dùng click nút Prev
+    prevButton.addEventListener("click", () => {
+        if (imageIndex > 0) {
+            imageIndex--;
+            slideImage();
+        }
+    });
+
+    // Hiển thị lần đầu tiên, điều chỉnh trạng thái nút Prev (ẩn nếu đang ở ảnh đầu tiên)
+    slideImage();
+});
+
+
+
+
     function updateComment() {
         let commentContent = document.getElementById('commentContentPost').value;
         document.getElementById('comment').value = commentContent;
@@ -314,6 +375,14 @@
     });
 
     function showPost() {
+        const showPost = document.getElementById('showPost')
+        if (showPost.style.display === 'none' || showPost.style.display === '') {
+            showPost.style.display = 'block'; 
+        } else {
+            showPost.style.display = 'none';
+        }
+    }
+    function closeCreatePost() {
         const showPost = document.getElementById('showPost')
         if (showPost.style.display === 'none' || showPost.style.display === '') {
             showPost.style.display = 'block'; 

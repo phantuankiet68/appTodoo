@@ -19,22 +19,6 @@ class PostController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         try {
@@ -58,9 +42,11 @@ class PostController extends Controller
                 foreach ($images as $image) {
                     $originalName = $image->getClientOriginalName();
                     $extension = $image->getClientOriginalExtension();
-                    $filename = time() . '_' . pathinfo($originalName, PATHINFO_FILENAME) . '.' . $extension;
+                    $sanitizedFilename = str_replace(' ', '_', pathinfo($originalName, PATHINFO_FILENAME));
+                    $filename = time() . '_' . $sanitizedFilename . '.' . $extension;
                     $image->move(public_path('assets/images'), $filename);
                     $relativePath = 'assets/images/' . $filename;
+                    
                     PostImage::create([
                         'post_id' => $post->id,
                         'image_path' => $relativePath,

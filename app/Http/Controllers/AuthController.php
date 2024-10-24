@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator; // Import đúng Validator
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Profile;
 
 class AuthController extends Controller
 {
@@ -19,29 +20,24 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         try {
-            // Validate dữ liệu
             $validator = Validator::make($request->all(), [
                 'full_name' => 'required|string|max:255',
-                'email' => 'required|string|email|max:255|unique:users', // unique:users để kiểm tra xem email đã tồn tại hay chưa
+                'email' => 'required|string|email|max:255|unique:users',
                 'password' => 'required|string|min:6',
                 'phone' => 'required',
                 'gender' => 'required',
                 'roles' => 'required'
             ]);
     
-            // Nếu có lỗi, trả về với thông báo lỗi
             if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator)->withInput();
             }
     
-            // Kiểm tra nếu email đã tồn tại
             $existingUser = User::where('email', $request->email)->first();
             if ($existingUser) {
-                // Trả về lỗi nếu đã có tài khoản với email này
                 return redirect()->back()->with('error', 'Đã có tài khoản với email này. Vui lòng sử dụng email khác.')->withInput();
             }
     
-            // Tạo user mới
             User::create([
                 'full_name' => $request->full_name,
                 'email' => $request->email,
@@ -50,16 +46,29 @@ class AuthController extends Controller
                 'gender' => $request->gender,
                 'roles' => $request->roles
             ]);
-    
-            // Chuyển hướng đến dashboard hoặc trang chủ sau khi đăng ký thành công
+
+            Profile::create([
+                'user_id' => $user->id, 
+                'name' => $request->full_name,
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'date_of_birth' => $request->date_of_birth,
+                'gender' => $request->gender,
+                'link_facebook' => $request->link_facebook,
+                'link_instagram' => $request->link_instagram,
+                'link_linkin' => $request->link_linkin,
+                'link_link' => $request->link_link,
+                'address' => $request->address,
+                'description' => $request->description,
+                'roles' => $request->roles
+
+            ]);
             return redirect()->route('todo')->with('success', 'Đăng ký thành công!');
     
         } catch (\Exception $e) {
-            // Xử lý ngoại lệ nếu có lỗi trong quá trình đăng ký
             return redirect()->back()->with('error', 'Đã xảy ra lỗi trong quá trình đăng ký. Vui lòng thử lại.')->withInput();
         }
     }
-       // Hiển thị form đăng ký
     public function showLoginForm()
     {
         return view('auth.login');
