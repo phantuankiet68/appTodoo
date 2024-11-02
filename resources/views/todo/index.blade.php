@@ -432,7 +432,7 @@ function showEditTodoPopup(todoId) {
 }
 
 // Chức năng cập nhật thông tin qua API cho todo
-document.getElementById('edit-todo-form').onsubmit = function(event) {
+document.getElementById('edit-profile-form').onsubmit = function(event) {
     event.preventDefault();
     const todoId = document.getElementById('todo-id').value;
     this.action = `/todo/${todoId}`;

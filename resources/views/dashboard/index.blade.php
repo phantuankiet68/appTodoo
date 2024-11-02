@@ -113,7 +113,7 @@
     </div>
     <div class="dashboard-chart">
         <div style="height: 380px;">
-            <div id="chartContainer" style="height: 430px; width: 100%;"></div>
+            <div id="chartContainer"></div>
         </div>
     </div>
 </div>

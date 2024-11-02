@@ -112,6 +112,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('sent', SentController::class);
     Route::resource('chat', ChatController::class);
     Route::get('/info', [ChatController::class, 'indexInfo'])->name('info.index');
+    Route::put('/profile/{id}', [ChatController::class, 'updateProfile'])->name('profile.update');
     Route::resource('japanese', JapaneseController::class);
     Route::get('add_japanese', [JapaneseController::class, 'addJapanese'])->name('japanese.addJapanese');
     Route::resource('japanese', JapaneseController::class);

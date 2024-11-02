@@ -41,53 +41,59 @@
                         </div>
                     </div>
                 </div>
-                <div class="infoControllerRightContentUser">
-                    <div class="form-input-category">
-                        <input type="text" class="input-name" id="" name="name" value="{{ Auth::user()->full_name }}" placeholder="Nhập họ và tên....">
-                    </div>
-                    <div class="form-input-category">
-                        <input type="text" class="input-name" id="" name="name" value="{{ Auth::user()->email }}" placeholder="Nhập email....">
-                    </div>
-                    <div class="form-input-category">
-                        <input type="text" class="input-name" id="" name="name" value="0{{ Auth::user()->phone }}" placeholder="Nhập số điện thoại....">
-                    </div>
-                    <div class="form-input-category">
-                        <input type="text" class="input-name" id="" name="name" placeholder="Nhập năm sinh....">
-                    </div>
-                    <div class="form-input-category">
-                        @if (Auth::user()->gender = 1)
-                            <input type="text" class="input-name" id="" name="name" value="Nam">
-                        @else
-                            <input type="text" class="input-name" id="" name="name" value="Nữ">
+                @foreach($profiles as $item)
+                <form method="POST" id="edit-profile-form">
+                    @csrf
+                    @method('PUT')
+                    <div class="infoControllerRightContentUser">
+                        <input type="hidden" id="profile_id" value="{{ $item->id }}"/>
+                        @if (Auth::check())
+                            <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
                         @endif
+                        <div class="form-input-category">
+                            <input type="text" class="input-name"  name="name" value="{{ $item->name }}" placeholder="Nhập họ và tên....">
+                        </div>
+                        <div class="form-input-category">
+                            <input type="text" class="input-name"  name="email" value="{{ $item->email }}" placeholder="Nhập email....">
+                        </div>
+                        <div class="form-input-category">
+                            <input type="text" class="input-name"  name="phone" value="0{{ $item->phone }}" placeholder="Nhập số điện thoại....">
+                        </div>
+                        <div class="form-input-category">
+                            <input type="date" class="input-name"  name="date_of_birth" value="{{ $item->date_of_birth }}">
+                        </div>
+                        <div class="form-input-category">
+                            <input type="text" class="input-name" name="gender" value="{{ $item->gender == 0 ? 'Nam' : 'Nữ' }}">
+                        </div>
                     </div>
-                </div>
-                <div class="infoControllerRightContentUser col-4">
-                    <div class="form-input-category">
-                        <input type="text" class="input-name" id="" name="name" placeholder="Nhập link facebook....">
+                    <div class="infoControllerRightContentUser col-4">
+                        <div class="form-input-category">
+                            <input type="text" class="input-name" name="link_facebook" value="{{ $item->link_facebook }}">
+                        </div>
+                        <div class="form-input-category">
+                            <input type="text" class="input-name" name="link_instagram" value="{{ $item->link_instagram }}">
+                        </div>
+                        <div class="form-input-category">
+                            <input type="text" class="input-name" name="link_linkin" value="{{ $item->link_linkin }}">
+                        </div>
+                        <div class="form-input-category">
+                            <input type="text" class="input-name" name="link_link" value="{{ $item->link_link }}">
+                        </div>
+                        <div class="form-input-category">
+                            <input type="text" class="input-name" name="address" value="{{ $item->address }}">
+                        </div>
                     </div>
-                    <div class="form-input-category">
-                        <input type="text" class="input-name" id="" name="name" placeholder="Nhập link intergram....">
+                    <div class="infoControllerRightContentUser col-4">
+                        <div class="form-textarea-category">
+                            <textarea name="description" class="textarea" placeholder="Nhập giới thiệu cá nhân....">{{ $item->description }}</textarea> 
+                        </div>
+                        <div class="form-input-category">
+                            <input type="text" class="input-name" name="roles" value="{{ $item->roles }}">
+                            <button class="input-name">Save changes</button>
+                        </div>
                     </div>
-                    <div class="form-input-category">
-                        <input type="text" class="input-name" id="" name="name" placeholder="Nhập link in....">
-                    </div>
-                    <div class="form-input-category">
-                        <input type="text" class="input-name" id="" name="name" placeholder="Nhập link cá nhân....">
-                    </div>
-                    <div class="form-input-category">
-                        <input type="text" class="input-name" id="" name="name" placeholder="Nhập địa chỉ....">
-                    </div>
-                </div>
-                <div class="infoControllerRightContentUser col-4">
-                    <div class="form-textarea-category">
-                        <textarea id="editor" name="code" class="textarea" placeholder="Nhập giới thiệu cá nhân...."></textarea> 
-                    </div>
-                    <div class="form-input-category">
-                        <input type="text" class="input-name" id="" name="name">
-                        <button class="input-name">Save changes</button>
-                    </div>
-                </div>
+                </form>
+                @endforeach
             </div>
             <div class="infoControllerRightInfo">
                 <div class="infoControllerRightInfoList">
@@ -194,7 +200,13 @@
     </div>
 </div>
 <script>
-     function addNewProfessinalField() {
+    document.getElementById('edit-profile-form').onsubmit = function(event) {
+        event.preventDefault();
+        const profile_id = document.getElementById('profile_id').value;
+        this.action = `/profile/${profile_id}`;
+        this.submit();
+    }
+    function addNewProfessinalField() {
         let newNode = document.createElement("input");
         newNode.classList.add("form-control");
         newNode.classList.add("laField");
@@ -202,8 +214,6 @@
         newNode.setAttribute("placeholder", "Enter here");
 
         let aqOb = document.getElementById("skills");
-
-        // Thay vì insertBefore, append newNode vào cuối của aqOb
         aqOb.appendChild(newNode);
     }
     function addNewProjectField() {

@@ -3041,7 +3041,7 @@ i.material-icons {
 }
 
 .infoControllerRightContentUser{
-    width: 20%;
+    width: 25%;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -3052,7 +3052,7 @@ i.material-icons {
 }
 
 .infoControllerRightContentUser.col-4{
-    width: 30%;
+    width: 36%;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -3160,4 +3160,13 @@ i.material-icons {
     outline: none;
     border-radius: 5px;
     padding: 5px;
+}
+
+
+.infoControllerRightUser form{
+    display: flex;
+    gap:10px;
+    width: 82%;
+    justify-content: space-between;
+    align-items: center;
 }

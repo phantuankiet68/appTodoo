@@ -61,8 +61,8 @@
         </div>
       
     <div class="switch login">
-        <a href="#" class="login" onclick="login()">Login</a>
-        <a href="" class="register" onclick="register()">Register</a>
+        <a href="{{ route('login') }}" class="login">Login</a>
+        <a href="{{ route('register') }}" class="register">Register</a>
         <div class="btn-active" id="btn"></div>
     </div>
 
@@ -74,7 +74,7 @@
         if (alert) {
             alert.style.display = 'none';
         }
-    }, 5000); // Ẩn sau 5 giây
+    }, 5000);
 </script>
  <script src="{{ asset('js/login.js') }}"></script>
 </body>

@@ -38,7 +38,8 @@ class AuthController extends Controller
                 return redirect()->back()->with('error', 'Đã có tài khoản với email này. Vui lòng sử dụng email khác.')->withInput();
             }
     
-            User::create([
+            // Lưu người dùng và lấy ID của người dùng vừa tạo
+            $user = User::create([
                 'full_name' => $request->full_name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
@@ -46,9 +47,10 @@ class AuthController extends Controller
                 'gender' => $request->gender,
                 'roles' => $request->roles
             ]);
-
+    
+            // Tạo hồ sơ người dùng
             Profile::create([
-                'user_id' => $user->id, 
+                'user_id' => $user->id,
                 'name' => $request->full_name,
                 'email' => $request->email,
                 'phone' => $request->phone,
@@ -61,14 +63,14 @@ class AuthController extends Controller
                 'address' => $request->address,
                 'description' => $request->description,
                 'roles' => $request->roles
-
             ]);
-            return redirect()->route('todo')->with('success', 'Đăng ký thành công!');
     
+            return redirect()->route('todo')->with('success', 'Đăng ký thành công!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Đã xảy ra lỗi trong quá trình đăng ký. Vui lòng thử lại.')->withInput();
         }
     }
+    
     public function showLoginForm()
     {
         return view('auth.login');

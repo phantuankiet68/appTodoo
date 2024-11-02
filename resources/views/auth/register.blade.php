@@ -70,6 +70,13 @@
                         <option value="1">Fe male</option>
                    </select>
                 </div>
+                <input type="hidden" id="" name="date_of_birth" value="2024-01-01"/>
+                <input type="hidden" id="" name="link_facebook" value="Please enter the information."/>
+                <input type="hidden" id="" name="link_instagram" value="Please enter the information."/>
+                <input type="hidden" id="" name="link_linkin" value="Please enter the information."/>
+                <input type="hidden" id="" name="link_link" value="Please enter the information."/>
+                <input type="hidden" id="" name="address" value="Please enter the information."/>
+                <input type="hidden" id="" name="description" value="Please enter the information."/>
                 <div class="input-field">
                     <input type="submit" class="input-submit" value="Sign In">
                 </div>
@@ -80,8 +87,8 @@
     <!------------------------ Switch -------------------------->
       
     <div class="switch">
-        <a href="#" class="login">Login</a>
-        <a href="#" class="register">Register</a>
+        <a href="{{ route('login') }}" class="login">Login</a>
+        <a href="{{ route('register') }}" class="register">Register</a>
         <div class="btn-active" id="btn"></div>
     </div>
 
