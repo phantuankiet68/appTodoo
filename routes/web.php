@@ -56,7 +56,7 @@ use App\Http\Controllers\LearnMoreEngLishController;
 
 
 Route::get('/', function () {
-    return view('app');
+    return view('layout');
 });
 
 Route::fallback(function () {
