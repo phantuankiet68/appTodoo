@@ -47,37 +47,38 @@
             </div> -->
             <section class="page-left"  id="extraItems">
                 <div class="page-left-item banner activeItem" id="item1">
-                    <div class="patern-layer-one" style="background-image: url(images/main-slider/pattern-1.png)"></div>
+                    <div class="patern-layer-one"></div>
+                    <div class="patern-layer-two"></div>
                     <div class="slidershow middle">
                         <div class="slides">
-                            <input type="radio" name="r" id="r1" checked>
-                            <input type="radio" name="r" id="r2">
-                            <input type="radio" name="r" id="r3">
-                            <input type="radio" name="r" id="r4">
-                            <input type="radio" name="r" id="r5">
                             <div class="slide s1">
-                            <img src="{{asset('assets/images/user1.jpg')}}" alt="">
-                            </div>
-                            <div class="slide">
-                            <img src="{{asset('assets/images/user2.jpg')}}" alt="">
-                            </div>
-                            <div class="slide">
-                            <img src="{{asset('assets/images/user3.jpg')}}" alt="">
-                            </div>
-                            <div class="slide">
-                            <img src="{{asset('assets/images/user4.jpg')}}" alt="">
-                            </div>
-                            <div class="slide">
-                            <img src="{{asset('assets/images/user5.jpg')}}" alt="">
+                                <img src="{{asset('assets/images/banner1.jpg')}}" alt="">
                             </div>
                         </div>
-
-                        <div class="navigation">
-                            <label for="r1" class="bar"></label>
-                            <label for="r2" class="bar"></label>
-                            <label for="r3" class="bar"></label>
-                            <label for="r4" class="bar"></label>
-                            <label for="r5" class="bar"></label>
+                    </div>
+                    <div class="patern-layer-content">
+                        <div class="patern-layer-UpSkillHub">
+                            <h1>UpSkillHub</h1>
+                            <div class="wavy">
+                                <span style="--i:1;">W</span>
+                                <span style="--i:2;">E</span>
+                                <span style="--i:3;">B</span>
+                                <span style="--i:4;">S</span>
+                                <span style="--i:5;">I</span>
+                                <span style="--i:6;">T</span>
+                                <span style="--i:7;">E</span>
+                                <span style="--i:8;">D</span>
+                                <span style="--i:9;">E</span>
+                                <span style="--i:10;">V</span>
+                                <span style="--i:11;">E</span>
+                                <span style="--i:12;">L</span>
+                                <span style="--i:13;">O</span>
+                                <span style="--i:14;">P</span>
+                            </div>
+                            <div class="btn-more-here">
+                                <a href="" class="btn-more">More here</a>
+                                <a href="" class="btn-dashboard">Dashboard</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -906,107 +907,7 @@
                     </div>
                 </div>
                 <div class="page-right-item activeItem" id="item1">
-                    <div class="row">
-                        <div class="column">
-                            <div class="card">
-                            <div class="icon-wrapper">
-                                <i class="fa-solid fa-passport"></i>
-                            </div>
-                            <h3>Web developer</h3>
-                            <p>
-                                Chúng tôi sẽ tạo ra các khóa học giúp người dùng dễ dàng học tập và ứng dụng kiến thức vào công việc một cách thuận tiện và hiệu quả hơn.
-                            </p>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                            <div class="icon-wrapper">
-                                <i class="fa-solid fa-object-ungroup"></i>
-                            </div>
-                            <h3>UX/UI Design</h3>
-                            <p>
-                                Chúng tôi sẽ nghiên cứu nhu cầu của người dùng để phát triển các component có sẵn, mang đến giải pháp giúp sản phẩm dễ sử dụng và tối ưu hóa trải nghiệm người dùng.
-                            </p>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                            <div class="icon-wrapper">
-                                <i class="fas fa-wrench"></i>
-                            </div>
-                            <h3>Content creation</h3>
-                            <p>
-                                Chúng tôi lập ra kế hoạch, sản xuất và chia sẻ nội dung một cách cụ thể. Nhầm mục đích là cung cấp giá trị, thông tin đến truyền đạt kiến thức hoặc giải quyết vấn đề.
-                            </p>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                            <div class="icon-wrapper">
-                                <i class="fa-solid fa-list-check"></i>
-                            </div>
-                            <h3>Task Issue</h3>
-                            <p>
-                                Trong công việc, Thường một dự án sẽ được phân ra thành nhiều giai đoạn để tiện cho việc giải quyết vấn đề để hoàn thành công việc trong một khoảng thời gian nhất định.
-                            </p>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                            <div class="icon-wrapper">
-                                <i class="fa-solid fa-money-bill"></i>
-                            </div>
-                            <h3>Financial</h3>
-                            <p>
-                                Chúng tôi đã tạo ra quá trình lập kế hoạch, theo dõi và kiểm soát việc sử dụng tài chính cá nhân nhằm đảm bảo sự ổn định về tài chính từ đó cải thiện chất lượng cuộc sống.
-                            </p>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                            <div class="icon-wrapper">
-                                <i class="fa-solid fa-table-list"></i>
-                            </div>
-                            <h3>Daily Task</h3>
-                            <p>
-                                Chúng tôi tạo hệ thống nhằm mục đích liệt kê các nhiệm vụ cần làm trong ngày và đánh giá công việc một cách tỉ mỉ và tiện lợi, giúp người dùng dễ dàng quản lý.
-                            </p>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                            <div class="icon-wrapper">
-                                <i class="fa-solid fa-book-open-reader"></i>
-                            </div>
-                            <h3>Japanese</h3>
-                            <p>
-                                Chúng tôi tạo ra khóa học nhầm mục đích giúp bạn có thể học thêm được kiến thức và tóm tắc trong nhiều cách ứng sử khác nhau và trong đó có cả bài test để kiểm tra chất lượng.
-                            </p>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                            <div class="icon-wrapper">
-                                <i class="fa-solid fa-book-open-reader"></i>
-                            </div>
-                            <h3>English</h3>
-                            <p>
-                                Chúng tôi tạo ra khóa học nhầm mục đích giúp bạn có thể học thêm được kiến thức và tóm tắc trong nhiều cách ứng sử khác nhau và trong đó có cả bài test để kiểm tra chất lượng.
-                            </p>
-                            </div>
-                        </div>
-                        <div class="column">
-                            <div class="card">
-                            <div class="icon-wrapper">
-                                <i class="fa-regular fa-calendar"></i>
-                            </div>
-                            <h3>Calendar</h3>
-                            <p>
-                                Chúng tôi tạo ra nhầm mục đích quản lý các thông tin cần thiết và sắp xếp công việc dựa trên việc sắp xếp với thời gian nhất định.
-                            </p>
-                            </div>
-                        </div>
-                    </div>
+                    
                 </div>
             </section>
         </div>

@@ -179,6 +179,7 @@ header {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
+    z-index: 10;
 }
 .bar{
     width: 50px;
@@ -206,41 +207,37 @@ input[name="r"]{
 .slide{
     width: 20%;
     transition: 0.6s;
+    background-color: rgba(0, 0, 0, 0.70);
 }
 .slide img{
     width: 100%;
     height: 100%;
 }
 
-#r1:checked ~ .s1{
-    margin-left: 0;
-}
-#r2:checked ~ .s1{
-    margin-left: -20%;
-}
-#r3:checked ~ .s1{
-    margin-left: -40%;
-}
-#r4:checked ~ .s1{
-    margin-left: -60%;
-}
-#r5:checked ~ .s1{
-    margin-left: -80%;
-}
+
 .banner{
     position: relative;
+    overflow: hidden;
 }  
 
+.slides::before {
+    position: absolute;
+    content: '';
+    left: 0px;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 2;
+    background-color: rgb(4 33 77 / 70%);
+}
 
 .patern-layer-one {
     position: absolute;
     left: 0px;
-    top: 0px;
-    width: 493px;
-    height: 492px;
-    z-index: 2;
-    opacity: 0;
-    transform: translateX(-500px);
+    top: -32px;
+    width: inherit;
+    height: 316px;
+    z-index: 1;
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: cover;
@@ -249,9 +246,172 @@ input[name="r"]{
     -webkit-transition: all 900ms ease;
     -ms-transition: all 900ms ease;
     -o-transition: all 900ms ease;
-    background-image: url(../assets/images/pattern-1.png)
+    background-image: url(../assets/images/pattern-1.png);
 }
 
+.patern-layer-two {
+    position: absolute;
+    right: 0px;
+    bottom: -32px;
+    transform: rotate(-180deg);
+    width: inherit;
+    height: 316px;
+    z-index: 1;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: all 900ms ease;
+    -moz-transition: all 900ms ease;
+    -webkit-transition: all 900ms ease;
+    -ms-transition: all 900ms ease;
+    -o-transition: all 900ms ease;
+    background-image: url(../assets/images/pattern-1.png);
+}
+
+
+
+.patern-layer-content{
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+
+.patern-layer-content h1{
+    font-size: 85px;
+    font-weight: 500;
+    line-height: 130px;
+    margin-left: -10px;
+    color: transparent;
+    -webkit-text-stroke: 1px #fff;
+    background: url(../assets/images/back.png);
+    -webkit-background-clip: text;
+    background-position: 0 0;
+    animation: back 20s linear infinite;
+    text-align: center;
+}
+
+.patern-layer-UpSkillHub{
+    padding: 20px 50px;
+    text-align: justify;
+}
+
+.btn-more-here {
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.wavy{
+    margin-bottom: 30px;
+    position: relative;
+    -webkit-box-reflect: below -23px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+    text-align: center;
+}
+
+.wavy span{
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: 600;
+    animation: animation 1s ease-in-out infinite;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+@keyframes  animation{
+    0%{
+        transform: translateY(0px);
+    }
+    20%{
+        transform: translateY(-20px);
+    }
+    40%,100%{
+        transform: translateY(0px);
+    }
+}
+
+.btn-more{
+    position: relative;
+    padding: 12px 50px;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+.btn-more:hover{
+    background: linear-gradient(90deg,#08ff08, #50e3fc, #bc13fe, #03a9f4, #0ff0fc);
+    background-size: 500%;
+    animation: blink 7s linear infinite;
+}
+
+.btn-more:hover::after{
+    content: "";
+    position: absolute;
+    left: -10px;
+    right: -10px;
+    top: -10px;
+    bottom: -10px;
+    background: inherit;
+    border-radius: 10px;
+    filter: blur(50px);
+}
+
+.btn-dashboard{
+    position: relative;
+    padding: 12px 50px;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+
+.btn-dashboard:hover{
+    background: linear-gradient(90deg,#08ff08, #50e3fc, #bc13fe, #03a9f4, #0ff0fc);
+    background-size: 500%;
+    animation: blink 7s linear infinite;
+}
+
+.btn-dashboard:hover::after{
+    content: "";
+    position: absolute;
+    left: -10px;
+    right: -10px;
+    top: -10px;
+    bottom: -10px;
+    background: inherit;
+    border-radius: 10px;
+    filter: blur(50px);
+}
+
+
+@keyframes blink{
+    from{
+        background-position: 0%;
+    }
+    to{
+        background-position: 500%;
+    }
+}
+
+
+@keyframes  back{
+    100%{
+        background-position: 2000px 0;
+    }
+}
 
 /* Thumbnail Section  */
 .thumbnail {
