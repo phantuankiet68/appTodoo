@@ -23,10 +23,19 @@ class AuthController extends Controller
             $validator = Validator::make($request->all(), [
                 'full_name' => 'required|string|max:255',
                 'email' => 'required|string|email|max:255|unique:users',
-                'password' => 'required|string|min:6',
+                'password' => 'required|string|min:6|confirmed',    
                 'phone' => 'required',
+                'address' => 'nullable|string|max:255',
                 'gender' => 'required',
                 'roles' => 'required'
+            ],[
+                'full_name.required' => __('validation.fullname_required'),
+                'email.required' => __('validation.email_required'),
+                'password.required' => __('validation.password_required'),
+                'password.confirmed' => __('validation.password_confirmation'),
+                'phone.required' => __('validation.phone_required'),
+                'address.required' => __('validation.address_required'),
+                'gender.required' => __('validation.gender_required'),
             ]);
     
             if ($validator->fails()) {
@@ -38,17 +47,16 @@ class AuthController extends Controller
                 return redirect()->back()->with('error', 'Đã có tài khoản với email này. Vui lòng sử dụng email khác.')->withInput();
             }
     
-            // Lưu người dùng và lấy ID của người dùng vừa tạo
-            $user = User::create([
+            User::create([
                 'full_name' => $request->full_name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'phone' => $request->phone,
+                'address' => $request->address,
                 'gender' => $request->gender,
-                'roles' => $request->roles
+                'roles' => $request->roles,
             ]);
-    
-            // Tạo hồ sơ người dùng
+
             Profile::create([
                 'user_id' => $user->id,
                 'name' => $request->full_name,
@@ -65,9 +73,10 @@ class AuthController extends Controller
                 'roles' => $request->roles
             ]);
     
-            return redirect()->route('todo')->with('success', 'Đăng ký thành công!');
+            return redirect()->route('home.index')->with('success', 'Đăng ký thành công!');
+
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Đã xảy ra lỗi trong quá trình đăng ký. Vui lòng thử lại.')->withInput();
+            return redirect()->route('home.index')->with('error', 'Đã xảy ra lỗi trong quá trình đăng ký. Vui lòng thử lại.')->withInput();
         }
     }
     
@@ -78,29 +87,26 @@ class AuthController extends Controller
     
     public function login(Request $request)
     {
-        try {
-            // Validate đầu vào
-            $request->validate([
-                'email' => 'required|email',
-                'password' => 'required|min:6',
-            ]);
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
 
-            // Kiểm tra thông tin đăng nhập với Laravel auth
-            if (Auth::attempt($request->only('email', 'password'))) {
-                // Đăng nhập thành công, tạo lại session
-                $request->session()->regenerate();
+        if (Auth::attempt($request->only('email', 'password'))) {
+            $request->session()->regenerate();
 
-                // Chuyển hướng đến trang dashboard hoặc trang mong muốn
-                return redirect()->route('dashboard.index')->with('success', 'Đăng nhập thành công!');
-            }
-
-            // Nếu thông tin không khớp, trả về thông báo lỗi
-            return redirect()->route('login.index')->with('error', 'Email hoặc mật khẩu không chính xác!');
-            
-        } catch (\Exception $e) {
-            // Xử lý ngoại lệ nếu có lỗi trong quá trình đăng nhập
-            \Log::error('Error occurred during login: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Đã xảy ra lỗi trong quá trình đăng nhập. Vui lòng thử lại.')->withInput();
+            return redirect()->route('home.index')->with('success', 'Đăng nhập thành công!');
         }
+        else{
+            return redirect()->route('home.index')->with('error', 'Email hoặc mật khẩu không chính xác!');
+        }
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('home.index')->with('success', 'Đăng xuất thành công!');
     }
 }

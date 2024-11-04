@@ -40,6 +40,7 @@ use App\Http\Controllers\PostCommentController;
 use App\Http\Controllers\PostLikeController;
 use App\Http\Controllers\LearnMoreController;
 use App\Http\Controllers\LearnMoreEngLishController;
+use App\Http\Controllers\HomeController;
 
 
 
@@ -55,13 +56,14 @@ use App\Http\Controllers\LearnMoreEngLishController;
 */
 
 
-Route::get('/', function () {
-    return view('layout');
-});
+Route::get('/', function () { return view('layout');})->name('/');;
 
 Route::fallback(function () {
     return view('error'); 
 });
+
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
+
 Route::get('lang/{locale}', [LocalizationController::class, 'index'])->name('lang');
 
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');;
@@ -70,10 +72,15 @@ Route::post('/register', [AuthController::class, 'register'])->name('register');
 Route::get('/login', [AuthController::class, 'showLoginForm'])->middleware('check.registration');
 Route::post('/login', [AuthController::class, 'login'])->name('login');
 
+Route::post('/', [AuthController::class, 'logout'])->name('logout');
+
 Route::get('/expenses/export-pdf', [ExpenseController::class, 'exportPdf'])->name('expenses.export.pdf');
 Route::get('/learn-more/pdf', [LearnMoreController::class, 'exportPdf'])->name('learn_more.pdf');
 
-Route::group(['middleware' => 'auth'], function() {
+Route::get('/profile/{full_name}', [HomeController::class, 'profile'])->name('profile.show');
+
+
+Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::resource('dashboard', DashboardController::class);
     Route::resource('category', CategoryController::class);
     Route::resource('category_task', CategoryTasksController::class);

@@ -29,4 +29,11 @@ return [
     'max' => [
         'string' => 'The :attribute may not be greater than :max characters.',
     ],
+    'fullname_required' => 'The full name field is required.',
+    'email_required' => 'The email field is required.',
+    'password_required' => 'The password field is required.',
+    'password_confirmation' => 'The password confirmation does not match.',
+    'phone_required' => 'The phone field is required.',
+    'address_required' => 'The address field is required.',
+    'gender_required' => 'The gender field is required.'
 ];

@@ -29,4 +29,11 @@ return [
     'max' => [
         'string' => ':attribute は :max 文字以下でなければなりません。',
     ],
+    'fullname_required' => 'フルネームのフィールドは必須です。',
+    'email_required' => 'メールのフィールドは必須です。',
+    'password_required' => 'パスワードのフィールドは必須です。',
+    'password_confirmation' => 'パスワードの確認が一致しません。',
+    'phone_required' => '電話のフィールドは必須です。',
+    'address_required' => '住所のフィールドは必須です。',
+    'gender_required' => '性別のフィールドは必須です。' ,
 ];

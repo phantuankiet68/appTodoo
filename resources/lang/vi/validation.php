@@ -29,4 +29,12 @@ return [
     'max' => [
         'string' => 'Trường :attribute không được vượt quá :max ký tự.',
     ],
+    'fullname_required' => 'Trường họ và tên là bắt buộc.',
+    'email_required' => 'Trường Email là bắt buộc.',
+    'password_required' => 'Trường Password là bắt buộc.',
+    'password_confirmation' => 'Mật khẩu xác nhận không khớp.',
+    'phone_required' => 'Trường Phone là bắt buộc.',
+    'address_required' => 'Trường địa chỉ là bắt buộc.',
+    'gender_required' => 'Trường giới tính là bắt buộc.'
+
 ];

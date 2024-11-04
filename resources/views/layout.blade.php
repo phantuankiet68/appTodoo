@@ -6,6 +6,8 @@
     <title>UpSkillHub.vn </title>
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@4.1.4/imagesloaded.pkgd.min.js"></script>
 </head>
 <body>
     <div class="webHome">
@@ -17,7 +19,12 @@
                     <a href="">Tiktok <i class="fa-brands fa-tiktok"></i></a> 
                 </div>
                 <div class="header-aside-list">
-                    <a href=""><i class="fa-regular fa-user"></i> Đăng nhập | Đăng ký</a>
+                    @if (Auth::check())
+                        <a href="#" onclick="logout()" id="logoutLink"><i class="fa-regular fa-user"></i> Đăng xuất</a>
+                    @else
+                        <a href="#login" onclick="Login();"><i class="fa-regular fa-user"></i> Đăng nhập |</a>
+                        <a href="#register" onclick="Register();"><i class="fa-regular fa-user"></i> Đăng ký</a>
+                    @endif  
                 </div>
             </div>
             <div class="header-home">
@@ -30,10 +37,14 @@
                         <li><a href="#" onclick="setActiveItem(2);" class="item"><i class="fa-solid fa-address-card"></i> About Us</a></li>
                         <li><a href="#" onclick="setActiveItem(3);" class="item"><i class="fa-solid fa-gears"></i> Services</a></li>
                         <li><a href="#" onclick="setActiveItem(4);" class="item"><i class="fa-brands fa-product-hunt"></i> Product</a></li>
-                        <li><a href="#" onclick="setActiveItem(5);" class="item"><i class="fa-solid fa-object-group"></i> Design</a></li>
-                        <li><a href="#" onclick="setActiveItem(6);" class="item"><i class="fa-solid fa-file-contract"></i> Contact Us</a></li>
-                        <li><a href="" onclick="showDivMenu()" class="item"><i class="fa-solid fa-magnifying-glass"></i> Search</a></li>
-                        <li><a href="" onclick="showDivMenu()"class="get-start">Get start</a></li>
+                        <li><a href="#" onclick="setActiveItem(5);" class="item"><i class="fa-solid fa-file-contract"></i> Contact Us</a></li>
+                        @if (Auth::check())
+                            <li>
+                                <a href="{{ route('profile.show', ['full_name' => str_replace(' ', '-', Auth::user()->full_name)]) }}" class="item">
+                                    <i class="fa-regular fa-user"></i> {{ Auth::user()->full_name }}
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </nav>
             </div>
@@ -76,8 +87,8 @@
                                 <span style="--i:14;">P</span>
                             </div>
                             <div class="btn-more-here">
-                                <a href="" class="btn-more">More here</a>
-                                <a href="" class="btn-dashboard">Dashboard</a>
+                                <a href="#About" onclick="setActiveItem(2);" class="btn-more">More here</a>
+                                <a href="/dashboard" class="btn-dashboard">Dashboard</a>
                             </div>
                         </div>
                     </div>
@@ -333,90 +344,175 @@
                     </section>            
                 </div>
                 <div class="page-left-item" id="item3">
-                    <div class="row-services">
-                        <div class="service">
-                            <div class="services">
-                                <div class="service-logo">
-                                    <i class="fa-solid fa-pen-ruler"></i>
-                                </div>
-                                <h4>Website Developer</h4>
-                                <div class="service-content">
-                                    <p>Chúng tôi có hơn 4 năm kinh nghiệm làm việc về HTML, CSS, JAVASCRIPT và đã có kinh nghiệm làm việc thực tế trên 2 năm. Tạo trang theo yêu cầu từ người dùng hoặc figma/XD</p>
-                                </div>
-                                <div class="service-content">
-                                    <h3>Design từ 50k - 200k</h3>
-                                </div>
-                                <div class="service-text">
-                                    <p><i class="fa-regular fa-square-check"></i> Sử dụng HTML/CSS/JS</p>
-                                    <p><i class="fa-regular fa-square-check"></i> 6 tháng hỗ trợ và cập nhật</p>
-                                    <p><i class="fa-regular fa-square-check"></i> Sử dụng cá nhân hoặc thương mại</p>
-                                    <p><i class="fa-regular fa-square-check"></i> Tạo ứng dụng không giới hạn</p>
-                                    <p><i class="fa-regular fa-square-check"></i> Có thể sử dung nhiều nhà phát triển css</p>
-                                    <p><i class="fa-regular fa-square-check"></i> Sử dụng trong ứng dụng</p>
-                                    <p><i class="fa-regular fa-square-check"></i> Response</p>
+                    <section class="table-wrapper">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th class="trigger"><p>Design UX/UI</p><span>Basic</span></th>
+                                <th class="trigger"><p>Design UX/UI</p><span>plus</span></th>
+                                <th class="trigger"><p>Website Develop</p><span>Basic</span></th>
+                                <th class="trigger"><p>Website Develop</p><span>plus</span></th>
+                                <th class="trigger"><p>WebSite Bán hàng</p><span>plus</span></th>
+                                <th class="trigger"><p>Remote</p><span>plus</span></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><p><strong>Price</strong></p></td>
+                                <td><p>$10</p></td>
+                                <td><p>$20</p></td>
+                                <td><p>$15</p></td>
+                                <td><p>$25</p></td>
+                                <td><p>$20</p></td>
+                                <td><p>$30</p></td>
+                            </tr>
+                            <tr>
+                                <td><p><strong>Html/Xml/Css</strong></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                            </tr>
+                            <tr>
+                                <td><p><strong>Javascript</strong></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                            </tr>
+                            <tr>
+                                <td><p><strong>Response</strong></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                            </tr>
+                            <tr>
+                                <td><p><strong>Animation</strong></p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                            </tr>
+                            <tr>
+                                <td><p><strong>Database</strong></p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                            </tr>
+                            <tr>
+                                <td><p><strong>Framework</strong></p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                            </tr>
+                            <tr>
+                                <td><p><strong>Front-end</strong></p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                            </tr>
+                            <tr>
+                                <td><p><strong>Back-end</strong></p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                            </tr>
+                            <tr>
+                                <td><p><strong>Linux</strong></p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                            </tr>
+                            <tr>
+                                <td><p><strong>Update</strong></p> <p>6 tháng</p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check-error"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                                <td><p class="icon-check"><i class="fa-solid fa-circle-check"></i></p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+                <div class="page-left-item" id="item4">
+                    <div class="page-product">
+                        <div class="page-product-list">
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/product1.jpg')}}" alt="">
                                 </div>
                             </div>
-                            <div class="shadowOne"></div>
-                            <div class="shadowTwo"></div>
-                        </div>
-                        <div class="service">
-                            <div class="services">
-                                <div class="service-logo">
-                                    <i class="fa-brands fa-app-store"></i>
-                                </div>
-                                <h4>App Developer</h4>
-                                <div class="service-content">
-                                    <p>Chúng tôi có hơn 2 năm kinh nghiệm thực tế làm việc với JAVA, REACT NATIVE chúng tôi có thể tham gia ngay vào dự án chi phí sẽ tùy thuộc vào yêu cầu của khách hàng.</p>
-                                </div>
-                                <div class="service-content">
-                                    <h3>Đang cập nhật</h3>
-                                </div>
-                                <div class="service-text">
-                                    <p><i class="fa-regular fa-square-check"></i> Sử dụng HTML/CSS/JS/XML</p>
-                                    <p><i class="fa-regular fa-square-check"></i> 6 tháng hỗ trợ và cập nhật</p>
-                                    <p><i class="fa-regular fa-square-check"></i> Sử dụng cá nhân hoặc thương mại</p>
-                                    <p><i class="fa-regular fa-square-check"></i> Tạo ứng dụng không giới hạn</p>
-                                    <p><i class="fa-regular fa-square-check"></i> Có thể sử dung nhiều nhà phát triển css</p>
-                                    <p><i class="fa-regular fa-square-check"></i> Sử dụng trong ứng dụng</p>
-                                    <p><i class="fa-regular fa-square-check"></i> Response</p>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
                                 </div>
                             </div>
-                            <div class="shadowOne"></div>
-                            <div class="shadowTwo"></div>
-                        </div>
-                        <div class="service">
-                            <div class="services">
-                                <div class="service-logo">
-                                    <i class="fa-brands fa-app-store"></i>
-                                </div>
-                                <h4>Remote</h4>
-                                <div class="service-content">
-                                    <p>Chúng tôi có hơn 2 năm kinh nghiệm thực tế làm việc cả về front-end lẫn back-end chúng tôi có thể tham gia ngay vào dự án chi phí sẽ tùy thuộc vào yêu cầu của khách hàng. <a href="#item2">Skill</a></p>
-                                </div>
-                                <div class="service-content">
-                                    <h3>Đang cập nhật</h3>
-                                </div>
-                                <div class="service-text">
-                                    <p><i class="fa-regular fa-square-check"></i> Thời gian thực hiện 6h30 đến 10h mỗi tối</p>
-                                    <p><i class="fa-regular fa-square-check"></i> 6 tháng hỗ trợ và cập nhật</p>
-                                    <p><i class="fa-regular fa-square-check"></i> Sử dụng cá nhân hoặc thương mại</p>
-                                    <p><i class="fa-regular fa-square-check"></i> Có thể sử dung nhiều nhà phát triển css</p>
-                                    <p><i class="fa-regular fa-square-check"></i> Sử dụng trong ứng dụng</p>
-                                    <p><i class="fa-regular fa-square-check"></i> Response</p>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
                                 </div>
                             </div>
-                            <div class="shadowOne"></div>
-                            <div class="shadowTwo"></div>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="page-left-item" id="item4">
-                    4
-                </div>
                 <div class="page-left-item" id="item5">
-                    5
-                </div>
-                <div class="page-left-item" id="item6">
                     <div class="row-contact">
                         <h3>Contact Us</h3>
                         <form name="myForm" action="/file.php" onsubmit="return validateForm()" method="post">
@@ -467,7 +563,7 @@
                 </div>
             </section>
             <section class="page-right" id="extraItems">
-                <div class="page-right-item" id="item6">
+                <div class="page-right-item" id="item5">
                     <div class="row-contact">
                         <div class="form-contact-top">
                             <p>Hãy gửi tin nhắn cho chúng tôi và chúng tôi sẽ phản hồi bạn sớm nhất.</p>
@@ -503,114 +599,138 @@
                         </div>
                     </div>
                 </div>
-                <div class="page-right-item" id="item5">
-                    5
-                </div>
                 <div class="page-right-item" id="item4">
-                    4
+                    <div class="page-product">
+                        <div class="page-product-list">
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/bannersales2.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                </div>
+                            </div>
+                            <div class="page-product-item">
+                                <div class="page-product-image">
+                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="page-right-item" id="item3">
-                    <div class="row">
-                        <div class="column">
-                            <div class="card">
-                            <div class="icon-wrapper">
-                                <i class="fa-solid fa-passport"></i>
+                <div class="row-services">
+                        <div class="service">
+                            <div class="services">
+                                <div class="service-logo">
+                                    <i class="fa-solid fa-pen-ruler"></i>
+                                </div>
+                                <h4>Website Developer</h4>
+                                <div class="service-content">
+                                    <p>Các khóa học giúp người dùng học tập và áp dụng kiến thức vào công việc một cách thuận tiện và hiệu quả. Các khóa học này được thiết kế nhằm mang lại trải nghiệm học tập dễ hiểu, thực tiễn, và phù hợp với nhu cầu công việc, giúp người học nhanh chóng nâng cao kỹ năng và đạt được kết quả mong muốn.</p>
+                                </div>
                             </div>
-                            <h3>Web developer</h3>
-                            <p>
-                                Chúng tôi sẽ tạo ra các khóa học giúp người dùng dễ dàng học tập và ứng dụng kiến thức vào công việc một cách thuận tiện và hiệu quả hơn.
-                            </p>
-                            </div>
+                            <div class="shadowOne"></div>
+                            <div class="shadowTwo"></div>
                         </div>
-                        <div class="column">
-                            <div class="card">
-                            <div class="icon-wrapper">
-                                <i class="fa-solid fa-object-ungroup"></i>
+                        <div class="service">
+                            <div class="services">
+                                <div class="service-logo">
+                                    <i class="fa-brands fa-app-store"></i>
+                                </div>
+                                <h4>UX/UI Design</h4>
+                                <div class="service-content">
+                                    <p>Chúng tôi sẽ nghiên cứu nhu cầu của người dùng để phát triển các thành phần có sẵn, cung cấp giải pháp giúp sản phẩm dễ sử dụng và tối ưu hóa trải nghiệm người dùng. Những component này được thiết kế nhằm đáp ứng các yêu cầu thực tế, giúp người dùng thao tác nhanh chóng, thuận tiện và mang lại hiệu quả cao trong quá trình sử dụng.</p>
+                                </div>
                             </div>
-                            <h3>UX/UI Design</h3>
-                            <p>
-                                Chúng tôi sẽ nghiên cứu nhu cầu của người dùng để phát triển các component có sẵn, mang đến giải pháp giúp sản phẩm dễ sử dụng và tối ưu hóa trải nghiệm người dùng.
-                            </p>
-                            </div>
+                            <div class="shadowOne"></div>
+                            <div class="shadowTwo"></div>
                         </div>
-                        <div class="column">
-                            <div class="card">
-                            <div class="icon-wrapper">
-                                <i class="fas fa-wrench"></i>
+                        <div class="service">
+                            <div class="services">
+                                <div class="service-logo">
+                                    <i class="fa-brands fa-app-store"></i>
+                                </div>
+                                <h4>Task Issue</h4>
+                                <div class="service-content">
+                                    <p>Trong công việc, một dự án thường được chia thành nhiều giai đoạn để dễ dàng quản lý và giải quyết từng vấn đề, giúp hoàn thành công việc trong khoảng thời gian nhất định. Việc phân chia này giúp đội ngũ tập trung vào từng mục tiêu cụ thể, đảm bảo tiến độ và chất lượng của dự án theo từng giai đoạn. </p>
+                                </div>
                             </div>
-                            <h3>Content creation</h3>
-                            <p>
-                                Chúng tôi lập ra kế hoạch, sản xuất và chia sẻ nội dung một cách cụ thể. Nhầm mục đích là cung cấp giá trị, thông tin đến truyền đạt kiến thức hoặc giải quyết vấn đề.
-                            </p>
-                            </div>
+                            <div class="shadowOne"></div>
+                            <div class="shadowTwo"></div>
                         </div>
-                        <div class="column">
-                            <div class="card">
-                            <div class="icon-wrapper">
-                                <i class="fa-solid fa-list-check"></i>
+                        <div class="service">
+                            <div class="services">
+                                <div class="service-logo">
+                                    <i class="fa-brands fa-app-store"></i>
+                                </div>
+                                <h4>Financial</h4>
+                                <div class="service-content">
+                                    <p>Chúng tôi đã xây dựng quy trình lập kế hoạch, theo dõi và quản lý tài chính cá nhân nhằm đảm bảo sự ổn định tài chính, từ đó nâng cao chất lượng cuộc sống. Quy trình này giúp người dùng quản lý chi tiêu hiệu quả, đạt được các mục tiêu tài chính và duy trì sự cân bằng trong cuộc sống.</p>
+                                </div>
                             </div>
-                            <h3>Task Issue</h3>
-                            <p>
-                                Trong công việc, Thường một dự án sẽ được phân ra thành nhiều giai đoạn để tiện cho việc giải quyết vấn đề để hoàn thành công việc trong một khoảng thời gian nhất định.
-                            </p>
-                            </div>
+                            <div class="shadowOne"></div>
+                            <div class="shadowTwo"></div>
                         </div>
-                            <div class="column">
-                                <div class="card">
-                                <div class="icon-wrapper">
-                                    <i class="fa-solid fa-money-bill"></i>
+                        <div class="service">
+                            <div class="services">
+                                <div class="service-logo">
+                                    <i class="fa-brands fa-app-store"></i>
                                 </div>
-                                <h3>Financial</h3>
-                                <p>
-                                    Chúng tôi đã tạo ra quá trình lập kế hoạch, theo dõi và kiểm soát việc sử dụng tài chính cá nhân nhằm đảm bảo sự ổn định về tài chính từ đó cải thiện chất lượng cuộc sống.
-                                </p>
-                                </div>
-                            </div>
-                            <div class="column">
-                                <div class="card">
-                                <div class="icon-wrapper">
-                                    <i class="fa-solid fa-table-list"></i>
-                                </div>
-                                <h3>Daily Task</h3>
-                                <p>
-                                    Chúng tôi tạo hệ thống nhằm mục đích liệt kê các nhiệm vụ cần làm trong ngày và đánh giá công việc một cách tỉ mỉ và tiện lợi, giúp người dùng dễ dàng quản lý.
-                                </p>
+                                <h4>Languages</h4>
+                                <div class="service-content">
+                                    <p>Chúng tôi thiết kế các khóa học tiếng Anh và tiếng Nhật nhằm giúp bạn nâng cao kiến thức và rèn luyện kỹ năng giao tiếp trong nhiều tình huống khác nhau. Từ cơ bản đến nâng cao.Khóa học bao gồm các bài học cô đọng và bài kiểm tra để đánh giá chất lượng, giúp bạn học hiệu quả và tiến bộ nhanh chóng.</p>
                                 </div>
                             </div>
-                            <div class="column">
-                                <div class="card">
-                                <div class="icon-wrapper">
-                                    <i class="fa-solid fa-book-open-reader"></i>
-                                </div>
-                                <h3>Japanese</h3>
-                                <p>
-                                    Chúng tôi tạo ra khóa học nhầm mục đích giúp bạn có thể học thêm được kiến thức và tóm tắc trong nhiều cách ứng sử khác nhau và trong đó có cả bài test để kiểm tra chất lượng.
-                                </p>
-                                </div>
-                            </div>
-                            <div class="column">
-                                <div class="card">
-                                <div class="icon-wrapper">
-                                    <i class="fa-solid fa-book-open-reader"></i>
-                                </div>
-                                <h3>English</h3>
-                                <p>
-                                    Chúng tôi tạo ra khóa học nhầm mục đích giúp bạn có thể học thêm được kiến thức và tóm tắc trong nhiều cách ứng sử khác nhau và trong đó có cả bài test để kiểm tra chất lượng.
-                                </p>
-                                </div>
-                            </div>
-                            <div class="column">
-                                <div class="card">
-                                    <div class="icon-wrapper">
-                                        <i class="fa-regular fa-calendar"></i>
-                                    </div>
-                                    <h3>Calendar</h3>
-                                    <p>
-                                        Chúng tôi tạo ra nhầm mục đích quản lý các thông tin cần thiết và sắp xếp công việc dựa trên việc sắp xếp với thời gian nhất định.
-                                    </p>
-                                </div>
-                            </div>
+                            <div class="shadowOne"></div>
+                            <div class="shadowTwo"></div>
                         </div>
+                        <div class="service">
+                            <div class="services">
+                                <div class="service-logo">
+                                    <i class="fa-brands fa-app-store"></i>
+                                </div>
+                                <h4>Calendar</h4>
+                                <div class="service-content">
+                                    <p>Chúng tôi phát triển hệ thống với mục đích quản lý thông tin quan trọng và sắp xếp công việc theo một lịch trình nhất định. Công cụ này hỗ trợ người dùng tổ chức công việc một cách khoa học, giúp theo dõi tiến độ, đảm bảo hoàn thành đúng thời hạn. Nhờ vào khả năng quản lý linh hoạt và hiệu quả, hệ thống này góp phần tối ưu hóa quy trình làm việc.</p>
+                                </div>
+                            </div>
+                            <div class="shadowOne"></div>
+                            <div class="shadowTwo"></div>
+                        </div>
+                    </div>
                 </div>
                 <div class="page-right-item" id="item2">
                     <div class="wrapper-item">
@@ -907,11 +1027,140 @@
                     </div>
                 </div>
                 <div class="page-right-item activeItem" id="item1">
-                    
+                    <div class="banner-row">
+                        <div class="banner-part-left">
+                           
+                        </div>
+                        <div class="banner-part-right">
+                        
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
     </div>
     <script src="{{ asset('js/layout.js') }}"></script>
+    <div class="popup-modal" id="imagePopup" style="display: none;">
+        <span class="close-popup">&times;</span>
+        <img class="popup-content" id="popupImage" src="" alt="Popup Image">
+    </div>
+    <div class="modal" id="CreateLogin">
+        <div class="ModelCreateLogin">
+            <form id="contentForm" method="POST" action="{{ route('login') }}">
+                @csrf
+                <h2>Đăng nhập</h2>
+                @if (session('success'))
+                    <div id="login-alert" class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                <div class="form-input-category">
+                    <input type="email" class="input-name" name="email" placeholder="Nhập email">
+                </div>
+                <div class="form-input-category">
+                    <input type="password" class="input-name" name="password" placeholder="Nhập password">
+                </div>
+                <div class="form-input-category">
+                    <a href="">Quên mật khẩu?</a>
+                </div>
+                <div class="form-btn">
+                    <button type="submit">Đăng nhập</button>
+                </div>
+                <div class="BtnCloseCreate" onclick="closeCreateLogin()">
+                    <p>X</p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+        <div class="modal" id="CreateRegister">
+        <div class="ModelCreateRegister">
+        <form id="contentForm" action="{{ route('register') }}" method="POST" onsubmit="return validateForm()">
+            @csrf
+            <h2>Đăng Ký</h2>
+            <div class="form-input-category">
+                <input type="text" class="input-name" name="full_name" id="full_name" placeholder="Nhập Họ và tên">
+                <span class="input-error" id="full_name_error"></span>
+            </div>
+            <div class="form-input-category">
+                <input type="email" class="input-name" name="email" id="email" placeholder="Nhập email">
+                <span class="input-error" id="email_error"></span>
+            </div>
+            <div class="form-input-category">
+                <input type="password" class="input-name" name="password" id="password" placeholder="Nhập password">
+                <span class="input-error" id="password_error"></span>
+            </div>
+            <div class="form-input-category">
+                <input type="password" class="input-name" name="password_confirmation" id="password_confirmation" placeholder="Nhập confirm password">
+                <span class="input-error" id="password_confirmation_error"></span>
+            </div>
+            <div class="form-input-category">
+                <input type="text" class="input-name" name="phone" id="phone" placeholder="Nhập phone">
+                <span class="input-error" id="phone_error"></span>
+            </div>
+            <div class="form-input-category">
+                <input type="text" class="input-name" name="address" id="address" placeholder="Nhập địa chỉ">
+                <span class="input-error" id="address_error"></span>
+            </div>
+            <div class="form-input-category">
+                <input type="text" class="input-name" name="gender" id="gender" placeholder="Nhập giới tính">
+                <span class="input-error" id="gender_error"></span>
+            </div>
+            <input type="hidden" class="input-name" name="roles" value="0">
+            <div class="form-btn">
+                <button type="submit">Đăng Ký</button>
+            </div>
+            <div class="BtnCloseCreate" onclick="closeCreateRegister()">
+                <p>X</p>
+            </div>
+        </form>
+        </div>
+    </div>
+    
+    @if (session('success'))
+        <div id="popup-category" class="popup-category success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if (session('error'))
+        <div id="popup-category" class="popup-category error">
+            {{ session('error') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div id="popup-category" class="popup-category error">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+
+    <script>
+        function logout() {
+            fetch("{{ route('logout') }}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => {
+                if (response.ok) {
+                    document.cookie.split(";").forEach(cookie => {
+                        document.cookie = cookie
+                            .replace(/^ +/, "")
+                            .replace(/=.*/, "=;expires=" + new Date(0).toUTCString() + ";path=/");
+                    });
+                    window.location.href = "{{ route('home.index') }}";
+                }
+            })
+            .catch(error => console.error("Logout failed:", error));
+        }
+    </script>
 </body>
 </html>
