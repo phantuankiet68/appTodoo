@@ -1028,11 +1028,10 @@
                 </div>
                 <div class="page-right-item activeItem" id="item1">
                     <div class="banner-row">
-                        <div class="banner-part-left">
-                           
-                        </div>
                         <div class="banner-part-right">
-                        
+                            <div class="slide s1">
+                                <img src="{{asset('assets/images/bannerweb.jpg')}}" alt="">
+                            </div>  
                         </div>
                     </div>
                 </div>
