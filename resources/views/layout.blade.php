@@ -651,7 +651,7 @@
                     </div>
                 </div>
                 <div class="page-right-item" id="item3">
-                <div class="row-services">
+                    <div class="row-services">
                         <div class="service">
                             <div class="services">
                                 <div class="service-logo">
@@ -1028,10 +1028,37 @@
                 </div>
                 <div class="page-right-item activeItem" id="item1">
                     <div class="banner-row">
-                        <div class="banner-part-right">
-                            <div class="slide s1">
-                                <img src="{{asset('assets/images/bannerweb.jpg')}}" alt="">
-                            </div>  
+                        <div class="col-1-of-2">
+                            <h3 class="heading-tertiary">
+                                from zero to hero
+                            </h3>
+                            <p class="paragraph">
+                            Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit.
+                            Fuga cumque autem officiis distinctio,
+                            voluptate qui minima.
+                            Magnam tenetur suscipit eius beatae dolore nihil
+                            repudiandae atque vero,
+                            rem, labore ullam ipsa incidunt enim id necessitatibus at dolor! Incidunt sequi nihil amet.
+                            </p>
+                            <h3 class="heading-tertiary">
+                                master your skills
+                            </h3>
+                            <p class="paragraph">
+                                Lorem ipsum dolor sit amet,
+                                consectetur adipisicing elite.
+                            </p>
+                            <a href="#" class="btn-text">Learn more &rarr;</a>
+                        </div>
+                        <div class="col-1-of-2">
+                            <div class="composition">
+                                <img src="{{asset('assets/images/banner1.jpg')}}" alt="photo1"
+                                    class="composition__photo composition__photo--p1">
+                                <img src="{{asset('assets/images/banner1.jpg')}}" alt="photo2"
+                                    class="composition__photo composition__photo--p2">
+                                <img src="{{asset('assets/images/banner1.jpg')}}" alt="photo3"
+                                    class="composition__photo composition__photo--p3">
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -1679,3 +1679,32 @@ textarea{
 .input-error{
     color: red;
 }
+
+.col-1-of-2{
+    width:50%;
+}
+
+.composition{
+    position: relative;
+}
+
+.composition .composition__photo{
+    width: 50%;
+    position: absolute;
+    border-radius: 10px;
+    z-index: 10px;
+}
+
+.composition__photo--p1{
+    left:0;
+    top: -2rem;
+}
+.composition__photo--p2{
+    right:2rem;
+    top: 2rem;
+}
+
+.composition__photo--p3{
+    right:10%;
+    top: 10rem;
+}
