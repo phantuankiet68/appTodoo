@@ -2562,7 +2562,7 @@ p.space {
 .dashboardWeather{
     width: 100%;
     border: 1px solid #ccc;
-    height: 312px;
+    height: 243px;
     padding: 10px;
 }
 #weather-form {

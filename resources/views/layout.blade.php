@@ -13,7 +13,7 @@
     <div class="webHome">
         <header> 
             <div class="header-aside">
-                <div class="header-aside-list">
+                <div class="header-aside-list hidden">
                     <a href="">Kết nối <i class="fa-solid fa-wifi"></i> | </a>
                     <a href="">Facebook <i class="fa-brands fa-facebook"></i> | </a> 
                     <a href="">Tiktok <i class="fa-brands fa-tiktok"></i></a> 
@@ -32,7 +32,10 @@
                     <h3>UpSkillHub</h3>
                 </div>
                 <nav>
-                    <ul>
+                    <div class="tonggle-menu">
+                        <button onclick="showMenu()"><i class="fa-solid fa-bars"></i></button>
+                    </div>
+                    <ul id="menu">
                         <li><a href="#" onclick="setActiveItem(1);" class="item"><i class="fa-solid fa-house"></i> Home</a></li>
                         <li><a href="#" onclick="setActiveItem(2);" class="item"><i class="fa-solid fa-address-card"></i> About Us</a></li>
                         <li><a href="#" onclick="setActiveItem(3);" class="item"><i class="fa-solid fa-gears"></i> Services</a></li>
@@ -134,209 +137,6 @@
                                         <p>Email ID</p>
                                         <span class="saprater">:</span>
                                         <p>tuankietity@gmail.com</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="expertise">
-                                <h3>My Expertise</h3>
-                                <ul>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fab fa-html5"></i>
-                                        </span>
-                                        <p>HTML</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fab fa-css3-alt"></i>
-                                        </span>
-                                        <p>CSS</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fab fa-node-js"></i>
-                                        </span>
-                                        <p>Java Script</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fab fa-react"></i>
-                                        </span>
-                                        <p>React Js</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fab fa-react"></i>
-                                        </span>
-                                        <p>Next Js</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fab fa-react"></i>
-                                        </span>
-                                        <p>React Native</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fab fa-react"></i>
-                                        </span>
-                                        <p>TypeScript</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-vuejs"></i>
-                                        </span>
-                                        <p>Vue Js</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-vuejs"></i>
-                                        </span>
-                                        <p>Nust Js</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-angular"></i>
-                                        </span>
-                                        <p>Angular</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-php"></i>
-                                        </span>
-                                        <p>PHP</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-laravel"></i>
-                                        </span>
-                                        <p>Laravel</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-wordpress"></i>
-                                        </span>
-                                        <p>WordPress</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-hive"></i>
-                                        </span>
-                                        <p>Asp.net</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-hive"></i>
-                                        </span>
-                                        <p>Vb.net</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-hive"></i>
-                                        </span>
-                                        <p>C#</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-bootstrap"></i>
-                                        </span>
-                                        <p>Bootstrap</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-codepen"></i>
-                                        </span>
-                                        <p>Taiwin</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-solid fa-cloud"></i>
-                                        </span>
-                                        <p>AWS Cloude</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-java"></i>
-                                        </span>
-                                        <p>Java</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-github"></i>
-                                        </span>
-                                        <p>Git</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-linux"></i>
-                                        </span>
-                                        <p>Linux</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-linux"></i>
-                                        </span>
-                                        <p>FTP</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-ubuntu"></i>
-                                        </span>
-                                        <p>Ubuntu</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-brands fa-node-js"></i>
-                                        </span>
-                                        <p>Node js</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-solid fa-database"></i>
-                                        </span>
-                                        <p>Mysql</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-solid fa-database"></i>
-                                        </span>
-                                        <p>Sql wordbench</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-solid fa-database"></i>
-                                        </span>
-                                        <p>Sql server</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-solid fa-database"></i>
-                                        </span>
-                                        <p>Mongo DB</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-solid fa-chart-simple"></i>
-                                        </span>
-                                        <p>Chart</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-regular fa-file-word"></i>
-                                        </span>
-                                        <p>Word</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-regular fa-file-excel"></i>
-                                        </span>
-                                        <p>Excel</p>
-                                    </li>
-                                    <li>
-                                        <span class="expertise-logo">
-                                            <i class="fa-regular fa-file-excel"></i>
-                                        </span>
-                                        <p>Photoshop</p>
                                     </li>
                                 </ul>
                             </div>
@@ -471,42 +271,27 @@
                             </div>
                             <div class="page-product-item">
                                 <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                    <img src="{{asset('assets/images/product2.jpg')}}" alt="">
                                 </div>
                             </div>
                             <div class="page-product-item">
                                 <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                    <img src="{{asset('assets/images/product3.jpg')}}" alt="">
                                 </div>
                             </div>
                             <div class="page-product-item">
                                 <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                    <img src="{{asset('assets/images/product4.jpg')}}" alt="">
                                 </div>
                             </div>
                             <div class="page-product-item">
                                 <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                    <img src="{{asset('assets/images/product5.jpg')}}" alt="">
                                 </div>
                             </div>
                             <div class="page-product-item">
                                 <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
-                                </div>
-                            </div>
-                            <div class="page-product-item">
-                                <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
-                                </div>
-                            </div>
-                            <div class="page-product-item">
-                                <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
-                                </div>
-                            </div>
-                            <div class="page-product-item">
-                                <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                    <img src="{{asset('assets/images/product6.jpg')}}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -528,16 +313,6 @@
                                         <input type="text" name="name" class="long"/>
                                         <span class="error" id="errorname"></span>
                                     </div>
-                                </div>
-                                <div class="form-contact-input">
-                                    <label>Your name <span class="required">*</span></label>
-                                    <input type="text" name="name" class="long"/>
-                                    <span class="error" id="errorname"></span>
-                                </div>
-                                <div class="form-contact-input">
-                                    <label>Your name <span class="required">*</span></label>
-                                    <input type="text" name="name" class="long"/>
-                                    <span class="error" id="errorname"></span>
                                 </div>
                                 <div class="form-contact-input">
                                     <label>Your name <span class="required">*</span></label>
@@ -576,7 +351,7 @@
                             </div>
                             <h4>Liện hệ qua map</h4>
                             <div class="form-contac-text">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31370.626025749472!2d106.66400590893154!3d10.631586977374146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317530bed1f060a3%3A0x70f4e114ba50e13e!2zTG9uZyBI4bqtdSwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBMb25nIEFuLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1730427208407!5m2!1svi!2s" width="100%" height="330" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31370.626025749472!2d106.66400590893154!3d10.631586977374146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317530bed1f060a3%3A0x70f4e114ba50e13e!2zTG9uZyBI4bqtdSwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBMb25nIEFuLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1730427208407!5m2!1svi!2s" width="100%" height="235" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                             <h4>Liện hệ mạng xã hội</h4>
                             <div class="form-contact-send">
@@ -591,12 +366,6 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="form-contact-body">
-
-                        </div>
-                        <div class="form-contact-footer">
-
-                        </div>
                     </div>
                 </div>
                 <div class="page-right-item" id="item4">
@@ -604,47 +373,32 @@
                         <div class="page-product-list">
                             <div class="page-product-item">
                                 <div class="page-product-image">
-                                    <img src="{{asset('assets/images/bannersales2.jpg')}}" alt="">
+                                    <img src="{{asset('assets/images/product7.jpg')}}" alt="">
                                 </div>
                             </div>
                             <div class="page-product-item">
                                 <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                    <img src="{{asset('assets/images/product8.jpg')}}" alt="">
                                 </div>
                             </div>
                             <div class="page-product-item">
                                 <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                    <img src="{{asset('assets/images/product9.jpg')}}" alt="">
                                 </div>
                             </div>
                             <div class="page-product-item">
                                 <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                    <img src="{{asset('assets/images/product10.jpg')}}" alt="">
                                 </div>
                             </div>
                             <div class="page-product-item">
                                 <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                    <img src="{{asset('assets/images/product11.jpg')}}" alt="">
                                 </div>
                             </div>
                             <div class="page-product-item">
                                 <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
-                                </div>
-                            </div>
-                            <div class="page-product-item">
-                                <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
-                                </div>
-                            </div>
-                            <div class="page-product-item">
-                                <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
-                                </div>
-                            </div>
-                            <div class="page-product-item">
-                                <div class="page-product-image">
-                                    <img src="{{asset('assets/images/banner.jpg')}}" alt="">
+                                    <img src="{{asset('assets/images/product12.jpg')}}" alt="">
                                 </div>
                             </div>
                         </div>
@@ -659,7 +413,7 @@
                                 </div>
                                 <h4>Website Developer</h4>
                                 <div class="service-content">
-                                    <p>Các khóa học giúp người dùng học tập và áp dụng kiến thức vào công việc một cách thuận tiện và hiệu quả. Các khóa học này được thiết kế nhằm mang lại trải nghiệm học tập dễ hiểu, thực tiễn, và phù hợp với nhu cầu công việc, giúp người học nhanh chóng nâng cao kỹ năng và đạt được kết quả mong muốn.</p>
+                                    <p>Các khóa học giúp người dùng học tập và áp dụng kiến thức vào công việc một cách thuận tiện và hiệu quả. Các khóa học này được thiết kế nhằm mang lại trải nghiệm học tập dễ hiểu, thực tiễn, giúp người học nhanh chóng nâng cao kỹ năng và đạt được kết quả mong muốn.</p>
                                 </div>
                             </div>
                             <div class="shadowOne"></div>
@@ -672,7 +426,7 @@
                                 </div>
                                 <h4>UX/UI Design</h4>
                                 <div class="service-content">
-                                    <p>Chúng tôi sẽ nghiên cứu nhu cầu của người dùng để phát triển các thành phần có sẵn, cung cấp giải pháp giúp sản phẩm dễ sử dụng và tối ưu hóa trải nghiệm người dùng. Những component này được thiết kế nhằm đáp ứng các yêu cầu thực tế, giúp người dùng thao tác nhanh chóng, thuận tiện và mang lại hiệu quả cao trong quá trình sử dụng.</p>
+                                    <p>Chúng tôi sẽ nghiên cứu nhu cầu của người dùng để phát triển các thành phần có sẵn, cung cấp giải pháp giúp sản phẩm dễ sử dụng và tối ưu hóa. Những thành phần này được thiết kế nhằm đáp ứng các yêu cầu thực tế, mang lại hiệu quả cao trong quá trình sử dụng.</p>
                                 </div>
                             </div>
                             <div class="shadowOne"></div>
@@ -685,7 +439,7 @@
                                 </div>
                                 <h4>Task Issue</h4>
                                 <div class="service-content">
-                                    <p>Trong công việc, một dự án thường được chia thành nhiều giai đoạn để dễ dàng quản lý và giải quyết từng vấn đề, giúp hoàn thành công việc trong khoảng thời gian nhất định. Việc phân chia này giúp đội ngũ tập trung vào từng mục tiêu cụ thể, đảm bảo tiến độ và chất lượng của dự án theo từng giai đoạn. </p>
+                                    <p>Trong công việc, một dự án thường được chia thành nhiều giai đoạn để dễ dàng quản lý và giải quyết từng vấn đề, giúp hoàn thành công việc trong khoảng thời gian nhất định. Việc phân chia này giúp, đảm bảo tiến độ và chất lượng của dự án theo từng giai đoạn. </p>
                                 </div>
                             </div>
                             <div class="shadowOne"></div>
@@ -711,7 +465,7 @@
                                 </div>
                                 <h4>Languages</h4>
                                 <div class="service-content">
-                                    <p>Chúng tôi thiết kế các khóa học tiếng Anh và tiếng Nhật nhằm giúp bạn nâng cao kiến thức và rèn luyện kỹ năng giao tiếp trong nhiều tình huống khác nhau. Từ cơ bản đến nâng cao.Khóa học bao gồm các bài học cô đọng và bài kiểm tra để đánh giá chất lượng, giúp bạn học hiệu quả và tiến bộ nhanh chóng.</p>
+                                    <p>Chúng tôi thiết kế các khóa học tiếng Anh và tiếng Nhật nhằm giúp bạn nâng cao kiến thức và rèn luyện kỹ năng giao tiếp trong nhiều tình huống. Từ cơ bản đến nâng cao. Khóa học bao gồm các bài học cô đọng và bài kiểm tra để đánh giá chất lượng, giúp bạn học hiệu quả và tiến bộ nhanh chóng.</p>
                                 </div>
                             </div>
                             <div class="shadowOne"></div>
@@ -724,7 +478,7 @@
                                 </div>
                                 <h4>Calendar</h4>
                                 <div class="service-content">
-                                    <p>Chúng tôi phát triển hệ thống với mục đích quản lý thông tin quan trọng và sắp xếp công việc theo một lịch trình nhất định. Công cụ này hỗ trợ người dùng tổ chức công việc một cách khoa học, giúp theo dõi tiến độ, đảm bảo hoàn thành đúng thời hạn. Nhờ vào khả năng quản lý linh hoạt và hiệu quả, hệ thống này góp phần tối ưu hóa quy trình làm việc.</p>
+                                    <p>Chúng tôi phát triển hệ thống với mục đích quản lý thông tin quan trọng và sắp xếp công việc theo một lịch trình nhất định. Công cụ này hỗ trợ người dùng tổ chức công việc một cách khoa học, giúp theo dõi tiến độ, đảm bảo hoàn thành đúng thời hạn. Nhờ vào khả năng quản lý linh hoạt và hiệu quả.</p>
                                 </div>
                             </div>
                             <div class="shadowOne"></div>
@@ -1028,37 +782,20 @@
                 </div>
                 <div class="page-right-item activeItem" id="item1">
                     <div class="banner-row">
-                        <div class="col-1-of-2">
-                            <h3 class="heading-tertiary">
-                                from zero to hero
-                            </h3>
-                            <p class="paragraph">
-                            Lorem ipsum dolor sit amet,
-                            consectetur adipisicing elit.
-                            Fuga cumque autem officiis distinctio,
-                            voluptate qui minima.
-                            Magnam tenetur suscipit eius beatae dolore nihil
-                            repudiandae atque vero,
-                            rem, labore ullam ipsa incidunt enim id necessitatibus at dolor! Incidunt sequi nihil amet.
-                            </p>
-                            <h3 class="heading-tertiary">
-                                master your skills
-                            </h3>
-                            <p class="paragraph">
-                                Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elite.
-                            </p>
-                            <a href="#" class="btn-text">Learn more &rarr;</a>
-                        </div>
-                        <div class="col-1-of-2">
-                            <div class="composition">
-                                <img src="{{asset('assets/images/banner1.jpg')}}" alt="photo1"
-                                    class="composition__photo composition__photo--p1">
-                                <img src="{{asset('assets/images/banner1.jpg')}}" alt="photo2"
-                                    class="composition__photo composition__photo--p2">
-                                <img src="{{asset('assets/images/banner1.jpg')}}" alt="photo3"
-                                    class="composition__photo composition__photo--p3">
-                            </div>
+                        <div class="overlay"></div>
+                        <div class="banner-part-content">
+                            <h1>UpSkillHub viết tắt Upskilling Center</h1>
+                            <blockquote>
+                                 "UpSkillHub" gợi ý rằng đây là một nền tảng hoặc trung tâm trực tuyến (online hub) cung cấp các tài nguyên, khóa học hoặc công cụ để giúp người dùng nâng cao kỹ năng của mình. Trang web này có thể tập trung vào việc phát triển kỹ năng nghề nghiệp, học tập suốt đời, hoặc các kỹ năng cá nhân cần thiết trong nhiều lĩnh vực khác nhau.
+                            </blockquote>
+                            <blockquote>
+                                UpSkillHub là nền tảng cung cấp đa dạng công cụ và tài nguyên nhằm giúp người dùng nâng cao kỹ năng và tối ưu hóa hiệu suất làm việc. Với chuyên mục Web Developer, người dùng có thể học và áp dụng kiến thức lập trình một cách hiệu quả. Chuyên mục UX/UI Design hướng dẫn nghiên cứu và phát triển các giao diện thân thiện, dễ sử dụng, trong khi Content Creation giúp lập kế hoạch, sản xuất và chia sẻ nội dung hấp dẫn. Phần Task Issue hỗ trợ quản lý dự án, chia nhỏ công việc để đạt hiệu suất tối ưu. Công cụ Financial cung cấp các giải pháp lập kế hoạch và quản lý chi tiêu cá nhân, còn Daily Task giúp người dùng theo dõi công việc hàng ngày tỉ mỉ và tiện lợi. Với Japanese & English, người học có thể nắm vững ngoại ngữ và kiểm tra kỹ năng của mình. Ngoài ra, Calendar hỗ trợ quản lý lịch trình và sắp xếp công việc, giúp tổ chức thời gian hiệu quả hơn. Đặc biệt, UpSkillHub nhận thực hiện các dự án website hoặc đồ án từ xa theo yêu cầu.
+                            </blockquote>
+                            <blockquote>
+                                “LEARN, GROW, AND EXCEL – YOUR JOURNEY STARTS HERE AT UPSKILLHUB.”
+                                <span class="author">- Phan Tuan Kiet</span>
+                            </blockquote>
+                            <a href="#" class="button">BUY NOW</a>
                         </div>
                     </div>
                 </div>

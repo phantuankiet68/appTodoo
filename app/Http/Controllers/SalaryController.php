@@ -29,62 +29,62 @@ class SalaryController extends Controller
         }
 
         $month1 = Salary::where('user_id', Auth::id())
-        ->whereMonth('date_create', 1)
-        ->whereYear('date_create', Carbon::now()->year) 
+        ->whereMonth('full_date', 1)
+        ->whereYear('full_date', Carbon::now()->year) 
         ->count();  
 
         $month2 = Salary::where('user_id', Auth::id())
-        ->whereMonth('date_create', 2)
-        ->whereYear('date_create', Carbon::now()->year) 
+        ->whereMonth('full_date', 2)
+        ->whereYear('full_date', Carbon::now()->year) 
         ->count(); 
 
         $month3 = Salary::where('user_id', Auth::id())
-        ->whereMonth('date_create', 3)
-        ->whereYear('date_create', Carbon::now()->year) 
+        ->whereMonth('full_date', 3)
+        ->whereYear('full_date', Carbon::now()->year) 
         ->count();  
 
         $month4 = Salary::where('user_id', Auth::id())
-        ->whereMonth('date_create', 4)
-        ->whereYear('date_create', Carbon::now()->year) 
+        ->whereMonth('full_date', 4)
+        ->whereYear('full_date', Carbon::now()->year) 
         ->count();  
 
         $month5 = Salary::where('user_id', Auth::id())
-        ->whereMonth('date_create', 5)
-        ->whereYear('date_create', Carbon::now()->year) 
+        ->whereMonth('full_date', 5)
+        ->whereYear('full_date', Carbon::now()->year) 
         ->count(); 
 
         $month6 = Salary::where('user_id', Auth::id())
-        ->whereMonth('date_create', 6)
-        ->whereYear('date_create', Carbon::now()->year) 
+        ->whereMonth('full_date', 6)
+        ->whereYear('full_date', Carbon::now()->year) 
         ->count(); 
         $month7 = Salary::where('user_id', Auth::id())
-        ->whereMonth('date_create', 7)
-        ->whereYear('date_create', Carbon::now()->year) 
+        ->whereMonth('full_date', 7)
+        ->whereYear('full_date', Carbon::now()->year) 
         ->count(); 
 
         $month8 = Salary::where('user_id', Auth::id())
-        ->whereMonth('date_create', 8)
-        ->whereYear('date_create', Carbon::now()->year) 
+        ->whereMonth('full_date', 8)
+        ->whereYear('full_date', Carbon::now()->year) 
         ->count();  
         
         $month9 = Salary::where('user_id', Auth::id())
-        ->whereMonth('date_create', 9)
-        ->whereYear('date_create', Carbon::now()->year) 
+        ->whereMonth('full_date', 9)
+        ->whereYear('full_date', Carbon::now()->year) 
         ->count();  
 
         $month10 = Salary::where('user_id', Auth::id())
-        ->whereMonth('date_create', 10)
-        ->whereYear('date_create', Carbon::now()->year) 
+        ->whereMonth('full_date', 10)
+        ->whereYear('full_date', Carbon::now()->year) 
         ->count(); 
 
         $month11 = Salary::where('user_id', Auth::id())
-        ->whereMonth('date_create', 11)
-        ->whereYear('date_create', Carbon::now()->year) 
+        ->whereMonth('full_date', 11)
+        ->whereYear('full_date', Carbon::now()->year) 
         ->count(); 
 
         $month12 = Salary::where('user_id', Auth::id())
-        ->whereMonth('date_create', 12)
-        ->whereYear('date_create', Carbon::now()->year) 
+        ->whereMonth('full_date', 12)
+        ->whereYear('full_date', Carbon::now()->year) 
         ->count();  
 
         return view('salary.index', compact('salaries','month1','month2','month3','month4','month5','month6','month7','month8','month9','month10','month11','month12'));
