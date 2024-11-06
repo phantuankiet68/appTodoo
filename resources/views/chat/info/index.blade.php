@@ -16,33 +16,22 @@
             </div>
             <div class="infoControllerMenu">
                 <div class="infoControllerMenuList">
-                    <button>Thông tin cá nhân</button>
-                    <button>Tin nhắn</button>
-                    <button>Bài viết</button>
-                    <button>Hình ảnh</button>
-                    <button>Bạn bè</button>
-                    <button>Đổi mật khẩu</button>
-                    <button>Link cần thiết</button>
-                    <button>Note</button>
-                    <button>CV</button>
-                    <button>Bằng cấp</button>
+                    <button><i class="fa-solid fa-id-badge"></i> {{ __('messages.Personal Information') }}</button>
+                    <button><i class="fa-solid fa-message"></i> {{ __('messages.Messages') }}</button>
+                    <button><i class="fa-solid fa-pen-to-square"></i> {{ __('messages.Posts') }}</button>
+                    <button><i class="fa-solid fa-image"></i> {{ __('messages.Photos') }}</button>
+                    <button><i class="fa-solid fa-user-group"></i> {{ __('messages.Friends') }}</button>
+                    <button><i class="fa-solid fa-key"></i> {{ __('messages.Change Password') }}</button>
+                    <button><i class="fa-solid fa-link"></i> {{ __('messages.Important Links') }}</button>
+                    <button><i class="fa-solid fa-note-sticky"></i> {{ __('messages.Note') }}</button>
+                    <button><i class="fa-solid fa-file-lines"></i> {{ __('messages.CV') }}</button>
                 </div>
             </div>
         </div>
         <div class="infoControllerRight">
             <div class="infoControllerRightUser">
-                <div class="infoControllerUser">   
-                    <div class="box">
-                        <div class="js--image-preview"></div>
-                        <div class="upload-options">
-                            <label>
-                                <input type="file" class="image-upload" accept="image/*" />
-                            </label>
-                        </div>
-                    </div>
-                </div>
                 @foreach($profiles as $item)
-                <form method="POST" id="edit-profile-form">
+                <form method="POST" id="edit-profile-form-{{ $item->id }}" class="edit-profile-form">
                     @csrf
                     @method('PUT')
                     <div class="infoControllerRightContentUser">
@@ -51,16 +40,16 @@
                             <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
                         @endif
                         <div class="form-input-category">
-                            <input type="text" class="input-name"  name="name" value="{{ $item->name }}" placeholder="Nhập họ và tên....">
+                            <input type="text" class="input-name" name="name" value="{{ $item->name }}" placeholder="Nhập họ và tên....">
                         </div>
                         <div class="form-input-category">
-                            <input type="text" class="input-name"  name="email" value="{{ $item->email }}" placeholder="Nhập email....">
+                            <input type="text" class="input-name" name="email" value="{{ $item->email }}" placeholder="Nhập email....">
                         </div>
                         <div class="form-input-category">
-                            <input type="text" class="input-name"  name="phone" value="0{{ $item->phone }}" placeholder="Nhập số điện thoại....">
+                            <input type="text" class="input-name" name="phone" value="0{{ $item->phone }}" placeholder="Nhập số điện thoại....">
                         </div>
                         <div class="form-input-category">
-                            <input type="date" class="input-name"  name="date_of_birth" value="{{ $item->date_of_birth }}">
+                            <input type="date" class="input-name" name="date_of_birth" value="{{ $item->date_of_birth }}">
                         </div>
                         <div class="form-input-category">
                             <input type="text" class="input-name" name="gender" value="{{ $item->gender == 0 ? 'Nam' : 'Nữ' }}">
@@ -68,16 +57,16 @@
                     </div>
                     <div class="infoControllerRightContentUser col-4">
                         <div class="form-input-category">
-                            <input type="text" class="input-name" name="link_facebook" value="{{ $item->link_facebook }}">
+                            <input type="text" class="input-name" name="link_facebook" value="{{ $item->link_facebook == NULL ? __('messages.Please update the Facebook link') : $item->link_facebook }}">
                         </div>
                         <div class="form-input-category">
-                            <input type="text" class="input-name" name="link_instagram" value="{{ $item->link_instagram }}">
+                            <input type="text" class="input-name" name="link_instagram" value="{{ $item->link_instagram == NULL ? __('messages.Please update the Instagram link') : $item->link_instagram }}">
                         </div>
                         <div class="form-input-category">
-                            <input type="text" class="input-name" name="link_linkin" value="{{ $item->link_linkin }}">
+                            <input type="text" class="input-name" name="link_linkin" value="{{ $item->link_linkin == NULL ? __('messages.Please update the LinkedIn link') : $item->link_linkin }}">
                         </div>
                         <div class="form-input-category">
-                            <input type="text" class="input-name" name="link_link" value="{{ $item->link_link }}">
+                            <input type="text" class="input-name" name="link_link" value="{{ $item->link_link == NULL ? __('messages.Please update the personal link') : $item->link_link }}">
                         </div>
                         <div class="form-input-category">
                             <input type="text" class="input-name" name="address" value="{{ $item->address }}">
@@ -85,114 +74,114 @@
                     </div>
                     <div class="infoControllerRightContentUser col-4">
                         <div class="form-textarea-category">
-                            <textarea name="description" class="textarea" placeholder="Nhập giới thiệu cá nhân....">{{ $item->description }}</textarea> 
+                            <textarea name="description" class="textarea" placeholder="{{ __('messages.Enter personal introduction...') }}">{{ $item->description }}</textarea>
                         </div>
                         <div class="form-input-category">
-                            <input type="text" class="input-name" name="roles" value="{{ $item->roles }}">
-                            <button class="input-name">Save changes</button>
+                            <input type="text" class="input-name" name="roles" disabled value="{{ $item->roles == 0 ? 'Người dùng' : 'Admin' }}">
+                            <button type="submit" class="input-name">{{ __('messages.Save changes') }}</button>
                         </div>
                     </div>
                 </form>
-                @endforeach
+            @endforeach
             </div>
             <div class="infoControllerRightInfo">
                 <div class="infoControllerRightInfoList">
                     <div class="form-item-info mt-2" id="la">
                         <div class="AddButtonEd">
-                            <label for="">languages</label>
+                            <label for="">{{ __('messages.Languages') }}</label>
                             <div class="container text-center mt-2" id="aqAddButton">
                                 <button onclick="addNewLanField()" class="btn btn-primary btn-sm">
-                                    Add
+                                    {{ __('messages.Add') }}
                                 </button>
                             </div>
                         </div>
-                        <input placeholder="Enter here" class="form-control laField"></input>
+                        <input placeholder="{{ __('messages.Enter here')}}" class="form-control laField"></input>
                     </div>
                     <div class="form-item-info" id="ed">
                         <div class="AddButtonEd">
-                            <label for="">Education</label>
+                            <label for="">{{ __('messages.Education') }}</label>
                             <div class="container text-center mt-2" id="aqAddButton">
                                 <button onclick="addNewEdField()" class="btn btn-primary btn-sm">
-                                    Add
+                                    {{ __('messages.Add') }}
                                 </button>
                             </div>
                         </div>
                         <div id="edFields">
-                            <textarea placeholder="Enter here" class="textarea edField mt-2" rows="3"></textarea>
+                            <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="form-item-info" id="Future">
                         <div class="AddButtonEd">
-                            <label for="">Future Direction</label>
+                            <label for="">{{ __('messages.Future Direction') }}</label>
                             <div class="container text-center mt-2" id="aqAddNewFuture">
                                 <button onclick="aqAddNewFuture()" class="btn btn-primary btn-sm">
-                                    Add
+                                    {{ __('messages.Add') }}
                                 </button>
                             </div>
                         </div>
                         <div id="edFields">
-                            <textarea placeholder="Enter here" class="textarea edField mt-2" rows="3"></textarea>
+                            <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="form-item-info" id="ed">
                         <div class="AddButtonEd">
-                            <label for="">Education</label>
+                            <label for="">{{ __('messages.Hobbies') }}</label>
                             <div class="container text-center mt-2" id="aqAddButton">
                                 <button onclick="addNewEdField()" class="btn btn-primary btn-sm">
-                                    Add
+                                    {{ __('messages.Add') }}
                                 </button>
                             </div>
                         </div>
                         <div id="edFields">
-                            <textarea placeholder="Enter here" class="textarea edField mt-2" rows="3"></textarea>
+                            <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2" rows="3"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="infoControllerRightInfoList">
+                <div class="form-item-info mt-2" id="skills">
+                        <div class="AddButtonEd">
+                            <label for="">{{ __('messages.Professional Skills') }}</label>
+                            <div class="container text-center mt-2" id="aqAddButton">
+                                <button onclick="addNewProfessinalField()" class="btn btn-primary btn-sm">
+                                    {{ __('messages.Add') }}
+                                </button>
+                            </div>
+                        </div>
+                        <input placeholder="{{ __('messages.Enter here') }}" class="form-control laField"></input>
+                    </div>
                     <div class="form-item-info" id="ed">
                         <div class="AddButtonEd">
-                            <label for="">Objective</label>
+                            <label for="">{{ __('messages.Objective') }}</label>
                         </div>
                         <div id="edFields">
-                            <textarea placeholder="Enter here" class="textarea edField mt-2" rows="3"></textarea>
+                            <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="form-item-info" id="Experience">
                         <div class="AddButtonEd">
-                            <label for="">Experience</label>
+                            <label for="">{{ __('messages.Experience') }}</label>
                             <div class="container text-center mt-2" id="aqAddExperienceButton">
                                 <button onclick="addNewExperienceField()" class="btn btn-primary btn-sm">
-                                    Add
+                                    {{ __('messages.Add') }}
                                 </button>
                             </div>
                         </div>
                         <div id="edFields">
-                            <textarea placeholder="Enter here" class="textarea edField" rows="3"></textarea>
+                            <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField" rows="3"></textarea>
                         </div>
                     </div>
                     <div class="form-item-info" id="Project">
                         <div class="AddButtonEd">
-                            <label for="">Project</label>
+                            <label for="">{{ __('messages.Project') }}</label>
                             <div class="container text-center mt-2" id="aqAddProjectButton">
                                 <button onclick="addNewProjectField()" class="btn btn-primary btn-sm">
-                                    Add
+                                    {{ __('messages.Add') }}
                                 </button>
                             </div>
                         </div>
                         <div id="edFields">
-                            <textarea placeholder="Enter here" class="textarea edField" rows="3"></textarea>
+                            <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField" rows="3"></textarea>
                         </div>
-                    </div>
-                    <div class="form-item-info mt-2" id="skills">
-                        <div class="AddButtonEd">
-                            <label for="">Professinal skills</label>
-                            <div class="container text-center mt-2" id="aqAddButton">
-                                <button onclick="addNewProfessinalField()" class="btn btn-primary btn-sm">
-                                    Add
-                                </button>
-                            </div>
-                        </div>
-                        <input placeholder="Enter here" class="form-control laField"></input>
                     </div>
                 </div>
             </div>
@@ -200,18 +189,54 @@
     </div>
 </div>
 <script>
-    document.getElementById('edit-profile-form').onsubmit = function(event) {
-        event.preventDefault();
-        const profile_id = document.getElementById('profile_id').value;
-        this.action = `/profile/${profile_id}`;
-        this.submit();
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.edit-profile-form').forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const profileId = form.querySelector('#profile_id').value;
+                const formData = new FormData(form);
+
+                const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+                if (!csrfTokenMeta) {
+                    console.error("CSRF token not found in the HTML.");
+                    return;
+                }
+                const csrfToken = csrfTokenMeta.getAttribute('content');
+
+                fetch(`/profile/${profileId}`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'X-HTTP-Method-Override': 'PUT' // Override để chuyển thành PUT
+                    },
+                    body: formData
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    // Thêm log chi tiết lỗi
+                    console.error('Error response:', response);
+                    throw new Error('Network response was not ok.');
+                })
+                .then(data => {
+                    alert('Profile updated successfully');
+                    window.location.reload(); // Tải lại trang để cập nhật nội dung mới
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while updating the profile.');
+                });
+            });
+        });
+    });
     function addNewProfessinalField() {
         let newNode = document.createElement("input");
         newNode.classList.add("form-control");
         newNode.classList.add("laField");
         newNode.classList.add("mt-2");
-        newNode.setAttribute("placeholder", "Enter here");
+        newNode.setAttribute("placeholder", "{{ __('messages.Enter here') }}");
 
         let aqOb = document.getElementById("skills");
         aqOb.appendChild(newNode);
@@ -222,7 +247,7 @@
         newNode.classList.add("edField");
         newNode.classList.add("mt-2");
         newNode.setAttribute("rows", 3);
-        newNode.setAttribute("placeholder", "Enter here");
+        newNode.setAttribute("placeholder", "{{ __('messages.Enter here') }}");
 
         let aqOb = document.getElementById("Project");
 
@@ -235,7 +260,7 @@
         newNode.classList.add("edField");
         newNode.classList.add("mt-2");
         newNode.setAttribute("rows", 3);
-        newNode.setAttribute("placeholder", "Enter here");
+        newNode.setAttribute("placeholder", "{{ __('messages.Enter here') }}");
 
         let aqOb = document.getElementById("Experience");
 
@@ -248,7 +273,7 @@
         newNode.classList.add("edField");
         newNode.classList.add("mt-2");
         newNode.setAttribute("rows", 3);
-        newNode.setAttribute("placeholder", "Enter here");
+        newNode.setAttribute("placeholder", "{{ __('messages.Enter here') }}");
 
         let aqOb = document.getElementById("Future");
 
@@ -260,7 +285,7 @@
         let newNode = document.createElement("textarea");
         newNode.classList.add("textarea", "edField", "mt-2");
         newNode.setAttribute("rows", 3);
-        newNode.setAttribute("placeholder", "Enter here");
+        newNode.setAttribute("placeholder", "{{ __('messages.Enter here') }}");
 
         let edFields = document.getElementById("edFields");
         edFields.appendChild(newNode);
@@ -272,7 +297,7 @@
         newNode.classList.add("form-control");
         newNode.classList.add("laField");
         newNode.classList.add("mt-2");
-        newNode.setAttribute("placeholder", "Enter here");
+        newNode.setAttribute("placeholder", "{{ __('messages.Enter here') }}");
 
         let aqOb = document.getElementById("la");
         let aqAddButtonOb = document.getElementById("laAddButton");

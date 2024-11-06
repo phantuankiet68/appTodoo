@@ -120,11 +120,6 @@
                                             <img src="{{asset('assets/images/user1.jpg')}}" alt="" srcset="">
                                         </div>
                                     </div>
-                                    <div class="commentContentPost">
-                                        <input type="text" id="commentContentPost" oninput="updateComment()">
-                                        <button><i class="fa-solid fa-face-smile"></i></button>
-                                        <button><i class="fa-solid fa-image"></i></button>
-                                    </div>
                                     <div class="commentSendPost">
                                         <form action="{{ route('postcomments.store', $item->id) }}" method="POST">
                                         @csrf
@@ -132,7 +127,7 @@
                                             @if (Auth::check())
                                                 <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
                                             @endif
-                                            <input type="hidden" id="comment" name="comment"/>
+                                            <input type="text" name="comment"/>
                                             <button class="btnSendComment"><i class="fa-solid fa-paper-plane"></i></button>
                                         </form>
                                     </div>
@@ -202,18 +197,6 @@
                             </div>
                         </div>
                         <p class="space"></p>
-                        <div class="buttonList">
-                            <button class="buttonLike"><i class="fa-regular fa-thumbs-up"></i> Likes</button>
-                            <button class="buttonView"><i class="fa-regular fa-eye"></i> View</button>
-                        </div>
-                        <div class="showInfoUserF">
-                            <div class="showInfoUserLike">
-                                <button class="buttonLike"><i class="fa-regular fa-thumbs-up"></i> Likes: 50</button>
-                            </div>
-                            <div class="showInfoUserContent">
-                                <p><i class="fa-solid fa-user-group"></i> Number of friends: 500</p>
-                            </div>
-                        </div>
                     </div>
                     <div class="infoUser">
                         <div class="titlePost">

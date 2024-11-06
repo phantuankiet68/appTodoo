@@ -45,26 +45,32 @@ class ChatController extends Controller
 
     public function updateProfile(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'user_id' => 'required|exists:users,id',
-            'name' => 'required|string|max:255',
-            'current_start' => 'nullable|date',
-            'status' => 'nullable|integer',
-            'email' => 'required|string|max:255',
-            'phone' => 'required',
-            'date_of_birth' => 'nullable|date',
-            'link_facebook' => 'required|string|max:255',
-            'link_instagram' => 'required|string|max:255',
-            'link_linkin' => 'required|string|max:255',
-            'link_link' => 'required|string|max:255',
-            'address' =>'required|string|max:255',
-            'description' => 'required|string',
-            'roles' => 'required|string|max:255'
-        ]);
+        try {
+            $validatedData = $request->validate([
+                'user_id' => 'required|exists:users,id',
+                'name' => 'required|string|max:255',
+                'current_start' => 'nullable|date',
+                'status' => 'nullable|integer',
+                'email' => 'required|string|max:255',
+                'phone' => 'required',
+                'date_of_birth' => 'nullable|date',
+                'link_facebook' => 'required|string|max:255',
+                'link_instagram' => 'required|string|max:255',
+                'link_linkin' => 'required|string|max:255',
+                'link_link' => 'required|string|max:255',
+                'address' =>'required|string|max:255',
+                'description' => 'required|string',
+            ]);
 
-        $profiles = Profile::findOrFail($id);
-        $profiles->update($validatedData);
-        return redirect()->route('info.index')->with('success', 'Profile updated successfully');
+            $profiles = Profile::findOrFail($id);
+            $profiles->update($validatedData);
+
+            return response()->json(['message' => 'Profile updated successfully']);
+        } catch (\Exception $e) {
+            // Log lỗi để kiểm tra
+            \Log::error($e->getMessage());
+            return response()->json(['error' => 'An error occurred while updating the profile.'], 500);
+        }
     }
     /**
      * Store a newly created resource in storage.

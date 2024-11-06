@@ -37,17 +37,17 @@ class AuthController extends Controller
                 'address.required' => __('validation.address_required'),
                 'gender.required' => __('validation.gender_required'),
             ]);
-    
+
             if ($validator->fails()) {
                 return redirect()->back()->withErrors($validator)->withInput();
             }
-    
+
             $existingUser = User::where('email', $request->email)->first();
             if ($existingUser) {
                 return redirect()->back()->with('error', 'Đã có tài khoản với email này. Vui lòng sử dụng email khác.')->withInput();
             }
-    
-            User::create([
+
+            $user = User::create([
                 'full_name' => $request->full_name,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
@@ -72,7 +72,7 @@ class AuthController extends Controller
                 'description' => $request->description,
                 'roles' => $request->roles
             ]);
-    
+
             return redirect()->route('home.index')->with('success', 'Đăng ký thành công!');
 
         } catch (\Exception $e) {
