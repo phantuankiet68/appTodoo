@@ -1763,10 +1763,15 @@ p.space {
     background-color: #555555;
 }
 .dashboard-content.dark-mode .chat_post .createPost{
-    color:#000
+    color:#fff;
+    background-color: #555555;
+    border: 1px solid #1571bf;
 }
 .dashboard-content.dark-mode .chat_post .chat-right .infoUser{
-    color:#000
+    color:#000;
+}
+.dashboard-content.dark-mode .chat_post .createPost h3{
+    color:#fff;
 }
 .settingUserImage img{
     width: 100%;

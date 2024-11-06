@@ -1010,7 +1010,7 @@ button:hover {
 }
 .dashboard-content{
     width: 100%;
-    height: 93.4%;
+    height: 92.2%;
     display: flex;
     justify-content: center;
 }
@@ -5664,4 +5664,127 @@ list-style: none;
     background-color: #36e73d;
     color: #fff;
     font-size: 15px;
+}
+.dark-mode #chart{
+    color: #000;
+    background-color: #22adfd5c;
+}
+#chart{
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    padding: 5px;
+}
+.dark-mode .ideaUser{
+    border: 1px solid #1571bf;
+}
+.ideaUser{
+    width: 100%;
+    height: 238px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+.ideaUserForm{
+    width: 100%;
+    padding: 10px;
+}
+
+
+.ideaUserForm form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ideaUserForm form input{
+    width: 87%;
+    padding: 10px;
+    border: none;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    outline: none;
+}
+.ideaUserForm form button{
+    padding: 10px 20px;
+    background-color: #fff;
+    border: none;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+}
+
+.content-idea-user{
+    width: 100%;
+    height: 178px;
+    padding: 10px;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: scroll;
+}
+
+.dark-mode .content-idea-user{
+    color:#fff;
+    font-size: 14px;
+}
+
+.content-idea-user blockquote {
+    font-size: 13px;
+    font-style: italic;
+    color: #000;
+    padding-left: 10px;
+    border-left: 3px solid #0097f8;
+}
+
+blockquote .author {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #757070;
+}
+
+.dark-mode .content-idea-user blockquote {
+    font-size: 13px;
+    font-style: italic;
+    color: #fff;
+    padding-left: 10px;
+    border-left: 3px solid #0097f8;
+}
+
+.dark-mode blockquote .author {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: #d3d3d3;
+}
+.comment-idea-user{
+    width: 100%;
+    border: none;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    padding: 5px 20px;
+}
+.dark-mode .comment-idea-user{
+    width: 100%;
+    border: none;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+    padding: 5px 20px;
+    border: 1px solid #0056b3;
+}
+#chart-bar {
+    position: relative;
+    margin-top: -38px;
+}
+
+.apexcharts-yaxis .apexcharts-text tspan{
+    color: #fff;
+}
+
+.link {
+    position: absolute;
+    bottom: 7px;
+    right: 13px;
+    z-index: 10;
+    color: #ccc;
+    font-size: 12px;
+    text-decoration: none;
+    font-family: Helvetica, Arial;
 }

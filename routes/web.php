@@ -82,6 +82,8 @@ Route::get('/profile/{full_name}', [HomeController::class, 'profile'])->name('pr
 
 Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::resource('dashboard', DashboardController::class);
+    Route::get('/monthly-costs', [DashboardController::class, 'getMonthlyCosts']);
+    Route::post('/idea', [DashboardController::class, 'createIdea'])->name('idea.store');;
     Route::resource('category', CategoryController::class);
     Route::resource('category_task', CategoryTasksController::class);
     Route::resource('posts', PostController::class);

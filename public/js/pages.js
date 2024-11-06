@@ -220,19 +220,4 @@ document.addEventListener("DOMContentLoaded", function () {
     // Thiết lập hiển thị trang đầu tiên
     showPage(currentPage);
 
-    // Xử lý sự kiện cho nút next
-    document.getElementById('nextBtn').addEventListener('click', () => {
-        if (currentPage < Math.ceil(totalItems / itemsPerPage) - 1) {
-            currentPage++;
-            showPage(currentPage);
-        }
-    });
-
-    // Xử lý sự kiện cho nút prev
-    document.getElementById('prevBtn').addEventListener('click', () => {
-        if (currentPage > 0) {
-            currentPage--;
-            showPage(currentPage);
-        }
-    });
 });
