@@ -36,11 +36,11 @@
                         <button onclick="showMenu()"><i class="fa-solid fa-bars"></i></button>
                     </div>
                     <ul id="menu">
-                        <li><a href="#" onclick="setActiveItem(1);" class="item"><i class="fa-solid fa-house"></i> Home</a></li>
-                        <li><a href="#" onclick="setActiveItem(2);" class="item"><i class="fa-solid fa-address-card"></i> About Us</a></li>
-                        <li><a href="#" onclick="setActiveItem(3);" class="item"><i class="fa-solid fa-gears"></i> Services</a></li>
-                        <li><a href="#" onclick="setActiveItem(4);" class="item"><i class="fa-brands fa-product-hunt"></i> Product</a></li>
-                        <li><a href="#" onclick="setActiveItem(5);" class="item"><i class="fa-solid fa-file-contract"></i> Contact Us</a></li>
+                        <li><a href="/" onclick="setActiveItem(1);" class="item"><i class="fa-solid fa-house"></i> Home</a></li>
+                        <li><a href="#About" onclick="setActiveItem(2);" class="item"><i class="fa-solid fa-address-card"></i> About Us</a></li>
+                        <li><a href="#Services" onclick="setActiveItem(3);" class="item"><i class="fa-solid fa-gears"></i> Services</a></li>
+                        <li><a href="#Product" onclick="setActiveItem(4);" class="item"><i class="fa-brands fa-product-hunt"></i> Product</a></li>
+                        <li><a href="#Contact" onclick="setActiveItem(5);" class="item"><i class="fa-solid fa-file-contract"></i> Contact Us</a></li>
                         @if (Auth::check())
                             <li>
                                 <a href="{{ route('profile.show', ['full_name' => str_replace(' ', '-', Auth::user()->full_name)]) }}" class="item">
@@ -60,7 +60,7 @@
                 </div>
             </div> -->
             <section class="page-left"  id="extraItems">
-                <div class="page-left-item banner activeItem" id="item1">
+                <div class="page-left-item banner" id="item1">
                     <div class="patern-layer-one"></div>
                     <div class="patern-layer-two"></div>
                     <div class="slidershow middle">
@@ -153,7 +153,7 @@
                                 <th class="trigger"><p>Design UX/UI</p><span>plus</span></th>
                                 <th class="trigger"><p>Website Develop</p><span>Basic</span></th>
                                 <th class="trigger"><p>Website Develop</p><span>plus</span></th>
-                                <th class="trigger"><p>WebSite Bán hàng</p><span>plus</span></th>
+                                <th class="trigger"><p>WebSite</p><span>plus</span></th>
                                 <th class="trigger"><p>Remote</p><span>plus</span></th>
                             </tr>
                             </thead>
@@ -164,7 +164,7 @@
                                 <td><p>$20</p></td>
                                 <td><p>$15</p></td>
                                 <td><p>$25</p></td>
-                                <td><p>$20</p></td>
+                                <td><p>$38</p></td>
                                 <td><p>$30</p></td>
                             </tr>
                             <tr>
@@ -780,7 +780,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="page-right-item activeItem" id="item1">
+                <div class="page-right-item" id="item1">
                     <div class="banner-row">
                         <div class="overlay"></div>
                         <div class="banner-part-content">
@@ -809,7 +809,7 @@
     </div>
     <div class="modal" id="CreateLogin">
         <div class="ModelCreateLogin">
-            <form id="contentForm" method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <h2>Đăng nhập</h2>
                 @if (session('success'))
@@ -838,7 +838,7 @@
 
         <div class="modal" id="CreateRegister">
         <div class="ModelCreateRegister">
-        <form id="contentForm" action="{{ route('register') }}" method="POST" onsubmit="return validateForm()">
+        <form  action="{{ route('register') }}" method="POST" onsubmit="return validateForm()">
             @csrf
             <h2>Đăng Ký</h2>
             <div class="form-input-category">

@@ -1109,7 +1109,7 @@ span.circle-white{
 .cards {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
 }
 .card {
     padding: 13px;

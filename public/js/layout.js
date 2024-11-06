@@ -1,12 +1,14 @@
 
 
 function setActiveItem(itemNumber) {
+    localStorage.setItem("activeItem", itemNumber);
+    localStorage.setItem("activeMenu", itemNumber);
     const items = document.querySelectorAll('.item');
 
     items.forEach((item) => {
-        item.classList.remove('active');
+        item.classList.remove('activeMenu');
     });
-    items[itemNumber - 1].classList.add('active');
+    items[itemNumber - 1].classList.add('activeMenu');
 
     document.querySelectorAll('.page-left-item').forEach(item => {
         item.classList.remove('activeItem');
@@ -30,7 +32,37 @@ function setActiveItem(itemNumber) {
         console.log(`Right item with ID 'item${itemNumber}' not found.`);
     }
 }
+document.addEventListener('DOMContentLoaded', function() {
+    let savedItemNumber = localStorage.getItem('activeItem');
+    let savedItemMenu= localStorage.getItem('activeMenu');
 
+    if (!savedItemMenu) {
+        savedItemMenu = 1;
+    }
+
+    if (!savedItemNumber) {
+        savedItemNumber = 1;
+    }
+
+    document.querySelectorAll('.header-home nav ul li a').forEach(item => {
+        item.classList.remove('activeMenu');
+    });
+
+    document.querySelectorAll('.page-left-item, .page-right-item').forEach(item => {
+        item.classList.remove('activeItem');
+    });
+
+    const selectedLeftItem = document.querySelector(`.page-left-item#item${savedItemNumber}`);
+    const selectedRightItem = document.querySelector(`.page-right-item#item${savedItemNumber}`);
+
+
+    if (selectedLeftItem) {
+        selectedLeftItem.classList.add('activeItem');
+    }
+    if (selectedRightItem) {
+        selectedRightItem.classList.add('activeItem');
+    }
+});
 function validateForm()                                    
 { 
     var name = document.forms["myForm"]["name"];               

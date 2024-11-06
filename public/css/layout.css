@@ -81,14 +81,15 @@ header {
     list-style: none;
 }
 
-.header-home nav ul li a.item.active{
-    background-color: #f3a949;
+.header-home nav ul li a.item.activeMenu{
+    background-color: #03a9f4;
     color: #fff;
 }
 
 .header-home nav ul li a.item{
     text-decoration: none;
-    padding: 5px 20px;
+    font-size: 14px;
+    padding: 6px 20px;
     color: #000;
     background-color: #fff;
     cursor: pointer;
@@ -132,14 +133,14 @@ header {
 .container .page-left{
     width: 50%;
     height: 100%;
-    padding: 5px;
-    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    overflow: hidden;
     border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
 }
 .container .page-right{
     width: 50%;
     height: 100%;
-    padding: 5px;
+    overflow: hidden;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
     border-radius: 5px;
 }
@@ -817,11 +818,11 @@ input[name="r"]{
     color: #ff5151;
     font-size: 15px;
 }
-h2{
-    margin-bottom: 50px;
+.ModelCreateLogin h2{
+    margin-bottom: 10px;
     letter-spacing: 2px;
     text-align: center;
-    font-size: 33px;
+    font-size: 31px;
     font-weight: bold;
 }
 .skills:not(:last-child){
@@ -917,7 +918,7 @@ h2{
 }
 .services{
     width: 100%;
-    height: auto;
+    height: 265px;
     background-color: #fff;
     padding: 8px;
     border-radius: 10px;
@@ -1311,7 +1312,7 @@ textarea{
 }
 
 .icon-check i{
-    font-size: 30px;
+    font-size: 18px;
 }
 
 .icon-check-error{
@@ -1319,7 +1320,7 @@ textarea{
 }
 
 .icon-check-error i{
-    font-size: 30px;
+    font-size: 18px;
 }
 
 
@@ -1338,7 +1339,6 @@ textarea{
 .table-wrapper table {
     position: relative;
     border: none;
-    margin: 32px auto 64px;
     border-collapse: collapse;
 }
 .table-wrapper table thead tr {
@@ -1349,12 +1349,12 @@ textarea{
     cursor: pointer;
     color: #13223F;
     white-space: nowrap;
-    font-size: 15px;
-    line-height: 15px;
+    font-size: 13px;
+    line-height: 11px;
     font-weight: 700;
     text-align: center;
     min-width: 92px;
-    padding: 48px 8px;
+    padding: 32px 8px;
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
@@ -1419,8 +1419,8 @@ textarea{
     position: absolute;
     display: block;
     border-radius: 12px;
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
     left: calc(50% - 12px);
     top: calc(100% - 12px);
     line-height: 24px;
@@ -1467,7 +1467,7 @@ textarea{
 }
 .table-wrapper table tbody tr td {
     white-space: nowrap;
-    padding: 20px;
+    padding: 5px;
     text-align: center;
     transition: height 0.15s ease-in-out;
 }
@@ -1485,9 +1485,9 @@ textarea{
     filter: grayscale(100%);
 }
 .table-wrapper table tbody tr td p {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 30px;
-    font-weight: 900;
+    font-weight: 500;
     padding-bottom: 0;
     margin-bottom: 0;
 }
@@ -1519,7 +1519,8 @@ textarea{
     font-weight: 300;
 }
 .table-wrapper table tbody tr td:first-of-type p strong {
-    font-weight: 700;
+    font-weight: 500;
+    font-size: 14px;
 }
 .table-wrapper table tbody tr td:nth-child(even) {
     background: rgba(187, 203, 242, 0.15);
@@ -1566,7 +1567,7 @@ textarea{
     padding: 10px;
     position: absolute;
     width: 100%;
-    max-width: 15%;
+    max-width: 23%;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -1829,7 +1830,6 @@ blockquote .author {
     .container .page-right {
         width: 100%;
         height: 100%;
-        padding: 5px;
         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
         border-radius: 5px;
     }

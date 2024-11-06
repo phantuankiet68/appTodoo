@@ -5,16 +5,6 @@
 @section('content')
 <div class="cod-dashboard-2">
     <div class="overview">
-        <div class="title">
-            <h2 class="section--title">Overview</h2>
-            <select name="date" id="date" class="select-dropdown">
-                <option value="today">Today</option>
-                <option value="lastweek">Last Week</option>
-                <option value="lastmonth">Last Month</option>
-                <option value="lastyear">Last Year</option>
-                <option value="alltime">All Time</option>
-            </select>
-        </div>
         <div class="cards">
             <div class="card card-1">
                 <div class="card--data">
@@ -91,25 +81,7 @@
 </div>
 <div class="cod-dashboard-8">
     <div class="dashboard-weather">
-        <div class="dashboard-clock">
-            <div class="clock">
-                <div class="hour-hand"></div>
-                <div class="minute-hand"></div>
-                <div class="second-hand"></div>
-                <div class="center-point"></div>
-            </div>
-        </div>
-        <div class="dashboardCalendar">
-            <div id="calendar"></div>
-        </div>
-        <div class="dashboardWeather">
-            <form id="weather-form">
-                <input type="text" id="city" placeholder="Nhập thành phố">
-                <input type="text" id="country" placeholder="Nhập quốc gia">
-                <button type="submit">Tìm kiếm</button>
-            </form>
-            <div id="weather-result"></div>
-        </div>
+       
     </div>
     <div class="dashboard-chart">
         <div style="height: 380px;">
