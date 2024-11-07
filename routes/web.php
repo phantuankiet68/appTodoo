@@ -121,7 +121,13 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::resource('sent', SentController::class);
     Route::resource('chat', ChatController::class);
     Route::get('/info', [ChatController::class, 'indexInfo'])->name('info.index');
+    Route::post('/store_language', [ChatController::class, 'storeProfileLanguage'])->name('languageProfile.store');;
     Route::put('/profile/{id}', [ChatController::class, 'updateProfile'])->name('profile.update');
+    Route::post('/updateLanguage/{id}', [ChatController::class, 'updateLanguageProfile'])->name('languageProfile.update');
+    Route::post('/store_skills', [ChatController::class, 'storeProfessionalSkills'])->name('SkillProfile.store');
+    Route::post('/updateSkill/{id}', [ChatController::class, 'updateSkillProfile'])->name('SkillProfile.update');
+    Route::post('/store_educations', [ChatController::class, 'storeProfileEducation'])->name('educationProfile.store');
+    Route::post('/updateEducations/{id}', [ChatController::class, 'updateEducationProfile'])->name('educationProfile.update');
     Route::resource('japanese', JapaneseController::class);
     Route::get('add_japanese', [JapaneseController::class, 'addJapanese'])->name('japanese.addJapanese');
     Route::resource('japanese', JapaneseController::class);

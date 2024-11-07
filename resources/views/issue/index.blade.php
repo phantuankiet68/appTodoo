@@ -372,11 +372,9 @@
     });
 
     function updateFilters() {
-        // Lấy giá trị của category_id và user_id
         const categoryId = document.getElementById('category').value;
         const userId = document.getElementById('user').value;
 
-        // Tạo URL với các tham số query
         let url = '{{ route('issue.index') }}?';
         if (categoryId) {
             url += 'category_id=' + categoryId + '&';
@@ -384,8 +382,6 @@
         if (userId) {
             url += 'user_id=' + userId;
         }
-
-        // Chuyển hướng tới URL mới
         window.location.href = url;
     }
 
@@ -414,7 +410,6 @@
         }
     }
 
-    // Ẩn hiện popup form delete Issue
     function showDeleteIssuePopup(issueId) {
         const deletePopup = document.querySelector('.modelDeleteFormIssue');
         deletePopup.style.display = 'block';
@@ -422,7 +417,6 @@
         deleteForm.action = `/issue/${issueId}`;
     }
 
-    // Ẩn hiện popup form delete issue
     function closeDeleteIssueFormPopup() {
         const deletePopupDelete = document.querySelector('.modelDeleteFormIssue');
         if (deletePopupDelete.style.display === 'none' || deletePopupDelete.style.display === '') {

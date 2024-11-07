@@ -7,7 +7,13 @@ use App\Models\Post;
 use App\Models\PostImage;
 use App\Models\PostComment;
 use App\Models\Profile;
+use App\Models\ProfileLanguages;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator; 
+use App\Models\ProfessionalSkills;
+use App\Models\ProfessionalEducation;
+
+
 
 class ChatController extends Controller
 {
@@ -40,7 +46,121 @@ class ChatController extends Controller
     public function indexInfo()
     {
         $profiles = Profile::where('user_id', Auth::id())->get();
-        return view('chat.info.index', compact('profiles'));
+        $languages = ProfileLanguages::where('user_id', Auth::id())->get();
+        $skills = ProfessionalSkills::where('user_id', Auth::id())->get();
+        $educations = ProfessionalEducation::where('user_id', Auth::id())->get();
+        return view('chat.info.index', compact('profiles','languages','skills','educations'));
+    }
+
+
+    public function storeProfileLanguage(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required|exists:users,id',
+            'languages' => 'required|array',
+            'languages.*' => 'required|string|max:255',
+        ], [
+            'user_id.required' => __('messages.user_id'),
+            'languages.required' => __('messages.languages_required'),
+            'languages.*.required' => __('messages.name_required'),
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        foreach ($request->languages as $language) {
+            ProfileLanguages::create([
+                'user_id' => $request->user_id,
+                'name' => $language,
+            ]);
+        }
+    
+        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+    }
+
+    public function storeProfessionalSkills(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required|exists:users,id',
+            'skills' => 'required|array',
+            'skills.*' => 'required|string|max:255',
+        ], [
+            'user_id.required' => __('messages.user_id'),
+            'skills.required' => __('messages.languages_required'),
+            'skills.*.required' => __('messages.name_required'),
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        foreach ($request->skills as $skill) {
+            ProfessionalSkills::create([
+                'user_id' => $request->user_id,
+                'name' => $skill,
+            ]);
+        }
+    
+        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+    }
+
+    public function updateLanguageProfile(Request $request, $id)
+    {
+        $language = ProfileLanguages::findOrFail($id);
+
+        $language->name = $request->input('name');
+        $language->save();
+
+        return redirect()->back()->with('success', 'Language updated successfully.');
+    }
+
+
+    public function updateSkillProfile(Request $request, $id)
+    {
+        $language = ProfessionalSkills::findOrFail($id);
+
+        $language->name = $request->input('name');
+        $language->save();
+
+        return redirect()->back()->with('success', 'Language updated successfully.');
+    }
+
+    public function storeProfileEducation(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required|exists:users,id',
+            'educations' => 'required|array',
+            'educations.*' => 'required|string|max:255',
+        ], [
+            'user_id.required' => __('messages.user_id'),
+            'educations.required' => __('messages.educations_required'),
+            'educations.*.required' => __('messages.description_required'),
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        foreach ($request->educations as $education) {
+            ProfessionalEducation::create([
+                'user_id' => $request->user_id,
+                'description' => $education,
+            ]);
+        }
+    
+        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+    }
+
+    public function updateEducationProfile(Request $request, $id)
+    {
+        $educations = ProfessionalEducation::findOrFail($id);
+
+        $educations->name = $request->input('description');
+        
+        $educations->save();
+
+        return redirect()->back()->with('success', 'Education updated successfully.');
     }
 
     public function updateProfile(Request $request, $id)
@@ -72,6 +192,8 @@ class ChatController extends Controller
             return response()->json(['error' => 'An error occurred while updating the profile.'], 500);
         }
     }
+
+
     /**
      * Store a newly created resource in storage.
      *

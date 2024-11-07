@@ -3179,3 +3179,31 @@ i.material-icons {
     justify-content: space-between;
     align-items: center;
 }
+
+.form-item-info form input{
+    width: 100%;
+    margin-bottom: 8px;
+}
+.form-item-info .EditProfileLanguage{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.form-item-info form.EditProfileLanguage input{
+    margin: 0;
+}
+.form-item-info .EditProfileLanguage .btn-primary {
+    background-color: #40c3f7;
+    padding: 8px 12px;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.form-item-info .EditProfileLanguage .language-fields{
+    width: 90%;
+}
+
+.form-item-info .EditProfileLanguage .edFields{
+    width: 90%;
+}

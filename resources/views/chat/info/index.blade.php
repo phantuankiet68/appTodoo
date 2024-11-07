@@ -82,33 +82,61 @@
                         </div>
                     </div>
                 </form>
-            @endforeach
+                @endforeach
             </div>
             <div class="infoControllerRightInfo">
                 <div class="infoControllerRightInfoList">
                     <div class="form-item-info mt-2" id="la">
                         <div class="AddButtonEd">
                             <label for="">{{ __('messages.Languages') }}</label>
-                            <div class="container text-center mt-2" id="aqAddButton">
-                                <button onclick="addNewLanField()" class="btn btn-primary btn-sm">
-                                    {{ __('messages.Add') }}
-                                </button>
-                            </div>
                         </div>
-                        <input placeholder="{{ __('messages.Enter here')}}" class="form-control laField"></input>
+                        @foreach($languages as $lang)
+                            <form class="EditProfileLanguage " action="{{ route('languageProfile.update', ['id' => $lang->id]) }}" method="POST">
+                                @csrf
+                                <input type="hidden" id="language_id" value="{{ $lang->id }}"/>
+                                <div class="language-fields">
+                                    <input placeholder="{{ __('messages.Enter here') }}" class="form-control" name="name" value="{{$lang->name}}" />
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                            </form>
+                        @endforeach
+                        <form action="{{ route('languageProfile.store') }}" method="POST">
+                            @csrf
+                            @if (Auth::check())
+                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}" />
+                            @endif
+                            <div id="language-fields">
+                                <input placeholder="{{ __('messages.Enter here') }}" class="form-control laField" name="languages[]" />
+                            </div>
+                            <button type="button" class="btn btn-primary btn-sm" id="laAddButton" onclick="addNewLanField()">Add Another Language</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                        </form>
                     </div>
                     <div class="form-item-info" id="ed">
                         <div class="AddButtonEd">
                             <label for="">{{ __('messages.Education') }}</label>
-                            <div class="container text-center mt-2" id="aqAddButton">
-                                <button onclick="addNewEdField()" class="btn btn-primary btn-sm">
-                                    {{ __('messages.Add') }}
-                                </button>
+                        </div>
+                        @foreach($educations as $education)
+                            <form class="EditProfileLanguage " action="{{ route('educationProfile.update', ['id' => $education->id]) }}" method="POST">
+                                @csrf
+                                <input type="hidden" id="education_id" value="{{ $education->id }}"/>
+                                <div class="edFields">
+                                    <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="description">{{$education->description}}</textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                            </form>
+                        @endforeach
+                        <form action="{{ route('educationProfile.store') }}" method="POST">
+                            @csrf
+                            @if (Auth::check())
+                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}" />
+                            @endif
+                            <div id="edFields">
+                                <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="educations[]"></textarea>
                             </div>
-                        </div>
-                        <div id="edFields">
-                            <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2" rows="3"></textarea>
-                        </div>
+                            <button type="button" class="btn btn-primary btn-sm" id="laAddButton" onclick="addNewEducationField()">Add Another Education</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                        </form>
                     </div>
                     <div class="form-item-info" id="Future">
                         <div class="AddButtonEd">
@@ -138,16 +166,31 @@
                     </div>
                 </div>
                 <div class="infoControllerRightInfoList">
-                <div class="form-item-info mt-2" id="skills">
+                    <div class="form-item-info mt-2" id="skills">
                         <div class="AddButtonEd">
                             <label for="">{{ __('messages.Professional Skills') }}</label>
-                            <div class="container text-center mt-2" id="aqAddButton">
-                                <button onclick="addNewProfessinalField()" class="btn btn-primary btn-sm">
-                                    {{ __('messages.Add') }}
-                                </button>
-                            </div>
                         </div>
-                        <input placeholder="{{ __('messages.Enter here') }}" class="form-control laField"></input>
+                        @foreach($skills as $skill)
+                            <form class="EditProfileLanguage " action="{{ route('SkillProfile.update', ['id' => $skill->id]) }}" method="POST">
+                                @csrf
+                                <input type="hidden" value="{{ $skill->id }}"/>
+                                <div class="language-fields">
+                                    <input placeholder="{{ __('messages.Enter here') }}" class="form-control laField" name="name" value="{{$skill->name}}" />
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                            </form>
+                        @endforeach
+                        <form action="{{ route('SkillProfile.store') }}" method="POST">
+                            @csrf
+                            @if (Auth::check())
+                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}" />
+                            @endif
+                            <div id="skill-fields">
+                                <input placeholder="{{ __('messages.Enter here') }}" class="form-control skillField" name="skills[]" />
+                            </div>
+                            <button type="button" class="btn btn-primary btn-sm" id="skillAddButton" onclick="addNewSkillField()">Add Another Skill</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                        </form>
                     </div>
                     <div class="form-item-info" id="ed">
                         <div class="AddButtonEd">
@@ -216,13 +259,12 @@
                     if (response.ok) {
                         return response.json();
                     }
-                    // Thêm log chi tiết lỗi
                     console.error('Error response:', response);
                     throw new Error('Network response was not ok.');
                 })
                 .then(data => {
                     alert('Profile updated successfully');
-                    window.location.reload(); // Tải lại trang để cập nhật nội dung mới
+                    window.location.reload();
                 })
                 .catch(error => {
                     console.error('Error:', error);
@@ -230,6 +272,41 @@
                 });
             });
         });
+        // document.querySelectorAll('.edit-languages-form').forEach(function(form) {
+        //     form.addEventListener('submit', function(event) {
+        //         event.preventDefault();
+
+        //         const profileLanguageId = form.querySelector('#language_id').value;
+        //         const formData = new FormData(form);
+
+        //         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        //         fetch(`/updateLanguage/${profileLanguageId}`, {
+        //             method: 'POST',
+        //             headers: {
+        //                 'X-CSRF-TOKEN': csrfToken,
+        //                 'X-HTTP-Method-Override': 'PUT'
+        //             },
+        //             body: formData
+        //         })
+        //         .then(response => {
+        //             if (response.ok) {
+        //                 return response.json();
+        //             }
+        //             console.error('Error response:', response);
+        //             throw new Error('Network response was not ok.');
+        //         })
+        //         .then(data => {
+        //             alert('Profile updated successfully');
+        //             window.location.reload();
+        //         })
+        //         .catch(error => {
+        //             console.error('Error:', error);
+        //             alert('An error occurred while updating the profile.');
+        //         });
+        //     });
+        // });
+
     });
     function addNewProfessinalField() {
         let newNode = document.createElement("input");
@@ -263,8 +340,6 @@
         newNode.setAttribute("placeholder", "{{ __('messages.Enter here') }}");
 
         let aqOb = document.getElementById("Experience");
-
-        // Thay vì insertBefore, append newNode vào cuối của aqOb
         aqOb.appendChild(newNode);
     }
     function aqAddNewFuture() {
@@ -277,32 +352,38 @@
 
         let aqOb = document.getElementById("Future");
 
-        // Thay vì insertBefore, append newNode vào cuối của aqOb
         aqOb.appendChild(newNode);
     }
 
-    function addNewEdField() {
-        let newNode = document.createElement("textarea");
-        newNode.classList.add("textarea", "edField", "mt-2");
-        newNode.setAttribute("rows", 3);
-        newNode.setAttribute("placeholder", "{{ __('messages.Enter here') }}");
-
-        let edFields = document.getElementById("edFields");
-        edFields.appendChild(newNode);
+    function addNewEducationField() {
+        const newEducationField = document.createElement('textarea');
+        newEducationField.setAttribute('placeholder', '{{ __('messages.Enter here') }}');
+        newEducationField.setAttribute('class', 'textarea edField mt-2 form-control');
+        newEducationField.setAttribute('rows', '3');
+        newEducationField.setAttribute('name', 'educations[]');
+        
+        document.getElementById('edFields').appendChild(newEducationField);
     }
 
 
     function addNewLanField() {
         let newNode = document.createElement("input");
-        newNode.classList.add("form-control");
-        newNode.classList.add("laField");
-        newNode.classList.add("mt-2");
+        newNode.classList.add("form-control", "laField", "mt-2");
         newNode.setAttribute("placeholder", "{{ __('messages.Enter here') }}");
+        newNode.setAttribute("name", "languages[]");
 
-        let aqOb = document.getElementById("la");
-        let aqAddButtonOb = document.getElementById("laAddButton");
+        let languageFieldsDiv = document.getElementById("language-fields");
+        languageFieldsDiv.appendChild(newNode);
+    }
 
-        aqOb.insertBefore(newNode, aqAddButtonOb);
+    function addNewSkillField() {
+        const newSkillField = document.createElement('input');
+        newSkillField.setAttribute('type', 'text');
+        newSkillField.setAttribute('placeholder', '{{ __('messages.Enter here') }}');
+        newSkillField.setAttribute('class', 'form-control skillField');
+        newSkillField.setAttribute('name', 'skills[]');
+        
+        document.getElementById('skill-fields').appendChild(newSkillField);
     }
 
   function initImageUpload(box) {
