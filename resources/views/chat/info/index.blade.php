@@ -52,7 +52,7 @@
                             <input type="date" class="input-name" name="date_of_birth" value="{{ $item->date_of_birth }}">
                         </div>
                         <div class="form-input-category">
-                            <input type="text" class="input-name" name="gender" value="{{ $item->gender == 0 ? 'Nam' : 'Nữ' }}">
+                            <input type="text" class="input-name" name="gender" value="{{ $item->gender}}">
                         </div>
                     </div>
                     <div class="infoControllerRightContentUser col-4">
@@ -77,7 +77,7 @@
                             <textarea name="description" class="textarea" placeholder="{{ __('messages.Enter personal introduction...') }}">{{ $item->description }}</textarea>
                         </div>
                         <div class="form-input-category">
-                            <input type="text" class="input-name" name="roles" disabled value="{{ $item->roles == 0 ? 'Người dùng' : 'Admin' }}">
+                            <input type="text" class="input-name" name="roles" disabled value="{{ $item->roles == 1 ? 'Người dùng' : 'Admin' }}">
                             <button type="submit" class="input-name">{{ __('messages.Save changes') }}</button>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                             @if (Auth::check())
                                 <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}" />
                             @endif
-                            <div id="edFields">
+                            <div id="edFields" class="edFields">
                                 <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="educations[]"></textarea>
                             </div>
                             <button type="button" class="btn btn-primary btn-sm" id="laAddButton" onclick="addNewEducationField()">Add Another Education</button>
@@ -141,15 +141,28 @@
                     <div class="form-item-info" id="Future">
                         <div class="AddButtonEd">
                             <label for="">{{ __('messages.Future Direction') }}</label>
-                            <div class="container text-center mt-2" id="aqAddNewFuture">
-                                <button onclick="aqAddNewFuture()" class="btn btn-primary btn-sm">
-                                    {{ __('messages.Add') }}
-                                </button>
+                        </div>
+                        @foreach($futures as $item)
+                            <form class="EditProfileLanguage " action="{{ route('FutureDirection.update', ['id' => $item->id]) }}" method="POST">
+                                @csrf
+                                <input type="hidden" id="future_id" value="{{ $item->id }}"/>
+                                <div class="futureFields">
+                                    <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="description">{{$item->description}}</textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-pen-to-square"></i></button>
+                            </form>
+                        @endforeach
+                        <form action="{{ route('FutureDirection.store') }}" method="POST">
+                            @csrf
+                            @if (Auth::check())
+                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}" />
+                            @endif
+                            <div id="futureFieldsContainer">
+                                <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="futures[]"></textarea>
                             </div>
-                        </div>
-                        <div id="edFields">
-                            <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2" rows="3"></textarea>
-                        </div>
+                            <button type="button" class="btn btn-primary btn-sm" id="laAddButton" onclick="addNewFutureField()">Add Another Future</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                        </form>
                     </div>
                     <div class="form-item-info" id="ed">
                         <div class="AddButtonEd">
@@ -342,17 +355,14 @@
         let aqOb = document.getElementById("Experience");
         aqOb.appendChild(newNode);
     }
-    function aqAddNewFuture() {
-        let newNode = document.createElement("textarea");
-        newNode.classList.add("form-control");
-        newNode.classList.add("edField");
-        newNode.classList.add("mt-2");
-        newNode.setAttribute("rows", 3);
-        newNode.setAttribute("placeholder", "{{ __('messages.Enter here') }}");
-
-        let aqOb = document.getElementById("Future");
-
-        aqOb.appendChild(newNode);
+    function addNewFutureField() {
+        const newFutureField = document.createElement('textarea');
+        newFutureField.setAttribute('placeholder', '{{ __('messages.Enter here') }}');
+        newFutureField.setAttribute('class', 'textarea edField mt-2 form-control');
+        newFutureField.setAttribute('rows', '3');
+        newFutureField.setAttribute('name', 'futures[]');
+        
+        document.getElementById('futureFieldsContainer').appendChild(newFutureField);
     }
 
     function addNewEducationField() {

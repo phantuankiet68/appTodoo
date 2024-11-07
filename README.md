@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 05, 2024 lúc 04:36 PM
+-- Thời gian đã tạo: Th10 07, 2024 lúc 06:00 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
 
@@ -74,7 +74,10 @@ INSERT INTO `categories` (`id`, `user_id`, `name`, `key`, `status`, `created_at`
 (30, 3, 'web-pod', 3, 1, '2024-10-11 10:21:02', '2024-10-11 10:21:02'),
 (31, 3, 'ES-Code', 3, 1, '2024-10-11 10:22:03', '2024-10-11 10:22:03'),
 (32, 3, 'Hatsusa', 3, 1, '2024-10-11 10:23:49', '2024-10-11 10:23:49'),
-(33, 3, 'Response-', 3, 1, '2024-10-11 10:32:04', '2024-10-12 06:28:28');
+(33, 3, 'Response-', 3, 1, '2024-10-11 10:32:04', '2024-10-12 06:28:28'),
+(34, 10, 'Profile-Me', 3, 1, '2024-11-07 09:36:19', '2024-11-07 09:36:19'),
+(35, 10, 'ES', 3, 1, '2024-11-07 09:36:31', '2024-11-07 09:36:31'),
+(36, 10, 'Mong-Co', 3, 1, '2024-11-07 09:36:46', '2024-11-07 09:36:46');
 
 -- --------------------------------------------------------
 
@@ -291,6 +294,48 @@ CREATE TABLE `food` (
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `future_directions`
+--
+
+CREATE TABLE `future_directions` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `description` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `future_directions`
+--
+
+INSERT INTO `future_directions` (`id`, `user_id`, `description`, `created_at`, `updated_at`) VALUES
+(1, 10, 'Năm 1-2: Xây dựng nền tảng vững chắc với Full Stack bằng cách học HTML, CSS, JavaScript (front-end), Node.js hoặc Python (back-end), và SQL/NoSQL cho cơ sở dữ liệu. Tạo dự án cá nhân để thực hành và làm quen với DevOps cơ bản (Docker, CI/CD).', '2024-11-07 09:20:25', '2024-11-07 09:20:25');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `ideas`
+--
+
+CREATE TABLE `ideas` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `ideas`
+--
+
+INSERT INTO `ideas` (`id`, `user_id`, `comment`, `created_at`, `updated_at`) VALUES
+(1, 10, 'Hãy thử sức mình nếu bạn có thể tự làm được có nghĩa bạn đã hiểu hết phần quan trong của nó', '2024-11-07 07:56:43', '2024-11-07 07:56:43');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `issues`
 --
 
@@ -317,7 +362,12 @@ CREATE TABLE `issues` (
 INSERT INTO `issues` (`id`, `user_id`, `subject`, `key`, `level`, `description`, `reference`, `start_date`, `end_date`, `category_id`, `status`, `created_at`, `updated_at`) VALUES
 (1, 3, 'Bài tập 7: Thực hiện code HTML theo nội dung design dưới đây:', 'IS_836', 0, '<h3>C&ocirc;ng thức chung</h3>\r\n\r\n<p>Cần x&aacute;c định r&otilde;: đ&acirc;u l&agrave; image, đ&acirc;u l&agrave; text, đ&acirc;u l&agrave; button, để biết khi n&agrave;o d&ugrave;ng h&igrave;nh, khi n&agrave;o d&ugrave;ng text để sử dụng CSS cho đ&uacute;ng.<br />\r\nTh&ocirc;ng thường image sẽ l&agrave; h&igrave;nh chụp, h&igrave;nh design phức tạp,... trong c&aacute;c b&agrave;i tập của hocwebchuan, image sẽ được thể hiện bằng nội dung c&oacute; chữ &quot;Học Web Chuẩn&quot;, hoặc số VD: &quot;500x600&quot;.</p>\r\n\r\n<p>Một số b&agrave;i tập c&oacute; sử dụng font icon, hocwebchuan sẽ sử dụng bộ font của&nbsp;<a href=\"https://fontawesome.com/\" target=\"_blank\">fontawesome</a>&nbsp;cho thuận lợi việc code.</p>\r\n\r\n<p>Nếu cấu tr&uacute;c l&agrave; một nh&oacute;m c&oacute; nội dung cụ thể, ta d&ugrave;ng&nbsp;<code>&lt;section&gt;</code>&nbsp;bao ngo&agrave;i.</p>\r\n\r\n<p>Nếu cấu tr&uacute;c l&agrave; ti&ecirc;u đề th&igrave; d&ugrave;ng&nbsp;<code>&lt;hx&gt;</code>, khi code thực tế th&igrave; bạn cần sử dụng&nbsp;<code>&lt;hx&gt;</code>&nbsp;cho đ&uacute;ng thứ tự.</p>\r\n\r\n<p>Nếu cấu tr&uacute;c l&agrave; image th&igrave; d&ugrave;ng&nbsp;<code>&lt;img&gt;</code>.</p>\r\n\r\n<p>Nếu cấu tr&uacute;c l&agrave; đoạn văn th&igrave; d&ugrave;ng&nbsp;<code>&lt;p&gt;</code>.</p>\r\n\r\n<p>Nếu cấu tr&uacute;c l&agrave; một danh s&aacute;ch th&igrave; d&ugrave;ng&nbsp;<code>&lt;ul&gt;</code>&nbsp;<code>&lt;li&gt;</code>.</p>\r\n\r\n<p>Nếu cấu tr&uacute;c l&agrave; một danh s&aacute;ch c&oacute; thứ tự, th&igrave; d&ugrave;ng&nbsp;<code>&lt;ol&gt;</code>&nbsp;<code>&lt;li&gt;</code>.</p>\r\n\r\n<p>Nếu cấu tr&uacute;c c&oacute; chứa th&ocirc;ng tin nhập liệu, th&igrave; ta d&ugrave;ng c&aacute;c thẻ&nbsp;<code>&lt;form&gt;</code>.</p>\r\n\r\n<p>Đối với c&aacute;c th&agrave;nh phần lớn gần nhau, theo c&aacute;c nh&oacute;m ri&ecirc;ng biệt, ta d&ugrave;ng&nbsp;<code>&lt;div&gt;</code>&nbsp;để gom lại sẽ thuận lợi cho việc layout.</p>\r\n\r\n<p>Với mỗi th&agrave;nh bao ngo&agrave;i như&nbsp;<code>&lt;section&gt;</code>&nbsp;hay&nbsp;<code>&lt;div&gt;</code>&nbsp;ta cần sử dụng&nbsp;<code>id</code>&nbsp;hoặc&nbsp;<code>class</code>&nbsp;để thuận lợi cho việc layout sau n&agrave;y.</p>', 'none', '2024-10-04', '2024-10-06', 1, 1, '2024-10-03 06:20:37', '2024-10-03 06:20:37'),
 (2, 3, 'How to design a table in servicenow', 'IS_182', 0, '<pre>\r\n<code>&lt;div class=&quot;panel panel-body&quot;&gt;\r\n  &lt;h2&gt;Book Rooms v1&lt;/h2&gt;\r\n  &lt;table border=&quot;2&quot; class=&quot;table table-striped m-b-lg&quot;&gt;\r\n    &lt;tr&gt;\r\n      &lt;th&gt;Country&lt;/th&gt;\r\n      &lt;th&gt;Title&lt;/th&gt;\r\n      &lt;th&gt;End Date&lt;/th&gt;\r\n    &lt;/tr&gt;\r\n \r\n  &lt;/table&gt;</code></pre>', 'none', '2024-10-11', '2024-10-12', 2, 2, '2024-10-11 06:57:56', '2024-10-11 06:57:56'),
-(3, 3, 'Xây dựng Chuyển đổi Điều hướng Hoạt ảnh JavaScript', 'IS_955', 0, '<p>Khi bạn x&acirc;y dựng c&aacute;c menu của website m&agrave; chỉ sử dụng HTML v&agrave; CSS th&igrave; việc tạo c&aacute;c li&ecirc;n kết để điều hướng người d&ugrave;ng từ trang tĩnh n&agrave;y qua trang tĩnh kh&aacute;c sẽ rất giới hạn. Tuy nhi&ecirc;n, JavaScript lại c&oacute; c&aacute;c t&iacute;nh năng điều hướng thả xuống, c&oacute; thể thu gọn v&agrave; điều hướng hoạt ảnh khi bạn ph&aacute;t triển web.&nbsp;</p>\r\n\r\n<p>Khi bạn nắm vững kiến thức v&agrave; thực sự hiểu r&otilde; về JavaScript th&igrave; việc tạo ra c&aacute;c n&uacute;t chuyển đổi điều hướng hoạt ảnh trở n&ecirc;n dễ d&agrave;ng hơn.</p>\r\n\r\n<p>Mẫu dự &aacute;n JavaScript dưới đ&acirc;y được thực hiện bởi A. James Liptak hiển thị loại t&iacute;nh năng điều hướng động m&agrave; bạn c&oacute; quyền truy cập ngay khi th&ecirc;m JavaScript v&agrave;o bộ c&ocirc;ng cụ của m&igrave;nh.</p>', NULL, '2024-10-12', '2024-10-14', 1, 2, '2024-10-12 08:29:56', '2024-10-12 08:29:56');
+(3, 3, 'Xây dựng Chuyển đổi Điều hướng Hoạt ảnh JavaScript', 'IS_955', 0, '<p>Khi bạn x&acirc;y dựng c&aacute;c menu của website m&agrave; chỉ sử dụng HTML v&agrave; CSS th&igrave; việc tạo c&aacute;c li&ecirc;n kết để điều hướng người d&ugrave;ng từ trang tĩnh n&agrave;y qua trang tĩnh kh&aacute;c sẽ rất giới hạn. Tuy nhi&ecirc;n, JavaScript lại c&oacute; c&aacute;c t&iacute;nh năng điều hướng thả xuống, c&oacute; thể thu gọn v&agrave; điều hướng hoạt ảnh khi bạn ph&aacute;t triển web.&nbsp;</p>\r\n\r\n<p>Khi bạn nắm vững kiến thức v&agrave; thực sự hiểu r&otilde; về JavaScript th&igrave; việc tạo ra c&aacute;c n&uacute;t chuyển đổi điều hướng hoạt ảnh trở n&ecirc;n dễ d&agrave;ng hơn.</p>\r\n\r\n<p>Mẫu dự &aacute;n JavaScript dưới đ&acirc;y được thực hiện bởi A. James Liptak hiển thị loại t&iacute;nh năng điều hướng động m&agrave; bạn c&oacute; quyền truy cập ngay khi th&ecirc;m JavaScript v&agrave;o bộ c&ocirc;ng cụ của m&igrave;nh.</p>', NULL, '2024-10-12', '2024-10-14', 1, 2, '2024-10-12 08:29:56', '2024-10-12 08:29:56'),
+(4, 10, 'Tạo các chức năng thêm còn lại của profile', 'IS_596', 0, '<p>Tạo thêm các design<br>- Future Direction</p><p>&nbsp;</p><p>&nbsp;</p><ul><li>&nbsp;</li></ul><p>-</p>', NULL, '2024-11-07', '2024-11-08', 34, 2, '2024-11-07 09:41:56', '2024-11-07 09:41:56'),
+(5, 10, 'Tìm hiểu và triển khai odoo task Issue', 'IS_889', 0, '<ul><li>Chỉnh sửa và thêm giao diện thành viên</li><li>Add thêm về quản lý nhóm:</li><li>- tạo design quản lý</li><li>- Tạo nội dung chi tiết cho thành viên đã thực hiện nhiệm vụ</li><li>- Kiểm tra validate cho từng forform</li></ul>', NULL, '2024-11-07', '2024-11-08', 34, 2, '2024-11-07 09:45:03', '2024-11-07 09:45:03'),
+(6, 10, 'Tìm hiểu thêm về giao diện chat và hoàn thiện design', 'IS_413', 0, '<ol><li>-Tạo design cho trang chat</li></ol><ul><li>- thêm vào trang mới&nbsp;</li><li>- Tìm hiểu và add dữ liệu cần tạo</li><li>- Load các bây lên trang infoinfor</li></ul>', NULL, '2024-11-07', '2024-11-08', 34, 2, '2024-11-07 09:46:50', '2024-11-07 09:46:50'),
+(7, 10, 'Thực hiện test website với Mongco', 'IS_656', 0, '<p>Đọc và tìm hiểu sơ về cách thức thực hiển</p><ul><li>Dịch toàn bộ tài liệu có săn để hiểu hơn</li><li>kiểm tra từng chi tiết có trong nhiệm vụ</li><li>Bắt các lỗi cần thiết và ghi chú lại</li></ul>', NULL, '2024-11-07', '2024-11-08', 36, 2, '2024-11-07 09:48:57', '2024-11-07 09:48:57'),
+(8, 10, 'Hoàn thành task được giao ES', 'IS_646', 0, '<p>Tìm hiểu luồn để tiện cho việc chỉnh sửa validate</p><p>Tìm kiếm xem chỗ cần được sửa ở đâu</p><p>Hoàn thành task trong vòng 1 tiếntiếng</p>', NULL, '2024-11-07', '2024-11-08', 35, 2, '2024-11-07 09:50:26', '2024-11-07 09:50:26');
 
 -- --------------------------------------------------------
 
@@ -579,7 +629,16 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (48, '2024_10_17_065058_create_learn_mores_table', 30),
 (49, '2024_10_19_195355_create_tasks_table', 31),
 (50, '2024_10_20_055701_add_status_to_learn_mores_table', 32),
-(51, '2024_10_24_092456_create_profiles_table', 33);
+(51, '2024_10_24_092456_create_profiles_table', 33),
+(52, '2024_11_06_055702_create_ideas_table', 34),
+(53, '2024_11_07_012216_create_profile_languages_table', 34),
+(54, '2024_11_07_062952_create_professional_skills_table', 34),
+(55, '2024_11_07_074142_create_professional_education_table', 34),
+(56, '2024_11_07_153208_create_future_directions_table', 35),
+(57, '2024_11_07_153426_create_profile_hobbies_table', 36),
+(58, '2024_11_07_153506_create_profile_objectives_table', 36),
+(59, '2024_11_07_153525_create_profile_experiences_table', 36),
+(60, '2024_11_07_153540_create_profile_projects_table', 36);
 
 -- --------------------------------------------------------
 
@@ -731,6 +790,65 @@ CREATE TABLE `problem_processes` (
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `professional_education`
+--
+
+CREATE TABLE `professional_education` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `description` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `professional_education`
+--
+
+INSERT INTO `professional_education` (`id`, `user_id`, `description`, `created_at`, `updated_at`) VALUES
+(1, 10, '2011-2014 Trường trung học cơ sở Tân Bình, Bến Tre', '2024-11-07 08:13:23', '2024-11-07 08:14:58'),
+(2, 10, '2014-2016 Trường trung học phổ thông Ngô Văn Cấn', '2024-11-07 08:23:11', '2024-11-07 08:23:11'),
+(3, 10, '2016-2018 Trường trung học phổ thông Nguyễn Bỉnh Khiêm', '2024-11-07 08:23:11', '2024-11-07 08:23:11'),
+(4, 10, '2019-2023 Trường đại học Công Nghệ Thành Phố Hồ Chí Minh', '2024-11-07 08:23:49', '2024-11-07 08:23:49');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `professional_skills`
+--
+
+CREATE TABLE `professional_skills` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `professional_skills`
+--
+
+INSERT INTO `professional_skills` (`id`, `user_id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 10, 'HTML', '2024-11-07 08:03:41', '2024-11-07 08:03:41'),
+(2, 10, 'CSS/SCSS/LESS', '2024-11-07 08:03:41', '2024-11-07 08:03:41'),
+(3, 10, 'JAVASCRIPT', '2024-11-07 08:03:41', '2024-11-07 08:03:41'),
+(4, 10, 'VUE JS', '2024-11-07 08:03:41', '2024-11-07 08:03:41'),
+(5, 10, 'REACT JS', '2024-11-07 08:03:41', '2024-11-07 08:03:41'),
+(6, 10, 'NODE JS', '2024-11-07 08:05:47', '2024-11-07 08:05:47'),
+(7, 10, 'LARAVEL', '2024-11-07 08:05:47', '2024-11-07 08:05:47'),
+(8, 10, 'JAVA', '2024-11-07 08:05:47', '2024-11-07 08:05:47'),
+(9, 10, 'CSHARP', '2024-11-07 08:05:47', '2024-11-07 08:05:47'),
+(10, 10, 'MYSQL', '2024-11-07 08:05:47', '2024-11-07 08:05:47'),
+(11, 10, 'MONGO', '2024-11-07 08:05:47', '2024-11-07 08:05:47'),
+(12, 10, 'SQLSERVER', '2024-11-07 08:05:47', '2024-11-07 08:05:47'),
+(13, 10, 'LINUX', '2024-11-07 08:05:47', '2024-11-07 08:05:47'),
+(14, 10, 'PHOTOSHOP', '2024-11-07 08:05:47', '2024-11-07 08:05:47'),
+(15, 10, 'GIT', '2024-11-07 08:05:47', '2024-11-07 08:05:47');
+
+-- --------------------------------------------------------
+
+--
 -- Cấu trúc bảng cho bảng `profiles`
 --
 
@@ -759,7 +877,86 @@ CREATE TABLE `profiles` (
 
 INSERT INTO `profiles` (`id`, `user_id`, `name`, `email`, `phone`, `date_of_birth`, `gender`, `link_facebook`, `link_instagram`, `link_linkin`, `link_link`, `address`, `description`, `roles`, `created_at`, `updated_at`) VALUES
 (1, 8, 'Đoàn Thị Thu Trang', 'thutrang10@gmail.com', 837230102, '2024-01-01', '1', 'Please enter the information Học thêm  mơi', 'Please enter the information.', 'Please enter the information.', 'Please enter the information.', '54 Hùng Vương', 'Please enter the information.', 'Luật sư', '2024-10-26 09:50:05', '2024-10-26 19:35:02'),
-(2, 9, 'Phan Duy Linh', 'duylinksky@gmail.com', 989392900, '2024-01-01', '0', 'Please enter the information.', 'Please enter the information.', 'Please enter the information.', 'Please enter the information.', 'Please enter the information.', 'Please enter the information.', 'Nhân Viên', '2024-10-26 09:52:56', '2024-10-26 09:52:56');
+(2, 9, 'Phan Duy Linh', 'duylinksky@gmail.com', 989392900, '2024-01-01', '0', 'Please enter the information.', 'Please enter the information.', 'Please enter the information.', 'Please enter the information.', 'Please enter the information.', 'Please enter the information.', 'Nhân Viên', '2024-10-26 09:52:56', '2024-10-26 09:52:56'),
+(3, 10, 'Phan Tuấn Kiệt', 'phantuankietIT@gmail.com', 768173369, '2000-12-01', 'Nam', 'https://purtosu.io.vn/profile/', 'https://purtosu.io.vn/profile/', 'https://purtosu.io.vn/profile/', 'https://purtosu.io.vn/profile/', 'Bến Tre', 'Trước tiên, em xin cảm ơn anh chị đã tổ chức buổi phỏng vấn hôm nay. Em tên là Phan Tuấn Kiệt, năm nay em 24 tuổi và quê ở Bến Tre.\r\n\r\nEm đã tốt nghiệp Trường Đại học Công nghệ Thành phố Hồ Chí Minh vào tháng 12 năm 2023, ngành Công nghệ thông tin, chuyên ngành Công nghệ phần mềm.\r\n\r\nVề kinh nghiệm làm việc, em có hơn 1 năm kinh nghiệm tại công ty Nhật Bản. những dự án thực tế em từng tham gia như Growupwork, VJP-connect, Digital maketting và Plan-International. Tại công ty Việt Nhật, em đảm nhiệm với vị trí dev, tại công ty em đã tích lũy được nhiều kỹ năng lập trình và kinh nghiệm cho bản thân.', '0', '2024-11-07 07:43:23', '2024-11-07 08:02:12');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `profile_experiences`
+--
+
+CREATE TABLE `profile_experiences` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `description` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `profile_hobbies`
+--
+
+CREATE TABLE `profile_hobbies` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `description` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `profile_languages`
+--
+
+CREATE TABLE `profile_languages` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `profile_languages`
+--
+
+INSERT INTO `profile_languages` (`id`, `user_id`, `name`, `created_at`, `updated_at`) VALUES
+(1, 10, 'Tiếng Anh: Trình độ sơ cấp có thể đọc/viết.', '2024-11-07 08:02:44', '2024-11-07 08:02:44'),
+(2, 10, 'Tiếng Nhật: ~N3 (mục tiêu sẽ nhận được N2 vào năm 2024).', '2024-11-07 08:02:44', '2024-11-07 08:02:44');
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `profile_objectives`
+--
+
+CREATE TABLE `profile_objectives` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `description` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `profile_projects`
+--
+
+CREATE TABLE `profile_projects` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `description` text DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -919,7 +1116,15 @@ INSERT INTO `tasks` (`id`, `user_id`, `name`, `description`, `current_start`, `s
 (18, 3, 'Thời gian ngủ', '<ol><li>1. Mục tiêu</li></ol><ul><li>- Quản lý được giờ giấc ngủ</li><li>- Giúp tăng sức khỏe</li><li>- Làm giảm đi quá trình buồn ngủ khi làm việc</li><li>2. Quy trình</li><li>- đánh răng trước 8h tối</li><li>- Ngủ vào lúc 11h</li></ul>', '2024-10-21', 'open', '2024-10-20 06:43:01', '2024-10-20 06:43:01'),
 (19, 3, 'Cập nhật task', '<ol><li>1. Mục tiêu</li></ol><ul><li>- Quản lý được công việc ngày mới</li><li>- Tạo một thói quen cho bản thân</li><li>- Tránh làm dụng thời gian quá nhiều</li><li>2. Quy trình&nbsp;</li><li>- Nhập toàn bộ công việc ngay mai</li><li>- Ghi rõ nội dung cần làm để không bị thiếu sósót&nbsp;</li></ul>', '2024-10-21', 'open', '2024-10-20 06:45:31', '2024-10-20 06:45:31'),
 (20, 3, 'Tình huống', '<ol><li>1. Mục tiêu</li></ol><ul><li>- Biết thêm được nhiều hướng giải quyết vấn đề khi gặp phải</li><li>- Có thể qua bài phỏng vấn sắp tới</li><li>- Tránh được những sai lằm không đáng kể</li><li>2. Quy trình</li><li>- Xem lại 5 câu vừa mới làm khi sáng&nbsp;</li><li>- Làm thêm 5 câu tình huống và cách giải quyết vấn đề</li><li>&nbsp;</li></ul>', '2024-10-21', 'open', '2024-10-20 06:47:55', '2024-10-20 06:47:55'),
-(21, 3, 'Học thêm tiếng nhật', '<p>Học thêm</p>', '2024-11-05', 'doing', '2024-11-05 07:34:14', '2024-11-05 07:35:00');
+(21, 3, 'Học thêm tiếng nhật', '<p>Học thêm</p>', '2024-11-05', 'doing', '2024-11-05 07:34:14', '2024-11-05 07:35:00'),
+(22, 10, 'Dậy vào lúc 6h30', '<p>Dậy sớm là một thói quen tốt</p><p>Tránh bị trễ thời gian làm việc&nbsp;</p><p>sáng phải ăn sáng trước khi đi làlàm</p>', '2024-11-08', 'open', '2024-11-07 09:51:39', '2024-11-07 09:51:39'),
+(23, 10, 'Phải hoàn thành nhiệm vụ es trong vòng 1 tiếng', '<p>Phải hoàn thành nhiệm vụ es trong vòng 1 tiếng</p><p>Tìm hiểu về luồng và ghi chú lại</p><p>Hãy kiểm tra xem còn lỗi nào trước khi giao</p><p>Báo cáo với anh việc trình trạng hiện tại của backlog</p>', '2024-11-08', 'open', '2024-11-07 09:53:11', '2024-11-07 09:53:11'),
+(24, 10, 'Test tính năng cho web mong cỗ', '<p>Hoàn thành task trong vòng 3 tiếng</p><p>Kiểm tra xem có lỗi gì cần báo lại hay không</p><p>kiểm tra chức năng đã hoàn chỉnh hay chưa</p><p>CHụp hình + báo lại với người quản llý</p>', '2024-11-08', 'open', '2024-11-07 09:54:37', '2024-11-07 09:54:37'),
+(25, 10, 'Làm profile-me', '<p>Dành thời gian 6 tiếng để hoàn thành công việc hôm nanay</p>', '2024-11-08', 'open', '2024-11-07 09:55:14', '2024-11-07 09:55:14'),
+(26, 10, 'Tìm hiểu thêm về SVF', '<ul><li>Tìm hiểu tổng quan về SVF</li><li>Tìm hiểu về điểm mạnh và điểm yếu</li><li>Tìm hiểu vai ttrò của cách sử dụng</li><li>Tìm hiểu thông tin thêm về hình ảnh để tiện&nbsp;</li><li>Ôn lại những điều bên trên</li></ul>', '2024-11-08', 'open', '2024-11-07 09:57:24', '2024-11-07 09:57:24'),
+(27, 10, 'Chiều về ghé mua cơm', '<p>Ghé mua cơm gần nhà</p><p>mua bột giặgiặt</p>', '2024-11-08', 'open', '2024-11-07 09:57:58', '2024-11-07 09:57:58'),
+(28, 10, 'Hoàn thành chi tiêu cho ngày trước 8h', '<ul><li>điện mọi thông tin có trong phiếu chi tiêu để hoàn thiện</li></ul>', '2024-11-08', 'open', '2024-11-07 09:58:49', '2024-11-07 09:58:49'),
+(29, 10, 'Hoàn thiện Issue trước khi đi ngủ', '<ul><li>- Tăng thêm khả năng quản lý cho bản thâthân</li></ul>', '2024-11-08', 'open', '2024-11-07 09:59:49', '2024-11-07 09:59:49');
 
 -- --------------------------------------------------------
 
@@ -962,6 +1167,7 @@ CREATE TABLE `users` (
   `phone` bigint(20) UNSIGNED NOT NULL,
   `gender` varchar(255) NOT NULL DEFAULT '0',
   `roles` varchar(255) NOT NULL DEFAULT '0',
+  `address` varchar(255) NOT NULL,
   `remember_token` varchar(100) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -971,10 +1177,11 @@ CREATE TABLE `users` (
 -- Đang đổ dữ liệu cho bảng `users`
 --
 
-INSERT INTO `users` (`id`, `full_name`, `email`, `email_verified_at`, `password`, `phone`, `gender`, `roles`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'Phan Tuấn Kiệt', 'tuankiet20@gmail.com', NULL, '$2y$10$2abpg9G68h5HhUZtLtrrgeWAjG2bZDu7FP3hWHKTjhmvnNyp/erWm', 768173369, '0', '1', NULL, '2024-09-24 18:14:17', '2024-09-24 18:14:17'),
-(8, 'Đoàn Thi Thu Trang', 'thutrang10@gmail.com', NULL, '$2y$10$7tewKetIpyeAFNWRJCwVyOKxsGARXbbgTmIzLir2/DFuu0c5Dc4F2', 837230102, '1', 'Luật sư', NULL, '2024-10-26 09:50:05', '2024-10-26 09:50:05'),
-(9, 'Phan Duy Linh', 'duylinksky@gmail.com', NULL, '$2y$10$weWDhzZHKxh.6QZHoBI0SOUkY5YCnZ1QulAmeieXNKO/TpWP/8FXy', 989392900, '0', 'Nhân Viên', NULL, '2024-10-26 09:52:56', '2024-10-26 09:52:56');
+INSERT INTO `users` (`id`, `full_name`, `email`, `email_verified_at`, `password`, `phone`, `gender`, `roles`, `address`, `remember_token`, `created_at`, `updated_at`) VALUES
+(3, 'Phan Tuấn Kiệt', 'tuankiet20@gmail.com', NULL, '$2y$10$2abpg9G68h5HhUZtLtrrgeWAjG2bZDu7FP3hWHKTjhmvnNyp/erWm', 768173369, '0', '1', '', NULL, '2024-09-24 18:14:17', '2024-09-24 18:14:17'),
+(8, 'Đoàn Thi Thu Trang', 'thutrang10@gmail.com', NULL, '$2y$10$7tewKetIpyeAFNWRJCwVyOKxsGARXbbgTmIzLir2/DFuu0c5Dc4F2', 837230102, '1', 'Luật sư', '', NULL, '2024-10-26 09:50:05', '2024-10-26 09:50:05'),
+(9, 'Phan Duy Linh', 'duylinksky@gmail.com', NULL, '$2y$10$weWDhzZHKxh.6QZHoBI0SOUkY5YCnZ1QulAmeieXNKO/TpWP/8FXy', 989392900, '0', 'Nhân Viên', '', NULL, '2024-10-26 09:52:56', '2024-10-26 09:52:56'),
+(10, 'Phan Tuấn Kiệt', 'phantuankietIT@gmail.com', NULL, '$2y$10$x9Rdniqdll5N9UteLLXRM.MsbBlFqHOnciayo3QzGuu.oElQbcudS', 768173369, 'Nam', '1', 'Bến Tre', NULL, '2024-11-07 07:43:23', '2024-11-07 07:43:23');
 
 -- --------------------------------------------------------
 
@@ -1107,6 +1314,20 @@ ALTER TABLE `food`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Chỉ mục cho bảng `future_directions`
+--
+ALTER TABLE `future_directions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `future_directions_user_id_foreign` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `ideas`
+--
+ALTER TABLE `ideas`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `ideas_user_id_foreign` (`user_id`);
+
+--
 -- Chỉ mục cho bảng `issues`
 --
 ALTER TABLE `issues`
@@ -1210,11 +1431,60 @@ ALTER TABLE `problem_processes`
   ADD KEY `problem_processes_user_id_foreign` (`user_id`);
 
 --
+-- Chỉ mục cho bảng `professional_education`
+--
+ALTER TABLE `professional_education`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `professional_education_user_id_foreign` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `professional_skills`
+--
+ALTER TABLE `professional_skills`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `professional_skills_user_id_foreign` (`user_id`);
+
+--
 -- Chỉ mục cho bảng `profiles`
 --
 ALTER TABLE `profiles`
   ADD PRIMARY KEY (`id`),
   ADD KEY `profiles_user_id_foreign` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `profile_experiences`
+--
+ALTER TABLE `profile_experiences`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `profile_experiences_user_id_foreign` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `profile_hobbies`
+--
+ALTER TABLE `profile_hobbies`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `profile_hobbies_user_id_foreign` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `profile_languages`
+--
+ALTER TABLE `profile_languages`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `profile_languages_user_id_foreign` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `profile_objectives`
+--
+ALTER TABLE `profile_objectives`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `profile_objectives_user_id_foreign` (`user_id`);
+
+--
+-- Chỉ mục cho bảng `profile_projects`
+--
+ALTER TABLE `profile_projects`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `profile_projects_user_id_foreign` (`user_id`);
 
 --
 -- Chỉ mục cho bảng `questions`
@@ -1300,7 +1570,7 @@ ALTER TABLE `workflows`
 -- AUTO_INCREMENT cho bảng `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT cho bảng `category_tasks`
@@ -1357,10 +1627,22 @@ ALTER TABLE `food`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `future_directions`
+--
+ALTER TABLE `future_directions`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT cho bảng `ideas`
+--
+ALTER TABLE `ideas`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT cho bảng `issues`
 --
 ALTER TABLE `issues`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT cho bảng `issue_users`
@@ -1390,7 +1672,7 @@ ALTER TABLE `learn_mores`
 -- AUTO_INCREMENT cho bảng `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT cho bảng `paragraphs`
@@ -1435,10 +1717,52 @@ ALTER TABLE `problem_processes`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `professional_education`
+--
+ALTER TABLE `professional_education`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT cho bảng `professional_skills`
+--
+ALTER TABLE `professional_skills`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT cho bảng `profiles`
 --
 ALTER TABLE `profiles`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT cho bảng `profile_experiences`
+--
+ALTER TABLE `profile_experiences`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `profile_hobbies`
+--
+ALTER TABLE `profile_hobbies`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `profile_languages`
+--
+ALTER TABLE `profile_languages`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT cho bảng `profile_objectives`
+--
+ALTER TABLE `profile_objectives`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `profile_projects`
+--
+ALTER TABLE `profile_projects`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `questions`
@@ -1474,7 +1798,7 @@ ALTER TABLE `structures`
 -- AUTO_INCREMENT cho bảng `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT cho bảng `todos`
@@ -1486,7 +1810,7 @@ ALTER TABLE `todos`
 -- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `vocabularies`
@@ -1547,6 +1871,18 @@ ALTER TABLE `events`
 --
 ALTER TABLE `expenses`
   ADD CONSTRAINT `expenses_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `future_directions`
+--
+ALTER TABLE `future_directions`
+  ADD CONSTRAINT `future_directions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `ideas`
+--
+ALTER TABLE `ideas`
+  ADD CONSTRAINT `ideas_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `issues`
@@ -1616,10 +1952,52 @@ ALTER TABLE `problem_processes`
   ADD CONSTRAINT `problem_processes_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
+-- Các ràng buộc cho bảng `professional_education`
+--
+ALTER TABLE `professional_education`
+  ADD CONSTRAINT `professional_education_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `professional_skills`
+--
+ALTER TABLE `professional_skills`
+  ADD CONSTRAINT `professional_skills_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
 -- Các ràng buộc cho bảng `profiles`
 --
 ALTER TABLE `profiles`
   ADD CONSTRAINT `profiles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `profile_experiences`
+--
+ALTER TABLE `profile_experiences`
+  ADD CONSTRAINT `profile_experiences_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `profile_hobbies`
+--
+ALTER TABLE `profile_hobbies`
+  ADD CONSTRAINT `profile_hobbies_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `profile_languages`
+--
+ALTER TABLE `profile_languages`
+  ADD CONSTRAINT `profile_languages_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `profile_objectives`
+--
+ALTER TABLE `profile_objectives`
+  ADD CONSTRAINT `profile_objectives_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Các ràng buộc cho bảng `profile_projects`
+--
+ALTER TABLE `profile_projects`
+  ADD CONSTRAINT `profile_projects_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Các ràng buộc cho bảng `questions`

@@ -128,6 +128,22 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/updateSkill/{id}', [ChatController::class, 'updateSkillProfile'])->name('SkillProfile.update');
     Route::post('/store_educations', [ChatController::class, 'storeProfileEducation'])->name('educationProfile.store');
     Route::post('/updateEducations/{id}', [ChatController::class, 'updateEducationProfile'])->name('educationProfile.update');
+    
+    Route::post('/store_futures', [ChatController::class, 'storeFutureDirection'])->name('FutureDirection.store');
+    Route::post('/updateFutures/{id}', [ChatController::class, 'updateFutureDirection'])->name('FutureDirection.update');
+
+    Route::post('/store_projects', [ChatController::class, 'storeProfileProject'])->name('ProfileProject.store');
+    Route::post('/updateProjects/{id}', [ChatController::class, 'updateProfileProject'])->name('ProfileProject.update');
+
+    Route::post('/store_experiences', [ChatController::class, 'storeProfileExperience'])->name('ProfileExperience.store');
+    Route::post('/updateExperiences/{id}', [ChatController::class, 'updateProfileExperience'])->name('ProfileExperience.update');
+
+    Route::post('/store_hobbies', [ChatController::class, 'storeProfileHobbies'])->name('ProfileHobbies.store');
+    Route::post('/updateHobbies/{id}', [ChatController::class, 'updateProfileHobbies'])->name('ProfileHobbies.update');
+
+    Route::post('/store_objectives', [ChatController::class, 'storeProfileObjective'])->name('ProfileObjective.store');
+    Route::post('/updateObjectives/{id}', [ChatController::class, 'updateProfileObjective'])->name('ProfileObjective.update');
+
     Route::resource('japanese', JapaneseController::class);
     Route::get('add_japanese', [JapaneseController::class, 'addJapanese'])->name('japanese.addJapanese');
     Route::resource('japanese', JapaneseController::class);

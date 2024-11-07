@@ -12,11 +12,17 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator; 
 use App\Models\ProfessionalSkills;
 use App\Models\ProfessionalEducation;
+use App\Models\FutureDirection;
+use App\Models\ProfileProject;
+use App\Models\ProfileExperience;
+use App\Models\ProfileHobbies;
+use App\Models\ProfileObjective;
 
 
 
 class ChatController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -49,7 +55,12 @@ class ChatController extends Controller
         $languages = ProfileLanguages::where('user_id', Auth::id())->get();
         $skills = ProfessionalSkills::where('user_id', Auth::id())->get();
         $educations = ProfessionalEducation::where('user_id', Auth::id())->get();
-        return view('chat.info.index', compact('profiles','languages','skills','educations'));
+        $futures = FutureDirection::where('user_id', Auth::id())->get();
+        $projects = ProfileProject::where('user_id', Auth::id())->get();
+        $experiences = ProfileExperience::where('user_id', Auth::id())->get();
+        $hobbies = ProfileHobbies::where('user_id', Auth::id())->get();
+        $objectives = ProfileObjective::where('user_id', Auth::id())->get();
+        return view('chat.info.index', compact('profiles','languages','skills','educations','futures','projects','experiences','hobbies','objectives'));
     }
 
 
@@ -156,7 +167,7 @@ class ChatController extends Controller
     {
         $educations = ProfessionalEducation::findOrFail($id);
 
-        $educations->name = $request->input('description');
+        $educations->description = $request->input('description');
         
         $educations->save();
 
@@ -187,13 +198,196 @@ class ChatController extends Controller
 
             return response()->json(['message' => 'Profile updated successfully']);
         } catch (\Exception $e) {
-            // Log lỗi để kiểm tra
-            \Log::error($e->getMessage());
             return response()->json(['error' => 'An error occurred while updating the profile.'], 500);
         }
     }
 
+    public function storeProfileObjective(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required|exists:users,id',
+            'objectives' => 'required|array',
+            'objectives.*' => 'required|string|max:255',
+        ], [
+            'user_id.required' => __('messages.user_id'),
+            'objectives.required' => __('messages.description_required'),
+            'objectives.*.required' => __('messages.description_required'),
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        foreach ($request->objectives as $item) {
+            ProfileObjective::create([
+                'user_id' => $request->user_id,
+                'description' => $item,
+            ]);
+        }
+    
+        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+    }
 
+    public function updateProfileObjective(Request $request, $id)
+    {
+        $educations = ProfileObjective::findOrFail($id);
+
+        $educations->description = $request->input('description');
+        
+        $educations->save();
+
+        return redirect()->back()->with('success', 'Education updated successfully.');
+    }
+    public function storeProfileHobbies(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required|exists:users,id',
+            'hobbies' => 'required|array',
+            'hobbies.*' => 'required|string|max:255',
+        ], [
+            'user_id.required' => __('messages.user_id'),
+            'hobbies.required' => __('messages.description_required'),
+            'hobbies.*.required' => __('messages.description_required'),
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        foreach ($request->hobbies as $item) {
+            ProfileHobbies::create([
+                'user_id' => $request->user_id,
+                'description' => $item,
+            ]);
+        }
+    
+        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+    }
+
+    public function updateProfileHobbies(Request $request, $id)
+    {
+        $educations = ProfileHobbies::findOrFail($id);
+
+        $educations->description = $request->input('description');
+        
+        $educations->save();
+
+        return redirect()->back()->with('success', 'Education updated successfully.');
+    }
+
+    public function storeProfileExperience(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required|exists:users,id',
+            'experiences' => 'required|array',
+            'experiences.*' => 'required|string|max:255',
+        ], [
+            'user_id.required' => __('messages.user_id'),
+            'experiences.required' => __('messages.description_required'),
+            'experiences.*.required' => __('messages.description_required'),
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        foreach ($request->projects as $item) {
+            ProfileExperience::create([
+                'user_id' => $request->user_id,
+                'description' => $item,
+            ]);
+        }
+    
+        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+    }
+
+    public function updateProfileExperience(Request $request, $id)
+    {
+        $educations = ProfileExperience::findOrFail($id);
+
+        $educations->description = $request->input('description');
+        
+        $educations->save();
+
+        return redirect()->back()->with('success', 'Education updated successfully.');
+    }
+
+    public function storeProfileProject(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required|exists:users,id',
+            'projects' => 'required|array',
+            'projects.*' => 'required|string|max:255',
+        ], [
+            'user_id.required' => __('messages.user_id'),
+            'projects.required' => __('messages.description_required'),
+            'projects.*.required' => __('messages.description_required'),
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        foreach ($request->projects as $item) {
+            ProfileProject::create([
+                'user_id' => $request->user_id,
+                'description' => $item,
+            ]);
+        }
+    
+        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+    }
+
+    public function updateProfileProject(Request $request, $id)
+    {
+        $educations = ProfileProject::findOrFail($id);
+
+        $educations->description = $request->input('description');
+        
+        $educations->save();
+
+        return redirect()->back()->with('success', 'Education updated successfully.');
+    }
+
+    public function storeFutureDirection(Request $request)
+    {
+        if (!Auth::check()) {
+            return redirect()->route('login')->with('error', 'Please log in to create future directions.');
+        }
+        $validator = Validator::make($request->all(), [
+            'user_id' => 'required|exists:users,id',
+            'futures' => 'required|array',
+            'futures.*' => 'required|string|max:255',
+        ], [
+            'user_id.required' => __('messages.user_id'),
+            'futures.required' => __('messages.description_required'),
+            'futures.*.required' => __('messages.description_required'),
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        foreach ($request->futures as $future) {
+            FutureDirection::create([
+                'user_id' => $request->user_id,
+                'description' => $future,
+            ]);
+        }
+    
+        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+    }
+
+    public function updateFutureDirection(Request $request, $id)
+    {
+        $educations = FutureDirection::findOrFail($id);
+
+        $educations->description = $request->input('description');
+        
+        $educations->save();
+
+        return redirect()->back()->with('success', 'Education updated successfully.');
+    }
     /**
      * Store a newly created resource in storage.
      *
