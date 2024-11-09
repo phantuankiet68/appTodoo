@@ -25,7 +25,7 @@ class PostController extends Controller
             $validator = Validator::make($request->all(), [
                 'location' => 'required|string|max:255',
                 'description' => 'nullable|string',
-                'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:5120',
+                'images.*' => 'image|max:5120',
             ]);
         
             if ($validator->fails()) {

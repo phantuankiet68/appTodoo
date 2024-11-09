@@ -266,4 +266,14 @@ return [
     'Experience'=>'経験',
     'Project'=>'プロジェクト',
     'Hobbies'=>'趣味',
+
+    'Recent Stories'=>'最近のストーリー',
+    'Your Page'=>'あなたのページ',
+    'Publish'=>'公開 ',
+    'Info'=>'情報',
+    'Link'=>'リンク',
+    'Photo'=>'写真',
+    'Your Share'=>'あなたのシェア',
+    'My Created Page'=>'作成したページ',
+    'No images available for this post'=>'この投稿には画像がありません',
 ];

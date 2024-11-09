@@ -237,8 +237,8 @@
 .popup-category {
     width: 30%;
     position: fixed;
-    top: 120px;
-    left: 0;
+    top: 12px;
+    left: 38%;
     padding: 10px 30px;
     border-radius: 5px;
     z-index: 9999;
@@ -251,9 +251,10 @@
 }
 
 .popup-category.error {
-    background-color: #f2dede;
-    color: #a94442;
+    background-color: #eb0f0f;
+    color: #ffffff;
     border: 1px solid #ebccd1;
+    text-align: center;
 }
 
 .model .BtnCloseCreate p{
@@ -1428,6 +1429,8 @@
 .chat-center{
     width: 100%;
     display: flex;
+    height: 80vh;
+    overflow: scroll;
     justify-content: center;
 }
 
@@ -1436,6 +1439,13 @@
     background-color: #ffff;
     border-radius: 5px;
     padding:20px;
+}
+
+.Container.dark-mode .chat-center .createPost{
+    width: 100%;
+    background-color: #555555;
+    border-radius: 5px;
+    padding: 20px;
 }
 
 .createPost h3{
@@ -1474,7 +1484,6 @@ p.space {
     width: 6%;
     justify-content: center;
     align-items: center;
-    border: 3px solid #808cf6;
     border-radius: 50%;
 }
 .imgUser{
@@ -3238,4 +3247,567 @@ i.material-icons {
 
 .dashboard-content.dark-mode .ck-editor__main{
     color: #000;
+}
+.form-item-info .EditProfileHobbies{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-item-info .EditProfileLanguage .hobbiesFields {
+    width: 90%;
+}
+
+.form-item-info .EditProfileLanguage .hobbiesFields  textarea {
+    width: 100%;
+    height: 100px;
+}
+
+.chat-container-one {
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    padding: 0 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Contact List */
+.chat-container-one .contact-list {
+    width: 30%;
+    background: #2a4158;
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-container-one .search-bar {
+    display: flex;
+    padding: 10px;
+}
+
+.chat-container-one .search-bar input {
+    flex: 1;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.chat-container-one .search-bar button {
+    margin-left: 5px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.chat-container-one .contacts {
+    height: 71vh;
+    overflow: auto;
+}
+
+.chat-container-one .contact {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.chat-container-one .contact:hover {
+    background: #3a556b;
+}
+
+.chat-container-one .contact img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-container-one .contact p {
+    margin: 0;
+}
+
+.chat-container-one .status {
+    font-size: 0.8em;
+    color: #ccc;
+}
+
+.chat-container-one .status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-left: auto;
+}
+
+.chat-container-one .online {
+    background: green;
+}
+
+.chat-container-one .offline {
+    background: red;
+}
+
+/* Chat Window */
+.chat-container-one .chat-window {
+    width: 70%;
+    background: #3c4e5e;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.chat-container-one .chat-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: #2f3d4a;
+}
+
+.chat-container-one .chat-header img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.chat-container-one .chat-header p {
+    font-weight: bold;
+}
+
+.chat-container-one .chat-header .chat-options {
+    margin-left: auto;
+}
+
+.chat-container-one .chat-header .chat-options button {
+    background: transparent;
+    border: none;
+    color: white;
+    margin-left: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.chat-container-one .chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    max-width: 60%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.received {
+    background: #4a6074;
+    align-self: flex-start;
+}
+
+.sent {
+    background: #1f8ed3;
+    align-self: flex-end;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    background: #2f3d4a;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+.chat-input button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.friends_container {
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.friends_container h2 {
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333;
+}
+
+.friends_container #searchInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    outline: none;
+}
+
+.friends_container #friendsList {
+    width: 100%;
+    list-style: none;
+    max-height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.friends_container #friendsList .friend {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.Container.dark-mode .friends_container{
+    background-color: #555555;
+
+}
+
+.friends_container .friend:hover {
+    background: #36d1d3;
+}
+
+.friends_container .friend img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.friends_container .friend p {
+    font-weight: bold;
+    margin: 0;
+}
+
+.friends_container .status {
+    font-size: 0.8em;
+    color: #888;
+}
+
+.friends_container .online .status {
+    color: green;
+}
+
+.offline .status {
+    color: red;
+}
+
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    color: #fff;
+    backdrop-filter: blur(10px);
+    border: 1px solid #eee;
+}
+
+.resset-password{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #fff;
+}
+
+.signup-prompt {
+    font-size: 14px;
+    color: #626262;
+    margin-bottom: 20px;
+}
+
+.dark-mode .signup-prompt {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+
+
+.signup-prompt a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.input-box {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid #eee;
+    color: #3e3737;
+    outline: none;
+    font-size: 16px;
+}
+
+.dark-mode .input-box input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid #eee;
+    color: #fff;
+    outline: none;
+    font-size: 16px;
+}
+
+.input-box .icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+.login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #40c3f7;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-button:hover {
+    background-color: rgba(48, 202, 249, 0.5);
+}
+
+.extra-options {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-top: 10px;
+    color: #ddd;
+}
+
+.extra-options a {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.extra-options label {
+    display: flex;
+    align-items: center;
+}
+
+.extra-options input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+
+.color-picker {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.color-picker label {
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.color-picker button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.color-picker button:hover {
+    background-color: #45a049;
+}
+
+#noteContainer {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+}
+
+/* Style for the Note */
+.note {
+    width: 250px;
+    padding: 20px;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: move;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.note textarea {
+    width: 100%;
+    height: 100px;
+    border: none;
+    outline: none;
+    resize: none;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.taskeu-container{
+    width: 100%;
+    height: 86px;
+    padding: 0 10px;
+}
+
+.todo-container {
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1); /* Frosted glass effect */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #fff;
+    text-align: center;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.input-container input {
+    width: 90%;
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.input-container button {
+    padding: 8px 15px;
+    margin-left: 10px;
+    border: none;
+    border-radius: 50%;
+    background-color: #6c5ce7;
+    color: #fff;
+    cursor: pointer;
+    font-size: 23px;
+}
+
+.input-container button:hover {
+    background-color: #5a49cf;
+}
+
+.button-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.button-group button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.button-group button:hover {
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.task-list {
+    list-style: none;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    color: #fff;
+}
+
+.task-item .task-name {
+    display: flex;
+    align-items: center;
+}
+
+.task-item input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task-item .delete-button {
+    background: #ff7675;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.task-item .delete-button:hover {
+    background: #e5504c;
 }

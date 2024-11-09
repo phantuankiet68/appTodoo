@@ -343,8 +343,8 @@
         height: 86.2vh;
         width: 55px;
         background-color: #fff;
-        top: 95px;
-        right: 11px;
+        top: 72px;
+        right: 16px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -376,6 +376,12 @@
     .chatUserItem .chatUserItemImage {
         width: 38px;
         height: 38px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #40c3f7;
+        cursor: pointer;
     }
 
     
@@ -649,7 +655,7 @@
     .infoController .infoControllerMenu .infoControllerMenuList button {
         width: 100%;
         background: #fff;
-        padding: 8px 25px;
+        padding: 12px 25px;
         font-size: 13px;
         color: #000;
         border-radius: 5px;

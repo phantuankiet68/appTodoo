@@ -11,7 +11,7 @@
                     <div class="chat-center">
                         <div class="createPost">
                             <div class="titlePost">
-                                <h3>Recent Stories</h3>
+                                <h3>{{ __('messages.Recent Stories') }}</h3>
                             </div>
                             <p class="space"></p>
                             <div class="recentStoriesView">
@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="thinkUser userName">
                                     <span>{{$item->user->full_name}}</span>
-                                    <p>Date create: {{$item->created_at}}</p>
+                                    <p>{{ __('messages.Date Created') }}: {{$item->created_at}}</p>
                                 </div>
                             </div>
                             <div class="descriptionContent">
@@ -98,7 +98,7 @@
                                     <i class="fa-solid fa-arrow-right button next"></i>
                                 </section>
                             @else
-                                <p>No images available for this post.</p>
+                                <p>{{ __('messages.No images available for this post') }}</p>
                             @endif
                             <div class="localPost">
                                 <i class="fa-solid fa-location-dot"></i> <p>{{$item->location}}</p>
@@ -161,7 +161,7 @@
                 <div class="chat-right">
                     <div class="infoUser">
                         <div class="titlePost">
-                            <h3>Your Page</h3>
+                            <h3>{{ __('messages.Your Page') }}</h3>
                         </div>
                         <p class="space"></p>
                         <div class="settingUser">
@@ -169,38 +169,38 @@
                                 <img src="{{asset('assets/images/user2.jpg')}}" alt="">
                             </div>
                             <div class="settingUserInfo">
-                                <span><b>My create Page</b></span>
-                                <button><i class="fa-solid fa-message"></i> Message</button>
-                                <button><i class="fa-solid fa-bell"></i> Notify</button>
-                                <button><i class="fa-solid fa-gear"></i> Settings</button>
+                                <span><b>{{ __('messages.My Created Page') }}</b></span>
+                                <button><i class="fa-solid fa-message"></i> {{ __('messages.Message') }}</button>
+                                <button><i class="fa-solid fa-bell"></i> {{ __('messages.Notification') }}</button>
+                                <button><i class="fa-solid fa-gear"></i> {{ __('messages.Settings') }}</button>
                             </div>
                         </div>
                         <p class="space"></p>
                         <div class="actionUserChat">
                             <div class="actionUserChatTeam" onclick="showPost()">
                                 <p><i class="fa-solid fa-pen-to-square"></i></p>
-                                <p>Publish</p>
+                                <p>{{ __('messages.Publish') }}</p>
                             </div>
                             <div class="actionUserChatTeam">
                                 <a href="{{ route('info.index') }}">
                                     <p><i class="fa-solid fa-camera-retro"></i></p>
-                                    <p>Photo</p>
+                                    <p>{{ __('messages.Info') }}</p>
                                 </a>
                             </div>
                             <div class="actionUserChatTeam">
                                 <p><i class="fa-brands fa-linkedin"></i></p>
-                                <p>Link in</p>
+                                <p>{{ __('messages.Link') }}</p>
                             </div>
                             <div class="actionUserChatTeam">
                                 <p><i class="fa-solid fa-camera-retro"></i></p>
-                                <p>Photo</p>
+                                <p>{{ __('messages.Photo') }}</p>
                             </div>
                         </div>
                         <p class="space"></p>
                     </div>
                     <div class="infoUser">
                         <div class="titlePost">
-                            <h3>Your Share</h3>
+                            <h3>{{ __('messages.Your Share') }}</h3>
                         </div>
                         <p class="space"></p>
                         <div class="sales">
@@ -224,6 +224,11 @@
                 </div>
             </div>
             <div class="chatUserList">
+                <div class="chatUserItem">
+                    <div class="chatUserItemImage">
+                        <i class="fa-solid fa-plus"></i>
+                    </div>
+                </div>
                 <div class="chatUserItem">
                     <div class="chatUserItemImage">
                         <img src="{{asset('assets/images/user2.jpg')}}" alt="">

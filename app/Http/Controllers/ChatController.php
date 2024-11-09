@@ -60,7 +60,17 @@ class ChatController extends Controller
         $experiences = ProfileExperience::where('user_id', Auth::id())->get();
         $hobbies = ProfileHobbies::where('user_id', Auth::id())->get();
         $objectives = ProfileObjective::where('user_id', Auth::id())->get();
-        return view('chat.info.index', compact('profiles','languages','skills','educations','futures','projects','experiences','hobbies','objectives'));
+        $posts = Post::with(['user', 'images', 'comments', 'likes'])
+        ->where('user_id', Auth::id()) // Add this line to filter by authenticated user's ID
+        ->whereHas('images', function($query) {
+            $query->select('id', 'post_id');
+        })  
+        ->withCount('comments')
+        ->withCount('likes')
+        ->orderBy('comments_count', 'asc')
+        ->orderBy('id', 'asc')
+        ->get();
+        return view('chat.info.index', compact('profiles','posts','languages','skills','educations','futures','projects','experiences','hobbies','objectives'));
     }
 
 
@@ -207,7 +217,7 @@ class ChatController extends Controller
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',
             'objectives' => 'required|array',
-            'objectives.*' => 'required|string|max:255',
+            'objectives.*' => 'required|string',
         ], [
             'user_id.required' => __('messages.user_id'),
             'objectives.required' => __('messages.description_required'),
@@ -225,7 +235,7 @@ class ChatController extends Controller
             ]);
         }
     
-        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+        return redirect()->back()->with('success', __('messages.You have successfully created new languages!'));
     }
 
     public function updateProfileObjective(Request $request, $id)
@@ -243,7 +253,7 @@ class ChatController extends Controller
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',
             'hobbies' => 'required|array',
-            'hobbies.*' => 'required|string|max:255',
+            'hobbies.*' => 'required|string',
         ], [
             'user_id.required' => __('messages.user_id'),
             'hobbies.required' => __('messages.description_required'),
@@ -254,14 +264,14 @@ class ChatController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
     
-        foreach ($request->hobbies as $item) {
+        foreach ($request->hobbies as $hobby) {
             ProfileHobbies::create([
                 'user_id' => $request->user_id,
-                'description' => $item,
+                'description' => $hobby,
             ]);
         }
     
-        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+        return redirect()->route('info.index')->with('success', __('messages.You have successfully created new languages!'));
     }
 
     public function updateProfileHobbies(Request $request, $id)
@@ -280,7 +290,7 @@ class ChatController extends Controller
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',
             'experiences' => 'required|array',
-            'experiences.*' => 'required|string|max:255',
+            'experiences.*' => 'required|string',
         ], [
             'user_id.required' => __('messages.user_id'),
             'experiences.required' => __('messages.description_required'),
@@ -291,14 +301,14 @@ class ChatController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
     
-        foreach ($request->projects as $item) {
+        foreach ($request->experiences as $experience) {
             ProfileExperience::create([
                 'user_id' => $request->user_id,
-                'description' => $item,
+                'description' => $experience,
             ]);
         }
     
-        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+        return redirect()->back()->with('success', __('messages.You have successfully created new languages!'));
     }
 
     public function updateProfileExperience(Request $request, $id)
@@ -317,7 +327,7 @@ class ChatController extends Controller
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',
             'projects' => 'required|array',
-            'projects.*' => 'required|string|max:255',
+            'projects.*' => 'required|string',
         ], [
             'user_id.required' => __('messages.user_id'),
             'projects.required' => __('messages.description_required'),
@@ -335,7 +345,7 @@ class ChatController extends Controller
             ]);
         }
     
-        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+        return redirect()->back()->with('success', __('messages.You have successfully created new languages!'));
     }
 
     public function updateProfileProject(Request $request, $id)
@@ -354,28 +364,29 @@ class ChatController extends Controller
         if (!Auth::check()) {
             return redirect()->route('login')->with('error', 'Please log in to create future directions.');
         }
+
         $validator = Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',
             'futures' => 'required|array',
-            'futures.*' => 'required|string|max:255',
+            'futures.*' => 'required|string',
         ], [
             'user_id.required' => __('messages.user_id'),
             'futures.required' => __('messages.description_required'),
             'futures.*.required' => __('messages.description_required'),
         ]);
-    
+
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-    
+
         foreach ($request->futures as $future) {
             FutureDirection::create([
                 'user_id' => $request->user_id,
                 'description' => $future,
             ]);
         }
-    
-        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+
+        return redirect()->route('info.index')->with('success', __('messages.You have successfully created new languages!'));
     }
 
     public function updateFutureDirection(Request $request, $id)

@@ -265,4 +265,15 @@ return [
     'Experience'=>'Kinh nghiệm',
     'Project'=>'Dự án',
     'Hobbies'=>'Sở thích',
+    'Recent Stories'=>'Các câu chuyện gần đây',
+    'Your Page'=>'Trang của bạn',
+    'Publish'=>'Đăng ',
+    'Info'=>'Thông tin',
+    'Link'=>'Liên kết',
+    'Photo'=>'Ảnh',
+    'Your Share'=>'Chia sẻ của bạn',
+    'My Created Page'=>'Trang do bạn tạo',
+    'No images available for this post'=>'Không có hình ảnh cho bài đăng này',
+
+
 ];
