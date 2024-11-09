@@ -61,7 +61,7 @@ class ChatController extends Controller
         $hobbies = ProfileHobbies::where('user_id', Auth::id())->get();
         $objectives = ProfileObjective::where('user_id', Auth::id())->get();
         $posts = Post::with(['user', 'images', 'comments', 'likes'])
-        ->where('user_id', Auth::id()) // Add this line to filter by authenticated user's ID
+        ->where('user_id', Auth::id())
         ->whereHas('images', function($query) {
             $query->select('id', 'post_id');
         })  
@@ -97,7 +97,7 @@ class ChatController extends Controller
             ]);
         }
     
-        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+        return redirect()->back()->with('success', __('messages.You have successfully created new.'));
     }
 
     public function storeProfessionalSkills(Request $request)
@@ -123,7 +123,7 @@ class ChatController extends Controller
             ]);
         }
     
-        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+        return redirect()->back()->with('success_create', __('messages.You have successfully created new.'));
     }
 
     public function updateLanguageProfile(Request $request, $id)
@@ -133,7 +133,7 @@ class ChatController extends Controller
         $language->name = $request->input('name');
         $language->save();
 
-        return redirect()->back()->with('success', 'Language updated successfully.');
+        return redirect()->back()->with('success', 'You have successfully updated.');
     }
 
 
@@ -144,7 +144,7 @@ class ChatController extends Controller
         $language->name = $request->input('name');
         $language->save();
 
-        return redirect()->back()->with('success', 'Language updated successfully.');
+        return redirect()->back()->with('success', 'You have successfully updated.');
     }
 
     public function storeProfileEducation(Request $request)
@@ -170,7 +170,7 @@ class ChatController extends Controller
             ]);
         }
     
-        return redirect()->back()->with('success_create', __('messages.You have successfully created new languages!'));
+        return redirect()->back()->with('success_create', __('messages.You have successfully created new.'));
     }
 
     public function updateEducationProfile(Request $request, $id)
@@ -181,7 +181,7 @@ class ChatController extends Controller
         
         $educations->save();
 
-        return redirect()->back()->with('success', 'Education updated successfully.');
+        return redirect()->back()->with('success', 'You have successfully updated.');
     }
 
     public function updateProfile(Request $request, $id)
@@ -206,7 +206,7 @@ class ChatController extends Controller
             $profiles = Profile::findOrFail($id);
             $profiles->update($validatedData);
 
-            return response()->json(['message' => 'Profile updated successfully']);
+            return response()->json(['message' => 'You have successfully updated.']);
         } catch (\Exception $e) {
             return response()->json(['error' => 'An error occurred while updating the profile.'], 500);
         }
@@ -235,7 +235,7 @@ class ChatController extends Controller
             ]);
         }
     
-        return redirect()->back()->with('success', __('messages.You have successfully created new languages!'));
+        return redirect()->back()->with('success', __('messages.You have successfully created new.'));
     }
 
     public function updateProfileObjective(Request $request, $id)
@@ -246,7 +246,7 @@ class ChatController extends Controller
         
         $educations->save();
 
-        return redirect()->back()->with('success', 'Education updated successfully.');
+        return redirect()->back()->with('success', 'You have successfully updated.');
     }
     public function storeProfileHobbies(Request $request)
     {
@@ -271,7 +271,7 @@ class ChatController extends Controller
             ]);
         }
     
-        return redirect()->route('info.index')->with('success', __('messages.You have successfully created new languages!'));
+        return redirect()->route('info.index')->with('success', __('messages.You have successfully created new.'));
     }
 
     public function updateProfileHobbies(Request $request, $id)
@@ -282,7 +282,7 @@ class ChatController extends Controller
         
         $educations->save();
 
-        return redirect()->back()->with('success', 'Education updated successfully.');
+        return redirect()->back()->with('success', 'You have successfully updated.');
     }
 
     public function storeProfileExperience(Request $request)
@@ -308,7 +308,7 @@ class ChatController extends Controller
             ]);
         }
     
-        return redirect()->back()->with('success', __('messages.You have successfully created new languages!'));
+        return redirect()->back()->with('success', __('messages.You have successfully created new.'));
     }
 
     public function updateProfileExperience(Request $request, $id)
@@ -319,7 +319,7 @@ class ChatController extends Controller
         
         $educations->save();
 
-        return redirect()->back()->with('success', 'Education updated successfully.');
+        return redirect()->back()->with('success', 'You have successfully updated.');
     }
 
     public function storeProfileProject(Request $request)
@@ -345,7 +345,7 @@ class ChatController extends Controller
             ]);
         }
     
-        return redirect()->back()->with('success', __('messages.You have successfully created new languages!'));
+        return redirect()->back()->with('success', __('messages.You have successfully created new.'));
     }
 
     public function updateProfileProject(Request $request, $id)
@@ -356,7 +356,7 @@ class ChatController extends Controller
         
         $educations->save();
 
-        return redirect()->back()->with('success', 'Education updated successfully.');
+        return redirect()->back()->with('success', 'You have successfully updated.');
     }
 
     public function storeFutureDirection(Request $request)
@@ -386,7 +386,7 @@ class ChatController extends Controller
             ]);
         }
 
-        return redirect()->route('info.index')->with('success', __('messages.You have successfully created new languages!'));
+        return redirect()->route('info.index')->with('success', __('messages.You have successfully created new.'));
     }
 
     public function updateFutureDirection(Request $request, $id)
@@ -397,7 +397,7 @@ class ChatController extends Controller
         
         $educations->save();
 
-        return redirect()->back()->with('success', 'Education updated successfully.');
+        return redirect()->back()->with('success', 'You have successfully updated.');
     }
     /**
      * Store a newly created resource in storage.

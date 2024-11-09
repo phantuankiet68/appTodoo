@@ -274,6 +274,7 @@ return [
     'Your Share'=>'Chia sẻ của bạn',
     'My Created Page'=>'Trang do bạn tạo',
     'No images available for this post'=>'Không có hình ảnh cho bài đăng này',
-
+    'You have successfully created new.'=>'Bạn đã tạo mới thành công.',
+    'You have successfully updated.'=>'Bạn đã cập nhật thành công.',
 
 ];

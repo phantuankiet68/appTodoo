@@ -16,18 +16,18 @@
             </div>
             <div class="infoControllerMenu">
                 <div class="infoControllerMenuList">
-                    <button><i class="fa-solid fa-id-badge"></i> {{ __('messages.Personal Information') }}</button>
-                    <button><i class="fa-solid fa-message"></i> {{ __('messages.Messages') }}</button>
-                    <button><i class="fa-solid fa-pen-to-square"></i> {{ __('messages.Posts') }}</button>
-                    <button><i class="fa-solid fa-user-group"></i> {{ __('messages.Friends') }}</button>
-                    <button><i class="fa-solid fa-key"></i> {{ __('messages.Change Password') }}</button>
-                    <button><i class="fa-solid fa-link"></i> {{ __('messages.Important Links') }}</button>
-                    <button><i class="fa-solid fa-note-sticky"></i> {{ __('messages.Note') }}</button>
-                    <button><i class="fa-solid fa-file-lines"></i> {{ __('messages.CV') }}</button>
+                    <button onclick="showContent('item1', this)" id="menu-item1"><i class="fa-solid fa-id-badge"></i> Personal Information</button>
+                    <button onclick="showContent('item2', this)" id="menu-item2"><i class="fa-solid fa-message"></i> Messages</button>
+                    <button onclick="showContent('item3', this)" id="menu-item3"><i class="fa-solid fa-pen-to-square"></i> Posts</button>
+                    <button onclick="showContent('item4', this)" id="menu-item4"><i class="fa-solid fa-user-group"></i> Friends</button>
+                    <button onclick="showContent('item5', this)" id="menu-item5"><i class="fa-solid fa-key"></i> Change Password</button>
+                    <button onclick="showContent('item6', this)" id="menu-item6"><i class="fa-solid fa-link"></i> Important Links</button>
+                    <button onclick="showContent('item7', this)" id="menu-item7"><i class="fa-solid fa-note-sticky"></i> Note</button>
+                    <button onclick="showContent('item8', this)" id="menu-item8"><i class="fa-solid fa-file-lines"></i> CV</button>
                 </div>
             </div>
         </div>
-        <div class="infoControllerRight" style="display:none">
+        <div class="infoControllerRight" id="item1">
             <div class="infoControllerRightUser">
                 @foreach($profiles as $item)
                 <form method="POST" id="edit-profile-form-{{ $item->id }}" class="edit-profile-form">
@@ -36,7 +36,7 @@
                     <div class="infoControllerRightContentUser">
                         <input type="hidden" id="profile_id" value="{{ $item->id }}"/>
                         @if (Auth::check())
-                            <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
                         @endif
                         <div class="form-input-category">
                             <input type="text" class="input-name" name="name" value="{{ $item->name }}" placeholder="Nhập họ và tên....">
@@ -92,7 +92,6 @@
                         @foreach($languages as $lang)
                             <form class="EditProfileLanguage " action="{{ route('languageProfile.update', ['id' => $lang->id]) }}" method="POST">
                                 @csrf
-                                <input type="hidden" id="language_id" value="{{ $lang->id }}"/>
                                 <div class="language-fields">
                                     <input placeholder="{{ __('messages.Enter here') }}" class="form-control" name="name" value="{{$lang->name}}" />
                                 </div>
@@ -102,12 +101,12 @@
                         <form action="{{ route('languageProfile.store') }}" method="POST">
                             @csrf
                             @if (Auth::check())
-                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}" />
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
                             @endif
                             <div id="language-fields">
                                 <input placeholder="{{ __('messages.Enter here') }}" class="form-control laField" name="languages[]" />
                             </div>
-                            <button type="button" class="btn btn-primary btn-sm" id="laAddButton" onclick="addNewLanField()">Add Another Language</button>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addNewLanField()">Add Another Language</button>
                             <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                         </form>
                     </div>
@@ -128,12 +127,12 @@
                         <form action="{{ route('ProfileObjective.store') }}" method="POST">
                             @csrf
                             @if (Auth::check())
-                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}" />
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
                             @endif
                             <div id="futureFieldsContainer">
                                 <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="objectives[]"></textarea>
                             </div>
-                            <button type="button" class="btn btn-primary btn-sm" id="laAddButton" onclick="addNewObjectiveField()">Add Another Objective</button>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addNewObjectiveField()">Add Another Objective</button>
                             <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                         </form>
                     </div>
@@ -144,7 +143,6 @@
                         @foreach($educations as $education)
                             <form class="EditProfileLanguage " action="{{ route('educationProfile.update', ['id' => $education->id]) }}" method="POST">
                                 @csrf
-                                <input type="hidden" id="education_id" value="{{ $education->id }}"/>
                                 <div class="edFields">
                                     <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="description">{{$education->description}}</textarea>
                                 </div>
@@ -154,12 +152,12 @@
                         <form action="{{ route('educationProfile.store') }}" method="POST">
                             @csrf
                             @if (Auth::check())
-                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}" />
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
                             @endif
                             <div id="edFields" class="edFields">
                                 <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="educations[]"></textarea>
                             </div>
-                            <button type="button" class="btn btn-primary btn-sm" id="laAddButton" onclick="addNewEducationField()">Add Another Education</button>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addNewEducationField()">Add Another Education</button>
                             <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                         </form>
                     </div>
@@ -180,12 +178,12 @@
                         <form action="{{ route('FutureDirection.store') }}" method="POST">
                             @csrf
                             @if (Auth::check())
-                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}" />
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
                             @endif
                             <div id="futureFieldsContainer">
                                 <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="futures[]"></textarea>
                             </div>
-                            <button type="button" class="btn btn-primary btn-sm" id="laAddButton" onclick="addNewFutureField()">Add Another Future</button>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addNewFutureField()">Add Another Future</button>
                             <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                         </form>
                     </div>
@@ -206,12 +204,12 @@
                         <form action="{{ route('ProfileHobbies.store') }}" method="POST">
                             @csrf
                             @if (Auth::check())
-                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}" />
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
                             @endif
                             <div id="HobbiesFieldsContainer">
                                 <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="hobbies[]"></textarea>
                             </div>
-                            <button type="button" class="btn btn-primary btn-sm" id="laAddButton" onclick="addNewHobbyField()">Add Another Future</button>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addNewHobbyField()">Add Another Future</button>
                             <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                         </form>
                     </div>
@@ -234,12 +232,12 @@
                         <form action="{{ route('SkillProfile.store') }}" method="POST">
                             @csrf
                             @if (Auth::check())
-                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}" />
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
                             @endif
                             <div id="skill-fields">
                                 <input placeholder="{{ __('messages.Enter here') }}" class="form-control skillField" name="skills[]" />
                             </div>
-                            <button type="button" class="btn btn-primary btn-sm" id="skillAddButton" onclick="addNewSkillField()">Add Another Skill</button>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addNewSkillField()">Add Another Skill</button>
                             <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                         </form>
                     </div>
@@ -260,12 +258,12 @@
                         <form action="{{ route('ProfileExperience.store') }}" method="POST">
                             @csrf
                             @if (Auth::check())
-                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}" />
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
                             @endif
                             <div id="ExperiencesFieldsContainer">
                                 <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="experiences[]"></textarea>
                             </div>
-                            <button type="button" class="btn btn-primary btn-sm" id="skillAddButton" onclick="addNewExperienceField()">Add Another Skill</button>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addNewExperienceField()">Add Another Skill</button>
                             <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                         </form>
                     </div>
@@ -286,12 +284,12 @@
                         <form action="{{ route('ProfileProject.store') }}" method="POST">
                             @csrf
                             @if (Auth::check())
-                                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}" />
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
                             @endif
                             <div id="ProjectFieldsContainer">
                                 <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="projects[]"></textarea>
                             </div>
-                            <button type="button" class="btn btn-primary btn-sm" id="skillAddButton" onclick="addNewProjectField()">Add Another Skill</button>
+                            <button type="button" class="btn btn-primary btn-sm" onclick="addNewProjectField()">Add Another Skill</button>
                             <button type="submit" class="btn btn-primary btn-sm">Submit</button>
                         </form>
                     </div>
@@ -299,7 +297,7 @@
             </div>
         </div>
 
-        <div class="infoControllerRight" style="display:none">
+        <div class="infoControllerRight" id="item2" style="display:none">
             <div class="chat-container-one">
                 <div class="contact-list">
                     <div class="search-bar">
@@ -371,7 +369,7 @@
                 </div>
             </div>
         </div>
-        <div class="infoControllerRight" style="display:none">
+        <div class="infoControllerRight" id="item3" style="display:none">
             @foreach($posts as $item)
             <div class="chat-center">
                 <div class="createPost">
@@ -429,7 +427,7 @@
                                 @csrf
                                     <input type="hidden" id="post_id" name="post_id" value="{{$item->id}}"/>
                                     @if (Auth::check())
-                                        <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
+                                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
                                     @endif
                                     <input type="text" name="comment"/>
                                     <button class="btnSendComment"><i class="fa-solid fa-paper-plane"></i></button>
@@ -463,7 +461,7 @@
             @endforeach
         </div>
 
-        <div class="infoControllerRight" style="display:none">
+        <div class="infoControllerRight" id="item4" style="display:none">
             <div class="friends_container">
                 <input type="text" id="searchInput" placeholder="Search friends..." onkeyup="filterFriends()">
                 <ul id="friendsList">
@@ -499,7 +497,7 @@
             </div>
         </div>
 
-        <div class="infoControllerRight" style="display:none">
+        <div class="infoControllerRight" id="item5" style="display:none">
             <div class="resset-password">
                 <div class="login-container">
                     <div class="form-box">
@@ -524,12 +522,12 @@
             </div>
         </div>
 
-        <div class="infoControllerRight">
+        <div class="infoControllerRight" id="item6" style="display:none">
             <div class="taskeu-container">
                 <div class="todo-container">
                     <h1>Link List</h1>
                     <div class="input-container">
-                        <input type="text" id="taskInput" placeholder="Add a new task...">
+                        <input type="text" placeholder="Add a new task...">
                         <button onclick="addTask()">+</button>
                     </div>
                     <div class="button-group">
@@ -542,6 +540,28 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="infoControllerRight" id="item7" style="display:none">
+            <div class="taskeu-container">
+                <div class="todo-container">
+                    <h1>Note List</h1>
+                    <div class="input-container">
+                        <input type="text" placeholder="Add a new task...">
+                        <button onclick="addTask()">+</button>
+                    </div>
+                    <div class="button-group">
+                        <button onclick="showComplete()">Link tab</button>
+                        <p>https://fontawesome.com/start</p>
+                    </div>
+                    <div class="button-group">
+                        <button onclick="showComplete()">Link tab</button>
+                        <p>The easiest way to get icons on your website is with a Kit. It's</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="infoControllerRight" id="item8" style="display:none">
+           
         </div>
     </div>
 </div>
@@ -582,7 +602,27 @@
 <script>
     let isDragging = false;
     
+    function showContent(itemId, button) {
+        const allItems = document.querySelectorAll('.infoControllerRight');
+        allItems.forEach(item => item.style.display = 'none');
+        document.getElementById(itemId).style.display = 'block';
+        const allButtons = document.querySelectorAll('.infoControllerMenuList button');
+        allButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        localStorage.setItem('activeButtonId', button.id);
+    }
 
+    window.onload = function() {
+        const activeButtonId = localStorage.getItem('activeButtonId');
+        if (activeButtonId) {
+            const activeButton = document.getElementById(activeButtonId);
+            if (activeButton) {
+                showContent(activeButton.getAttribute('onclick').match(/'([^']+)'/)[1], activeButton);
+            }
+        } else {
+            showContent('item1', document.getElementById('menu-item1'));
+        }
+    };
     function filterFriends() {
         const input = document.getElementById('searchInput');
         const filter = input.value.toLowerCase();
