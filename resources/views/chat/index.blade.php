@@ -134,23 +134,8 @@
                                 </div>
                             </div>
                             @if($item->images->isNotEmpty())
-                                @foreach($item->comments as $comment)
-                                <div class="commentShare">
-                                    <div class="commentUserSharePost">
-                                        <div class="commentUserImage">
-                                            <img src="{{asset('assets/images/user2.jpg')}}" alt="" srcset="">
-                                        </div>
-                                    </div>
-                                    <div class="commentSection">
-                                        <div class="commentShareContent">
-                                            <div class="commentShareUser">
-                                                <i class="fa-solid fa-heart"></i> <p>{{$comment->user->full_name}}</p> <i class="fa-solid fa-heart"></i>
-                                            </div>
-                                            <p>{{$comment->comment}}</p>
-                                        </div>
-                                    </div>
+                                <div class="commentsContainer">
                                 </div>
-                                @endforeach
                             @else
                                 <p>No images available for this post.</p>
                             @endif 
@@ -223,23 +208,6 @@
                     </div>
                 </div>
             </div>
-            <div class="chatUserList">
-                <div class="chatUserItem">
-                    <div class="chatUserItemImage">
-                        <i class="fa-solid fa-plus"></i>
-                    </div>
-                </div>
-                <div class="chatUserItem">
-                    <div class="chatUserItemImage">
-                        <img src="{{asset('assets/images/user2.jpg')}}" alt="">
-                    </div>
-                </div>
-                <div class="chatUserItem">
-                    <div class="chatUserItemImage">
-                        <img src="{{asset('assets/images/user2.jpg')}}" alt="">
-                    </div>
-                </div>
-            </div>    
         </div>
     </div>
 </div>
@@ -293,8 +261,69 @@
 </div>
 
 <script>
+    function closeCreateCategoryFormPopup() {
+        const modelCreateTask = document.querySelector('.ModelCreateCategory');
+        if (modelCreateTask.style.display === 'none' || modelCreateTask.style.display === '') {
+            modelCreateTask.style.display = 'block'; 
+        } else {
+            modelCreateTask.style.display = 'none';
+        }
+    }
+   $(document).ready(function(){
+        function loadComments() {
+            $.ajax({
+                url: "{{ route('comments.get', $item->id) }}",
+                method: "GET",
+                success: function(data) {
+                    $('.commentsContainer').empty();
+                    
+                    data.forEach(comment => {
+                        $('.commentsContainer').append(`
+                            <div class="commentShare">
+                                <div class="commentUserSharePost">
+                                    <div class="commentUserImage">
+                                        <img src="{{ asset('assets/images/user2.jpg') }}" alt="User Image">
+                                    </div>
+                                </div>
+                                <div class="commentSection">
+                                    <div class="commentShareContent">
+                                        <div class="commentShareUser">
+                                            <i class="fa-solid fa-heart"></i> <p>${comment.user.full_name}</p> <i class="fa-solid fa-heart"></i>
+                                        </div>
+                                        <p>${comment.comment}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `);
+                    });
+                }
+            });
+        }
 
-// Lấy tất cả các wrapper của các bài post
+        setInterval(loadComments, 10000);
+
+        loadComments();
+
+
+        $('form').on('submit', function(event) {
+            event.preventDefault(); 
+
+            var formData = $(this).serialize(); 
+            
+            $.ajax({
+                url: "{{ route('postcomments.store', $item->id) }}",
+                method: "POST",
+                data: formData,
+                success: function(response) {
+                    loadComments(); 
+                    $('input[name="comment"]').val(''); 
+                },
+                error: function(xhr) {
+                    console.log("Lỗi:", xhr.responseText);
+                }
+            });
+        });
+    });
 const wrappers = document.querySelectorAll(".wrapper");
 
 wrappers.forEach(wrapper => {
@@ -303,28 +332,23 @@ wrappers.forEach(wrapper => {
           prevButton = wrapper.querySelector(".prev"),
           nextButton = wrapper.querySelector(".next");
 
-    let imageIndex = 0; // Bắt đầu từ ảnh đầu tiên cho mỗi bài post
+    let imageIndex = 0; 
 
-    // Cập nhật hiển thị của carousel
     const slideImage = () => {
-        // Di chuyển carousel dựa trên chỉ số ảnh hiện tại
         carousel.style.transform = `translateX(-${imageIndex * 100}%)`;
-
-        // Kiểm tra và ẩn/hiện nút Prev và Next
         if (imageIndex === 0) {
-            prevButton.style.visibility = "hidden"; // Ẩn Prev nếu ở ảnh đầu tiên
+            prevButton.style.visibility = "hidden"; 
         } else {
             prevButton.style.visibility = "visible";
         }
 
         if (imageIndex === images.length - 1) {
-            nextButton.style.visibility = "hidden"; // Ẩn Next nếu ở ảnh cuối cùng
+            nextButton.style.visibility = "hidden";
         } else {
             nextButton.style.visibility = "visible";
         }
     };
 
-    // Khi người dùng click nút Next
     nextButton.addEventListener("click", () => {
         if (imageIndex < images.length - 1) {
             imageIndex++;
@@ -332,7 +356,6 @@ wrappers.forEach(wrapper => {
         }
     });
 
-    // Khi người dùng click nút Prev
     prevButton.addEventListener("click", () => {
         if (imageIndex > 0) {
             imageIndex--;
@@ -340,7 +363,6 @@ wrappers.forEach(wrapper => {
         }
     });
 
-    // Hiển thị lần đầu tiên, điều chỉnh trạng thái nút Prev (ẩn nếu đang ở ảnh đầu tiên)
     slideImage();
 });
 

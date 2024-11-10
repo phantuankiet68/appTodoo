@@ -41,7 +41,7 @@ use App\Http\Controllers\PostLikeController;
 use App\Http\Controllers\LearnMoreController;
 use App\Http\Controllers\LearnMoreEngLishController;
 use App\Http\Controllers\HomeController;
-
+use App\Http\Controllers\FriendshipController;
 
 
 /*
@@ -83,11 +83,15 @@ Route::get('/profile/{full_name}', [HomeController::class, 'profile'])->name('pr
 Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::resource('dashboard', DashboardController::class);
     Route::get('/monthly-costs', [DashboardController::class, 'getMonthlyCosts']);
-    Route::post('/idea', [DashboardController::class, 'createIdea'])->name('idea.store');;
+    Route::post('/idea', [DashboardController::class, 'createIdea'])->name('idea.store');
     Route::resource('category', CategoryController::class);
     Route::resource('category_task', CategoryTasksController::class);
     Route::resource('posts', PostController::class);
     Route::post('/post/{id}/comments', [PostCommentController::class, 'store'])->name('postcomments.store');
+    Route::get('/comments/{postId}', [PostCommentController::class, 'getComments'])->name('comments.get');
+    Route::post('/send-friend-request', [FriendshipController::class, 'sendRequest'])->name('friend.send');
+    Route::post('/accept-friend-request/{friendship}', [FriendshipController::class, 'acceptRequest'])->name('friend.accept');
+    Route::post('/reject-friend-request/{friendship}', [FriendshipController::class, 'rejectRequest'])->name('friend.reject');
     Route::post('/post/{id}/likes', [PostLikeController::class, 'store'])->name('postlikes.store');
     Route::resource('todo', TodoController::class);
     Route::resource('tasks', TaskController::class);

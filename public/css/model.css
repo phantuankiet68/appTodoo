@@ -1430,7 +1430,6 @@
     width: 100%;
     display: flex;
     height: 80vh;
-    overflow: scroll;
     justify-content: center;
 }
 
@@ -1732,10 +1731,12 @@ p.space {
     margin-left: 10px;
 }
 .commentShare{
-    padding: 10px 0;
+    padding: 10px;
     display: flex;
-    gap: 5px;
-    margin-left: 12px;
+    gap: 20px;
+    background-color: #fff;
+    margin-top: 10px;
+    border-radius: 5px;
 }
 
 .commentUserSharePost {
@@ -3277,10 +3278,9 @@ i.material-icons {
     width: 30%;
     background: rgba(255, 255, 255, 0.3);
     color: rgb(20, 16, 16);
-    padding: 10px;
     display: flex;
     flex-direction: column;
-    border: 1px solid #e5e5e5;
+    border: 1px solid #c9c9c9;
 }
 
 .dark-mode .chat-container-one .contact-list{
@@ -3290,6 +3290,7 @@ i.material-icons {
 .chat-container-one .search-bar {
     display: flex;
     padding: 10px;
+    border-bottom: 1px solid #c9c9c9;
 }
 
 .chat-container-one .search-bar input {

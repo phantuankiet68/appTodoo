@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\PostImage;
-use App\Models\PostComment;
 use App\Models\Profile;
 use App\Models\ProfileLanguages;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +15,7 @@ use App\Models\ProfileProject;
 use App\Models\ProfileExperience;
 use App\Models\ProfileHobbies;
 use App\Models\ProfileObjective;
-
+use App\Models\Friendship;
 
 
 class ChatController extends Controller
@@ -70,7 +68,14 @@ class ChatController extends Controller
         ->orderBy('comments_count', 'asc')
         ->orderBy('id', 'asc')
         ->get();
-        return view('chat.info.index', compact('profiles','posts','languages','skills','educations','futures','projects','experiences','hobbies','objectives'));
+        $receivedFriendRequests = Friendship::with('user')
+        ->where('friend_id', auth()->id())
+        ->where('status', 'pending')
+        ->get();
+
+        $friends = auth()->user()->friends;
+
+        return view('chat.info.index', compact('profiles','friends','receivedFriendRequests','posts','languages','skills','educations','futures','projects','experiences','hobbies','objectives'));
     }
 
 

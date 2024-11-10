@@ -300,43 +300,46 @@
         <div class="infoControllerRight" id="item2" style="display:none">
             <div class="chat-container-one">
                 <div class="contact-list">
+                    <form action="{{ route('friend.send') }}" method="POST">
+                        <div class="search-bar">
+                            <input type="text" name="email" placeholder="Nhập email của bạn bè" required>
+                            <button><i class="fa-solid fa-users"></i></button>
+                        </div>
+                    </form>
                     <div class="search-bar">
                         <input type="text" placeholder="Search...">
                         <button><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
+                    @foreach ($receivedFriendRequests as $request)
+                        <p>Yêu cầu từ: {{ $request->user ? $request->user->full_name : 'Người dùng không tồn tại' }}</p>
+
+                        <form action="{{ route('friend.accept', $request->id) }}" method="POST">
+                            @csrf
+                            <button type="submit">Chấp nhận</button>
+                        </form>
+
+                        <form action="{{ route('friend.reject', $request->id) }}" method="POST">
+                            @csrf
+                            <button type="submit">Từ chối</button>
+                        </form>
+                    @endforeach
                     <div class="contacts">
-                        <div class="contact">
-                            <img src="{{asset('assets/images/user4.jpg')}}" alt="Chaymae Naim">
-                            <div>
-                                <p>Chaymae Naim</p>
-                                <span class="status">Left 7 mins ago</span>
-                            </div>
-                            <span class="status-dot offline"></span>
-                        </div>
-                        <div class="contact">
-                            <img src="{{asset('assets/images/user1.jpg')}}" alt="Sami Rafi">
-                            <div>
-                                <p>Sami Rafi</p>
-                                <span class="status">Online</span>
-                            </div>
-                            <span class="status-dot online"></span>
-                        </div>
-                        <div class="contact">
-                            <img src="{{asset('assets/images/user2.jpg')}}" alt="Hassan Agmir">
-                            <div>
-                                <p>Hassan Agmir</p>
-                                <span class="status">Left 30 mins ago</span>
-                            </div>
-                            <span class="status-dot offline"></span>
-                        </div>
-                        <div class="contact">
-                            <img src="{{asset('assets/images/user3.jpg')}}" alt="Abdou Chatabi">
-                            <div>
-                                <p>Abdou Chatabi</p>
-                                <span class="status">Left 50 mins ago</span>
-                            </div>
-                            <span class="status-dot offline"></span>
-                        </div>
+                        @if($friends->isEmpty())
+                            <p>Bạn chưa có bạn bè nào.</p>
+                        @else
+                            <ul>
+                                @foreach ($friends as $friend)
+                                    <div class="contact">
+                                        <img src="{{asset('assets/images/user4.jpg')}}" alt="Chaymae Naim">
+                                        <div>
+                                            <p> {{ $friend->full_name }}</p>
+                                            <span class="status">Left 7 mins ago</span>
+                                        </div>
+                                        <span class="status-dot offline"></span>
+                                    </div>
+                                @endforeach
+                            </ul>
+                        @endif
                     </div>
                 </div>
 
