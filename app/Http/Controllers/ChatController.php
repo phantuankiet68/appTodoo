@@ -16,6 +16,7 @@ use App\Models\ProfileExperience;
 use App\Models\ProfileHobbies;
 use App\Models\ProfileObjective;
 use App\Models\Friendship;
+use App\Models\Message;
 
 
 class ChatController extends Controller
@@ -40,6 +41,33 @@ class ChatController extends Controller
         ->get();
 
         return view('chat.index', compact('posts'));
+    }
+    public function fetchMessages($userId, $friendId)
+    {
+        $messages = Message::where(function($query) use ($userId, $friendId) {
+                $query->where('sender_id', $userId)
+                      ->where('receiver_id', $friendId);
+            })
+            ->orWhere(function($query) use ($userId, $friendId) {
+                $query->where('sender_id', $friendId)
+                      ->where('receiver_id', $userId);
+            })
+            ->orderBy('created_at', 'asc')
+            ->get();
+
+        return response()->json($messages);
+    }
+
+    public function sendMessage(Request $request)
+    {
+
+        Message::create([
+            'sender_id' => $request->user_id,
+            'receiver_id' => $request->friend_id,
+            'message' => $request->message,
+        ]);
+
+        return redirect()->back()->with('success', __('messages.You have successfully created new.'));
     }
 
     /**

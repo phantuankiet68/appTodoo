@@ -58,4 +58,14 @@ class FriendshipController extends Controller
     }
 
 
+    public function show($id)
+    {
+        $friendship = Friendship::with(['user','friend'])->find($id);
+        $friend = User::find($id);
+        if (!$friend) {
+            return response()->json(['error' => 'Friend not found'], 404);
+        }
+    
+        return response()->json($friend);
+    }
 }

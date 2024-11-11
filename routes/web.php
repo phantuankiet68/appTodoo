@@ -42,6 +42,7 @@ use App\Http\Controllers\LearnMoreController;
 use App\Http\Controllers\LearnMoreEngLishController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FriendshipController;
+use App\Http\Controllers\MessageController;
 
 
 /*
@@ -132,7 +133,10 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/updateSkill/{id}', [ChatController::class, 'updateSkillProfile'])->name('SkillProfile.update');
     Route::post('/store_educations', [ChatController::class, 'storeProfileEducation'])->name('educationProfile.store');
     Route::post('/updateEducations/{id}', [ChatController::class, 'updateEducationProfile'])->name('educationProfile.update');
-    
+    Route::post('/messages', [ChatController::class, 'sendMessage'])->name('messages.send');
+    Route::get('/messages/{userId}/{friendId}', [ChatController::class, 'fetchMessages'])->name('messages.fetch');
+    Route::get('/friend/{id}', [FriendshipController::class, 'show'])->name('friend.show');
+
     Route::post('/store_futures', [ChatController::class, 'storeFutureDirection'])->name('FutureDirection.store');
     Route::post('/updateFutures/{id}', [ChatController::class, 'updateFutureDirection'])->name('FutureDirection.update');
 

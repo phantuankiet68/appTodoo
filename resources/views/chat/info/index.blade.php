@@ -16,6 +16,8 @@
             </div>
             <div class="infoControllerMenu">
                 <div class="infoControllerMenuList">
+                <button onclick="openMultipleTabs()">Open 100 Tabs</button>
+
                     <button onclick="showContent('item1', this)" id="menu-item1"><i class="fa-solid fa-id-badge"></i> Personal Information</button>
                     <button onclick="showContent('item2', this)" id="menu-item2"><i class="fa-solid fa-message"></i> Messages</button>
                     <button onclick="showContent('item3', this)" id="menu-item3"><i class="fa-solid fa-pen-to-square"></i> Posts</button>
@@ -117,7 +119,7 @@
                         @foreach($objectives as $item)
                             <form class="EditProfileLanguage " action="{{ route('ProfileObjective.update', ['id' => $item->id]) }}" method="POST">
                                 @csrf
-                                <input type="hidden" id="future_id" value="{{ $item->id }}"/>
+                                <input type="hidden" value="{{ $item->id }}"/>
                                 <div class="futureFields">
                                     <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="description">{{$item->description}}</textarea>
                                 </div>
@@ -168,7 +170,7 @@
                         @foreach($futures as $item)
                             <form class="EditProfileLanguage " action="{{ route('FutureDirection.update', ['id' => $item->id]) }}" method="POST">
                                 @csrf
-                                <input type="hidden" id="future_id" value="{{ $item->id }}"/>
+                                <input type="hidden" value="{{ $item->id }}"/>
                                 <div class="futureFields">
                                     <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="description">{{$item->description}}</textarea>
                                 </div>
@@ -194,7 +196,7 @@
                         @foreach($hobbies as $item)
                             <form class="EditProfileLanguage" action="{{ route('ProfileHobbies.update', ['id' => $item->id]) }}" method="POST">
                                 @csrf
-                                <input type="hidden" id="future_id" value="{{ $item->id }}"/>
+                                <input type="hidden" value="{{ $item->id }}"/>
                                 <div class="hobbiesFields">
                                     <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="description">{{$item->description}}</textarea>
                                 </div>
@@ -248,7 +250,7 @@
                         @foreach($experiences as $item)
                             <form class="EditProfileLanguage" action="{{ route('ProfileHobbies.update', ['id' => $item->id]) }}" method="POST">
                                 @csrf
-                                <input type="hidden" id="future_id" value="{{ $item->id }}"/>
+                                <input type="hidden" value="{{ $item->id }}"/>
                                 <div class="hobbiesFields">
                                     <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="description">{{$item->description}}</textarea>
                                 </div>
@@ -274,7 +276,7 @@
                         @foreach($projects as $item)
                             <form class="EditProfileLanguage" action="{{ route('ProfileProject.update', ['id' => $item->id]) }}" method="POST">
                                 @csrf
-                                <input type="hidden" id="future_id" value="{{ $item->id }}"/>
+                                <input type="hidden" value="{{ $item->id }}"/>
                                 <div class="hobbiesFields">
                                     <textarea placeholder="{{ __('messages.Enter here') }}" class="textarea edField mt-2 form-control" rows="3" name="description">{{$item->description}}</textarea>
                                 </div>
@@ -301,6 +303,7 @@
             <div class="chat-container-one">
                 <div class="contact-list">
                     <form action="{{ route('friend.send') }}" method="POST">
+                        @csrf
                         <div class="search-bar">
                             <input type="text" name="email" placeholder="Nhập email của bạn bè" required>
                             <button><i class="fa-solid fa-users"></i></button>
@@ -311,26 +314,29 @@
                         <button><i class="fa-solid fa-magnifying-glass"></i></button>
                     </div>
                     @foreach ($receivedFriendRequests as $request)
-                        <p>Yêu cầu từ: {{ $request->user ? $request->user->full_name : 'Người dùng không tồn tại' }}</p>
+                    <div class="needFriends">
+                        <p class="text-center" >Yêu cầu từ: {{ $request->user ? $request->user->full_name : 'Người dùng không tồn tại' }}</p>
+                        <div class="formNeedFriends">
+                            <form action="{{ route('friend.accept', $request->id) }}" method="POST">
+                                @csrf
+                                <button type="submit">Chấp nhận</button>
+                            </form>
 
-                        <form action="{{ route('friend.accept', $request->id) }}" method="POST">
-                            @csrf
-                            <button type="submit">Chấp nhận</button>
-                        </form>
-
-                        <form action="{{ route('friend.reject', $request->id) }}" method="POST">
-                            @csrf
-                            <button type="submit">Từ chối</button>
-                        </form>
+                            <form action="{{ route('friend.reject', $request->id) }}" method="POST">
+                                @csrf
+                                <button type="submit">Từ chối</button>
+                            </form>
+                        </div>
+                    </div>
                     @endforeach
                     <div class="contacts">
                         @if($friends->isEmpty())
-                            <p>Bạn chưa có bạn bè nào.</p>
+                            <p class="red">Bạn chưa có bạn bè nào.</p>
                         @else
                             <ul>
                                 @foreach ($friends as $friend)
-                                    <div class="contact">
-                                        <img src="{{asset('assets/images/user4.jpg')}}" alt="Chaymae Naim">
+                                    <div class="contact" data-id="{{ $friend->id }}">
+                                        <img src="{{asset('assets/images/user4.jpg')}}" alt="{{ $friend->full_name }}">
                                         <div>
                                             <p> {{ $friend->full_name }}</p>
                                             <span class="status">Left 7 mins ago</span>
@@ -343,12 +349,11 @@
                     </div>
                 </div>
 
-                <!-- Chat Window -->
                 <div class="chat-window">
                     <div class="chat-header">
-                        <img src="{{asset('assets/images/user1.jpg')}}" alt="Khalid Charif">
+                        <img id="chatImage" src="{{ asset('assets/images/user1.jpg') }}" alt="Friend Image">
                         <div>
-                            <p>Khalid Charif</p>
+                            <p id="chatName" data-id="">Select a contact to start chatting</p>
                             <span>1767 Messages</span>
                         </div>
                         <div class="chat-options">
@@ -357,17 +362,17 @@
                             <button>⋮</button>
                         </div>
                     </div>
-                    <div class="chat-messages">
-                        <div class="message received">Hi, how are you Samim?</div>
-                        <div class="message sent">Hi Khalid, I am good tnx. How about you?</div>
-                        <div class="message received">I am good too, thank you for your chat template</div>
-                        <div class="message sent">You are welcome</div>
-                        <div class="message received">I am looking for your next templates</div>
-                    </div>
+                    <div class="chat-messages" id="chatMessages"></div>
                     <div class="chat-input">
-                        <input type="text" placeholder="Type a message...">
-                        <button>📎</button>
-                        <button>Send</button>
+                        <form action="{{ route('messages.send') }}" method="POST">
+                            @csrf
+                            @if (Auth::check())
+                                <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
+                            @endif
+                            <input type="hidden" id="friend_id" name="friend_id" placeholder="Type a message..." />
+                            <input type="text" name="message" placeholder="Type a message..." required />
+                            <button type="submit">Send</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -603,6 +608,67 @@
 @endif
 
 <script>
+
+    document.querySelectorAll('.contact').forEach(contact => {
+        contact.addEventListener('click', function () {
+            const friendId = this.getAttribute('data-id');
+            const userId = "{{ Auth::id() }}";
+
+            function loadMessages() {
+                fetch(`/messages/${userId}/${friendId}`)
+                    .then(response => response.json())
+                    .then(messages => {
+                        const chatMessages = document.getElementById('chatMessages');
+                        chatMessages.innerHTML = ''; 
+
+                        messages.forEach(message => {
+                            const messageDiv = document.createElement('div');
+                            messageDiv.classList.add('message');
+
+                            if (message.sender_id == userId) {
+                                messageDiv.classList.add('sent');
+                            } else {
+                                messageDiv.classList.add('received');
+                            }
+
+                            messageDiv.textContent = message.message;
+                            chatMessages.appendChild(messageDiv);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching messages:', error));
+            }
+
+            loadMessages();
+
+            setInterval(loadMessages, 10000);
+        });
+    });
+    
+    document.querySelectorAll('.contact').forEach(contact => {
+        contact.addEventListener('click', function () {
+            const friendId = this.getAttribute('data-id');
+
+            fetch(`/friend/${friendId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log(data)
+                    if (data.error) {
+                        console.error(data.error);
+                    } else {
+                        document.getElementById('chatName').textContent = data.full_name;
+                        document.getElementById('friend_id').value = data.id;
+                    }
+                })
+                .catch(error => console.error('Error fetching friend details:', error));
+        });
+    });
+
+
     let isDragging = false;
     
     function showContent(itemId, button) {
