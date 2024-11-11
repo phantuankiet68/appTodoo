@@ -545,14 +545,12 @@
                             <button type="submit" >+</button>
                         </div>
                     </form>
-                    <div class="button-group">
-                        <button onclick="showComplete()">Link tab</button>
-                        <p>https://fontawesome.com/start</p>
-                    </div>
-                    <div class="button-group">
-                        <button onclick="showComplete()">Link tab</button>
-                        <p>The easiest way to get icons on your website is with a Kit. It's</p>
-                    </div>
+                    @foreach($links as $item)
+                        <div class="button-group">
+                            <a href="{{$item->link}}" target="_blank">Link tab</a>
+                            <p>{{$item->link}}</p>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -566,18 +564,16 @@
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
                         @endif
                         <div class="input-container">
-                            <input type="text" name="link" placeholder="Add a new link...">
+                            <input type="text" name="note" placeholder="Add a new link...">
                             <button type="submit">+</button>
                         </div>
                     </form>
-                    <div class="button-group">
-                        <button onclick="showComplete()">Link tab</button>
-                        <p>https://fontawesome.com/start</p>
-                    </div>
-                    <div class="button-group">
-                        <button onclick="showComplete()">Link tab</button>
-                        <p>The easiest way to get icons on your website is with a Kit. It's</p>
-                    </div>
+                    @foreach($notes as $item)
+                        <div class="button-group">
+                            <a href="" target="_blank">Link tab</a>
+                            <p>{{$item->note}}</p>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>

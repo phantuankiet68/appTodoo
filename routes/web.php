@@ -43,6 +43,8 @@ use App\Http\Controllers\LearnMoreEngLishController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FriendshipController;
 
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -83,7 +85,12 @@ Route::get('/profile/{full_name}', [HomeController::class, 'profile'])->name('pr
 Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/change-password/{id}', [AuthController::class, 'changePassword'])->name('change.password');
     Route::post('/link/store', [ChatController::class, 'storeLink'])->name('link.store');
-    Route::post('/link/store', [ChatController::class, 'storeNote'])->name('note.store');
+
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+
+    Route::post('/user/update-roles/{id}', [UserController::class, 'updateRoles'])->name('user.updateRoles');
+
+    Route::post('/note/store', [ChatController::class, 'storeNote'])->name('note.store');
     Route::resource('dashboard', DashboardController::class);
     Route::get('/monthly-costs', [DashboardController::class, 'getMonthlyCosts']);
     Route::post('/idea', [DashboardController::class, 'createIdea'])->name('idea.store');

@@ -64,12 +64,12 @@ class ChatController extends Controller
     {
         $request->validate([
             'user_id' => 'required|exists:users,id',
-            'note' => 'required|url' 
+            'note' => 'required' 
         ]);
 
         Note::create([
             'user_id' => $request->user_id,
-            'link' => $request->link,
+            'note' => $request->note,
         ]);
 
         return redirect()->back()->with('success', 'Note added successfully.');
@@ -136,7 +136,10 @@ class ChatController extends Controller
 
         $friends = auth()->user()->friends;
 
-        return view('chat.info.index', compact('profiles','friends','receivedFriendRequests','posts','languages','skills','educations','futures','projects','experiences','hobbies','objectives'));
+        $links = Link::where('user_id', Auth::id())->get();
+        $notes = Note::where('user_id', Auth::id())->get();
+
+        return view('chat.info.index', compact('profiles','notes','links','friends','receivedFriendRequests','posts','languages','skills','educations','futures','projects','experiences','hobbies','objectives'));
     }
 
 

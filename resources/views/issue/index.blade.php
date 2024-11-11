@@ -73,7 +73,7 @@
                             <td class="jus-center">
                                 <p class="td-1">{{$issue->id}}</p>
                             </td>
-                            <td><a class="key_issue" href="https://fontawesome.com/">{{$issue->key}}</a></td>
+                            <td><a class="key_issue" href="#">{{$issue->key}}</a></td>
                             <td><div class="text-truncate">{!!$issue->description!!}</p></td>
                             <td>
                                 <div class="table_user">

@@ -278,7 +278,7 @@ return [
     'No images available for this post'=>'No images available for this post',
     'You have successfully created new.'=>'You have successfully created new.',
     'You have successfully updated.'=>'You have successfully updated.',
-    ''=>'',
+    'Active'=>'Active',
     ''=>'',
     ''=>'',
     ''=>'',
