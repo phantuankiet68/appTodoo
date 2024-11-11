@@ -109,4 +109,32 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
         return redirect()->route('home.index')->with('success', 'Đăng xuất thành công!');
     }
+    public function changePassword(Request $request, $id)
+    {
+        // Kiểm tra xem người dùng đã đăng nhập có trùng khớp với ID được gửi hay không
+        if (Auth::id() != $id) {
+            return redirect()->back()->withErrors(['error' => 'Unauthorized action.']);
+        }
+
+        // Xác thực dữ liệu
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:8|confirmed',
+        ]);
+
+        $user = Auth::user();
+
+        if (!$user instanceof User) {
+            return redirect()->back()->withErrors(['error' => 'User not found.']);
+        }
+
+        if (!Hash::check($request->current_password, $user->password)) {
+            return redirect()->back()->withErrors(['current_password' => 'Current password is incorrect.']);
+        }
+
+        $user->password = Hash::make($request->new_password);
+        $user->save(); 
+
+        return redirect()->back()->with('success', 'Password changed successfully.');
+    }
 }

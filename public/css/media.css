@@ -16,10 +16,11 @@
     }
     .card {
         padding: 10px;
-        border-radius: 20px;
+        border-radius: 10px;
         min-width: 230px;
         height: auto;
         transition: .3s;
+        box-shadow: rgb(0 170 240 / 27%) 0px 0px 0.25em, rgb(36 191 255 / 5%) 0px 0.25em 1em;
     }
     .form-search form {
         position: relative;
@@ -635,13 +636,13 @@
     
     .learnMore .hrefList .hrefTest a {
         padding: 8px 10px;
-        border: 1px solid #e7e7e7;
+        border: 1px solid #d7d6d6;
         font-size: 14px;
         border-radius: 5px;
     }   
     .infoController .infoControllerLeft {
         width: 20%;
-        border: 1px solid #ebebeb;
+        border: 1px solid #d7d6d6;
         border-radius: 10px;
         padding: 10px;
     }

@@ -16,8 +16,6 @@
             </div>
             <div class="infoControllerMenu">
                 <div class="infoControllerMenuList">
-                <button onclick="openMultipleTabs()">Open 100 Tabs</button>
-
                     <button onclick="showContent('item1', this)" id="menu-item1"><i class="fa-solid fa-id-badge"></i> Personal Information</button>
                     <button onclick="showContent('item2', this)" id="menu-item2"><i class="fa-solid fa-message"></i> Messages</button>
                     <button onclick="showContent('item3', this)" id="menu-item3"><i class="fa-solid fa-pen-to-square"></i> Posts</button>
@@ -379,94 +377,96 @@
         </div>
         <div class="infoControllerRight" id="item3" style="display:none">
             @foreach($posts as $item)
-            <div class="chat-center">
-                <div class="createPost">
-                    <div class="chatPostUser">
-                        <div class="chatImage">
-                            <div class="imgUser">
-                                <img src="{{asset('assets/images/vietnam.jpg')}}" alt="" srcset="">
-                            </div>
-                        </div>
-                        <div class="thinkUser userName">
-                            <span>{{$item->user->full_name}}</span>
-                            <p>{{ __('messages.Date Created') }}: {{$item->created_at}}</p>
-                        </div>
-                    </div>
-                    <div class="descriptionContent">
-                        {!!$item->description!!}
-                    </div>
-                    @if($item->images->isNotEmpty())
-                        <section class="wrapper" data-post-id="{{ $item->id }}">
-                        <i class="fa-solid fa-arrow-left button prev" style="visibility: hidden;"></i>
-                            <div class="image-container">
-                                <div class="carousel">
-                                    @foreach($item->images as $image)
-                                        <img src="{{ asset($image->image_path) }}" alt="Image" class="fruit">
-                                    @endforeach
+            <div class="post-info">
+                <div class="chat-center">
+                    <div class="createPost">
+                        <div class="chatPostUser">
+                            <div class="chatImage">
+                                <div class="imgUser">
+                                    <img src="{{asset('assets/images/vietnam.jpg')}}" alt="" srcset="">
                                 </div>
                             </div>
-                            <i class="fa-solid fa-arrow-right button next"></i>
-                        </section>
-                    @else
-                        <p>{{ __('messages.No images available for this post') }}</p>
-                    @endif
-                    <div class="localPost">
-                        <i class="fa-solid fa-location-dot"></i> <p>{{$item->location}}</p>
-                    </div>
-                    <div class="spaceBettween">
-                        <div class="infoIcon">
-                            <form action="{{ route('postlikes.store', $item->id) }}" method="POST">
-                                @csrf
-                                <button><i class="fa-solid fa-heart"></i> {{ $item->likes_count }}</button>
-                            </form>
-                            <button><i class="fa-solid fa-comment"></i> {{ $item->comments_count }}</button>
-                            <button><i class="fa-solid fa-share-from-square"></i> 2 lượt</button>
-                        </div>
-                    </div>
-                    <div class="commentPost">
-                        <div class="spaceBettween">
-                            <div class="commentUserPost">
-                                <div class="commentUserImage">
-                                    <img src="{{asset('assets/images/user1.jpg')}}" alt="" srcset="">
-                                </div>
-                            </div>
-                            <div class="commentSendPost">
-                                <form action="{{ route('postcomments.store', $item->id) }}" method="POST">
-                                @csrf
-                                    <input type="hidden" id="post_id" name="post_id" value="{{$item->id}}"/>
-                                    @if (Auth::check())
-                                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
-                                    @endif
-                                    <input type="text" name="comment"/>
-                                    <button class="btnSendComment"><i class="fa-solid fa-paper-plane"></i></button>
-                                </form>
+                            <div class="thinkUser userName">
+                                <span>{{$item->user->full_name}}</span>
+                                <p>{{ __('messages.Date Created') }}: {{$item->created_at}}</p>
                             </div>
                         </div>
-                    </div>
-                    @if($item->images->isNotEmpty())
-                        @foreach($item->comments as $comment)
-                        <div class="commentShare">
-                            <div class="commentUserSharePost">
-                                <div class="commentUserImage">
-                                    <img src="{{asset('assets/images/user2.jpg')}}" alt="" srcset="">
-                                </div>
-                            </div>
-                            <div class="commentSection">
-                                <div class="commentShareContent">
-                                    <div class="commentShareUser">
-                                        <i class="fa-solid fa-heart"></i> <p>{{$comment->user->full_name}}</p> <i class="fa-solid fa-heart"></i>
+                        <div class="descriptionContent">
+                            {!!$item->description!!}
+                        </div>
+                        @if($item->images->isNotEmpty())
+                            <section class="wrapper" data-post-id="{{ $item->id }}">
+                            <i class="fa-solid fa-arrow-left button prev" style="visibility: hidden;"></i>
+                                <div class="image-container">
+                                    <div class="carousel">
+                                        @foreach($item->images as $image)
+                                            <img src="{{ asset($image->image_path) }}" alt="Image" class="fruit">
+                                        @endforeach
                                     </div>
-                                    <p>{{$comment->comment}}</p>
+                                </div>
+                                <i class="fa-solid fa-arrow-right button next"></i>
+                            </section>
+                        @else
+                            <p>{{ __('messages.No images available for this post') }}</p>
+                        @endif
+                        <div class="localPost">
+                            <i class="fa-solid fa-location-dot"></i> <p>{{$item->location}}</p>
+                        </div>
+                        <div class="spaceBettween">
+                            <div class="infoIcon">
+                                <form action="{{ route('postlikes.store', $item->id) }}" method="POST">
+                                    @csrf
+                                    <button><i class="fa-solid fa-heart"></i> {{ $item->likes_count }}</button>
+                                </form>
+                                <button><i class="fa-solid fa-comment"></i> {{ $item->comments_count }}</button>
+                                <button><i class="fa-solid fa-share-from-square"></i> 2 lượt</button>
+                            </div>
+                        </div>
+                        <div class="commentPost">
+                            <div class="spaceBettween">
+                                <div class="commentUserPost">
+                                    <div class="commentUserImage">
+                                        <img src="{{asset('assets/images/user1.jpg')}}" alt="" srcset="">
+                                    </div>
+                                </div>
+                                <div class="commentSendPost">
+                                    <form action="{{ route('postcomments.store', $item->id) }}" method="POST">
+                                    @csrf
+                                        <input type="hidden" id="post_id" name="post_id" value="{{$item->id}}"/>
+                                        @if (Auth::check())
+                                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
+                                        @endif
+                                        <input type="text" name="comment"/>
+                                        <button class="btnSendComment"><i class="fa-solid fa-paper-plane"></i></button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
-                        @endforeach
-                    @else
-                        <p>No images available for this post.</p>
-                    @endif 
+                        @if($item->images->isNotEmpty())
+                            @foreach($item->comments as $comment)
+                            <div class="commentShare">
+                                <div class="commentUserSharePost">
+                                    <div class="commentUserImage">
+                                        <img src="{{asset('assets/images/user2.jpg')}}" alt="" srcset="">
+                                    </div>
+                                </div>
+                                <div class="commentSection">
+                                    <div class="commentShareContent">
+                                        <div class="commentShareUser">
+                                            <i class="fa-solid fa-heart"></i> <p>{{$comment->user->full_name}}</p> <i class="fa-solid fa-heart"></i>
+                                        </div>
+                                        <p>{{$comment->comment}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        @else
+                            <p>No images available for this post.</p>
+                        @endif 
+                    </div>
                 </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
 
         <div class="infoControllerRight" id="item4" style="display:none">
@@ -476,7 +476,7 @@
                     <li class="friend online">
                         <img src="{{asset('assets/images/user1.jpg')}}" alt="Friend 1">
                         <div>
-                            <p>Jane Doe</p>
+                            <p id="chatName">Jane Doe</p>
                             <span class="status">Online</span>
                         </div>
                     </li>
@@ -510,18 +510,19 @@
                 <div class="login-container">
                     <div class="form-box">
                         <p class="signup-prompt">Bạn muốn thay đổi mật khẩu đúng không?</p>
-                        <form id="loginForm">
+                        <form id="loginForm" action="{{ route('change.password', Auth::id()) }}" method="POST">
+                            @csrf
                             <div class="input-box">
                                 <span class="icon">🔒</span>
-                                <input type="password" placeholder="Password" required>
+                                <input type="password" name="current_password" placeholder="Current Password" required>
                             </div>
                             <div class="input-box">
                                 <span class="icon">🔒</span>
-                                <input type="password" placeholder="Password" required>
+                                <input type="password" name="new_password" placeholder="New Password" required>
                             </div>
                             <div class="input-box">
                                 <span class="icon">🔒</span>
-                                <input type="password" placeholder="Password" required>
+                                <input type="password" name="new_password_confirmation" placeholder="Confirm Password" required>
                             </div>
                             <button type="submit" class="login-button">Reset password</button>
                         </form>
@@ -534,10 +535,16 @@
             <div class="taskeu-container">
                 <div class="todo-container">
                     <h1>Link List</h1>
-                    <div class="input-container">
-                        <input type="text" placeholder="Add a new task...">
-                        <button onclick="addTask()">+</button>
-                    </div>
+                    <form action="{{ route('link.store')}}" method="POST">
+                        @csrf
+                        @if (Auth::check())
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
+                        @endif
+                        <div class="input-container">
+                            <input type="text" name="link" placeholder="Add a new link...">
+                            <button type="submit" >+</button>
+                        </div>
+                    </form>
                     <div class="button-group">
                         <button onclick="showComplete()">Link tab</button>
                         <p>https://fontawesome.com/start</p>
@@ -553,10 +560,16 @@
             <div class="taskeu-container">
                 <div class="todo-container">
                     <h1>Note List</h1>
-                    <div class="input-container">
-                        <input type="text" placeholder="Add a new task...">
-                        <button onclick="addTask()">+</button>
-                    </div>
+                    <form action="{{ route('note.store')}}" method="POST">
+                        @csrf
+                        @if (Auth::check())
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" />
+                        @endif
+                        <div class="input-container">
+                            <input type="text" name="link" placeholder="Add a new link...">
+                            <button type="submit">+</button>
+                        </div>
+                    </form>
                     <div class="button-group">
                         <button onclick="showComplete()">Link tab</button>
                         <p>https://fontawesome.com/start</p>
@@ -614,12 +627,15 @@
             const friendId = this.getAttribute('data-id');
             const userId = "{{ Auth::id() }}";
 
+            localStorage.setItem('currentUserId', userId);
+            localStorage.setItem('currentFriendId', friendId);
+
             function loadMessages() {
                 fetch(`/messages/${userId}/${friendId}`)
                     .then(response => response.json())
                     .then(messages => {
                         const chatMessages = document.getElementById('chatMessages');
-                        chatMessages.innerHTML = ''; 
+                        chatMessages.innerHTML = '';
 
                         messages.forEach(message => {
                             const messageDiv = document.createElement('div');
@@ -639,9 +655,41 @@
             }
 
             loadMessages();
-
             setInterval(loadMessages, 10000);
         });
+    });
+    window.addEventListener('load', () => {
+        const savedUserId = localStorage.getItem('currentUserId');
+        const savedFriendId = localStorage.getItem('currentFriendId');
+
+        if (savedUserId && savedFriendId) {
+            function loadMessages() {
+                fetch(`/messages/${savedUserId}/${savedFriendId}`)
+                    .then(response => response.json())
+                    .then(messages => {
+                        const chatMessages = document.getElementById('chatMessages');
+                        chatMessages.innerHTML = '';
+
+                        messages.forEach(message => {
+                            const messageDiv = document.createElement('div');
+                            messageDiv.classList.add('message');
+
+                            if (message.sender_id == savedUserId) {
+                                messageDiv.classList.add('sent');
+                            } else {
+                                messageDiv.classList.add('received');
+                            }
+
+                            messageDiv.textContent = message.message;
+                            chatMessages.appendChild(messageDiv);
+                        });
+                    })
+                    .catch(error => console.error('Error fetching messages:', error));
+            }
+
+            loadMessages();
+            setInterval(loadMessages, 10000);
+        }
     });
     
     document.querySelectorAll('.contact').forEach(contact => {
@@ -656,18 +704,29 @@
                     return response.json();
                 })
                 .then(data => {
-                    console.log(data)
                     if (data.error) {
                         console.error(data.error);
                     } else {
                         document.getElementById('chatName').textContent = data.full_name;
                         document.getElementById('friend_id').value = data.id;
+
+                        localStorage.setItem('selectedFriendName', data.full_name);
+                        localStorage.setItem('selectedFriendId', data.id);
                     }
                 })
                 .catch(error => console.error('Error fetching friend details:', error));
         });
     });
 
+    window.addEventListener('load', () => {
+        const savedFriendName = localStorage.getItem('selectedFriendName');
+        const savedFriendId = localStorage.getItem('selectedFriendId');
+        
+        if (savedFriendName && savedFriendId) {
+            document.getElementById('chatName').textContent = savedFriendName;
+            document.getElementById('friend_id').value = savedFriendId;
+        }
+    });
 
     let isDragging = false;
     

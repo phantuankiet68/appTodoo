@@ -2894,7 +2894,7 @@ i.next {
 
 .infoControllerRight{
     width: 80%;
-    border: 1px solid #ebebeb;
+    border: 1px solid #d7d6d6;
     border-radius: 10px;
     padding: 10px 0;
 }
@@ -3098,8 +3098,7 @@ i.material-icons {
 .infoControllerRightContentUser .textarea {
     resize: none;
     height: 140px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border: none;
+    border: 1px solid #d7d6d6;
     outline: none;
     border-radius: 5px;
     padding: 5px;
@@ -3110,7 +3109,7 @@ i.material-icons {
 
 .infoControllerRightInfo{
     width: 100%;
-    height: 67%;
+    height: 72%;
     padding: 10px;
     overflow: scroll;
     display: flex;
@@ -3144,8 +3143,7 @@ i.material-icons {
 
 .form-item-info input{
     padding: 8px 10px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border: none;
+    border: 1px solid #d7d6d6;
     outline: none;
     border-radius: 5px;
     margin-top: 5px;
@@ -3173,8 +3171,7 @@ i.material-icons {
     width: 100%;
     resize: none;
     height: 130px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border: none;
+    border: 1px solid #d7d6d6;
     outline: none;
     border-radius: 5px;
     padding: 5px;
@@ -3280,8 +3277,10 @@ i.material-icons {
     color: rgb(20, 16, 16);
     display: flex;
     flex-direction: column;
-    border: 1px solid #c9c9c9;
+    border: 1px solid #d7d6d6;
     padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .dark-mode .chat-container-one .contact-list{
@@ -3387,9 +3386,10 @@ i.material-icons {
     align-items: center;
     padding: 10px;
     background: #fff;
-    border-top: 1px solid #c8c8c8;
-    border-right: 1px solid #c8c8c8;
-    border-bottom: 1px solid #c8c8c8;
+    border-top: 1px solid #d7d6d6;
+    border-right: 1px solid #d7d6d6;
+    border-bottom: 1px solid #d7d6d6;
+    border-top-right-radius: 10px;
 }
 
 .infoControllerMenu .infoControllerMenuList button.active{
@@ -3429,7 +3429,7 @@ i.material-icons {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    border-right: 1px solid #c8c8c8;
+    border-right: 1px solid #d7d6d6;
 }
 
 .message {
@@ -3455,9 +3455,17 @@ i.material-icons {
     display: flex;
     padding: 10px;
     background: #fff;
-    border-top: 1px solid #c8c8c8;
-    border-bottom: 1px solid #c8c8c8;
-    border-right: 1px solid #c8c8c8;
+    border-top: 1px solid #d7d6d6;
+    border-bottom: 1px solid #d7d6d6;
+    border-right: 1px solid #d7d6d6;
+    border-bottom-right-radius: 10px;
+}
+.post-info{
+    width: 100%;
+    display: flex;
+    height: 81vh;
+    justify-content: center;
+    overflow: auto;
 }
 
 .chat-input input {
@@ -3580,7 +3588,7 @@ i.material-icons {
 }
 
 
-.login-container {
+.dark-mode .login-container {
     width: 100%;
     max-width: 400px;
     background: rgba(255, 255, 255, 0.1);
@@ -3592,6 +3600,24 @@ i.material-icons {
     border: 1px solid #eee;
 }
 
+.login-container {
+    width: 100%;
+    max-width: 50%;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    color: #474747;
+    backdrop-filter: blur(10px);
+    border: 1px solid #d7d6d6;
+}
+
+.dark-mode .resset-password{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .resset-password{
     width: 100%;
     height: 100%;
@@ -3600,46 +3626,39 @@ i.material-icons {
     align-items: center;
 }
 
-.form-box h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #fff;
-}
 
-.signup-prompt {
+.dark-mode .signup-prompt {
     font-size: 14px;
     color: #626262;
     margin-bottom: 20px;
 }
 
-.dark-mode .signup-prompt {
-    font-size: 14px;
-    color: #fff;
+.signup-prompt {
+    font-size: 16px;
+    color: #626262;
     margin-bottom: 20px;
 }
 
 
 
-.signup-prompt a {
+.dark-mode .signup-prompt a {
     color: #fff;
     text-decoration: underline;
+}
+
+.signup-prompt a {
+    color: #626262;
+    text-decoration: underline;
+}
+
+.dark-mode .input-box {
+    position: relative;
+    margin-bottom: 20px;
 }
 
 .input-box {
     position: relative;
     margin-bottom: 20px;
-}
-
-.input-box input {
-    width: 100%;
-    padding: 10px 10px 10px 40px;
-    border: none;
-    border-radius: 25px;
-    background: rgba(255, 255, 255, 0.3);
-    border: 1px solid #eee;
-    color: #3e3737;
-    outline: none;
-    font-size: 16px;
 }
 
 .dark-mode .input-box input {
@@ -3654,12 +3673,44 @@ i.material-icons {
     font-size: 16px;
 }
 
+.input-box input {
+    width: 100%;
+    padding: 10px 10px 10px 40px;
+    border: none;
+    border-radius: 25px;
+    border: 1px solid #d7d6d6;
+    color: #3e3737;
+    outline: none;
+    font-size: 16px;
+}
+
+
+.dark-mode .input-box .icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
 .input-box .icon {
     position: absolute;
     left: 15px;
     top: 50%;
     transform: translateY(-50%);
     color: #fff;
+}
+
+.dark-mode .login-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #40c3f7;
+    border: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
 .login-button {
@@ -3674,7 +3725,21 @@ i.material-icons {
     transition: background 0.3s;
 }
 
-.login-button:hover {
+.infoControllerRight#item5{
+    background: url(../assets/images/background.jpg);
+}
+.infoControllerRight#item6{
+    background: url(../assets/images/background.jpg);
+}
+
+.dark-mode .infoControllerRight#item5{
+    background: none;
+}
+.dark-mode .infoControllerRight#item6{
+    background: none;
+}
+
+.dark-mode .login-button:hover {
     background-color: rgba(48, 202, 249, 0.5);
 }
 
@@ -3768,11 +3833,15 @@ i.material-icons {
     width: 100%;
     padding: 20px;
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.1); /* Frosted glass effect */
+    background: rgb(29 25 25 / 35%);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     color: #fff;
     text-align: center;
+}
+
+.dark-mode .todo-container {
+    background: rgb(255 255 255 / 35%);
 }
 
 h1 {

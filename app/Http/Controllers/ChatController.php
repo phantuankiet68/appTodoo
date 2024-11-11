@@ -17,6 +17,8 @@ use App\Models\ProfileHobbies;
 use App\Models\ProfileObjective;
 use App\Models\Friendship;
 use App\Models\Message;
+use App\Models\Link;
+use App\Models\Note;
 
 
 class ChatController extends Controller
@@ -42,6 +44,37 @@ class ChatController extends Controller
 
         return view('chat.index', compact('posts'));
     }
+
+    public function storeLink(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'link' => 'required|url' 
+        ]);
+
+        Link::create([
+            'user_id' => $request->user_id,
+            'link' => $request->link,
+        ]);
+
+        return redirect()->back()->with('success', 'Link added successfully.');
+    }
+
+    public function storeNote(Request $request)
+    {
+        $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'note' => 'required|url' 
+        ]);
+
+        Note::create([
+            'user_id' => $request->user_id,
+            'link' => $request->link,
+        ]);
+
+        return redirect()->back()->with('success', 'Note added successfully.');
+    }
+
     public function fetchMessages($userId, $friendId)
     {
         $messages = Message::where(function($query) use ($userId, $friendId) {

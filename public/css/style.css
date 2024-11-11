@@ -1128,7 +1128,7 @@ span.circle-white{
 }
 .card h1 {
     font-size: 14px;
-    margin: 10px;
+    margin: 24px;
 }
 .card--icon--lg {
     font-size: 50px;
@@ -1956,8 +1956,7 @@ button.button:hover{
 .form-input-category .input-name{
     width: 78%;
     padding: 8px 10px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border: none;
+    border: 1px solid #d7d6d6;
     outline: none;
     border-radius: 5px;
 }
@@ -2225,8 +2224,7 @@ button.button:hover{
 .textarea {
     resize: none;
     height: 80px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border: none;
+    border: 1px solid #d7d6d6;
     outline: none;
     border-radius: 5px;
     padding: 5px;
@@ -5672,18 +5670,22 @@ list-style: none;
 #chart{
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    box-shadow: rgb(0 170 240 / 27%) 0px 0px 0.25em, rgb(36 191 255 / 5%) 0px 0.25em 1em;
     padding: 5px;
+}
+
+.infoUserContent{
+    margin-bottom: 20px;
 }
 .dark-mode .ideaUser{
     border: 1px solid #1571bf;
 }
 .ideaUser{
     width: 100%;
-    height: 238px;
+    height: 360px;
     margin-bottom: 10px;
     border-radius: 10px;
-    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+    box-shadow: rgb(0 170 240 / 27%) 0px 0px 0.25em, rgb(36 191 255 / 5%) 0px 0.25em 1em;
 }
 
 .ideaUserForm{
