@@ -35,4 +35,8 @@ class Issue extends Model
     {
         return $this->belongsToMany(User::class, 'issue_users', 'issue_id', 'user_id');
     }
+    public function images()
+    {
+        return $this->hasMany(IssueImage::class);
+    }
 }

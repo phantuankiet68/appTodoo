@@ -66,7 +66,6 @@ class IssueController extends Controller
             return view('issue.index', compact('categories', 'users', 'issues', 'search'));
     
         } catch (\Exception $e) {
-            Log::error('Error fetching issues: ' . $e->getMessage());
             return redirect()->back()->with('error', 'Đã xảy ra lỗi khi lấy danh sách vấn đề. Vui lòng thử lại.');
         }
     }
@@ -94,6 +93,7 @@ class IssueController extends Controller
             'end_date' => 'required|date|after_or_equal:start_date',
             'category_id' => 'required|exists:categories,id',
             'status' => 'required|integer',
+            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
         ], [
             'subject.required' => __('validation.subject_required'),
             'key.required' => __('validation.key_required'),
@@ -108,9 +108,12 @@ class IssueController extends Controller
             'category_id.exists' => __('validation.category_id_exists'),
             'status.required' => __('validation.status_required'),
             'status.integer' => __('validation.status_integer'),
+            'images.*.image' => __('validation.image'),
+            'images.*.mimes' => __('validation.mimes'),
+            'images.*.max' => __('validation.max'),
         ]);
-  
-        Issue::create([
+
+        $issue = Issue::create([
             'user_id' => Auth::id(),
             'subject' => $request->subject,
             'key' => $request->key,
@@ -120,10 +123,24 @@ class IssueController extends Controller
             'category_id' => $request->category_id,
             'status' => $request->status,
         ]);
-    
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $file) {
+                $filename = uniqid() . '_' . hash('sha256', $file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
+
+                $file->move(public_path('assets/images'), $filename);
+
+                // Lưu chỉ tên file vào database
+                $issue->images()->create([
+                    'user_id' => Auth::id(),
+                    'image_path' => $filename,
+                ]);
+            }
+        }
+
         return redirect()->route('issue.index')->with('success', 'Issue created successfully');
     }
-    
+        
 
     /**
      * Display the specified resource.

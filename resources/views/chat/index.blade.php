@@ -183,29 +183,6 @@
                         </div>
                         <p class="space"></p>
                     </div>
-                    <div class="infoUser">
-                        <div class="titlePost">
-                            <h3>{{ __('messages.Your Share') }}</h3>
-                        </div>
-                        <p class="space"></p>
-                        <div class="sales">
-                            <div class="salesYellow">
-                                <div>
-                                    <i class="fa-solid fa-gift"></i>
-                                    <p>Số lượng 20 chai đang được share với giá 270k.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="space"></p>
-                        <div class="sales">
-                            <div class="salesYellow">
-                                <div>
-                                    <i class="fa-solid fa-gift"></i>
-                                    <p> Nếu thêm đầu pod giá 340k</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

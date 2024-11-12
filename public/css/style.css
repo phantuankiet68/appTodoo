@@ -121,7 +121,6 @@ li{
     text-align: center;
 }
 #app{
-    padding: 10px;
     width: 100%;
     height: 100vh;
     -webkit-text-size-adjust: 100%;
@@ -137,12 +136,10 @@ li{
 /* Side bar */
 .sidebar{
     width: 13%;
-    height: 96vh;
+    height: 100vh;
     padding: 10px 20px;
     position: relative;
     background-color: #fff;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     overflow: hidden;
 }
@@ -226,21 +223,22 @@ li{
 }
 .sidebar ul {
     width: 100%;
-    height: 79vh;
+    height: 83vh;
     overflow: scroll;
 }
 
 .sidebar ul li{
+    position: relative;
     width: 100%;
-    padding: 4px 10px;
+    padding: 4px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
     cursor: pointer;
-    border: 1px solid #ebebeb;
+    border: 1px solid #d7d6d6;
     border-radius: 5px;
-    background: #d5efff3d;
+    background: #fff;
 }
 
 .sidebar.dark-mode ul li:hover {
@@ -359,6 +357,7 @@ li{
     display: block;
     margin-left: 10px;
     width: 95%;
+    padding: 6px 10px;
 }
 
 
@@ -418,7 +417,7 @@ li{
 
 
 .sidebar ul li:hover{
-    background-color: #3491fc;
+    background-color: #40c3f7;
     border-radius: 5px;
 }
 
@@ -441,13 +440,13 @@ ul.nav-menu li:focus-within span i{
 }
 
 .dark-mode .sidebar ul li.activeBox{
-    background-color: #3491fc;
+    background-color: #40c3f7;
 }
 .dark-mode .sidebar ul li.activeBox a{
-    background-color: #3491fc;
+    background-color: #40c3f7;
 }
 .dark-mode .sidebar ul li.activeBox a i{
-    background-color: #3491fc;
+    background-color: #40c3f7;
 }
 
 .dark-mode .sidebar ul li.bg-grey.activeBox{
@@ -466,41 +465,41 @@ ul.nav-menu li:focus-within span i{
 
 
 .sidebar ul li.activeBox{
-    background-color: #3491fc;
+    background-color: #40c3f7;
     color: #fff;
 }
 .sidebar ul li.activeBox a{
-    background-color: #3491fc;
+    background-color: #40c3f7;
     color: #fff;
 }
 .sidebar ul li.activeBox a i{
-    background-color: #3491fc;
+    background-color: #40c3f7;
     color: #fff;
 }
 
 .sidebar ul li.bg-grey.activeBox{
-    background: #d5efff3d;
+    background: #40c3f7;
     color: #0c0808;
 }
 .sidebar ul li.bg-grey.activeBox a{
-    background: #d5efff3d;
-    color: #0c0808;
+    background: #40c3f7;
+    color: #fff;
 }
-.sidebar ul li.bg-grey.activeBox a i{
-    background: #d5efff3d;
-    color: #0c0808;
+.sidebar ul li.bg-grey.activeBox i{
+    background: #40c3f7;
+    color: #fff;
 }
 
 .sidebar ul li.bg-grey.activeBox:hover{
-    background-color: #3491fc;
+   background-color: #40c3f7;
     color: #fff;
 }
 .sidebar ul li.bg-grey.activeBox:hover a{
-    background-color: #3491fc;
+   background-color: #40c3f7;
     color: #fff;
 }
 .sidebar ul li.bg-grey.activeBox:hover a i{
-    background-color: #3491fc;
+   background-color: #40c3f7;
     color: #fff;
 }
 
@@ -512,17 +511,14 @@ ul.nav-menu li:focus-within span i{
     margin-bottom: 0;
     color: #cecece;
     border: none;
-    background: #fff;
     font-size: 13px;
     text-transform: uppercase;
 }
-.sidebar ul li.titleMenu:hover{
-    background-color: #fff;
-    border-radius: 5px;
-}
+
 
 .sidebar ul li:hover a{
     color: #fff;
+    
 }
 
 .sidebar ul li:hover i{
@@ -537,9 +533,10 @@ ul.nav-menu li:focus-within span i{
 }
 
 .sidebar ul li a{
-    width: 90%;
+    width: 100%;
     color: #0c0808;
-    font-size: 14px;
+    font-size: 13px;
+    padding: 5px 10px;
     font-weight: 400;
     font-family: "Poppins", sans-serif;
 }
@@ -571,6 +568,8 @@ ul.nav-menu li:focus-within span i{
     font-size: 15px;
     font-weight: 400;
     font-family: "Poppins", sans-serif;
+    position: absolute;
+    right: 15px;
 }
 .sidebar ul li a i{
     color: #5c4545;
@@ -670,24 +669,20 @@ ul.nav-menu li:focus-within span i{
 
 .Container{
     width: 87%;
-    height: 96vh;
+    height: 100vh;
     background-color: #fff;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
 }
 .cod-top-header{
+    padding: 10px;
     width: 100%;
     height: 60px;
-    background-color: #fff;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-    border-top-right-radius: 20px;
-}
-.cod-top-header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    background-color: #fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .top-nav-here{
@@ -1515,7 +1510,7 @@ button.button:hover{
     gap: 10px;
     height: auto;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    padding: 5px 10px;
+    padding: 10px;
     border-radius: 5px;
 }
 .todoHeader .topHeader{
@@ -1524,6 +1519,10 @@ button.button:hover{
     align-items: center;
     text-align: center;
     gap: 10px;
+}
+
+.todoHeader .topHeader h3{
+    font-weight: 600;
 }
 
 .bodyHeader{
@@ -5353,7 +5352,7 @@ list-style: none;
 
 
 .col-8{
-    width: 75%;
+    width: 60%;
     border-right: 1px solid #e6e6e6;
     height: 85vh;
     background-color: rgb(245, 244, 244);
@@ -5369,7 +5368,6 @@ list-style: none;
 .issueHeader-title{
     padding: 10px;
     display: flex;
-    justify-content: center;
 }
 
 
@@ -5379,7 +5377,7 @@ list-style: none;
     padding: 10px;
 }
 .col-4{
-    width: 25%;
+    width: 40%;
 }
 .BtnClose{
     position: absolute;
@@ -5393,13 +5391,9 @@ list-style: none;
 }
 .issueHeader{
     position: relative;
-    height: 85vh;
+    height: 90vh;
     width: 100%;
-}
-.issueHeader-footer{
-    position: absolute;
-    bottom: 40px;
-    width: 100%;
+    border-right: 1px solid #d7d6d6;
 }
 
 .issueHeader-footer ul{
@@ -5439,9 +5433,8 @@ list-style: none;
 .alternate-list-left p i{
     color: dodgerblue;
 }
-
-.issueHeader-title{
-    margin: 10px 0;
+.issueHeader-title h3{
+    font-weight: 600;
 }
 
 .assignUser{
@@ -5573,8 +5566,11 @@ list-style: none;
 
 .commentBody{
     width: 100%;
-    height: 71.68vh;
+    height: 28vh;
     overflow: scroll;
+    padding: 10px;
+    background: #fff;
+    border-bottom-left-radius: 10px;
 }
 .form-input-comment{
     width: 100%;
@@ -5586,7 +5582,7 @@ list-style: none;
 }
 
 .form-input-comment input{
-    width: 80%;
+    width: 90%;
     padding: 8px 10px;
     border: 1px solid #e6e6e6;
     outline: none;

@@ -182,14 +182,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="form-search">
-                        <form action="">
-                            <input type="text">
-                            <div class="box-icon-search">
-                                <i class="fa-solid fa-magnifying-glass"></i>
-                            </div>
-                        </form>
-                    </div>
+                
                     <div class="service">
                         <div class="lightDask">
                             <button id="toggle-mode"><i class="fa-solid fa-circle"></i></button>

@@ -1234,6 +1234,7 @@
 .categoryHidden {
     display: none;
     padding: 5px;
+    height: 82vh;
     right: 28px;
     position: fixed;
     top: 16%;
@@ -1289,6 +1290,13 @@
     background-color: #555555;
     border: 1px solid #1571bf;
 }
+
+.projecTodoBody {
+    width: 100%;
+    height: 90vh;
+}
+
+
 .dashboard-content.dark-mode .col-8 .table_user {
     background-color: #555555;
     border-bottom: 1px solid #1571bf;
@@ -1301,6 +1309,23 @@
     background-color: #555555;
 }
 
+.issueHeader .issueHeader-footer {
+    position: relative;
+    width: 100%;
+}
+.issueHeader .issueHeader-footer ul li {
+    width: 100%;
+    border-top: 1px solid #d7d6d6;
+    padding: 10px;
+    display: flex;
+}
+
+.issueHeader .issueHeader-body {
+    background-color: #fff;
+    padding: 10px;
+    height: 42vh;
+    overflow: scroll;
+}
 .dashboard-content.dark-mode .col-4{
     border-top: 1px solid #1571bf;
     border-right: 1px solid #1571bf;
@@ -1315,6 +1340,111 @@
     border-top: 1px solid #1571bf;
 }
 
+.comment-section {
+    width: 60%;
+    background-color: #f8f8f8;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.comment-section textarea {
+    width: 100%;
+    height: 199px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    resize: none;
+}
+
+.comment-toolbar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.comment-toolbar button {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.comment-section input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-buttons button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.action-buttons .close {
+    background-color: #ddd;
+}
+
+.action-buttons .preview {
+    background-color: #40c3f7;
+    color: #fff;
+}
+
+.action-buttons .submit {
+    background-color: #40c3f7;
+    color: #fff;
+}
+
+.issueTodo .projecTodoBody {
+    width: 100%;
+    height: 82vh;
+    box-shadow: none;
+    border-radius: 5px;
+    border: 1px solid #d7d6d6;
+}
+
+.details-section {
+    width: 38%;
+}
+
+.details-section label {
+    display: block;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.details-section input, .details-section select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.status, .assignee, .dates, .resolution {
+    margin-bottom: 5px;
+}
+
+.container-comment{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 5px;
+}
 
 .notification-cut{
     width: 100%;
@@ -1406,7 +1536,7 @@
 
 .chat_post{
     width: 100%;
-    height: 85vh;
+    height: 91vh;
     background-color: #f3f3f3;
 }
 
@@ -1416,9 +1546,24 @@
     gap: 10px;
 }
 
+.chat_row .chat-right{
+    width: 30%;
+    height: 91vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px 10px 10px 0px;
+}
+.chat_row .chat-right .infoUser {
+    width: 100%;
+    height: 90vh;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+}
 .chat-left{
     width: 70%;
-    height: 85vh;
+    height: 90vh;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -2749,7 +2894,7 @@ p.space {
     display: flex;
     max-width: 100%;
     width: 100%;
-    height: 530px;
+    height: 476px;
     background: #fff;
     align-items: center;
     justify-content: center;
@@ -2783,7 +2928,7 @@ i.next {
     right: 25px;
 }
 .image-container {
-    height: 500px;
+    height: 460px;
     max-width: 80%;
     width: 100%;
     overflow: hidden;
@@ -3264,7 +3409,7 @@ i.material-icons {
 .chat-container-one {
     display: flex;
     width: 100%;
-    height: 81vh;
+    height: 85vh;
     padding: 0 10px;
     border-radius: 10px;
     overflow: hidden;
@@ -3968,4 +4113,59 @@ h1 {
 .component-card .body-todo .tables table th,
 .component-card .body-todo .tables table td{
     font-size: 13px;
+}
+.upload-container {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#fileUploadButton {
+    background-color: #40c3f7;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#fileUploadButton:hover {
+    background-color: #40c3f7;
+}
+
+#fileCount {
+    font-size: 14px;
+    color: #666;
+    margin-top: 10px;
+}
+
+#fileList {
+    margin-top: 20px;
+}
+
+.file-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e0f0ff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.file-name {
+    color: #333;
+    font-weight: bold;
+}
+
+.file-size {
+    color: #007bff;
 }

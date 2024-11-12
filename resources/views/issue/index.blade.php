@@ -6,7 +6,7 @@
 <div class="todo issueTodo">
     <div class="todoHeader topHeaderTodo">
         <div class="topHeader">
-            <h2>{{ __('messages.Issue') }}</h2> | <span>{{ __('messages.Home') }}</span>
+            <h3>{{ __('messages.Issue') }}</h3> | <span>{{ __('messages.Home') }}</span>
         </div>
         <div class="bodyHeader formSearchIssue">
             <form action="{{ route('issue.index') }}" method="GET" id="filterForm" class="formSearch formIssue">
@@ -271,21 +271,24 @@
 </div>
 <div class="model" id="ModelCreateIssue">
     <div class="ModelCreateIssue">
-        <form  method="POST" class="modelForm" action="{{ route('issue.store') }}" >
-        @csrf
-            <h2>{{ __('messages.Add New') }}</h5>
+        <form method="POST" class="modelForm" action="{{ route('issue.store') }}" enctype="multipart/form-data">
+            @csrf
+            <h2>{{ __('messages.Add New') }}</h2>
+            
             @if (Auth::check())
                 <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
             @endif
+        
             <div class="form-input-category">
                 <label for="subject">{{ __('messages.Subject') }}</label>
                 <input type="text" class="input-name" id="subject" name="subject">
             </div>
+        
             <div class="form-group-info">
                 <div class="form-input-category">
                     <label for="key">{{ __('messages.Key') }}</label>
                     <input type="text" class="input-name" id="key_issue" name="key">
-                    <button type="button" class="btnGenerate" onclick="generateButton()" >Generate</button>
+                    <button type="button" class="btnGenerate" onclick="generateButton()">Generate</button>
                 </div>
                 <div class="form-select-category">
                     <label for="level">{{ __('messages.Level') }}</label>
@@ -295,14 +298,17 @@
                     </select>
                 </div>
             </div>
+        
             <div class="form-textarea-category">
                 <label for="description">{{ __('messages.Description') }}</label>
                 <textarea id="editor" name="description"></textarea> 
             </div>
+        
             <div class="form-input-category mt-10">
                 <label for="reference">{{ __('messages.Reference') }}</label>
                 <input type="text" class="input-name" id="reference" name="reference">
             </div>
+        
             <div class="form-group-info">
                 <div class="form-input-category">
                     <label for="start_date">{{ __('messages.Start Date') }}</label>
@@ -313,13 +319,14 @@
                     <input type="date" class="input-name" id="end_date" name="end_date">
                 </div>
             </div>
+        
             <div class="form-group-info">
                 <div class="form-select-category">
                     <label for="status">{{ __('messages.Category') }}</label>
                     <select name="category_id" id="status">
-                    @foreach($categories as $cate)
-                        <option value="{{ $cate->id }}">{{ $cate->name }}</option>
-                    @endforeach
+                        @foreach($categories as $cate)
+                            <option value="{{ $cate->id }}">{{ $cate->name }}</option>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-select-category">
@@ -331,9 +338,20 @@
                     </select>
                 </div>
             </div>
+        
+            <div class="upload-container">
+                <button id="fileUploadButton" type="button">
+                    <i class="fa fa-upload"></i> Choose Files To Upload
+                </button>
+                <input type="file" id="fileInput" name="images[]" multiple accept="image/*" style="display: none;">
+                <p id="fileCount">No files chosen</p>
+                <div id="fileList"></div>
+            </div>
+        
             <div class="form-btn">
                 <button type="submit">{{ __('messages.Add') }}</button>
             </div>
+        
             <div class="BtnCloseCreate" onclick="closeCreateIssuePopup()">
                 <p>X</p>
             </div>
@@ -375,6 +393,77 @@
     </script>
 
 <script>
+    let selectedFiles = []; // Array to store selected files
+const maxFiles = 3; // Limit the number of files to 3
+
+document.getElementById('fileUploadButton').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent form submission on button click
+    document.getElementById('fileInput').click(); // Open the file input dialog
+});
+
+document.getElementById('fileInput').addEventListener('change', function(event) {
+    const newFiles = Array.from(event.target.files);
+
+    // Check if total number of files exceeds the max limit
+    if (selectedFiles.length + newFiles.length > maxFiles) {
+        alert(`You can only upload up to ${maxFiles} images.`);
+        return; // Prevent adding more files
+    }
+
+    // Add new files to selectedFiles
+    selectedFiles = selectedFiles.concat(newFiles);
+    updateFileList(); // Update the file display list
+});
+
+// Function to update the file list display
+function updateFileList() {
+    const fileList = document.getElementById('fileList');
+    const fileCount = document.getElementById('fileCount');
+    fileList.innerHTML = '';
+
+    if (selectedFiles.length > 0) {
+        fileCount.textContent = `${selectedFiles.length} Files Chosen`;
+    } else {
+        fileCount.textContent = 'No files chosen';
+    }
+
+    selectedFiles.forEach(file => {
+        const fileItem = document.createElement('div');
+        fileItem.className = 'file-item';
+
+        const fileName = document.createElement('span');
+        fileName.className = 'file-name';
+        fileName.textContent = file.name;
+
+        const fileSize = document.createElement('span');
+        fileSize.className = 'file-size';
+        fileSize.textContent = formatFileSize(file.size);
+
+        fileItem.appendChild(fileName);
+        fileItem.appendChild(fileSize);
+        fileList.appendChild(fileItem);
+    });
+}
+
+// Function to format file size for display
+function formatFileSize(bytes) {
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+    if (bytes === 0) return '0 Byte';
+    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+}
+
+// Before form submission, add files to form data
+document.querySelector('.modelForm').addEventListener('submit', function(event) {
+    const fileInput = document.getElementById('fileInput');
+    const dataTransfer = new DataTransfer();
+
+    selectedFiles.forEach(file => {
+        dataTransfer.items.add(file);
+    });
+
+    fileInput.files = dataTransfer.files; // Assign selected files to input for submission
+});
 
     document.addEventListener('DOMContentLoaded', function() {
         const popup = document.querySelector('#popup-category');

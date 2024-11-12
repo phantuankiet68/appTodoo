@@ -626,31 +626,27 @@
             localStorage.setItem('currentUserId', userId);
             localStorage.setItem('currentFriendId', friendId);
 
-            function loadMessages() {
-                fetch(`/messages/${userId}/${friendId}`)
-                    .then(response => response.json())
-                    .then(messages => {
-                        const chatMessages = document.getElementById('chatMessages');
-                        chatMessages.innerHTML = '';
+           fetch(`/messages/${userId}/${friendId}`)
+                .then(response => response.json())
+                .then(messages => {
+                    const chatMessages = document.getElementById('chatMessages');
+                    chatMessages.innerHTML = '';
 
-                        messages.forEach(message => {
-                            const messageDiv = document.createElement('div');
-                            messageDiv.classList.add('message');
+                    messages.forEach(message => {
+                        const messageDiv = document.createElement('div');
+                        messageDiv.classList.add('message');
 
-                            if (message.sender_id == userId) {
-                                messageDiv.classList.add('sent');
-                            } else {
-                                messageDiv.classList.add('received');
-                            }
+                        if (message.sender_id == userId) {
+                            messageDiv.classList.add('sent');
+                        } else {
+                            messageDiv.classList.add('received');
+                        }
 
-                            messageDiv.textContent = message.message;
-                            chatMessages.appendChild(messageDiv);
-                        });
-                    })
-                    .catch(error => console.error('Error fetching messages:', error));
-            }
-
-            loadMessages();
+                        messageDiv.textContent = message.message;
+                        chatMessages.appendChild(messageDiv);
+                    });
+                })
+                .catch(error => console.error('Error fetching messages:', error));
             setInterval(loadMessages, 10000);
         });
     });
@@ -658,34 +654,30 @@
         const savedUserId = localStorage.getItem('currentUserId');
         const savedFriendId = localStorage.getItem('currentFriendId');
 
-        if (savedUserId && savedFriendId) {
-            function loadMessages() {
-                fetch(`/messages/${savedUserId}/${savedFriendId}`)
-                    .then(response => response.json())
-                    .then(messages => {
-                        const chatMessages = document.getElementById('chatMessages');
-                        chatMessages.innerHTML = '';
+       function loadMessages() {
+            fetch(`/messages/${savedUserId}/${savedFriendId}`)
+                .then(response => response.json())
+                .then(messages => {
+                    const chatMessages = document.getElementById('chatMessages');
+                    chatMessages.innerHTML = '';
 
-                        messages.forEach(message => {
-                            const messageDiv = document.createElement('div');
-                            messageDiv.classList.add('message');
+                    messages.forEach(message => {
+                        const messageDiv = document.createElement('div');
+                        messageDiv.classList.add('message');
 
-                            if (message.sender_id == savedUserId) {
-                                messageDiv.classList.add('sent');
-                            } else {
-                                messageDiv.classList.add('received');
-                            }
+                        if (message.sender_id == savedUserId) {
+                            messageDiv.classList.add('sent');
+                        } else {
+                            messageDiv.classList.add('received');
+                        }
 
-                            messageDiv.textContent = message.message;
-                            chatMessages.appendChild(messageDiv);
-                        });
-                    })
-                    .catch(error => console.error('Error fetching messages:', error));
-            }
-
-            loadMessages();
-            setInterval(loadMessages, 10000);
+                        messageDiv.textContent = message.message;
+                        chatMessages.appendChild(messageDiv);
+                    });
+                })
+                .catch(error => console.error('Error fetching messages:', error));
         }
+
     });
     
     document.querySelectorAll('.contact').forEach(contact => {
