@@ -4,13 +4,250 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UpSkillHub.vn </title>
-    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+    <!-- <link rel="stylesheet" href="{{ asset('css/layout.css') }}"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
-    <script src="https://unpkg.com/imagesloaded@4.1.4/imagesloaded.pkgd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="{{ asset('css/layout-one.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/media-layout.css') }}">
 </head>
 <body>
-    <div class="webHome">
+    <button id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <header>
+        <div class="header-aside">
+            <div class="header-aside-list hidden">
+                <a href="">Kết nối <i class="fa-solid fa-wifi"></i> | </a>
+                <a href="">Facebook <i class="fa-brands fa-facebook"></i> | </a> 
+                <a href="">Tiktok <i class="fa-brands fa-tiktok"></i></a> 
+            </div>
+            <div class="header-aside-list">
+                @if (Auth::check())
+                    <a href="#" onclick="logout()" class="btn-login" id="logoutLink"><i class="fa-regular fa-user"></i> Đăng xuất</a>
+                @else
+                    <a href="#login" class="btn-login" onclick="Login();"><i class="fa-regular fa-user"></i> Đăng nhập</a>
+                    <a href="#register" class="btn-login" onclick="Register();"><i class="fa-regular fa-user"></i> Đăng ký</a>
+                @endif  
+            </div>
+        </div>
+        <nav>
+            <a href="#home" id="logo">UpSkillHub</a>
+            <i class="fas fa-bars" id="ham-menu"></i>
+            <ul id="nav-bar">
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li>
+                    <a href="#courses">Abouts</a>
+                </li>
+                <li>
+                    <a href="#features">Features</a>
+                </li>
+                <li>
+                    <a href="#courses">Courses</a>
+                </li>
+                <li>
+                    <a href="#testimonial">Services</a>
+                </li>
+                <li>
+                    <a href="#download-app">Product</a>
+                </li>
+                <li>
+                    <a href="#download-app">Tools</a>
+                </li>
+                <li>
+                    <a href="#download-app">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero" id="home">
+        <img src="{{asset('assets/images/header-shape.svg')}}" id="header-shape" />
+        <div class="hero-content">
+            <h1>Let's Make Learning Fun</h1>
+            <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil
+            eum culpa, quisquam dolores porro voluptate expedita illo doloribus
+            nulla. Corporis fugiat sed excepturi odio, odit nam officia sequi at.
+            </p>
+            <div class="btn-container">
+            <button class="primary-btn btn">Start Learning</button>
+            <button class="secondary-btn btn">Explore More</button>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="{{asset('assets/images/hero-image.svg')}}" />
+        </div>
+    </section>
+    <section class="features" id="features">
+        <h2>Why Choose Us</h2>
+        <p class="section-desc">
+            We at study smart provide you with engaging video lessons taught by the
+            top educators using smart techniques.
+         </p>
+        <div class="row">
+            <div class="column">
+                <i class="fas fa-star"></i>
+                <h3>Engaging Lectures</h3>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel veniam
+                    voluptatibus nobis id perspiciatis ratione reiciendis quisquam
+                    assumenda minima. Facere.
+                </p>
+            </div>
+            <div class="column">
+            <i class="fas fa-thumbs-up"></i>
+            <h3>Top Educators</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
+                nesciunt harum ducimus eum esse dolore debitis! Officiis autem est
+                dolor.
+            </p>
+            </div>
+            <div class="column">
+            <i class="fas fa-graduation-cap"></i>
+            <h3>Self Paced</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
+                eveniet quasi aut quibusdam incidunt debitis voluptas qui enim modi
+                rem!
+            </p>
+        </div>
+      </div>
+    </section>
+    <section class="courses" id="courses">
+      <h2>Our Popular Courses</h2>
+      <p class="section-desc">
+        With over 30,000 courses to choose from, check out out most popular
+        courses.
+      </p>
+      <div class="row">
+        <div class="column">
+          <img src="{{asset('assets/images/public.jpg')}}" />
+          <h3>Public Speaking</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos facere
+            voluptatibus natus. Amet, cupiditate illo?
+          </p>
+          <div class="courses-btn">
+            <button class="btn secondary-btn">Learn More</button>
+          </div>
+        </div>
+        <div class="column">
+          <img src="{{asset('assets/images/photography.jpg')}}" />
+          <h3>Photography</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit nulla
+            dolor nostrum animi veniam rem.
+          </p>
+          <div class="courses-btn">
+            <button class="btn secondary-btn">Learn More</button>
+          </div>
+        </div>
+        <div class="column">
+          <img src="{{asset('assets/images/typing.jpg')}}" />
+          <h3>Typing</h3>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
+            voluptatibus temporibus dolorem sit ipsam adipisci?
+          </p>
+          <div class="courses-btn">
+            <button class="btn secondary-btn">Learn More</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="testimonial" id="testimonial">
+      <h2>What Our Students Say</h2>
+      <p class="section-desc">
+        We provide a learning experience that is not available elsewhere. We
+        have over 50,000 happy students.
+      </p>
+      <div class="row">
+        <div class="column">
+          <div class="testimonial-image">
+            <img src="{{asset('assets/images/person-1.jpg')}}" />
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est alias
+            eligendi quia explicabo dolorem dignissimos nisi consequatur nobis
+            quaerat quas iure nostrum laudantium similique ea iste sequi tempore
+            natus, repellat quae deleniti. Veritatis sit deserunt rerum cum
+            consectetur voluptate nisi.
+          </p>
+          <h3>Mark King</h3>
+        </div>
+        <div class="column">
+          <div class="testimonial-image">
+            <img src="{{asset('assets/images/person-2.jpg')}}"  />
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
+            exercitationem, deleniti illo modi voluptatibus, voluptatem totam ea
+            consequuntur sint, sit voluptas laboriosam? Aperiam, iure sequi sunt
+            assumenda molestiae recusandae, harum id aliquam ipsam eveniet
+            ratione cupiditate libero quasi nobis nulla.
+          </p>
+          <h3>Rose Smith</h3>
+        </div>
+      </div>
+    </section>
+    <!------ Section: Download App ------>
+    <section class="download-app" id="download-app">
+      <h2>Download Our App</h2>
+      <p class="section-desc">
+        Unloack all new amazing features with our mobile app.
+      </p>
+      <div class="row">
+        <div class="column">
+          <img src="download-app.png" />
+        </div>
+        <div class="column">
+          <div class="app-feature">
+            <div>
+              <i class="fas fa-star"></i>
+              <h3>Set Reminders</h3>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Excepturi autem accusamus accusantium officia?
+            </p>
+          </div>
+          <div class="app-feature">
+            <div>
+              <i class="fas fa-star"></i>
+              <h3>Download Lectures</h3>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Excepturi autem accusamus accusantium officia?
+            </p>
+          </div>
+          <div class="app-feature">
+            <div>
+              <i class="fas fa-star"></i>
+              <h3>30,000+ Lectures</h3>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Excepturi autem accusamus accusantium officia?
+            </p>
+          </div>
+          <div class="download-btns">
+            <a href="#google-play">
+              <img src="google-play.png" />
+            </a>
+            <a href="#app-store">
+              <img src="app-store.png" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- <div class="webHome">
         <header> 
             <div class="header-aside">
                 <div class="header-aside-list hidden">
@@ -53,12 +290,7 @@
             </div>
         </header>
         <div class="container">
-            <!-- <div class="controll">
-                <div class="controll-page">
-                    <button><i class="fa-regular fa-circle-up"></i></button>
-                    <button><i class="fa-regular fa-circle-down"></i></button>
-                </div>
-            </div> -->
+            
             <section class="page-left"  id="extraItems">
                 <div class="page-left-item banner" id="item1">
                     <div class="patern-layer-one"></div>
@@ -801,9 +1033,9 @@
                 </div>
             </section>
         </div>
-    </div>
+    </div> -->
     <script src="{{ asset('js/layout.js') }}"></script>
-    <div class="popup-modal" id="imagePopup" style="display: none;">
+    <!-- <div class="popup-modal" id="imagePopup" style="display: none;">
         <span class="close-popup">&times;</span>
         <img class="popup-content" id="popupImage" src="" alt="Popup Image">
     </div>
@@ -878,7 +1110,7 @@
             </div>
         </form>
         </div>
-    </div>
+    </div> -->
     
     @if (session('success'))
         <div id="popup-category" class="popup-category success">
