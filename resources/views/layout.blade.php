@@ -84,37 +84,85 @@
     </section>
     <section class="features" id="features">
         <h2>Why Choose Us</h2>
-        <p class="section-desc">
-            We at study smart provide you with engaging video lessons taught by the
-            top educators using smart techniques.
-         </p>
-        <div class="row">
-            <div class="column">
-                <i class="fas fa-star"></i>
-                <h3>Engaging Lectures</h3>
-                <p>
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel veniam
-                    voluptatibus nobis id perspiciatis ratione reiciendis quisquam
-                    assumenda minima. Facere.
-                </p>
+        <div class="row-services">
+            <div class="service">
+                <div class="services">
+                    <div class="service-logo">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                    </div>
+                    <h4>Website Developer</h4>
+                    <div class="service-content">
+                        <p>Các khóa học giúp người dùng học tập và áp dụng kiến thức vào công việc một cách thuận tiện và hiệu quả. Các khóa học này được thiết kế nhằm mang lại trải nghiệm học tập dễ hiểu, thực tiễn, giúp người học nhanh chóng nâng cao kỹ năng và đạt được kết quả mong muốn.</p>
+                    </div>
+                </div>
+                <div class="shadowOne"></div>
+                <div class="shadowTwo"></div>
             </div>
-            <div class="column">
-            <i class="fas fa-thumbs-up"></i>
-            <h3>Top Educators</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque
-                nesciunt harum ducimus eum esse dolore debitis! Officiis autem est
-                dolor.
-            </p>
+            <div class="service">
+                <div class="services">
+                    <div class="service-logo">
+                        <i class="fa-brands fa-app-store"></i>
+                    </div>
+                    <h4>UX/UI Design</h4>
+                    <div class="service-content">
+                        <p>Chúng tôi sẽ nghiên cứu nhu cầu của người dùng để phát triển các thành phần có sẵn, cung cấp giải pháp giúp sản phẩm dễ sử dụng và tối ưu hóa. Những thành phần này được thiết kế nhằm đáp ứng các yêu cầu thực tế, mang lại hiệu quả cao trong quá trình sử dụng.</p>
+                    </div>
+                </div>
+                <div class="shadowOne"></div>
+                <div class="shadowTwo"></div>
             </div>
-            <div class="column">
-            <i class="fas fa-graduation-cap"></i>
-            <h3>Self Paced</h3>
-            <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
-                eveniet quasi aut quibusdam incidunt debitis voluptas qui enim modi
-                rem!
-            </p>
+            <div class="service">
+                <div class="services">
+                    <div class="service-logo">
+                        <i class="fa-brands fa-app-store"></i>
+                    </div>
+                    <h4>Task Issue</h4>
+                    <div class="service-content">
+                        <p>Trong công việc, một dự án thường được chia thành nhiều giai đoạn để dễ dàng quản lý và giải quyết từng vấn đề, giúp hoàn thành công việc trong khoảng thời gian nhất định. Việc phân chia này giúp, đảm bảo tiến độ và chất lượng của dự án theo từng giai đoạn. </p>
+                    </div>
+                </div>
+                <div class="shadowOne"></div>
+                <div class="shadowTwo"></div>
+            </div>
+            <div class="service">
+                <div class="services">
+                    <div class="service-logo">
+                        <i class="fa-brands fa-app-store"></i>
+                    </div>
+                    <h4>Financial</h4>
+                    <div class="service-content">
+                        <p>Chúng tôi đã xây dựng quy trình lập kế hoạch, theo dõi và quản lý tài chính cá nhân nhằm đảm bảo sự ổn định tài chính, từ đó nâng cao chất lượng cuộc sống. Quy trình này giúp người dùng quản lý chi tiêu hiệu quả, đạt được các mục tiêu tài chính và duy trì sự cân bằng trong cuộc sống.</p>
+                    </div>
+                </div>
+                <div class="shadowOne"></div>
+                <div class="shadowTwo"></div>
+            </div>
+            <div class="service">
+                <div class="services">
+                    <div class="service-logo">
+                        <i class="fa-brands fa-app-store"></i>
+                    </div>
+                    <h4>Languages</h4>
+                    <div class="service-content">
+                        <p>Chúng tôi thiết kế các khóa học tiếng Anh và tiếng Nhật nhằm giúp bạn nâng cao kiến thức và rèn luyện kỹ năng giao tiếp trong nhiều tình huống. Từ cơ bản đến nâng cao. Khóa học bao gồm các bài học cô đọng và bài kiểm tra để đánh giá chất lượng, giúp bạn học hiệu quả và tiến bộ nhanh chóng.</p>
+                    </div>
+                </div>
+                <div class="shadowOne"></div>
+                <div class="shadowTwo"></div>
+            </div>
+            <div class="service">
+                <div class="services">
+                    <div class="service-logo">
+                        <i class="fa-brands fa-app-store"></i>
+                    </div>
+                    <h4>Calendar</h4>
+                    <div class="service-content">
+                        <p>Chúng tôi phát triển hệ thống với mục đích quản lý thông tin quan trọng và sắp xếp công việc theo một lịch trình nhất định. Công cụ này hỗ trợ người dùng tổ chức công việc một cách khoa học, giúp theo dõi tiến độ, đảm bảo hoàn thành đúng thời hạn. Nhờ vào khả năng quản lý linh hoạt và hiệu quả.</p>
+                    </div>
+                </div>
+                <div class="shadowOne"></div>
+                <div class="shadowTwo"></div>
+            </div>
         </div>
       </div>
     </section>
