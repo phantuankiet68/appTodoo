@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="{{ asset('css/layout-one.css') }}">
     <link rel="stylesheet" href="{{ asset('css/media-layout.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
 </head>
 <body>
     <button id="scroll-top">
@@ -240,30 +241,64 @@
         We provide a learning experience that is not available elsewhere. We
         have over 50,000 happy students.
       </p>
-      <div class="slider-container">
-        <button class="prev-btn">&lt;</button>
-        <div class="slider">
-          <div class="card">
-            <img src="profile1.jpg" alt="James Wilson" class="profile-img">
-            <h3>James Wilson</h3>
-            <p>Software Developer</p>
-            <button class="message-btn">Message</button>
-          </div>
-          <div class="card">
-            <img src="profile2.jpg" alt="Sarah Johnson" class="profile-img">
-            <h3>Sarah Johnson</h3>
-            <p>Graphic Designer</p>
-            <button class="message-btn">Message</button>
-          </div>
-          <div class="card">
-            <img src="profile3.jpg" alt="Michael Brown" class="profile-img">
-            <h3>Michael Brown</h3>
-            <p>Project Manager</p>
-            <button class="message-btn">Message</button>
-          </div>
+        <div class="slider-container swiper">
+            <div class="slider-home">
+                <div class="card-home swiper-wrapper">
+                    <div class="card-home-item swiper-slide">
+                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
+                        <h2 class="user-name">James Wilson</h2>
+                        <p class="user-profession">Software Developer</p>
+                        <button class="message-btn">Message</button>
+                    </div>
+                    <div class="card-home-item swiper-slide">
+                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
+                        <h2 class="user-name">James Wilson</h2>
+                        <p class="user-profession">Software Developer</p>
+                        <button class="message-btn">Message</button>
+                    </div>
+                    <div class="card-home-item swiper-slide">
+                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
+                        <h2 class="user-name">James Wilson</h2>
+                        <p class="user-profession">Software Developer</p>
+                        <button class="message-btn">Message</button>
+                    </div>
+                    <div class="card-home-item swiper-slide">
+                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
+                        <h2 class="user-name">James Wilson</h2>
+                        <p class="user-profession">Software Developer</p>
+                        <button class="message-btn">Message</button>
+                    </div>
+                    <div class="card-home-item swiper-slide">
+                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
+                        <h2 class="user-name">James Wilson</h2>
+                        <p class="user-profession">Software Developer</p>
+                        <button class="message-btn">Message</button>
+                    </div>
+                    <div class="card-home-item swiper-slide">
+                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
+                        <h2 class="user-name">James Wilson</h2>
+                        <p class="user-profession">Software Developer</p>
+                        <button class="message-btn">Message</button>
+                    </div>
+                    <div class="card-home-item swiper-slide">
+                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
+                        <h2 class="user-name">James Wilson</h2>
+                        <p class="user-profession">Software Developer</p>
+                        <button class="message-btn">Message</button>
+                    </div>
+                    <div class="card-home-item swiper-slide">
+                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
+                        <h2 class="user-name">James Wilson</h2>
+                        <p class="user-profession">Software Developer</p>
+                        <button class="message-btn">Message</button>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
         </div>
-        <button class="next-btn">&gt;</button>
-      </div>
     </section>
     <!------ Section: Download App ------>
     <section class="download-app" id="download-app">
@@ -1203,6 +1238,7 @@
         </div>
     @endif
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
         function logout() {

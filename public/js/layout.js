@@ -1,24 +1,33 @@
-const slider = document.querySelector('.slider');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
 
-let scrollAmount = 0;
 
-prevBtn.addEventListener('click', () => {
-  slider.scrollBy({
-    left: -300,
-    behavior: 'smooth',
-  });
+document.addEventListener("DOMContentLoaded", function() {
+    const swiper = new Swiper('.slider-home', {
+        loop: true,
+        grabCursor: true,
+        spaceBetween: 20,
+        pagination: {
+            el: '.swiper-pagination', 
+            clickable: true, 
+            dynamicBullets: true
+        },
+
+        navigation: {
+            nextEl: '.swiper-button-next',  
+            prevEl: '.swiper-button-prev', 
+        },
+        breakpoints: {
+            0: {
+                slidesPerView: 1 // Corrected here
+            },
+            620: {
+                slidesPerView: 2 // Corrected here
+            },
+            1024: {
+                slidesPerView: 3 // Corrected here
+            },
+        }
+    });
 });
-
-nextBtn.addEventListener('click', () => {
-  slider.scrollBy({
-    left: 300,
-    behavior: 'smooth',
-  });
-});
-
-
 
 let hamMenuIcon = document.getElementById("ham-menu");
 let navBar = document.getElementById("nav-bar");
