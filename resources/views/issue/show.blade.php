@@ -21,7 +21,15 @@
                 </div>
                 <div class="issueHeader-body">
                     {!! $issue->description !!}
+                    <div class="issueImage">
+                        @foreach($issueImages as $item)
+                            <div class="issueImageItem">
+                                <img class="popup-image" src="{{ asset('assets/images/' . $item->image_path) }}" alt="">
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
+                
                 <div class="commentHeader">
                     <h3>{{ __('messages.Comment') }}</h3>
                     <div class="commentHeaderList">
@@ -30,22 +38,34 @@
                 </div>
                 <div class="commentBody">
                     @if($comments->count())
-                    @foreach($comments as $comment)
-                    <div class="commentBodyBox">
-                        <div class="table_user">
-                            <div class="table_user_image">
-                                <img src="../assets/images/user.jpg" alt="" srcset="">
+                        @foreach($comments as $comment)
+                            <div class="commentBodyBox">
+                                <div class="table_user">
+                                    <div class="table_user_image">
+                                        <img src="{{ $comment->user->profile_image_url ?? '../assets/images/user.jpg' }}" alt="User Image">
+                                    </div>
+                                    <div class="userAsHome">
+                                        <p>{{ $comment->user->full_name }}</p>
+                                        <p class="createAtSup">{{ __('messages.Create at') }}: {{ $comment->created_at->format('d/m/Y H:i') }}</p>
+                                    </div>
+                                </div>
+                                <div class="commentDetails">
+                                    <p><strong>Status   <i class="fa-regular fa-circle-right"></i>  </strong> {{ $comment->status }}</p>
+                                    @if($comment->assignee)
+                                        <p><strong>Assignee  <i class="fa-regular fa-circle-right"></i>  </strong> {{ $comment->assignee->full_name }}</p>
+                                    @endif
+                                    @if($comment->start_date)
+                                        <p><strong>Start Date  <i class="fa-regular fa-circle-right"></i>  </strong> {{ \Carbon\Carbon::parse($comment->start_date)->format('d/m/Y') }}</p>
+                                    @endif
+                                    @if($comment->end_date)
+                                        <p><strong>End Date   <i class="fa-regular fa-circle-right"></i>  </strong> {{ \Carbon\Carbon::parse($comment->end_date)->format('d/m/Y') }}</p>
+                                    @endif
+                                </div>
+                                <div class="commentDesc">
+                                    <p>{{ $comment->content }}</p>
+                                </div>
                             </div>
-                            <div class="userAsHome">
-                                <p>{{ $comment->user->full_name }}</p>
-                                <p class="createAtSup">{{ __('messages.Create at') }}: {{ $comment->created_at->format('d/m/Y') }}</p>
-                            </div>
-                        </div>
-                        <div class="commentDesc">
-                            <p>{{ $comment->comment }}</p>
-                        </div>
-                    </div>
-                    @endforeach
+                        @endforeach
                     @else
                         <p>No comments available.</p>
                     @endif
@@ -149,119 +169,140 @@
                             <div class="StatusOpen">{{ __('messages.Open') }}</div>
                             @endif
                         </div>
-                    </li>
-                    <button class="assignUserBtn" onclick="openAssignUser()">{{ __('messages.Assign') }}</button>
-                    <div class="assignUserBtnTonggle">
-                        <form action="{{ route('assign.index_add', $issue->id) }}" method="POST">
-                        @csrf
-                            <p class="text-center">Assign User</p>
-                            <input type="hidden" class="input-name" id="issue_id" name="issue_id" value="{{$issue->id}}">
-                            <div class="form-select-category mt-10">
-                                <label for="user_id">{{ __('messages.User') }}</label>
-                                <select name="user_id" id="user_id">
-                                @foreach($users as $user)
-                                    <option value="{{ $user->id }}">{{ $user->full_name }}</option>
-                                @endforeach
-                                </select>
-                            </div>
-                            <div class="form-btn">
-                                <button type="submit">{{ __('messages.Add') }}</button>
-                            </div>
-                        </form>
-                    </div>
+                    </li
                 </ul>
             </div>
             <div class="commentFooter">
-                {{-- <div class="commentForm">
-                    <form action="{{ route('comments.store', $issue->id) }}" method="POST">
-                    @csrf
-                        <input type="hidden" id="issue_id" name="issue_id" value="{{$issue->id}}"/>
-                        @if (Auth::check())
-                            <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
-                        @endif
-                        <div class="form-input-comment">
-                            <input type="text" name="comment" id="comment">
-                            <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
-                        </div>
-                    </form>
-                </div> --}}
-                <form action="{{ route('comments.store', $issue->id) }}" method="POST">
-                    @csrf
-                    <input type="hidden" id="issue_id" name="issue_id" value="{{$issue->id}}"/>
-                    @if (Auth::check())
-                        <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
-                    @endif
-                    <div class="container-comment">
-                        <div class="comment-section">
-                            <textarea placeholder="Write a comment, use @mention to notify a colleague..." name="comment" id="comment"></textarea>
-                            <div class="comment-toolbar">
-                                <button><i class="fa fa-paperclip"></i></button>
-                                <button><i class="fa fa-at"></i></button>
-                                <button><i class="fa fa-smile"></i></button>
-                                <button><b>B</b></button>
-                                <button><i>I</i></button>
-                                <button><u>S</u></button>
-                                <button><i class="fa fa-list"></i></button>
-                                <button><i class="fa fa-quote-left"></i></button>
-                                <button><i class="fa fa-code"></i></button>
-                                <button><i class="fa fa-link"></i></button>
-                                <button><i class="fa fa-question"></i></button>
-                            </div>
-                            <input type="text" placeholder="Notify comment to:">
-                            <div class="action-buttons">
-                                <button class="preview">Preview</button>
-                                <button class="submit">Submit</button>
-                            </div>
-                        </div>
-                    
-                        <div class="details-section">
-                            <div class="status">
-                                <label>Status</label>
-                                <select>
-                                    <option>In Progress</option>
-                                    <option>Resolved</option>
-                                </select>
-                            </div>
-                            <div class="assignee">
-                                <label>Assignee</label>
-                                <input type="text" value="Phan Tuan Kiet">
-                            </div>
-                            <div class="dates">
-                                <label>Start Date</label>
-                                <input type="date">
-                                <label>Due Date</label>
-                                <input type="date">
-                            </div>
-                            <div class="resolution">
-                                <label>Resolution</label>
-                                <select>
-                                    <option>Fixed</option>
-                                    <option>Unresolved</option>
-                                </select>
-                            </div>
+                <div id="comments-section" class="container-comment">
+                    <input type="hidden" id="issue_id" name="issue_id" value="{{ $issue->id }}">
+                    <div class="comment-section">
+                        <textarea id="new-comment" placeholder="Write a comment..."></textarea>
+                        <div class="action-buttons">
+                            <button id="submit-comment" class="submit">Submit</button>
                         </div>
                     </div>
-                </form>
+            
+                    <!-- Details section for status, assignee, and dates -->
+                    <div class="details-section">
+                        <div class="status">
+                            <label for="status">Status</label>
+                            <select id="status">
+                                <option value="Pending">Pending</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Resolved">Resolved</option>
+                            </select>
+                        </div>
+            
+                        <div class="assignee">
+                            <label for="assignee">Assignee</label>
+                            <select name="user_id" id="assignee">
+                                <option value="" selected disabled>Select Assignee</option>
+                                @foreach($users as $user)
+                                    <option value="{{ $user->id }}">{{ $user->full_name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+            
+                        <div class="dates">
+                            <label for="start-date">Start Date</label>
+                            <input type="date" id="start-date">
+                            <label for="end-date">Due Date</label>
+                            <input type="date" id="end-date">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
+<div id="popup" class="popup">
+    <span id="close-popup" class="close-btn">&times;</span>
+    <img id="popup-img" class="popup-img" src="" alt="">
+</div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const menu = document.querySelector('.nav-link');
         menu.style.display = 'none';
     });
-    function openAssignUser() {
-        const openAssignUser = document.querySelector('.assignUserBtnTonggle');
-        
-        // Kiểm tra nếu popup đang ẩn (display: none)
-        if (openAssignUser.style.display === 'none' || openAssignUser.style.display === '') {
-            openAssignUser.style.display = 'block'; // Hiển thị popup
-        } else {
-            openAssignUser.style.display = 'none'; // Ẩn popup
+    document.addEventListener('DOMContentLoaded', function () {
+    const issueId = document.getElementById('issue_id').value;
+    const newComment = document.getElementById('new-comment');
+    const statusDropdown = document.getElementById('status');
+    const assigneeDropdown = document.getElementById('assignee');
+    const startDateInput = document.getElementById('start-date');
+    const endDateInput = document.getElementById('end-date');
+    const submitButton = document.getElementById('submit-comment');
+
+    // Gửi bình luận mới
+    submitButton.addEventListener('click', async () => {
+        const content = newComment.value;
+        const status = statusDropdown.value;
+        const assigneeId = assigneeDropdown.value;
+        const startDate = startDateInput.value;
+        const endDate = endDateInput.value;
+
+        if (!content.trim()) return alert('Comment cannot be empty.');
+
+        try {
+            const response = await fetch('/comment_issue', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                },
+                body: JSON.stringify({
+                    issue_id: issueId,
+                    content,
+                    status,
+                    assignee_id: assigneeId,
+                    start_date: startDate,
+                    end_date: endDate,
+                }),
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to submit comment');
+            }
+
+            // Nếu gửi thành công, load lại trang
+            window.location.reload();
+        } catch (error) {
+            console.error('Error submitting comment:', error);
+            alert('Failed to submit comment. Please try again.');
         }
-    }
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Get all image elements
+    const images = document.querySelectorAll('.popup-image');
+    const popup = document.getElementById('popup');
+    const popupImg = document.getElementById('popup-img');
+    const closeBtn = document.getElementById('close-popup');
+
+    // Show the popup when an image is clicked
+    images.forEach(img => {
+        img.addEventListener('click', function() {
+            const imgSrc = this.src; // Get the src of the clicked image
+            popup.style.display = 'flex'; // Show the popup
+            popupImg.src = imgSrc; // Set the clicked image as the popup image
+        });
+    });
+
+    // Close the popup when the close button is clicked
+    closeBtn.addEventListener('click', function() {
+        popup.style.display = 'none'; // Hide the popup
+    });
+
+    // Close the popup when clicking outside of the image
+    window.addEventListener('click', function(event) {
+        if (event.target === popup) {
+            popup.style.display = 'none'; // Hide the popup if clicked outside the image
+        }
+    });
+});
+
 </script>
 
 @endsection

@@ -7,9 +7,10 @@ use App\Models\Category;
 use Illuminate\Support\Facades\Validator; 
 use Illuminate\Support\Facades\Auth;
 use App\Models\Issue;
-use App\Models\Comment;
+use App\Models\IssueImage;
 use App\Models\User;
 use App\Models\IssueUser;
+use App\Models\CommentIssue;
 
 class IssueController extends Controller
 {
@@ -73,8 +74,52 @@ class IssueController extends Controller
     
 
 
+    public function storeComment(Request $request)
+    {
+        $request->validate([
+            'issue_id' => 'required|exists:issues,id',
+            'content' => 'required|string',
+            'status' => 'required|string|in:Pending,In Progress,Resolved',
+            'assignee_id' => 'nullable|exists:users,id',
+            'start_date' => 'nullable|date',
+            'end_date' => 'nullable|date|after_or_equal:start_date',
+        ]);
+
+        $comment = CommentIssue::create([
+            'issue_id' => $request->input('issue_id'),
+            'content' => $request->input('content'),
+            'status' => $request->input('status'),
+            'assignee_id' => $request->input('assignee_id'),
+            'start_date' => $request->input('start_date'),
+            'end_date' => $request->input('end_date'),
+            'user_id' => auth()->id(),
+        ]);
+
+        $assigneeId = $request->input('assignee_id') ?? auth()->id();
+
+        $issueUserExists = IssueUser::where('issue_id', $request->input('issue_id'))
+            ->where('user_id', $assigneeId)
+            ->exists();
+
+        if (!$issueUserExists) {
+            IssueUser::create([
+                'issue_id' => $request->input('issue_id'),
+                'user_id' => $assigneeId,
+            ]);
+        }
+
+        return response()->json(['success' => true, 'comment' => $comment]);
+    }
 
 
+    public function getComments($issueId)
+    {
+        $comments = CommentIssue::where('issue_id', $issueId)
+            ->with(['user', 'assignee'])
+            ->get();
+
+        return response()->json($comments);
+    }
     
 
     /**
@@ -154,9 +199,13 @@ class IssueController extends Controller
         $users = User::all();
 
         $issueUsers = IssueUser::with(['user'])->where('issue_id', $id)->get();
+        $comments = CommentIssue::where('issue_id', $id)
+        ->with(['user', 'assignee'])
+        ->orderBy('created_at', 'desc')
+        ->get();
+        $issueImages = IssueImage::where('issue_id', $id)->get();
 
-        $comments = Comment::with(['issue', 'user'])->where('issue_id', $id)->paginate(12);
-        return view('issue.show', compact('issue','comments','users','issueUsers'));
+        return view('issue.show', compact('issue','issueImages', 'comments','users','issueUsers'));
     }
 
     /**

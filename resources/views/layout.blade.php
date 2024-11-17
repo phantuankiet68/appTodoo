@@ -163,6 +163,32 @@
                 <div class="shadowOne"></div>
                 <div class="shadowTwo"></div>
             </div>
+            <div class="service">
+                <div class="services">
+                    <div class="service-logo">
+                        <i class="fa-brands fa-app-store"></i>
+                    </div>
+                    <h4>Calendar</h4>
+                    <div class="service-content">
+                        <p>Chúng tôi phát triển hệ thống với mục đích quản lý thông tin quan trọng và sắp xếp công việc theo một lịch trình nhất định. Công cụ này hỗ trợ người dùng tổ chức công việc một cách khoa học, giúp theo dõi tiến độ, đảm bảo hoàn thành đúng thời hạn. Nhờ vào khả năng quản lý linh hoạt và hiệu quả.</p>
+                    </div>
+                </div>
+                <div class="shadowOne"></div>
+                <div class="shadowTwo"></div>
+            </div>
+            <div class="service">
+                <div class="services">
+                    <div class="service-logo">
+                        <i class="fa-brands fa-app-store"></i>
+                    </div>
+                    <h4>Calendar</h4>
+                    <div class="service-content">
+                        <p>Chúng tôi phát triển hệ thống với mục đích quản lý thông tin quan trọng và sắp xếp công việc theo một lịch trình nhất định. Công cụ này hỗ trợ người dùng tổ chức công việc một cách khoa học, giúp theo dõi tiến độ, đảm bảo hoàn thành đúng thời hạn. Nhờ vào khả năng quản lý linh hoạt và hiệu quả.</p>
+                    </div>
+                </div>
+                <div class="shadowOne"></div>
+                <div class="shadowTwo"></div>
+            </div>
         </div>
       </div>
     </section>
@@ -214,33 +240,29 @@
         We provide a learning experience that is not available elsewhere. We
         have over 50,000 happy students.
       </p>
-      <div class="row">
-        <div class="column">
-          <div class="testimonial-image">
-            <img src="{{asset('assets/images/person-1.jpg')}}" />
+      <div class="slider-container">
+        <button class="prev-btn">&lt;</button>
+        <div class="slider">
+          <div class="card">
+            <img src="profile1.jpg" alt="James Wilson" class="profile-img">
+            <h3>James Wilson</h3>
+            <p>Software Developer</p>
+            <button class="message-btn">Message</button>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Est alias
-            eligendi quia explicabo dolorem dignissimos nisi consequatur nobis
-            quaerat quas iure nostrum laudantium similique ea iste sequi tempore
-            natus, repellat quae deleniti. Veritatis sit deserunt rerum cum
-            consectetur voluptate nisi.
-          </p>
-          <h3>Mark King</h3>
-        </div>
-        <div class="column">
-          <div class="testimonial-image">
-            <img src="{{asset('assets/images/person-2.jpg')}}"  />
+          <div class="card">
+            <img src="profile2.jpg" alt="Sarah Johnson" class="profile-img">
+            <h3>Sarah Johnson</h3>
+            <p>Graphic Designer</p>
+            <button class="message-btn">Message</button>
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            exercitationem, deleniti illo modi voluptatibus, voluptatem totam ea
-            consequuntur sint, sit voluptas laboriosam? Aperiam, iure sequi sunt
-            assumenda molestiae recusandae, harum id aliquam ipsam eveniet
-            ratione cupiditate libero quasi nobis nulla.
-          </p>
-          <h3>Rose Smith</h3>
+          <div class="card">
+            <img src="profile3.jpg" alt="Michael Brown" class="profile-img">
+            <h3>Michael Brown</h3>
+            <p>Project Manager</p>
+            <button class="message-btn">Message</button>
+          </div>
         </div>
+        <button class="next-btn">&gt;</button>
       </div>
     </section>
     <!------ Section: Download App ------>

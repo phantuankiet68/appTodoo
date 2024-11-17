@@ -37,7 +37,7 @@ html {
 
 section,
 footer {
-    padding: 9rem 5rem;
+    padding: 3rem 5rem;
 }
 .row {
     display: flex;
@@ -226,18 +226,7 @@ section.hero {
 .features h3 {
     margin: 3rem 0;
 }
-.features i {
-    display: block;
-    height: 6rem;
-    width: 6rem;
-    margin: 0 auto;
-    font-size: 3.5rem;
-    background-color: var(--base-shade-1);
-    color: var(--white-shade-1);
-    padding: 1.3rem 0;
-    text-align: center;
-    border-radius: var(--border-radius-2);
-}
+
 .features .column:hover {
     background-color: var(--base-shade-1);
 }
@@ -433,25 +422,274 @@ footer p {
 
 /*------ Section: services ------*/
 
+
+section.features{
+    background: aliceblue;
+}
 .row-services{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 37px 23px;
+    gap: 30px 20px;
     padding: 20px 0px;
 }
+
+
+
 .service{
     position: relative;
-    width: 32%;
+    width: 23.5%;
 }
 .services{
     width: 100%;
     height: auto;
-    min-height: 358px;
+    min-height: 357px;
     background-color: #fff;
-    padding: 20px;
+    padding: 8px;
     border-radius: 10px;
     position: relative;
-    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px, rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    z-index: 2;
+}
+
+.service-logo {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-top: 20px;
+    margin: -2px auto 0;
+    background-color: #fff;
+    border: 12px solid #eaf7ff;
+}
+.service-logo i{
+    font-size: 32px;
+}
+
+.service-content{
+    width: 100%;
+    margin: 20px 0 10px 0;
+}
+.service-content h3{
+    width: 100%;
+    text-align: center;
+    color: #ff5151;
+}
+
+.service-content p{
+    font-size: 15px;
+    text-align: justify;
+}
+
+.service-text{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.service-text p{
+    font-size: 16px;
+}
+.service-text p i{
+    font-size: 16px;
+    color: #1fe239;
+}
+
+.services h4{
+    width: 80%;
+    height: 30px;
+    background: #fff;
+    margin: 20px auto;
+    position: relative;
+    text-align: center;
+    color: #fd290a;
+    text-transform: uppercase;
+}
+
+.services h4::after{
+    position: absolute;
+    content:"";
+    width: 40px;
+    height: 30px;
+    background: linear-gradient(to right, #fff, #007bff);
+    right: -5px;
+    top: -5px;
+    z-index: -1;
+}
+.services h4::before{
+    position: absolute;
+    content:"";
+    width: 40px;
+    height: 30px;
+    background: linear-gradient(to right, #fff, #007bff);
+    left: -5px;
+    bottom: -5px;
+    z-index: -1;
+}
+
+.service .shadowOne{
+    height: 200px;
+    width: 80%;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 10px;
+    bottom: 3%;
+    left: 10%;
+    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.service .shadowTwo{
+    height: 200px;
+    width: 64%;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 10px;
+    bottom: 0;
+    left: 18%;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+}
+
+.service:hover .services{
+    transform: translateY(-23px);
+    cursor: pointer;
+}
+
+.form-style {
+  margin:10px auto;
+  width: 400px;
+  padding: 20px 12px 10px 20px;
+  font: 14px "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+.form-style td {
+  padding: 0;
+  display: block;
+  list-style: none;
+  margin: 10px 0 0 0;
+}
+.form-style label{
+  margin:0 0 3px 0;
+  padding:0px;
+  display:block;
+  font-weight: bold;
+}
+.form-style .required{
+  color:red;
+}
+.form-style input[type=submit], .form-style input[type=reset]{
+  background: #4eb5f1;
+  padding: 8px 15px 8px 15px;
+  border: none;
+  color: #fff;
+}
+.form-style input[type=submit]:hover, .form-style input[type=reset]:hover{
+  background: #4eb5f1;
+  box-shadow:none;
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+}
+.form-style .field-textarea{
+  height: 100px;
+}
+.form-style input[type=text], 
+.form-style input[type=email],
+textarea{
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  border:1px solid #BEBEBE;
+  padding: 7px;
+  margin:0px;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  -o-transition: all 0.30s ease-in-out;
+  outline: none;  
+}
+.form-style .long{
+  width: 100%;
+}
+.form-style input[type=text]:focus, 
+.form-style input[type=email]:focus,
+.form-style textarea:focus{
+  -moz-box-shadow: 0 0 8px #88D5E9;
+  -webkit-box-shadow: 0 0 8px #88D5E9;
+  box-shadow: 0 0 8px #88D5E9;
+  border: 1px solid #88D5E9;
+}
+.error{
+  color: #D8000C;
+  background-color: #FFBABA;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.slider {
+  display: flex;
+  overflow: hidden;
+  width: 80vw;
+  max-width: 800px;
+}
+
+.card {
+  background: #192a56;
+  border-radius: 10px;
+  margin: 0 10px;
+  flex: 0 0 300px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.profile-img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.message-btn {
+  background: #e84393;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s;
+}
+
+.message-btn:hover {
+  background: #d63031;
+}
+
+.prev-btn, .next-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1000;
+}
+
+.prev-btn {
+  left: -40px;
+}
+
+.next-btn {
+  right: -40px;
 }

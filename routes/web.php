@@ -88,6 +88,8 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
 
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
 
+    Route::post('/comment_issue', [IssueController::class, 'storeComment'])->name('commentIssue.store');
+    Route::get('/comment_issue/{issueId}', [IssueController::class, 'getComments'])->name('commentIssue.get');
     Route::post('/user/update-roles/{id}', [UserController::class, 'updateRoles'])->name('user.updateRoles');
 
     Route::post('/note/store', [ChatController::class, 'storeNote'])->name('note.store');

@@ -1,3 +1,24 @@
+const slider = document.querySelector('.slider');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+
+let scrollAmount = 0;
+
+prevBtn.addEventListener('click', () => {
+  slider.scrollBy({
+    left: -300,
+    behavior: 'smooth',
+  });
+});
+
+nextBtn.addEventListener('click', () => {
+  slider.scrollBy({
+    left: 300,
+    behavior: 'smooth',
+  });
+});
+
+
 
 let hamMenuIcon = document.getElementById("ham-menu");
 let navBar = document.getElementById("nav-bar");

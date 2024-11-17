@@ -124,7 +124,7 @@
                                 <div class="triangleleft"></div>
                                 <div class="list-star">
                                     <div class="star-id">
-                                        <img src="./a-path.gif" alt="" srcset="">
+                                        <img src="{{asset('assets/images/english.jpg')}}" alt="" srcset="">
                                     </div>
                                     <div class="star-info">
                                         học sinh vô bổ của tôi không biết là html css javascript
@@ -132,7 +132,7 @@
                                 </div>
                                 <div class="list-star">
                                     <div class="star-id">
-                                        <img src="./a-path.gif" alt="" srcset="">
+                                        <img src="{{asset('assets/images/english.jpg')}}" alt="" srcset="">
                                     </div>
                                     <div class="star-info">
                                         học sinh vô bổ của tôi không biết là html css javascript
@@ -140,7 +140,7 @@
                                 </div>
                                 <div class="list-star">
                                     <div class="star-id">
-                                        <img src="./a-path.gif" alt="" srcset="">
+                                        <img src="{{asset('assets/images/english.jpg')}}" alt="" srcset="">
                                     </div>
                                     <div class="star-info">
                                         học sinh vô bổ của tôi không biết là html css javascript
@@ -157,7 +157,7 @@
                                 <div class="triangleleft"></div>
                                 <div class="list-star">
                                     <div class="star-id">
-                                        <img src="./a-path.gif" alt="" srcset="">
+                                        <img src="{{asset('assets/images/english.jpg')}}" alt="" srcset="">
                                     </div>
                                     <div class="star-info">
                                         học sinh vô bổ của tôi không biết là html css javascript
@@ -165,7 +165,7 @@
                                 </div>
                                 <div class="list-star">
                                     <div class="star-id">
-                                        <img src="./a-path.gif" alt="" srcset="">
+                                        <img src="{{asset('assets/images/english.jpg')}}" alt="" srcset="">
                                     </div>
                                     <div class="star-info">
                                         học sinh vô bổ của tôi không biết là html css javascript
@@ -173,7 +173,7 @@
                                 </div>
                                 <div class="list-star">
                                     <div class="star-id">
-                                        <img src="./a-path.gif" alt="" srcset="">
+                                        <img src="{{asset('assets/images/english.jpg')}}" alt="" srcset="">
                                     </div>
                                     <div class="star-info">
                                         học sinh vô bổ của tôi không biết là html css javascript
@@ -196,7 +196,7 @@
                                 <div class="triangle"></div>
                                 <div class="list-notify">
                                     <div class="notify-id">
-                                        <img src="./a-path.gif" alt="" srcset="">
+                                        <img src="{{asset('assets/images/english.jpg')}}" alt="" srcset="">
                                     </div>
                                     <div class="notify-info">
                                         học sinh vô bổ của tôi không biết là html css javascript
@@ -204,7 +204,7 @@
                                 </div>
                                 <div class="list-notify">
                                     <div class="notify-id">
-                                        <img src="./a-path.gif" alt="" srcset="">
+                                        <img src="{{asset('assets/images/english.jpg')}}" alt="" srcset="">
                                     </div>
                                     <div class="notify-info">
                                         học sinh vô bổ của tôi không biết là html css javascript
@@ -212,7 +212,7 @@
                                 </div>
                                 <div class="list-notify">
                                     <div class="notify-id">
-                                        <img src="./a-path.gif" alt="" srcset="">
+                                        <img src="{{asset('assets/images/english.jpg')}}" alt="" srcset="">
                                     </div>
                                     <div class="notify-info">
                                         học sinh vô bổ của tôi không biết là html css javascript
