@@ -17,17 +17,48 @@ document.addEventListener("DOMContentLoaded", function() {
         },
         breakpoints: {
             0: {
-                slidesPerView: 1 // Corrected here
+                slidesPerView: 1
             },
             620: {
-                slidesPerView: 2 // Corrected here
+                slidesPerView: 2
             },
             1024: {
-                slidesPerView: 3 // Corrected here
+                slidesPerView: 3
             },
         }
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const triggers = document.querySelectorAll('.trigger');
+  
+    // Thêm sự kiện click cho từng trigger
+    triggers.forEach((trigger) => {
+      trigger.addEventListener('click', function () {
+        const index = Array.from(triggers).indexOf(this);
+  
+        // Lấy tất cả các hàng trong bảng
+        const rows = document.querySelectorAll('tbody tr');
+        
+        // Duyệt qua các hàng và hiển thị hàng tương ứng
+        rows.forEach((row, rowIndex) => {
+          if (rowIndex === index) {
+            if (row.classList.contains('hidden')) {
+              row.classList.remove('hidden');
+              row.classList.add('visible');
+            } else {
+              row.classList.remove('visible');
+              row.classList.add('hidden');
+            }
+          }
+        });
+  
+        // Toggle trạng thái "active" của trigger
+        this.classList.toggle('active');
+      });
+    });
+  });
+
 
 let hamMenuIcon = document.getElementById("ham-menu");
 let navBar = document.getElementById("nav-bar");

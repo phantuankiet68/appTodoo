@@ -300,6 +300,209 @@
             </div>
         </div>
     </section>
+    <section class="courses" id="courses">
+        <h2>Our Popular Courses</h2>
+        <p class="section-desc">
+            With over 30,000 courses to choose from, check out out most popular
+            courses.
+        </p>
+        <section class="table-wrapper">
+      
+      <!-- table-holder:table START -->
+      <table>
+        
+        <!-- table-holder:table:head START -->
+        <thead>
+          <tr>
+            <th></th>
+            <th class="trigger"><p>Basic</p></th>
+            <th class="trigger"><p>Basic</p><span>plus</span></th>
+            <th class="trigger"><p>Standard</p></th>
+            <th class="trigger"><p>Standard</p><span>plus</span></th>
+            <th class="trigger"><p>Medium</p></th>
+            <th class="trigger"><p>Medium</p><span>plus</span></th>
+            <th class="trigger"><p>Large</p></th>
+            <th class="trigger"><p>Large</p><span>plus</span></th>
+            <th class="trigger"><p>Extended</p></th>
+            <th class="trigger"><p>Extended</p><span>plus</span></th>
+          </tr>
+        </thead>
+        <!-- table-holder:table:head END -->
+        
+        <!-- table-holder:table:body START -->
+        <tbody>
+        
+          <!-- table-holder:table:body:row START -->
+          <tr>
+            <td><p><strong>Price</strong></p></td>
+            <td><p>$19</p> <span>Per Month</span></td>
+            <td><p>$29</p> <span>Per Month</span></td>
+            <td><p>$39</p> <span>Per Month</span></td>
+            <td><p>$49</p> <span>Per Month</span></td>
+            <td><p>$59</p> <span>Per Month</span></td>
+            <td><p>$69</p> <span>Per Month</span></td>
+            <td><p>$79</p> <span>Per Month</span></td>
+            <td><p>$89</p> <span>Per Month</span></td>
+            <td><p>$99</p> <span>Per Month</span></td>
+            <td><p>$129</p> <span>Per Month</span></td>
+          </tr>
+          <!-- table-holder:table:body:row END -->
+          
+          <!-- table-holder:table:body:row START -->
+          <tr>
+            <td><p><strong>Bandwidth</strong></p><p>Monthly</p></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>1GB *</p><span>Unlimited in first year</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>2GB *</p><span>Unlimited in first year</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>3GB *</p><span>Unlimited in first year</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>4GB *</p><span>Unlimited in first year</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>5GB *</p><span>Unlimited in first year</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>6GB *</p><span>Unlimited in first year</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>7GB *</p><span>Unlimited in first year</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>8GB *</p><span>Unlimited in first year</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>9GB *</p><span>Unlimited in first year</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>12GB *</p><span>Unlimited in first year</span></td>
+          </tr>
+          <!-- table-holder:table:body:row END -->
+          
+          <!-- table-holder:table:body:row START -->
+          <tr>
+            <td><p><strong>Storage</strong></p><p>Free installation</p></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>1GB *</p><span>Free installation</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>2GB *</p><span>Free installation</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>3GB *</p><span>Free installation</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>4GB *</p><span>Free installation</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>5GB *</p><span>Free installation</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>6GB *</p><span>Free installation</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>7GB *</p><span>Free installation</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>8GB *</p><span>Free installation</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>9GB *</p><span>Free installation</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>12GB *</p><span>Free installation</span></td>
+          </tr>
+          <!-- table-holder:table:body:row END -->
+          
+          <!-- table-holder:table:body:row START -->
+          <tr>
+            <td><p><strong>Add Ons</strong></p><p>Sub domains</p></td>
+            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
+              <p>- *</p>
+              <span>Without Sub domain</span></td>
+            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
+              <p>- *</p>
+              <span>Without Sub domain</span></td>
+            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
+              <p>- *</p>
+              <span>Without Sub domain</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>1 *</p>
+              <span>Sub domain</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>2 *</p>
+              <span>Sub domains</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>3 *</p>
+              <span>Sub domains</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>4 *</p>
+              <span>Sub domains</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>5 *</p>
+              <span>Sub domains</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>6 *</p>
+              <span>Sub domains</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>7 *</p>
+              <span>Sub domains</span></td>
+          </tr>
+          <!-- table-holder:table:body:row END -->
+          
+          <!-- table-holder:table:body:row START -->
+          <tr>
+            <td><p><strong>Database</strong></p><p>Support</p></td>
+            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
+              <p>- *</p>
+              <span>Without Sub domain</span></td>
+            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
+              <p>- *</p>
+              <span>Without Sub domain</span></td>
+            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
+              <p>- *</p>
+              <span>Without Sub domain</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>1 *</p>
+              <span>MySQL Database - Without Support</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>2 *</p>
+              <span>MySQL Databases - Without Support</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>3 *</p>
+              <span>MySQL Databases - Without Support</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>4 *</p>
+              <span>MySQL Databases - With Support</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>5 *</p>
+              <span>MySQL Databases - With Support</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>6 *</p>
+              <span>MySQL Databases - With Support</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <p>7 *</p>
+              <span>MySQL Databases - With Support</span></td>
+          </tr>
+          <!-- table-holder:table:body:row END -->
+          
+          <!-- table-holder:table:body:row START -->
+          <tr>
+            <td><p><strong>Backup</strong></p><p>Free (Yes/No)</p></td>
+            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
+              <span>No.</span></td>
+            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
+              <span>No.</span></td>
+            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
+              <span>No.</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <span>Yes.</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <span>Yes.</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/>  
+              <span>Yes.</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/>  
+              <span>Yes.</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/>  
+              <span>Yes.</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
+              <span>Yes.</span></td>
+            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/>  
+              <span>Yes.</span></td>
+          </tr>
+          
+        </tbody>
+        
+      </table>
+
+    </section>
+    </section>
     <!------ Section: Download App ------>
     <section class="download-app" id="download-app">
       <h2>Download Our App</h2>
@@ -1263,5 +1466,7 @@
             .catch(error => console.error("Logout failed:", error));
         }
     </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js"></script>
+    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
 </body>
 </html>
