@@ -83,6 +83,57 @@
             <img src="{{asset('assets/images/hero-image.svg')}}" />
         </div>
     </section>
+    <section class="download-app" id="download-app">
+        <h2>Download Our App</h2>
+        <p class="section-desc">
+          Unloack all new amazing features with our mobile app.
+        </p>
+        <div class="row">
+          <div class="column">
+            <img src="{{asset('assets/images/download-app.png')}}" />
+          </div>
+          <div class="column">
+            <div class="app-feature">
+              <div>
+                <i class="fas fa-star"></i>
+                <h3>Set Reminders</h3>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Excepturi autem accusamus accusantium officia?
+              </p>
+            </div>
+            <div class="app-feature">
+              <div>
+                <i class="fas fa-star"></i>
+                <h3>Download Lectures</h3>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Excepturi autem accusamus accusantium officia?
+              </p>
+            </div>
+            <div class="app-feature">
+              <div>
+                <i class="fas fa-star"></i>
+                <h3>30,000+ Lectures</h3>
+              </div>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Excepturi autem accusamus accusantium officia?
+              </p>
+            </div>
+            <div class="download-btns">
+              <a href="#google-play">
+                <img src="google-play.png" />
+              </a>
+              <a href="#app-store">
+                <img src="app-store.png" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     <section class="features" id="features">
         <h2>Why Choose Us</h2>
         <div class="row-services">
@@ -306,202 +357,58 @@
             With over 30,000 courses to choose from, check out out most popular
             courses.
         </p>
-        <section class="table-wrapper">
-      
-      <!-- table-holder:table START -->
-      <table>
-        
-        <!-- table-holder:table:head START -->
-        <thead>
-          <tr>
-            <th></th>
-            <th class="trigger"><p>Basic</p></th>
-            <th class="trigger"><p>Basic</p><span>plus</span></th>
-            <th class="trigger"><p>Standard</p></th>
-            <th class="trigger"><p>Standard</p><span>plus</span></th>
-            <th class="trigger"><p>Medium</p></th>
-            <th class="trigger"><p>Medium</p><span>plus</span></th>
-            <th class="trigger"><p>Large</p></th>
-            <th class="trigger"><p>Large</p><span>plus</span></th>
-            <th class="trigger"><p>Extended</p></th>
-            <th class="trigger"><p>Extended</p><span>plus</span></th>
-          </tr>
-        </thead>
-        <!-- table-holder:table:head END -->
-        
-        <!-- table-holder:table:body START -->
-        <tbody>
-        
-          <!-- table-holder:table:body:row START -->
-          <tr>
-            <td><p><strong>Price</strong></p></td>
-            <td><p>$19</p> <span>Per Month</span></td>
-            <td><p>$29</p> <span>Per Month</span></td>
-            <td><p>$39</p> <span>Per Month</span></td>
-            <td><p>$49</p> <span>Per Month</span></td>
-            <td><p>$59</p> <span>Per Month</span></td>
-            <td><p>$69</p> <span>Per Month</span></td>
-            <td><p>$79</p> <span>Per Month</span></td>
-            <td><p>$89</p> <span>Per Month</span></td>
-            <td><p>$99</p> <span>Per Month</span></td>
-            <td><p>$129</p> <span>Per Month</span></td>
-          </tr>
-          <!-- table-holder:table:body:row END -->
-          
-          <!-- table-holder:table:body:row START -->
-          <tr>
-            <td><p><strong>Bandwidth</strong></p><p>Monthly</p></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>1GB *</p><span>Unlimited in first year</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>2GB *</p><span>Unlimited in first year</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>3GB *</p><span>Unlimited in first year</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>4GB *</p><span>Unlimited in first year</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>5GB *</p><span>Unlimited in first year</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>6GB *</p><span>Unlimited in first year</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>7GB *</p><span>Unlimited in first year</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>8GB *</p><span>Unlimited in first year</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>9GB *</p><span>Unlimited in first year</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>12GB *</p><span>Unlimited in first year</span></td>
-          </tr>
-          <!-- table-holder:table:body:row END -->
-          
-          <!-- table-holder:table:body:row START -->
-          <tr>
-            <td><p><strong>Storage</strong></p><p>Free installation</p></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>1GB *</p><span>Free installation</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>2GB *</p><span>Free installation</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>3GB *</p><span>Free installation</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>4GB *</p><span>Free installation</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>5GB *</p><span>Free installation</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>6GB *</p><span>Free installation</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>7GB *</p><span>Free installation</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>8GB *</p><span>Free installation</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>9GB *</p><span>Free installation</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>12GB *</p><span>Free installation</span></td>
-          </tr>
-          <!-- table-holder:table:body:row END -->
-          
-          <!-- table-holder:table:body:row START -->
-          <tr>
-            <td><p><strong>Add Ons</strong></p><p>Sub domains</p></td>
-            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
-              <p>- *</p>
-              <span>Without Sub domain</span></td>
-            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
-              <p>- *</p>
-              <span>Without Sub domain</span></td>
-            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
-              <p>- *</p>
-              <span>Without Sub domain</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>1 *</p>
-              <span>Sub domain</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>2 *</p>
-              <span>Sub domains</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>3 *</p>
-              <span>Sub domains</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>4 *</p>
-              <span>Sub domains</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>5 *</p>
-              <span>Sub domains</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>6 *</p>
-              <span>Sub domains</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>7 *</p>
-              <span>Sub domains</span></td>
-          </tr>
-          <!-- table-holder:table:body:row END -->
-          
-          <!-- table-holder:table:body:row START -->
-          <tr>
-            <td><p><strong>Database</strong></p><p>Support</p></td>
-            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
-              <p>- *</p>
-              <span>Without Sub domain</span></td>
-            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
-              <p>- *</p>
-              <span>Without Sub domain</span></td>
-            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
-              <p>- *</p>
-              <span>Without Sub domain</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>1 *</p>
-              <span>MySQL Database - Without Support</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>2 *</p>
-              <span>MySQL Databases - Without Support</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>3 *</p>
-              <span>MySQL Databases - Without Support</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>4 *</p>
-              <span>MySQL Databases - With Support</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>5 *</p>
-              <span>MySQL Databases - With Support</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>6 *</p>
-              <span>MySQL Databases - With Support</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <p>7 *</p>
-              <span>MySQL Databases - With Support</span></td>
-          </tr>
-          <!-- table-holder:table:body:row END -->
-          
-          <!-- table-holder:table:body:row START -->
-          <tr>
-            <td><p><strong>Backup</strong></p><p>Free (Yes/No)</p></td>
-            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
-              <span>No.</span></td>
-            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
-              <span>No.</span></td>
-            <td><img src="assets/img/icon-close.png" class="close" alt=""/>
-              <span>No.</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <span>Yes.</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <span>Yes.</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/>  
-              <span>Yes.</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/>  
-              <span>Yes.</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/>  
-              <span>Yes.</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/> 
-              <span>Yes.</span></td>
-            <td><img src="assets/img/icon-correct.png" class="correct" alt=""/>  
-              <span>Yes.</span></td>
-          </tr>
-          
-        </tbody>
-        
-      </table>
-
-    </section>
+        <div class="pricing-section">
+            <div class="pricing-cards">
+                <div class="pricing-card" id="service1">
+                    <h2>Design UX/UI <span class="trigger">plus</span></h2>
+                    <div class="price-info">
+                        <h2 class="price">$99</h2>
+                    </div>
+                    <ul class="features">
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Tạo ra các trang web chuẩn HTML5, CSS3 với mã nguồn sạch sẽ.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng JavaScript để nâng cao tính tương tác.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng hiệu ứng chuyển động mượt mà và các tính năng động.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Giao diện web được tối ưu hóa trên tất cả các thiết bị, từ desktop, tablet đến điện thoại di động.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng WordPress để tạo ra những trang web dễ dàng cập nhật, chỉnh sửa và mở rộng.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng validation được thực hiện để đảm bảo rằng trang web hoạt động chính xác và không có lỗi.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Để duy trì tính khả dụng và sự phù hợp với xu hướng thị trường, tôi cung cấp dịch vụ cập nhật thiết kế và tính năng sau 6 tháng.</li>
+                    </ul>
+                    <button class="choose-plan-btn">Contact Us</button>
+                </div>
+                <div class="pricing-card standard" id="service2"> 
+                    <h2>Design UX/UI <span class="trigger">plus</span></h2>
+                    <div class="price-info">
+                        <h2 class="price">$99</h2>
+                    </div>
+                    <ul class="features">
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Tạo ra các trang web chuẩn HTML5, CSS3 với mã nguồn sạch sẽ.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng JavaScript để nâng cao tính tương tác.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng hiệu ứng chuyển động mượt mà và các tính năng động.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Giao diện web được tối ưu hóa trên tất cả các thiết bị, từ desktop, tablet đến điện thoại di động.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng WordPress để tạo ra những trang web dễ dàng cập nhật, chỉnh sửa và mở rộng.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng validation được thực hiện để đảm bảo rằng trang web hoạt động chính xác và không có lỗi.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Để duy trì tính khả dụng và sự phù hợp với xu hướng thị trường, tôi cung cấp dịch vụ cập nhật thiết kế và tính năng sau 6 tháng.</li>
+                    </ul>
+                    <button class="choose-plan-btn">Contact Us</button>
+                </div>
+                <div class="pricing-card" id="service3"> 
+                    <h2>Design UX/UI <span class="trigger">plus</span></h2>
+                    <div class="price-info">
+                        <h2 class="price">$99</h2>
+                    </div>
+                    <ul class="features">
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Tạo ra các trang web chuẩn HTML5, CSS3 với mã nguồn sạch sẽ.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng JavaScript để nâng cao tính tương tác.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng hiệu ứng chuyển động mượt mà và các tính năng động.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Giao diện web được tối ưu hóa trên tất cả các thiết bị, từ desktop, tablet đến điện thoại di động.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng WordPress để tạo ra những trang web dễ dàng cập nhật, chỉnh sửa và mở rộng.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng validation được thực hiện để đảm bảo rằng trang web hoạt động chính xác và không có lỗi.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Để duy trì tính khả dụng và sự phù hợp với xu hướng thị trường, tôi cung cấp dịch vụ cập nhật thiết kế và tính năng sau 6 tháng.</li>
+                    </ul>
+                    <button class="choose-plan-btn">Contact Us</button>
+                </div>
+            </div>
+        </div>
     </section>
     <!------ Section: Download App ------>
     <section class="download-app" id="download-app">
@@ -511,7 +418,7 @@
       </p>
       <div class="row">
         <div class="column">
-          <img src="download-app.png" />
+          <img src="{{asset('assets/images/download-app.png')}}" />
         </div>
         <div class="column">
           <div class="app-feature">
@@ -1444,6 +1351,15 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
+         const cards = document.querySelectorAll('.pricing-card');
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                cards.forEach(c => c.classList.remove('standard'));
+                card.classList.add('standard');
+            });
+        });
+       
         function logout() {
             fetch("{{ route('logout') }}", {
                 method: "POST",
