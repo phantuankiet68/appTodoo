@@ -361,49 +361,39 @@
             <div class="pricing-cards">
                 <div class="pricing-card" id="service1">
                     <h2>Design UX/UI <span class="trigger">plus</span></h2>
-                    <div class="price-info">
-                        <h2 class="price">$99</h2>
-                    </div>
                     <ul class="features">
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Tạo ra các trang web chuẩn HTML5, CSS3 với mã nguồn sạch sẽ.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng JavaScript để nâng cao tính tương tác.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Tạo ra các trang web chuẩn HTML5, CSS3 với mã nguồn sạch sẽ. Có thể sử dụng các Thư viện CSS đa năng dành cho css.</li>
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng hiệu ứng chuyển động mượt mà và các tính năng động.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng JavaScript để nâng cao tính tương tác.</li>
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Giao diện web được tối ưu hóa trên tất cả các thiết bị, từ desktop, tablet đến điện thoại di động.</li>
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng WordPress để tạo ra những trang web dễ dàng cập nhật, chỉnh sửa và mở rộng.</li>
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng validation được thực hiện để đảm bảo rằng trang web hoạt động chính xác và không có lỗi.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Để duy trì tính khả dụng và sự phù hợp với xu hướng thị trường, tôi cung cấp dịch vụ cập nhật thiết kế và tính năng sau 6 tháng.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Dịch vụ cập nhật thiết kế và tính năng sau 6 tháng.</li>
                     </ul>
                     <button class="choose-plan-btn">Contact Us</button>
                 </div>
-                <div class="pricing-card standard" id="service2"> 
-                    <h2>Design UX/UI <span class="trigger">plus</span></h2>
-                    <div class="price-info">
-                        <h2 class="price">$99</h2>
-                    </div>
+                <div class="pricing-card standard table" id="service2"> 
+                    <div class="ribbon"><span>Recommend</span></div>
+                    <h2>DashBoard <span class="trigger">plus</span></h2>
                     <ul class="features">
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Tạo ra các trang web chuẩn HTML5, CSS3 với mã nguồn sạch sẽ.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng JavaScript để nâng cao tính tương tác.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng hiệu ứng chuyển động mượt mà và các tính năng động.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Giao diện web được tối ưu hóa trên tất cả các thiết bị, từ desktop, tablet đến điện thoại di động.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng WordPress để tạo ra những trang web dễ dàng cập nhật, chỉnh sửa và mở rộng.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng validation được thực hiện để đảm bảo rằng trang web hoạt động chính xác và không có lỗi.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Để duy trì tính khả dụng và sự phù hợp với xu hướng thị trường, tôi cung cấp dịch vụ cập nhật thiết kế và tính năng sau 6 tháng.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Web Developer - Giúp người dùng học và ứng dụng kiến thức lập trình vào công việc một cách hiệu quả và tiện lợi</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Content Creation - Hướng dẫn lập kế hoạch, sản xuất và chia sẻ nội dung một cách hấp dẫn và hiệu quả.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Task Issue - Quản lý dự án, chia công việc thành nhiều giai đoạn để tối ưu hóa hiệu suất.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Financial - Cung cấp công cụ lập kế hoạch tài chính, giám sát và quản lý chi tiêu cá nhân.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Daily Task - Giúp người dùng liệt kê và quản lý công việc hàng ngày một cách tỉ mỉ và tiện lợi.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Japanese & English - Các khóa học ngoại ngữ nhằm giúp người học nắm vững kiến thức và kiểm tra kỹ năng của mình.</li>
                     </ul>
                     <button class="choose-plan-btn">Contact Us</button>
                 </div>
                 <div class="pricing-card" id="service3"> 
                     <h2>Design UX/UI <span class="trigger">plus</span></h2>
-                    <div class="price-info">
-                        <h2 class="price">$99</h2>
-                    </div>
                     <ul class="features">
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Tạo ra các trang web chuẩn HTML5, CSS3 với mã nguồn sạch sẽ.</li>
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng JavaScript để nâng cao tính tương tác.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng hiệu ứng chuyển động mượt mà và các tính năng động.</li>
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Giao diện web được tối ưu hóa trên tất cả các thiết bị, từ desktop, tablet đến điện thoại di động.</li>
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng WordPress để tạo ra những trang web dễ dàng cập nhật, chỉnh sửa và mở rộng.</li>
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng validation được thực hiện để đảm bảo rằng trang web hoạt động chính xác và không có lỗi.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Để duy trì tính khả dụng và sự phù hợp với xu hướng thị trường, tôi cung cấp dịch vụ cập nhật thiết kế và tính năng sau 6 tháng.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Dịch vụ cập nhật thiết kế và tính năng sau 6 tháng.</li>
                     </ul>
                     <button class="choose-plan-btn">Contact Us</button>
                 </div>

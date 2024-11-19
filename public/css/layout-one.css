@@ -750,12 +750,12 @@ textarea{
 .pricing-card ul {
     list-style: none;
     padding: 0;
-    margin: 20px 0;
+    margin: 5px 0;
 }
 
 .pricing-card ul li {
-    margin: 10px 0;
-    font-size: 15px;
+    margin-top: 5px;
+    font-size: 14px;
     text-align: justify;
     display: flex;
     gap: 5px;
@@ -790,12 +790,17 @@ textarea{
 .pricing-card button {
     background-color: #fff;
     color: #706e6e;
-    padding: 8px 20px;
+    padding: 5px 20px;
     border: none;
     border-radius: 5px;
     font-size: 14px;
     cursor: pointer;
     transition: background 0.3s;
+}
+
+.standard .features li{
+  color: #fff;
+  font-size: 13px;
 }
 
 .pricing-card button:hover {
@@ -811,7 +816,8 @@ textarea{
 
 .pricing-card {
     background-color: #ffffff;
-    width: 350px;
+    width: 320px;
+    max-height: 73vh;
     border-radius: 12px;
     box-shadow: rgb(85 241 252 / 25%) 0px 54px 55px, rgb(119 244 245 / 12%) 0px -12px 30px, rgb(39 250 170 / 12%) 0px 4px 6px, rgb(31 227 32 / 17%) 0px 12px 13px, rgb(120 230 245 / 9%) 0px -3px 5px;
     overflow: hidden;
@@ -870,7 +876,6 @@ textarea{
 .features li {
     font-size: 14px;
     color: #333;
-    margin-bottom: 10px;
 }
 
 .choose-plan-btn {
@@ -886,5 +891,50 @@ textarea{
 
 .choose-plan-btn:hover {
     background-color: #6a4bb7;
+}
+
+.table{
+    position: relative;
+}
+
+.table .ribbon{
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  overflow: hidden;
+}
+.table .ribbon::before,
+.table .ribbon::after{
+  position: absolute;
+  content: "";
+  z-index: -1;
+  display: block;
+  border: 7px solid #ec2323;
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+.table .ribbon::before{
+    top: 0px;
+    right: 27px;
+}
+.table .ribbon::after{
+    bottom: 27px;
+    left: 0px;
+}
+.table .ribbon span {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    transform: rotate(-45deg);
+    width: 200px;
+    background: #ec2323;
+    padding: 10px 0;
+    color: #fff;
+    text-align: center;
+    font-size: 11px;
+    text-transform: uppercase;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
 }
 
