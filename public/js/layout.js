@@ -60,43 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 
-let hamMenuIcon = document.getElementById("ham-menu");
-let navBar = document.getElementById("nav-bar");
-let navLinks = navBar.querySelectorAll("li");
-let scrollTopBtn = document.getElementById("scroll-top");
-
-/* SideMenu Toggle */
-hamMenuIcon.addEventListener("click", () => {
-  navBar.classList.toggle("active");
-  hamMenuIcon.classList.toggle("fa-times");
-});
-navLinks.forEach((navLinks) => {
-  navLinks.addEventListener("click", () => {
-    navBar.classList.remove("active");
-    hamMenuIcon.classList.toggle("fa-times");
-  });
-});
-
-let header = document.querySelector("header");
-window.onscroll = () => {
-  /* Sticky Header */
-  let pos = document.documentElement.scrollTop;
-  if (pos > 0) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-  /* Scroll Top Button */
-  if (pos > 300) {
-    scrollTopBtn.style.display = "grid";
-  } else {
-    scrollTopBtn.style.display = "none";
-  }
-
-  scrollTopBtn.addEventListener("click", () => {
-    document.documentElement.scrollTop = 0;
-  });
-};
 
 function setActiveItem(itemNumber) {
     localStorage.setItem("activeItem", itemNumber);
@@ -161,55 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
         selectedRightItem.classList.add('activeItem');
     }
 });
-function validateForm()                                    
-{ 
-    var name = document.forms["myForm"]["name"];               
-    var email = document.forms["myForm"]["email"];    
-    var message = document.forms["myForm"]["message"];   
-   
-    if (name.value == "")                                  
-    { 
-        document.getElementById('errorname').innerHTML="Please enter a valid name";  
-        name.focus(); 
-        return false; 
-    }else{
-        document.getElementById('errorname').innerHTML="";  
-    }
-       
-    if (email.value == "")                                   
-    { 
-        document.getElementById('erroremail').innerHTML="Please enter a valid email address"; 
-        email.focus(); 
-        return false; 
-    }else{
-        document.getElementById('erroremail').innerHTML="";  
-    }
-   
-    if (email.value.indexOf("@", 0) < 0)                 
-    { 
-        document.getElementById('erroremail').innerHTML="Please enter a valid email address"; 
-        email.focus(); 
-        return false; 
-    } 
-   
-    if (email.value.indexOf(".", 0) < 0)                 
-    { 
-        document.getElementById('erroremail').innerHTML="Please enter a valid email address"; 
-        email.focus(); 
-        return false; 
-    } 
-   
-    if (message.value == "")                           
-    {
-        document.getElementById('errormsg').innerHTML="Please enter a valid message"; 
-        message.focus(); 
-        return false; 
-    }else{
-        document.getElementById('errormsg').innerHTML="";  
-    }
-   
-    return true; 
-}
 
 document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll('.page-product-item').forEach(item => {
@@ -315,48 +229,6 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-function validateForm() {
-    document.querySelectorAll('.input-error').forEach(error => error.innerText = '');
-
-    let isValid = true;
-    const fullName = document.getElementById('full_name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value;
-    const passwordConfirmation = document.getElementById('password_confirmation').value;
-    const phone = document.getElementById('phone').value.trim();
-    const address = document.getElementById('address').value.trim();
-    const gender = document.getElementById('gender').value.trim();
-
-    if (!fullName) {
-        document.getElementById('full_name_error').innerText = "Họ và tên không được để trống";
-        isValid = false;
-    }
-    if (!email || !validateEmail(email)) {
-        document.getElementById('email_error').innerText = "Vui lòng nhập email hợp lệ";
-        isValid = false;
-    }
-    if (!password) {
-        document.getElementById('password_error').innerText = "Password không được để trống";
-        isValid = false;
-    }
-    if (password !== passwordConfirmation) {
-        document.getElementById('password_confirmation_error').innerText = "Password xác nhận không khớp";
-        isValid = false;
-    }
-    if (!phone || !validatePhone(phone)) {
-        document.getElementById('phone_error').innerText = "Vui lòng nhập số điện thoại hợp lệ";
-        isValid = false;
-    }
-    if (!address) {
-        document.getElementById('address_error').innerText = "Địa chỉ không được để trống";
-        isValid = false;
-    }
-    if (!gender) {
-        document.getElementById('gender_error').innerText = "Giới tính không được để trống";
-        isValid = false;
-    }
-    return isValid;
-}
 
 function validateEmail(email) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

@@ -66,21 +66,41 @@
         </nav>
     </header>
     <section class="hero" id="home">
-        <img src="{{asset('assets/images/header-shape.svg')}}" id="header-shape" />
-        <div class="hero-content">
-            <h1>Let's Make Learning Fun</h1>
-            <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi nihil
-            eum culpa, quisquam dolores porro voluptate expedita illo doloribus
-            nulla. Corporis fugiat sed excepturi odio, odit nam officia sequi at.
-            </p>
-            <div class="btn-container">
-            <button class="primary-btn btn">Start Learning</button>
-            <button class="secondary-btn btn">Explore More</button>
+        <div class="page-left-item banner">
+            <div class="patern-layer-one"></div>
+            <div class="patern-layer-two"></div>
+            <div class="slidershow middle">
+                <div class="slides">
+                    <div class="slide s1">
+                        <img src="{{asset('assets/images/banner1.jpg')}}" alt="">
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="hero-img">
-            <img src="{{asset('assets/images/hero-image.svg')}}" />
+            <div class="patern-layer-content">
+                <div class="patern-layer-UpSkillHub">
+                    <h1>UpSkillHub</h1>
+                    <div class="wavy">
+                        <span style="--i:1;">W</span>
+                        <span style="--i:2;">E</span>
+                        <span style="--i:3;">B</span>
+                        <span style="--i:4;">S</span>
+                        <span style="--i:5;">I</span>
+                        <span style="--i:6;">T</span>
+                        <span style="--i:7;">E</span>
+                        <span style="--i:8;">D</span>
+                        <span style="--i:9;">E</span>
+                        <span style="--i:10;">V</span>
+                        <span style="--i:11;">E</span>
+                        <span style="--i:12;">L</span>
+                        <span style="--i:13;">O</span>
+                        <span style="--i:14;">P</span>
+                    </div>
+                    <div class="btn-more-here">
+                        <a href="#About" class="btn-more">More here</a>
+                        <a href="/dashboard" class="btn-dashboard">Dashboard</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <section class="download-app" id="download-app">
@@ -359,8 +379,15 @@
         </p>
         <div class="pricing-section">
             <div class="pricing-cards">
-                <div class="pricing-card" id="service1">
-                    <h2>Design UX/UI <span class="trigger">plus</span></h2>
+                <div class="pricing-card table" id="service1">
+                    <div class="price-tag">
+                        <div class="price-header">Design UX/UI</div>
+                        <div class="price-body">
+                            <span class="currency">$</span>
+                            <span class="price">***</span>
+                            <span class="cents">.000 VND</span>
+                        </div>
+                    </div>
                     <ul class="features">
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Tạo ra các trang web chuẩn HTML5, CSS3 với mã nguồn sạch sẽ. Có thể sử dụng các Thư viện CSS đa năng dành cho css.</li>
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng hiệu ứng chuyển động mượt mà và các tính năng động.</li>
@@ -370,11 +397,17 @@
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng validation được thực hiện để đảm bảo rằng trang web hoạt động chính xác và không có lỗi.</li>
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Dịch vụ cập nhật thiết kế và tính năng sau 6 tháng.</li>
                     </ul>
-                    <button class="choose-plan-btn">Contact Us</button>
                 </div>
                 <div class="pricing-card standard table" id="service2"> 
                     <div class="ribbon"><span>Recommend</span></div>
-                    <h2>DashBoard <span class="trigger">plus</span></h2>
+                    <div class="price-tag">
+                        <div class="price-header">Dashboard</div>
+                        <div class="price-body">
+                            <span class="currency">$</span>
+                            <span class="price">20</span>
+                            <span class="cents">.000 VND</span>
+                        </div>
+                    </div>
                     <ul class="features">
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Web Developer - Giúp người dùng học và ứng dụng kiến thức lập trình vào công việc một cách hiệu quả và tiện lợi</li>
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Content Creation - Hướng dẫn lập kế hoạch, sản xuất và chia sẻ nội dung một cách hấp dẫn và hiệu quả.</li>
@@ -383,74 +416,91 @@
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Daily Task - Giúp người dùng liệt kê và quản lý công việc hàng ngày một cách tỉ mỉ và tiện lợi.</li>
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Japanese & English - Các khóa học ngoại ngữ nhằm giúp người học nắm vững kiến thức và kiểm tra kỹ năng của mình.</li>
                     </ul>
-                    <button class="choose-plan-btn">Contact Us</button>
                 </div>
-                <div class="pricing-card" id="service3"> 
-                    <h2>Design UX/UI <span class="trigger">plus</span></h2>
+                <div class="pricing-card table" id="service3"> 
+                    <div class="price-tag">
+                        <div class="price-header">Website Developer</div>
+                        <div class="price-body">
+                            <span class="currency">$</span>
+                            <span class="price">***</span>
+                            <span class="cents">.000 VND</span>
+                        </div>
+                    </div>
                     <ul class="features">
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Tạo ra các trang web chuẩn HTML5, CSS3 với mã nguồn sạch sẽ.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng JavaScript để nâng cao tính tương tác.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Giao diện web được tối ưu hóa trên tất cả các thiết bị, từ desktop, tablet đến điện thoại di động.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng WordPress để tạo ra những trang web dễ dàng cập nhật, chỉnh sửa và mở rộng.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng validation được thực hiện để đảm bảo rằng trang web hoạt động chính xác và không có lỗi.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Dịch vụ cập nhật thiết kế và tính năng sau 6 tháng.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Hiện Tại team chúng tôi có hơn 5 người và đã có kinh nghiệm làm việc thực tế tại các công ty nước ngoài.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Chúng tôi đã có hơn 2 năm kinh nghiệm làm việc thực tế và đã tốt nghiệp đaị học theo chuyên ngành Công Nghệ Thông Tin, chuyên ngành Công Nghệ Phần Mềm.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Chúng tôi có thể tham gia và thích nghi với cương vị là 1 người full-stack về lập trình website.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Thời gian làm remote từ 7h đến 12h tối mỗi ngày và có thể làm fulltime vào thứ 7 và chủ nhật.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Nếu các bạn đang có 1 dự án về website hãy liên hệ chúng tôi để trao đổi thêm thông tin.</li>
+                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Cảm ơn mọi người vì đã tham quan về trang của chúng tôi! Rất chân thành và cảm ơn.</li>
                     </ul>
-                    <button class="choose-plan-btn">Contact Us</button>
                 </div>
             </div>
         </div>
     </section>
     <!------ Section: Download App ------>
     <section class="download-app" id="download-app">
-      <h2>Download Our App</h2>
-      <p class="section-desc">
-        Unloack all new amazing features with our mobile app.
-      </p>
-      <div class="row">
-        <div class="column">
-          <img src="{{asset('assets/images/download-app.png')}}" />
+        <div style="height: 400px;"> </div>
+        <div class="darksoul-footer">
+            <div class="darksoul-footer-top">
+        
+            </div>
+            <div class="darksoul-footer-content">
+                <div class="darksoul-footer-section">
+                    <h1 class="darksoul-footer-heading">DarkSoul</h1>
+                </div>
+                <div class="darksoul-footer-section">
+                    <ul class="d-footer-ul">
+                        <li class="d-footer-li-h"><b>Links</b></li>
+                        <li class="d-footer-li">Home</li>
+                        <li class="d-footer-li">About</li>
+                        <li class="d-footer-li">Blog</li>
+                        <li class="d-footer-li">Design</li>
+                        <li class="d-footer-li">Documentation</li>
+                    </ul>
+                </div>
+                <div class="darksoul-footer-section">
+                    <ul class="d-footer-ul">
+                        <li class="d-footer-li-h"><b>Blog</b></li>
+                        <li class="d-footer-li">UI / UX</li>
+                        <li class="d-footer-li">CodePens</li>
+                        <li class="d-footer-li">Codedamn</li>
+                        <li class="d-footer-li">Figma</li>
+                        <li class="d-footer-li">Oracle EBS</li>
+                    </ul>
+                </div>
+                <div class="darksoul-footer-section">
+                    <ul class="d-footer-ul">
+                        <li class="d-footer-li-h"><b>Privacy policy</b></li>
+                        <li class="d-footer-li-h"><b>Contact Us</b></li>
+                        
+                    </ul>
+                </div>
+                <div class="darksoul-footer-section">
+                    <div class="logo-head">
+                        <b>Follow me on</b>
+                    </div>
+                    <div class="logo">
+                       <a href="https://www.instagram.com/dark.soul.io/" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/100/instagram-new.png" alt="instagram-new"/></a>
+                       <a href="https://www.youtube.com/channel/UCooCOD2j8Q4Y9ysYZIFzI_w" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-filled/100/youtube-squared.png" alt="youtube-squared"/></a>
+                        <a href="https://dribbble.com/dark-soul" target="_blank"><img width="25" height="25" src="https://img.icons8.com/offices/100/dribbble.png" alt="dribbble"/></a>
+                    </div>    
+                </div>
+            </div>
+            <div class="darksoul-footer-bottom">
+                <div class="darksoul-footer-bottom-sec">
+                    <p>Icons by <a href="https://icons8.com/" target="_blank">Icons8</a></p>
+                </div>
+                <div class="darksoul-footer-bottom-sec">
+                    <p>Designed & Created by <a href="https://darksoul-codepen.github.io/" target="_blank">DarkSoul</a></p>
+                </div>
+                <div class="darksoul-footer-bottom-sec">
+                    <p>&copy; 2024 DarkSoul</p>
+                </div>
+                
+            </div>
+            
         </div>
-        <div class="column">
-          <div class="app-feature">
-            <div>
-              <i class="fas fa-star"></i>
-              <h3>Set Reminders</h3>
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Excepturi autem accusamus accusantium officia?
-            </p>
-          </div>
-          <div class="app-feature">
-            <div>
-              <i class="fas fa-star"></i>
-              <h3>Download Lectures</h3>
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Excepturi autem accusamus accusantium officia?
-            </p>
-          </div>
-          <div class="app-feature">
-            <div>
-              <i class="fas fa-star"></i>
-              <h3>30,000+ Lectures</h3>
-            </div>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Excepturi autem accusamus accusantium officia?
-            </p>
-          </div>
-          <div class="download-btns">
-            <a href="#google-play">
-              <img src="google-play.png" />
-            </a>
-            <a href="#app-store">
-              <img src="app-store.png" />
-            </a>
-          </div>
-        </div>
-      </div>
     </section>
     <!-- <div class="webHome">
         <header> 
@@ -1244,16 +1294,12 @@
         <span class="close-popup">&times;</span>
         <img class="popup-content" id="popupImage" src="" alt="Popup Image">
     </div>
+    -->
     <div class="modal" id="CreateLogin">
         <div class="ModelCreateLogin">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <h2>Đăng nhập</h2>
-                @if (session('success'))
-                    <div id="login-alert" class="alert alert-success">
-                        {{ session('success') }}
-                    </div>
-                @endif
                 <div class="form-input-category">
                     <input type="email" class="input-name" name="email" placeholder="Nhập email">
                 </div>
@@ -1273,7 +1319,7 @@
         </div>
     </div>
 
-        <div class="modal" id="CreateRegister">
+     <div class="modal" id="CreateRegister">
         <div class="ModelCreateRegister">
         <form  action="{{ route('register') }}" method="POST" onsubmit="return validateForm()">
             @csrf
@@ -1315,24 +1361,44 @@
             </div>
         </form>
         </div>
-    </div> -->
-    
+    </div>
+
     @if (session('success'))
-        <div id="popup-category" class="popup-category success">
-            {{ session('success') }}
-        </div>
+    <div id="popup-success">
+        <ul class="notifications">
+            <li class="toast success hide">
+                <div class="column">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Success:  {{ session('success') }}.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
     @endif
+
     @if (session('error'))
-        <div id="popup-category" class="popup-category error">
-            {{ session('error') }}
-        </div>
+    <div id="popup-error">
+        <ul class="notifications">
+            <li class="toast error hide">
+                <div class="column">
+                    <i class="fa-solid fa-circle-check"></i>
+                    <span>Error:  {{ session('error') }}.</span>
+                </div>
+            </li>
+        </ul>
+    </div>
     @endif
 
     @if ($errors->any())
-        <div id="popup-category" class="popup-category error">
-            <ul>
+        <div id="popup-error">
+            <ul class="notifications">
                 @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
+                    <li class="toast error hide">
+                        <div class="column">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Error:  {{ $error }}.</span>
+                        </div>
+                    </li>
                 @endforeach
             </ul>
         </div>
@@ -1341,6 +1407,28 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.querySelector('#popup-success');
+            if (popup) {
+                popup.style.display = 'flex';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 6000);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.querySelector('#popup-error');
+            if (popup) {
+                popup.style.display = 'flex';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 6000);
+            }
+        });
+
+
          const cards = document.querySelectorAll('.pricing-card');
 
         cards.forEach(card => {
@@ -1349,7 +1437,41 @@
                 card.classList.add('standard');
             });
         });
-       
+        let hamMenuIcon = document.getElementById("ham-menu");
+        let navBar = document.getElementById("nav-bar");
+        let navLinks = navBar.querySelectorAll("li");
+        let scrollTopBtn = document.getElementById("scroll-top");
+
+        hamMenuIcon.addEventListener("click", () => {
+        navBar.classList.toggle("active");
+        hamMenuIcon.classList.toggle("fa-times");
+        });
+        navLinks.forEach((navLinks) => {
+        navLinks.addEventListener("click", () => {
+            navBar.classList.remove("active");
+            hamMenuIcon.classList.toggle("fa-times");
+        });
+        });
+
+        let header = document.querySelector("header");
+        window.onscroll = () => {
+        let pos = document.documentElement.scrollTop;
+        if (pos > 0) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+        if (pos > 300) {
+            scrollTopBtn.style.display = "grid";
+        } else {
+            scrollTopBtn.style.display = "none";
+        }
+
+        scrollTopBtn.addEventListener("click", () => {
+            document.documentElement.scrollTop = 0;
+        });
+        };
+
         function logout() {
             fetch("{{ route('logout') }}", {
                 method: "POST",
@@ -1374,5 +1496,6 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
+    <script src="{{ asset('js/layout.js') }}"></script>
 </body>
 </html>
