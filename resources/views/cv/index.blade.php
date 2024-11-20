@@ -12,7 +12,7 @@
                         <button class="tablinks active" onclick="openTab(event, 'Tab1')">Cv mẫu</button>
                         <button class="tablinks" onclick="openTab(event, 'Tab2')">Cv của tôi</button>
                     </div>
-                    <div id="Tab1" class="tabcontent" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <div id="Tab1" class="tabcontent" style="display: flex; gap: 15px; flex-wrap: wrap;">
                         <div class="listTab">
                             <img src="./assets/images/cv_1.jpg" alt="">
                             <div class="boxtextCV Vietnamese">

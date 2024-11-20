@@ -126,7 +126,7 @@
         border-radius: 10px;
     }
     .CVBody .cv-container-left {
-        width: 25%;
+        width: 100%;
         padding: 10px;
         border-right: 1px solid #dfdfdf;
     }

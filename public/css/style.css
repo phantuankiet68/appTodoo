@@ -2928,6 +2928,8 @@ h3{
 
 .japanese-container-left{
     width: 20%;
+    height: 89vh;
+    overflow: scroll;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     padding: 10px;
 }
@@ -4676,10 +4678,10 @@ label {
 .listTab{
     position: relative;
     border: 1px solid #ccc;
-    width: 19.4%;
+    width: 24%;
     height: 347px;;
     margin-bottom: 10px;
-    padding: 10px 5px;
+    padding: 10px;
     border-radius: 5px;
 }
 
@@ -4706,7 +4708,7 @@ label {
 
 
 .boxtextCV.Vietnamese{
-    background-color: red;
+    background-color: #40c3f7;
     color: #fff;
     cursor: pointer;
 }
