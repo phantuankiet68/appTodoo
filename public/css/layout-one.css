@@ -44,7 +44,15 @@ html {
 }
 
 
-
+body{
+    background:  
+    url('../assets/images/body.jpg') no-repeat center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: auto;
+}
 
 .page-left-item{
     width: 100%;
@@ -140,7 +148,7 @@ html {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 3;
+    z-index: 2;
 }
 
 .patern-layer-content h1{
@@ -676,9 +684,6 @@ footer p {
 /*------ Section: services ------*/
 
 
-section.features{
-    background: aliceblue;
-}
 .row-services{
     display: flex;
     flex-wrap: wrap;
@@ -697,8 +702,8 @@ section.features{
 .services{
     width: 100%;
     height: auto;
-    min-height: 357px;
-    background-color: #fff;
+    min-height: 410px;
+    background-color: rgb(255 255 255 / 67%);
     padding: 8px;
     border-radius: 10px;
     position: relative;
@@ -780,29 +785,6 @@ section.features{
     left: -5px;
     bottom: -5px;
     z-index: -1;
-}
-
-.service .shadowOne{
-    height: 200px;
-    width: 80%;
-    background-color: #fff;
-    position: absolute;
-    border-radius: 10px;
-    bottom: 3%;
-    left: 10%;
-    z-index: 1;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-}
-
-.service .shadowTwo{
-    height: 200px;
-    width: 64%;
-    background-color: #fff;
-    position: absolute;
-    border-radius: 10px;
-    bottom: 0;
-    left: 18%;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
 }
 
 .service:hover .services{
@@ -1430,7 +1412,7 @@ textarea{
     padding: 10px;
     position: absolute;
     width: 100%;
-    max-width: 50%;
+    max-width: 36%;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -1442,6 +1424,10 @@ textarea{
 
 
 #CreateLogin{
+    display: none;
+}
+
+#CreateRegister{
     display: none;
 }
 
@@ -1631,4 +1617,100 @@ textarea{
     text-decoration: none;
     color: #000;
     font-size: 15px;
+}
+
+
+/* path */
+.path-container{
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.path-list-card{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.path-card{
+    position: relative;
+    width: 23%;
+    height: 80%;
+    /* background-color: rgb(255 255 255 / 67%); */
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), inset -5px -5px 5px rgba(255, 255, 255, 0.5),5px 5px 5px rgba(0, 0, 0, 0.05),-5px -5px 5px rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.path-card-box{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background-color: rgb(255 255 255 / 67%);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.path-card:hover .path-card-box{
+    transform: translateY(-50px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.path-icon{
+    width: 100%;
+    height: 86px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.path-icon h2{
+    background-color: #efcb6dbd;
+    color: #fff;
+    width: 63px;
+    height: 63px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.path-card-content h3{
+    color: #2eebef;
+    margin: 0;
+}
+
+.path-card-content p{
+    padding: 10px;
+    text-align: justify;
+    font-size: 15px;
+}
+
+.btn-register{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-register button{
+    padding: 6px 30px;
+    background-color: #00a8fa;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn-register button:hover{
+    background-color: rgb(59 171 247 / 74%);;
 }

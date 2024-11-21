@@ -103,6 +103,82 @@
             </div>
         </div>
     </section>
+    <section class="path-app" id="path-app">
+        <div class="path-container">
+            <div class="path-list-card">
+                <div class="path-card">
+                    <div class="path-card-box">
+                        <div class="path-card-content">
+                            <div class="path-icon">
+                                <h2>01</h2>
+                            </div>
+                            <h3>Online Programs</h3>
+                            <p>Đặc điểm của Online Programs:<br/>
+                                Linh hoạt, Chi phí hợp lý hơn, Chương trình phong phú, Có kế hoạch.
+                                Dành cho cả  người đang đi làm, sinh viên và Những người muốn học thêm một lĩnh vực mới...
+                            </p>
+                            <div class="btn-register">
+                                <button>register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="path-card">
+                    <div class="path-card-box">
+                        <div class="path-card-content">
+                            <div class="path-icon">
+                                <h2>02</h2>
+                            </div>
+                            <h3>Coding Programs</h3>
+                            <p>Đặc điểm của Coding Programs:<br/>
+                                Học lập trình cơ bản, ham gia khóa học hoặc tự học, Luyện tập thực tế, Tham gia cộng đồng lập trình, Xây dựng portfolio.
+                                Dành cho cả  người đang đi làm, sinh viên...
+                            </p>
+                            <div class="btn-register">
+                                <button>register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="path-card">
+                    <div class="path-card-box">
+                        <div class="path-card-content">
+                            <div class="path-icon">
+                                <h2>03</h2>
+                            </div>
+                            <h3>English Programs</h3>
+                            <p>Đặc điểm của English Programs:<br/>
+                                Cải thiện kỹ năng cơ bản về ngôn ngữ:
+                                Nghe, Nói, Đọc, Viết, Chuẩn bị cho học thuật hoặc công việc, Nâng cao sự tự tin.
+                                Dành cho cả  người đang đi làm, sinh viên...
+                            </p>
+                            <div class="btn-register">
+                                <button>register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="path-card">
+                    <div class="path-card-box">
+                        <div class="path-card-content">
+                            <div class="path-icon">
+                                <h2>04</h2>
+                            </div>
+                            <h3>Japanese Programs</h3>
+                            <p>Đặc điểm Japanese Programs:<br/>
+                                Cải thiện kỹ năng cơ bản về ngôn ngữ:
+                                Nghe, Nói, Đọc, Viết, Chuẩn bị cho học thuật hoặc công việc, Nâng cao sự tự tin.
+                                Dành cho cả  người đang đi làm, sinh viên...
+                            </p>
+                            <div class="btn-register">
+                                <button>register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="download-app" id="download-app">
         <h2>Download Our App</h2>
         <p class="section-desc">
