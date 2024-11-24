@@ -44,7 +44,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FriendshipController;
 
 use App\Http\Controllers\UserController;
-
+use Illuminate\Support\Facades\App;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,8 +57,16 @@ use App\Http\Controllers\UserController;
 |
 */
 
+Route::get('{locale}', function ($locale) {
+    if (in_array($locale, ['vi', 'en', 'ja'])) {
+        session()->put('locale', $locale);
+        App::setLocale($locale);
+    } else {
+        abort(404); 
+    }
 
-Route::get('/', function () { return view('layout');})->name('/');;
+    return view('layout'); 
+})->where('locale', 'vi|en|ja');
 
 Route::fallback(function () {
     return view('error'); 
@@ -71,10 +79,14 @@ Route::get('lang/{locale}', [LocalizationController::class, 'index'])->name('lan
 Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');;
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 
-Route::get('/login', [AuthController::class, 'showLoginForm'])->middleware('check.registration');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/vi/login', [AuthController::class, 'showLoginForm'])->middleware('check.registration');
+Route::post('/vi/login', [AuthController::class, 'login'])->name('login');
+Route::post('/en/login', [AuthController::class, 'login'])->name('login');
+Route::post('/ja/login', [AuthController::class, 'login'])->name('login');
 
-Route::post('/', [AuthController::class, 'logout'])->name('logout');
+Route::post('/vi/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/en/logout', [AuthController::class, 'logout'])->name('logout');
+Route::post('/ja/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/expenses/export-pdf', [ExpenseController::class, 'exportPdf'])->name('expenses.export.pdf');
 Route::get('/learn-more/pdf', [LearnMoreController::class, 'exportPdf'])->name('learn_more.pdf');

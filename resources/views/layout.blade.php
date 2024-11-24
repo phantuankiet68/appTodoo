@@ -2,6 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UpSkillHub.vn </title>
     <!-- <link rel="stylesheet" href="{{ asset('css/layout.css') }}"> -->
@@ -13,67 +14,97 @@
     <link rel="stylesheet" href="{{ asset('css/layout-one.css') }}">
     <link rel="stylesheet" href="{{ asset('css/media-layout.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
+    @php
+        $locale = session()->get('locale', 'vi');
+        App::setLocale($locale);
+    @endphp
     <button id="scroll-top">
         <i class="fas fa-arrow-up"></i>
     </button>
     <header>
         <div class="header-aside">
             <div class="header-aside-list hidden">
-                <a href="">Kết nối <i class="fa-solid fa-wifi"></i> | </a>
-                <a href="">Facebook <i class="fa-brands fa-facebook"></i> | </a> 
-                <a href="">Tiktok <i class="fa-brands fa-tiktok"></i></a> 
+                <a href="">{{ __('messages.Connect') }} <i class="fa-solid fa-wifi"></i> | </a>
+                <a href="">{{ __('messages.Facebook') }} <i class="fa-brands fa-facebook"></i> | </a> 
+                <a href="">{{ __('messages.TikTok') }} <i class="fa-brands fa-tiktok"></i></a> 
             </div>
             <div class="header-aside-list">
                 @if (Auth::check())
-                    <a href="#" onclick="logout()" class="btn-login" id="logoutLink"><i class="fa-regular fa-user"></i> Đăng xuất</a>
+                    <a href="/" onclick="logout()" class="btn-login" id="logoutLink"><i class="fa-regular fa-user"></i> {{ __('messages.Logout') }}</a>
                 @else
-                    <a href="#login" class="btn-login" onclick="Login();"><i class="fa-regular fa-user"></i> Đăng nhập</a>
-                    <a href="#register" class="btn-login" onclick="Register();"><i class="fa-regular fa-user"></i> Đăng ký</a>
+                    <a href="#login" class="btn-login" onclick="Login();"><i class="fa-regular fa-user"></i> {{ __('messages.Login') }}</a>
+                    <a href="#register" class="btn-login" onclick="Register();"><i class="fa-regular fa-user"></i> {{ __('messages.Register') }}</a>
                 @endif  
             </div>
         </div>
         <nav>
-            <a href="#home" id="logo">UpSkillHub</a>
+            <li class="nav-item dropdown">
+                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    @switch($locale)
+                        @case('vi')
+                        <img src="{{ asset('assets/images/vietnam.jpg') }}" width="25px"> Việt Nam
+                        @break
+                        @case('en')
+                        <img src="{{ asset('assets/images/english.jpg') }}" width="25px"> English
+                        @break
+                        @default
+                        <img src="{{ asset('assets/images/japan.jpg') }}" width="25px"> Japan
+                    @endswitch
+                    <span class="caret"></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{{ url('/vi') }}">
+                        <img src="{{ asset('assets/images/vietnam.jpg') }}" width="25px"> Việt Nam
+                    </a>
+                    <a class="dropdown-item" href="{{ url('/ja') }}">
+                        <img src="{{ asset('assets/images/japan.jpg') }}" width="25px"> Japan
+                    </a>
+                    <a class="dropdown-item" href="{{ url('/en') }}">
+                        <img src="{{ asset('assets/images/english.jpg') }}" width="25px"> English
+                    </a>
+                </div>
+            </li>
             <i class="fas fa-bars" id="ham-menu"></i>
             <ul id="nav-bar">
                 <li>
-                    <a href="#home">Home</a>
+                    <a href="#home">{{ __('messages.Home') }}</a>
                 </li>
                 <li>
-                    <a href="#courses">Abouts</a>
+                    <a href="#courses">{{ __('messages.About') }}</a>
                 </li>
                 <li>
-                    <a href="#features">Features</a>
+                    <a href="#features">{{ __('messages.Feature') }}</a>
                 </li>
                 <li>
-                    <a href="#courses">Courses</a>
+                    <a href="#courses">{{ __('messages.Course') }}</a>
                 </li>
                 <li>
-                    <a href="#testimonial">Services</a>
+                    <a href="#testimonial">{{ __('messages.Service') }}</a>
                 </li>
                 <li>
-                    <a href="#download-app">Product</a>
+                    <a href="#download-app">{{ __('messages.Product') }}</a>
                 </li>
                 <li>
-                    <a href="#download-app">Tools</a>
+                    <a href="#download-app">{{ __('messages.Question') }}</a>
                 </li>
                 <li>
-                    <a href="#download-app">Contact</a>
+                    <a href="#download-app">{{ __('messages.Contact') }}</a>
                 </li>
             </ul>
         </nav>
     </header>
     <section class="hero" id="home">
         <div class="page-left-item banner">
+            <div id="particles-js"></div>
             <div class="patern-layer-one"></div>
             <div class="patern-layer-two"></div>
             <div class="slidershow middle">
                 <div class="slides">
-                    <div class="slide s1">
-                        <img src="{{asset('assets/images/banner1.jpg')}}" alt="">
-                    </div>
+                    <div class="slide s1"></div>
                 </div>
             </div>
             <div class="patern-layer-content">
@@ -96,8 +127,8 @@
                         <span style="--i:14;">P</span>
                     </div>
                     <div class="btn-more-here">
-                        <a href="#About" class="btn-more">More here</a>
-                        <a href="/dashboard" class="btn-dashboard">Dashboard</a>
+                        <a href="#About" class="btn-more">{{ __('messages.More here') }}</a>
+                        <a href="/dashboard" class="btn-dashboard">{{ __('messages.Dashboard') }}</a>
                     </div>
                 </div>
             </div>
@@ -112,13 +143,12 @@
                             <div class="path-icon">
                                 <h2>01</h2>
                             </div>
-                            <h3>Online Programs</h3>
-                            <p>Đặc điểm của Online Programs:<br/>
-                                Linh hoạt, Chi phí hợp lý hơn, Chương trình phong phú, Có kế hoạch.
-                                Dành cho cả  người đang đi làm, sinh viên và Những người muốn học thêm một lĩnh vực mới...
+                            <h3>{{ __('messages.Online Programs') }}</h3>
+                            <p>{{ __('messages.Features of Online Programs:') }}<br/>
+                                {{ __('messages.Flexible, affordable, and rich in content with structured learning paths. Ideal for professionals, students, and those exploring new fields.') }}
                             </p>
                             <div class="btn-register">
-                                <button>register</button>
+                                <button onclick="Register();"> {{ __('messages.Register') }}</button>
                             </div>
                         </div>
                     </div>
@@ -129,13 +159,12 @@
                             <div class="path-icon">
                                 <h2>02</h2>
                             </div>
-                            <h3>Coding Programs</h3>
-                            <p>Đặc điểm của Coding Programs:<br/>
-                                Học lập trình cơ bản, ham gia khóa học hoặc tự học, Luyện tập thực tế, Tham gia cộng đồng lập trình, Xây dựng portfolio.
-                                Dành cho cả  người đang đi làm, sinh viên...
+                            <h3>{{ __('messages.Coding Programs') }}</h3>
+                            <p>{{ __('messages.Features of Coding Programs:') }}<br/>
+                                {{ __('messages.Learn basic programming, practice hands-on, and build a portfolio. Suitable for professionals, students, and those enhancing coding skills.') }}
                             </p>
                             <div class="btn-register">
-                                <button>register</button>
+                                <button onclick="Register();"> {{ __('messages.Register') }}</button>
                             </div>
                         </div>
                     </div>
@@ -146,14 +175,12 @@
                             <div class="path-icon">
                                 <h2>03</h2>
                             </div>
-                            <h3>English Programs</h3>
-                            <p>Đặc điểm của English Programs:<br/>
-                                Cải thiện kỹ năng cơ bản về ngôn ngữ:
-                                Nghe, Nói, Đọc, Viết, Chuẩn bị cho học thuật hoặc công việc, Nâng cao sự tự tin.
-                                Dành cho cả  người đang đi làm, sinh viên...
+                            <h3>{{ __('messages.English Programs') }}</h3>
+                            <p>{{ __('messages.Features of English Programs:') }}<br/>
+                                {{ __('messages.Improve listening, speaking, reading, and writing with content for all levels. Perfect for students, professionals, and those seeking global communication.') }}
                             </p>
                             <div class="btn-register">
-                                <button>register</button>
+                                <button onclick="Register();"> {{ __('messages.Register') }}</button>
                             </div>
                         </div>
                     </div>
@@ -164,14 +191,12 @@
                             <div class="path-icon">
                                 <h2>04</h2>
                             </div>
-                            <h3>Japanese Programs</h3>
-                            <p>Đặc điểm Japanese Programs:<br/>
-                                Cải thiện kỹ năng cơ bản về ngôn ngữ:
-                                Nghe, Nói, Đọc, Viết, Chuẩn bị cho học thuật hoặc công việc, Nâng cao sự tự tin.
-                                Dành cho cả  người đang đi làm, sinh viên...
+                            <h3>{{ __('messages.Japanese Programs') }}</h3>
+                            <p>{{ __('messages.Features of Japanese Programs:') }}<br/>
+                                {{ __('messages.Learn Japanese from basics, focusing on grammar, communication. Ideal for professionals, students, and those aiming to work or study in Japan.') }}
                             </p>
                             <div class="btn-register">
-                                <button>register</button>
+                                <button onclick="Register();"> {{ __('messages.Register') }}</button>
                             </div>
                         </div>
                     </div>
@@ -180,9 +205,13 @@
         </div>
     </section>
     <section class="download-app" id="download-app">
-        <h2>Download Our App</h2>
+        <div class="title-home">
+            <span class="title-left"></span>
+            <h2>{{ __('messages.About Us') }}</h2>
+            <span class="title-right"></span>
+        </div>
         <p class="section-desc">
-          Unloack all new amazing features with our mobile app.
+            {{ __('messages.Unlock all the amazing new features with our software') }}
         </p>
         <div class="row">
           <div class="column">
@@ -190,57 +219,61 @@
           </div>
           <div class="column">
             <div class="app-feature">
-              <div>
-                <i class="fas fa-star"></i>
-                <h3>Set Reminders</h3>
+                <div>
+                  <i class="fas fa-star"></i>
+                  <h3>{{ __('messages.Practical Application') }}</h3>
+                </div>
+                <p>
+                    {{ __('messages.Practical application allows users to apply learned knowledge and skills to daily life or work tasks. On the website, this feature helps you practice through programming exercises or English and Japanese language activities, enhancing learning effectiveness and personal growth.') }}
+                </p>
               </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Excepturi autem accusamus accusantium officia?
-              </p>
+            <div class="app-feature">
+                <div>
+                    <i class="fas fa-star"></i>
+                    <h3>{{ __('messages.Set Reminders') }}</h3>
+                </div>
+                <p>
+                    {{ __('messages.The reminder feature on the website helps you manage your time and tasks more effectively. You can schedule study sessions, practice routines, or complete personal tasks on time, ensuring you never miss important commitments.') }}
+                </p>
             </div>
             <div class="app-feature">
-              <div>
-                <i class="fas fa-star"></i>
-                <h3>Download Lectures</h3>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Excepturi autem accusamus accusantium officia?
-              </p>
-            </div>
-            <div class="app-feature">
-              <div>
-                <i class="fas fa-star"></i>
-                <h3>30,000+ Lectures</h3>
-              </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Excepturi autem accusamus accusantium officia?
-              </p>
+                <div>
+                    <i class="fas fa-star"></i>
+                    <h3>{{ __('messages.Download Lectures') }}</h3>
+                </div>
+                <p>
+                    {{ __('messages.Downloading lectures lets you access learning materials anytime, anywhere, even without an internet connection. This feature offers flexibility, making it easier to study programming, English, and Japanese effectively.') }}
+                </p>
             </div>
             <div class="download-btns">
               <a href="#google-play">
-                <img src="google-play.png" />
+                <img src="{{asset('assets/images/google-play.png')}}" />
               </a>
               <a href="#app-store">
-                <img src="app-store.png" />
+                <img src="{{asset('assets/images/app-store.png')}}" />
               </a>
             </div>
           </div>
         </div>
-      </section>
+    </section>
     <section class="features" id="features">
-        <h2>Why Choose Us</h2>
+        <div class="title-home">
+            <span class="title-left"></span>
+            <h2>{{ __('messages.New Features') }}</h2>
+            <span class="title-right"></span>
+        </div>
+        <p class="section-desc">
+            {{ __('messages.Unlock all the amazing new features with our software') }}
+        </p>
         <div class="row-services">
             <div class="service">
                 <div class="services">
                     <div class="service-logo">
                         <i class="fa-solid fa-pen-ruler"></i>
                     </div>
-                    <h4>Website Developer</h4>
+                    <h4>{{ __('messages.Website Developer') }}</h4>
                     <div class="service-content">
-                        <p>Các khóa học giúp người dùng học tập và áp dụng kiến thức vào công việc một cách thuận tiện và hiệu quả. Các khóa học này được thiết kế nhằm mang lại trải nghiệm học tập dễ hiểu, thực tiễn, giúp người học nhanh chóng nâng cao kỹ năng và đạt được kết quả mong muốn.</p>
+                        <p>{{ __('messages.Courses help users learn and apply knowledge to their work conveniently and effectively. These courses are designed to provide an easy-to-understand and practical learning experience, enabling learners to quickly improve their skills and achieve desired results.') }}</p>
                     </div>
                 </div>
                 <div class="shadowOne"></div>
@@ -251,9 +284,9 @@
                     <div class="service-logo">
                         <i class="fa-brands fa-app-store"></i>
                     </div>
-                    <h4>UX/UI Design</h4>
+                    <h4>{{ __('messages.UX/UI Design') }}</h4>
                     <div class="service-content">
-                        <p>Chúng tôi sẽ nghiên cứu nhu cầu của người dùng để phát triển các thành phần có sẵn, cung cấp giải pháp giúp sản phẩm dễ sử dụng và tối ưu hóa. Những thành phần này được thiết kế nhằm đáp ứng các yêu cầu thực tế, mang lại hiệu quả cao trong quá trình sử dụng.</p>
+                        <p>{{ __('messages.We will research user needs to develop ready-to-use components that provide solutions for ease of use and optimization. These components are designed to meet practical requirements, ensuring high efficiency during usage.') }}</p>
                     </div>
                 </div>
                 <div class="shadowOne"></div>
@@ -264,9 +297,9 @@
                     <div class="service-logo">
                         <i class="fa-brands fa-app-store"></i>
                     </div>
-                    <h4>Task Issue</h4>
+                    <h4>{{ __('messages.Task Issue') }}</h4>
                     <div class="service-content">
-                        <p>Trong công việc, một dự án thường được chia thành nhiều giai đoạn để dễ dàng quản lý và giải quyết từng vấn đề, giúp hoàn thành công việc trong khoảng thời gian nhất định. Việc phân chia này giúp, đảm bảo tiến độ và chất lượng của dự án theo từng giai đoạn. </p>
+                        <p>{{ __('messages.In work, a project is often divided into multiple phases to facilitate management and address each issue effectively, ensuring completion within a specific timeframe. This division helps maintain the progress and quality of the project at each stage.') }} </p>
                     </div>
                 </div>
                 <div class="shadowOne"></div>
@@ -277,9 +310,9 @@
                     <div class="service-logo">
                         <i class="fa-brands fa-app-store"></i>
                     </div>
-                    <h4>Financial</h4>
+                    <h4>{{ __('messages.Financial') }}</h4>
                     <div class="service-content">
-                        <p>Chúng tôi đã xây dựng quy trình lập kế hoạch, theo dõi và quản lý tài chính cá nhân nhằm đảm bảo sự ổn định tài chính, từ đó nâng cao chất lượng cuộc sống. Quy trình này giúp người dùng quản lý chi tiêu hiệu quả, đạt được các mục tiêu tài chính và duy trì sự cân bằng trong cuộc sống.</p>
+                        <p>{{ __('messages.We have developed a process for planning, tracking, and managing personal finances to ensure financial stability, thereby improving the quality of life. This process helps users manage their expenses effectively, achieve financial goals, and maintain balance in their lives.') }}</p>
                     </div>
                 </div>
                 <div class="shadowOne"></div>
@@ -290,9 +323,9 @@
                     <div class="service-logo">
                         <i class="fa-brands fa-app-store"></i>
                     </div>
-                    <h4>Languages</h4>
+                    <h4>{{ __('messages.Languages') }}</h4>
                     <div class="service-content">
-                        <p>Chúng tôi thiết kế các khóa học tiếng Anh và tiếng Nhật nhằm giúp bạn nâng cao kiến thức và rèn luyện kỹ năng giao tiếp trong nhiều tình huống. Từ cơ bản đến nâng cao. Khóa học bao gồm các bài học cô đọng và bài kiểm tra để đánh giá chất lượng, giúp bạn học hiệu quả và tiến bộ nhanh chóng.</p>
+                        <p>{{ __('messages.We design English and Japanese courses to help you enhance your knowledge and improve communication skills in various situations, from basic to advanced levels. The courses include concise lessons and assessments to evaluate progress, ensuring effective learning and rapid improvement.') }}</p>
                     </div>
                 </div>
                 <div class="shadowOne"></div>
@@ -303,9 +336,9 @@
                     <div class="service-logo">
                         <i class="fa-brands fa-app-store"></i>
                     </div>
-                    <h4>Calendar</h4>
+                    <h4>{{ __('messages.Calendar') }}</h4>
                     <div class="service-content">
-                        <p>Chúng tôi phát triển hệ thống với mục đích quản lý thông tin quan trọng và sắp xếp công việc theo một lịch trình nhất định. Công cụ này hỗ trợ người dùng tổ chức công việc một cách khoa học, giúp theo dõi tiến độ, đảm bảo hoàn thành đúng thời hạn. Nhờ vào khả năng quản lý linh hoạt và hiệu quả.</p>
+                        <p>{{ __('messages.We develop a system designed to manage important information and organize tasks within a specific schedule. This tool helps users structure their work scientifically, track progress, and ensure deadlines are met. It provides flexible and efficient management capabilities.') }}</p>
                     </div>
                 </div>
                 <div class="shadowOne"></div>
@@ -316,9 +349,9 @@
                     <div class="service-logo">
                         <i class="fa-brands fa-app-store"></i>
                     </div>
-                    <h4>Calendar</h4>
+                    <h4>{{ __('messages.English') }}</h4>
                     <div class="service-content">
-                        <p>Chúng tôi phát triển hệ thống với mục đích quản lý thông tin quan trọng và sắp xếp công việc theo một lịch trình nhất định. Công cụ này hỗ trợ người dùng tổ chức công việc một cách khoa học, giúp theo dõi tiến độ, đảm bảo hoàn thành đúng thời hạn. Nhờ vào khả năng quản lý linh hoạt và hiệu quả.</p>
+                        <p>{{ __('messages.We develop an English learning method aimed at helping learners manage important information and organize their study time scientifically. This tool assists learners in structuring an effective study plan, tracking progress, and achieving their goals within the set timeframe.') }}</p>
                     </div>
                 </div>
                 <div class="shadowOne"></div>
@@ -329,9 +362,9 @@
                     <div class="service-logo">
                         <i class="fa-brands fa-app-store"></i>
                     </div>
-                    <h4>Calendar</h4>
+                    <h4>{{ __('messages.Japanese') }}</h4>
                     <div class="service-content">
-                        <p>Chúng tôi phát triển hệ thống với mục đích quản lý thông tin quan trọng và sắp xếp công việc theo một lịch trình nhất định. Công cụ này hỗ trợ người dùng tổ chức công việc một cách khoa học, giúp theo dõi tiến độ, đảm bảo hoàn thành đúng thời hạn. Nhờ vào khả năng quản lý linh hoạt và hiệu quả.</p>
+                        <p>{{ __('messages.We develop a Japanese learning method aimed at helping learners manage important information and organize their study time scientifically. This method assists learners in structuring an effective study plan, tracking progress, and achieving their goals within the desired timeframe.') }}</p>
                     </div>
                 </div>
                 <div class="shadowOne"></div>
@@ -341,103 +374,132 @@
       </div>
     </section>
     <section class="courses" id="courses">
-      <h2>Our Popular Courses</h2>
-      <p class="section-desc">
-        With over 30,000 courses to choose from, check out out most popular
-        courses.
-      </p>
-      <div class="row">
-        <div class="column">
-          <img src="{{asset('assets/images/public.jpg')}}" />
-          <h3>Public Speaking</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos facere
-            voluptatibus natus. Amet, cupiditate illo?
-          </p>
-          <div class="courses-btn">
-            <button class="btn secondary-btn">Learn More</button>
-          </div>
+        <div class="title-home">
+            <span class="title-left"></span>
+            <h2>{{ __('messages.New Courses') }}</h2>
+            <span class="title-right"></span>
         </div>
-        <div class="column">
-          <img src="{{asset('assets/images/photography.jpg')}}" />
-          <h3>Photography</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit nulla
-            dolor nostrum animi veniam rem.
-          </p>
-          <div class="courses-btn">
-            <button class="btn secondary-btn">Learn More</button>
-          </div>
+        <p class="section-desc">
+            {{ __('messages.With a variety of diverse and exciting courses to choose from, explore our most popular ones.') }}
+        </p>
+        <div class="row">
+            <div class="column">
+            <img src="{{asset('assets/images/public.jpg')}}" />
+            <h3>{{ __('messages.English Learning Program') }}</h3>
+            <p>
+                Bạn muốn đọc tài liệu tiếng Anh trôi chảy và viết email, bài luận chuyên nghiệp?<br/>
+                Hiểu sâu và nhanh các tài liệu học thuật.<br/>
+                Bài tập thực tế, sửa lỗi chi tiết, theo từng bước.<br/>
+                Phù hợp cho mọi trình độ, từ người mới bắt đầu đến nâng cao.<br/>
+            </p>
+            <div class="courses-btn">
+                <button class="btn secondary-btn">{{ __('messages.Join Now') }}</button>
+            </div>
+            </div>
+            <div class="column">
+            <img src="{{asset('assets/images/photography.jpg')}}" />
+            <h3>{{ __('messages.Japanese Learning Program') }}</h3>
+            <p>
+                Bạn muốn đọc tài liệu tiếng Nhật trôi chảy và viết email, bài luận chuyên nghiệp?<br/>
+                Hiểu sâu và nhanh các tài liệu học thuật.<br/>
+                Bài tập thực tế, sửa lỗi chi tiết, theo từng bước.<br/>
+                Phù hợp cho mọi trình độ, từ người mới bắt đầu đến nâng cao.<br/>
+            </p>
+            <div class="courses-btn">
+                <button class="btn secondary-btn">{{ __('messages.Join Now') }}</button>
+            </div>
+            </div>
+            <div class="column">
+            <img src="{{asset('assets/images/typing.jpg')}}" />
+            <h3>{{ __('messages.Programming Learning Program') }}</h3>
+            <p>
+                Bạn muốn đọc tài liệu Lập trình trôi chảy và viết code chuyên nghiệp?<br/>
+                Hiểu sâu và nhanh các tài liệu học thuật.<br/>
+                Bài tập thực tế, sửa lỗi chi tiết, theo từng bước.<br/>
+                Phù hợp cho mọi trình độ, từ người mới bắt đầu đến nâng cao.<br/>
+            </p>
+            <div class="courses-btn">
+                <button class="btn secondary-btn">{{ __('messages.Join Now') }}</button>
+            </div>
+            </div>
         </div>
-        <div class="column">
-          <img src="{{asset('assets/images/typing.jpg')}}" />
-          <h3>Typing</h3>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores
-            voluptatibus temporibus dolorem sit ipsam adipisci?
-          </p>
-          <div class="courses-btn">
-            <button class="btn secondary-btn">Learn More</button>
-          </div>
-        </div>
-      </div>
     </section>
     <section class="testimonial" id="testimonial">
-      <h2>What Our Students Say</h2>
-      <p class="section-desc">
-        We provide a learning experience that is not available elsewhere. We
-        have over 50,000 happy students.
-      </p>
+        <div class="title-home">
+            <span class="title-left"></span>
+            <h2>Thành viên UP</h2>
+            <span class="title-right"></span>
+        </div>
+        <p class="section-desc">
+            hiện tại có 5 thành viên nhóm. Và đã có hơn 1 năm kinh nghiệm làm việc thức tế.
+        </p>
         <div class="slider-container swiper">
             <div class="slider-home">
                 <div class="card-home swiper-wrapper">
                     <div class="card-home-item swiper-slide">
                         <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">James Wilson</h2>
+                        <h2 class="user-name">Phan Tuấn Kiệt</h2>
                         <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Message</button>
+                        <p class="user-content">
+                            Đã tốt nghiệp đại học Công nghệ.<br/>
+                            Đã có hơn 1 năm Kinh nghiệm làm việc thực tế tại công ty nước ngoài. <br/>
+                            Đã và Đang làm việc tại công ty nhật.<br/>
+                            Đã có bằng tiếng nhật tương đương N3 và đang cải thiện trình độ tiếng anh.
+                            Đang tìm kiếm việc làm Remote.
+                        </p>
+                        <button class="message-btn">Liên hệ ngay</button>
                     </div>
                     <div class="card-home-item swiper-slide">
                         <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">James Wilson</h2>
+                        <h2 class="user-name">Nguyễn Trung Nghĩa</h2>
                         <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Message</button>
+                        <p class="user-content">
+                            Đã tốt nghiệp đại học Công nghệ.<br/>
+                            Đã có hơn 1 năm Kinh nghiệm làm việc thực tế tại công ty nước ngoài. <br/>
+                            Đã và Đang làm việc tại công ty nhật.<br/>
+                            Đã có bằng tiếng nhật tương đương N3 và đang cải thiện trình độ tiếng anh.
+                            Đang tìm kiếm việc làm Remote.
+                        </p>
+                        <button class="message-btn">Liên hệ ngay</button>
                     </div>
                     <div class="card-home-item swiper-slide">
                         <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">James Wilson</h2>
+                        <h2 class="user-name">Nguyễn Tường Vi</h2>
                         <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Message</button>
+                        <p class="user-content">
+                            Đã tốt nghiệp đại học Công nghệ.<br/>
+                            Đã có hơn 1 năm Kinh nghiệm làm việc thực tế tại công ty nước ngoài. <br/>
+                            Đã và Đang làm việc tại công ty nhật.<br/>
+                            Đã có bằng tiếng nhật tương đương N3 và đang cải thiện trình độ tiếng anh.
+                            Đang tìm kiếm việc làm Remote.
+                        </p>
+                        <button class="message-btn">Liên hệ ngay</button>
                     </div>
                     <div class="card-home-item swiper-slide">
                         <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">James Wilson</h2>
+                        <h2 class="user-name">Lê Quang Huy</h2>
                         <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Message</button>
+                        <p class="user-content">
+                            Đã tốt nghiệp đại học Công nghệ.<br/>
+                            Đã có hơn 1 năm Kinh nghiệm làm việc thực tế tại công ty nước ngoài. <br/>
+                            Đã và Đang làm việc tại công ty nhật.<br/>
+                            Đã có bằng tiếng nhật tương đương N3 và đang cải thiện trình độ tiếng anh.
+                            Đang tìm kiếm việc làm Remote.
+                        </p>
+                        <button class="message-btn">Liên hệ ngay</button>
                     </div>
                     <div class="card-home-item swiper-slide">
                         <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">James Wilson</h2>
+                        <h2 class="user-name">Trần Minh Thuận</h2>
                         <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Message</button>
-                    </div>
-                    <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">James Wilson</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Message</button>
-                    </div>
-                    <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">James Wilson</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Message</button>
-                    </div>
-                    <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">James Wilson</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Message</button>
+                        <p class="user-content">
+                            Đã tốt nghiệp đại học Công nghệ.<br/>
+                            Đã có hơn 1 năm Kinh nghiệm làm việc thực tế tại công ty nước ngoài. <br/>
+                            Đã và Đang làm việc tại công ty nhật.<br/>
+                            Đã có bằng tiếng nhật tương đương N3 và đang cải thiện trình độ tiếng anh.
+                            Đang tìm kiếm việc làm Remote.
+                        </p>
+                        <button class="message-btn">Liên hệ ngay</button>
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
@@ -448,10 +510,13 @@
         </div>
     </section>
     <section class="courses" id="courses">
-        <h2>Our Popular Courses</h2>
+        <div class="title-home">
+            <span class="title-left"></span>
+            <h2>Dịch vụ mới</h2>
+            <span class="title-right"></span>
+        </div>
         <p class="section-desc">
-            With over 30,000 courses to choose from, check out out most popular
-            courses.
+            hiện tại có 5 thành viên nhóm. Và đã có hơn 1 năm kinh nghiệm làm việc thức tế.
         </p>
         <div class="pricing-section">
             <div class="pricing-cards">
@@ -474,7 +539,7 @@
                         <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Dịch vụ cập nhật thiết kế và tính năng sau 6 tháng.</li>
                     </ul>
                 </div>
-                <div class="pricing-card standard table" id="service2"> 
+                <div class="pricing-card table" id="service2"> 
                     <div class="ribbon"><span>Recommend</span></div>
                     <div class="price-tag">
                         <div class="price-header">Dashboard</div>
@@ -514,9 +579,300 @@
             </div>
         </div>
     </section>
+    <section class="courses" id="courses">
+        <div class="title-home">
+            <span class="title-left"></span>
+            <h2>Sản phẩm mới</h2>
+            <span class="title-right"></span>
+        </div>
+        <div class="section-desc">
+            <div class="section-desc-spacebetween">
+                <button><i class="fa-regular fa-circle-up"></i></button>
+                <p>Mở khóa tất cả các tính năng tuyệt vời mới với phần mềm của chúng tôi.</p>
+                <button><i class="fa-regular fa-circle-down"></i></button>
+            </div>
+        </div>
+        <div class="product-container">
+            <div class="product-card">
+                <div style="padding: 20px;text-align: center;font-size:12px;">
+                <h1>Apps</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices in iaculis nunc sed augue.
+                </p>
+                <button class="sh_btn">Read more</button>
+                </div>
+                <div class="cover">
+                    <div class="coverFront">
+                        <div>
+                            <img src="{{asset('assets/images/1730874816_product1.jpg')}}" alt="" class="sh_img">
+                        </div>
+                    </div>
+                <div class="coverBack"></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div style="padding: 20px;text-align: center;font-size:12px;">
+                <h1>Apps</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices in iaculis nunc sed augue.
+                </p>
+                <button class="sh_btn">Read more</button>
+                </div>
+                <div class="cover">
+                    <div class="coverFront">
+                        <div>
+                            <img src="{{asset('assets/images/1730874816_product1.jpg')}}" alt="" class="sh_img">
+                        </div>
+                    </div>
+                <div class="coverBack"></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div style="padding: 20px;text-align: center;font-size:12px;">
+                <h1>Apps</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices in iaculis nunc sed augue.
+                </p>
+                <button class="sh_btn">Read more</button>
+                </div>
+                <div class="cover">
+                    <div class="coverFront">
+                        <div>
+                            <img src="{{asset('assets/images/1730874816_product1.jpg')}}" alt="" class="sh_img">
+                        </div>
+                    </div>
+                <div class="coverBack"></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div style="padding: 20px;text-align: center;font-size:12px;">
+                <h1>Apps</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices in iaculis nunc sed augue.
+                </p>
+                <button class="sh_btn">Read more</button>
+                </div>
+                <div class="cover">
+                    <div class="coverFront">
+                        <div>
+                            <img src="{{asset('assets/images/1730874816_product1.jpg')}}" alt="" class="sh_img">
+                        </div>
+                    </div>
+                <div class="coverBack"></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div style="padding: 20px;text-align: center;font-size:12px;">
+                <h1>Apps</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices in iaculis nunc sed augue.
+                </p>
+                <button class="sh_btn">Read more</button>
+                </div>
+                <div class="cover">
+                    <div class="coverFront">
+                        <div>
+                            <img src="{{asset('assets/images/1730874816_product1.jpg')}}" alt="" class="sh_img">
+                        </div>
+                    </div>
+                <div class="coverBack"></div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div style="padding: 20px;text-align: center;font-size:12px;">
+                <h1>Apps</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices in iaculis nunc sed augue.
+                </p>
+                <button class="sh_btn">Read more</button>
+                </div>
+                <div class="cover">
+                    <div class="coverFront">
+                        <div>
+                            <img src="{{asset('assets/images/1730874816_product1.jpg')}}" alt="" class="sh_img">
+                        </div>
+                    </div>
+                <div class="coverBack"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="courses" id="courses">
+        <div class="title-home">
+            <span class="title-left"></span>
+            <h2>Câu hỏi chung</h2>
+            <span class="title-right"></span>
+        </div>
+        <p class="section-desc">
+            Đây là một số câu hỏi liên quan đến sản phẩm tôi đang đưa vào sử dụng.
+        </p>
+        <div class="accordion">
+            <div class="accordion-item active">
+                <div class="accordion-header">
+                    <span>Làm thế nào để đăng ký tài khoản?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <blockquote>
+                        “ Nhấp vào nút "Đăng ký" ở góc trên cùng của trang. Điền đầy đủ thông tin cá nhân, như email và mật khẩu, và xác nhận qua email được gửi đến hộp thư của bạn. Chỉ mất vài phút để hoàn tất. Sau khi đăng ký, bạn có thể truy cập vào tất cả các tính năng trên website. Nếu gặp sự cố, đừng ngần ngại liên hệ với đội ngũ hỗ trợ để được giúp đỡ nhanh chóng! ”
+                        <span class="author">- Phan Tuấn Kiệt</span>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Tôi có thể thay đổi thông tin cá nhân không?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <blockquote>
+                        “ Bạn hoàn toàn có thể thay đổi thông tin cá nhân bất cứ lúc nào. Truy cập vào mục "Hồ sơ cá nhân" trong tài khoản của bạn. Chỉ cần nhấp vào thông tin bạn muốn chỉnh sửa và lưu thay đổi. Hệ thống sẽ cập nhật ngay lập tức để bạn tiếp tục sử dụng. Đừng quên kiểm tra và đảm bảo thông tin luôn chính xác để tránh bất kỳ sự gián đoạn nào trong dịch vụ. ”
+                        <span class="author">- Phan Tuấn Kiệt</span>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Phương thức thanh toán được hỗ trợ là gì?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <blockquote>
+                        “ Chúng tôi hỗ trợ nhiều phương thức thanh toán tiện lợi, bao gồm chuyển khoản ngân hàng, thẻ tín dụng, và ví điện tử như Momo, ZaloPay. Mọi giao dịch đều được mã hóa để đảm bảo an toàn tuyệt đối. Bạn có thể lựa chọn phương thức phù hợp nhất với mình. Hệ thống thanh toán của chúng tôi được tích hợp bảo mật hiện đại, giúp bạn yên tâm khi sử dụng. ”
+                        <span class="author">- Phan Tuấn Kiệt</span>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Tôi có thể yêu cầu hoàn tiền không?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <blockquote>
+                        “ Có, bạn có thể yêu cầu hoàn tiền nếu không hài lòng với sản phẩm hoặc dịch vụ. Chỉ cần gửi yêu cầu hoàn tiền qua mục hỗ trợ khách hàng trong vòng 7 ngày kể từ khi giao dịch được thực hiện. Đội ngũ hỗ trợ của chúng tôi sẽ xử lý yêu cầu nhanh chóng và minh bạch. Đừng quên tham khảo kỹ chính sách hoàn tiền trước khi gửi yêu cầu. Sự hài lòng của bạn là ưu tiên hàng đầu của chúng tôi! ”
+                        <span class="author">- Phan Tuấn Kiệt</span>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Làm cách nào để liên hệ với bộ phận hỗ trợ khách hàng?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <blockquote>
+                        “ Bạn có thể liên hệ với chúng tôi qua nhiều kênh khác nhau. Gửi email, gọi hotline, hoặc sử dụng tính năng chat trực tuyến 24/7 trên website. Đội ngũ của chúng tôi luôn sẵn sàng hỗ trợ bạn với tinh thần tận tâm nhất. Chúng tôi cam kết giải đáp mọi thắc mắc và đưa ra giải pháp tốt nhất trong thời gian nhanh nhất có thể. Đừng ngần ngại, hãy liên hệ ngay khi bạn cần! ”
+                        <span class="author">- Phan Tuấn Kiệt</span>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Làm thế nào để khôi phục mật khẩu tài khoản?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <blockquote>
+                        “ Nếu bạn quên mật khẩu, chỉ cần nhấp vào "Quên mật khẩu" trên trang đăng nhập. Nhập email đã đăng ký và chúng tôi sẽ gửi hướng dẫn khôi phục mật khẩu đến email của bạn. Làm theo các bước trong email để tạo mật khẩu mới. Quy trình này được bảo mật để đảm bảo tài khoản của bạn an toàn. Nếu không nhận được email, vui lòng kiểm tra hộp thư rác hoặc liên hệ với đội ngũ hỗ trợ để được giúp đỡ ngay. ”
+                        <span class="author">- Phan Tuấn Kiệt</span>
+                    </blockquote>
+                    
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Tôi có thể hủy tài khoản của mình không?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <blockquote>
+                        “ Bạn hoàn toàn có quyền hủy tài khoản nếu không còn sử dụng dịch vụ. Truy cập vào "Cài đặt tài khoản" và chọn tùy chọn "Hủy tài khoản". Hãy cân nhắc kỹ trước khi thực hiện, vì hành động này sẽ xóa toàn bộ dữ liệu của bạn. Nếu cần hỗ trợ hoặc muốn tạm ngừng tài khoản thay vì hủy, đội ngũ hỗ trợ của chúng tôi luôn sẵn sàng giúp bạn tìm giải pháp phù hợp hơn. ”
+                        <span class="author">- Phan Tuấn Kiệt</span>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <span>Có những ưu đãi nào dành cho khách hàng mới?</span>
+                    <span class="icon">+</span>
+                </div>
+                <div class="accordion-content">
+                    <blockquote>
+                        “  Chúng tôi luôn có nhiều chương trình ưu đãi hấp dẫn dành cho khách hàng mới. Ví dụ: Giảm giá 10% cho lần mua đầu tiên hoặc gói dùng thử miễn phí trong 7 ngày. Các chương trình khuyến mãi được cập nhật thường xuyên trên trang chủ hoặc qua email. Đừng bỏ lỡ cơ hội trải nghiệm các dịch vụ chất lượng với chi phí tốt nhất. Đăng ký ngay hôm nay để nhận ưu đãi dành riêng cho bạn!”
+                        <span class="author">- Phan Tuấn Kiệt</span>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="courses" id="courses">
+        <div class="title-home">
+            <span class="title-left"></span>
+            <h2>Liên hệ ngay</h2>
+            <span class="title-right"></span>
+        </div>
+        <p class="section-desc">
+            Hãy liên hệ với chúng tôi để được giải đáp các thắt mắt từ bạn.
+        </p>
+        <section id="section-wrapper">
+            <div class="box-wrapper">
+                <div class="info-wrap">
+                    <h3 class="info-sub-title">Hãy dành một chút thời gian để điền vào biểu mẫu, và đội ngũ chuyên gia tận tâm của chúng tôi sẽ nhanh chóng liên hệ lại với bạn trong vòng 24 giờ. Chúng tôi luôn sẵn sàng lắng nghe và mang đến giải pháp phù hợp nhất, đảm bảo bạn nhận được sự hỗ trợ tốt nhất!</h3>
+                    <ul class="info-details">
+                        <li>
+                            <i class="fas fa-location-dot"></i>
+                            <span>Địa chỉ:</span> <a href="tel:+ 0768173369">phường Tân Thế Hòa, quận Tân Phú, Thành Phố Hồ Chí Minh.</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span class="mx-10">Phone:</span> <a class="mx-10" href="tel:+ 0768173369">+ 0768173369</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-paper-plane"></i>
+                            <span class="mx-10">Email:</span> <a class="mx-10" href="mailto:tuankietity@gmail.com">tuankietity@gmail.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-globe"></i>
+                            <span class="mx-10">Website:</span> <a class="mx-10" href="#">yoursite.com</a>
+                        </li>
+                    </ul>
+                    <ul class="social-icons">
+                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                    </ul>
+                </div>
+                <div class="form-wrap">
+                    <form action="#" method="POST">
+                        <div class="form-fields">
+                            <div class="form-group w-full">
+                                <input type="text" class="fname" placeholder="Tiêu đề">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="fname" placeholder="Họ và tên">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="lname" placeholder="Người nhận">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="email" placeholder="CC">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" class="phone" placeholder="Phone">
+                            </div>
+                            <div class="form-group">
+                                <textarea name="message" id="" placeholder="Write your message"></textarea>
+                            </div>
+                        </div>
+                        <input type="submit" value="Gửi" class="submit-button">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </section>
     <!------ Section: Download App ------>
     <section class="download-app" id="download-app">
-        <div style="height: 400px;"> </div>
         <div class="darksoul-footer">
             <div class="darksoul-footer-top">
         
@@ -1373,7 +1729,7 @@
     -->
     <div class="modal" id="CreateLogin">
         <div class="ModelCreateLogin">
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ url(app()->getLocale() . '/login') }}">
                 @csrf
                 <h2>Đăng nhập</h2>
                 <div class="form-input-category">
@@ -1484,6 +1840,21 @@
 
     <script>
 
+    document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', () => {
+            const accordionItem = header.parentElement;
+            
+            // Đóng tất cả các accordion items khác
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                if (item !== accordionItem) {
+                    item.classList.remove('active');
+                }
+            });
+
+            // Toggle trạng thái của accordion item hiện tại
+            accordionItem.classList.toggle('active');
+        });
+    });
         document.addEventListener('DOMContentLoaded', function() {
             const popup = document.querySelector('#popup-success');
             if (popup) {
@@ -1504,15 +1875,6 @@
             }
         });
 
-
-         const cards = document.querySelectorAll('.pricing-card');
-
-        cards.forEach(card => {
-            card.addEventListener('click', () => {
-                cards.forEach(c => c.classList.remove('standard'));
-                card.classList.add('standard');
-            });
-        });
         let hamMenuIcon = document.getElementById("ham-menu");
         let navBar = document.getElementById("nav-bar");
         let navLinks = navBar.querySelectorAll("li");
@@ -1549,26 +1911,37 @@
         };
 
         function logout() {
+            const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
             fetch("{{ route('logout') }}", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": "{{ csrf_token() }}"
+                    "X-CSRF-TOKEN": csrfToken
                 },
-                body: JSON.stringify({})
             })
             .then(response => {
                 if (response.ok) {
+                    return response.json(); // Trích xuất JSON từ phản hồi
+                } else {
+                    throw new Error('Logout failed');
+                }
+            })
+            .then(data => {
+                if (data.success) {
+                    // Xóa cookie và điều hướng về trang chủ
                     document.cookie.split(";").forEach(cookie => {
                         document.cookie = cookie
                             .replace(/^ +/, "")
                             .replace(/=.*/, "=;expires=" + new Date(0).toUTCString() + ";path=/");
                     });
+
                     window.location.href = "{{ route('home.index') }}";
                 }
             })
             .catch(error => console.error("Logout failed:", error));
         }
+
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>

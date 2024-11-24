@@ -101,11 +101,17 @@ class AuthController extends Controller
         }
     }
 
+   
     public function logout(Request $request)
     {
         Auth::logout();
         $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        $request->session()->regenerateToken(); 
+
+        if ($request->ajax()) {
+            return response()->json(['success' => true]);
+        }
+
         return redirect()->route('home.index')->with('success', 'Đăng xuất thành công!');
     }
     public function changePassword(Request $request, $id)

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App;
+use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+
 
 class LocalizationController extends Controller
 {
@@ -14,8 +15,14 @@ class LocalizationController extends Controller
      */
     public function index($locale)
     {
-        App::setLocale($locale);
-        session()->put('locale', $locale);
+        if (in_array($locale, ['vi', 'en', 'ja'])) {
+            App::setLocale($locale);
+            session()->put('locale', $locale);
+        } else {
+            App::setLocale('vi');
+            session()->put('locale', 'vi');
+        }
+    
         return redirect()->back();
     }
 
