@@ -72,7 +72,9 @@ Route::fallback(function () {
     return view('error'); 
 });
 
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::group(['prefix' => 'en'], function () {
+    Route::get('/', [HomeController::class, 'index'])->name('home.index');
+});
 
 Route::get('lang/{locale}', [LocalizationController::class, 'index'])->name('lang');
 

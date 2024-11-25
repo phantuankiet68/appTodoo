@@ -94,11 +94,12 @@ class AuthController extends Controller
 
         if (Auth::attempt($request->only('email', 'password'))) {
             $request->session()->regenerate();
-            return redirect()->route('home.index')->with('success', 'Đăng nhập thành công!');
+            return redirect()->back()->with('success', 'Đăng nhập thành công!');
         }
         else{
-            return redirect()->route('home.index')->with('error', 'Email hoặc mật khẩu không chính xác!');
+            return redirect()->back()->with('error', 'Email hoặc mật khẩu không chính xác!');
         }
+
     }
 
    

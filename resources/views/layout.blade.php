@@ -387,10 +387,10 @@
             <img src="{{asset('assets/images/public.jpg')}}" />
             <h3>{{ __('messages.English Learning Program') }}</h3>
             <p>
-                Bạn muốn đọc tài liệu tiếng Anh trôi chảy và viết email, bài luận chuyên nghiệp?<br/>
-                Hiểu sâu và nhanh các tài liệu học thuật.<br/>
-                Bài tập thực tế, sửa lỗi chi tiết, theo từng bước.<br/>
-                Phù hợp cho mọi trình độ, từ người mới bắt đầu đến nâng cao.<br/>
+                {{ __('messages.Do you want to read English documents fluently and write emails and essays professionally?') }}<br/>
+                {{ __('messages.Understand academic materials deeply and quickly.') }}<br/>
+                {{ __('messages.Practical exercises, detailed error corrections, step by step.') }}<br/>
+                {{ __('messages.Suitable for all levels, from beginners to advanced.') }}
             </p>
             <div class="courses-btn">
                 <button class="btn secondary-btn">{{ __('messages.Join Now') }}</button>
@@ -400,10 +400,10 @@
             <img src="{{asset('assets/images/photography.jpg')}}" />
             <h3>{{ __('messages.Japanese Learning Program') }}</h3>
             <p>
-                Bạn muốn đọc tài liệu tiếng Nhật trôi chảy và viết email, bài luận chuyên nghiệp?<br/>
-                Hiểu sâu và nhanh các tài liệu học thuật.<br/>
-                Bài tập thực tế, sửa lỗi chi tiết, theo từng bước.<br/>
-                Phù hợp cho mọi trình độ, từ người mới bắt đầu đến nâng cao.<br/>
+                {{ __('messages.Do you want to read Japanese documents fluently and write emails and essays professionally?') }}<br/>
+                {{ __('messages.Understand academic materials deeply and quickly.') }}<br/>
+                {{ __('messages.Practical exercises, detailed error corrections, step by step.') }}<br/>
+                {{ __('messages.Suitable for all levels, from beginners to advanced.') }}
             </p>
             <div class="courses-btn">
                 <button class="btn secondary-btn">{{ __('messages.Join Now') }}</button>
@@ -413,10 +413,10 @@
             <img src="{{asset('assets/images/typing.jpg')}}" />
             <h3>{{ __('messages.Programming Learning Program') }}</h3>
             <p>
-                Bạn muốn đọc tài liệu Lập trình trôi chảy và viết code chuyên nghiệp?<br/>
-                Hiểu sâu và nhanh các tài liệu học thuật.<br/>
-                Bài tập thực tế, sửa lỗi chi tiết, theo từng bước.<br/>
-                Phù hợp cho mọi trình độ, từ người mới bắt đầu đến nâng cao.<br/>
+                {{ __('messages.Do you want to read programming documents fluently and write code professionally?') }}<br/>
+                {{ __('messages.Understand academic materials deeply and quickly.') }}<br/>
+                {{ __('messages.Practical exercises, detailed error corrections, step by step.') }}<br/>
+                {{ __('messages.Suitable for all levels, from beginners to advanced.') }}
             </p>
             <div class="courses-btn">
                 <button class="btn secondary-btn">{{ __('messages.Join Now') }}</button>
@@ -427,11 +427,11 @@
     <section class="testimonial" id="testimonial">
         <div class="title-home">
             <span class="title-left"></span>
-            <h2>Thành viên UP</h2>
+            <h2>{{ __('messages.UP Members') }}</h2>
             <span class="title-right"></span>
         </div>
         <p class="section-desc">
-            hiện tại có 5 thành viên nhóm. Và đã có hơn 1 năm kinh nghiệm làm việc thức tế.
+            {{ __('messages.Currently, the team has 5 members and over 1 year of practical working experience.') }}
         </p>
         <div class="slider-container swiper">
             <div class="slider-home">
@@ -512,11 +512,11 @@
     <section class="courses" id="courses">
         <div class="title-home">
             <span class="title-left"></span>
-            <h2>Dịch vụ mới</h2>
+            <h2>{{ __('messages.New Service') }}</h2>
             <span class="title-right"></span>
         </div>
         <p class="section-desc">
-            hiện tại có 5 thành viên nhóm. Và đã có hơn 1 năm kinh nghiệm làm việc thức tế.
+            {{ __('messages.Unlock all the amazing new features with our software') }}
         </p>
         <div class="pricing-section">
             <div class="pricing-cards">
@@ -582,13 +582,13 @@
     <section class="courses" id="courses">
         <div class="title-home">
             <span class="title-left"></span>
-            <h2>Sản phẩm mới</h2>
+            <h2>{{ __('messages.New Product') }}</h2>
             <span class="title-right"></span>
         </div>
         <div class="section-desc">
             <div class="section-desc-spacebetween">
                 <button><i class="fa-regular fa-circle-up"></i></button>
-                <p>Mở khóa tất cả các tính năng tuyệt vời mới với phần mềm của chúng tôi.</p>
+                {{ __('messages.Unlock all the amazing new features with our software') }}
                 <button><i class="fa-regular fa-circle-down"></i></button>
             </div>
         </div>
@@ -700,107 +700,107 @@
     <section class="courses" id="courses">
         <div class="title-home">
             <span class="title-left"></span>
-            <h2>Câu hỏi chung</h2>
+            <h2>{{ __('messages.General Questions') }}</h2>
             <span class="title-right"></span>
         </div>
         <p class="section-desc">
-            Đây là một số câu hỏi liên quan đến sản phẩm tôi đang đưa vào sử dụng.
+            {{ __('messages.These are some questions related to the product I am currently using.') }}
         </p>
         <div class="accordion">
             <div class="accordion-item active">
                 <div class="accordion-header">
-                    <span>Làm thế nào để đăng ký tài khoản?</span>
+                    <span>{{ __('messages.How do I register an account?') }}</span>
                     <span class="icon">+</span>
                 </div>
                 <div class="accordion-content">
                     <blockquote>
-                        “ Nhấp vào nút "Đăng ký" ở góc trên cùng của trang. Điền đầy đủ thông tin cá nhân, như email và mật khẩu, và xác nhận qua email được gửi đến hộp thư của bạn. Chỉ mất vài phút để hoàn tất. Sau khi đăng ký, bạn có thể truy cập vào tất cả các tính năng trên website. Nếu gặp sự cố, đừng ngần ngại liên hệ với đội ngũ hỗ trợ để được giúp đỡ nhanh chóng! ”
-                        <span class="author">- Phan Tuấn Kiệt</span>
+                        “ {{ __('messages.Click on the "Register" button at the top corner of the page. Fill in your personal information, such as email and password, and confirm through the email sent to your inbox. It only takes a few minutes to complete. After registering, you can access all features on the website. If you encounter any issues, don’t hesitate to contact the support team for prompt assistance!') }} ”
+                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
                     </blockquote>
                 </div>
             </div>
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <span>Tôi có thể thay đổi thông tin cá nhân không?</span>
+                    <span>{{ __('messages.Can I change my personal information?') }}</span>
                     <span class="icon">+</span>
                 </div>
                 <div class="accordion-content">
                     <blockquote>
-                        “ Bạn hoàn toàn có thể thay đổi thông tin cá nhân bất cứ lúc nào. Truy cập vào mục "Hồ sơ cá nhân" trong tài khoản của bạn. Chỉ cần nhấp vào thông tin bạn muốn chỉnh sửa và lưu thay đổi. Hệ thống sẽ cập nhật ngay lập tức để bạn tiếp tục sử dụng. Đừng quên kiểm tra và đảm bảo thông tin luôn chính xác để tránh bất kỳ sự gián đoạn nào trong dịch vụ. ”
-                        <span class="author">- Phan Tuấn Kiệt</span>
+                        “ {{ __('messages.You can easily update your personal information at any time. Simply go to the "Personal Profile" section in your account. Click on the information you wish to edit and save the changes. The system will update immediately, allowing you to continue using the service without interruption. Don’t forget to review and ensure your details are always accurate to avoid any potential disruptions in service.') }} ”
+                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
                     </blockquote>
                 </div>
             </div>
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <span>Phương thức thanh toán được hỗ trợ là gì?</span>
+                    <span>{{ __('messages.What payment methods are supported?') }}</span>
                     <span class="icon">+</span>
                 </div>
                 <div class="accordion-content">
                     <blockquote>
-                        “ Chúng tôi hỗ trợ nhiều phương thức thanh toán tiện lợi, bao gồm chuyển khoản ngân hàng, thẻ tín dụng, và ví điện tử như Momo, ZaloPay. Mọi giao dịch đều được mã hóa để đảm bảo an toàn tuyệt đối. Bạn có thể lựa chọn phương thức phù hợp nhất với mình. Hệ thống thanh toán của chúng tôi được tích hợp bảo mật hiện đại, giúp bạn yên tâm khi sử dụng. ”
-                        <span class="author">- Phan Tuấn Kiệt</span>
+                        “ {{ __('messages.We support various convenient payment methods, including bank transfers, credit cards, and e-wallets such as Momo and ZaloPay. All transactions are encrypted to ensure absolute security. You can choose the method that suits you best. Our payment system is integrated with modern security features, giving you peace of mind when using it.') }} ”
+                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
                     </blockquote>
                 </div>
             </div>
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <span>Tôi có thể yêu cầu hoàn tiền không?</span>
+                    <span>{{ __('messages.Can I request a refund?') }}</span>
                     <span class="icon">+</span>
                 </div>
                 <div class="accordion-content">
                     <blockquote>
-                        “ Có, bạn có thể yêu cầu hoàn tiền nếu không hài lòng với sản phẩm hoặc dịch vụ. Chỉ cần gửi yêu cầu hoàn tiền qua mục hỗ trợ khách hàng trong vòng 7 ngày kể từ khi giao dịch được thực hiện. Đội ngũ hỗ trợ của chúng tôi sẽ xử lý yêu cầu nhanh chóng và minh bạch. Đừng quên tham khảo kỹ chính sách hoàn tiền trước khi gửi yêu cầu. Sự hài lòng của bạn là ưu tiên hàng đầu của chúng tôi! ”
-                        <span class="author">- Phan Tuấn Kiệt</span>
+                        “ {{ __('messages.Yes, you can request a refund if you are not satisfied with the product or service. Simply submit a refund request through the customer support section within 7 days of the transaction. Our support team will handle your request promptly and transparently. Don’t forget to review the refund policy carefully before submitting your request. Your satisfaction is our top priority!') }} ”
+                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
                     </blockquote>
                 </div>
             </div>
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <span>Làm cách nào để liên hệ với bộ phận hỗ trợ khách hàng?</span>
+                    <span>{{ __('messages.How can I contact customer support?') }}</span>
                     <span class="icon">+</span>
                 </div>
                 <div class="accordion-content">
                     <blockquote>
-                        “ Bạn có thể liên hệ với chúng tôi qua nhiều kênh khác nhau. Gửi email, gọi hotline, hoặc sử dụng tính năng chat trực tuyến 24/7 trên website. Đội ngũ của chúng tôi luôn sẵn sàng hỗ trợ bạn với tinh thần tận tâm nhất. Chúng tôi cam kết giải đáp mọi thắc mắc và đưa ra giải pháp tốt nhất trong thời gian nhanh nhất có thể. Đừng ngần ngại, hãy liên hệ ngay khi bạn cần! ”
-                        <span class="author">- Phan Tuấn Kiệt</span>
+                        “ {{ __('messages.You can reach us through various channels. Send an email, call our hotline, or use the 24/7 live chat feature on our website. Our team is always ready to assist you with the utmost dedication. We are committed to addressing all your concerns and providing the best solutions as quickly as possible. Don’t hesitate—contact us whenever you need!') }} ”
+                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
                     </blockquote>
                 </div>
             </div>
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <span>Làm thế nào để khôi phục mật khẩu tài khoản?</span>
+                    <span>{{ __('messages.How do I recover my account password?') }}</span>
                     <span class="icon">+</span>
                 </div>
                 <div class="accordion-content">
                     <blockquote>
-                        “ Nếu bạn quên mật khẩu, chỉ cần nhấp vào "Quên mật khẩu" trên trang đăng nhập. Nhập email đã đăng ký và chúng tôi sẽ gửi hướng dẫn khôi phục mật khẩu đến email của bạn. Làm theo các bước trong email để tạo mật khẩu mới. Quy trình này được bảo mật để đảm bảo tài khoản của bạn an toàn. Nếu không nhận được email, vui lòng kiểm tra hộp thư rác hoặc liên hệ với đội ngũ hỗ trợ để được giúp đỡ ngay. ”
-                        <span class="author">- Phan Tuấn Kiệt</span>
+                        “ {{ __('messages.If you forget your password, simply click "Forgot Password" on the login page. Enter your registered email, and we will send password recovery instructions to your email. Follow the steps in the email to create a new password. This process is secured to ensure the safety of your account. If you do not receive the email, please check your spam folder or contact our support team for immediate assistance.') }} ”
+                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
                     </blockquote>
                     
                 </div>
             </div>
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <span>Tôi có thể hủy tài khoản của mình không?</span>
+                    <span>{{ __('messages.Can I cancel my account?') }}</span>
                     <span class="icon">+</span>
                 </div>
                 <div class="accordion-content">
                     <blockquote>
-                        “ Bạn hoàn toàn có quyền hủy tài khoản nếu không còn sử dụng dịch vụ. Truy cập vào "Cài đặt tài khoản" và chọn tùy chọn "Hủy tài khoản". Hãy cân nhắc kỹ trước khi thực hiện, vì hành động này sẽ xóa toàn bộ dữ liệu của bạn. Nếu cần hỗ trợ hoặc muốn tạm ngừng tài khoản thay vì hủy, đội ngũ hỗ trợ của chúng tôi luôn sẵn sàng giúp bạn tìm giải pháp phù hợp hơn. ”
-                        <span class="author">- Phan Tuấn Kiệt</span>
+                        “ {{ __('messages.You have full rights to cancel your account if you no longer wish to use the service. Go to "Account Settings" and select the "Cancel Account" option. Please think carefully before proceeding, as this action will delete all your data. If you need assistance or prefer to pause your account instead of canceling, our support team is always ready to help you find a more suitable solution.') }} ”
+                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
                     </blockquote>
                 </div>
             </div>
             <div class="accordion-item">
                 <div class="accordion-header">
-                    <span>Có những ưu đãi nào dành cho khách hàng mới?</span>
+                    <span>{{ __('messages.What offers are available for new customers?') }}</span>
                     <span class="icon">+</span>
                 </div>
                 <div class="accordion-content">
                     <blockquote>
-                        “  Chúng tôi luôn có nhiều chương trình ưu đãi hấp dẫn dành cho khách hàng mới. Ví dụ: Giảm giá 10% cho lần mua đầu tiên hoặc gói dùng thử miễn phí trong 7 ngày. Các chương trình khuyến mãi được cập nhật thường xuyên trên trang chủ hoặc qua email. Đừng bỏ lỡ cơ hội trải nghiệm các dịch vụ chất lượng với chi phí tốt nhất. Đăng ký ngay hôm nay để nhận ưu đãi dành riêng cho bạn!”
-                        <span class="author">- Phan Tuấn Kiệt</span>
+                        “ {{ __('messages.We always have attractive promotional offers for new customers. For example, a 10% discount on your first purchase or a free 7-day trial. Promotions are regularly updated on our homepage or via email. Don’t miss the chance to experience high-quality services at the best cost. Sign up today to receive exclusive offers just for you!') }} ”
+                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
                     </blockquote>
                 </div>
             </div>
@@ -809,130 +809,127 @@
     <section class="courses" id="courses">
         <div class="title-home">
             <span class="title-left"></span>
-            <h2>Liên hệ ngay</h2>
+            <h2>{{ __('messages.Contact Us Now') }}</h2>
             <span class="title-right"></span>
         </div>
         <p class="section-desc">
-            Hãy liên hệ với chúng tôi để được giải đáp các thắt mắt từ bạn.
+            {{ __('messages.Feel free to reach out to us for answers to your questions.') }}
         </p>
         <section id="section-wrapper">
             <div class="box-wrapper">
                 <div class="info-wrap">
-                    <h3 class="info-sub-title">Hãy dành một chút thời gian để điền vào biểu mẫu, và đội ngũ chuyên gia tận tâm của chúng tôi sẽ nhanh chóng liên hệ lại với bạn trong vòng 24 giờ. Chúng tôi luôn sẵn sàng lắng nghe và mang đến giải pháp phù hợp nhất, đảm bảo bạn nhận được sự hỗ trợ tốt nhất!</h3>
+                    <h3 class="info-sub-title">{{ __('messages.Take a moment to fill out the form, and our dedicated team of experts will get back to you within 24 hours. We are always ready to listen and provide the most suitable solutions, ensuring you receive the best support possible!') }}</h3>
                     <ul class="info-details">
                         <li>
-                            <i class="fas fa-location-dot"></i>
-                            <span>Địa chỉ:</span> <a href="tel:+ 0768173369">phường Tân Thế Hòa, quận Tân Phú, Thành Phố Hồ Chí Minh.</a>
+                            <div class="contact-icon">
+                                <b></b>
+                                <i class="fas fa-location-dot"></i>
+                            </div>
+                            <div class="text-contact">
+                                <p>{{ __('messages.Address') }}:</p> <a href="tel:+ 0768173369">Tân Thế Hòa, quận Tân Phú, Thành Phố Hồ Chí Minh.</a>
+                            </div>
                         </li>
                         <li>
-                            <i class="fas fa-phone-alt"></i>
-                            <span class="mx-10">Phone:</span> <a class="mx-10" href="tel:+ 0768173369">+ 0768173369</a>
+                            <div class="contact-icon">
+                                <b></b>
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="text-contact">
+                                <p>{{ __('messages.Phone') }}:</p> <a href="tel:+ 0768173369">+ 0768173369</a>
+                            </div>
                         </li>
                         <li>
-                            <i class="fas fa-paper-plane"></i>
-                            <span class="mx-10">Email:</span> <a class="mx-10" href="mailto:tuankietity@gmail.com">tuankietity@gmail.com</a>
+                            <div class="contact-icon">
+                                <b></b>
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                            <div class="text-contact">
+                                <p >{{ __('messages.Email') }}:</p> 
+                                <a  href="mailto:tuankietity@gmail.com">tuankietity@gmail.com</a>
+                            </div>
                         </li>
                         <li>
-                            <i class="fas fa-globe"></i>
-                            <span class="mx-10">Website:</span> <a class="mx-10" href="#">yoursite.com</a>
+                            <div class="contact-icon">
+                                <b></b>
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="text-contact">
+                                <p class="mx-10">{{ __('messages.Website') }}:</p> <a class="mx-10" href="#">yoursite.com</a>
+                            </div>
                         </li>
-                    </ul>
-                    <ul class="social-icons">
-                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                        <li>
+                            <div class="contact-icon">
+                                <b></b>
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <div class="text-contact">
+                                <p class="mx-10">{{ __('messages.Website') }}:</p> <a class="mx-10" href="#">yoursite.com</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <b></b>
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div class="text-contact">
+                                <p class="mx-10">{{ __('messages.Website') }}:</p> <a class="mx-10" href="#">yoursite.com</a>
+                            </div>
+                        </li>
                     </ul>
                 </div>
-                <div class="form-wrap">
-                    <form action="#" method="POST">
-                        <div class="form-fields">
-                            <div class="form-group w-full">
-                                <input type="text" class="fname" placeholder="Tiêu đề">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="fname" placeholder="Họ và tên">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" class="lname" placeholder="Người nhận">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" class="email" placeholder="CC">
-                            </div>
-                            <div class="form-group">
-                                <input type="number" class="phone" placeholder="Phone">
-                            </div>
-                            <div class="form-group">
-                                <textarea name="message" id="" placeholder="Write your message"></textarea>
-                            </div>
+                <div class="contact-form-container">
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" name="name" placeholder="Name" required>
                         </div>
-                        <input type="submit" value="Gửi" class="submit-button">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text"  name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea name="message" placeholder="Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
             </div>
         </section>
     </section>
-    <!------ Section: Download App ------>
+
     <section class="download-app" id="download-app">
-        <div class="darksoul-footer">
-            <div class="darksoul-footer-top">
-        
-            </div>
-            <div class="darksoul-footer-content">
-                <div class="darksoul-footer-section">
-                    <h1 class="darksoul-footer-heading">DarkSoul</h1>
-                </div>
-                <div class="darksoul-footer-section">
-                    <ul class="d-footer-ul">
-                        <li class="d-footer-li-h"><b>Links</b></li>
-                        <li class="d-footer-li">Home</li>
-                        <li class="d-footer-li">About</li>
-                        <li class="d-footer-li">Blog</li>
-                        <li class="d-footer-li">Design</li>
-                        <li class="d-footer-li">Documentation</li>
-                    </ul>
-                </div>
-                <div class="darksoul-footer-section">
-                    <ul class="d-footer-ul">
-                        <li class="d-footer-li-h"><b>Blog</b></li>
-                        <li class="d-footer-li">UI / UX</li>
-                        <li class="d-footer-li">CodePens</li>
-                        <li class="d-footer-li">Codedamn</li>
-                        <li class="d-footer-li">Figma</li>
-                        <li class="d-footer-li">Oracle EBS</li>
-                    </ul>
-                </div>
-                <div class="darksoul-footer-section">
-                    <ul class="d-footer-ul">
-                        <li class="d-footer-li-h"><b>Privacy policy</b></li>
-                        <li class="d-footer-li-h"><b>Contact Us</b></li>
-                        
-                    </ul>
-                </div>
-                <div class="darksoul-footer-section">
-                    <div class="logo-head">
-                        <b>Follow me on</b>
-                    </div>
-                    <div class="logo">
-                       <a href="https://www.instagram.com/dark.soul.io/" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/100/instagram-new.png" alt="instagram-new"/></a>
-                       <a href="https://www.youtube.com/channel/UCooCOD2j8Q4Y9ysYZIFzI_w" target="_blank"><img width="30" height="30" src="https://img.icons8.com/ios-filled/100/youtube-squared.png" alt="youtube-squared"/></a>
-                        <a href="https://dribbble.com/dark-soul" target="_blank"><img width="25" height="25" src="https://img.icons8.com/offices/100/dribbble.png" alt="dribbble"/></a>
-                    </div>    
-                </div>
-            </div>
-            <div class="darksoul-footer-bottom">
-                <div class="darksoul-footer-bottom-sec">
-                    <p>Icons by <a href="https://icons8.com/" target="_blank">Icons8</a></p>
-                </div>
-                <div class="darksoul-footer-bottom-sec">
-                    <p>Designed & Created by <a href="https://darksoul-codepen.github.io/" target="_blank">DarkSoul</a></p>
-                </div>
-                <div class="darksoul-footer-bottom-sec">
-                    <p>&copy; 2024 DarkSoul</p>
-                </div>
-                
-            </div>
-            
-        </div>
+        <footer class="footer">
+            <ul class="social-icon">
+              <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <i class="fab fa-facebook"></i></a>
+               </li>
+              <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <i class="fab fa-twitter"></i>
+                </a></li>
+              <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <i class="fa-brands fa-instagram"></i>
+                </a></li>
+              <li class="social-icon__item"><a class="social-icon__link" href="#">
+                <i class="fab fa-linkedin-in"></i>
+                </a></li>
+            </ul>
+            <ul class="menu">
+              <li class="menu__item"><a class="menu__link" href="#">{{ __('messages.Home') }}</a></li>
+              <li class="menu__item"><a class="menu__link" href="#">{{ __('messages.About') }}</a></li>
+              <li class="menu__item"><a class="menu__link" href="#">{{ __('messages.Feature') }}</a></li>
+              <li class="menu__item"><a class="menu__link" href="#">{{ __('messages.Course') }}</a></li>
+              <li class="menu__item"><a class="menu__link" href="#">{{ __('messages.Service') }}</a></li>
+              <li class="menu__item"><a class="menu__link" href="#">{{ __('messages.Product') }}</a></li>
+              <li class="menu__item"><a class="menu__link" href="#">{{ __('messages.Question') }}</a></li>
+              <li class="menu__item"><a class="menu__link" href="#">{{ __('messages.Contact') }}</a></li>
+            </ul>
+            <p>&copy;2025 {{ __('messages.Phan Tuan Kiet') }} | All Rights Reserved</p>
+          </footer>
     </section>
     <!-- <div class="webHome">
         <header> 
@@ -1733,16 +1730,28 @@
                 @csrf
                 <h2>Đăng nhập</h2>
                 <div class="form-input-category">
+                    <label for="email">Email</label>
                     <input type="email" class="input-name" name="email" placeholder="Nhập email">
                 </div>
                 <div class="form-input-category">
-                    <input type="password" class="input-name" name="password" placeholder="Nhập password">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="input-name" name="password" placeholder="Nhập password">
+                    <i class="fa-solid fa-eye" id="toggle-password"></i>
                 </div>
-                <div class="form-input-category">
+                <div class="form-login-input">
+                    <div class="remember">
+                        <input type="checkbox" name="remember" id="">
+                        <span>Ghi nhớ mật khẩu</span>
+                    </div>
                     <a href="">Quên mật khẩu?</a>
                 </div>
                 <div class="form-btn">
                     <button type="submit">Đăng nhập</button>
+                </div>
+                <div class="media-options">
+                    <a href="#" class="field google">
+                      <span>Login with Google</span>
+                    </a>
                 </div>
                 <div class="BtnCloseCreate" onclick="closeCreateLogin()">
                     <p>X</p>
@@ -1839,6 +1848,20 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
+        document.getElementById('toggle-password').addEventListener('click', function () {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = this;
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text'; // Hiển thị mật khẩu
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash'); // Đổi biểu tượng thành "ẩn"
+            } else {
+                passwordInput.type = 'password'; // Ẩn mật khẩu
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye'); // Đổi biểu tượng thành "hiển thị"
+            }
+        });
 
     document.querySelectorAll('.accordion-header').forEach(header => {
         header.addEventListener('click', () => {
@@ -1936,7 +1959,8 @@
                             .replace(/=.*/, "=;expires=" + new Date(0).toUTCString() + ";path=/");
                     });
 
-                    window.location.href = "{{ route('home.index') }}";
+                    window.location.href = "{{ route('home.index', ['locale' => session('locale', 'vi')]) }}";
+
                 }
             })
             .catch(error => console.error("Logout failed:", error));

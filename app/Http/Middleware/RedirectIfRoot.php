@@ -17,8 +17,13 @@ class RedirectIfRoot
     public function handle(Request $request, Closure $next)
     {
         if ($request->path() === '/') {
-            return redirect('/vi');
+            return redirect('/vi')->with(
+                'success', session('success')
+            )->with(
+                'error', session('error')
+            )->withInput();
         }
+    
 
         return $next($request);
     }
