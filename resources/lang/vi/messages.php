@@ -94,6 +94,10 @@ return [
     'Address' => 'Địa chỉ ',
     'Phone' => 'Điện thoại',
     'Website' => 'Trang web',
+    'Tan The Hoa, Tan Phu District, Ho Chi Minh City.'=> 'Tân Thế Hòa, quận Tân Phú, Thành Phố Hồ Chí Minh.',
+    'Updating'=> 'Đang cập nhật.',
+    'All Rights Reserved'=> 'Tất cả quyền được bảo lưu',
+    'Send'=>'Gửi',
 
     'welcome' => 'Chào mừng',
     'Dashboard' => 'Quản trị',

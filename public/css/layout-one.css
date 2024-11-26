@@ -618,7 +618,7 @@ section.hero {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    height: 89vh;
+    height: 96vh;
 }
 
 .testimonial .row {
@@ -1510,6 +1510,24 @@ textarea{
     text-align: center;
 }
 
+.ModelCreateRegister h2{
+    font-size: 28px;
+    font-weight: 600;
+    color: #232836;
+    text-align: center;
+}
+
+.ModelCreateRegister label{
+    font-size: 15px;
+    line-height: 1.8;
+    color: #232836;
+}
+
+.red{
+    color: #fd290a;
+}
+
+
 .ModelCreateLogin label{
     font-size: 15px;
     line-height: 1.8;
@@ -1574,9 +1592,9 @@ a.google span {
   }
 }
 
-/* #CreateLogin{
+#CreateLogin{
     display: none;
-} */
+}
 
 #CreateRegister{
     display: none;
