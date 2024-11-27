@@ -44,6 +44,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FriendshipController;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\App;
 
 /*
@@ -75,6 +76,10 @@ Route::fallback(function () {
 Route::group(['prefix' => 'en'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
 });
+
+
+Route::post('send-contact', [ContactController::class, 'sendContactForm'])->name('send.contact');
+
 
 Route::get('lang/{locale}', [LocalizationController::class, 'index'])->name('lang');
 

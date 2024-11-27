@@ -94,6 +94,9 @@ return [
     'Address' => 'Address',
     'Phone' => 'Phone',
     'Website' => 'Website',
+    'Tan The Hoa, Tan Phu District, Ho Chi Minh City.'=> 'Tan The Hoa, Tan Phu District, Ho Chi Minh City.',
+    'Updating'=> 'Updating',
+    'All Rights Reserved'=> 'All Rights Reserved',
 
     'welcome' => 'Welcome',
     'Dashboard' => 'Dashboard',
@@ -373,7 +376,7 @@ return [
     'You have successfully created new.'=>'You have successfully created new.',
     'You have successfully updated.'=>'You have successfully updated.',
     'Active'=>'Active',
-    ''=>'',
+    'Send'=>'Send',
     ''=>'',
     ''=>'',
     ''=>'',

@@ -94,7 +94,10 @@ return [
     'Address' => '住所 ',
     'Phone' => '電話番号',
     'Website' => 'ウェブサイト',
-
+    'Tan The Hoa, Tan Phu District, Ho Chi Minh City.'=> 'タンテー・ホア、タンフー区、ホーチミン市。',
+    'Updating'=> '更新中。',
+    'All Rights Reserved'=> 'すべての権利を保留します',
+    'Send'=>'送る',
     'welcome' => 'ようこそ',
     'Dashboard' => 'ダッシュボード',
     'Tasks' => '任務 (Ninmu)',
