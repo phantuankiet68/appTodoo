@@ -579,7 +579,7 @@
             </div>
         </div>
     </section>
-    <section class="courses" id="courses">
+    <section class="product" id="product">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.New Product') }}</h2>
@@ -806,7 +806,7 @@
             </div>
         </div>
     </section>
-    <section class="courses" id="courses">
+    <section class="contact" id="contact">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.Contact Us Now') }}</h2>

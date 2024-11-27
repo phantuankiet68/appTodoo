@@ -47,11 +47,7 @@ html {
 
 
 body{
-    background-image: linear-gradient(45deg, rgb(80 197 244 / 80%), rgb(140 165 197 / 45%)), url('../assets/images/body.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background-color: #fff;
     height: auto;
 }
 
@@ -316,7 +312,7 @@ footer {
     margin: 0 0 3rem 0;
     font-size: 18px;
     text-transform: uppercase;
-    color: #e1ff6c;
+    color: #676a8b;
     padding: 0 10px;
 }
 
@@ -372,7 +368,7 @@ h1 {
 }
 .title-home h2 {
     font-size: 40px;
-    color: #fff;
+    color: #2c2c2c;
     font-weight: 900;
     text-align: center;
     text-transform: uppercase;
@@ -381,20 +377,20 @@ h1 {
 
 .title-home .title-left{
     position: relative;
-    border: 2px solid #fff;
+    /* border: 2px solid #fff; */
     min-width: 20%;
 }
 .title-home .title-right{
     position: relative;
-    border: 2px solid #fff;
+    /* border: 2px solid #fff; */
     min-width: 20%;
 }
 
 .column h3 {
     font-size: var(--heading-font-size-3);
-    color: #fff;
+    color: #2c2c2c;
     font-weight: 700;
-    margin: 1.2rem 0 0.8rem 0;
+    margin: 0.2rem 0 0.8rem 0;
     text-align: center;
     text-transform: uppercase;
     font-family: "Quicksand", sans-serif;
@@ -583,9 +579,23 @@ section.hero {
 }
 
 .courses{
-    height: 96vh;
+    height: 110vh;
     width: 100%;
 }
+
+
+.product{
+    height: 110vh;
+    width: 100%;
+    background-color: #e9f4f9;
+}
+
+.contact{
+    height: 110vh;
+    width: 100%;
+    background-color: #e9f4f9;
+}
+
 .courses .column {
     box-shadow: 0 0.5rem 2.4rem 0.6rem rgba(0, 0, 0, 0.06);
     border-radius: var(--border-radius-1);
@@ -614,11 +624,8 @@ section.hero {
 }
 /*------ Section: Testimonials ------*/
 .testimonial {
-    background-image: linear-gradient(45deg, rgb(80 197 244 / 80%), rgb(80 138 216 / 80%)), url(../assets/images/background-choose.jpg);
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 89vh;
+   background-color: #e9f4f9;
+    height: 110vh;
 }
 
 .testimonial .row {
@@ -779,7 +786,7 @@ footer p {
     width: 100%;
     height: auto;
     min-height: 410px;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: #fff;
     padding: 8px;
     border-radius: 10px;
     position: relative;
@@ -946,13 +953,13 @@ textarea{
 
 .slider-home{
     overflow: hidden;
-    max-width: 1300px;
-    margin: 0 70px 55px;
+    max-width: 1379px;
+    margin: 0 24px 55px;
 }
 
 .card-home .card-home-item {
     color: #fff;
-    background: rgba(255, 255, 255, 0.4);
+    background: #ffffff;
     width: 400px;
     display: flex;
     align-items: center;
@@ -964,7 +971,7 @@ textarea{
 
 .card-home .card-home-item h2{
     font-size: 26px;
-    color: #fff;
+    color: #4b4848;
 }
 
 .slider-container  .swiper-button-next,.slider-container .swiper-button-prev,.slider-container .swiper-pagination-bullet{
@@ -982,7 +989,7 @@ textarea{
 
 .card-home .card-home-item .user-profession{
     font-size: 1.6rem;
-    color: #e1ff6c;
+    color: #0d6efd;
     font-weight: 500;
     margin: 5px 0 10px;
     
@@ -994,7 +1001,7 @@ textarea{
 
 .user-content{
     font-size: 1.6rem;
-    color: #fff;
+    color: #8f8f8f;
     font-weight: 500;
     margin-bottom: 10px;
     font-family: "Quicksand", sans-serif;
@@ -1206,6 +1213,7 @@ textarea{
 .features {
     list-style-type: none;
     margin-bottom: 20px;
+    background: #e9f4f9;
 }
 
 .features li {
@@ -1574,9 +1582,9 @@ a.google span {
   }
 }
 
-/* #CreateLogin{
+#CreateLogin{
     display: none;
-} */
+}
 
 #CreateRegister{
     display: none;
@@ -1804,8 +1812,7 @@ a.google span {
 .path-card{
     position: relative;
     width: 24%;
-    height: 69%;
-    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05), inset -5px -5px 5px rgba(255, 255, 255, 0.5),5px 5px 5px rgba(0, 0, 0, 0.05),-5px -5px 5px rgba(255, 255, 255, 0.5);
+    min-height: 81%;
     border-radius: 10px;
 }
 
@@ -1815,7 +1822,7 @@ a.google span {
     left: 10px;
     right: 10px;
     bottom: 10px;
-    background-color:  rgba(255, 255, 255, 0.4);
+    background-color:  #fff;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
@@ -1844,9 +1851,11 @@ a.google span {
     align-items: center;
     border-radius: 50%;
 }
-
+.path-app{
+    background: #e9f4f9;
+}
 .path-card-content h3{
-    color: #fff;
+    color: #0a0a0a;
     margin: 0;
     text-align: center;
     font-size: 22px;
@@ -1886,7 +1895,7 @@ a.google span {
     justify-content: space-between;
     display:flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 26px;
 }
 
 
@@ -1969,11 +1978,11 @@ a.google span {
 .accordion-header {
     display: flex;
     justify-content: space-between;
-    padding: 11px 15px;
+    padding: 8px 15px;
     background-color: rgb(255, 255, 255, 0.4);
     color: #d73e3e;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .accordion-header .icon {
@@ -2039,6 +2048,7 @@ blockquote .author {
     letter-spacing: 0.5px;
     line-height: 26px;
     text-align: justify;
+    color: #4b4b4b;
 }
 .info-details {
     list-style: none;
@@ -2057,7 +2067,7 @@ blockquote .author {
     width: 60px;
     height: 60px;
     min-width: 60px;
-    background: repeating-conic-gradient(from 27.5deg, #fff, #fff 10%, transparent 10%, transparent 50%);
+    background: repeating-conic-gradient(from 27.5deg, #03a9f4, #03a9f4 10%, transparent 10%, transparent 50%);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2066,13 +2076,13 @@ blockquote .author {
     content: "";
     position: absolute;
     inset: 0;
-    background: repeating-conic-gradient(from 117.5deg, #fff, #fff 10%, transparent 10%, transparent 50%);
+    background: repeating-conic-gradient(from 117.5deg, #03a9f4, #03a9f4 10%, transparent 10%, transparent 50%);
 }
 .info-details li .contact-icon::after {
     content: '';
     position: absolute;
     inset: 2px;
-    background: #7ad4f6;
+    background: #e9f4f9;
 }
 
 .info-details li .contact-icon b{
@@ -2090,11 +2100,11 @@ blockquote .author {
 
 
 .text-contact p{
-    color: #fff;
+    color: #676a8b;
     font-size: 16px;
 }
 .info-details li a {
-    color: #fff;
+    color: #676a8b;
     text-decoration: none;
     width: 61%;
     font-size: 15px;
@@ -2146,7 +2156,7 @@ blockquote .author {
 
 .contact-form .form-group label {
     font-size: 16px;
-    color: #fff;
+    color: #4b4b4b;
 }
 
 .contact-form .form-group input,
