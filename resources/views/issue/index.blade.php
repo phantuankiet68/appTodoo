@@ -6,7 +6,7 @@
 <div class="todo issueTodo">
     <div class="todoHeader topHeaderTodo">
         <div class="topHeader">
-            <h3>{{ __('messages.Issue') }}</h3> | <span>{{ __('messages.Home') }}</span>
+            <span>{{ __('messages.Issue') }}</span>
         </div>
         <div class="bodyHeader formSearchIssue">
             <form action="{{ route('issue.index') }}" method="GET" id="filterForm" class="formSearch formIssue">
@@ -42,7 +42,7 @@
             <button class="btn-add" id="openStaskIssue" onclick="openStaskIssue()">{{ __('messages.Add New') }}</button>
         </div>
     </div>
-    <div class="projecTodoBody">
+    <div class="containerPage">
         <div class="recent--patient body-tables-issue">
             <div class="tables">
                 @if ($issues->isEmpty())
@@ -61,7 +61,6 @@
                             <th>{{ __('messages.Level') }}</th>
                             <th>{{ __('messages.Status') }}</th>
                             <th class="text-center">{{ __('messages.Notification') }}</th>
-                            <th>{{ __('messages.Start Date') }}</th>
                             <th>{{ __('messages.End Date') }}</th>
                             <th>{{ __('messages.Category') }}</th>
                             <th class="text-center">{{ __('messages.Settings') }}</th>
@@ -108,7 +107,6 @@
                                     @endif
                                 </div>
                             </td>
-                            <td>{{$issue->start_date}}</td>
                             <td>{{$issue->end_date}}</td>
                             <td>{{ $issue->category ? $issue->category->name : 'Không có danh mục' }}</td>
                             <td class="text-center">
@@ -173,44 +171,75 @@
     </div>
 </div>
 
+
 @if (session('success'))
-    <div id="popup-category" class="popup-category success">
-        {{ session('success') }}
+<div id="popup-success">
+    <ul class="notifications">
+        <li class="toast success hide">
+            <div class="column">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Success:  {{ session('success') }}.</span>
+            </div>
+        </li>
+    </ul>
+</div>
+@endif
+
+@if (session('error'))
+<div id="popup-error">
+    <ul class="notifications">
+        <li class="toast error hide">
+            <div class="column">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Error:  {{ session('error') }}.</span>
+            </div>
+        </li>
+    </ul>
+</div>
+@endif
+
+@if ($errors->any())
+    <div id="popup-error">
+        <ul class="notifications">
+            @foreach ($errors->all() as $error)
+                <li class="toast error hide">
+                    <div class="column">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Error:  {{ $error }}.</span>
+                    </div>
+                </li>
+            @endforeach
+        </ul>
     </div>
 @endif
 
 @if (session('success_create'))
-    <div id="popup-category" class="popup-category success">
-        {{ session('success_create') }}
-    </div>
+<div id="popup-success">
+    <ul class="notifications">
+        <li class="toast success hide">
+            <div class="column">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Success:  {{ session('success_create') }}.</span>
+            </div>
+        </li>
+    </ul>
+</div>
 @endif
+
 
 @if (session('success_update'))
-    <div id="popup-category" class="popup-category success">
-        {{ session('success_update') }}
-    </div>
+<div id="popup-success">
+    <ul class="notifications">
+        <li class="toast success hide">
+            <div class="column">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Success:  {{ session('success_update') }}.</span>
+            </div>
+        </li>
+    </ul>
+</div>
 @endif
 
-@if ($errors->any())
-    <div id="popup-category" class="popup-category error">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
-
-@if ($errors->any())
-    <div id="popup-category" class="popup-category error">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 
 <div class="ModelCreateCategory">
     <form method="POST" action="{{ route('category.store') }}">
@@ -274,82 +303,83 @@
         <form method="POST" class="modelForm" action="{{ route('issue.store') }}" enctype="multipart/form-data">
             @csrf
             <h2>{{ __('messages.Add New') }}</h2>
+                @if (Auth::check())
+                    <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
+                @endif
             
-            @if (Auth::check())
-                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
-            @endif
-        
-            <div class="form-input-category">
-                <label for="subject">{{ __('messages.Subject') }}</label>
-                <input type="text" class="input-name" id="subject" name="subject">
-            </div>
-        
-            <div class="form-group-info">
                 <div class="form-input-category">
-                    <label for="key">{{ __('messages.Key') }}</label>
-                    <input type="text" class="input-name" id="key_issue" name="key">
-                    <button type="button" class="btnGenerate" onclick="generateButton()">Generate</button>
+                    <label for="subject">{{ __('messages.Subject') }}</label>
+                    <input type="text" class="input-name" id="subject" name="subject">
                 </div>
-                <div class="form-select-category">
-                    <label for="level">{{ __('messages.Level') }}</label>
-                    <select name="level" id="level">
-                        <option value="0">{{ __('messages.Normal') }}</option>
-                        <option value="1">{{ __('messages.Important') }}</option>
-                    </select>
+            
+                <div class="form-group-info">
+                    <div class="form-input-category">
+                        <label for="key">{{ __('messages.Key') }}</label>
+                        <input type="text" class="input-key" id="key_issue" name="key">
+                        <button type="button" class="btnGenerate" onclick="generateButton()">Generate</button>
+                    </div>
+                    <div class="form-select-category">
+                        <label for="level">{{ __('messages.Level') }}</label>
+                        <select name="level" id="level">
+                            <option value="0">{{ __('messages.Normal') }}</option>
+                            <option value="1">{{ __('messages.Important') }}</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-        
-            <div class="form-textarea-category">
-                <label for="description">{{ __('messages.Description') }}</label>
-                <textarea id="editor" name="description"></textarea> 
-            </div>
-        
-            <div class="form-input-category mt-10">
-                <label for="reference">{{ __('messages.Reference') }}</label>
-                <input type="text" class="input-name" id="reference" name="reference">
-            </div>
-        
-            <div class="form-group-info">
-                <div class="form-input-category">
-                    <label for="start_date">{{ __('messages.Start Date') }}</label>
-                    <input type="date" class="input-name" id="start_date" name="start_date">
+                <div class="form-flex">
+                    <div class="w-60">
+                        <div class="form-textarea-category">
+                            <label for="description">{{ __('messages.Description') }}</label>
+                            <textarea id="editor" name="description"></textarea> 
+                        </div>
+                    </div>
+                    <div class="upload-container">
+                        <button id="fileUploadButton" type="button">
+                            <i class="fa fa-upload"></i> Choose Files To Upload
+                        </button>
+                        <input type="file" id="fileInput" name="images[]" multiple accept="image/*" style="display: none;">
+                        <p id="fileCount">No files chosen</p>
+                        <div id="fileList"></div>
+                    </div>
                 </div>
-                <div class="form-input-category">
-                    <label for="end_date">{{ __('messages.End Date') }}</label>
-                    <input type="date" class="input-name" id="end_date" name="end_date">
+            
+                <div class="form-input-category mt-10">
+                    <label for="reference">{{ __('messages.Reference') }}</label>
+                    <input type="text" class="input-name" id="reference" name="reference">
                 </div>
-            </div>
-        
-            <div class="form-group-info">
-                <div class="form-select-category">
-                    <label for="status">{{ __('messages.Category') }}</label>
-                    <select name="category_id" id="status">
-                        @foreach($categories as $cate)
-                            <option value="{{ $cate->id }}">{{ $cate->name }}</option>
-                        @endforeach
-                    </select>
+            
+                <div class="form-group-info">
+                    <div class="form-input-category">
+                        <label for="start_date">{{ __('messages.Start Date') }}</label>
+                        <input type="date" class="input-name" id="start_date" name="start_date">
+                    </div>
+                    <div class="form-input-category">
+                        <label for="end_date">{{ __('messages.End Date') }}</label>
+                        <input type="date" class="input-name" id="end_date" name="end_date">
+                    </div>
                 </div>
-                <div class="form-select-category">
-                    <label for="status">{{ __('messages.Status') }}</label>
-                    <select name="status" id="status">
-                        <option value="0">{{ __('messages.Not done') }}</option>
-                        <option value="1">{{ __('messages.Done') }}</option>
-                        <option value="2">{{ __('messages.Just created') }}</option>
-                    </select>
+            
+                <div class="form-group-info">
+                    <div class="form-select-category">
+                        <label for="status">{{ __('messages.Category') }}</label>
+                        <select name="category_id" id="status">
+                            @foreach($categories as $cate)
+                                <option value="{{ $cate->id }}">{{ $cate->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-select-category">
+                        <label for="status">{{ __('messages.Status') }}</label>
+                        <select name="status" id="status">
+                            <option value="0">{{ __('messages.Not done') }}</option>
+                            <option value="1">{{ __('messages.Done') }}</option>
+                            <option value="2">{{ __('messages.Just created') }}</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-        
-            <div class="upload-container">
-                <button id="fileUploadButton" type="button">
-                    <i class="fa fa-upload"></i> Choose Files To Upload
-                </button>
-                <input type="file" id="fileInput" name="images[]" multiple accept="image/*" style="display: none;">
-                <p id="fileCount">No files chosen</p>
-                <div id="fileList"></div>
-            </div>
         
             <div class="form-btn">
-                <button type="submit">{{ __('messages.Add') }}</button>
+                <button type="submit">{{ __('messages.Save changes') }}</button>
             </div>
         
             <div class="BtnCloseCreate" onclick="closeCreateIssuePopup()">
@@ -387,12 +417,28 @@
       .then(editor => {
         console.log(editor) 
       })
-      .catch(error => {
-          console.error(error);
-      });
     </script>
 
 <script>
+     document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.querySelector('#popup-success');
+            if (popup) {
+                popup.style.display = 'flex';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 6000);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.querySelector('#popup-error');
+            if (popup) {
+                popup.style.display = 'flex';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 6000);
+            }
+        });
     let selectedFiles = []; // Array to store selected files
 const maxFiles = 3; // Limit the number of files to 3
 

@@ -1,3 +1,27 @@
+/* ======================*==================== */
+/* NavBar*/
+/* ======================*==================== */
+document.querySelectorAll('.menu-item > a').forEach(menu => {
+  menu.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      const chevron = menu.querySelector('.chevron i');
+      const subSidebar = menu.nextElementSibling;
+
+      menu.parentElement.classList.toggle('active');
+
+      if (menu.parentElement.classList.contains('active')) {
+          chevron.classList.remove('fa-chevron-right');
+          chevron.classList.add('fa-chevron-down');
+      } else {
+          chevron.classList.remove('fa-chevron-down');
+          chevron.classList.add('fa-chevron-right');
+      }
+  });
+});
+
+
+
 // dashboard
 document.addEventListener("DOMContentLoaded", function() {
     const dropdowns = document.querySelectorAll('.dropdown > a');

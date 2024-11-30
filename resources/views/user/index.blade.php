@@ -5,9 +5,6 @@
 @section('content')
 <div class="todo">
     <div class="todoHeader">
-        <div class="topHeader">
-            <h2>Email</h2> | <span>Home</span>
-        </div>
         <div class="bodyHeader">
             <form action="">
                 <div class="Users--right--btns">
@@ -35,11 +32,10 @@
             </form>
         </div>
         <div class="headerToQuesionRight">
-            <button type="button" class="change"><i class="fa-solid fa-cash-register"></i>Download</button>
             <button type="button" class="create" onclick="CreateColorForm()"><i class="fa-solid fa-plus"></i> Tạo mới</button>
         </div>
     </div>
-    <div class="component-container">
+    <div class="component-container UserContainer">
         <div class="component-color">
             <div class="component-card">
                 <div class="body-todo">

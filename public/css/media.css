@@ -5,22 +5,11 @@
     .Container {
         width: 82%;
     }
-    .cod-dashboard-2 {
-        width: 25%;
-        padding: 20px;
-    }
     .cod-dashboard-6 {
         width: 50%;
         padding: 20px 10px;
     }
-    .card {
-        padding: 10px;
-        border-radius: 10px;
-        min-width: 230px;
-        height: auto;
-        transition: .3s;
-        box-shadow: rgb(0 170 240 / 27%) 0px 0px 0.25em, rgb(36 191 255 / 5%) 0px 0.25em 1em;
-    }
+
     .form-search form {
         position: relative;
         width: 283px;
@@ -130,10 +119,6 @@
         padding: 10px;
         border-right: 1px solid #dfdfdf;
     }
-    .body-tables-issue .tables {
-        padding: 5px;
-        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    }
     .listFormVocalory{
         width: 100%;
         display: flex;
@@ -165,18 +150,6 @@
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         background-color: #fff;
         border-radius: 5px;
-    }
-    .formIssue .formInputSearch input {
-        width: 268px;
-        padding: 6px 6px;
-        font-size: 14px;
-        outline: none;
-        border: 1px solid #c4c4c4;
-    }
-
-    .cod-top-header {
-        width: 100%;
-        height: 55px;
     }
     .like, .star, .notify, .setting {
         padding: 8px 10px;

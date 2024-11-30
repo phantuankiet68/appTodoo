@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/media.css') }}">
     <link rel="stylesheet" href="{{ asset('css/model.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
@@ -29,7 +30,37 @@
                     <h2>{{ Auth::user()->full_name }}</h2>
                 @endif
                 </div>
-                <ul class="nav-menu mt-20">
+                <ul class="navSidebar">
+                    <li><a class="hoverMenu" href="{{ route('dashboard.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-house"></i> {{ __('messages.Dashboard') }}</div></a></li>
+                    <li><a class="hoverMenu" href="{{ route('user.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-gear"></i> {{ __('messages.Settings') }}</div></a></li>
+                    <li><a class="hoverMenu" href="{{ route('issue.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-box-tissue"></i> {{ __('messages.Issues') }} </div></a></li>
+                    <li><a class="hoverMenu" href="#">haha</a></li>
+                    <li class="menu-item">
+                        <a class="hoverMenu" href="#">Menu 
+                            <div class="chevron">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </a>
+                        <ul class="subSidebar">
+                            <li><a href="#"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> home</div></a></li>
+                            <li><a href="#"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> home</div></a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a class="hoverMenu" href="#">Menu 
+                            <div class="chevron">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </a>
+                        <ul class="subSidebar">
+                            <li><a href="#">home</a></li>
+                            <li><a href="#">Pages</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">haha</a></li>
+                    <li><a href="#">haha</a></li>
+                </ul>
+                {{-- <ul class="nav-menu mt-20">
                     <li><a href="{{ route('dashboard.index') }}"><i class="fa-solid fa-house"></i>{{ __('messages.Dashboard') }}</a></li>
                     <li><a href="{{ route('chat.index') }}"><i class="fa-regular fa-message"></i>{{ __('messages.Message') }}</a></li>
                     <li ><a href="{{ route('issue.index') }}" id="issue"><i class="fa-solid fa-box-tissue"></i>{{ __('messages.Issues') }}</a></li>
@@ -82,7 +113,7 @@
                     <li class="dropDownSql"><a href="#"><i class="fa-regular fa-circle"></i>Mongo</a></li>
                     <li class="dropDownSql"><a href="#"><i class="fa-regular fa-circle"></i>MySqlWorkBench</a></li>
                     <li><a href="#"><i class="fa-solid fa-triangle-exclamation"></i>{{ __('messages.Error') }}</a></li>
-                </ul>
+                </ul> --}}
             </div>
             <div class="Container">
                 <div class="cod-top-header">

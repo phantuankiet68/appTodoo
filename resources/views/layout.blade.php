@@ -15,7 +15,16 @@
     <link rel="stylesheet" href="{{ asset('css/media-layout.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-</head>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DY3K5JFM4"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-5DY3K5JFM4');
+    </script>
+    </head>
 <body>
     @php
         $locale = session()->get('locale', 'vi');
@@ -579,7 +588,7 @@
             </div>
         </div>
     </section>
-    <section class="product" id="product">
+    <section class="courses" id="courses">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.New Product') }}</h2>
@@ -806,7 +815,7 @@
             </div>
         </div>
     </section>
-    <section class="contact" id="contact">
+    <section class="courses" id="courses">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.Contact Us Now') }}</h2>

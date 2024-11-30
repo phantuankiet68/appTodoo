@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="todo">
-    <div class="projecTodoBody">
+    <div class="showIssue">
         <div class="col-8">
             <div class="issueHeader">
                 <div class="table_user">
@@ -182,7 +182,6 @@
                         </div>
                     </div>
             
-                    <!-- Details section for status, assignee, and dates -->
                     <div class="details-section">
                         <div class="status">
                             <label for="status">Status</label>

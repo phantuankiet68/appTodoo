@@ -94,7 +94,7 @@
     padding: 10px;
     position: absolute;
     width: 100%;
-    max-width: 60%;
+    max-width: 50%;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -259,16 +259,6 @@
 }
 
 
-.formSearchIssue .select-dropdown{
-    outline: none;
-    border: none;
-    background-color: #d6e4f7ad;
-    color: #8d8d8d;
-    border-radius: 5px;
-    width: 185px;
-    padding: 8px;
-    margin-left: 5px;
-}
 
 #popup-category {
    display: none;
@@ -1272,21 +1262,6 @@
 }
 
 
-.categoryHidden {
-    display: none;
-    padding: 5px;
-    height: 82vh;
-    right: 28px;
-    position: fixed;
-    top: 16%;
-    z-index: 10;
-    background: #fff;
-    width: 25%;
-    border-left: 1px solid #dfdfdf;
-    border-right: 1px solid #dfdfdf;
-    box-shadow: rgb(141 220 255 / 12%) 0px 2px 4px 0px, rgb(76 201 255 / 32%) 0px 2px 16px 0px;
-}
-
 .dashboard-content.dark-mode .categoryHidden{
     border-left: 1px solid #1571bf;
     border-right: 1px solid #1571bf;
@@ -1302,19 +1277,6 @@
 .dashboard-content.dark-mode .categoryHidden .projectTodoNotify .tables table td{
    padding: 5px;
 }
-
-
-.btn-show {
-    padding: 8px 10px;
-    background: #40c3f7;
-    color: #fff;
-    font-size: 15px;
-    border-radius: 5px;
-    margin: 0 5px;
-    border: none;
-    cursor: pointer;
-}
-
 
 .btn-down {
     padding: 8px 20px;
@@ -1389,16 +1351,6 @@
     border-radius: 4px;
 }
 
-.comment-section textarea {
-    width: 100%;
-    height: 199px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 10px;
-    font-size: 14px;
-    resize: none;
-}
 
 .comment-toolbar {
     display: flex;
@@ -1446,14 +1398,6 @@
 .action-buttons .submit {
     background-color: #40c3f7;
     color: #fff;
-}
-
-.issueTodo .projecTodoBody {
-    width: 100%;
-    height: 82vh;
-    box-shadow: none;
-    border-radius: 5px;
-    border: 1px solid #d7d6d6;
 }
 
 .details-section {
@@ -2420,10 +2364,6 @@ p.space {
 .form-group-info .form-select-category{
     width: 50%;
 }
-.form-group-info .form-select-category label {
-    width: 29%;
-}
-
 .saveChange{
     width: 50%;
 }
@@ -3498,42 +3438,12 @@ i.material-icons {
     cursor: pointer;
 }
 
-.overview-two{
-    margin-top: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
-
-.overview-three{
-    margin-bottom: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 5px;
-}
 
 
-
-.chart1{
-    width: 40%;
-    border: 1px solid #d7d6d6;
-    border-radius: 10px;
-    min-height: 368px;
-}
 .card-user{
     width: 40%;
     border: 1px solid #d7d6d6;
     border-radius: 10px;
-}
-.chart2{
-    width: 60%;
-    border: 1px solid #d7d6d6;
-    border-radius: 10px;
-    min-height: 385px;
 }
 
 .card-user-new{
@@ -4255,21 +4165,6 @@ h1 {
     width: 100%;
 }
 
-.component-card .body-todo .tables table th,
-.component-card .body-todo .tables table td{
-    font-size: 13px;
-}
-.upload-container {
-    width: 100%;
-    margin-top: 10px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 5px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
 
 #fileUploadButton {
     background-color: #40c3f7;
@@ -4315,33 +4210,3 @@ h1 {
     color: #007bff;
 }
 
-.chart1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.legend-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap; /* Nếu không đủ chỗ, tự động xuống dòng */
-    gap: 15px; /* Khoảng cách giữa các mục */
-    margin-bottom: 20px; /* Khoảng cách giữa legend và biểu đồ */
-}
-
-.legend-item {
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    color: #1F2937;
-}
-
-.legend-color {
-    width: 12px;
-    height: 12px;
-    margin-right: 8px;
-    display: inline-block;
-    border-radius: 50%; /* Hình tròn */
-}
