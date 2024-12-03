@@ -8,7 +8,7 @@
     height: 93.5%;
     display: flex;
     justify-content: center;
-    background-color: #e1f5ff;
+    background-color: #f8f8f8;
 }
 
 .cod-dashboard-2 {
@@ -29,9 +29,10 @@
     min-width: 230px;
     min-height: 150px;
     transition: .3s;
-    border: 1px solid #40c3f7;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     background-color: #fff;
 }
+
 
 
 .card--data {
@@ -139,7 +140,7 @@
     width: 40%;
     height: 365px;
     border-radius: 5px;
-    border: 1px solid #40c3f7;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 
 .ideaUserForm {
@@ -208,7 +209,7 @@ blockquote .author {
 #chart {
     background-color: #fff;
     border-radius: 5px;
-    border: 1px solid #40c3f7;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     padding: 5px;
 }
 
@@ -224,17 +225,18 @@ blockquote .author {
 .chart2 {
     background-color: #fff;
     width: 60%;
-    border: 1px solid #40c3f7;
     border-radius: 5px;
     min-height: 405px;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 
 .chart1 {
     width: 40%;
-    border: 1px solid #40c3f7;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     border-radius: 5px;
     min-height: 405px;
     background-color: #fff;
+    color: #1F2937;
 }
 
 .legend-container {
@@ -269,6 +271,7 @@ blockquote .author {
 .dark-mode .ideaUser
 {
   background-color: #555555;
+  border: 1px solid #40c3f7;
 }
 
 .dark-mode .card .card--data i{
@@ -277,24 +280,33 @@ blockquote .author {
 
 .dark-mode #chart {
     background-color: #555555;
+    border: 1px solid #40c3f7;
 }
 
 .dark-mode .apexcharts-yaxis .apexcharts-text tspan {
     font-size: 14px;
 }
 
-.chart1 {
+.dark-mode .chart1 {
     background-color: #555555;
     color: #fff;
+    border: 1px solid #40c3f7;
 }
 
 .dark-mode  .chart2 {
     background-color: #555555;
+    border: 1px solid #40c3f7;
+}
+
+.content-idea-user blockquote, 
+.legend-item,
+ blockquote .author{
+    color: #1F2937;
 }
 
 
 .dark-mode .content-idea-user blockquote, 
-.legend-item,
+.dark-mode .legend-item,
 .dark-mode  blockquote .author{
     color: #fff;
 }
@@ -309,11 +321,16 @@ blockquote .author {
 .sidebar {
     width: 18%;
     height: 100vh;
-    padding: 10px 20px;
+    padding: 10px;
     position: relative;
-    background-color: #f3f3f3;
+    background-color: #ffffff;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     overflow: hidden;
+}
+.sidebar ul.navSidebar {
+    width: 100%;
+    height: 87vh;
+    overflow: scroll;
 }
 .dark-mode .sidebar{
     background-color: #555555;
@@ -364,7 +381,7 @@ ul.navSidebar li{
 ul.navSidebar li a {
     width: 100%;
     color: #0c0808;
-    font-size: 15px;
+    font-size: 14px;
     padding: 8px 0px 8px 10px;
     font-weight: 400;
     font-family: "Poppins", sans-serif;
@@ -473,8 +490,14 @@ ul.navSidebar .subBoxMenu{
     font-size: 15px;
     outline: none;
     border: 1px solid #c4c4c4;
-    font-family: "Quicksand", sans-serif;
-    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+}
+.title-menu span {
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #9a9897;
+      font-family: "Poppins", sans-serif;
 }
 .doctor--filter{
     margin-right: 10px;
@@ -601,14 +624,13 @@ tr {
 th {
     padding-block: 10px;
     font-size: 15px;
-    font-family: "Quicksand", sans-serif;
+      font-family: "Poppins", sans-serif;
 }
 
 td{
     padding-block: 10px;
     font-size: 15px;
-    font-family: "Quicksand", sans-serif;
-    font-weight: 500;
+      font-family: "Poppins", sans-serif;
 }
 
 .td-1 {
@@ -782,8 +804,7 @@ td{
     border: 1px solid #d7d6d6;
     outline: none;
     border-radius: 5px;
-    font-family: "Quicksand", sans-serif;
-    font-weight: 500;
+      font-family: "Poppins", sans-serif;
 }
 
 .w-60{
@@ -829,8 +850,7 @@ td{
     border: 1px solid #d7d6d6;
     outline: none;
     border-radius: 5px;
-    font-family: "Quicksand", sans-serif;
-    font-weight: 500;
+      font-family: "Poppins", sans-serif;
 }
 
 .btnGenerate {
@@ -898,7 +918,7 @@ td{
     width: 60%;
     border-right: 1px solid #e6e6e6;
     height: 100%;
-    background-color: rgb(245, 244, 244);
+    background-color: #ffffff;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
     border-radius: 5px;
     padding: 15px;
@@ -1043,4 +1063,45 @@ td{
     font-size: 15px;
     border-radius: 5px;
     margin: 0 5px;
+}
+
+/* ======================*==================== */
+/* Calendar*/
+/* ======================*==================== */
+#calendar {
+    width: 100%;
+    padding: 10px;
+    background: #fff;
+}
+
+.dark-mode #calendar{
+    background-color: #555555;
+    color: #fff;
+}
+
+.dark-mode .fc .fc-col-header-cell-cushion,.dark-mode .fc .fc-daygrid-day-number {
+    color: #fff;
+}
+
+
+#calendar .fc-prev-button,#calendar .fc-button{
+    background-color: #fff;
+    color: #000;
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.body-tables-todo .tables table td, .body-tables-todo .tables table th {
+    padding-block: 10px;
+    font-size: 15px;
+}
+
+.heading {
+    text-align: center;
+    background: #6bdaff;
+    color: white;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 10px 0;
+    width: 100%;
 }

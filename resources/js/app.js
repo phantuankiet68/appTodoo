@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
-        events: '/events',  // Lấy dữ liệu sự kiện từ route /events
+        events: '/events',
         editable: true,
         selectable: true,
 
@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function() {
             showCreateCalendarModal(info.startStr, info.endStr);
         },
 
-        // Cập nhật sự kiện
         eventDrop: function(info) {
             let event = {
                 id: info.event.id,
@@ -41,32 +40,27 @@ document.addEventListener('DOMContentLoaded', function() {
         },
 
         eventClick: function(info) {
-            const startDate = info.event.start;  // Đối tượng Date
-            const formattedStartDate = startDate.toISOString().split('T')[0]; // Chuyển đổi thành định dạng YYYY-MM-DD
+            const startDate = info.event.start;
+            const formattedStartDate = startDate.toISOString().split('T')[0];
         
-            // Cập nhật giá trị vào ô nhập ngày
             document.getElementById('event_start').value = formattedStartDate;
         
-            // Nếu có ngày kết thúc, xử lý tương tự
             if (info.event.end) {
                 const formattedEndDate = info.event.end.toISOString().split('T')[0];
                 document.getElementById('event_end').value = formattedEndDate;
             } else {
-                document.getElementById('event_end').value = ''; // Nếu không có ngày kết thúc
+                document.getElementById('event_end').value = ''; 
             }
         
-            // Cập nhật tiêu đề và mô tả sự kiện
             document.getElementById('event_title').value = info.event.title;
         
-            const descriptionInput = CKEDITOR.instances.editor1; // Sử dụng CKEditor với ID đúng
-            if (descriptionInput) {
-                descriptionInput.setData(info.event.extendedProps.description); // Cập nhật nội dung mô tả
+            if (editorInstance) {
+                editorInstance.setData(info.event.extendedProps.description);
             }
         
-            // Cập nhật ID sự kiện
+
             document.getElementById('event_id').value = info.event.id;
-        
-            // Hiển thị modal
+
             const modal = document.querySelector('.ModelEditCalendar');
             modal.style.display = 'block';
         }

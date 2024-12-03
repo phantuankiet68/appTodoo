@@ -209,12 +209,6 @@ li{
     font-size: 22px;
     font-family: "Poppins", sans-serif;
 }
-.sidebar ul.navSidebar {
-    width: 100%;
-    height: 83vh;
-    overflow: scroll;
-}
-
 
 
 .sidebar.dark-mode ul li:hover span {
@@ -5039,17 +5033,6 @@ list-style: none;
     font-size: 15px;
 }
 
-#calendar{
-    width: 100%;
-    padding: 10px;
-}
-
-#calendar .fc-prev-button,#calendar .fc-button{
-    background-color: #fff;
-    color: #000;
-    border: none;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-}
 
 
 .issueHeader-body{

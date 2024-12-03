@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="todo">
-    <div class="projecTodoBody mt-10">
+    <div class="projecTodoBody">
         <div class="projectCol-8">
             <div class="board">                      
                 <div class="lanes">

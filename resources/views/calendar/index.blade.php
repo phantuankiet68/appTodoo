@@ -67,11 +67,6 @@
             <label for="event_title">{{ __('messages.Subject') }}</label>
             <input type="text" class="input-name" id="event_title" name="title">
         </div>
-        <div class="form-textarea-category">
-            <label for="description">{{ __('messages.Description') }}</label>
-            <textarea id="editor1" name="description"></textarea> 
-        </div>
-
         <div class="form-btn">
             <button type="submit">{{ __('messages.Update') }}</button>
         </div>
@@ -91,8 +86,15 @@
     </form>
 </div>
 <script>
-    CKEDITOR.replace('editor');
-    CKEDITOR.replace('editor1');
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .then(editor => {
+            editorInstance = editor; 
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    
 </script>
 
 
@@ -101,15 +103,13 @@
     function closeCreateCalendar() {
         const ModelCreateCalendar = document.querySelector('.ModelCreateCalendar');
         
-        // Kiểm tra nếu popup đang ẩn (display: none)
         if (ModelCreateCalendar.style.display === 'none' || ModelCreateCalendar.style.display === '') {
-            ModelCreateCalendar.style.display = 'block'; // Hiển thị popup
+            ModelCreateCalendar.style.display = 'block'; 
         } else {
-            ModelCreateCalendar.style.display = 'none'; // Ẩn popup
+            ModelCreateCalendar.style.display = 'none'; 
         }
     }
 
-    // Chức năng cập nhật thông tin qua API cho todo
     document.getElementById('edit-event-form').onsubmit = function(event) {
         event.preventDefault();
         const eventId = document.getElementById('event_id').value;
@@ -119,15 +119,12 @@
 
     function closeEditCalendarModal() {
         const ModelEditCalendar = document.querySelector('.ModelEditCalendar');
-        
-        // Kiểm tra nếu popup đang ẩn (display: none)
         if (ModelEditCalendar.style.display === 'none' || ModelEditCalendar.style.display === '') {
-            ModelEditCalendar.style.display = 'block'; // Hiển thị popup
+            ModelEditCalendar.style.display = 'block'; 
         } else {
-            ModelEditCalendar.style.display = 'none'; // Ẩn popup
+            ModelEditCalendar.style.display = 'none'; 
         }
     }
-   // Lắng nghe sự kiện cho nút Delete
     document.querySelector('.form-btn-delete button').addEventListener('click', function() {
         const eventId = document.getElementById('event_id').value;
         console.log(eventId);

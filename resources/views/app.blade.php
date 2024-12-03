@@ -31,89 +31,122 @@
                 @endif
                 </div>
                 <ul class="navSidebar">
+                    <div class="title-menu"><span>{{ __('messages.Application') }}</span></div>
                     <li><a class="hoverMenu" href="{{ route('dashboard.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-house"></i> {{ __('messages.Dashboard') }}</div></a></li>
                     <li><a class="hoverMenu" href="{{ route('user.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-gear"></i> {{ __('messages.Settings') }}</div></a></li>
                     <li><a class="hoverMenu" href="{{ route('issue.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-box-tissue"></i> {{ __('messages.Issues') }} </div></a></li>
-                    <li><a class="hoverMenu" href="#">haha</a></li>
+                    <li><a class="hoverMenu" href="{{ route('cv.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-file"></i> {{ __('messages.Curriculum Vitae') }}</div></a></li>
+                    <li><a class="hoverMenu" href="/calendar"><div class="subBoxMenu"><i class="fa-regular fa-calendar"></i> {{ __('messages.Calendar') }}</div></a></li>
+                    <div class="title-menu"><span>{{ __('messages.Tasks') }}</span></div>
                     <li class="menu-item">
-                        <a class="hoverMenu" href="#">Menu 
+                        <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-solid fa-box-tissue"></i> {{ __('messages.Tasks') }} </div>
                             <div class="chevron">
                                 <i class="fa-solid fa-chevron-right"></i>
                             </div>
                         </a>
                         <ul class="subSidebar">
-                            <li><a href="#"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> home</div></a></li>
-                            <li><a href="#"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> home</div></a></li>
+                            <li><a href="{{ route('tasks.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Tasks') }}</div></a></li>
+                            <li><a href="{{ route('workflows.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Workflow') }}</div></a></li>
+                            <li><a href="{{ route('salaries.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Salary') }}</div></a></li>
+                            <li><a href="{{ route('expense.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Expenses') }}</div></a></li>
                         </ul>
                     </li>
                     <li class="menu-item">
-                        <a class="hoverMenu" href="#">Menu 
+                        <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-solid fa-fire"></i> {{ __('messages.Japanese') }} </div>
                             <div class="chevron">
                                 <i class="fa-solid fa-chevron-right"></i>
                             </div>
                         </a>
                         <ul class="subSidebar">
-                            <li><a href="#">home</a></li>
-                            <li><a href="#">Pages</a></li>
+                            <li><a href="{{ route('japanese.addJapanese') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Add New') }}</div></a></li>
+                            <li><a href="{{ route('japanese.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Japanese') }}</div></a></li>
+                            <li><a href="{{ route('learn_more.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Learn vocabulary') }}</div></a></li>
                         </ul>
                     </li>
-                    <li><a href="#">haha</a></li>
-                    <li><a href="#">haha</a></li>
+                    <li class="menu-item">
+                        <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-solid fa-fire"></i> {{ __('messages.English') }} </div>
+                            <div class="chevron">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </a>
+                        <ul class="subSidebar">
+                            <li><a href="{{ route('english.addEnglish') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Add New') }}</div></a></li>
+                            <li><a href="{{ route('english.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.English') }}</div></a></li>
+                            <li><a href="{{ route('learn_more_english.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Learn vocabulary') }}</div></a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-solid fa-fire"></i> {{ __('messages.Question') }} </div>
+                            <div class="chevron">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </a>
+                        <ul class="subSidebar">
+                            <li><a href="{{ route('question.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Question') }}</div></a></li>
+                            <li><a href="{{ route('question.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Word') }}</div></a></li>
+                            <li><a href="{{ route('question.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Excel') }}</div></a></li>
+                        </ul>
+                    </li>
+                    <div class="title-menu"><span>{{ __('messages.User Interface') }}</span></div>
+                    <li><a class="hoverMenu" href="{{ route('test_code.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-check-to-slot"></i> {{ __('messages.Test code') }}</div></a></li>
+                    <li class="menu-item">
+                        <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-brands fa-codepen"></i> {{ __('messages.Code') }} </div>
+                            <div class="chevron">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </a>
+                        <ul class="subSidebar">
+                            <li><a href="{{ route('component.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Component') }}</div></a></li>
+                            <li><a href="{{ route('colors.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Color') }}</div></a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-brands fa-codepen"></i> {{ __('messages.Front-end') }} </div>
+                            <div class="chevron">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </a>
+                        <ul class="subSidebar">
+                            <li><a href="{{ route('codes.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.HTML/CSS') }}</div></a></li>
+                            <li><a href="{{ route('javascripts.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Javascript') }}</div></a></li>
+                            <li><a href="{{ route('vuejs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.VueJS') }}</div></a></li>
+                            <li><a href="{{ route('reactjs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.ReactJS') }}</div></a></li>
+                            <li><a href="{{ route('component.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.JqueryJS') }}</div></a></li>
+                            <li><a href="{{ route('colors.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Angular') }}</div></a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-brands fa-codepen"></i> {{ __('messages.Back-end') }} </div>
+                            <div class="chevron">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </a>
+                        <ul class="subSidebar">
+                            <li><a href="{{ route('codes.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.PHP') }}</div></a></li>
+                            <li><a href="{{ route('javascripts.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Laravel') }}</div></a></li>
+                            <li><a href="{{ route('vuejs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.NodeJS') }}</div></a></li>
+                            <li><a href="{{ route('reactjs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.C#') }}</div></a></li>
+                            <li><a href="{{ route('component.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.JqueryJS') }}</div></a></li>
+                            <li><a href="{{ route('colors.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Java') }}</div></a></li>
+                        </ul>
+                    </li>
+                    <li class="menu-item">
+                        <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-brands fa-codepen"></i> {{ __('messages.SQL') }} </div>
+                            <div class="chevron">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </a>
+                        <ul class="subSidebar">
+                            <li><a href="{{ route('codes.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.FTP') }}</div></a></li>
+                            <li><a href="{{ route('javascripts.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.UBUTU') }}</div></a></li>
+                            <li><a href="{{ route('vuejs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.MySQL') }}</div></a></li>
+                            <li><a href="{{ route('reactjs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.SQLServer') }}</div></a></li>
+                            <li><a href="{{ route('component.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Mongo') }}</div></a></li>
+                            <li><a href="{{ route('colors.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.MySqlWorkBench') }}</div></a></li>
+                        </ul>
+                    </li>
+                    <li><a class="hoverMenu" href="/calendar"><div class="subBoxMenu"><i class="fa-regular fa-calendar"></i> {{ __('messages.Error') }}</div></a></li>
                 </ul>
-                {{-- <ul class="nav-menu mt-20">
-                    <li><a href="{{ route('dashboard.index') }}"><i class="fa-solid fa-house"></i>{{ __('messages.Dashboard') }}</a></li>
-                    <li><a href="{{ route('chat.index') }}"><i class="fa-regular fa-message"></i>{{ __('messages.Message') }}</a></li>
-                    <li ><a href="{{ route('issue.index') }}" id="issue"><i class="fa-solid fa-box-tissue"></i>{{ __('messages.Issues') }}</a></li>
-                    <li class="bg-grey"><a href="javascript:void(0)" id="todo"><i class="fa-solid fa-cloud"></i>{{ __('messages.Tasks') }}</a><span id="chevronTodo"><i class="fa-solid fa-chevron-up"></i></span></li>
-                    <li class="dropDownTodo"><a href="{{ route('tasks.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Tasks') }}</a></li>
-                    <li class="dropDownTodo"><a href="{{ route('workflows.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Workflow') }}</a></li>
-                    <li class="dropDownTodo"><a href="{{ route('salaries.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Salary') }}</a></li>
-                    <li class="dropDownTodo"><a href="{{ route('expense.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Expenses') }}</a></li>
-                    <li class="dropDownTodo"><a href="{{ route('food.index') }}"><i class="fa-solid fa-money-bill"></i>{{ __('messages.Food') }}</a></li>
-                    <li class="titleMenu">{{ __('messages.Application') }}</li>
-                    <li><a href="{{ route('cv.index') }}"><i class="fa-regular fa-file"></i>{{ __('messages.Curriculum Vitae') }}</a></li>
-                    <li><a href="/calendar"><i class="fa-regular fa-calendar"></i>{{ __('messages.Calendar') }}</a></li>
-                    <li><a href="{{ route('sent.index') }}"><i class="fa-regular fa-envelope"></i>{{ __('messages.Email') }}</a></li>
-                    <li class="titleMenu">{{ __('messages.Lesson') }}</li>
-                    <li class="bg-grey"><a href="javascript:void(0)" id="Japanese"><i class="fa-solid fa-fire"></i>{{ __('messages.Japanese') }}</a><span id="chevronJapanese"><i class="fa-solid fa-chevron-up"></i></span></li>
-                    <li class="dropDownJapanese"><a href="{{ route('japanese.addJapanese') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Add New') }}</a></li>
-                    <li class="dropDownJapanese"><a href="{{ route('japanese.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Japanese') }}</a></li>
-                    <li class="dropDownJapanese"><a href="{{ route('learn_more.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Learn vocabulary') }}</a></li>
-                    <li class="bg-grey"><a href="javascript:void(0)" id="English"><i class="fa-solid fa-fire"></i>{{ __('messages.English') }}</a><span id="chevronEnglish"><i class="fa-solid fa-chevron-up"></i></span></li>
-                    <li class="dropDownEnglish"><a href="{{ route('english.addEnglish') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Add New') }}</a></li>
-                    <li class="dropDownEnglish"><a href="{{ route('english.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.English') }}</a></li>
-                    <li class="dropDownEnglish"><a href="{{ route('learn_more_english.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Learn vocabulary') }}</a></li>
-                    <li class="bg-grey"><a href="javascript:void(0)" id="Question"><i class="fa-solid fa-fire"></i>{{ __('messages.Learn more') }}</a><span id="chevronQuestion"><i class="fa-solid fa-chevron-up"></i></span></li>
-                    <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Question') }}</a></li>
-                    <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Word') }}</a></li>
-                    <li class="dropDownQuestion"><a href="{{ route('question.index') }}"><i class="fa-regular fa-circle"></i>{{ __('messages.Excel') }}</a></li>
-                    <li class="titleMenu">{{ __('messages.User Interface') }}</li>
-                    <li><a href="{{ route('test_code.index') }}"><i class="fa-solid fa-check-to-slot"></i>{{ __('messages.Test code') }}</a></li>
-                    <li class="bg-grey"><a href="javascript:void(0)" id="code"><i class="fa-brands fa-codepen"></i>{{ __('messages.Code') }}</a><span id="codeChevron"><i class="fa-solid fa-chevron-up"></i></span></li>
-                    <li class="dropDownCode"><a href="{{ route('component.index') }}"><i class="fa-solid fa-expand"></i>{{ __('messages.Component') }}</a></li>
-                    <li class="dropDownCode"><a href="{{ route('colors.index') }}"><i class="fa-solid fa-fill"></i>{{ __('messages.Color') }}</a></li>
-                    <li class="bg-grey"><a href="javascript:void(0)" id="FrontEnd"><i class="fa-brands fa-codepen"></i>{{ __('messages.Front-end') }}</a><span id="chevronFrontEnd"><i class="fa-solid fa-chevron-up"></i></span></li>
-                    <li class="dropDownFrontEnd"><a href="{{ route('codes.index') }}"><i class="fa-regular fa-circle"></i>HTML/CSS</a></li>
-                    <li class="dropDownFrontEnd"><a href="{{ route('javascripts.index') }}"><i class="fa-regular fa-circle"></i>Javascript</a></li>
-                    <li class="dropDownFrontEnd"><a href="{{ route('vuejs.index') }}"><i class="fa-regular fa-circle"></i>VueJS</a></li>
-                    <li class="dropDownFrontEnd"><a href="{{ route('reactjs.index') }}"><i class="fa-regular fa-circle"></i>ReactJS</a></li>
-                    <li class="dropDownFrontEnd"><a href="#"><i class="fa-regular fa-circle"></i>JqueryJS</a></li>
-                    <li class="dropDownFrontEnd"><a href="#"><i class="fa-regular fa-circle"></i>Angular</a></li>
-                    <li class="bg-grey"><a href="javascript:void(0)" id="BackEnd"><i class="fa-brands fa-codepen"></i>{{ __('messages.Back-end') }}</a><span id="chevronBackEnd"><i class="fa-solid fa-chevron-up"></i></span></li>
-                    <li class="dropDownBackEnd"><a href="#"><i class="fa-regular fa-circle"></i>PHP</a></li>
-                    <li class="dropDownBackEnd"><a href="#"><i class="fa-regular fa-circle"></i>Laravel</a></li>
-                    <li class="dropDownBackEnd"><a href="#"><i class="fa-regular fa-circle"></i>NodeJS</a></li>
-                    <li class="dropDownBackEnd"><a href="#"><i class="fa-regular fa-circle"></i>C#</a></li>
-                    <li class="dropDownBackEnd"><a href="#"><i class="fa-regular fa-circle"></i>Java</a></li>
-                    <li class="bg-grey"><a href="javascript:void(0)" id="Sql"><i class="fa-brands fa-codepen"></i>{{ __('messages.SQL') }}</a><span id="chevronSql"><i class="fa-solid fa-chevron-up"></i></span></li>
-                    <li class="dropDownSql"><a href="#"><i class="fa-regular fa-circle"></i>FTP</a></li>
-                    <li class="dropDownSql"><a href="#"><i class="fa-regular fa-circle"></i>UBUTU</a></li>
-                    <li class="dropDownSql"><a href="#"><i class="fa-regular fa-circle"></i>MySQL</a></li>
-                    <li class="dropDownSql"><a href="#"><i class="fa-regular fa-circle"></i>SQLServer</a></li>
-                    <li class="dropDownSql"><a href="#"><i class="fa-regular fa-circle"></i>Mongo</a></li>
-                    <li class="dropDownSql"><a href="#"><i class="fa-regular fa-circle"></i>MySqlWorkBench</a></li>
-                    <li><a href="#"><i class="fa-solid fa-triangle-exclamation"></i>{{ __('messages.Error') }}</a></li>
-                </ul> --}}
             </div>
             <div class="Container">
                 <div class="cod-top-header">

@@ -20,7 +20,7 @@
             <button class="btn-add" onclick="openStask()">{{ __('messages.Add New') }}</button>
         </div>
     </div>
-    <div class="TaskBodyContent">
+    <div class="containerPage">
         <div class="col-9">
             <div class="body-todo body-tables-todo">
                 <div class="recent--patient">
@@ -56,7 +56,7 @@
                                     </td>
                                     <td class="text-center">{{ $item->current_start }}</td>
                                     <td class="text-center">{{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</td>
-                                    <th class="text-center">{{ $item->created_at->format('d/m/Y') }}</th>
+                                    <th class="text-center">{{ $item->created_at->format('d-m-Y') }}</th>
                                     <td class="text-center"> 
                                         <input type="checkbox" name="todo[]" id="todo_{{ $item->id }}" 
                                             value="1" {{ $item->status == 1 ? 'checked' : '' }}>

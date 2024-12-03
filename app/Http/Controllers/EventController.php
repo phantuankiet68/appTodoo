@@ -36,14 +36,14 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $event = Event::create($request->all());
-        return redirect()->route('calendar.index')->with('success_create', __('messages.Create_success'));
+        return redirect()->route('calendar.index')->with('success', __('messages.Create_success'));
     }
 
     public function update(Request $request, $id)
     {
         $event = Event::find($id);
         $event->update($request->all());
-        return redirect()->route('calendar.index')->with('success_create', __('messages.Create_success'));
+        return redirect()->route('calendar.index')->with('success', __('messages.Create_success'));
     }
 
     public function destroy($id)
@@ -52,7 +52,7 @@ class EventController extends Controller
 
         if ($event) {
             $event->delete();
-            return redirect()->route('calendar.index')->with('success_create', __('messages.Create_success'));
+            return redirect()->route('calendar.index')->with('success', __('messages.Create_success'));
         }
     
         return redirect()->route('calendar.index')->with('success_create', __('messages.Create_success'));

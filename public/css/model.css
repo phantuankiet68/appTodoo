@@ -3475,15 +3475,7 @@ i.material-icons {
     align-items: center;
     overflow: hidden;
 }
-.heading {
-    text-align: center;
-    background: deepskyblue;
-    color: white;
-    margin: 0;
-    margin-bottom: 20px;
-    padding: 10px 0;
-    width: 100%;
-}
+
 #website {
     width: 80%;
     height: 30px;
