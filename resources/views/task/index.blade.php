@@ -42,7 +42,7 @@
                                 @foreach($tasks as $item)
                                 <tr>
                                     <td class="jus-center">
-                                        <p class="td-1">{{ $item->id }}</p>
+                                        <p class="td-1">1</p>
                                     </td>
                                     <td class="prop-text" style="width: 250px;">
                                         <div class="text-truncate">
@@ -232,6 +232,14 @@ ClassicEditor
   });
 </script>
 <script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+        var tdElements = document.querySelectorAll('.jus-center .td-1');
+        
+        tdElements.forEach(function(td, index) {
+            td.textContent = index + 1;
+        });
+    });
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('contentForm');
     if (form) {

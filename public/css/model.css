@@ -132,11 +132,6 @@
     display: none;
 }
 
-.commentDetails strong{
-    font-size: 14px;
-    font-weight: 400;
-    color: #0cbaff;
-}
 
 .commentDetails p{
     font-size: 14px;

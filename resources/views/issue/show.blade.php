@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="userAsHome">
                                         <p>{{ $comment->user->full_name }}</p>
-                                        <p class="createAtSup">{{ __('messages.Create at') }}: {{ $comment->created_at->format('d/m/Y H:i') }}</p>
+                                        <p class="createAtSup">{{ __('messages.Create at') }}: {{ $comment->created_at->format('d-m-Y H:i') }}</p>
                                     </div>
                                 </div>
                                 <div class="commentDetails">
@@ -55,10 +55,10 @@
                                         <p><strong>Assignee  <i class="fa-regular fa-circle-right"></i>  </strong> {{ $comment->assignee->full_name }}</p>
                                     @endif
                                     @if($comment->start_date)
-                                        <p><strong>Start Date  <i class="fa-regular fa-circle-right"></i>  </strong> {{ \Carbon\Carbon::parse($comment->start_date)->format('d/m/Y') }}</p>
+                                        <p><strong>Start Date  <i class="fa-regular fa-circle-right"></i>  </strong> {{ \Carbon\Carbon::parse($comment->start_date)->format('d-m-Y') }}</p>
                                     @endif
                                     @if($comment->end_date)
-                                        <p><strong>End Date   <i class="fa-regular fa-circle-right"></i>  </strong> {{ \Carbon\Carbon::parse($comment->end_date)->format('d/m/Y') }}</p>
+                                        <p><strong>End Date   <i class="fa-regular fa-circle-right"></i>  </strong> {{ \Carbon\Carbon::parse($comment->end_date)->format('d-m-Y') }}</p>
                                     @endif
                                 </div>
                                 <div class="commentDesc">

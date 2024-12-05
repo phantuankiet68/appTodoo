@@ -936,11 +936,6 @@ span.circle-white{
 }
 
 
-.body-category-todo .tables table td,.body-category-todo .tables table th {
-    padding-block: 10px;
-    font-size: 13px;
-}
-
 .body-category-todo .pagination span {
     font-size: 15px;
     margin: 0 10px;
@@ -1974,21 +1969,22 @@ div.ModelEditTodoForm{
 
 .tables .link-margin nav span.rounded-md{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 10px;
 }
 .tables .link-margin nav span.rounded-md span {
-    width: 8%;
-    color: #fff;
-    background-color: #40c3f7;
+    width: 5%;
     text-align: center;
-    padding: 2px 6px;
+    padding: 1px;
+    color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 5px;
     cursor: pointer;
     border-radius: 50%;
+    background-color: #22adfd;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .tables .link-margin nav p{
@@ -2010,13 +2006,10 @@ div.ModelEditTodoForm{
 }
 
 .tables .link-margin nav a.relative{
-    width: 16%;
-    background: #FFF;
     color: #000;
     text-align: center;
-    /* padding: 4px 0; */
     padding: 4px 0 0;
-    margin-top: 12px;
+    width: 5%;
     cursor: pointer;
     border-radius: 50%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -2601,17 +2594,6 @@ h3{
     justify-content: space-between;
     align-items: center;
 }
-.formVocalory{
-    width: 31.7%;
-    padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    border-radius: 5px;
-    max-height: 140px;
-}
-
 .formVocalory h4{
     text-align: center;
 }
@@ -2808,15 +2790,6 @@ h3{
     font-size: 13px;
 }
 
-.imageerror{
-    width: 90%;
-    height: auto;
-}
-
-.imageerror img{
-    width: 100%;
-    height: 100%;
-}
 
 .error-content-left p {
     padding:10px;
@@ -4275,7 +4248,6 @@ label {
 .tabcontent {
     display: none;
     padding: 10px;
-    border: 1px solid #ccc;
     border-top: none;
     height: 79vh;
     overflow: overlay;
@@ -4913,21 +4885,8 @@ list-style: none;
     cursor: pointer;
     border: none;
 }
-.lessonList{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-.japanese-container-left .lessonList button {
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    padding: 8px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 15px;
-    background-color: #fff;
-    border: none;
-}
+
+
 .btnCategory i{
     color: #fff;
     font-size: 15px;
@@ -4985,9 +4944,6 @@ list-style: none;
 
 .alternate-list-left p i{
     color: dodgerblue;
-}
-.issueHeader-title h3{
-    font-weight: 600;
 }
 
 .assignUser{

@@ -597,9 +597,6 @@
 </div>
 
 <script>
-    CKEDITOR.replace('editor');
-</script>
-<script>
 
     function CreateParagraphForm(){
         const modelCreateParagraph = document.getElementById('Paragraph')
