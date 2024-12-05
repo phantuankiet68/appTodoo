@@ -5,19 +5,14 @@
 @section('content')
 <div class="todo">
     <div class="jobMonthBody">
-        <div class="todoCol-5">
-            <div class="todoHeader topHeaderTodo">
-                <div class="topHeader">
-                    <h2>{{ __('messages.Salary') }}</h2> | <span>{{ __('messages.Home') }}</span>
-                </div>
-            </div>
+        <div class="todoCol-7">
             <div class="salaryBody">
                 <form  method="POST" action="{{ route('salaries.store') }}">
                 @csrf
                     @if (Auth::check())
                         <input type="hidden" class="input-name" name="user_id" value="{{ Auth::user()->id }}" readonly/>
                     @endif
-                    <div class="form-input-category mt-10">
+                    <div class="form-input-category">
                         <label for="reference">{{ __('messages.Name') }}</label>
                         @if (Auth::check())
                             <input type="text" class="input-name" name="name" value="{{ Auth::user()->full_name }}" readonly/>
@@ -194,10 +189,8 @@
                                 <thead>
                                     <tr>
                                         <th>{{ __('messages.Name') }}</th>
-                                        <th>{{ __('messages.Description') }}</th>
                                         <th class="text-center">{{ __('messages.Date Created') }}</th>
                                         <th class="text-center">{{ __('messages.Time Job') }}</th>
-                                        <th class="text-center">{{ __('messages.Status') }}</th>
                                         <th class="text-center">{{ __('messages.Settings') }}</th>
                                     </tr>
                                 </thead>
@@ -209,17 +202,8 @@
                                                 {{ $item->name }}   
                                             </div>
                                         </td>
-                                        <td>
-                                            <div class="text-truncate" style="width: 100px;">
-                                                {{ $item->description }}
-                                            </div>
-                                        </td>
                                         <td class="text-center">{{ $item->date_create }}</td>
-                                        <td class="text-center">{{ $item->total_working_time }}
-                                        <td class="text-center"> 
-                                            <input type="checkbox" name="sala[]" id="sala{{ $item->id }}" 
-                                                value="1" {{ $item->status == 1 ? 'checked' : '' }}>
-                                        </td>
+                                        <td class="text-center">{{ $item->total_working_time }}</td>
                                         <td class="text-center"><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
                                     </tr>
                                 </tbody>
@@ -239,35 +223,29 @@
             <div id="Tab2" class="tabcontent">
                 <div class="calculateSalary">
                     <div class="calculateSalary-9">
-                        <div class="form-group-info">
-                            <div class="form-number-category">
-                                <label for="name">{{ __('messages.Number of day') }}</label>
-                                <input type="text" class="input-name" id="todo-date-start" name="date_start">
-                            </div>
-                            <div class="form-hours-category">
-                                <label for="name">{{ __('messages.Number of working hours') }}</label>
-                                <input type="text" class="input-name" id="todo-date-start" name="date_start">
-                            </div>
+                        <div class="form-number-category">
+                            <label for="name">{{ __('messages.Number of day') }}</label>
+                            <input type="text" class="input-name" id="todo-date-start" name="date_start">
                         </div>
-                        <div class="form-group-info">
-                             <div class="form-number-category">
-                                <label for="name">{{ __('messages.Wages') }}</label>
-                                <input type="text" class="input-name" id="todo-date-start" name="date_start">
-                            </div>
-                            <div class="form-hours-category">
-                                <label for="name">{{ __('messages.Number of days off') }}</label>
-                                <input type="text" class="input-name" id="todo-date-start" name="date_start">
-                            </div>
+                        <div class="form-number-category mt-10">
+                            <label for="name">{{ __('messages.Number of working hours') }}</label>
+                            <input type="text" class="input-name" id="todo-date-start" name="date_start">
                         </div>
-                        <div class="form-group-info">
-                             <div class="form-hours-category">
-                                <label for="name">{{ __('messages.Personal tax') }}</label>
-                                <input type="text" class="input-name" id="todo-date-start" name="date_start">
-                            </div>
-                            <div class="form-hours-category">
-                                <label for="name">{{ __('messages.Number of leave days') }}</label>
-                                <input type="text" class="input-name" id="todo-date-start" name="date_start">
-                            </div>
+                        <div class="form-number-category mt-10">
+                            <label for="name">{{ __('messages.Wages') }}</label>
+                            <input type="text" class="input-name" id="todo-date-start" name="date_start">
+                        </div>
+                        <div class="form-number-category mt-10">
+                            <label for="name">{{ __('messages.Number of days off') }}</label>
+                            <input type="text" class="input-name" id="todo-date-start" name="date_start">
+                        </div>
+                        <div class="form-number-category mt-10">
+                            <label for="name">{{ __('messages.Personal tax') }}</label>
+                            <input type="text" class="input-name" id="todo-date-start" name="date_start">
+                        </div>
+                        <div class="form-number-category mt-10">
+                            <label for="name">{{ __('messages.Number of leave days') }}</label>
+                            <input type="text" class="input-name" id="todo-date-start" name="date_start">
                         </div>
                         <p class="space-letping">
                         <div class="form-total-category mt-5">
@@ -286,9 +264,6 @@
                             <label for="name">{{ __('messages.Total income of the year') }}</label>
                             <input type="text" class="input-name" id="todo-name" name="name">
                         </div>
-                    </div>
-                    <div class="calculateSalary-3">
-
                     </div>
                 </div>
             </div>

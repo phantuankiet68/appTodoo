@@ -240,12 +240,6 @@ li{
     width: 90%;
 }
 
-
-.dashboard-content.dark-mode{
-    border-bottom: 1px solid #1571bf;
-    border-right: 1px solid #1571bf;
-}
-
 .projecTodoBody .recent--patient .tables.dark-mode{
     border-left: 1px solid #1571bf;
     border-top: 1px solid #1571bf;
@@ -1269,11 +1263,6 @@ button.button:hover{
 }
 
 /* todo */
-.todo{
-    width: 100%;
-    height: 100%;
-    padding: 20px;
-}
 
 .todoHeader .topHeader{
     display: flex;
@@ -1314,14 +1303,6 @@ button.button:hover{
     border-radius: 5px;
     margin: 0 5px;
 }
-
-.body-tables-todo .tables table td, .body-tables-todo .tables table th {
-    padding-block: 10px;
-    font-size: 13px;
-}
-
-
-
 
 .body-tables-todo .tables table .text-truncate {
     max-width: 100%;
@@ -1378,11 +1359,6 @@ button.button:hover{
     gap: 20px;
 }
 
-.todoCol-5{
-    width: 50%;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    padding: 10px;
-}
 
 .title-todo{
     display: flex;
@@ -1404,7 +1380,7 @@ button.button:hover{
 }
 
 .header-todo{
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -1505,15 +1481,6 @@ button.button:hover{
 }
 
 
-.form-number-category .input-name {
-    width: 50%;
-    padding: 8px 10px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-}
-
 .form-hours-category{
     width: 100%;
     display: flex;
@@ -1574,16 +1541,6 @@ button.button:hover{
     color: #2099ff;
 }
 
-
-.form-total-category .input-name {
-    width: 50%;
-    padding: 8px 10px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border: none;
-    outline: none;
-    border-radius: 5px;
-    text-align: right;
-}
 
 .mt-5{
     margin-top: 5px;
@@ -2286,11 +2243,6 @@ div.ModelEditTodoForm{
     padding:20px 0;
 }
 
-.projectTodoNotify{
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-    padding: 10px;
-}
-
 
 .dashboard-content.dark-mode .lanes{
     border: 1px solid #1571bf;
@@ -2614,20 +2566,7 @@ h3{
 }
 
 /* japanese */
-.japanese-container{
-    width: 100%;
-    display: flex;
-    gap: 20px;
-    height: 86vh;
-}
 
-.japanese-container-left{
-    width: 20%;
-    height: 89vh;
-    overflow: scroll;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    padding: 10px;
-}
 
 .dashboard-content.dark-mode .japanese-container-left{
     border: 1px solid #1571bf;
@@ -2682,14 +2621,6 @@ h3{
     border: 1px solid #1571bf;
 }
 
-
-
-
-
-
-.japanese-container-right{
-    width: 80%;
-}
 
 .dashboard-content.dark-mode .japanese-container-right{
     border: 1px solid #1571bf;
@@ -2762,7 +2693,6 @@ h3{
 
 .japanese-container-right .error-content .error-content-right .tab button{
     width: 33.3%;
-    border: 1px solid #d7d9db;
 }
 
 .lesson-content-right{
@@ -2833,18 +2763,6 @@ h3{
     justify-content: center;
     align-items: center;
     gap: 10px;
-}
-
-.error-content-left{
-    position: relative;
-    width: 30%;
-    padding: 10px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 84vh;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 .error-content-right{
@@ -3466,9 +3384,6 @@ button.btn-add{
     font-size: 15px;
 }
 
-.jobMonthBody .todoCol-5 .tables{
-    padding: 0 10px 10px 10px;
-}
 
 .todoCol-5{
     width: 50%;
@@ -3508,9 +3423,9 @@ button.btn-add{
     cursor: pointer;
 }
 .totalDate{
-    width: 110px;
+    width: 140px;
     font-size: 15px;
-    padding: 10px 10px;
+    padding: 10px;
     border-radius: 5px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
@@ -4866,15 +4781,8 @@ list-style: none;
 .calculateSalary{
     width: 100%;
     height: 310px;
-    border: 1px solid #dddddd;
     display: flex;
     justify-content: space-between;
-}
-
-.calculateSalary-9{
-    width: 80%;
-    height: 100%;
-    padding: 10px;
 }
 
 .calculateSalary-3{
@@ -4933,14 +4841,6 @@ list-style: none;
 .flex-spend{
     width: 100%;
     display: flex;
-    align-items: center;
-}
-
-.button-spend{
-    width: 100%;
-    padding: 15px 0;
-    display: flex;
-    justify-content: center;
     align-items: center;
 }
 

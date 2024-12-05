@@ -219,7 +219,7 @@
           chart: {
           id: 'area-datetime',
           type: 'area',
-          height: 350,
+          height: 320,
           zoom: {
             autoScaleYaxis: true
           }
@@ -317,7 +317,7 @@
                 var options = {
                     chart: {
                         type: 'bar',
-                        height: 350,
+                        height: 280,
                     },
                     series: [{
                         name: 'Expenses',

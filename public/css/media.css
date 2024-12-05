@@ -1,595 +1,79 @@
 @media screen and (max-width: 1600px){
-    .sidebar {
-        width: 18%;
+    .card h1 {
+        font-size: 14px !important;
+        margin: 14px !important;
     }
-    .Container {
-        width: 82%;
+    .card {
+        min-height: 120px !important;
     }
-    .cod-dashboard-6 {
-        width: 50%;
-        padding: 20px 10px;
+    .ideaUser {
+        height: 293px !important;
+    }
+    .chart-one {
+        max-height: 288px !important;
+    }
+    .chart1 {
+        min-height: 315px !important;
+    }
+    .chart2 {
+        min-height: 315px !important;
+    }
+    .dashboard-content {
+        width: 100%;
+        height: 92.5% !important;
+    }
+    .content-idea-user {
+        width: 100%;
+        height: 235px !important;
+    }
+    .UserContainer {
+        height: 80vh !important;
+    }
+    td, th{
+        font-size: 13px !important;
+        font-family: "Poppins", sans-serif;
     }
 
-    .form-search form {
-        position: relative;
-        width: 283px;
-    }
-    .th-none{
-        display: none;
-    }
-    .td-none{
-        display: none;
+    .containerPage {
+        height: 80vh !important;
     }
 
-    .FormTable_800{
-        width: 800px;
-        overflow:scroll;
+    .select-dropdown {
+        padding: 6px !important;
     }
-    .ScrollTable{
-        width: 1200px;
+    .formInputSearch input {
+        font-size: 12px !important;
     }
-    .projecTodoBody .tables th,
-    .projecTodoBody .tables td{
-        font-size: 13px;
+    .add-search {
+        padding: 7px 11px !important;
     }
-    .body-tables-issue .tables table p.text-truncate {
-        width: 150px;
+    .todoHeader {
+        padding: 8px !important;
+    }
+    .commentBody {
+        width: 100%;
+        height: 25vh !important;
+    }
+    .col-8,.col-4{
+        height: 99% !important;
     }
 
-    .projecTodoBody .recent--patient {
-        width: 100%;
-        height: 71vh;
+    .issueHeader-footer ul li {
+        padding: 5px 13px !important;
     }
-    
-    .body-category-todo .recent--patient{
-        width: 100%;
-    }    
-    .body-category-todo .recent--patient .tables{
-        width: 100%;
-        padding: 0;
-    }    
-    .resolvedIssue {
-        background-color: #5eb5a6;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
-        border-radius: 10px;
-        font-size: 13px;
-        padding: 2px;
-        width: 70px;
-        cursor: pointer;
+    .container-comment {
+        margin-top: 10px !important;
     }
-    .openIssue {
-        background-color: #ed8077;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
-        border-radius: 10px;
-        width: 70px;
-        font-size: 13px;
-        cursor: pointer;
+    .priorityYes,.assignUser,.priorityImportant,.linkBlank,.StatusInpross{
+        font-size: 11px !important;
     }
-    .noted span{
-        font-size: 15px;
-    }
-    .button-spend{
-        padding: 5px;
-    }
-    .projecTodoBody .body-tables-issue .tables table .text-truncate {
-        max-width: 100%;
-        width: 133px;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        display: -webkit-box;
-        white-space: normal;
-    }
-    .projectCol-8 .lanes {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 5px;
-        padding: 10px;
-        overflow: scroll;
-        height: 100%;
-    }
-    .projectCol-8 .lanes .swim-lane {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-        padding: 10px;
-        border-radius: 4px;
-        width: 24%;
-        min-height: 120px;
-        flex-shrink: 0;
-    }
-    .CVBody {
-        width: 100%;
-        display: flex;
-        gap: 10px;
-        height: 85vh;
-        border-radius: 10px;
-    }
-    .CVBody .cv-container-left {
-        width: 100%;
-        padding: 10px;
-        border-right: 1px solid #dfdfdf;
-    }
-    .listFormVocalory{
-        width: 100%;
-        display: flex;
-        gap: 14px;
-        flex-wrap: wrap;
-    }
-    .listFormGrammar {
-        width: 100%;
-        display: flex;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-    .c_card {
-        padding: 5px;
-        position: relative;
-        width: 23.65%;
-        height: 200px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-    }
-    .model .modelCreateFromNormal {
-        padding: 10px;
-        position: absolute;
-        width: 100%;
-        max-width: 60%;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        background-color: #fff;
-        border-radius: 5px;
-    }
-    .like, .star, .notify, .setting {
-        padding: 8px 10px;
-        font-size: 14px;
-        position: relative;
-    }
-    .chat_post{
-        width: 100%;
-        height: 86vh;
-        background-color: #f3f3f3;
-    }
-    
-    .chat_row{
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-    }
-    
-    .chat-left{
-        width: 80%;
-        height: 85vh;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        overflow: scroll;
-    }
-    
-    .chat-center{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-    
-    .chat-center .createPost{
-        width: 100%;
-        background-color: #ffff;
-        border-radius: 5px;
-        padding:20px;
-    }
-    
-    .createPost h3{
-        margin-left: 15px;
-        font-size: 20px;
-        font-weight: bold;
-        color: #858585;
-    }
-    .createPost .titlePost{
-        position: relative;
-    }
-    
-    .createPost .titlePost::before{
-        content:"";
-        position: absolute;
-        background-color: #fbc58f;
-        height: 29px;
-        width: 5px;
-    }
-    
-    .createPost p.space {
-        width: 100%;
-        height: 1px;
-        background: #d7d6d6;
-    }
-    
-    .chatPostUser{
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 10px;
-    }
-    
-    .chatImage{
-        width: 6%;
-    }
-    .imgUser{
-        width: 40px;
-        height: 40px;
-    }
-    
-    .imgUser img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-    }
-    .thinkUser{
+    .issueHeader{
+        height: 87vh !important;
         width: 100%;
     }
-    .thinkUser input{
+    .projecTodoBody {
+        height: 90vh !important;
         width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border: none;
-        outline: none;
-    }
-
-    .chat_row .chat-right .infoUser .salesYellow {
-        width: 100%;
-        height: 120px;
-        background-image: linear-gradient(to right, #ffc3a0 0%, #ffafbd 100%);
-        border-radius: 10px;
-        padding: 20px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #fff;
-    }
-
-    .chat_post .chatUserList {
-        position: absolute;
-        height: 86.2vh;
-        width: 55px;
-        background-color: #fff;
-        top: 72px;
-        right: 16px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 20px 10px;
-        gap: 10px;
-        overflow: scroll;
-    }
-
-    .chat_post .chat-center .createPost{
-        width: 100%;
-        background-color: #ffff;
-        border-radius: 5px;
-        padding: 10px;
-    }
-
-    .chat_post .recentStoriesView{
-        width: 100%;
-        display: flex;
-        gap:5px;
-        align-items: center;
-        padding: 20px 0;
-    }
-
-    .chat_post .recentStoriesView .recentView .recentViewImage {
-        width: 100%;
-        height: 215px;
-    }
-
-    .chatUserItem .chatUserItemImage {
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #40c3f7;
-        cursor: pointer;
-    }
-
-    
-    .spaceBettween{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    .infoIcon button{
-        padding: 5px 10px;
-        background: #fff;
-        border: none;
-        font-size: 15px;
-        cursor: pointer;
-        border: 1px solid #ebebeb;
-        border-radius: 5px;
-    }
-    
-    .infoIcon button:hover{
-        background-color: #40c3f7;
-        border-radius: 5px;
-    }
-    
-    .infoIcon button:hover i{
-        color: #fff;
-    }
-    
-    .infoIcon button i{
-        color: #b7b7b7;
-    }
-    
-    .infoPreview button{
-        padding: 5px 20px;
-        background: #fff;
-        border: none;
-        font-size: 15px;
-        cursor: pointer;
-        border: 1px solid #ebebeb;
-        border-radius: 5px;
-    }
-    
-    .btn-Post{
-        width: 100%;
-        padding: 10px 0;
-    }
-    
-    .btn-Post button{
-       width: 100%;
-       padding: 8px;
-       border: none;
-       font-size: 16px;
-       background: #40c3f7;
-       color: #fff;
-       border-radius: 5px
-    }
-    
-    
-    .recentStoriesView .recentView{
-        width: 23%;
-        position: relative;
-    }
-    
-    .recentStoriesView .recentView .recentViewImage img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 10px;
-    }
-    
-    .recentViewUser{
-       position: absolute;
-       top: 20px;
-       left: 20px;
-    }
-    
-    .recentStoriesView .recentViewUser .recentViewUserImage{
-        width: 38px;
-        height: 38px;
-        border-radius: 50%;
-        border: 2px solid #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    
-    .recentStoriesView .recentViewUser .recentViewUserImage i{
-        color: #fff;
-    }
-    
-    .recentStoriesView .recentViewUser .recentViewUserImage img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    }
-
-    .form-textarea-category .toolbar .head {
-        display: flex;
-        grid-gap: 4px;
-        margin-bottom: 10px;
-        flex-wrap: wrap;
-    }
-    .form-textarea-category .toolbar .btn-toolbar button {
-        background: #fff;
-        border: 2px solid #ddd;
-        border-radius: 6px;
-        cursor: pointer;
-        width: 33px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 18px;
-    }
-    .dashboard-content.dark-mode .form-textarea-category #content{
-        color: #000;
-    }
-    
-    .descriptionContent{
-        padding:10px 20px;
-    }
-    
-    .userName span{
-        font-size: 14px;
-    }
-    .userName p{
-        font-size: 13px;
-    }
-    .imagePost{
-        width: 100%;
-        height: 450px;
-        margin: 10px 0;
-    }
-    
-    .imagePost img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    
-    .localPost{
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-    .localPost i{
-        color: red;
-    }
-    .localPost p{
-        color: #40c3f7;
-    }
-    
-    .commentUserPost{
-        width: 6%;
-    }
-    .commentUserImage{
-        width: 38px;
-        height: 38px;
-    }
-    .commentUserImage img{
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-    }
-    .commentContentPost{
-        width: 94%;
-    }
-    
-    .commentPost{
-        border: 1px solid #ebebeb;
-        margin-top: 10px;
-        padding: 10px;
-        border-radius: 5px;
-    }
-    .commentContentPost{
-        width: 100%;
-    }
-    
-    .commentPost .commentContentPost input{
-        width: 78%;
-        height: 35px;
-        font-size: 15px;
-        border: 1px solid #ebebeb;
-        padding: 0 10px;
-        outline: none;
-    }
-    
-    .commentContentPost button{
-        padding: 4px 10px;
-        font-size: 20px;
-        border: 1px solid #ebebeb;
-        background-color: #fff;
-        color: #858585;
-        cursor: pointer;
-    }
-    
-    .btnSendComment{
-        margin-left: 10px;
-    }
-    .commentShare{
-        padding: 10px 0;
-        display: flex;
-        gap: 5px;
-    }
-    
-    .commentUserSharePost {
-        width: 5%;
-    }
-    .commentShareContent p{
-        font-size: 15px;
-    }
-    .commentShareContent span{
-        font-size: 13px;
-    }
-    .body-tables-todo .tables table .text-truncate{
-        max-width: 100%;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        display: -webkit-box;
-        white-space: normal;
-    }
-    .learnMore-table .recent--patient .tables table tr th{
-        font-size: 13px;
-    }
-    .learnMore-table .recent--patient .tables table tr td{
-        font-size: 13px;
-        font-weight: normal;
-    }
-    .learnMore .learnMore-table .tables table .prop-text .text-truncate {
-        max-width: 100%;
-        width: 150px;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        display: -webkit-box;
-        white-space: normal;
-    }
-    .learnMore .hrefList {
-        position: relative;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-    
-    .learnMore .hrefList .hrefTest a {
-        padding: 8px 10px;
-        border: 1px solid #d7d6d6;
-        font-size: 14px;
-        border-radius: 5px;
-    }   
-    .infoController .infoControllerLeft {
-        width: 20%;
-        border: 1px solid #d7d6d6;
-        border-radius: 10px;
-        padding: 10px;
-    }
-    .infoController .infoControllerLeft .infoControllerUser {
-        width: 100%;
-        height: 154px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .infoController .infoControllerMenu .infoControllerMenuList button {
-        width: 100%;
-        background: #fff;
-        padding: 12px 25px;
-        font-size: 13px;
-        color: #000;
-        border-radius: 5px;
-        box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-        border: none;
-        cursor: pointer;
-        text-align: left;
-    }
-    .dashboard-chart #chartContainer{
-        width: 100%;
-        height: 369px;
+        background: #ffffff;
     }
 }

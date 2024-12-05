@@ -5,7 +5,7 @@
 @section('content')
 <div class="todo">
     <div class="jobMonthBody">
-        <div class="todoCol-5">
+        <div class="todoCol-7">
             <form action="{{ route('expense.store') }}" method="POST">
             @csrf
                 <div class="table-spend">
@@ -124,9 +124,6 @@
                     </table>
                     <div class="noted">
                         <span class="red">*</span><span> {{ __('messages.Please enter the amount spent here!') }}</span>
-                    </div>
-                    <div class="noted">
-                        <span>{{ __('messages.Please confirm before 12 oclock. Try to manage your expenses to understand how you are spending and how you need to reform your spending level!') }}</span>
                     </div>
                     <div class="button-spend">
                         <button type="submit">{{ __('messages.Confirm') }}</button>

@@ -59,7 +59,7 @@
                                             <td>{{ $item->full_name }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td class="text-center">0{{ $item->phone }}</td>
-                                            <th class="text-center">{{ $item->created_at->format('d/m/Y') }}</th>
+                                            <td class="text-center">{{ $item->created_at->format('d-m-Y') }}</td>
                                             <td class="text-center">{{ $item->roles == 1 ? 'Xác nhận' : 'Chưa xác nhận' }}</td>
                                             <td class="text-center"> 
                                                 <input type="checkbox" value="1" {{ $item->roles == 1 ? 'checked' : '' }} onclick="updateRoles({{ $item->id }})">

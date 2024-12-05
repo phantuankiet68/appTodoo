@@ -5,7 +5,7 @@
 @section('content')
 <div class="todo">
     <div class="jobMonthBody">
-        <div class="todoCol-5">
+        <div class="todoCol-7">
             <form action="">
                 <div class="table-spend">
                     @if (Auth::check())

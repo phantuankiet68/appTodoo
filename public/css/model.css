@@ -198,7 +198,7 @@
 }
 .textareaDescription {
     resize: none;
-    height: 300px;
+    height: 250px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     border: none;
     outline: none;
@@ -1049,12 +1049,6 @@
     padding:5px;
 }
 
-.formTab{
-    height: 80vh;
-    overflow: scroll;
-    padding: 10px;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-}
 .sidebar ul li.dropDownQuestion {
     display: none;
 }
@@ -2334,21 +2328,6 @@ p.space {
     gap: 20px;
 }
 
-.learnMore .tables {
-    padding: 10px;
-    border-left: 1px solid #e7e7e7;
-    border-right: 1px solid #e7e7e7;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-}
-
-.learnMore-container{
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #e7e7e7;
-    border-radius: 5px;
-}
-
-
 .formSearchInput{
     display: flex;
 }
@@ -2421,17 +2400,6 @@ p.space {
     height: 236px;
 }
 
-.menuMove{
-    position: absolute;
-    top: 60px;
-    right: 8px;
-    width: 80px;
-    height: 800px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: grab;
-}
 .menuMove .nav-content{
     display: flex;
     align-items: center;

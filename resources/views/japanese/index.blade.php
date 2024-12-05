@@ -15,23 +15,27 @@
         </div>
         <div class="japanese-container-right">
             <div class="error-content lesson1">
-                @foreach($paragraph as $para)
-                <div class="error-content-left">
-                    <div class="imageerror">
-                        <img src="{{ Storage::url($para->image) }}" alt="Image">
-                    </div>
-                    <div>{!!$para->description!!}</div>
-                </div>
-                @endforeach
                 <div class="error-content-right">
                     <div class="tab">
                         <button class="tablinks" onclick="openTabJapanese(event, 'tab1')">Từ vựng</button>
-                        <button class="tablinks" onclick="openTabJapanese(event, 'tab2')">Ngữ pháp</button>
-                        <button class="tablinks" onclick="openTabJapanese(event, 'tab3')">Kiểm Tra</button>
+                        <button class="tablinks" onclick="openTabJapanese(event, 'tab2')">Từ vựng</button>
+                        <button class="tablinks" onclick="openTabJapanese(event, 'tab3')">Ngữ pháp</button>
+                        <button class="tablinks" onclick="openTabJapanese(event, 'tab4')">Kiểm Tra</button>
                     </div>
-                
                     <div id="tab1" class="tab-content formTab">
-                        <div class="listFormVocalory mt-10">
+                        <div class="listFormVocalory">
+                        @foreach($paragraph as $para)
+                        <div class="error-content-left">
+                            <div class="imageerror">
+                                <img src="{{ Storage::url($para->image) }}" alt="Image">
+                            </div>
+                            <div>{!!$para->description!!}</div>
+                        </div>
+                        @endforeach
+                        </div>
+                    </div>
+                    <div id="tab2" class="tab-content formTab">
+                        <div class="listFormVocalory">
                             @foreach($vocabulary as $voca)
                             <div class="formVocalory">
                                 <h4>{{$voca->name}}</h4>
@@ -45,8 +49,8 @@
                         </div>
                     </div>
                 
-                    <div id="tab2" class="tab-content formTab">
-                        <div class="listFormGrammar mt-10">
+                    <div id="tab3" class="tab-content formTab">
+                        <div class="listFormGrammar">
                             @foreach($structures as $structure)
                             <div class="formGrammar">
                                 <h4>{{$structure->structure}}</h4>
@@ -57,8 +61,8 @@
                             @endforeach
                         </div>
                     </div>
-                    <div id="tab3" class="tab-content formTab">
-                        <div class="tab3Container mt-10">
+                    <div id="tab4" class="tab-content formTab">
+                        <div class="tab3Container">
                             <h3 class="text-center"><b>Trắc nghiệm Tiếng nhật.</b></h1>
                             @if(session('error'))
                                 <div class="alert alert-danger">{{ session('error') }}</div>
