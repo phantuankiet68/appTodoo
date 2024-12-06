@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator; // Import đúng Validator
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Profile;
+use App\Models\Setting;
 
 class AuthController extends Controller
 {
@@ -71,6 +72,50 @@ class AuthController extends Controller
                 'address' => $request->address,
                 'description' => $request->description,
                 'roles' => $request->roles
+            ]);
+            
+            Setting::create([
+                'user_id' => $user->id, 
+                'setting' => $request->input('setting', 0),
+                'issue' => $request->input('issue', 0),
+                'cv' => $request->input('cv', 0),
+                'calendar' => $request->input('calendar', 0),
+                'task' => $request->input('task', 0),
+                'workflow' => $request->input('workflow', 0),
+                'salary' => $request->input('salary', 0),
+                'expense' => $request->input('expense', 0),
+                'add_japanese' => $request->input('add_japanese', 0),
+                'japanese' => $request->input('japanese', 0),
+                'learn_japanese' => $request->input('learn_japanese', 0),
+                'add_english' => $request->input('add_english', 0),
+                'english' => $request->input('english', 0),
+                'learn_english' => $request->input('learn_english', 0),
+                'question' => $request->input('question', 0),
+                'word' => $request->input('word', 0),
+                'excel' => $request->input('excel', 0),
+                'test_code' => $request->input('test_code', 0),
+                'component' => $request->input('component', 0),
+                'color' => $request->input('color', 0),
+                'html' => $request->input('html', 0),
+                'js' => $request->input('js', 0),
+                'vue' => $request->input('vue', 0),
+                'react' => $request->input('react', 0),
+                'jquery' => $request->input('jquery', 0),
+                'angular' => $request->input('angular', 0),
+                'php' => $request->input('php', 0),
+                'laravel' => $request->input('laravel', 0),
+                'node' => $request->input('node', 0),
+                'cshap' => $request->input('cshap', 0),
+                'java' => $request->input('java', 0),
+                'javascript' => $request->input('javascript', 0),
+                'ftp' => $request->input('ftp', 0),
+                'ubuntu' => $request->input('ubuntu', 0),
+                'mysql' => $request->input('mysql', 0),
+                'sqlsever' => $request->input('sqlsever', 0),
+                'mongo' => $request->input('mongo', 0),
+                'mysqlworkbench' => $request->input('mysqlworkbench', 0),
+                'postgreSQL' => $request->input('postgreSQL', 0),
+                'error' => $request->input('error', 0),
             ]);
 
             return redirect()->route('home.index')->with('success', 'Đăng ký thành công!');

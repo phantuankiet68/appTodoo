@@ -30,6 +30,7 @@
                     <h2>{{ Auth::user()->full_name }}</h2>
                 @endif
                 </div>
+                @yield('menu')
                 <ul class="navSidebar">
                     <div class="title-menu"><span>{{ __('messages.Application') }}</span></div>
                     <li><a class="hoverMenu" href="{{ route('dashboard.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-house"></i> {{ __('messages.Dashboard') }}</div></a></li>

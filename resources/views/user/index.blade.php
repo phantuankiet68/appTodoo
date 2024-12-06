@@ -82,32 +82,8 @@
 </div>
 
 <script>
-    function updateRoles(userId) {
-        const checkbox = document.querySelector(`input[type="checkbox"][value="1"][onclick="updateRoles(${userId})"]`);
-        const roles = checkbox.checked ? 0 : 1;
-
-        fetch(`/user/update-roles/${userId}`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') 
-            },
-            body: JSON.stringify({ roles: roles })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert(data.message);
-                // Tải lại trang sau khi cập nhật thành công
-                window.location.reload();
-            } else {
-                alert('Failed to update user roles.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('An error occurred. Please try again.');
-        });
+    function updateRoles(id) {
+        window.location.href = "{{ route('settings.index', ['itemId' => $item->id]) }}";
     }
 </script>
 @endsection

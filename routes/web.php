@@ -45,6 +45,7 @@ use App\Http\Controllers\FriendshipController;
 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\App;
 
 /*
@@ -104,6 +105,50 @@ Route::get('/profile/{full_name}', [HomeController::class, 'profile'])->name('pr
 Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/change-password/{id}', [AuthController::class, 'changePassword'])->name('change.password');
     Route::post('/link/store', [ChatController::class, 'storeLink'])->name('link.store');
+
+    Route::get('/user/{itemId}', [SettingController::class, 'index'])->name('settings.index');
+    Route::post('/update-setting/{id}', [SettingController::class, 'updateSetting'])->name('update.setting');
+    Route::post('/update-issue/{id}', [SettingController::class, 'updateissue'])->name('update.issue');
+    Route::post('/update-cv/{id}', [SettingController::class, 'updatecv'])->name('update.cv');
+    Route::post('/update-calendar/{id}', [SettingController::class, 'updatecalendar'])->name('update.calendar');
+    Route::post('/update-task/{id}', [SettingController::class, 'updatetask'])->name('update.task');
+    Route::post('/update-Workflow/{id}', [SettingController::class, 'updateWorkflow'])->name('update.Workflow');
+    Route::post('/update-salary/{id}', [SettingController::class, 'update_salary'])->name('update.salary');
+    Route::post('/update-expense/{id}', [SettingController::class, 'update_expense'])->name('update.expense');
+    Route::post('/update-add_japanese/{id}', [SettingController::class, 'update_add_japanese'])->name('update.add_japanese');
+    Route::post('/update-japanese/{id}', [SettingController::class, 'update_japanese'])->name('update.japanese');
+    Route::post('/update-learn_japanese/{id}', [SettingController::class, 'update_learn_japanese'])->name('update.learn_japanese');
+    Route::post('/update-add_english/{id}', [SettingController::class, 'update_add_english'])->name('update.add_english');
+    Route::post('/update-english/{id}', [SettingController::class, 'update_english'])->name('update.english');
+    Route::post('/update-learn_english/{id}', [SettingController::class, 'update_learn_english'])->name('update.learn_english');
+    Route::post('/update-question/{id}', [SettingController::class, 'update_question'])->name('update.question');
+    Route::post('/update-word/{id}', [SettingController::class, 'update_word'])->name('update.word');
+    Route::post('/update-excel/{id}', [SettingController::class, 'update_excel'])->name('update.excel');
+    Route::post('/update-test_code/{id}', [SettingController::class, 'update_test_code'])->name('update.test_code');
+    Route::post('/update-component/{id}', [SettingController::class, 'update_component'])->name('update.component');
+    Route::post('/update-color/{id}', [SettingController::class, 'update_color'])->name('update.color');
+    Route::post('/update-html/{id}', [SettingController::class, 'update_html'])->name('update.html');
+    Route::post('/update-js/{id}', [SettingController::class, 'update_js'])->name('update.js');
+    Route::post('/update-vue/{id}', [SettingController::class, 'update_vue'])->name('update.vue');
+    Route::post('/update-react/{id}', [SettingController::class, 'update_react'])->name('update.react');
+    Route::post('/update-jquery/{id}', [SettingController::class, 'update_jquery'])->name('update.jquery');
+    Route::post('/update-angular/{id}', [SettingController::class, 'update_angular'])->name('update.angular');
+    Route::post('/update-php/{id}', [SettingController::class, 'update_php'])->name('update.php');
+    Route::post('/update-laravel/{id}', [SettingController::class, 'update_laravel'])->name('update.laravel');
+    Route::post('/update-node/{id}', [SettingController::class, 'update_node'])->name('update.node');
+    Route::post('/update-cshap/{id}', [SettingController::class, 'update_cshap'])->name('update.cshap');
+    Route::post('/update-java/{id}', [SettingController::class, 'update_java'])->name('update.java');
+    Route::post('/update-javascript/{id}', [SettingController::class, 'update_javascript'])->name('update.javascript');
+    Route::post('/update-ftp/{id}', [SettingController::class, 'update_ftp'])->name('update.ftp');
+    Route::post('/update-ubuntu/{id}', [SettingController::class, 'update_ubuntu'])->name('update.ubuntu');
+    Route::post('/update-mysql/{id}', [SettingController::class, 'update_mysql'])->name('update.mysql');
+    Route::post('/update-sqlsever/{id}', [SettingController::class, 'update_sqlsever'])->name('update.sqlsever');
+
+    Route::post('/update-mongo/{id}', [SettingController::class, 'update_mongo'])->name('update.mongo');
+    Route::post('/update-mysqlworkbench/{id}', [SettingController::class, 'update_mysqlworkbench'])->name('update.mysqlworkbench');
+    Route::post('/update-postgreSQL/{id}', [SettingController::class, 'update_postgreSQL'])->name('update.postgreSQL');
+    Route::post('/update-error/{id}', [SettingController::class, 'update_error'])->name('update.error');
+
 
     Route::get('/user', [UserController::class, 'index'])->name('user.index');
 
