@@ -38,6 +38,7 @@ class Kernel extends HttpKernel
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\Localization::class,
             \App\Http\Middleware\RedirectIfRoot::class,
+            \App\Http\Middleware\CheckIssuePermission::class,
         ],
 
         'api' => [

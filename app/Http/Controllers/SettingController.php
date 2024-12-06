@@ -74,6 +74,13 @@ class SettingController extends Controller
         $setting->save();
         return redirect()->back()->with('success', 'Setting updated successfully');
     }
+    public function update_expense($id, Request $request)
+    {
+        $setting = Setting::findOrFail($id);
+        $setting->expense = $request->has('expense') ? 1 : 0;
+        $setting->save();
+        return redirect()->back()->with('success', 'Setting updated successfully');
+    }
 
     public function update_add_japanese($id, Request $request)
     {

@@ -30,14 +30,27 @@
                     <h2>{{ Auth::user()->full_name }}</h2>
                 @endif
                 </div>
-                @yield('menu')
                 <ul class="navSidebar">
                     <div class="title-menu"><span>{{ __('messages.Application') }}</span></div>
                     <li><a class="hoverMenu" href="{{ route('dashboard.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-house"></i> {{ __('messages.Dashboard') }}</div></a></li>
+                    @if($can_view_setting)
                     <li><a class="hoverMenu" href="{{ route('user.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-gear"></i> {{ __('messages.Settings') }}</div></a></li>
-                    <li><a class="hoverMenu" href="{{ route('issue.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-box-tissue"></i> {{ __('messages.Issues') }} </div></a></li>
+                    @endif
+                    @if($can_view_issue)
+                        <li>
+                            <a class="hoverMenu" href="{{ route('issue.index') }}">
+                                <div class="subBoxMenu">
+                                    <i class="fa-solid fa-box-tissue"></i> {{ __('messages.Issues') }}
+                                </div>
+                            </a>
+                        </li>
+                    @endif
+                    @if($can_view_cv)
                     <li><a class="hoverMenu" href="{{ route('cv.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-file"></i> {{ __('messages.Curriculum Vitae') }}</div></a></li>
+                    @endif
+                    @if($can_view_calendar)
                     <li><a class="hoverMenu" href="/calendar"><div class="subBoxMenu"><i class="fa-regular fa-calendar"></i> {{ __('messages.Calendar') }}</div></a></li>
+                    @endif
                     <div class="title-menu"><span>{{ __('messages.Tasks') }}</span></div>
                     <li class="menu-item">
                         <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-solid fa-box-tissue"></i> {{ __('messages.Tasks') }} </div>
@@ -46,10 +59,18 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
+                            @if($can_view_task)
                             <li><a href="{{ route('tasks.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Tasks') }}</div></a></li>
+                            @endif
+                            @if($can_view_workflow)
                             <li><a href="{{ route('workflows.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Workflow') }}</div></a></li>
+                            @endif
+                            @if($can_view_salary)
                             <li><a href="{{ route('salaries.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Salary') }}</div></a></li>
+                            @endif
+                            @if($can_view_expense)
                             <li><a href="{{ route('expense.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Expenses') }}</div></a></li>
+                            @endif
                         </ul>
                     </li>
                     <li class="menu-item">
@@ -59,9 +80,15 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
+                            @if($can_view_add_japanese)
                             <li><a href="{{ route('japanese.addJapanese') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Add New') }}</div></a></li>
+                            @endif
+                            @if($can_view_japanese)
                             <li><a href="{{ route('japanese.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Japanese') }}</div></a></li>
+                            @endif
+                            @if($can_view_learn_japanese)
                             <li><a href="{{ route('learn_more.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Learn vocabulary') }}</div></a></li>
+                            @endif
                         </ul>
                     </li>
                     <li class="menu-item">
@@ -71,9 +98,15 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
+                            @if($can_view_add_english)
                             <li><a href="{{ route('english.addEnglish') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Add New') }}</div></a></li>
+                            @endif
+                            @if($can_view_english)
                             <li><a href="{{ route('english.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.English') }}</div></a></li>
+                            @endif
+                            @if($can_view_learn_english)
                             <li><a href="{{ route('learn_more_english.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Learn vocabulary') }}</div></a></li>
+                            @endif
                         </ul>
                     </li>
                     <li class="menu-item">
@@ -83,13 +116,21 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
+                            @if($can_view_question)
                             <li><a href="{{ route('question.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Question') }}</div></a></li>
+                            @endif
+                            @if($can_view_word)
                             <li><a href="{{ route('question.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Word') }}</div></a></li>
+                            @endif
+                            @if($can_view_excel)
                             <li><a href="{{ route('question.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Excel') }}</div></a></li>
+                            @endif
                         </ul>
                     </li>
                     <div class="title-menu"><span>{{ __('messages.User Interface') }}</span></div>
+                    @if($can_view_test_code)
                     <li><a class="hoverMenu" href="{{ route('test_code.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-check-to-slot"></i> {{ __('messages.Test code') }}</div></a></li>
+                    @endif
                     <li class="menu-item">
                         <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-brands fa-codepen"></i> {{ __('messages.Code') }} </div>
                             <div class="chevron">
@@ -97,8 +138,12 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
+                            @if($can_view_component)
                             <li><a href="{{ route('component.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Component') }}</div></a></li>
+                            @endif
+                            @if($can_view_color)
                             <li><a href="{{ route('colors.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Color') }}</div></a></li>
+                            @endif
                         </ul>
                     </li>
                     <li class="menu-item">
@@ -108,12 +153,24 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
+                            @if($can_view_html)
                             <li><a href="{{ route('codes.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.HTML/CSS') }}</div></a></li>
+                            @endif
+                            @if($can_view_js)
                             <li><a href="{{ route('javascripts.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Javascript') }}</div></a></li>
+                            @endif
+                            @if($can_view_vue)
                             <li><a href="{{ route('vuejs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.VueJS') }}</div></a></li>
+                            @endif
+                            @if($can_view_react)
                             <li><a href="{{ route('reactjs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.ReactJS') }}</div></a></li>
+                            @endif
+                            @if($can_view_jquery)
                             <li><a href="{{ route('component.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.JqueryJS') }}</div></a></li>
+                            @endif
+                            @if($can_view_angular)
                             <li><a href="{{ route('colors.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Angular') }}</div></a></li>
+                            @endif
                         </ul>
                     </li>
                     <li class="menu-item">
@@ -123,12 +180,24 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
+                            @if($can_view_php)
                             <li><a href="{{ route('codes.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.PHP') }}</div></a></li>
+                            @endif
+                            @if($can_view_laravel)
                             <li><a href="{{ route('javascripts.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Laravel') }}</div></a></li>
+                            @endif
+                            @if($can_view_node)
                             <li><a href="{{ route('vuejs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.NodeJS') }}</div></a></li>
+                            @endif
+                            @if($can_view_cshap)
                             <li><a href="{{ route('reactjs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.C#') }}</div></a></li>
+                            @endif
+                            @if($can_view_java)
                             <li><a href="{{ route('component.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.JqueryJS') }}</div></a></li>
+                            @endif
+                            @if($can_view_javascript)
                             <li><a href="{{ route('colors.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Java') }}</div></a></li>
+                            @endif
                         </ul>
                     </li>
                     <li class="menu-item">
@@ -138,15 +207,29 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
+                            @if($can_view_ftp)
                             <li><a href="{{ route('codes.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.FTP') }}</div></a></li>
+                            @endif
+                            @if($can_view_ubuntu)
                             <li><a href="{{ route('javascripts.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.UBUTU') }}</div></a></li>
+                            @endif
+                            @if($can_view_mysql)
                             <li><a href="{{ route('vuejs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.MySQL') }}</div></a></li>
+                            @endif
+                            @if($can_view_sqlsever)
                             <li><a href="{{ route('reactjs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.SQLServer') }}</div></a></li>
+                            @endif
+                            @if($can_view_mongo)
                             <li><a href="{{ route('component.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Mongo') }}</div></a></li>
+                            @endif
+                            @if($can_view_mysqlworkbench)
                             <li><a href="{{ route('colors.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.MySqlWorkBench') }}</div></a></li>
+                            @endif
                         </ul>
                     </li>
+                    @if($can_view_error)
                     <li><a class="hoverMenu" href="/calendar"><div class="subBoxMenu"><i class="fa-regular fa-calendar"></i> {{ __('messages.Error') }}</div></a></li>
+                    @endif
                 </ul>
             </div>
             <div class="Container">

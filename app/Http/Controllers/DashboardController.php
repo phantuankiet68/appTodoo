@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Validator; 
 use App\Models\Task;
-use App\Models\Vocabulary;
+use App\Models\Setting;
 use App\Models\Component;
 use App\Models\Expense;
 use App\Models\Issue;
@@ -59,19 +59,9 @@ class DashboardController extends Controller
         $sum_component = Component::count();
         $percentage_component = ($sum_component / 200) * 100;
         $subtraction_component = (200 - $sum_component);
-
-        $setting = Setting::where('user_id', Auth::user()->id)->first();
         
         return view('dashboard.index',compact('ideas','user','sum_user','sum_post','percentage_post','subtraction_post','sum_event','percentage_event','subtraction_event','percentage_issue','subtraction_issue','sum_issue','sum_task','sum_japanese','sum_english','sum_component','percentage','subtraction_user','percentage_task','subtraction_task','percentage_japanese','subtraction_japanese','percentage_english','subtraction_english','percentage_component','subtraction_component',));
     }
-
-
-    public function showHomePage()
-    {
-        $setting = Setting::where('user_id', Auth::user()->id)->first();
-        return view('menu', compact('setting'));
-    }
-
 
     public function getMonthlyCosts()
     {

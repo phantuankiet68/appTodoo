@@ -74,6 +74,7 @@ Route::fallback(function () {
     return view('error'); 
 });
 
+
 Route::group(['prefix' => 'en'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home.index');
 });
