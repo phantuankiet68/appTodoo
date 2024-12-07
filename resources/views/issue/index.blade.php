@@ -5,12 +5,9 @@
 @section('content')
 <div class="todo issueTodo">
     <div class="todoHeader topHeaderTodo">
-        <div class="topHeader">
-            <span>{{ __('messages.Issue') }}</span>
-        </div>
         <div class="bodyHeader formSearchIssue">
             <form action="{{ route('issue.index') }}" method="GET" id="filterForm" class="formSearch formIssue">
-                <div class="Users--right--btns">
+                <div class="Users--right--btns formInputSearch">
                     <select name="category_id" id="category" class="select-dropdown doctor--filter" onchange="updateFilters();">
                         <option value="All" {{ request('category_id') == 'All' ? 'selected' : '' }}>{{ __('messages.All') }}</option>
                         @foreach($categories as $cat)
@@ -33,13 +30,13 @@
             <form action="{{ route('issue.index') }}" method="GET" class="formSearch formIssue">
                 <div class="formInputSearch">
                     <input type="text" name="search" placeholder="{{ __('messages.Search by subject, key, description...') }}" value="{{ request('search') }}">
+                    <button type="submit" class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-                <button type="submit" class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
         <div class="footerHeader">
             <button class="btn-show" id="openStaskIssue" onclick="openCategoryIssue()">{{ __('messages.Show Category') }}</button>
-            <button class="btn-add" id="openStaskIssue" onclick="openStaskIssue()">{{ __('messages.Add New') }}</button>
+            <button class="btn-add" id="openStaskIssue" onclick="openStaskIssue()"><i class="fa-solid fa-plus"></i> {{ __('messages.Add New') }}</button>
         </div>
     </div>
     <div class="containerPage">
@@ -131,7 +128,7 @@
             <div class="projectTodoNotify">
                 <div class="projectTodoNotifyHeader">
                     <h3>{{ __('messages.Category') }}</h3>
-                    <button class="btnCategory" onclick="CreateCategoryForm()">{{ __('messages.Add New') }}</button>
+                    <button class="btnCategory" onclick="CreateCategoryForm()"><i class="fa-solid fa-plus"></i> {{ __('messages.Add New') }}</button>
                 </div>
                 <div class="body-category-todo">
                 <div class="recent--patient">
@@ -314,7 +311,7 @@
             
                 <div class="form-group-info">
                     <div class="form-input-category">
-                        <label for="key">{{ __('messages.Key') }}</label>
+                        <label for="key" class="labelKey">{{ __('messages.Key') }}</label>
                         <input type="text" class="input-key" id="key_issue" name="key">
                         <button type="button" class="btnGenerate" onclick="generateButton()">Generate</button>
                     </div>

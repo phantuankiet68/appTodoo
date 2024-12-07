@@ -37,7 +37,7 @@ class TaskController extends Controller
             }
     
             // Paginate the results
-            $tasks = $taskQuery->paginate(10);
+            $tasks = $taskQuery->paginate(8);
     
             return view('task.index', compact('tasks', 'search'));
     

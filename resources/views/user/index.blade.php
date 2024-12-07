@@ -24,15 +24,14 @@
                     </select>
                 </div>
             </form>
+        </div>
+        <div class="headerToQuesionRight">
             <form action="" class="formSearch">
                 <div class="formInputSearch">
                     <input type="text" value="">
                 </div>
                 <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
-        </div>
-        <div class="headerToQuesionRight">
-            <button type="button" class="create" onclick="CreateColorForm()"><i class="fa-solid fa-plus"></i> Tạo mới</button>
         </div>
     </div>
     <div class="component-container UserContainer">
@@ -83,7 +82,8 @@
 
 <script>
     function updateRoles(id) {
-        window.location.href = "{{ route('settings.index', ['itemId' => $item->id]) }}";
+        const url = "{{ route('settings.index', ['itemId' => ':id']) }}".replace(':id', id);
+        window.location.href = url;
     }
 </script>
 @endsection

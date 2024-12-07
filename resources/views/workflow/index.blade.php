@@ -4,12 +4,19 @@
 
 @section('content')
 <div class="todo">
-    <div class="projecTodoBody">
+    <div class="workflow">
         <div class="projectCol-8">
             <div class="board">                      
                 <div class="lanes">
                     <div class="swim-lane" id="todo-lane">
-                        <h3 class="heading">Open</h3> 
+                        <div class="heading-lane">
+                            <div class="heading-lane-title">
+                                <span><i class="fa-solid fa-circle"></i></span>
+                                <p class="heading">Open</p>
+                                <button class="total-open">150</button>
+                            </div>
+                            <p><i class="fa-solid fa-plus"></i></p> 
+                        </div>
                         @foreach ($workflows as $item)
                             @if ($item->status === 'open')
                                 <div class="task" draggable="true" data-id="{{ $item->id }}">
@@ -19,8 +26,7 @@
                                             <i class="fa-regular fa-eye"></i>
                                         </div>
                                     </div>
-                                    <div class="text-description">{!! $item->description !!}</div>
-                                    <div class=" mt-10">
+                                    <div class="title-footer-wrap">
                                         <p>{{ __('messages.Date Created') }}: {{ $item->current_start }}</p>
                                         <p>{{ __('messages.Create by') }}: {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
                                     </div>
@@ -36,7 +42,14 @@
                     </div>
             
                     <div class="swim-lane">
-                        <h3 class="heading">Doing</h3>
+                        <div class="heading-lane">
+                            <div class="heading-lane-title progress">
+                                <span><i class="fa-solid fa-circle"></i></span>
+                                <p class="heading">In progress</p>
+                                <button class="total-progress">150</button>
+                            </div>
+                            <p><i class="fa-solid fa-plus"></i></p> 
+                        </div>
                         @foreach ($workflows as $item)
                             @if ($item->status === 'doing')
                                 <div class="task" draggable="true" data-id="{{ $item->id }}">
@@ -46,8 +59,7 @@
                                             <i class="fa-regular fa-eye"></i>
                                         </div>
                                     </div>
-                                    <div class="text-description">{!! $item->description !!}</div>
-                                    <div class=" mt-10">
+                                    <div class="title-footer-wrap">
                                         <p>{{ __('messages.Date Created') }}: {{ $item->current_start }}</p>
                                         <p>{{ __('messages.Create by') }}: {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
                                     </div>
@@ -63,7 +75,14 @@
                     </div>
             
                     <div class="swim-lane">
-                        <h3 class="heading">Testing</h3>
+                        <div class="heading-lane">
+                            <div class="heading-lane-title testing">
+                                <span><i class="fa-solid fa-circle"></i></span>
+                                <p class="heading">Testing</p>
+                                <button class="total-testing">150</button>
+                            </div>
+                            <p><i class="fa-solid fa-plus"></i></p> 
+                        </div>
                         @foreach ($workflows as $item)
                             @if ($item->status === 'testing')
                                 <div class="task" draggable="true" data-id="{{ $item->id }}">
@@ -73,8 +92,7 @@
                                             <i class="fa-regular fa-eye"></i>
                                         </div>
                                     </div>
-                                    <div class="text-description">{!! $item->description !!}</div>
-                                    <div class=" mt-10">
+                                    <div class="title-footer-wrap">
                                         <p>{{ __('messages.Date Created') }}: {{ $item->current_start }}</p>
                                         <p>{{ __('messages.Create by') }}: {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
                                     </div>
@@ -89,7 +107,14 @@
                         @endforeach
                     </div>
                     <div class="swim-lane">
-                        <h3 class="heading">Done</h3>
+                        <div class="heading-lane">
+                            <div class="heading-lane-title done">
+                                <span><i class="fa-solid fa-circle"></i></span>
+                                <p class="heading">Done</p>
+                                <button class="total-done">150</button>
+                            </div>
+                            <p><i class="fa-solid fa-plus"></i></p> 
+                        </div>
                         @foreach ($workflows as $item)
                             @if ($item->status === 'done')
                                 <div class="task" draggable="true" data-id="{{ $item->id }}">
@@ -99,8 +124,7 @@
                                             <i class="fa-regular fa-eye"></i>
                                         </div>
                                     </div>
-                                    <div class="text-description">{!! $item->description !!}</div>
-                                    <div class=" mt-10">
+                                    <div class="title-footer-wrap">
                                         <p>{{ __('messages.Date Created') }}: {{ $item->current_start }}</p>
                                         <p>{{ __('messages.Create by') }}: {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
                                     </div>
@@ -176,7 +200,6 @@ tasks.forEach(task => {
 
     task.addEventListener('dragend', () => {
         task.classList.remove('dragging');
-        // Cập nhật trạng thái
         const status = task.closest('.swim-lane').querySelector('.heading').textContent.toLowerCase();
         updateTaskStatus(task.dataset.id, status);
     });
@@ -206,8 +229,6 @@ function updateTaskStatus(taskId, newStatus) {
         return response.json();
     })
     .then(data => {
-        console.log('Success:', data);
-        // Cập nhật lại UI nếu cần
     })
     .catch((error) => {
         console.error('Error:', error);

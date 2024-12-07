@@ -14,11 +14,7 @@ class WorkflowController extends Controller
      */
     public function index()
     {
-        $today = Carbon::today(); 
-
-        $workflows = Task::with('user')
-            ->where('current_start', $today)
-            ->get();
+        $workflows = Task::with('user')->get();
         return view('workflow.index',compact('workflows'));
     }
 

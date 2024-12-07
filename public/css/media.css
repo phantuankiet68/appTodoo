@@ -27,7 +27,7 @@
         height: 235px !important;
     }
     .UserContainer {
-        height: 80vh !important;
+        height: 82vh !important;
     }
     td, th{
         font-size: 13px !important;
@@ -36,7 +36,7 @@
     }
 
     .containerPage {
-        height: 80vh !important;
+        height: 82vh !important;
     }
 
     .select-dropdown {
@@ -46,7 +46,7 @@
         font-size: 12px !important;
     }
     .add-search {
-        padding: 7px 11px !important;
+        padding: 6px 11px !important;
     }
     .todoHeader {
         padding: 8px !important;
@@ -76,6 +76,10 @@
         height: 90vh !important;
         width: 100%;
         background: #ffffff;
+    }
+    .board {
+        width: 100%;
+        height: 90vh;
     }
 }
 

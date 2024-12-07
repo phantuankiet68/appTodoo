@@ -5,19 +5,16 @@
 @section('content')
 <div class="todo">
     <div class="todoHeader topHeaderTodo">
-        <div class="topHeader">
-            <h2>{{ __('messages.Tasks') }}</h2> | <span>{{ __('messages.Home') }}</span>
-        </div>
         <div class="bodyHeader formSearchIssue">
             <form action="{{ route('tasks.index') }}" method="GET" class="formSearch formIssue">
                 <div class="formInputSearch">
                     <input type="text" name="search" placeholder="{{ __('messages.Search by subject, key, description...') }}" value="{{ request('search') }}">
+                    <button type="submit" class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-                <button type="submit" class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
         <div class="footerHeader">
-            <button class="btn-add" onclick="openStask()">{{ __('messages.Add New') }}</button>
+            <button class="btn-add" onclick="openStask()"><i class="fa-solid fa-plus"></i> {{ __('messages.Add New') }}</button>
         </div>
     </div>
     <div class="containerPage">
@@ -62,7 +59,7 @@
                                             value="1" {{ $item->status == 1 ? 'checked' : '' }}>
                                     </td>
                                     <td class="text-center">
-                                        <button class="btn-show" onclick="showTaskPopup({{ $item->id }})"><i class="fa-regular fa-eye"></i></button>
+                                        <button onclick="showTaskPopup({{ $item->id }})"><i class="fa-regular fa-eye"></i></button>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -112,8 +109,9 @@
             @endif
             <div class="form-input-category">
                 <label for="name">{{ __('messages.Name') }}</label>
-                <input type="text" class="input-name" name="name">
+                <input type="text" class="input-name" id="name_validate" name="name">
             </div>
+            <p id="error-message" class="error-message">Bạn chỉ được nhập tối đa 100 từ.</p>
             <div class="form-textarea-category">
                 <label for="description">{{ __('messages.Structural meaning') }}</label>
                 <textarea class="textarea" name="description" id="editor1"></textarea>
@@ -232,7 +230,16 @@ ClassicEditor
   });
 </script>
 <script>
-
+    document.getElementById('name_validate').addEventListener('input', function () {
+        const inputField = this;
+        const errorMessage = document.getElementById('error-message');
+        const wordCount = inputField.value.trim().split(/\s+/).filter(word => word.length > 0).length;
+        if (wordCount > 100) {
+            errorMessage.style.display = 'block';
+        } else {
+            errorMessage.style.display = 'none';
+        }
+    });
     document.addEventListener("DOMContentLoaded", function() {
         var tdElements = document.querySelectorAll('.jus-center .td-1');
         

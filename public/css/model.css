@@ -876,9 +876,8 @@
     justify-content: center;
     padding: 2px 0;
     margin: 0;
-    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-    border-radius: 5px;
-    border: none;
+    border-radius: 0;
+    border: 1px solid #d7d6d6;
     outline: none;
 }
 
@@ -1430,20 +1429,20 @@
 .notification-green{
     width: 5px;
     height: 5px;
-    background-color: #0ac238;
+    background-color: #27f9b3;
 }
 
 .notification-green {
     width: 12px;
     height: 12px;
-    background-color: #0ac238;
+    background-color: #27f9b3;
     border-radius: 50%;
 }
 
 .notification-red{
     width: 12px;
     height: 12px;
-    background-color: #f12f2f;
+    background-color: #fe4333;
     border-radius: 50%;
 }
 .alert-search{
@@ -2344,7 +2343,7 @@ p.space {
 
 .saveChange button{
     width: 100%;
-    padding: 10px 20px;
+    padding:7px 20px;
     background-color: #40c3f7;
     font-size: 15px;
     color: #fff;
@@ -2359,10 +2358,10 @@ p.space {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #dfeeff;
+    background-color: #fbe4c5;
     padding: 2px 5px;
     margin: 0;
-    color: #2099ff;
+    color: #656565;
 }
 
 .learnMore-table{
@@ -4122,13 +4121,14 @@ h1 {
 
 
 #fileUploadButton {
+    width: 100%;
     background-color: #40c3f7;
     color: white;
-    padding: 10px 20px;
+    padding: 8px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 13px;
 }
 
 #fileUploadButton:hover {
@@ -4136,7 +4136,7 @@ h1 {
 }
 
 #fileCount {
-    font-size: 14px;
+    font-size: 13px;
     color: #666;
     margin-top: 10px;
 }
