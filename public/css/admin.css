@@ -1472,3 +1472,10 @@ td{
 .title-footer-wrap p{
     font-size: 13px !important;
 }
+
+.Users--right--btns {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    border: 1px solid #d7d6d6;
+}

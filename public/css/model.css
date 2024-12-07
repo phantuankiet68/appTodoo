@@ -2909,7 +2909,7 @@ i.next {
     width: 100%;
     height: 100%;
     display: flex;
-    gap: 20px
+    gap: 10px
 }
 
 .dashboard-content.dark-mode .infoControllerLeft{
@@ -2927,7 +2927,8 @@ i.next {
     width: 20%;
     border: 1px solid #ebebeb;
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px;
+    background: #fff;
 }
 
 
@@ -2940,8 +2941,8 @@ i.next {
 }
 
 .infoControllerLeft .infoControllerUser .infoControllerUserImage{
-    width: 70%;
-    height: 95%;
+    width: 80%;
+    height: 85%;
 }
 .infoControllerMenu{
     width: 100%;
@@ -2978,13 +2979,11 @@ i.next {
     width: 100%;
     height: 100%;
     border-radius: 50%;
+    border: 8px solid #00e1ff;
 }
 
 .infoControllerRight{
     width: 80%;
-    border: 1px solid #d7d6d6;
-    border-radius: 10px;
-    padding: 10px 0;
 }
 
 
@@ -3197,10 +3196,13 @@ i.material-icons {
 
 .infoControllerRightInfo{
     width: 100%;
-    height: 72%;
+    height: 73.5%;
     padding: 10px;
     overflow: scroll;
     display: flex;
+    background: #ffff;
+    margin-top: 8px;
+    border-radius: 5px;
 }
 
 .infoControllerRightInfoList{
@@ -3268,11 +3270,13 @@ i.material-icons {
 
 .infoControllerRightUser form{
     display: flex;
-    gap:10px;
+    gap: 10px;
     width: 100%;
     padding: 10px;
     justify-content: space-between;
     align-items: center;
+    background: #fff;
+    border-radius: 5px;
 }
 
 .form-item-info form input{

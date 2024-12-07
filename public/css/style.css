@@ -969,11 +969,7 @@ span.circle-white{
 
 
 /* Users */
-.Users--right--btns {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
+
 .add {
     display: flex;
     align-items: center;
@@ -4548,7 +4544,7 @@ list-style: none;
 .headerToQuesionRight button{
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 0;
     cursor: pointer;
     display: block;
 }

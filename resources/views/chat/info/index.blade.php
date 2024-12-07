@@ -54,7 +54,7 @@
                             <input type="text" class="input-name" name="gender" value="{{ $item->gender}}">
                         </div>
                     </div>
-                    <div class="infoControllerRightContentUser col-4">
+                    <div class="infoControllerRightContentUser">
                         <div class="form-input-category">
                             <input type="text" class="input-name" name="link_facebook" value="{{ $item->link_facebook == NULL ? __('messages.Please update the Facebook link') : $item->link_facebook }}">
                         </div>
@@ -71,7 +71,7 @@
                             <input type="text" class="input-name" name="address" value="{{ $item->address }}">
                         </div>
                     </div>
-                    <div class="infoControllerRightContentUser col-4">
+                    <div class="infoControllerRightContentUser">
                         <div class="form-textarea-category">
                             <textarea name="description" class="textarea" placeholder="{{ __('messages.Enter personal introduction...') }}">{{ $item->description }}</textarea>
                         </div>

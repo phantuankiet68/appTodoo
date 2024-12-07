@@ -29,8 +29,8 @@
             <form action="" class="formSearch">
                 <div class="formInputSearch">
                     <input type="text" value="">
+                    <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </div>
     </div>

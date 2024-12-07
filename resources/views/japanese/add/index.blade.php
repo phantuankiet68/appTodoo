@@ -16,8 +16,9 @@
     </div>
     <div class="tab-buttons">
         <button class="tab-btn" onclick="openTabVocadulary(event, 'tab1')">{{ __('messages.Vocabulary') }}</button>
-        <button class="tab-btn" onclick="openTabVocadulary(event, 'tab2')">{{ __('messages.Structure') }}</button>
-        <button class="tab-btn" onclick="openTabVocadulary(event, 'tab3')">{{ __('messages.Question') }}</button>
+        <button class="tab-btn" onclick="openTabVocadulary(event, 'tab2')">{{ __('messages.Vocabulary') }}</button>
+        <button class="tab-btn" onclick="openTabVocadulary(event, 'tab3')">{{ __('messages.Structure') }}</button>
+        <button class="tab-btn" onclick="openTabVocadulary(event, 'tab4')">{{ __('messages.Question') }}</button>
     </div>
         <div id="tab1" class="tab-content">
             <div class="add-col-100">
@@ -124,6 +125,81 @@
                                 <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
                         </div>
+                        <button class="btnCategory" onclick="CreateVocabularyForm()"><i class="fa-solid fa-plus"></i> {{ __('messages.Add New') }}</button>
+                    </div>
+                    <div class="body-category-todo mt-10">
+                        <div class="recent--patient">
+                            <div class="tables">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __('messages.Name') }}</th>
+                                            <th>{{ __('messages.Meaning of word') }}</th>
+                                            <th>{{ __('messages.Romaji') }}</th>
+                                            <th>{{ __('messages.Category') }}</th>
+                                            <th>{{ __('messages.Create at') }}</th>
+                                            <th class="text-center">{{ __('messages.Settings') }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($vocabulary as $voca)
+                                        <tr>
+                                            <td>{{$voca->name}}</td>
+                                            <td>{{$voca->meaning_of_word}}</td>
+                                            <td>{{$voca->romaji}}</td>
+                                            <td>{{ $voca->category ? $voca->category->name : 'Không có danh mục' }}</td>
+                                            <td>{{ $voca->created_at->format('Y-m-d') }}</td>
+                                            <td class="text-center">
+                                                <a href="#" onclick="showEditVocabularyPopup({{ $voca->id }})">
+                                                    <i class="fa-regular fa-pen-to-square edit"></i>
+                                                </a>
+                                                <a href="#" onclick="showDeletePopup({{ $voca->id }})">
+                                                    <i class="fa-solid fa-trash delete"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                <div class="d-flex justify-content-center link-margin">
+                                    {{ $vocabulary->links('') }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="tab3" class="tab-content">
+            <div class="add-col-100">
+                <div class="projectTodoNotify">
+                    <div class="projectTodoNotifyHeader">
+                        <div class="bodyHeader">
+                            <form action="">
+                                <div class="Users--right--btns">
+                                    <select name="date" id="date" class="select-dropdown doctor--filter">
+                                        <option>Date of Month</option>
+                                        <option value="free">Admin</option>
+                                        <option value="scheduled">Users</option>
+                                    </select>
+                                </div>
+                            </form>
+                            <form action="">
+                                <div class="Users--right--btns">
+                                    <select name="date" id="date" class="select-dropdown doctor--filter">
+                                        <option>Category</option>
+                                        <option value="free">Admin</option>
+                                        <option value="scheduled">Users</option>
+                                    </select>
+                                </div>
+                            </form>
+                            <form action="" class="formSearch">
+                                <div class="formInputSearch">
+                                    <input type="text" value="">
+                                </div>
+                                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </form>
+                        </div>
                         <button class="btnCategory" onclick="CreateStructureForm()"><i class="fa-solid fa-plus"></i> {{ __('messages.Add New') }}</button>
                     </div>
                     <div class="body-category-todo mt-10">
@@ -181,15 +257,15 @@
                 </div>
             </div>
         </div>
-        <div id="tab3" class="tab-content">
+        <div id="tab4" class="tab-content">
             <div class="add-col-100">
                 <div class="projectTodoNotify">
                     <div class="projectTodoNotifyHeader">
                         <form action="" class="formSearch">
                             <div class="formInputSearch">
                                 <input type="text" value="">
+                                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
-                            <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                         <button class="btnCategory" onclick="CreateQuizItemForm()"><i class="fa-solid fa-plus"></i> {{ __('messages.Add New') }}</button>
                     </div>

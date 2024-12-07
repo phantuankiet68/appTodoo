@@ -46,7 +46,7 @@
                         </li>
                     @endif
                     @if($can_view_cv)
-                    <li><a class="hoverMenu" href="{{ route('cv.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-file"></i> {{ __('messages.Curriculum Vitae') }}</div></a></li>
+                    <li><a class="hoverMenu" href="{{ route('info.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-file"></i> {{ __('messages.Information') }}</div></a></li>
                     @endif
                     @if($can_view_calendar)
                     <li><a class="hoverMenu" href="/calendar"><div class="subBoxMenu"><i class="fa-regular fa-calendar"></i> {{ __('messages.Calendar') }}</div></a></li>
