@@ -16,14 +16,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5DY3K5JFM4"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-5DY3K5JFM4');
-    </script>
     </head>
 <body>
     @php
@@ -113,7 +105,9 @@
             <div class="patern-layer-two"></div>
             <div class="slidershow middle">
                 <div class="slides">
-                    <div class="slide s1"></div>
+                    <div class="slide s1">
+                        <img src="{{ asset('assets/images/banner.png') }}" alt="">
+                    </div>
                 </div>
             </div>
             <div class="patern-layer-content">
@@ -145,69 +139,63 @@
     </section>
     <section class="path-app" id="path-app">
         <div class="path-container">
-            <div class="path-list-card">
-                <div class="path-card">
-                    <div class="path-card-box">
-                        <div class="path-card-content">
-                            <div class="path-icon">
-                                <h2>01</h2>
-                            </div>
-                            <h3>{{ __('messages.Online Programs') }}</h3>
-                            <p>{{ __('messages.Features of Online Programs:') }}<br/>
-                                {{ __('messages.Flexible, affordable, and rich in content with structured learning paths. Ideal for professionals, students, and those exploring new fields.') }}
-                            </p>
-                            <div class="btn-register">
-                                <button onclick="Register();"> {{ __('messages.Register') }}</button>
-                            </div>
-                        </div>
+            <div class="path-card-item">
+                <div class="card-item-box">
+                    <h3>{{ __('messages.Online Programs') }}</h3>
+                    <img class="card-item-img" src="{{ asset('assets/images/anh-card-1.png') }}" alt="">
+                </div>
+                <div class="card-item-content">
+                    <h3>{{ __('messages.Online Programs') }}</h3>
+                    <p>{{ __('messages.Features of Online Programs:') }}<br/>
+                        {{ __('messages.Flexible, affordable, and rich in content with structured learning paths. Ideal for professionals, students, and those exploring new fields.') }}
+                    </p>
+                    <div class="btn-register">
+                        <button onclick="Register();"> {{ __('messages.Register') }}</button>
                     </div>
                 </div>
-                <div class="path-card">
-                    <div class="path-card-box">
-                        <div class="path-card-content">
-                            <div class="path-icon">
-                                <h2>02</h2>
-                            </div>
-                            <h3>{{ __('messages.Coding Programs') }}</h3>
-                            <p>{{ __('messages.Features of Coding Programs:') }}<br/>
-                                {{ __('messages.Learn basic programming, practice hands-on, and build a portfolio. Suitable for professionals, students, and those enhancing coding skills.') }}
-                            </p>
-                            <div class="btn-register">
-                                <button onclick="Register();"> {{ __('messages.Register') }}</button>
-                            </div>
-                        </div>
+            </div>
+            <div class="path-card-item">
+                <div class="card-item-box">
+                    <h3>{{ __('messages.Coding Programs') }}</h3>
+                    <img class="card-item-img" src="{{ asset('assets/images/anh-card-1.png') }}" alt="">
+                </div>
+                <div class="card-item-content">
+                    <h3>{{ __('messages.Coding Programs') }}</h3>
+                    <p>{{ __('messages.Features of Coding Programs:') }}<br/>
+                        {{ __('messages.Learn basic programming, practice hands-on, and build a portfolio. Suitable for professionals, students, and those enhancing coding skills.') }}
+                    </p>
+                    <div class="btn-register">
+                        <button onclick="Register();"> {{ __('messages.Register') }}</button>
                     </div>
                 </div>
-                <div class="path-card">
-                    <div class="path-card-box">
-                        <div class="path-card-content">
-                            <div class="path-icon">
-                                <h2>03</h2>
-                            </div>
-                            <h3>{{ __('messages.English Programs') }}</h3>
-                            <p>{{ __('messages.Features of English Programs:') }}<br/>
-                                {{ __('messages.Improve listening, speaking, reading, and writing with content for all levels. Perfect for students, professionals, and those seeking global communication.') }}
-                            </p>
-                            <div class="btn-register">
-                                <button onclick="Register();"> {{ __('messages.Register') }}</button>
-                            </div>
-                        </div>
+            </div>
+            <div class="path-card-item">
+                <div class="card-item-box">
+                    <h3>{{ __('messages.English Programs') }}</h3>
+                    <img class="card-item-img" src="{{ asset('assets/images/anh-card-1.png') }}" alt="">
+                </div>
+                <div class="card-item-content">
+                    <h3>{{ __('messages.English Programs') }}</h3>
+                    <p>{{ __('messages.Features of English Programs:') }}<br/>
+                        {{ __('messages.Improve listening, speaking, reading, and writing with content for all levels. Perfect for students, professionals, and those seeking global communication.') }}
+                    </p>
+                    <div class="btn-register">
+                        <button onclick="Register();"> {{ __('messages.Register') }}</button>
                     </div>
                 </div>
-                <div class="path-card">
-                    <div class="path-card-box">
-                        <div class="path-card-content">
-                            <div class="path-icon">
-                                <h2>04</h2>
-                            </div>
-                            <h3>{{ __('messages.Japanese Programs') }}</h3>
-                            <p>{{ __('messages.Features of Japanese Programs:') }}<br/>
-                                {{ __('messages.Learn Japanese from basics, focusing on grammar, communication. Ideal for professionals, students, and those aiming to work or study in Japan.') }}
-                            </p>
-                            <div class="btn-register">
-                                <button onclick="Register();"> {{ __('messages.Register') }}</button>
-                            </div>
-                        </div>
+            </div>
+            <div class="path-card-item">
+                <div class="card-item-box">
+                    <h3>{{ __('messages.Japanese Programs') }}</h3>
+                    <img class="card-item-img" src="{{ asset('assets/images/anh-card-1.png') }}" alt="">
+                </div>
+                <div class="card-item-content">
+                    <h3>{{ __('messages.Japanese Programs') }}</h3>
+                    <p>{{ __('messages.Features of Japanese Programs:') }}<br/>
+                        {{ __('messages.Learn Japanese from basics, focusing on grammar, communication. Ideal for professionals, students, and those aiming to work or study in Japan.') }}
+                    </p>
+                    <div class="btn-register">
+                        <button onclick="Register();"> {{ __('messages.Register') }}</button>
                     </div>
                 </div>
             </div>
@@ -219,9 +207,9 @@
             <h2>{{ __('messages.About Us') }}</h2>
             <span class="title-right"></span>
         </div>
-        <p class="section-desc">
-            {{ __('messages.Unlock all the amazing new features with our software') }}
-        </p>
+        <div class="title-desc">
+            <p class="section-desc">{{ __('messages.Unlock Now') }}</p>
+        </div>
         <div class="row">
           <div class="column">
             <img src="{{asset('assets/images/download-app.png')}}" />
@@ -254,26 +242,18 @@
                     {{ __('messages.Downloading lectures lets you access learning materials anytime, anywhere, even without an internet connection. This feature offers flexibility, making it easier to study programming, English, and Japanese effectively.') }}
                 </p>
             </div>
-            <div class="download-btns">
-              <a href="#google-play">
-                <img src="{{asset('assets/images/google-play.png')}}" />
-              </a>
-              <a href="#app-store">
-                <img src="{{asset('assets/images/app-store.png')}}" />
-              </a>
-            </div>
           </div>
         </div>
     </section>
-    <section class="features" id="features">
+    <section class="path-app" id="features">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.New Features') }}</h2>
             <span class="title-right"></span>
         </div>
-        <p class="section-desc">
-            {{ __('messages.Unlock all the amazing new features with our software') }}
-        </p>
+        <div class="title-desc">
+            <p class="section-desc">{{ __('messages.Experience Now') }}</p>
+        </div>
         <div class="row-services">
             <div class="service">
                 <div class="services">
@@ -382,58 +362,7 @@
         </div>
       </div>
     </section>
-    <section class="courses" id="courses">
-        <div class="title-home">
-            <span class="title-left"></span>
-            <h2>{{ __('messages.New Courses') }}</h2>
-            <span class="title-right"></span>
-        </div>
-        <p class="section-desc">
-            {{ __('messages.With a variety of diverse and exciting courses to choose from, explore our most popular ones.') }}
-        </p>
-        <div class="row">
-            <div class="column">
-            <img src="{{asset('assets/images/public.jpg')}}" />
-            <h3>{{ __('messages.English Learning Program') }}</h3>
-            <p>
-                {{ __('messages.Do you want to read English documents fluently and write emails and essays professionally?') }}<br/>
-                {{ __('messages.Understand academic materials deeply and quickly.') }}<br/>
-                {{ __('messages.Practical exercises, detailed error corrections, step by step.') }}<br/>
-                {{ __('messages.Suitable for all levels, from beginners to advanced.') }}
-            </p>
-            <div class="courses-btn">
-                <button class="btn secondary-btn">{{ __('messages.Join Now') }}</button>
-            </div>
-            </div>
-            <div class="column">
-            <img src="{{asset('assets/images/photography.jpg')}}" />
-            <h3>{{ __('messages.Japanese Learning Program') }}</h3>
-            <p>
-                {{ __('messages.Do you want to read Japanese documents fluently and write emails and essays professionally?') }}<br/>
-                {{ __('messages.Understand academic materials deeply and quickly.') }}<br/>
-                {{ __('messages.Practical exercises, detailed error corrections, step by step.') }}<br/>
-                {{ __('messages.Suitable for all levels, from beginners to advanced.') }}
-            </p>
-            <div class="courses-btn">
-                <button class="btn secondary-btn">{{ __('messages.Join Now') }}</button>
-            </div>
-            </div>
-            <div class="column">
-            <img src="{{asset('assets/images/typing.jpg')}}" />
-            <h3>{{ __('messages.Programming Learning Program') }}</h3>
-            <p>
-                {{ __('messages.Do you want to read programming documents fluently and write code professionally?') }}<br/>
-                {{ __('messages.Understand academic materials deeply and quickly.') }}<br/>
-                {{ __('messages.Practical exercises, detailed error corrections, step by step.') }}<br/>
-                {{ __('messages.Suitable for all levels, from beginners to advanced.') }}
-            </p>
-            <div class="courses-btn">
-                <button class="btn secondary-btn">{{ __('messages.Join Now') }}</button>
-            </div>
-            </div>
-        </div>
-    </section>
-    <section class="testimonial" id="testimonial">
+    <section class="path-app" id="testimonial">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.UP Members') }}</h2>
@@ -588,7 +517,7 @@
             </div>
         </div>
     </section>
-    <section class="courses" id="courses">
+    <section class="path-app" id="courses">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.New Product') }}</h2>
@@ -815,7 +744,7 @@
             </div>
         </div>
     </section>
-    <section class="courses" id="courses">
+    <section class="path-app" id="courses">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.Contact Us Now') }}</h2>
@@ -966,11 +895,6 @@
                 </div>
                 <div class="form-btn">
                     <button type="submit">Đăng nhập</button>
-                </div>
-                <div class="media-options">
-                    <a href="#" class="field google">
-                      <span>Login with Google</span>
-                    </a>
                 </div>
                 <div class="BtnCloseCreate" onclick="closeCreateLogin()">
                     <p>X</p>

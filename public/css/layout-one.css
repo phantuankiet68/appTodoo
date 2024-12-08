@@ -49,6 +49,8 @@ html {
 body{
     background-color: #fff;
     height: auto;
+    background: url(../assets/images/banner.png) no-repeat center center;
+    background-attachment: fixed;
 }
 
 .page-left-item{
@@ -307,13 +309,40 @@ footer {
 .column {
     width: 100%;
 }
-.section-desc {
+
+.title-desc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title-desc p{
+    position: relative;
     text-align: center;
     margin: 0 0 3rem 0;
     font-size: 18px;
     text-transform: uppercase;
-    color: #676a8b;
+    color: #ff2929;
     padding: 0 10px;
+}
+
+.title-desc p::before {
+    content: '';
+    position: absolute;
+    top: 46%;
+    left: -45%;
+    width: 45%;
+    height: 3px;
+    background-color: #ff2929;
+}
+
+.title-desc p::after {
+    content: '';
+    position: absolute;
+    top: 46%;
+    right: -45%;
+    width: 45%;
+    height: 3px;
+    background-color: #ff2929;
 }
 
 .section-desc-spacebetween{
@@ -368,10 +397,9 @@ h1 {
 }
 .title-home h2 {
     font-size: 40px;
-    color: #2c2c2c;
+    color: #07b3dd;
     font-weight: 900;
     text-align: center;
-    text-transform: uppercase;
     font-family: "Quicksand", sans-serif;
 }
 
@@ -786,10 +814,10 @@ footer p {
     width: 100%;
     height: auto;
     min-height: 410px;
-    background-color: #fff;
     padding: 8px;
     border-radius: 10px;
     position: relative;
+    border: 10px solid #fff;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     z-index: 2;
 }
@@ -1766,8 +1794,8 @@ a.google span {
 
 .form-input-category i{
     position: absolute;
-    right: 35px;
-    top: 48%;
+    right: 30px;
+    top: 55%;
     font-size: 18px;
     z-index: 2;
     cursor: pointer;
@@ -1817,6 +1845,7 @@ a.google span {
     justify-content: center;
     align-items: center;
     z-index: 2;
+    gap: 20px;
 }
 
 .path-list-card{
@@ -1870,21 +1899,73 @@ a.google span {
     align-items: center;
     border-radius: 50%;
 }
-.path-app{
-    background: #FFF5E1;
+
+.path-card-item{
+    width: 24%;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 8px solid #fff;
+    position: relative;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+
 }
-.path-card-content h3{
-    color: #0a0a0a;
+
+.card-item-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.card-item-content{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: -100%;
+    position: absolute;
+    background-color: #1f3d4738;
+    backdrop-filter: blur(5px);
+    transition: 2s;
+}
+.card-item-box{
+    position: absolute;
+    top: 0%;
+    left: 16%;
+}
+.card-item-box .card-item-img{
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-item-box h3 {
+    color: #122e61;
+    margin: 0;
+    text-align: center;
+    font-size: 21px;
+    font-family: "Quicksand", sans-serif;
+    margin-top: 25px;
+    margin-left: -54px;
+}
+.path-card-item:hover .card-item-content{
+    right: 0;
+}
+
+.card-item-content h3{
+    color: #fff;
     margin: 0;
     text-align: center;
     font-size: 22px;
     font-family: "Quicksand", sans-serif;
+    margin-top: 25px;
 }
 
-.path-card-content p{
+.card-item-content p{
     padding: 10px;
     text-align: justify;
     font-size: 15px;
+    color: #fff;
 }
 
 .btn-register{
@@ -2274,8 +2355,8 @@ blockquote .author {
     height: 100%;
     top: 0;
     left: 0;
-    z-index: -1;
-    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+    background-color: rgb(0 0 0 / 19%);
 }
 
 /* Tùy chỉnh thẻ li trong menu */
@@ -2470,7 +2551,7 @@ blockquote .author {
 @media only screen and (max-width: 1920px) {
     .slidershow {
         width: 100%;
-        height: 53vh;
+        height: 64vh;
         overflow: hidden;
     }
     .path-container {
