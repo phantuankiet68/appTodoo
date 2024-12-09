@@ -17,13 +17,14 @@
             <div class="infoControllerMenu">
                 <div class="infoControllerMenuList">
                     <button onclick="showContent('item1', this)" id="menu-item1"><i class="fa-solid fa-id-badge"></i> Personal Information</button>
-                    <button onclick="showContent('item2', this)" id="menu-item2"><i class="fa-solid fa-message"></i> Messages</button>
-                    <button onclick="showContent('item3', this)" id="menu-item3"><i class="fa-solid fa-pen-to-square"></i> Posts</button>
-                    <button onclick="showContent('item4', this)" id="menu-item4"><i class="fa-solid fa-user-group"></i> Friends</button>
-                    <button onclick="showContent('item5', this)" id="menu-item5"><i class="fa-solid fa-key"></i> Change Password</button>
-                    <button onclick="showContent('item6', this)" id="menu-item6"><i class="fa-solid fa-link"></i> Important Links</button>
-                    <button onclick="showContent('item7', this)" id="menu-item7"><i class="fa-solid fa-note-sticky"></i> Note</button>
-                    <button onclick="showContent('item8', this)" id="menu-item8"><i class="fa-solid fa-file-lines"></i> CV</button>
+                    <button onclick="showContent('item2', this)" id="menu-item2"><i class="fa-solid fa-message"></i> {{ __('messages.Calendar') }}</button>
+                    <button onclick="showContent('item3', this)" id="menu-item2"><i class="fa-solid fa-message"></i> Messages</button>
+                    <button onclick="showContent('item4', this)" id="menu-item3"><i class="fa-solid fa-pen-to-square"></i> Posts</button>
+                    <button onclick="showContent('item5', this)" id="menu-item4"><i class="fa-solid fa-user-group"></i> Friends</button>
+                    <button onclick="showContent('item6', this)" id="menu-item5"><i class="fa-solid fa-key"></i> Change Password</button>
+                    <button onclick="showContent('item7', this)" id="menu-item6"><i class="fa-solid fa-link"></i> Important Links</button>
+                    <button onclick="showContent('item8', this)" id="menu-item7"><i class="fa-solid fa-note-sticky"></i> Note</button>
+                    <button onclick="showContent('item9', this)" id="menu-item8"><i class="fa-solid fa-file-lines"></i> CV</button>
                 </div>
             </div>
         </div>
@@ -296,8 +297,10 @@
                 </div>
             </div>
         </div>
-
         <div class="infoControllerRight" id="item2" style="display:none">
+            <div id="calendar"></div>
+        </div>
+        <div class="infoControllerRight" id="item3" style="display:none">
             <div class="chat-container-one">
                 <div class="contact-list">
                     <form action="{{ route('friend.send') }}" method="POST">
@@ -375,7 +378,7 @@
                 </div>
             </div>
         </div>
-        <div class="infoControllerRight" id="item3" style="display:none">
+        <div class="infoControllerRight" id="item4" style="display:none">
             @foreach($posts as $item)
             <div class="post-info">
                 <div class="chat-center">
@@ -469,7 +472,7 @@
             </div>
         </div>
 
-        <div class="infoControllerRight" id="item4" style="display:none">
+        <div class="infoControllerRight" id="item5" style="display:none">
             <div class="friends_container">
                 <input type="text" id="searchInput" placeholder="Search friends..." onkeyup="filterFriends()">
                 <ul id="friendsList">
@@ -505,7 +508,7 @@
             </div>
         </div>
 
-        <div class="infoControllerRight" id="item5" style="display:none">
+        <div class="infoControllerRight" id="item6" style="display:none">
             <div class="resset-password">
                 <div class="login-container">
                     <div class="form-box">
@@ -531,7 +534,7 @@
             </div>
         </div>
 
-        <div class="infoControllerRight" id="item6" style="display:none">
+        <div class="infoControllerRight" id="item7" style="display:none">
             <div class="taskeu-container">
                 <div class="todo-container">
                     <h1>Link List</h1>
@@ -554,7 +557,7 @@
                 </div>
             </div>
         </div>
-        <div class="infoControllerRight" id="item7" style="display:none">
+        <div class="infoControllerRight" id="item8" style="display:none">
             <div class="taskeu-container">
                 <div class="todo-container">
                     <h1>Note List</h1>
@@ -577,7 +580,7 @@
                 </div>
             </div>
         </div>
-        <div class="infoControllerRight" id="item8" style="display:none">
+        <div class="infoControllerRight" id="item9" style="display:none">
            
         </div>
     </div>
@@ -1036,4 +1039,5 @@ function initDropEffect(box){
 }
 
 </script>
+@vite('resources/js/app.js')
 @endsection

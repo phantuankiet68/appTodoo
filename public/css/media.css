@@ -81,6 +81,30 @@
         width: 100%;
         height: 90vh;
     }
+    .infoControllerRightInfo {
+        width: 100%;
+        height: 68% !important;
+    }
+    .infoControllerMenu .infoControllerMenuList button {
+        padding: 9px 25px !important;
+        font-size: 13px !important;
+        border: 1px solid #d7d6d6 !important;
+    }
+    .chat-container-one {
+        height: 89.5vh !important;
+    }
+    .chat-container-one .contact-list {
+        width: 30% !important;
+        background: #fff !important;
+    }
+    .post-info {
+        height: 90vh !important;
+        overflow: unset ;
+    }
+    .chat-center{
+        height: 100% !important;
+        overflow: scroll !important;
+    }
 }
 
 @media screen and (max-width: 1504px){
