@@ -47,10 +47,9 @@ html {
 
 
 body{
-    background-color: #fff;
+    background-color: #081b29;
     height: auto;
-    background: url(../assets/images/banner.png) no-repeat center center;
-    background-attachment: fixed;
+    
 }
 
 .page-left-item{
@@ -60,16 +59,31 @@ body{
 .banner{
     position: relative;
     overflow: hidden;
+    height: 66vh;
 }  
 
 
-.slidershow{
+
+.banner-website{
     width: 100%;
-    height: 68vh;
-    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.banner-content{
+    width: 50%;
+    height: 100%;
+}
+.banner-image{
+    width: 50%;
+    height: 100%;
+}
 
+.banner-image img{
+    width: 88%;
+    margin-top: 116px;
+}
 .slides{
     width: 500%;
     height: 100%;
@@ -138,10 +152,6 @@ body{
 
 .patern-layer-content{
     color: #fff;
-    position: absolute;
-    top: 1px;
-    left: 0;
-    width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -607,7 +617,7 @@ section.hero {
 }
 
 .courses{
-    height: 110vh;
+    height: 95vh;
     width: 100%;
 }
 
@@ -690,13 +700,14 @@ section.hero {
 .download-app .column:nth-child(1) {
     display: flex;
     justify-content: center;
+    margin-top: -58px;
 }
 .download-app .column:nth-child(2) {
     padding: 0 2rem;
 }
 .download-app img {
     display: block;
-    width: 45%;
+    width: 90%;
 }
 .app-feature {
     border-bottom: 1.5px dashed rgba(var(--grad-color-1), 0.4);
@@ -800,7 +811,7 @@ footer p {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 30px 20px;
+    gap: 20px 10px;
     padding: 20px 0px;
 }
 
@@ -808,12 +819,12 @@ footer p {
 
 .service{
     position: relative;
-    width: 23.5%;
+    width: 24%;
 }
 .services{
     width: 100%;
     height: auto;
-    min-height: 410px;
+    min-height: 430px;
     padding: 8px;
     border-radius: 10px;
     position: relative;
@@ -880,23 +891,23 @@ footer p {
 
 .services h4::after{
     position: absolute;
-    content:"";
+    content: "";
     width: 40px;
-    height: 30px;
+    height: 35px;
     background: linear-gradient(to right, #fff, #007bff);
-    right: -5px;
-    top: 3px;
-    z-index: 1;
+    right: -4px;
+    top: -4px;
+    z-index: -1;
 }
 .services h4::before{
     position: absolute;
     content: "";
     width: 40px;
-    height: 30px;
+    height: 37px;
     background: linear-gradient(to right, #fff, #007bff);
-    left: -6px;
-    top: 3px;
-    z-index: 1;
+    left: -9px;
+    top: 4px;
+    z-index: -1;
 }
 
 .service:hover .services{
@@ -987,7 +998,7 @@ textarea{
 
 .card-home .card-home-item {
     color: #fff;
-    background: #ffffff;
+    border: 10px solid #fff;
     width: 400px;
     display: flex;
     align-items: center;
@@ -1036,8 +1047,8 @@ textarea{
 }
 
 .card-home .card-home-item .message-btn{
-    font-size: 1.6rem;
-    padding: 10px 25px;
+    font-size: 1.5rem;
+    padding: 6px 15px;
     color: #030728;
     border-radius: 6px;
     font-weight: 500;
@@ -1049,7 +1060,7 @@ textarea{
 .card-home .card-home-item .message-btn:hover{
     background-color: rgba(255, 255, 255, 0.2);
     border: 1px solid #fff;
-    color: #fff;
+    color: #0a68d3;
 }
 
  .table-wrapper {

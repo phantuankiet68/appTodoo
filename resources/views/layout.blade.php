@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UpSkillHub.vn </title>
+    <title>"TriSkill" tượng trưng cho ba kỹ năng: Lập trình, tiếng Anh và tiếng Nhật.</title>
     <!-- <link rel="stylesheet" href="{{ asset('css/layout.css') }}"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
@@ -100,39 +100,37 @@
     </header>
     <section class="hero" id="home">
         <div class="page-left-item banner">
-            <div id="particles-js"></div>
-            <div class="patern-layer-one"></div>
-            <div class="patern-layer-two"></div>
-            <div class="slidershow middle">
-                <div class="slides">
-                    <div class="slide s1">
-                        <img src="{{ asset('assets/images/banner.png') }}" alt="">
+            <div class="banner-website">
+                <div id="particles-js"></div>
+                <div class="banner-content">
+                    <div class="patern-layer-content">
+                        <div class="patern-layer-UpSkillHub">
+                            <h1>Triskill</h1>
+                            <div class="wavy">
+                                <span style="--i:1;">W</span>
+                                <span style="--i:2;">E</span>
+                                <span style="--i:3;">B</span>
+                                <span style="--i:4;">S</span>
+                                <span style="--i:5;">I</span>
+                                <span style="--i:6;">T</span>
+                                <span style="--i:7;">E</span>
+                                <span style="--i:8;">D</span>
+                                <span style="--i:9;">E</span>
+                                <span style="--i:10;">V</span>
+                                <span style="--i:11;">E</span>
+                                <span style="--i:12;">L</span>
+                                <span style="--i:13;">O</span>
+                                <span style="--i:14;">P</span>
+                            </div>
+                            <div class="btn-more-here">
+                                <a href="#About" class="btn-more">{{ __('messages.More here') }}</a>
+                                <a href="/dashboard" class="btn-dashboard">{{ __('messages.Dashboard') }}</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="patern-layer-content">
-                <div class="patern-layer-UpSkillHub">
-                    <h1>UpSkillHub</h1>
-                    <div class="wavy">
-                        <span style="--i:1;">W</span>
-                        <span style="--i:2;">E</span>
-                        <span style="--i:3;">B</span>
-                        <span style="--i:4;">S</span>
-                        <span style="--i:5;">I</span>
-                        <span style="--i:6;">T</span>
-                        <span style="--i:7;">E</span>
-                        <span style="--i:8;">D</span>
-                        <span style="--i:9;">E</span>
-                        <span style="--i:10;">V</span>
-                        <span style="--i:11;">E</span>
-                        <span style="--i:12;">L</span>
-                        <span style="--i:13;">O</span>
-                        <span style="--i:14;">P</span>
-                    </div>
-                    <div class="btn-more-here">
-                        <a href="#About" class="btn-more">{{ __('messages.More here') }}</a>
-                        <a href="/dashboard" class="btn-dashboard">{{ __('messages.Dashboard') }}</a>
-                    </div>
+                <div class="banner-image">
+                    <img src="{{ asset('assets/images/about-banner1.png') }}" alt="">
                 </div>
             </div>
         </div>
@@ -212,7 +210,7 @@
         </div>
         <div class="row">
           <div class="column">
-            <img src="{{asset('assets/images/download-app.png')}}" />
+            <img src="{{asset('assets/images/about-pro.png')}}" />
           </div>
           <div class="column">
             <div class="app-feature">
@@ -368,9 +366,9 @@
             <h2>{{ __('messages.UP Members') }}</h2>
             <span class="title-right"></span>
         </div>
-        <p class="section-desc">
-            {{ __('messages.Currently, the team has 5 members and over 1 year of practical working experience.') }}
-        </p>
+        <div class="title-desc">
+            <p class="section-desc">{{ __('messages.Unlock Now') }}</p>
+        </div>
         <div class="slider-container swiper">
             <div class="slider-home">
                 <div class="card-home swiper-wrapper">
@@ -378,72 +376,34 @@
                         <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
                         <h2 class="user-name">Phan Tuấn Kiệt</h2>
                         <p class="user-profession">Software Developer</p>
-                        <p class="user-content">
-                            Đã tốt nghiệp đại học Công nghệ.<br/>
-                            Đã có hơn 1 năm Kinh nghiệm làm việc thực tế tại công ty nước ngoài. <br/>
-                            Đã và Đang làm việc tại công ty nhật.<br/>
-                            Đã có bằng tiếng nhật tương đương N3 và đang cải thiện trình độ tiếng anh.
-                            Đang tìm kiếm việc làm Remote.
-                        </p>
                         <button class="message-btn">Liên hệ ngay</button>
                     </div>
                     <div class="card-home-item swiper-slide">
                         <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
                         <h2 class="user-name">Nguyễn Trung Nghĩa</h2>
                         <p class="user-profession">Software Developer</p>
-                        <p class="user-content">
-                            Đã tốt nghiệp đại học Công nghệ.<br/>
-                            Đã có hơn 1 năm Kinh nghiệm làm việc thực tế tại công ty nước ngoài. <br/>
-                            Đã và Đang làm việc tại công ty nhật.<br/>
-                            Đã có bằng tiếng nhật tương đương N3 và đang cải thiện trình độ tiếng anh.
-                            Đang tìm kiếm việc làm Remote.
-                        </p>
                         <button class="message-btn">Liên hệ ngay</button>
                     </div>
                     <div class="card-home-item swiper-slide">
                         <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
                         <h2 class="user-name">Nguyễn Tường Vi</h2>
                         <p class="user-profession">Software Developer</p>
-                        <p class="user-content">
-                            Đã tốt nghiệp đại học Công nghệ.<br/>
-                            Đã có hơn 1 năm Kinh nghiệm làm việc thực tế tại công ty nước ngoài. <br/>
-                            Đã và Đang làm việc tại công ty nhật.<br/>
-                            Đã có bằng tiếng nhật tương đương N3 và đang cải thiện trình độ tiếng anh.
-                            Đang tìm kiếm việc làm Remote.
-                        </p>
                         <button class="message-btn">Liên hệ ngay</button>
                     </div>
                     <div class="card-home-item swiper-slide">
                         <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
                         <h2 class="user-name">Lê Quang Huy</h2>
                         <p class="user-profession">Software Developer</p>
-                        <p class="user-content">
-                            Đã tốt nghiệp đại học Công nghệ.<br/>
-                            Đã có hơn 1 năm Kinh nghiệm làm việc thực tế tại công ty nước ngoài. <br/>
-                            Đã và Đang làm việc tại công ty nhật.<br/>
-                            Đã có bằng tiếng nhật tương đương N3 và đang cải thiện trình độ tiếng anh.
-                            Đang tìm kiếm việc làm Remote.
-                        </p>
                         <button class="message-btn">Liên hệ ngay</button>
                     </div>
                     <div class="card-home-item swiper-slide">
                         <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
                         <h2 class="user-name">Trần Minh Thuận</h2>
                         <p class="user-profession">Software Developer</p>
-                        <p class="user-content">
-                            Đã tốt nghiệp đại học Công nghệ.<br/>
-                            Đã có hơn 1 năm Kinh nghiệm làm việc thực tế tại công ty nước ngoài. <br/>
-                            Đã và Đang làm việc tại công ty nhật.<br/>
-                            Đã có bằng tiếng nhật tương đương N3 và đang cải thiện trình độ tiếng anh.
-                            Đang tìm kiếm việc làm Remote.
-                        </p>
                         <button class="message-btn">Liên hệ ngay</button>
                     </div>
                 </div>
                 <div class="swiper-pagination"></div>
-
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
             </div>
         </div>
     </section>
@@ -453,9 +413,9 @@
             <h2>{{ __('messages.New Service') }}</h2>
             <span class="title-right"></span>
         </div>
-        <p class="section-desc">
-            {{ __('messages.Unlock all the amazing new features with our software') }}
-        </p>
+        <div class="title-desc">
+            <p class="section-desc">{{ __('messages.Unlock Now') }}</p>
+        </div>
         <div class="pricing-section">
             <div class="pricing-cards">
                 <div class="pricing-card table" id="service1">

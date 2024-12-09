@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", function() {
             1024: {
                 slidesPerView: 4
             },
+            1920: {
+                slidesPerView: 4
+            },
         }
     });
 });
