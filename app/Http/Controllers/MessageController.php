@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use App\Models\Friendship;
 class MessageController extends Controller
 {
     /**
@@ -14,7 +14,14 @@ class MessageController extends Controller
      */
     public function index()
     {
-        return view('message.index');
+        $receivedFriendRequests = Friendship::with('user')
+        ->where('friend_id', auth()->id())
+        ->where('status', 'pending')
+        ->get();
+
+        $friends = auth()->user()->friends;
+
+        return view('message.index',compact('receivedFriendRequests','friends'));
     }
 
     /**

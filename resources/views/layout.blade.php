@@ -136,6 +136,89 @@
         </div>
     </section>
     <section class="path-app" id="path-app">
+        <div class="max-w-sm mx-auto grid gap-6 lg:grid-cols-3 items-start lg:max-w-none group" data-spotlight>
+
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="card-inner">
+                    <!-- Radial gradient -->
+                    <div class="radial-gradient"></div>
+                    <div class="card-content">
+                        <!-- Image -->
+                        <div class="image-container">
+                            <div class="image-blur"></div>
+                            <img class="card-image" src="./card-01.png" width="200" height="200" alt="Card 01" />
+                        </div>
+                        <!-- Text -->
+                        <div class="card-text">
+                            <h2 class="card-title">Amazing Integration</h2>
+                            <p class="card-description">Quickly apply filters to refine your issues lists and create custom views.</p>
+                        </div>
+                        <a class="card-link" href="#0">
+                            <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="14">
+                                <path d="M12.82 8.116A.5.5 0 0 0 12 8.5V10h-.185a3 3 0 0 1-2.258-1.025l-.4-.457-1.328 1.519.223.255A5 5 0 0 0 11.815 12H12v1.5a.5.5 0 0 0 .82.384l3-2.5a.5.5 0 0 0 0-.768l-3-2.5ZM12.82.116A.5.5 0 0 0 12 .5V2h-.185a5 5 0 0 0-3.763 1.708L3.443 8.975A3 3 0 0 1 1.185 10H1a1 1 0 1 0 0 2h.185a5 5 0 0 0 3.763-1.708l4.609-5.267A3 3 0 0 1 11.815 4H12v1.5a.5.5 0 0 0 .82.384l3-2.5a.5.5 0 0 0 0-.768l-3-2.5ZM1 4h.185a3 3 0 0 1 2.258 1.025l.4.457 1.328-1.52-.223-.254A5 5 0 0 0 1.185 2H1a1 1 0 0 0 0 2Z" />
+                            </svg>
+                            <span>Connect</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="card-inner">
+                    <!-- Radial gradient -->
+                    <div class="radial-gradient"></div>
+                    <div class="card-content">
+                        <!-- Image -->
+                        <div class="image-container">
+                            <div class="image-blur"></div>
+                            <img class="card-image" src="./card-02.png" width="200" height="200" alt="Card 02" />
+                        </div>
+                        <!-- Text -->
+                        <div class="card-text">
+                            <h2 class="card-title">Amazing Integration</h2>
+                            <p class="card-description">Quickly apply filters to refine your issues lists and create custom views.</p>
+                        </div>
+                        <a class="card-link" href="#0">
+                            <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="14">
+                                <path d="M12.82 8.116A.5.5 0 0 0 12 8.5V10h-.185a3 3 0 0 1-2.258-1.025l-.4-.457-1.328 1.519.223.255A5 5 0 0 0 11.815 12H12v1.5a.5.5 0 0 0 .82.384l3-2.5a.5.5 0 0 0 0-.768l-3-2.5ZM12.82.116A.5.5 0 0 0 12 .5V2h-.185a5 5 0 0 0-3.763 1.708L3.443 8.975A3 3 0 0 1 1.185 10H1a1 1 0 1 0 0 2h.185a5 5 0 0 0 3.763-1.708l4.609-5.267A3 3 0 0 1 11.815 4H12v1.5a.5.5 0 0 0 .82.384l3-2.5a.5.5 0 0 0 0-.768l-3-2.5ZM1 4h.185a3 3 0 0 1 2.258 1.025l.4.457 1.328-1.52-.223-.254A5 5 0 0 0 1.185 2H1a1 1 0 0 0 0 2Z" />
+                            </svg>
+                            <span>Connect</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="card-inner">
+                    <!-- Radial gradient -->
+                    <div class="radial-gradient"></div>
+                    <div class="card-content">
+                        <!-- Image -->
+                        <div class="image-container">
+                            <div class="image-blur"></div>
+                            <img class="card-image" src="./card-03.png" width="200" height="200" alt="Card 03" />
+                        </div>
+                        <!-- Text -->
+                        <div class="card-text">
+                            <h2 class="card-title">Amazing Integration</h2>
+                            <p class="card-description">Quickly apply filters to refine your issues lists and create custom views.</p>
+                        </div>
+                        <a class="card-link" href="#0">
+                            <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="14">
+                                <path d="M12.82 8.116A.5.5 0 0 0 12 8.5V10h-.185a3 3 0 0 1-2.258-1.025l-.4-.457-1.328 1.519.223.255A5 5 0 0 0 11.815 12H12v1.5a.5.5 0 0 0 .82.384l3-2.5a.5.5 0 0 0 0-.768l-3-2.5ZM12.82.116A.5.5 0 0 0 12 .5V2h-.185a5 5 0 0 0-3.763 1.708L3.443 8.975A3 3 0 0 1 1.185 10H1a1 1 0 1 0 0 2h.185a5 5 0 0 0 3.763-1.708l4.609-5.267A3 3 0 0 1 11.815 4H12v1.5a.5.5 0 0 0 .82.384l3-2.5a.5.5 0 0 0 0-.768l-3-2.5ZM1 4h.185a3 3 0 0 1 2.258 1.025l.4.457 1.328-1.52-.223-.254A5 5 0 0 0 1.185 2H1a1 1 0 0 0 0 2Z" />
+                            </svg>
+                            <span>Connect</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+        </div>        
+    </section>
+    <section class="path-app" id="path-app">
         <div class="path-container">
             <div class="path-card-item">
                 <div class="card-item-box">

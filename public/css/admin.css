@@ -1507,7 +1507,7 @@ td{
 
 .search-box input {
   width: 100%;
-  padding: 10px;
+  padding: 8px 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
@@ -1581,12 +1581,12 @@ td{
 }
 
 .chat-messages {
-  flex: 1;
-  padding: 15px;
-  overflow-y: auto;
-  background-color: #f9f9f9;
-  display: flex;
-  flex-direction: column;
+    height: 75vh !important;
+    padding: 15px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+    display: flex;
+    flex-direction: column;
 }
 
 .message {
@@ -1743,4 +1743,44 @@ td{
     height: 100%;
     border-radius: 50%;
     border: 3px solid #008cff;
+}
+
+.dark-mode .sidebar-chat{
+    background-color: #555555;
+    border: 1px solid #008cff;
+}
+
+.dark-mode .contact.active {
+    background-color: #ffffff87;
+}
+.dark-mode .chat-area{
+    background-color: #555555;
+    border-top: 1px solid #008cff;
+    border-bottom: 1px solid #008cff;
+}
+.dark-mode .chat-messages{
+    background-color: #555555;
+}
+.dark-mode .message.received {
+    background-color: #6ba3d2;
+}
+.dark-mode .profile-details{
+    background-color: #555555;
+    border: 1px solid #008cff;
+}
+
+.chat-user-friend{
+    margin-bottom: 10px;
+    padding: 20px 10px;
+    border: 1px solid #d7d6d6;
+    border-radius: 5px;
+}
+
+.search-bar input{
+    padding: 8px 10px;
+    width: 83%;
+    font-family: "Poppins", sans-serif;
+}
+.search-bar button{
+    padding: 8px;
 }
