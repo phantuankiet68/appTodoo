@@ -298,7 +298,6 @@
             </div>
         </div>
         <div class="infoControllerRight" id="item2" style="display:none">
-            <div id="calendar"></div>
         </div>
         <div class="infoControllerRight" id="item3" style="display:none">
             <div class="chat-container-one">

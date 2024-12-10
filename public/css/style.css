@@ -3039,13 +3039,6 @@ button.btn-add{
 
 /* Chat */
 
-.chat-container {
-    width: 100%;
-    display: flex;
-    gap: 20px;
-    height: 85vh;
-}
-
 .form-search-chat form{
     display: flex;
     width: 100%;

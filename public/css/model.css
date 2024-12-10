@@ -1407,7 +1407,7 @@
     margin-bottom: 10px;
 }
 
-.status, .assignee, .dates, .resolution {
+.assignee, .dates, .resolution {
     margin-bottom: 5px;
 }
 
@@ -2914,6 +2914,7 @@ i.next {
 
 .dashboard-content.dark-mode .infoControllerLeft{
     border: 1px solid #1571bf;
+    background: #555555;
 }
 
 
@@ -2991,6 +2992,7 @@ i.next {
 
 .dashboard-content.dark-mode .infoControllerRight{
     border: 1px solid #1571bf;
+    background-color: #555555;
 }
 
 
@@ -3610,15 +3612,6 @@ input {
     font-size: 14px;
 }
 
-.chat-input {
-    display: flex;
-    padding: 10px;
-    background: #fff;
-    border-top: 1px solid #d7d6d6;
-    border-bottom: 1px solid #d7d6d6;
-    border-right: 1px solid #d7d6d6;
-    border-bottom-right-radius: 10px;
-}
 .post-info{
     width: 100%;
     display: flex;

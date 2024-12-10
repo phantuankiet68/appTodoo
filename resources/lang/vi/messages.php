@@ -380,5 +380,5 @@ return [
     'MySqlWorkBench'=>'MySqlWorkBench',
     'postgreSQL'=>'postgreSQL',
     'Error'=>'Error',
-
+    'Chat' => 'Chat',
 ];

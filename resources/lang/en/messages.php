@@ -98,7 +98,7 @@ return [
     'Tan The Hoa, Tan Phu District, Ho Chi Minh City.'=> 'Tan The Hoa, Tan Phu District, Ho Chi Minh City.',
     'Updating'=> 'Updating',
     'All Rights Reserved'=> 'All Rights Reserved',
-
+    'Chat' => 'Chat',
     'welcome' => 'Welcome',
     'Dashboard' => 'Dashboard',
     'Tasks' => 'Tasks',

@@ -545,11 +545,13 @@ nav ul.active {
 }
 /*-- Link Hover Effect --*/
 nav ul a:hover {
-    color: var(--black-shade-1);
+    color: #57fcf8;
 }
 .sticky nav ul a:hover {
-    color: var(--base-shade-1);
+    color: #57fcf8;
 }
+
+
 
 .header-aside{
     width: 100%;
@@ -1913,10 +1915,10 @@ a.google span {
 
 .path-card-item{
     width: 24%;
+    background: linear-gradient(to right, #a246ef, #6523fe);
     height: 300px;
     border-radius: 10px;
     overflow: hidden;
-    border: 8px solid #fff;
     position: relative;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 
@@ -1951,14 +1953,18 @@ a.google span {
 }
 
 .card-item-box h3 {
-    color: #122e61;
+    color: #fff;
     margin: 0;
     text-align: center;
     font-size: 21px;
-    font-family: "Quicksand", sans-serif;
     margin-top: 25px;
     margin-left: -54px;
 }
+
+.background-path{
+    background-color: rgb(0 0 0 / 19%);
+}
+
 .path-card-item:hover .card-item-content{
     right: 0;
 }
@@ -2566,7 +2572,7 @@ blockquote .author {
         overflow: hidden;
     }
     .path-container {
-        height: 39vh;
+        height: 46vh;
     }
     .path-card {
         width: 25%;

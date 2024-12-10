@@ -140,7 +140,7 @@
             <div class="path-card-item">
                 <div class="card-item-box">
                     <h3>{{ __('messages.Online Programs') }}</h3>
-                    <img class="card-item-img" src="{{ asset('assets/images/anh-card-1.png') }}" alt="">
+                    <img class="card-item-img" src="{{ asset('assets/images/logo-website.png') }}" alt="">
                 </div>
                 <div class="card-item-content">
                     <h3>{{ __('messages.Online Programs') }}</h3>
@@ -155,7 +155,7 @@
             <div class="path-card-item">
                 <div class="card-item-box">
                     <h3>{{ __('messages.Coding Programs') }}</h3>
-                    <img class="card-item-img" src="{{ asset('assets/images/anh-card-1.png') }}" alt="">
+                    <img class="card-item-img" src="{{ asset('assets/images/logo-website.png') }}" alt="">
                 </div>
                 <div class="card-item-content">
                     <h3>{{ __('messages.Coding Programs') }}</h3>
@@ -170,7 +170,7 @@
             <div class="path-card-item">
                 <div class="card-item-box">
                     <h3>{{ __('messages.English Programs') }}</h3>
-                    <img class="card-item-img" src="{{ asset('assets/images/anh-card-1.png') }}" alt="">
+                    <img class="card-item-img" src="{{ asset('assets/images/logo-website.png') }}" alt="">
                 </div>
                 <div class="card-item-content">
                     <h3>{{ __('messages.English Programs') }}</h3>
@@ -185,7 +185,7 @@
             <div class="path-card-item">
                 <div class="card-item-box">
                     <h3>{{ __('messages.Japanese Programs') }}</h3>
-                    <img class="card-item-img" src="{{ asset('assets/images/anh-card-1.png') }}" alt="">
+                    <img class="card-item-img" src="{{ asset('assets/images/logo-website.png') }}" alt="">
                 </div>
                 <div class="card-item-content">
                     <h3>{{ __('messages.Japanese Programs') }}</h3>
@@ -199,7 +199,7 @@
             </div>
         </div>
     </section>
-    <section class="download-app" id="download-app">
+    <section class="download-app background-path" id="download-app">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.About Us') }}</h2>
@@ -360,7 +360,7 @@
         </div>
       </div>
     </section>
-    <section class="path-app" id="testimonial">
+    <section class="path-app background-path" id="testimonial">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.UP Members') }}</h2>
@@ -477,7 +477,7 @@
             </div>
         </div>
     </section>
-    <section class="path-app" id="courses">
+    <section class="path-app background-path" id="courses">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.New Product') }}</h2>
@@ -704,7 +704,7 @@
             </div>
         </div>
     </section>
-    <section class="path-app" id="courses">
+    <section class="path-app background-path" id="courses">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.Contact Us Now') }}</h2>

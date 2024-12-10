@@ -36,21 +36,10 @@
                     @if($can_view_setting)
                     <li><a class="hoverMenu" href="{{ route('user.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-gear"></i> {{ __('messages.Settings') }}</div></a></li>
                     @endif
-                    @if($can_view_issue)
-                        <li>
-                            <a class="hoverMenu" href="{{ route('issue.index') }}">
-                                <div class="subBoxMenu">
-                                    <i class="fa-solid fa-box-tissue"></i> {{ __('messages.Issues') }}
-                                </div>
-                            </a>
-                        </li>
-                    @endif
                     @if($can_view_cv)
                     <li><a class="hoverMenu" href="{{ route('info.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-file"></i> {{ __('messages.Information') }}</div></a></li>
                     @endif
-                    @if($can_view_calendar)
-                    <li><a class="hoverMenu" href="/calendar"><div class="subBoxMenu"><i class="fa-regular fa-calendar"></i> {{ __('messages.Calendar') }}</div></a></li>
-                    @endif
+                    <li><a class="hoverMenu" href="{{ route('message.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-message"></i> {{ __('messages.Chat') }}</div></a></li>
                     <div class="title-menu"><span>{{ __('messages.Tasks') }}</span></div>
                     <li class="menu-item">
                         <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-solid fa-box-tissue"></i> {{ __('messages.Tasks') }} </div>
@@ -59,6 +48,15 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
+                            @if($can_view_issue)
+                                <li>
+                                    <a class="hoverMenu" href="{{ route('issue.index') }}">
+                                        <div class="subBoxMenu">
+                                            <i class="fa-solid fa-box-tissue"></i> {{ __('messages.Issues') }}
+                                        </div>
+                                    </a>
+                                </li>
+                            @endif
                             @if($can_view_task)
                             <li><a href="{{ route('tasks.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Tasks') }}</div></a></li>
                             @endif

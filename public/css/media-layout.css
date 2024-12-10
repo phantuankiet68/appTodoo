@@ -100,7 +100,7 @@
         color: var(--white-shade-1);
     }
     nav ul a:hover {
-        color: var(--base-shade-1);
+        color: #57fcf8;
     }
     #scroll-top {
         height: 6rem;
