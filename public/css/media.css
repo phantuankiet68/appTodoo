@@ -105,6 +105,9 @@
         height: 100% !important;
         overflow: scroll !important;
     }
+    .chat-messages {
+        height: 70vh !important;
+    }
 }
 
 @media screen and (max-width: 1504px){

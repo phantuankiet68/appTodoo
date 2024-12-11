@@ -1581,7 +1581,7 @@ td{
 }
 
 .chat-messages {
-    height: 75vh !important;
+    height: 75vh;
     padding: 15px;
     overflow-y: auto;
     background-color: #f9f9f9;
@@ -1589,6 +1589,12 @@ td{
     flex-direction: column;
 }
 
+.dark-mode .infoControllerRightUser form{
+    background-color: #555555;
+}
+.dark-mode .infoControllerRightInfo{
+    background-color: #555555;
+}
 .message {
   max-width: 60%;
   margin: 10px 0;
