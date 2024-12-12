@@ -883,7 +883,7 @@
 
 .fc-daygrid-day-events .fc-daygrid-event-harness a{
     color: #fff;
-    background: aqua;
+    background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
     padding: 10px 20px;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     border: none;
@@ -3201,12 +3201,11 @@ i.material-icons {
 .infoControllerRightInfo{
     width: 100%;
     height: 73.5%;
-    padding: 10px;
     overflow: scroll;
     display: flex;
     background: #ffff;
-    margin-top: 8px;
     border-radius: 5px;
+    padding: 0px 10px 10px 10px;
 }
 
 .infoControllerRightInfoList{

@@ -47,6 +47,8 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\InformationController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\App;
 
 /*
@@ -108,8 +110,10 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/change-password/{id}', [AuthController::class, 'changePassword'])->name('change.password');
     Route::post('/link/store', [ChatController::class, 'storeLink'])->name('link.store');
     
-    Route::get('/message', [MessageController::class, 'index'])->name('message.index');
+    Route::get('/v1/system/information', [InformationController::class, 'index'])->name('information.index');
+    Route::get('/v1/system/profile', [ProfileController::class, 'index'])->name('profile.index');
 
+    Route::get('/message', [MessageController::class, 'index'])->name('message.index');
     Route::get('/user/{itemId}', [SettingController::class, 'index'])->name('settings.index');
     Route::post('/update-setting/{id}', [SettingController::class, 'updateSetting'])->name('update.setting');
     Route::post('/update-issue/{id}', [SettingController::class, 'updateissue'])->name('update.issue');

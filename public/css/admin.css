@@ -1059,6 +1059,9 @@ td{
     font-size: 15px;
     line-height: 18px;
 }
+.fc-toolbar-title{
+    color: #7e8081;
+}
 
 .footerHeader {
     display: flex;
@@ -1101,13 +1104,14 @@ td{
 .dark-mode #calendar{
     background-color: #555555;
     color: #fff;
+    padding: 0 !important;
 }
 
-.dark-mode th:nth-child(odd), td:nth-child(odd) {
+.dark-mode th:nth-child(odd),.dark-mode td:nth-child(odd) {
     background-color: #474849;
     padding-left: 10px;
 }
-.dark-mode th:nth-child(even), td:nth-child(even) {
+.dark-mode th:nth-child(even),.dark-mode td:nth-child(even) {
     background-color: #565656;
     padding-left: 10px;
 }
@@ -1120,8 +1124,14 @@ td{
 #calendar .fc-prev-button,#calendar .fc-button{
     background-color: #fff;
     color: #000;
+    font-size: 13px;
     border: none;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.fc .fc-toolbar-title {
+    font-size: 1.5em !important;
+    margin: 0px;
 }
 
 
@@ -1594,6 +1604,13 @@ td{
 }
 .dark-mode .infoControllerRightInfo{
     background-color: #555555;
+    border: 1px solid #40c3f7;
+}
+.infoControllerRightContentUser {
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 .message {
   max-width: 60%;
@@ -1789,4 +1806,183 @@ td{
 }
 .search-bar button{
     padding: 8px;
+}
+
+
+/* Information */
+.InformationLeft{
+    width: 30%;
+    border-radius: 5px;
+}
+
+.InformationLeftUser{
+    width: 100%;
+    height: auto;
+    min-height: 150px;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.InformationLeftUserImage{
+    height: 120px;
+    width: 120px;
+}
+.InformationLeftUserImage img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    border: 5px solid  #f8e6c2;
+    object-fit: cover;
+}
+.InformationLeftUserContent{
+    width: 64%;
+}
+.info-name{
+    color: #1F2937;
+    font-weight: 600;
+}
+
+.InformationLeftUserContentTop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.digital-clock{
+    width: 100%;
+    font-size: 14px;
+    background-image: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%);
+    padding: 5px;
+    text-align: center;
+    margin: 5px 0;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.info-btn-edit{
+    padding: 3px 5px;
+    background: #fff;
+    border: 1px solid #d7d6d6;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.info-btn-edit:hover{
+    padding: 3px 5px;
+    background: #fff;
+    border: 1px solid #d7d6d6;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.InformationLeftUserContentLeft{
+    width: 100%;
+}
+.info-status{
+    font-size: 13px;
+    color: #1F2937;
+}
+
+.InformationLeftUserContentBottom{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.InformationLeftMenu{
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: flex;
+    gap:8px 4.5px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+.InformationLeftMenu a{
+    width: 32.5%;
+    padding: 8px;
+    background-color: #fff;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 5px;
+}
+
+.InformationLeftMenu a:hover{
+    background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+    color: #fff;
+}
+
+.InformationLeftListCard{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+.InformationLeftCard{
+    width: 48.5%;
+    background-color: #fff;
+    padding:19px 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.InformationLeftCardBody p{
+    font-size: 14px;
+}
+
+.dark-mode .InformationLeftUser,.dark-mode .InformationLeftMenu a{
+    background-color: #ffffff66;
+    color: #fff;
+}
+
+.dark-mode  .info-name, .dark-mode .info-status,.dark-mode .fc-toolbar-title{
+    color: #fff;
+}
+
+.button-background{
+    padding: 3px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-image: linear-gradient(-225deg, #9EFBD3 0%, #57E9F2 48%, #45D4FB 100%);
+    color: #fff;
+    border: 0 !important;
+}
+
+.dark-mode .info-card-one{
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    color: #f97c3e;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.dark-mode .info-card-two{
+    background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+    color: #00adff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.InformationRight{
+    width: 70%;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.dark-mode .InformationRight{
+    width: 70%;
+    background-color: #555555;
+    border-radius: 5px;
+}
+
+.dark-mode .infoControllerRightUser form {
+    background-color: #555555;
+    border: 1px solid #40c3f7;
 }
