@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator; 
 use App\Models\Post;
 use App\Models\PostImage;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -16,7 +17,17 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::with(['user', 'images', 'comments', 'likes'])
+        ->where('user_id', Auth::id())
+        ->whereHas('images', function($query) {
+            $query->select('id', 'post_id');
+        })  
+        ->withCount('comments')
+        ->withCount('likes')
+        ->orderBy('comments_count', 'asc')
+        ->orderBy('id', 'asc')
+        ->get();
+        return view('post.index', compact('posts'));
     }
 
     public function store(Request $request)

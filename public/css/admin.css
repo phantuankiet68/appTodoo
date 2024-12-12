@@ -1986,3 +1986,19 @@ td{
     background-color: #555555;
     border: 1px solid #40c3f7;
 }
+.dark-mode .commentShare{
+    background-color: #555555;
+}
+
+.dark-mode .commentPost{
+    border: 1px solid #40c3f7;
+}
+
+.dark-mode .Container.dark-mode .chat-center .createPost {
+    padding: 0 20px;
+}
+
+.dashboard-content.dark-mode .wrapper {
+    background-color: #555555;
+    box-shadow: none;
+}

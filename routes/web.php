@@ -112,6 +112,7 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     
     Route::get('/v1/system/information', [InformationController::class, 'index'])->name('information.index');
     Route::get('/v1/system/profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/v1/system/posts', [PostController::class, 'index'])->name('post.index');
 
     Route::get('/message', [MessageController::class, 'index'])->name('message.index');
     Route::get('/user/{itemId}', [SettingController::class, 'index'])->name('settings.index');
@@ -170,7 +171,6 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/idea', [DashboardController::class, 'createIdea'])->name('idea.store');
     Route::resource('category', CategoryController::class);
     Route::resource('category_task', CategoryTasksController::class);
-    Route::resource('posts', PostController::class);
     Route::post('/post/{id}/comments', [PostCommentController::class, 'store'])->name('postcomments.store');
     Route::get('/comments/{postId}', [PostCommentController::class, 'getComments'])->name('comments.get');
     Route::post('/send-friend-request', [FriendshipController::class, 'sendRequest'])->name('friend.send');
