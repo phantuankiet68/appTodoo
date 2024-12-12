@@ -3706,7 +3706,7 @@ input {
 
 .Container.dark-mode .friends_container{
     background-color: #555555;
-
+    border: 1px solid #40c3f7;
 }
 
 .friends_container .friend:hover {

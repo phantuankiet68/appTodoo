@@ -49,6 +49,7 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FriendController;
 use Illuminate\Support\Facades\App;
 
 /*
@@ -113,6 +114,8 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::get('/v1/system/information', [InformationController::class, 'index'])->name('information.index');
     Route::get('/v1/system/profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/v1/system/posts', [PostController::class, 'index'])->name('post.index');
+    Route::get('/v1/system/friend', [FriendController::class, 'index'])->name('friend.index');
+    Route::get('/v1/system/changePassword', [AuthController::class, 'changePasswordView'])->name('changePassword.index');
 
     Route::get('/message', [MessageController::class, 'index'])->name('message.index');
     Route::get('/user/{itemId}', [SettingController::class, 'index'])->name('settings.index');

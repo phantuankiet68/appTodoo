@@ -12,6 +12,13 @@ use App\Models\Setting;
 
 class AuthController extends Controller
 {
+
+    
+    public function changePasswordView()
+    {
+        return view('changePassword.index');
+    }
+
     // Hiển thị form đăng ký
     public function showRegisterForm()
     {
@@ -162,12 +169,9 @@ class AuthController extends Controller
     }
     public function changePassword(Request $request, $id)
     {
-        // Kiểm tra xem người dùng đã đăng nhập có trùng khớp với ID được gửi hay không
         if (Auth::id() != $id) {
             return redirect()->back()->withErrors(['error' => 'Unauthorized action.']);
         }
-
-        // Xác thực dữ liệu
         $request->validate([
             'current_password' => 'required',
             'new_password' => 'required|min:8|confirmed',

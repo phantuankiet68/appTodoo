@@ -28,8 +28,8 @@
         <a href="{{ route('information.index') }}"><i class="fa-solid fa-message"></i> Information</a>
         <a href="{{ route('profile.index') }}"><i class="fa-solid fa-id-badge"></i> Profile</a>
         <a href="{{ route('post.index') }}"><i class="fa-solid fa-pen-to-square"></i> Posts</a>
-        <a href=""><i class="fa-solid fa-user-group"></i> Friends</a>
-        <a href=""><i class="fa-solid fa-key"></i> Password</a>
+        <a href="{{ route('friend.index') }}"><i class="fa-solid fa-user-group"></i> Friends</a>
+        <a href="{{ route('changePassword.index') }}"><i class="fa-solid fa-key"></i> Password</a>
         <a href=""><i class="fa-solid fa-note-sticky"></i> Note</a>
         <a href=""><i class="fa-solid fa-file-lines"></i> CV</a>
         <a href=""><i class="fa-solid fa-note-sticky"></i> {{ __('messages.Salary') }}</a>
