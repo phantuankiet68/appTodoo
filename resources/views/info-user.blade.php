@@ -25,18 +25,18 @@
         </div>
     </div>
     <div class="InformationLeftMenu">
-        <a href="{{ route('information.index') }}"><i class="fa-solid fa-message"></i> Information</a>
-        <a href="{{ route('profile.index') }}"><i class="fa-solid fa-id-badge"></i> Profile</a>
-        <a href="{{ route('post.index') }}"><i class="fa-solid fa-pen-to-square"></i> Posts</a>
-        <a href="{{ route('friend.index') }}"><i class="fa-solid fa-user-group"></i> Friends</a>
-        <a href="{{ route('changePassword.index') }}"><i class="fa-solid fa-key"></i> Password</a>
-        <a href=""><i class="fa-solid fa-note-sticky"></i> Note</a>
-        <a href=""><i class="fa-solid fa-file-lines"></i> CV</a>
-        <a href=""><i class="fa-solid fa-note-sticky"></i> {{ __('messages.Salary') }}</a>
-        <a href=""><i class="fa-solid fa-file-lines"></i> {{ __('messages.Expenses') }}</a>
+        <a href="{{ route('information.index') }}" class="menu-item" data-menu="information"><i class="fa-solid fa-message"></i> Information</a>
+        <a href="{{ route('profile.index') }}" class="menu-item" data-menu="profile"><i class="fa-solid fa-id-badge"></i> Profile</a>
+        <a href="{{ route('post.index') }}" class="menu-item" data-menu="posts"><i class="fa-solid fa-pen-to-square"></i> Posts</a>
+        <a href="{{ route('friend.index') }}" class="menu-item" data-menu="friends"><i class="fa-solid fa-user-group"></i> Friends</a>
+        <a href="{{ route('cv.index') }}" class="menu-item" data-menu="cv"><i class="fa-solid fa-file-lines"></i> CV</a>
+        <a href="{{ route('salaries.index') }}" class="menu-item" data-menu="salaries"><i class="fa-solid fa-note-sticky"></i> {{ __('messages.Salary') }}</a>
+        <a href="{{ route('expense.index') }}" class="menu-item" data-menu="expenses"><i class="fa-solid fa-file-lines"></i> {{ __('messages.Expenses') }}</a>
+        <a href="{{ route('changePassword.index') }}" class="menu-item" data-menu="password"><i class="fa-solid fa-key"></i> Password</a>
+        <a href="{{ route('note.index') }}" class="menu-item" data-menu="note"><i class="fa-solid fa-note-sticky"></i> Note</a>
     </div>
     <div class="InformationLeftListCard">
-        <div class="InformationLeftCard info-card-one">
+        <a href="" class="InformationLeftCard info-card-one">
             <div class="InformationLeftCardIcon">
                 <i class="fa-solid fa-user ri-user-2-line"></i>
             </div>
@@ -46,8 +46,8 @@
             <div class="InformationLeftCardFooter">
                 <button class="button-background">120</button>
             </div>
-        </div>
-        <div class="InformationLeftCard info-card-two">
+        </a>
+        <a href="" class="InformationLeftCard info-card-two">
             <div class="InformationLeftCardIcon">
                 <i class="fa-solid fa-user ri-user-2-line"></i>
             </div>
@@ -57,8 +57,8 @@
             <div class="InformationLeftCardFooter">
                 <button class="button-background">120</button>
             </div>
-        </div>
-        <div class="InformationLeftCard  info-card-two">
+        </a>
+        <a href="" class="InformationLeftCard  info-card-two">
             <div class="InformationLeftCardIcon">
                 <i class="fa-solid fa-user ri-user-2-line"></i>
             </div>
@@ -68,8 +68,8 @@
             <div class="InformationLeftCardFooter">
                 <button class="info-btn-edit button-background">120</button>
             </div>
-        </div>
-        <div class="InformationLeftCard info-card-one">
+        </a>
+        <a href="" class="InformationLeftCard info-card-one">
             <div class="InformationLeftCardIcon">
                 <i class="fa-solid fa-user ri-user-2-line"></i>
             </div>
@@ -79,8 +79,8 @@
             <div class="InformationLeftCardFooter">
                 <button class="info-btn-edit button-background">120</button>
             </div>
-        </div>
-        <div class="InformationLeftCard info-card-one">
+        </a>
+        <a href="" class="InformationLeftCard info-card-one">
             <div class="InformationLeftCardIcon">
                 <i class="fa-solid fa-user ri-user-2-line"></i>
             </div>
@@ -90,8 +90,8 @@
             <div class="InformationLeftCardFooter">
                 <button class="button-background">120</button>
             </div>
-        </div>
-        <div class="InformationLeftCard info-card-two">
+        </a>
+        <a href="" class="InformationLeftCard info-card-two">
             <div class="InformationLeftCardIcon">
                 <i class="fa-solid fa-user ri-user-2-line"></i>
             </div>
@@ -101,8 +101,8 @@
             <div class="InformationLeftCardFooter">
                 <button class="button-background">120</button>
             </div>
-        </div>
-        <div class="InformationLeftCard  info-card-two">
+        </a>
+        <a href="" class="InformationLeftCard  info-card-two">
             <div class="InformationLeftCardIcon">
                 <i class="fa-solid fa-user ri-user-2-line"></i>
             </div>
@@ -112,8 +112,8 @@
             <div class="InformationLeftCardFooter">
                 <button class="info-btn-edit button-background">120</button>
             </div>
-        </div>
-        <div class="InformationLeftCard info-card-one">
+        </a>
+        <a href="" class="InformationLeftCard info-card-one">
             <div class="InformationLeftCardIcon">
                 <i class="fa-solid fa-user ri-user-2-line"></i>
             </div>
@@ -123,8 +123,8 @@
             <div class="InformationLeftCardFooter">
                 <button class="info-btn-edit button-background">120</button>
             </div>
-        </div>
-        <div class="InformationLeftCard info-card-one">
+        </a>
+        <a href="" class="InformationLeftCard info-card-one">
             <div class="InformationLeftCardIcon">
                 <i class="fa-solid fa-user ri-user-2-line"></i>
             </div>
@@ -134,8 +134,8 @@
             <div class="InformationLeftCardFooter">
                 <button class="button-background">120</button>
             </div>
-        </div>
-        <div class="InformationLeftCard info-card-two">
+        </a>
+        <a href="" class="InformationLeftCard info-card-two">
             <div class="InformationLeftCardIcon">
                 <i class="fa-solid fa-user ri-user-2-line"></i>
             </div>
@@ -145,6 +145,6 @@
             <div class="InformationLeftCardFooter">
                 <button class="button-background">120</button>
             </div>
-        </div>
+        </a>
     </div>
 </div>

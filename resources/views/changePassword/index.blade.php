@@ -25,10 +25,13 @@
                                 <span class="icon">🔒</span>
                                 <input type="password" name="new_password_confirmation" placeholder="Confirm Password" required>
                             </div>
-                            <button type="submit" class="login-button">Reset password</button>
+                            <button type="submit" class="login-button">Reset</button>
                         </form>
                     </div>
                 </div>
+            </div>
+            <div class="manage-auth">
+                <p>haha</p>
             </div>
         </div>
     </div>

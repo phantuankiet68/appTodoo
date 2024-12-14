@@ -4,8 +4,9 @@
 
 @section('content')
 <div class="todo">
-    <div class="projecTodoBody">
-        <div class="CVBody">
+    <div class="infoController">
+        @include('info-user')
+        <div class="InformationRight">
             <div class="cv-container-left">
                 <div class="CVTab">
                     <div class="tab">

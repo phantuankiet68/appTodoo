@@ -4,230 +4,233 @@
 
 @section('content')
 <div class="todo">
-    <div class="jobMonthBody">
-        <div class="todoCol-7">
-            <form action="{{ route('expense.store') }}" method="POST">
-            @csrf
-                <div class="table-spend">
-                    @if (Auth::check())
-                        <input type="hidden" id="task-id" name="user_id" value="{{ Auth::user()->id }}"/>
-                    @endif
-                    <table>
-                        <thead>
-                            <th>{{ __('messages.Expense item') }}</th>
-                            <th>{{ __('messages.Amount of money') }}</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>{{ __('messages.Current date') }}</td>
-                                <td>
-                                    <input type="text" id="current_date" name="current_date" placeholder="Nhập Số tiền chi tiêu....">
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>{{ __('messages.Breakfast') }}</td>
-                                <td>
-                                    <div class="flex-spend">
-                                        <input type="number" id="breakfast" name="breakfast" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>{{ __('messages.Lunch') }}</td>
-                                <td>
-                                    <div class="flex-spend">
-                                        <input type="text" id="lunch" name="lunch" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>{{ __('messages.Afternoon meal') }}</td>
-                                <td>
-                                    <div class="flex-spend">
-                                        <input type="text" id="afternoon_meal" name="afternoon_meal" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>{{ __('messages.Dinner') }}</td>
-                                <td>
-                                    <div class="flex-spend">
-                                        <input type="text" id="dinner" name="dinner" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>{{ __('messages.Coffee') }}</td>
-                                <td>
-                                    <div class="flex-spend">
-                                        <input type="text" id="coffee" name="coffee" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>{{ __('messages.Fuel') }}</td>
-                                <td>
-                                    <div class="flex-spend">
-                                        <input type="text" id="fuel" name="fuel" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>{{ __('messages.Sports') }}</td>
-                                <td>
-                                    <div class="flex-spend">
-                                        <input type="text" id="sports" name="sports" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>{{ __('messages.E-wallet') }}</td>
-                                <td>
-                                    <div class="flex-spend">
-                                        <input type="text" id="e_wallet" name="e_wallet" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>{{ __('messages.Other shopping') }}</td>
-                                <td>
-                                    <div class="flex-spend">
-                                        <input type="text" id="other_shopping" name="other_shopping" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>{{ __('messages.Other expenses') }}</td>
-                                <td>
-                                    <div class="flex-spend">
-                                        <input type="text" id="other_expenses" name="other_expenses" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr id="tienTro">
-                                <td>{{ __('messages.Rent') }}</td>
-                                <td>
-                                    <div class="flex-spend">
-                                        <input type="text" id="rent" name="rent" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>{{ __('messages.Total spending today') }}</td>
-                                <td>
-                                    <div class="flex-spend">
-                                        <input type="text" id="total_spending_today" name="total_spending_today" class="tien" placeholder="Nhập Số tiền chi tiêu....">
-                                    </div>
-                                </td>
-                            </tr>                            
-                        </tbody>
-                    </table>
-                    <div class="noted">
-                        <span class="red">*</span><span> {{ __('messages.Please enter the amount spent here!') }}</span>
-                    </div>
+    <div class="infoController">
+        @include('info-user')
+        <div class="InformationRight">
+            <div class="salary-container">
+                <form action="{{ route('expense.store') }}" method="POST">
+                @csrf
                     <div class="button-spend">
                         <button type="submit">{{ __('messages.Confirm') }}</button>
                     </div>
-                </div>
-            </form>
-        </div>
-        <div class="todoCol-5">
-            <div class="header-spend">
-                <div class="spendWisely">
-                    <div class="percentSpend">
-                        <span class="colorOne">30%</span>
-                        <p>{{ __('messages.Rent') }}</p>
-                    </div>
-                    <div class="feeSpend">
-                        <p>{{ number_format($totalRent, 0, ',', '.') }} VND</p>
-                    </div>
-                </div>
-                <div class="spendWisely">
-                    <div class="percentSpend">
-                        <span class="colortwo">15%</span>
-                        <p>{{ __('messages.Food Expenses') }}</p>
-                    </div>
-                    <div class="feeSpend">
-                        <p>{{ number_format($totalFoodExpense, 0, ',', '.') }} VND</p>
-                    </div>
-                </div>
-                <div class="spendWisely">
-                    <div class="percentSpend">
-                        <span class="colorThree">5%</span>
-                        <p>{{ __('messages.E-wallet') }}</p>
-                    </div>
-                    <div class="feeSpend">
-                        <p>{{ number_format($totalEWallet, 0, ',', '.') }} VND</p>
-                    </div>
-                </div>
-                <div class="spendWisely">
-                    <div class="percentSpend">
-                        <span class="colorFour">5%</span>
-                        <p>{{ __('messages.Sports') }}</p>
-                    </div>
-                    <div class="feeSpend">
-                        <p>{{ number_format($totalSports, 0, ',', '.') }} VND</p>
-                    </div>
-                </div>
-                <div class="spendWisely">
-                    <div class="percentSpend">
-                        <span class="colorFive">5%</span>
-                        <p>{{ __('messages.Other shopping') }}</p>
-                    </div>
-                    <div class="feeSpend">
-                        <p>{{ number_format($totalOtherExpenses, 0, ',', '.') }} VND</p>
-                    </div>
-                </div>
-                <div class="costOffEntry">
-                    <div class="percentSpend">
-                        <p>{{ __('messages.Expenses') }}</p>
-                    </div>
-                    <div class="feeSpend">
-                        <p>{{ number_format($totalAllExpenses, 0, ',', '.') }} VND</p>
-                    </div>
-                </div>
-            </div>
-            <div class="title-todo">
-                <div class="title-todo-top">
-                    <h2>{{ __('messages.Total') }}</h2>|<span>{{ __('messages.Expenses') }}</span>
-                </div>
-                <div class="title-todo-bottom">
-                    <a href="{{ route('expenses.export.pdf') }}">Down PDF</a>
-                </div>
-            </div>
-            <div class="body-todo">
-                <div class="recent--patient">
-                    <div class="tables">
+                    <div class="table-spend">
+                        @if (Auth::check())
+                            <input type="hidden" id="task-id" name="user_id" value="{{ Auth::user()->id }}"/>
+                        @endif
                         <table>
                             <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Name</th>
-                                    <th class="text-center">Money</th>
-                                    <th class="text-center">Status</th>
-                                </tr>
+                                <th>{{ __('messages.Expense item') }}</th>
+                                <th>{{ __('messages.Amount of money') }}</th>
                             </thead>
                             <tbody>
-                                @foreach($expense as $expenses)
                                 <tr>
-                                    <td>{{$expenses -> current_date}}</td>
-                                    <td>{{ $expenses->user ? $expenses->user->full_name : 'Không có danh mục' }}</td>
-                                    <td class="text-center">{{ number_format($expenses -> total_spending_today, 0, ',', '.') }} VND</td>
-                                    <td class="text-center">
-                                        @if ($expenses->total_spending_today <= 80000)
-                                            <span class="expense_low">Chi phí thấp</span>
-                                        @elseif ($expenses->total_spending_today > 80000 && $expenses->total_spending_today <= 120000)
-                                            <span class="expense_normal">Chi phí vừa</span>
-                                        @else
-                                            <span class="expense_hight">Chi phí cao</span>
-                                        @endif
+                                    <td>{{ __('messages.Current date') }}</td>
+                                    <td>
+                                        <input type="text" id="current_date" name="current_date" placeholder="Nhập Số tiền chi tiêu....">
                                     </td>
                                 </tr>
-                                @endforeach
+                                <tr>
+                                    <td>{{ __('messages.Breakfast') }}</td>
+                                    <td>
+                                        <div class="flex-spend">
+                                            <input type="number" id="breakfast" name="breakfast" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ __('messages.Lunch') }}</td>
+                                    <td>
+                                        <div class="flex-spend">
+                                            <input type="text" id="lunch" name="lunch" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ __('messages.Afternoon meal') }}</td>
+                                    <td>
+                                        <div class="flex-spend">
+                                            <input type="text" id="afternoon_meal" name="afternoon_meal" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ __('messages.Dinner') }}</td>
+                                    <td>
+                                        <div class="flex-spend">
+                                            <input type="text" id="dinner" name="dinner" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ __('messages.Coffee') }}</td>
+                                    <td>
+                                        <div class="flex-spend">
+                                            <input type="text" id="coffee" name="coffee" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ __('messages.Fuel') }}</td>
+                                    <td>
+                                        <div class="flex-spend">
+                                            <input type="text" id="fuel" name="fuel" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ __('messages.Sports') }}</td>
+                                    <td>
+                                        <div class="flex-spend">
+                                            <input type="text" id="sports" name="sports" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ __('messages.E-wallet') }}</td>
+                                    <td>
+                                        <div class="flex-spend">
+                                            <input type="text" id="e_wallet" name="e_wallet" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ __('messages.Other shopping') }}</td>
+                                    <td>
+                                        <div class="flex-spend">
+                                            <input type="text" id="other_shopping" name="other_shopping" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ __('messages.Other expenses') }}</td>
+                                    <td>
+                                        <div class="flex-spend">
+                                            <input type="text" id="other_expenses" name="other_expenses" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr id="tienTro">
+                                    <td>{{ __('messages.Rent') }}</td>
+                                    <td>
+                                        <div class="flex-spend">
+                                            <input type="text" id="rent" name="rent" onkeypress="return isNumber(event);" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>{{ __('messages.Total spending today') }}</td>
+                                    <td>
+                                        <div class="flex-spend">
+                                            <input type="text" id="total_spending_today" name="total_spending_today" class="tien" placeholder="Nhập Số tiền chi tiêu....">
+                                        </div>
+                                    </td>
+                                </tr>                            
                             </tbody>
                         </table>
-                        <div class="d-flex justify-content-center link-margin">
-                            {{ $expense->links('') }} <!-- Hoặc pagination::bootstrap-4 nếu bạn sử dụng Bootstrap 4 -->
+                        <div class="noted">
+                            <span class="red">*</span><span> {{ __('messages.Please enter the amount spent here!') }}</span>
+                        </div>
+                    </div>
+                </form>
+                <div class="expenseBody">
+                    <div class="header-spend">
+                        <div class="spendWisely">
+                            <div class="percentSpend">
+                                <span class="colorOne">30%</span>
+                                <p>{{ __('messages.Rent') }}</p>
+                            </div>
+                            <div class="feeSpend">
+                                <p>{{ number_format($totalRent, 0, ',', '.') }} VND</p>
+                            </div>
+                        </div>
+                        <div class="spendWisely">
+                            <div class="percentSpend">
+                                <span class="colortwo">15%</span>
+                                <p>{{ __('messages.Food Expenses') }}</p>
+                            </div>
+                            <div class="feeSpend">
+                                <p>{{ number_format($totalFoodExpense, 0, ',', '.') }} VND</p>
+                            </div>
+                        </div>
+                        <div class="spendWisely">
+                            <div class="percentSpend">
+                                <span class="colorThree">5%</span>
+                                <p>{{ __('messages.E-wallet') }}</p>
+                            </div>
+                            <div class="feeSpend">
+                                <p>{{ number_format($totalEWallet, 0, ',', '.') }} VND</p>
+                            </div>
+                        </div>
+                        <div class="spendWisely">
+                            <div class="percentSpend">
+                                <span class="colorFour">5%</span>
+                                <p>{{ __('messages.Sports') }}</p>
+                            </div>
+                            <div class="feeSpend">
+                                <p>{{ number_format($totalSports, 0, ',', '.') }} VND</p>
+                            </div>
+                        </div>
+                        <div class="spendWisely">
+                            <div class="percentSpend">
+                                <span class="colorFive">5%</span>
+                                <p>{{ __('messages.Other shopping') }}</p>
+                            </div>
+                            <div class="feeSpend">
+                                <p>{{ number_format($totalOtherExpenses, 0, ',', '.') }} VND</p>
+                            </div>
+                        </div>
+                        <div class="costOffEntry">
+                            <div class="percentSpend">
+                                <p>{{ __('messages.Expenses') }}</p>
+                            </div>
+                            <div class="feeSpend">
+                                <p>{{ number_format($totalAllExpenses, 0, ',', '.') }} VND</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="title-todo">
+                        <div class="title-todo-top">
+                            <h2>{{ __('messages.Total') }}</h2>|<span>{{ __('messages.Expenses') }}</span>
+                        </div>
+                        <div class="title-todo-bottom">
+                            <a href="{{ route('expenses.export.pdf') }}">Down PDF</a>
+                        </div>
+                    </div>
+                    <div class="body-todo">
+                        <div class="recent--patient">
+                            <div class="tables">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Name</th>
+                                            <th class="text-center">Money</th>
+                                            <th class="text-center">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($expense as $expenses)
+                                        <tr>
+                                            <td>{{$expenses -> current_date}}</td>
+                                            <td>{{ $expenses->user ? $expenses->user->full_name : 'Không có danh mục' }}</td>
+                                            <td class="text-center">{{ number_format($expenses -> total_spending_today, 0, ',', '.') }} VND</td>
+                                            <td class="text-center">
+                                                @if ($expenses->total_spending_today <= 80000)
+                                                    <span class="expense_low">Chi phí thấp</span>
+                                                @elseif ($expenses->total_spending_today > 80000 && $expenses->total_spending_today <= 120000)
+                                                    <span class="expense_normal">Chi phí vừa</span>
+                                                @else
+                                                    <span class="expense_hight">Chi phí cao</span>
+                                                @endif
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                <div class="d-flex justify-content-center link-margin">
+                                    {{ $expense->links('') }} <!-- Hoặc pagination::bootstrap-4 nếu bạn sử dụng Bootstrap 4 -->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

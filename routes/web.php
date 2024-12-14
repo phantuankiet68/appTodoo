@@ -50,6 +50,7 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\InformationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FriendController;
+use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\App;
 
 /*
@@ -113,9 +114,12 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     
     Route::get('/v1/system/information', [InformationController::class, 'index'])->name('information.index');
     Route::get('/v1/system/profile', [ProfileController::class, 'index'])->name('profile.index');
-    Route::get('/v1/system/posts', [PostController::class, 'index'])->name('post.index');
+    Route::resource('/v1/system/posts', PostController::class);
     Route::get('/v1/system/friend', [FriendController::class, 'index'])->name('friend.index');
     Route::get('/v1/system/changePassword', [AuthController::class, 'changePasswordView'])->name('changePassword.index');
+    Route::resource('/v1/system/salaries', SalaryController::class);
+    Route::resource('/v1/system/expense', ExpenseController::class);
+    Route::resource('/v1/system/note', NoteController::class);
 
     Route::get('/message', [MessageController::class, 'index'])->name('message.index');
     Route::get('/user/{itemId}', [SettingController::class, 'index'])->name('settings.index');
@@ -184,7 +188,6 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::resource('tasks', TaskController::class);
     Route::resource('workflows', WorkflowController::class);
     Route::patch('/update-status/{id}', [WorkflowController::class, 'updateStatus']);
-    Route::resource('salaries', SalaryController::class);
     Route::resource('expense', ExpenseController::class);
     Route::resource('food', FoodController::class);
     Route::resource('vocabularies', VocabularyController::class);

@@ -4,265 +4,268 @@
 
 @section('content')
 <div class="todo">
-    <div class="jobMonthBody">
-        <div class="todoCol-7">
-            <div class="salaryBody">
-                <form  method="POST" action="{{ route('salaries.store') }}">
-                @csrf
-                    @if (Auth::check())
-                        <input type="hidden" class="input-name" name="user_id" value="{{ Auth::user()->id }}" readonly/>
-                    @endif
-                    <div class="form-input-category">
-                        <label for="reference">{{ __('messages.Name') }}</label>
-                        @if (Auth::check())
-                            <input type="text" class="input-name" name="name" value="{{ Auth::user()->full_name }}" readonly/>
+    <div class="infoController">
+        @include('info-user')
+        <div class="InformationRight">
+            <div class="header-salary">
+                @php
+                    $currentLanguage = app()->getLocale(); // Get the current language
+                @endphp
+
+                <div class="Users--right--btns">
+                    <button class="totalDate">
+                        @if ($currentLanguage === 'ja')
+                            1{{ __('messages.Month') }}: {{$month1}}
+                        @else
+                            {{ __('messages.Month') }} 1: {{$month1}}
                         @endif
-                    </div>
-                    <div class="form-input-category mt-10">
-                        <label for="reference">{{ __('messages.Date Created') }}</label>
-                        <input type="text" class="input-name" id="current_date" name="date_create" readonly>
-                    </div>
-                    <div class="form-textarea-category">
-                        <label for="description">{{ __('messages.Description') }}</label>
-                        <textarea class="textareaDescription" name="description"></textarea> 
-                    </div>
-                    <div class="form-group-info">
-                        <div class="form-input-category">
-                            <label for="name">{{ __('messages.Start Date') }}</label>
-                            <input type="time" class="input-name" id="current_time_start" name="current_time_start">
-                        </div>
-                        <div class="form-input-category">
-                            <label for="name">{{ __('messages.End Date') }}</label>
-                            <input type="time" class="input-name" id="current_time_end" name="current_time_end">
-                        </div>
-                    </div>
-                    <div class="form-input-category mt-10">
-                        <label for="reference">{{ __('messages.Total working time') }}</label>
-                        <input type="text" class="input-name" name="total_working_time" readonly>
-                    </div>
-                    <div class="form-group-info">
-                        <div class="form-input-category">
-                            <label for="name">{{ __('messages.Start Date') }}</label>
-                            <input type="time" class="input-name" id="current_time_overtime_start" name="date_start" value="08:00">
-                        </div>
-                        <div class="form-input-category">
-                            <label for="name">{{ __('messages.End Date') }}</label>
-                            <input type="time" class="input-name" id="current_time_overtime_end" name="date_end" value="17:10">
-                        </div>
-                    </div>
-                    <div class="form-input-category mt-10">
-                        <label for="reference">{{ __('messages.Total overtime') }}</label>
-                        <input type="text" class="input-name" id="total_overtime" name="total_overtime" readonly>
-                    </div>
-                    <div class="form-btn">
-                        <button type="submit">{{ __('messages.Add New') }}</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="todoCol-5 jobsalary">
-            <div class="tabs">
-                <button class="tablinks active" onclick="openTab1(event, 'Tab1')">{{ __('messages.Workday Information') }}</button>
-                <button class="tablinks" onclick="openTab1(event, 'Tab2')">{{ __('messages.Calculate Salary') }}</button>
-            </div>
-
-            <div id="Tab1" class="tabcontent" style="display: block;">
-                <div class="header-todo">
-                    @php
-                        $currentLanguage = app()->getLocale(); // Get the current language
-                    @endphp
-
-                    <div class="Users--right--btns">
-                        <button class="totalDate">
-                            @if ($currentLanguage === 'ja')
-                                1{{ __('messages.Month') }}: {{$month1}}
-                            @else
-                                {{ __('messages.Month') }} 1: {{$month1}}
-                            @endif
-                        </button>
-                    </div>
-                    <div class="Users--right--btns">
-                        <button class="totalDate">
-                            @if ($currentLanguage === 'ja')
-                                2{{ __('messages.Month') }}: {{$month2}}
-                            @else
-                                {{ __('messages.Month') }} 2: {{$month2}}
-                            @endif
-                        </button>
-                    </div>
-                    <div class="Users--right--btns">
-                        <button class="totalDate">
-                            @if ($currentLanguage === 'ja')
-                                3{{ __('messages.Month') }}: {{$month3}}
-                            @else
-                                {{ __('messages.Month') }} 3: {{$month3}}
-                            @endif
-                        </button>
-                    </div>
-                    <div class="Users--right--btns">
-                        <button class="totalDate">
-                            @if ($currentLanguage === 'ja')
-                                4{{ __('messages.Month') }}: {{$month4}}
-                            @else
-                                {{ __('messages.Month') }} 4: {{$month4}}
-                            @endif
-                        </button>
-                    </div>
-                    <div class="Users--right--btns">
-                        <button class="totalDate">
-                            @if ($currentLanguage === 'ja')
-                                5{{ __('messages.Month') }}: {{$month5}}
-                            @else
-                                {{ __('messages.Month') }} 5: {{$month5}}
-                            @endif
-                        </button>
-                    </div>
-                    <div class="Users--right--btns">
-                        <button class="totalDate">
-                            @if ($currentLanguage === 'ja')
-                                6{{ __('messages.Month') }}: {{$month6}}
-                            @else
-                                {{ __('messages.Month') }} 6: {{$month6}}
-                            @endif
-                        </button>
-                    </div>
-                    <div class="Users--right--btns">
-                        <button class="totalDate">
-                            @if ($currentLanguage === 'ja')
-                                7{{ __('messages.Month') }}: {{$month7}}
-                            @else
-                                {{ __('messages.Month') }} 7: {{$month7}}
-                            @endif
-                        </button>
-                    </div>
-                    <div class="Users--right--btns">
-                        <button class="totalDate">
-                            @if ($currentLanguage === 'ja')
-                                8{{ __('messages.Month') }}: {{$month8}}
-                            @else
-                                {{ __('messages.Month') }} 8: {{$month8}}
-                            @endif
-                        </button>
-                    </div>
-                    <div class="Users--right--btns">
-                        <button class="totalDate">
-                            @if ($currentLanguage === 'ja')
-                                9{{ __('messages.Month') }}:  {{$month9}}
-                            @else
-                                {{ __('messages.Month') }} 9: {{$month9}}
-                            @endif
-                        </button>
-                    </div>
-                    <div class="Users--right--btns">
-                        <button class="totalDate">
-                            @if ($currentLanguage === 'ja')
-                                10{{ __('messages.Month') }}: {{$month10}}
-                            @else
-                                {{ __('messages.Month') }} 10: {{$month10}}
-                            @endif
-                        </button>
-                    </div>
-                    <div class="Users--right--btns">
-                        <button class="totalDate">
-                            @if ($currentLanguage === 'ja')
-                                11{{ __('messages.Month') }}: {{$month11}}
-                            @else
-                                {{ __('messages.Month') }} 11: {{$month11}}
-                            @endif
-                        </button>
-                    </div>
-                    <div class="Users--right--btns">
-                        <button class="totalDate">
-                            @if ($currentLanguage === 'ja')
-                                12{{ __('messages.Month') }}: {{$month12}}
-                            @else
-                                {{ __('messages.Month') }} 12: {{$month12}}
-                            @endif
-                        </button>
-                    </div>
+                    </button>
                 </div>
+                <div class="Users--right--btns">
+                    <button class="totalDate">
+                        @if ($currentLanguage === 'ja')
+                            2{{ __('messages.Month') }}: {{$month2}}
+                        @else
+                            {{ __('messages.Month') }} 2: {{$month2}}
+                        @endif
+                    </button>
+                </div>
+                <div class="Users--right--btns">
+                    <button class="totalDate">
+                        @if ($currentLanguage === 'ja')
+                            3{{ __('messages.Month') }}: {{$month3}}
+                        @else
+                            {{ __('messages.Month') }} 3: {{$month3}}
+                        @endif
+                    </button>
+                </div>
+                <div class="Users--right--btns">
+                    <button class="totalDate">
+                        @if ($currentLanguage === 'ja')
+                            4{{ __('messages.Month') }}: {{$month4}}
+                        @else
+                            {{ __('messages.Month') }} 4: {{$month4}}
+                        @endif
+                    </button>
+                </div>
+                <div class="Users--right--btns">
+                    <button class="totalDate">
+                        @if ($currentLanguage === 'ja')
+                            5{{ __('messages.Month') }}: {{$month5}}
+                        @else
+                            {{ __('messages.Month') }} 5: {{$month5}}
+                        @endif
+                    </button>
+                </div>
+                <div class="Users--right--btns">
+                    <button class="totalDate">
+                        @if ($currentLanguage === 'ja')
+                            6{{ __('messages.Month') }}: {{$month6}}
+                        @else
+                            {{ __('messages.Month') }} 6: {{$month6}}
+                        @endif
+                    </button>
+                </div>
+                <div class="Users--right--btns">
+                    <button class="totalDate">
+                        @if ($currentLanguage === 'ja')
+                            7{{ __('messages.Month') }}: {{$month7}}
+                        @else
+                            {{ __('messages.Month') }} 7: {{$month7}}
+                        @endif
+                    </button>
+                </div>
+                <div class="Users--right--btns">
+                    <button class="totalDate">
+                        @if ($currentLanguage === 'ja')
+                            8{{ __('messages.Month') }}: {{$month8}}
+                        @else
+                            {{ __('messages.Month') }} 8: {{$month8}}
+                        @endif
+                    </button>
+                </div>
+                <div class="Users--right--btns">
+                    <button class="totalDate">
+                        @if ($currentLanguage === 'ja')
+                            9{{ __('messages.Month') }}:  {{$month9}}
+                        @else
+                            {{ __('messages.Month') }} 9: {{$month9}}
+                        @endif
+                    </button>
+                </div>
+                <div class="Users--right--btns">
+                    <button class="totalDate">
+                        @if ($currentLanguage === 'ja')
+                            10{{ __('messages.Month') }}: {{$month10}}
+                        @else
+                            {{ __('messages.Month') }} 10: {{$month10}}
+                        @endif
+                    </button>
+                </div>
+                <div class="Users--right--btns">
+                    <button class="totalDate">
+                        @if ($currentLanguage === 'ja')
+                            11{{ __('messages.Month') }}: {{$month11}}
+                        @else
+                            {{ __('messages.Month') }} 11: {{$month11}}
+                        @endif
+                    </button>
+                </div>
+                <div class="Users--right--btns">
+                    <button class="totalDate">
+                        @if ($currentLanguage === 'ja')
+                            12{{ __('messages.Month') }}: {{$month12}}
+                        @else
+                            {{ __('messages.Month') }} 12: {{$month12}}
+                        @endif
+                    </button>
+                </div>
+            </div>
+            <div class="salary-container">
+                <div class="salaryBody">
+                    <form  method="POST" action="{{ route('salaries.store') }}">
+                        <div class="form-btn">
+                            <button type="submit">{{ __('messages.Add New') }}</button>
+                        </div>
+                    @csrf
+                        @if (Auth::check())
+                            <input type="hidden" class="input-name" name="user_id" value="{{ Auth::user()->id }}" readonly/>
+                        @endif
+                        <div class="form-input-category">
+                            <label for="reference">{{ __('messages.Name') }}</label>
+                            @if (Auth::check())
+                                <input type="text" class="input-name" name="name" value="{{ Auth::user()->full_name }}" readonly/>
+                            @endif
+                        </div>
+                        <div class="form-input-category mt-10">
+                            <label for="reference">{{ __('messages.Date Created') }}</label>
+                            <input type="text" class="input-name" id="current_date" name="date_create" readonly>
+                        </div>
+                        <div class="form-textarea-category">
+                            <label for="description">{{ __('messages.Description') }}</label>
+                            <textarea class="textareaDescription" name="description"></textarea> 
+                        </div>
+                        <div class="form-group-info">
+                            <div class="form-input-category">
+                                <label for="name">{{ __('messages.Start Date') }}</label>
+                                <input type="time" class="input-name" id="current_time_start" name="current_time_start">
+                            </div>
+                            <div class="form-input-category">
+                                <label for="name">{{ __('messages.End Date') }}</label>
+                                <input type="time" class="input-name" id="current_time_end" name="current_time_end">
+                            </div>
+                        </div>
+                        <div class="form-input-category mt-10">
+                            <label for="reference">{{ __('messages.Total working time') }}</label>
+                            <input type="text" class="input-name" name="total_working_time" readonly>
+                        </div>
+                        <div class="form-group-info">
+                            <div class="form-input-category">
+                                <label for="name">{{ __('messages.Start Date') }}</label>
+                                <input type="time" class="input-name" id="current_time_overtime_start" name="date_start" value="08:00">
+                            </div>
+                            <div class="form-input-category">
+                                <label for="name">{{ __('messages.End Date') }}</label>
+                                <input type="time" class="input-name" id="current_time_overtime_end" name="date_end" value="17:10">
+                            </div>
+                        </div>
+                        <div class="form-input-category mt-10">
+                            <label for="reference">{{ __('messages.Total overtime') }}</label>
+                            <input type="text" class="input-name" id="total_overtime" name="total_overtime" readonly>
+                        </div>
+                    </form>
+                </div>
+                <div class="todoCol-5 jobsalary">
+                    <div class="tabs">
+                        <button class="tablinks active" onclick="openTab1(event, 'Tab1')">{{ __('messages.Workday Information') }}</button>
+                        <button class="tablinks" onclick="openTab1(event, 'Tab2')">{{ __('messages.Calculate Salary') }}</button>
+                    </div>
 
-                <div class="body-todo">
-                    <div class="recent--patient">
-                        <div class="tables">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>{{ __('messages.Name') }}</th>
-                                        <th class="text-center">{{ __('messages.Date Created') }}</th>
-                                        <th class="text-center">{{ __('messages.Time Job') }}</th>
-                                        <th class="text-center">{{ __('messages.Settings') }}</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($salaries as $item)
-                                    <tr>
-                                        <td>
-                                            <div class="text-truncate" style="width: 100px;">
-                                                {{ $item->name }}   
-                                            </div>
-                                        </td>
-                                        <td class="text-center">{{ $item->date_create }}</td>
-                                        <td class="text-center">{{ $item->total_working_time }}</td>
-                                        <td class="text-center"><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
-                                    </tr>
-                                </tbody>
-                                @endforeach
-                            </table>
-                            <div class="pagination">
-                                <button id="prev" onclick="prevPage()">Prev</button>
-                                <span id="page-info">1</span>
-                                <span id="page-info">2</span>
-                                <button id="next" onclick="nextPage()">Next</button>
+                    <div id="Tab1" class="tabcontent" style="display: block;">
+
+                        <div class="body-todo">
+                            <div class="recent--patient">
+                                <div class="tables">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>{{ __('messages.Name') }}</th>
+                                                <th class="text-center">{{ __('messages.Date Created') }}</th>
+                                                <th class="text-center">{{ __('messages.Time Job') }}</th>
+                                                <th class="text-center">{{ __('messages.Settings') }}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($salaries as $item)
+                                            <tr>
+                                                <td>
+                                                    <div class="text-truncate" style="width: 100px;">
+                                                        {{ $item->name }}   
+                                                    </div>
+                                                </td>
+                                                <td class="text-center">{{ $item->date_create }}</td>
+                                                <td class="text-center">{{ $item->total_working_time }}</td>
+                                                <td class="text-center"><span><i class="fa-regular fa-pen-to-square edit"></i><i class="fa-solid fa-trash delete"></i></i></span></td>
+                                            </tr>
+                                        </tbody>
+                                        @endforeach
+                                    </table>
+                                    <div class="pagination">
+                                        <button id="prev" onclick="prevPage()">Prev</button>
+                                        <span id="page-info">1</span>
+                                        <span id="page-info">2</span>
+                                        <button id="next" onclick="nextPage()">Next</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div id="Tab2" class="tabcontent">
-                <div class="calculateSalary">
-                    <div class="calculateSalary-9">
-                        <div class="form-number-category">
-                            <label for="name">{{ __('messages.Number of day') }}</label>
-                            <input type="text" class="input-name" id="todo-date-start" name="date_start">
-                        </div>
-                        <div class="form-number-category mt-10">
-                            <label for="name">{{ __('messages.Number of working hours') }}</label>
-                            <input type="text" class="input-name" id="todo-date-start" name="date_start">
-                        </div>
-                        <div class="form-number-category mt-10">
-                            <label for="name">{{ __('messages.Wages') }}</label>
-                            <input type="text" class="input-name" id="todo-date-start" name="date_start">
-                        </div>
-                        <div class="form-number-category mt-10">
-                            <label for="name">{{ __('messages.Number of days off') }}</label>
-                            <input type="text" class="input-name" id="todo-date-start" name="date_start">
-                        </div>
-                        <div class="form-number-category mt-10">
-                            <label for="name">{{ __('messages.Personal tax') }}</label>
-                            <input type="text" class="input-name" id="todo-date-start" name="date_start">
-                        </div>
-                        <div class="form-number-category mt-10">
-                            <label for="name">{{ __('messages.Number of leave days') }}</label>
-                            <input type="text" class="input-name" id="todo-date-start" name="date_start">
-                        </div>
-                        <p class="space-letping">
-                        <div class="form-total-category mt-5">
-                            <label for="name">{{ __('messages.Total income before tax') }}</label>
-                            <input type="text" class="input-name" id="todo-name" name="name">
-                        </div>
-                        <div class="form-total-category mt-5">
-                            <label for="name">{{ __('messages.Adjusted total income') }}</label>
-                            <input type="text" class="input-name" id="todo-name" name="name">
-                        </div>
-                        <div class="form-total-category mt-5">
-                            <label for="name">{{ __('messages.Total income after tax') }}</label>
-                            <input type="text" class="input-name" id="todo-name" name="name">
-                        </div>
-                        <div class="form-total-category mt-5">
-                            <label for="name">{{ __('messages.Total income of the year') }}</label>
-                            <input type="text" class="input-name" id="todo-name" name="name">
+                    <div id="Tab2" class="tabcontent">
+                        <div class="calculateSalary">
+                            <div class="calculateSalary-9">
+                                <div class="form-number-category">
+                                    <label for="name">{{ __('messages.Number of day') }}</label>
+                                    <input type="text" class="input-name" id="todo-date-start" name="date_start">
+                                </div>
+                                <div class="form-number-category mt-10">
+                                    <label for="name">{{ __('messages.Number of working hours') }}</label>
+                                    <input type="text" class="input-name" id="todo-date-start" name="date_start">
+                                </div>
+                                <div class="form-number-category mt-10">
+                                    <label for="name">{{ __('messages.Wages') }}</label>
+                                    <input type="text" class="input-name" id="todo-date-start" name="date_start">
+                                </div>
+                                <div class="form-number-category mt-10">
+                                    <label for="name">{{ __('messages.Number of days off') }}</label>
+                                    <input type="text" class="input-name" id="todo-date-start" name="date_start">
+                                </div>
+                                <div class="form-number-category mt-10">
+                                    <label for="name">{{ __('messages.Personal tax') }}</label>
+                                    <input type="text" class="input-name" id="todo-date-start" name="date_start">
+                                </div>
+                                <div class="form-number-category mt-10">
+                                    <label for="name">{{ __('messages.Number of leave days') }}</label>
+                                    <input type="text" class="input-name" id="todo-date-start" name="date_start">
+                                </div>
+                                <p class="space-letping">
+                                <div class="form-total-category mt-5">
+                                    <label for="name">{{ __('messages.Total income before tax') }}</label>
+                                    <input type="text" class="input-name" id="todo-name" name="name">
+                                </div>
+                                <div class="form-total-category mt-5">
+                                    <label for="name">{{ __('messages.Adjusted total income') }}</label>
+                                    <input type="text" class="input-name" id="todo-name" name="name">
+                                </div>
+                                <div class="form-total-category mt-5">
+                                    <label for="name">{{ __('messages.Total income after tax') }}</label>
+                                    <input type="text" class="input-name" id="todo-name" name="name">
+                                </div>
+                                <div class="form-total-category mt-5">
+                                    <label for="name">{{ __('messages.Total income of the year') }}</label>
+                                    <input type="text" class="input-name" id="todo-name" name="name">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

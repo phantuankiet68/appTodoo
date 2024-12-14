@@ -67,9 +67,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    @foreach($posts as $item)
-                    <div class="chat-center">
+                        @foreach($posts as $item)
                         <div class="createPost">
                             <div class="chatPostUser">
                                 <div class="chatImage">
@@ -142,47 +140,6 @@
                         </div>
                     </div>
                     @endforeach
-                </div>
-                <div class="chat-right">
-                    <div class="infoUser">
-                        <div class="titlePost">
-                            <h3>{{ __('messages.Your Page') }}</h3>
-                        </div>
-                        <p class="space"></p>
-                        <div class="settingUser">
-                            <div class="settingUserImage">
-                                <img src="{{asset('assets/images/user2.jpg')}}" alt="">
-                            </div>
-                            <div class="settingUserInfo">
-                                <span><b>{{ __('messages.My Created Page') }}</b></span>
-                                <button><i class="fa-solid fa-message"></i> {{ __('messages.Message') }}</button>
-                                <button><i class="fa-solid fa-bell"></i> {{ __('messages.Notification') }}</button>
-                                <button><i class="fa-solid fa-gear"></i> {{ __('messages.Settings') }}</button>
-                            </div>
-                        </div>
-                        <p class="space"></p>
-                        <div class="actionUserChat">
-                            <div class="actionUserChatTeam" onclick="showPost()">
-                                <p><i class="fa-solid fa-pen-to-square"></i></p>
-                                <p>{{ __('messages.Publish') }}</p>
-                            </div>
-                            <div class="actionUserChatTeam">
-                                <a href="{{ route('info.index') }}">
-                                    <p><i class="fa-solid fa-camera-retro"></i></p>
-                                    <p>{{ __('messages.Info') }}</p>
-                                </a>
-                            </div>
-                            <div class="actionUserChatTeam">
-                                <p><i class="fa-brands fa-linkedin"></i></p>
-                                <p>{{ __('messages.Link') }}</p>
-                            </div>
-                            <div class="actionUserChatTeam">
-                                <p><i class="fa-solid fa-camera-retro"></i></p>
-                                <p>{{ __('messages.Photo') }}</p>
-                            </div>
-                        </div>
-                        <p class="space"></p>
-                    </div>
                 </div>
             </div>
         </div>

@@ -30,7 +30,7 @@
         height: 82vh !important;
     }
     td, th{
-        font-size: 13px !important;
+        font-size: 12px !important;
         font-family: "Poppins", sans-serif;
         font-weight: 400;
     }
@@ -107,6 +107,14 @@
     }
     .chat-messages {
         height: 70vh !important;
+    }
+    .tabcontent {
+        height: 82vh !important;
+        overflow: overlay;
+    }
+    .jobsalary  .tabcontent {
+        height: 64vh !important;
+        overflow: overlay;
     }
 }
 
