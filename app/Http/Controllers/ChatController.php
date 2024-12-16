@@ -192,7 +192,7 @@ class ChatController extends Controller
             ]);
         }
     
-        return redirect()->back()->with('success_create', __('messages.You have successfully created new.'));
+        return redirect()->back()->with('success', __('messages.You have successfully created new.'));
     }
 
     public function updateLanguageProfile(Request $request, $id)
@@ -239,7 +239,7 @@ class ChatController extends Controller
             ]);
         }
     
-        return redirect()->back()->with('success_create', __('messages.You have successfully created new.'));
+        return redirect()->back()->with('success', __('messages.You have successfully created new.'));
     }
 
     public function updateEducationProfile(Request $request, $id)
@@ -340,7 +340,7 @@ class ChatController extends Controller
             ]);
         }
     
-        return redirect()->route('info.index')->with('success', __('messages.You have successfully created new.'));
+        return redirect()->back()->with('success', __('messages.You have successfully created new.'));
     }
 
     public function updateProfileHobbies(Request $request, $id)
@@ -455,7 +455,7 @@ class ChatController extends Controller
             ]);
         }
 
-        return redirect()->route('info.index')->with('success', __('messages.You have successfully created new.'));
+        return redirect()()->back()->with('success', __('messages.You have successfully created new.'));
     }
 
     public function updateFutureDirection(Request $request, $id)

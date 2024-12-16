@@ -198,4 +198,11 @@
     .infoControllerRightInfo {
         height: 75% !important;
     }
+    .chat-messages {
+        height: 75vh !important;
+    }
+    #calendar {
+        height: 91.5vh !important;
+        border-radius: 5px !important;
+    }
 }

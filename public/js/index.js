@@ -457,26 +457,3 @@ function addLink() {
 	formatDoc('createLink', url);
 }
 
-
-const menuItems = document.querySelectorAll('.menu-item');
-menuItems.forEach(item => {
-    item.addEventListener('click', function(event) {
-        event.preventDefault();
-        const menuName = item.getAttribute('data-menu');
-
-        localStorage.setItem('activeMenu', menuName);
-        menuItems.forEach(i => i.classList.remove('active'));
-        item.classList.add('active');
-        window.location.href = item.getAttribute('href');
-    });
-});
-
-window.addEventListener('DOMContentLoaded', () => {
-    const activeMenu = localStorage.getItem('activeMenu');
-    if (activeMenu) {
-        const activeItem = document.querySelector(`[data-menu="${activeMenu}"]`);
-        if (activeItem) {
-            activeItem.classList.add('active');
-        }
-    }
-});

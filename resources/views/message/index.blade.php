@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="chat-container">
+<div class="chat-info">
     <div class="sidebar-chat">
         <div class="chat-user">
             <div class="chat-user-img">

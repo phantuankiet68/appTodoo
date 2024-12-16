@@ -220,9 +220,7 @@ class CheckIssuePermission
                 view()->share('can_view_error', false);
             }
            
-        } else {
-            view()->share('can_view_issue', false);
-        }
+        } 
 
         return $next($request);
     }

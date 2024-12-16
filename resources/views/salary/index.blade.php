@@ -275,9 +275,16 @@
 </div>
 
 @if (session('success'))
-    <div id="popup-category" class="popup-category success">
-        {{ session('success') }}
-    </div>
+<div id="popup-success">
+    <ul class="notifications">
+        <li class="toast success hide">
+            <div class="column">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Success:  {{ session('success') }}.</span>
+            </div>
+        </li>
+    </ul>
+</div>
 @endif
 
 @if (session('success_update'))
@@ -298,6 +305,15 @@
 @endif
 
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.querySelector('#popup-success');
+        if (popup) {
+            popup.style.display = 'flex';
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 6000);
+        }
+    });
     document.addEventListener('DOMContentLoaded', function() {
         const popup = document.querySelector('#popup-category');
         if (popup) {

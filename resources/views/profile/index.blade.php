@@ -277,10 +277,398 @@
         </div>
     </div>
 </div>
-
+@if (session('success'))
+<div id="popup-success">
+    <ul class="notifications">
+        <li class="toast success hide">
+            <div class="column">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Success:  {{ session('success') }}.</span>
+            </div>
+        </li>
+    </ul>
+</div>
+@endif
 
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.querySelector('#popup-success');
+        if (popup) {
+            popup.style.display = 'flex';
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 6000);
+        }
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.edit-profile-form').forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
 
+                const profileId = form.querySelector('#profile_id').value;
+                const formData = new FormData(form);
+
+                const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+                if (!csrfTokenMeta) {
+                    console.error("CSRF token not found in the HTML.");
+                    return;
+                }
+                const csrfToken = csrfTokenMeta.getAttribute('content');
+
+                fetch(`/profile/${profileId}`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'X-HTTP-Method-Override': 'PUT' // Override để chuyển thành PUT
+                    },
+                    body: formData
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    console.error('Error response:', response);
+                    throw new Error('Network response was not ok.');
+                })
+                .then(data => {
+                    alert('Profile updated successfully');
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while updating the profile.');
+                });
+            });
+        });
+    });
+    window.addEventListener('load', () => {
+        const savedFriendName = localStorage.getItem('selectedFriendName');
+        const savedFriendId = localStorage.getItem('selectedFriendId');
+        
+        if (savedFriendName && savedFriendId) {
+            document.getElementById('chatName').textContent = savedFriendName;
+            document.getElementById('friend_id').value = savedFriendId;
+        }
+    });
+
+    let isDragging = false;
+    
+    function showContent(itemId, button) {
+        const allItems = document.querySelectorAll('.infoControllerRight');
+        allItems.forEach(item => item.style.display = 'none');
+        document.getElementById(itemId).style.display = 'block';
+        const allButtons = document.querySelectorAll('.infoControllerMenuList button');
+        allButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        localStorage.setItem('activeButtonId', button.id);
+    }
+
+    window.onload = function() {
+        const activeButtonId = localStorage.getItem('activeButtonId');
+        if (activeButtonId) {
+            const activeButton = document.getElementById(activeButtonId);
+            if (activeButton) {
+                showContent(activeButton.getAttribute('onclick').match(/'([^']+)'/)[1], activeButton);
+            }
+        } else {
+            showContent('item1', document.getElementById('menu-item1'));
+        }
+    };
+    function filterFriends() {
+        const input = document.getElementById('searchInput');
+        const filter = input.value.toLowerCase();
+        const friendsList = document.getElementById('friendsList');
+        const friends = friendsList.getElementsByClassName('friend');
+
+        for (let i = 0; i < friends.length; i++) {
+            const friendName = friends[i].getElementsByTagName('p')[0].textContent;
+            const friendStatus = friends[i].getElementsByClassName('status')[0].textContent;
+
+            if (friendName.toLowerCase().indexOf(filter) > -1 || friendStatus.toLowerCase().indexOf(filter) > -1) {
+                friends[i].style.display = '';
+            } else {
+                friends[i].style.display = 'none';
+            }
+        }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.querySelector('#popup-category');
+        if (popup) {
+            popup.style.display = 'block';
+
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 5000);
+        }
+    });
+    function addNewHobbyField() {
+        const container = document.getElementById("HobbiesFieldsContainer");
+        const newTextArea = document.createElement("textarea");
+        newTextArea.className = "textarea edField mt-2 form-control";
+        newTextArea.rows = 3;
+        newTextArea.name = "hobbies[]";
+        newTextArea.placeholder = "{{ __('messages.Enter here') }}";
+        container.appendChild(newTextArea);
+    }
+
+    function addNewObjectiveField() {
+        const container = document.getElementById("futureFieldsContainer");
+        const newTextArea = document.createElement("textarea");
+        newTextArea.className = "textarea edField mt-2 form-control";
+        newTextArea.rows = 3;
+        newTextArea.name = "futures[]";
+        newTextArea.placeholder = "{{ __('messages.Enter here') }}";
+        container.appendChild(newTextArea);
+    }
+
+    function addNewExperienceField() {
+        const container = document.getElementById("ExperiencesFieldsContainer");
+        const newTextArea = document.createElement("textarea");
+        newTextArea.className = "textarea edField mt-2 form-control";
+        newTextArea.rows = 3;
+        newTextArea.name = "experiences[]";
+        newTextArea.placeholder = "{{ __('messages.Enter here') }}";
+        container.appendChild(newTextArea);
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.edit-profile-form').forEach(function(form) {
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const profileId = form.querySelector('#profile_id').value;
+                const formData = new FormData(form);
+
+                const csrfTokenMeta = document.querySelector('meta[name="csrf-token"]');
+                if (!csrfTokenMeta) {
+                    console.error("CSRF token not found in the HTML.");
+                    return;
+                }
+                const csrfToken = csrfTokenMeta.getAttribute('content');
+
+                fetch(`/profile/${profileId}`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRF-TOKEN': csrfToken,
+                        'X-HTTP-Method-Override': 'PUT' // Override để chuyển thành PUT
+                    },
+                    body: formData
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    console.error('Error response:', response);
+                    throw new Error('Network response was not ok.');
+                })
+                .then(data => {
+                    alert('Profile updated successfully');
+                    window.location.reload();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while updating the profile.');
+                });
+            });
+        });
+        // document.querySelectorAll('.edit-languages-form').forEach(function(form) {
+        //     form.addEventListener('submit', function(event) {
+        //         event.preventDefault();
+
+        //         const profileLanguageId = form.querySelector('#language_id').value;
+        //         const formData = new FormData(form);
+
+        //         const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+        //         fetch(`/updateLanguage/${profileLanguageId}`, {
+        //             method: 'POST',
+        //             headers: {
+        //                 'X-CSRF-TOKEN': csrfToken,
+        //                 'X-HTTP-Method-Override': 'PUT'
+        //             },
+        //             body: formData
+        //         })
+        //         .then(response => {
+        //             if (response.ok) {
+        //                 return response.json();
+        //             }
+        //             console.error('Error response:', response);
+        //             throw new Error('Network response was not ok.');
+        //         })
+        //         .then(data => {
+        //             alert('Profile updated successfully');
+        //             window.location.reload();
+        //         })
+        //         .catch(error => {
+        //             console.error('Error:', error);
+        //             alert('An error occurred while updating the profile.');
+        //         });
+        //     });
+        // });
+
+    });
+    function addNewProfessinalField() {
+        let newNode = document.createElement("input");
+        newNode.classList.add("form-control");
+        newNode.classList.add("laField");
+        newNode.classList.add("mt-2");
+        newNode.setAttribute("placeholder", "{{ __('messages.Enter here') }}");
+
+        let aqOb = document.getElementById("skills");
+        aqOb.appendChild(newNode);
+    }
+    function addNewProjectField() {
+        let newNode = document.createElement("textarea");
+        newNode.classList.add("form-control");
+        newNode.classList.add("edField");
+        newNode.classList.add("mt-2");
+        newNode.setAttribute("rows", 3);
+        newNode.setAttribute("placeholder", "{{ __('messages.Enter here') }}");
+
+        let aqOb = document.getElementById("Project");
+
+        // Thay vì insertBefore, append newNode vào cuối của aqOb
+        aqOb.appendChild(newNode);
+    }
+    function addNewFutureField() {
+        const newFutureField = document.createElement('textarea');
+        newFutureField.setAttribute('placeholder', '{{ __('messages.Enter here') }}');
+        newFutureField.setAttribute('class', 'textarea edField mt-2 form-control');
+        newFutureField.setAttribute('rows', '3');
+        newFutureField.setAttribute('name', 'futures[]');
+        
+        document.getElementById('futureFieldsContainer').appendChild(newFutureField);
+    }
+
+    function addNewEducationField() {
+        const newEducationField = document.createElement('textarea');
+        newEducationField.setAttribute('placeholder', '{{ __('messages.Enter here') }}');
+        newEducationField.setAttribute('class', 'textarea edField mt-2 form-control');
+        newEducationField.setAttribute('rows', '3');
+        newEducationField.setAttribute('name', 'educations[]');
+        
+        document.getElementById('edFields').appendChild(newEducationField);
+    }
+
+
+    function addNewLanField() {
+        let newNode = document.createElement("input");
+        newNode.classList.add("form-control", "laField", "mt-2");
+        newNode.setAttribute("placeholder", "{{ __('messages.Enter here') }}");
+        newNode.setAttribute("name", "languages[]");
+
+        let languageFieldsDiv = document.getElementById("language-fields");
+        languageFieldsDiv.appendChild(newNode);
+    }
+
+    function addNewSkillField() {
+        const newSkillField = document.createElement('input');
+        newSkillField.setAttribute('type', 'text');
+        newSkillField.setAttribute('placeholder', '{{ __('messages.Enter here') }}');
+        newSkillField.setAttribute('class', 'form-control skillField');
+        newSkillField.setAttribute('name', 'skills[]');
+        
+        document.getElementById('skill-fields').appendChild(newSkillField);
+    }
+    function addNewProjectField() {
+        const newField = document.createElement('textarea');
+        newField.className = 'textarea edField mt-2 form-control';
+        newField.rows = 3;
+        newField.name = 'projects[]';
+        newField.placeholder = 'Enter here'; 
+        document.getElementById('ProjectFieldsContainer').appendChild(newField);
+    }
+
+  function initImageUpload(box) {
+  let uploadField = box.querySelector('.image-upload');
+
+  uploadField.addEventListener('change', getFile);
+
+  function getFile(e){
+    let file = e.currentTarget.files[0];
+    checkType(file);
+  }
+  
+  function previewImage(file){
+    let thumb = box.querySelector('.js--image-preview'),
+        reader = new FileReader();
+
+    reader.onload = function() {
+      thumb.style.backgroundImage = 'url(' + reader.result + ')';
+    }
+    reader.readAsDataURL(file);
+    thumb.className += ' js--no-default';
+  }
+
+  function checkType(file){
+    let imageType = /image.*/;
+    if (!file.type.match(imageType)) {
+      throw 'Datei ist kein Bild';
+    } else if (!file){
+      throw 'Kein Bild gewählt';
+    } else {
+      previewImage(file);
+    }
+  }
+  
+}
+
+// initialize box-scope
+var boxes = document.querySelectorAll('.box');
+
+for (let i = 0; i < boxes.length; i++) {
+  let box = boxes[i];
+  initDropEffect(box);
+  initImageUpload(box);
+}
+
+
+
+/// drop-effect
+function initDropEffect(box){
+  let area, drop, areaWidth, areaHeight, maxDistance, dropWidth, dropHeight, x, y;
+  
+  // get clickable area for drop effect
+  area = box.querySelector('.js--image-preview');
+  area.addEventListener('click', fireRipple);
+  
+  function fireRipple(e){
+    area = e.currentTarget
+    // create drop
+    if(!drop){
+      drop = document.createElement('span');
+      drop.className = 'drop';
+      this.appendChild(drop);
+    }
+    // reset animate class
+    drop.className = 'drop';
+    
+    // calculate dimensions of area (longest side)
+    areaWidth = getComputedStyle(this, null).getPropertyValue("width");
+    areaHeight = getComputedStyle(this, null).getPropertyValue("height");
+    maxDistance = Math.max(parseInt(areaWidth, 10), parseInt(areaHeight, 10));
+
+    // set drop dimensions to fill area
+    drop.style.width = maxDistance + 'px';
+    drop.style.height = maxDistance + 'px';
+    
+    // calculate dimensions of drop
+    dropWidth = getComputedStyle(this, null).getPropertyValue("width");
+    dropHeight = getComputedStyle(this, null).getPropertyValue("height");
+    
+    // calculate relative coordinates of click
+    // logic: click coordinates relative to page - parent's position relative to page - half of self height/width to make it controllable from the center
+    x = e.pageX - this.offsetLeft - (parseInt(dropWidth, 10)/2);
+    y = e.pageY - this.offsetTop - (parseInt(dropHeight, 10)/2) - 30;
+    
+    // position drop and animate
+    drop.style.top = y + 'px';
+    drop.style.left = x + 'px';
+    drop.className += ' animate';
+    e.stopPropagation();
+    
+  }
+}
 
 </script>
 @endsection

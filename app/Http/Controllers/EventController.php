@@ -26,7 +26,7 @@ class EventController extends Controller
                 'title' => $event->title,
                 'start' => $event->start,
                 'end' => $event->end,
-                'description' => $event->description,
+                'color' => $event->color,
             ];
         });
 
@@ -36,14 +36,14 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $event = Event::create($request->all());
-        return redirect()->back()->with('success', __('messages.Create_success'));
+        return redirect()->route('information.index')->with('success', __('messages.Create_success'));
     }
 
     public function update(Request $request, $id)
     {
         $event = Event::find($id);
         $event->update($request->all());
-        return redirect()->back()->with('success', __('messages.Create_success'));
+        return redirect()->route('information.index')->with('success', __('messages.Create_success'));
     }
 
     public function destroy($id)
@@ -52,9 +52,9 @@ class EventController extends Controller
 
         if ($event) {
             $event->delete();
-            redirect()->back()->with('success', __('messages.Create_success'));
+            redirect()->route('information.index')->with('success', __('messages.Create_success'));
         }
     
-        return redirect()->route('calendar.index')->with('success_create', __('messages.Create_success'));
+        return redirect()->route('information.index')->with('success_create', __('messages.Create_success'));
     }
 }

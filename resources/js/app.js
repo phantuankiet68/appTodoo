@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 start: info.event.start.toISOString(),
                 end: info.event.end ? info.event.end.toISOString() : null,
             };
-
+            
             fetch(`/events/${event.id}`, {
                 method: 'PUT',
                 headers: {
@@ -54,24 +54,29 @@ document.addEventListener('DOMContentLoaded', function() {
         
             document.getElementById('event_title').value = info.event.title;
         
-            if (editorInstance) {
-                editorInstance.setData(info.event.extendedProps.description);
-            }
-        
-
             document.getElementById('event_id').value = info.event.id;
 
             const modal = document.querySelector('.ModelEditCalendar');
             modal.style.display = 'block';
+        },
+
+        eventDidMount: function(info) {
+            const backgroundColor = info.event.backgroundColor;
+            const borderColor = info.event.borderColor;
+
+            if (backgroundColor) {
+                info.el.style.backgroundColor = backgroundColor;
+            }
+            if (borderColor) {
+                info.el.style.borderColor = borderColor;
+            }
         }
-        
     });
 
     calendar.render();
 });
 
 
-// Hàm hiển thị modal để thêm mới sự kiện
 function showCreateCalendarModal(startDate, endDate) {
     const modal = document.querySelector('.ModelCreateCalendar');
     

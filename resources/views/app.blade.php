@@ -33,23 +33,18 @@
                 <ul class="navSidebar">
                     <div class="title-menu"><span>{{ __('messages.Application') }}</span></div>
                     <li><a class="hoverMenu" href="{{ route('dashboard.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-house"></i> {{ __('messages.Dashboard') }}</div></a></li>
-                    @if($can_view_setting)
                     <li><a class="hoverMenu" href="{{ route('user.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-gear"></i> {{ __('messages.Settings') }}</div></a></li>
-                    @endif
                     <li><a class="hoverMenu" href="{{ route('information.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-message"></i> {{ __('messages.Information') }}</div></a></li>
-                    @if($can_view_cv)
                     <li><a class="hoverMenu" href="{{ route('chat.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-file"></i> {{ __('messages.Posts') }}</div></a></li>
-                    @endif
                     <li><a class="hoverMenu" href="{{ route('message.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-message"></i> {{ __('messages.Chat') }}</div></a></li>
                     <div class="title-menu"><span>{{ __('messages.Tasks') }}</span></div>
                     <li class="menu-item">
-                        <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-solid fa-box-tissue"></i> {{ __('messages.Tasks') }} </div>
+                        <a class="hoverMenu" href="javascript:void(0)"><div class="subBoxMenu"><i class="fa-solid fa-box-tissue"></i> {{ __('messages.Tasks') }} </div>
                             <div class="chevron">
                                 <i class="fa-solid fa-chevron-right"></i>
                             </div>
                         </a>
                         <ul class="subSidebar">
-                            @if($can_view_issue)
                                 <li>
                                     <a class="hoverMenu" href="{{ route('issue.index') }}">
                                         <div class="subBoxMenu">
@@ -57,19 +52,10 @@
                                         </div>
                                     </a>
                                 </li>
-                            @endif
-                            @if($can_view_task)
                             <li><a href="{{ route('tasks.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Tasks') }}</div></a></li>
-                            @endif
-                            @if($can_view_workflow)
                             <li><a href="{{ route('workflows.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Workflow') }}</div></a></li>
-                            @endif
-                            @if($can_view_salary)
                             <li><a href="{{ route('salaries.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Salary') }}</div></a></li>
-                            @endif
-                            @if($can_view_expense)
                             <li><a href="{{ route('expense.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Expenses') }}</div></a></li>
-                            @endif
                         </ul>
                     </li>
                     <li class="menu-item">

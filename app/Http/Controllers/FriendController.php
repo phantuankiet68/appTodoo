@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Friendship;
+use App\Models\User;
 class FriendController extends Controller
 {
     /**
@@ -13,7 +14,15 @@ class FriendController extends Controller
      */
     public function index()
     {
-        return view('friend.index');
+        $userId = auth()->id();
+
+        $friends = Friendship::where('user_id', $userId)
+            ->where('status', 'accepted') 
+            ->get()
+            ->map(function ($friendship) {
+                return User::find($friendship->friend_id);
+            });
+        return view('friend.index', compact('friends'));
     }
 
     /**

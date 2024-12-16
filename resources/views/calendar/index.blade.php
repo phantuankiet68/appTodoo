@@ -26,9 +26,16 @@
             <label for="subject">{{ __('messages.Subject') }}</label>
             <input type="text" class="input-name" id="title" name="title">
         </div>
-        <div class="form-textarea-category">
-            <label for="description">{{ __('messages.Description') }}</label>
-            <textarea id="editor" name="description"></textarea> 
+        <div class="form-input-category mt-10">
+            <label>{{ __('messages.Color') }}</label><br>
+            <label><input type="checkbox" name="colors[]" value="#ff0000"> Red</label><br>
+            <label><input type="checkbox" name="colors[]" value="#00ff00"> Green</label><br>
+            <label><input type="checkbox" name="colors[]" value="#0000ff"> Blue</label><br>
+            <label><input type="checkbox" name="colors[]" value="#ffff00"> Yellow</label><br>
+            <label><input type="checkbox" name="colors[]" value="#ff00ff"> Magenta</label><br>
+            <label><input type="checkbox" name="colors[]" value="#00ffff"> Cyan</label><br>
+            <label><input type="checkbox" name="colors[]" value="#000000"> Black</label><br>
+            <label><input type="checkbox" name="colors[]" value="#ffffff"> White</label><br>
         </div>
         <div class="form-btn">
             <button type="submit">{{ __('messages.Add') }}</button>
