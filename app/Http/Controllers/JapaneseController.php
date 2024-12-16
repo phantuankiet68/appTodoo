@@ -39,7 +39,8 @@ class JapaneseController extends Controller
         $vocabulary = Vocabulary::with(['category'])->where('language_id', 3)->paginate(10);
         $structures = Structure::with(['category'])->where('language_id', 3)->paginate(10);
         $QuizItems = QuizItem::with(['category'])->where('language_id', 3)->paginate(11);
-        return view('japanese.add.index', compact('category','vocabulary','structures','QuizItems'));
+        $paragraph = Paragraph::with(['category'])->where('language_id', 3)->get();
+        return view('japanese.add.index', compact('category','vocabulary','structures','QuizItems','paragraph'));
     }
 
     public function submitQuiz(Request $request)
@@ -48,25 +49,20 @@ class JapaneseController extends Controller
         $categoryId = $request->input('category_id');
         $languageId = $request->input('language_id');
 
-        // Lấy mảng câu hỏi từ request
         $questions = $request->input('questions');
 
-        // Kiểm tra nếu không có câu hỏi nào trong form
         if (!$questions || !is_array($questions)) {
             return redirect()->back()->with('error', 'Không có câu hỏi nào được gửi!');
         }
 
-        // Đếm số lượng câu hỏi
         $totalQuestions = count($questions);
         $correctAnswers = 0;
         $wrongAnswers = 0;
 
-        // Xử lý từng câu hỏi và so sánh đáp án
         foreach ($questions as $quizId => $userAnswer) {
             $quiz = QuizItem::find($quizId);
 
             if ($quiz) {
-                // So sánh câu trả lời sau khi chuyển đổi thành chữ thường
                 if (strtolower($userAnswer) === strtolower($quiz->answer_correct)) {
                     $correctAnswers++;
                 } else {
@@ -75,7 +71,6 @@ class JapaneseController extends Controller
             }
         }
 
-        // Lưu kết quả vào bảng results
         Result::create([
             'user_id' => $userId,
             'category_id' => $categoryId,

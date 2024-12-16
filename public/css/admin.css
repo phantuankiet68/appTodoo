@@ -2064,3 +2064,56 @@ td{
 .percentSpend p, .feeSpend p, .noted span{
     font-size: 13px;
 }
+
+.chartComponent{
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.chartComponent h2{
+    color: #f97c3e;
+    text-align: center;
+}
+
+.dark-mode .Users--right--btns{
+    border: 0 !important;
+}
+
+.dark-mode .formInputSearch {
+    border: 0 !important;
+    margin-right: 0px !important;
+}
+
+#Paragraph .form-select-category label {
+    width: 26%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    background-color: #fbe4c5;
+    padding: 3.5px 0;
+    margin: 0;
+    color: #656565;
+}
+.modelCreateFrom#Paragraph .form-input-category label {
+    width: 26% !important;
+    font-size: 13px;
+}
+.modelCreateFrom#Paragraph .form-input-category input {
+    width: 75%;
+    padding: 2.8px 10px !important;
+    box-shadow: none !important;
+    border: 1px solid #d7d6d6;
+    outline: none;
+    border-radius: 0;
+}
+
+.modelCreateFrom#Paragraph .form-btn {
+    width: 100%;
+    margin: 10px 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

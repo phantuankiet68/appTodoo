@@ -25,9 +25,9 @@ class ComponentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function index_chart_component()
     {
-        //
+        return view('chartComponent.index');
     }
 
     /**

@@ -14,7 +14,6 @@ class ParagraphController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate dữ liệu
         $validatedData = $request->validate([
             'language_id' => 'required|integer',
             'category_id' => 'required|integer',
@@ -22,16 +21,17 @@ class ParagraphController extends Controller
             'description' => 'required',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
-        // Lưu hình ảnh nếu có
+    
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public/assets');
-            $validatedData['image'] = $imagePath;
+            $file = $request->file('image');
+            $filename = uniqid() . '_' . hash('sha256', $file->getClientOriginalName()) . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('assets/images'), $filename);
+            $validatedData['image'] = 'assets/images/' . $filename;
         }
-
-        // Tạo paragraph mới
         Paragraph::create($validatedData);
-
-        return redirect()->back()->with('success', 'Quiz created updated successfully!');
-    }
+    
+        return redirect()->route('japanese.addJapanese')
+            ->with('success', 'Paragraph created successfully!');
+    }    
+    
 }

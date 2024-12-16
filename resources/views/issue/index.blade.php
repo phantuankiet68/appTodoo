@@ -414,7 +414,7 @@
       .then(editor => {
         console.log(editor) 
       })
-    </script>
+</script>
 
 <script>
      document.addEventListener('DOMContentLoaded', function() {

@@ -4,18 +4,8 @@
 
 @section('content')
 <div class="todo">
-    <div class="todoHeader">
-        <div class="topHeader">
-            <h2>Email</h2> | <span>Home</span>
-        </div>
-        <div class="headerToQuesionRight">
-            <button type="button" class="short-paragraph" onclick="CreateParagraphForm()"><i class="fa-solid fa-plus"></i> {{ __('messages.Short paragraph') }}</button>
-            <button type="button" class="create" onclick="CreateCategoryForm()"><i class="fa-solid fa-plus"></i> {{ __('messages.Category') }}</button>
-            <button type="button" class="change"><i class="fa-solid fa-cash-register"></i> Thay đổi</button>
-        </div>
-    </div>
     <div class="tab-buttons">
-        <button class="tab-btn" onclick="openTabVocadulary(event, 'tab1')">{{ __('messages.Vocabulary') }}</button>
+        <button class="tab-btn" onclick="openTabVocadulary(event, 'tab1')">{{ __('messages.Short paragraph') }}</button>
         <button class="tab-btn" onclick="openTabVocadulary(event, 'tab2')">{{ __('messages.Vocabulary') }}</button>
         <button class="tab-btn" onclick="openTabVocadulary(event, 'tab3')">{{ __('messages.Structure') }}</button>
         <button class="tab-btn" onclick="openTabVocadulary(event, 'tab4')">{{ __('messages.Question') }}</button>
@@ -46,11 +36,11 @@
                             <form action="" class="formSearch">
                                 <div class="formInputSearch">
                                     <input type="text" value="">
+                                    <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </div>
-                                <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </form>
                         </div>
-                        <button class="btnCategory" onclick="CreateVocabularyForm()"><i class="fa-solid fa-plus"></i> {{ __('messages.Add New') }}</button>
+                        <button class="btnCategory" onclick="CreateParagraphForm()"><i class="fa-solid fa-plus"></i> {{ __('messages.Add New') }}</button>
                     </div>
                     <div class="body-category-todo mt-10">
                         <div class="recent--patient">
@@ -58,27 +48,33 @@
                                 <table>
                                     <thead>
                                         <tr>
+                                            <th>{{ __('messages.Image') }}</th>
                                             <th>{{ __('messages.Name') }}</th>
                                             <th>{{ __('messages.Meaning of word') }}</th>
-                                            <th>{{ __('messages.Romaji') }}</th>
                                             <th>{{ __('messages.Category') }}</th>
                                             <th>{{ __('messages.Create at') }}</th>
                                             <th class="text-center">{{ __('messages.Settings') }}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($vocabulary as $voca)
+                                        @foreach($paragraph as $item)
                                         <tr>
-                                            <td>{{$voca->name}}</td>
-                                            <td>{{$voca->meaning_of_word}}</td>
-                                            <td>{{$voca->romaji}}</td>
-                                            <td>{{ $voca->category ? $voca->category->name : 'Không có danh mục' }}</td>
-                                            <td>{{ $voca->created_at->format('Y-m-d') }}</td>
+                                            <td>
+                                                <img class="imageParagraph" src="{{ asset('assets/images/' . $item->image) }}" alt="">
+                                            </td>
+                                            <td>{{$item->name}}</td>
+                                            <td>
+                                                <div class="text-truncate">
+                                                    {!!$item->description!!}
+                                                </div>
+                                            </td>
+                                            <td>{{$item->category ? $item->category->name : 'Không có danh mục' }}</td>
+                                            <td>{{$item->created_at->format('Y-m-d') }}</td>
                                             <td class="text-center">
-                                                <a href="#" onclick="showEditVocabularyPopup({{ $voca->id }})">
+                                                <a href="#" onclick="showEditVocabularyPopup({{ $item->id }})">
                                                     <i class="fa-regular fa-pen-to-square edit"></i>
                                                 </a>
-                                                <a href="#" onclick="showDeletePopup({{ $voca->id }})">
+                                                <a href="#" onclick="showDeletePopup({{ $item->id }})">
                                                     <i class="fa-solid fa-trash delete"></i>
                                                 </a>
                                             </td>
@@ -671,9 +667,15 @@
         </div>
     </form>
 </div>
-
 <script>
-    CKEDITOR.replace('editor');
+    ClassicEditor
+      .create(document.querySelector('#editor'))
+      .then(editor => {
+        editorInstance = editor; 
+      })
+      .catch(error => {
+          console.error(error);
+      });
 </script>
 <script>
 

@@ -121,6 +121,8 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::resource('/v1/system/expense', ExpenseController::class);
     Route::resource('/v1/system/note', NoteController::class);
 
+    Route::get('/v1/system/chart-component', [ComponentController::class, 'index_chart_component'])->name('chartComponent.index');
+
     Route::get('/message', [MessageController::class, 'index'])->name('message.index');
     Route::get('/user/{itemId}', [SettingController::class, 'index'])->name('settings.index');
     Route::post('/update-setting/{id}', [SettingController::class, 'updateSetting'])->name('update.setting');
