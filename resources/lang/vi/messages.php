@@ -381,4 +381,5 @@ return [
     'postgreSQL'=>'postgreSQL',
     'Error'=>'Error',
     'Chat' => 'Chat',
+    'Confirm'=>'Xác nhận',
 ];

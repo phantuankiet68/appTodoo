@@ -478,9 +478,16 @@ ul.navSidebar .subBoxMenu{
 
 
 
-.dark-mode .todoHeader, .dark-mode .cod-top-header{
+.dark-mode .todoHeader{
     background-color: #555555;
     border: 1px solid #40c3f7;
+}
+
+.dark-mode .cod-top-header{
+    background-color: #555555;
+    border-top: 1px solid #40c3f7;
+    border-right: 1px solid #40c3f7;
+    border-bottom: 1px solid #40c3f7;
 }
 .select-dropdown {
     outline: none;
@@ -562,7 +569,7 @@ ul.navSidebar .subBoxMenu{
     display: flex;
     margin-top: 10px;
     gap: 20px;
-    height: 81vh;
+    height: 85vh;
     overflow: scroll;
     border-radius: 5px;
 }
@@ -570,7 +577,10 @@ ul.navSidebar .subBoxMenu{
 .dark-mode .UserContainer,.dark-mode .component-color{
     background-color: #555555;
 }
-
+.dark-mode .component-color{
+    background-color: #555555;
+    border: 1px solid #40c3f7 !important;
+}
 tr {
     border-bottom: 1px solid #d7d6d6;
 }
@@ -1917,7 +1927,7 @@ td{
 }
 .InformationLeftMenu a{
     width: 32.5%;
-    padding: 8px;
+    padding: 20px 8px;
     background-color: #fff;
     font-size: 13px;
     display: flex;
@@ -1942,7 +1952,7 @@ td{
 .InformationLeftCard{
     width: 48.5%;
     background-color: #fff;
-    padding:19px 10px;
+    padding:34px 10px;
     border-radius: 5px;
     display: flex;
     justify-content: space-between;

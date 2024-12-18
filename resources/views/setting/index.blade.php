@@ -39,6 +39,15 @@
         <div class="component-color">
             @foreach($settings as $item)
             <div class="setting-action">
+                <form action="{{ route('user.updateRoles', $item->user->id) }}" method="POST" class="form-switch">
+                    @csrf
+                    <label for="toggle100">{{ __('messages.Confirm') }} </label>
+                    <div class="switch">
+                        <input type="checkbox" id="toggle100" name="roles" value="{{ $item->user->roles }}" {{ $item->user->roles == 1 ? 'checked' : '' }} />
+                        <label for="toggle100"></label>
+                    </div>
+                    <button type="submit" style="display: none;">Submit</button>
+                </form>
                 <form action="{{ route('update.setting', $item->id) }}" method="POST" class="form-switch">
                     @csrf
                     @method('POST')

@@ -116,6 +116,19 @@
         height: 64vh !important;
         overflow: overlay;
     }
+    .InformationLeftCard{
+        padding:19px 10px !important;
+    }
+    .infoControllerRightUser{
+        margin-bottom: 5px !important;
+    }
+    .infoControllerRightInfo {
+        width: 100%;
+        height: 73.5% !important;
+    }
+    .post-info,.UserContainer{
+        height: 81vh !important;
+    }
 }
 
 @media screen and (max-width: 1504px){
@@ -204,5 +217,11 @@
     #calendar {
         height: 91.5vh !important;
         border-radius: 5px !important;
+    }
+    .InformationLeftMenu a{ 
+        padding: 8px !important;
+    }
+    .InformationLeftCard{
+        padding:19px 10px !important;
     }
 }

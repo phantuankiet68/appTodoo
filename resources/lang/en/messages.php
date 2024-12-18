@@ -381,7 +381,7 @@ return [
     'Mongo'=>'Mongo',
     'MySqlWorkBench'=>'MySqlWorkBench',
     'postgreSQL'=>'postgreSQL',
-    ''=>'',
+    'Confirm'=>'Confirm',
     ''=>'',
     ''=>'',
     ''=>'',

@@ -3014,6 +3014,7 @@ i.next {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    margin-bottom: 10px;
 }
 .infoControllerRightUser .infoControllerUser{
     width: 16%;
@@ -3202,7 +3203,7 @@ i.material-icons {
 
 .infoControllerRightInfo{
     width: 100%;
-    height: 73.5%;
+    height: 76.5%;
     overflow: scroll;
     display: flex;
     background: #ffff;
@@ -3613,10 +3614,11 @@ input {
     font-size: 14px;
 }
 
+
 .post-info{
     width: 100%;
     display: flex;
-    height: 81vh;
+    height: 92vh;
     justify-content: center;
     overflow: auto;
 }

@@ -8,28 +8,21 @@
         <div class="bodyHeader">
             <form action="">
                 <div class="Users--right--btns">
-                    <select name="date" id="date" class="select-dropdown doctor--filter">
+                    <select name="roles" id="roles" class="select-dropdown doctor--filter">
                         <option>Date of Month</option>
-                        <option value="free">Admin</option>
-                        <option value="scheduled">Users</option>
-                    </select>
-                </div>
-            </form>
-            <form action="">
-                <div class="Users--right--btns">
-                    <select name="date" id="date" class="select-dropdown doctor--filter">
-                        <option>Category</option>
-                        <option value="free">Admin</option>
-                        <option value="scheduled">Users</option>
+                        <option value="0">Xác nhận</option> 
+                        <option value="1">Chưa xác nhận</option> 
                     </select>
                 </div>
             </form>
         </div>
         <div class="headerToQuesionRight">
-            <form action="" class="formSearch">
+            <form action="" method="GET" class="formSearch">
                 <div class="formInputSearch">
-                    <input type="text" value="">
-                    <button class="add-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text" name="search" placeholder="Tìm kiếm theo tên, email hoặc ngày tạo" value="{{ request('search') }}">
+                    <button type="submit" class="add-search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
                 </div>
             </form>
         </div>

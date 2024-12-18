@@ -15,7 +15,7 @@ class SettingController extends Controller
      */
     public function index($itemId)
     {
-        $settings = Setting::where('user_id', $itemId)->get();
+        $settings = Setting::with(['user'])->where('user_id', $itemId)->get();
         return view('setting.index', compact('settings'));
     }
 
