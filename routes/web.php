@@ -112,14 +112,18 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/change-password/{id}', [AuthController::class, 'changePassword'])->name('change.password');
     Route::post('/link/store', [ChatController::class, 'storeLink'])->name('link.store');
     
-    Route::get('/v1/system/information', [InformationController::class, 'index'])->name('information.index');
-    Route::get('/v1/system/profile', [ProfileController::class, 'index'])->name('profile.index');
-    Route::resource('/v1/system/posts', PostController::class);
-    Route::get('/v1/system/friend', [FriendController::class, 'index'])->name('friend.index');
-    Route::get('/v1/system/changePassword', [AuthController::class, 'changePasswordView'])->name('changePassword.index');
-    Route::resource('/v1/system/salaries', SalaryController::class);
-    Route::resource('/v1/system/expense', ExpenseController::class);
-    Route::resource('/v1/system/note', NoteController::class);
+    Route::get('information', [InformationController::class, 'index'])->name('information.index');
+    Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
+    Route::resource('posts', PostController::class);
+    Route::get('friend', [FriendController::class, 'index'])->name('friend.index');
+    Route::get('changePassword', [AuthController::class, 'changePasswordView'])->name('changePassword.index');
+    Route::resource('salaries', SalaryController::class);
+    Route::resource('expense', ExpenseController::class);
+    Route::resource('note', NoteController::class);
+
+    Route::delete('/v1/system/link/{id}', [NoteController::class, 'destroy'])->name('link.destroy');
+    Route::delete('/v1/system/notes/{id}', [NoteController::class, 'destroyA'])->name('note.destroyA');
+    Route::post('/v1/system/upload-image/{id}', [InformationController::class, 'uploadImage'])->name('uploadImage.public');
 
     Route::get('/v1/system/chart-component', [ComponentController::class, 'index_chart_component'])->name('chartComponent.index');
 

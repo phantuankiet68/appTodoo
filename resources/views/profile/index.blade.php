@@ -18,19 +18,19 @@
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
                         @endif
                         <div class="form-input-category">
-                            <input type="text" class="input-name" name="name" value="{{ $item->name }}" placeholder="Nhập họ và tên....">
+                            <input type="text" class="input-name" name="name" value="{{ $item->name }}" placeholder="Nhập họ và tên...." readonly>
                         </div>
                         <div class="form-input-category">
-                            <input type="text" class="input-name" name="email" value="{{ $item->email }}" placeholder="Nhập email....">
+                            <input type="text" class="input-name" name="email" value="{{ $item->email }}" placeholder="Nhập email...." readonly>
                         </div>
                         <div class="form-input-category">
-                            <input type="text" class="input-name" name="phone" value="0{{ $item->phone }}" placeholder="Nhập số điện thoại....">
+                            <input type="text" class="input-name" name="phone" value="0{{ $item->phone }}" placeholder="Nhập số điện thoại...." readonly>
                         </div>
                         <div class="form-input-category">
-                            <input type="date" class="input-name" name="date_of_birth" value="{{ $item->date_of_birth }}">
+                            <input type="date" class="input-name" name="date_of_birth" value="{{ $item->date_of_birth }}" readonly>
                         </div>
                         <div class="form-input-category">
-                            <input type="text" class="input-name" name="gender" value="{{ $item->gender}}">
+                            <input type="text" class="input-name" name="gender" value="{{ $item->gender}}" readonly>
                         </div>
                     </div>
                     <div class="infoControllerRightContentUser">

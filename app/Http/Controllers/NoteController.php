@@ -84,6 +84,22 @@ class NoteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $issue = Link::findOrFail($id);
+            $issue->delete();
+            return redirect()->back()->with('success', 'Deleted successfully');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Failed to delete the issue.');
+        }
+    }
+    public function destroyA($id)
+    {
+        try {
+            $issue = Note::findOrFail($id);
+            $issue->delete();
+            return redirect()->back()->with('success', 'Deleted successfully');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Failed to delete the issue.');
+        }
     }
 }

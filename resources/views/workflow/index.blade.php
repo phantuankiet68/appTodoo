@@ -12,7 +12,7 @@
                         <div class="heading-lane">
                             <div class="heading-lane-title">
                                 <span><i class="fa-solid fa-circle"></i></span>
-                                <p class="heading">Open</p>
+                                <p class="heading">open</p>
                                 <button class="total-open">150</button>
                             </div>
                             <p><i class="fa-solid fa-plus"></i></p> 
@@ -31,9 +31,9 @@
                                         <p>{{ __('messages.Create by') }}: {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
                                     </div>
                                     <div class="progress-container mt-10">
-                                        <div class="progress-bar" style="width: 75%;"></div>
+                                        <div class="progress-bar" style="width: 0%;"></div>
                                         <div class="progress-bar-box">
-                                            <span>75%</span>
+                                            <span>0%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                         <div class="heading-lane">
                             <div class="heading-lane-title progress">
                                 <span><i class="fa-solid fa-circle"></i></span>
-                                <p class="heading">In progress</p>
+                                <p class="heading">doing</p>
                                 <button class="total-progress">150</button>
                             </div>
                             <p><i class="fa-solid fa-plus"></i></p> 
@@ -64,9 +64,9 @@
                                         <p>{{ __('messages.Create by') }}: {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
                                     </div>
                                     <div class="progress-container">
-                                        <div class="progress-bar" style="width: 75%;"></div>
+                                        <div class="progress-bar" style="width: 50%;"></div>
                                         <div class="progress-bar-box">
-                                            <span>75%</span>
+                                            <span>50%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -78,7 +78,7 @@
                         <div class="heading-lane">
                             <div class="heading-lane-title testing">
                                 <span><i class="fa-solid fa-circle"></i></span>
-                                <p class="heading">Testing</p>
+                                <p class="heading">testing</p>
                                 <button class="total-testing">150</button>
                             </div>
                             <p><i class="fa-solid fa-plus"></i></p> 
@@ -110,7 +110,7 @@
                         <div class="heading-lane">
                             <div class="heading-lane-title done">
                                 <span><i class="fa-solid fa-circle"></i></span>
-                                <p class="heading">Done</p>
+                                <p class="heading">done</p>
                                 <button class="total-done">150</button>
                             </div>
                             <p><i class="fa-solid fa-plus"></i></p> 
@@ -129,9 +129,9 @@
                                         <p>{{ __('messages.Create by') }}: {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
                                     </div>
                                     <div class="progress-container">
-                                        <div class="progress-bar" style="width: 75%;"></div>
+                                        <div class="progress-bar" style="width: 100%;"></div>
                                         <div class="progress-bar-box">
-                                            <span>75%</span>
+                                            <span>100%</span>
                                         </div>
                                     </div>
                                 </div>
@@ -188,6 +188,14 @@ function closeShowWorkflow() {
         showWorkflow.style.display = 'none';
     }
 }
+
+const statusMap = {
+    'Open': 'open',
+    'In progress': 'doing',
+    'Testing': 'testing',
+    'Done': 'done'
+};
+
 
 
 const tasks = document.querySelectorAll('.task');

@@ -60,9 +60,6 @@
                                     <option value="1">{{ __('messages.Show') }}</option>
                                 </select>
                             </div>
-                            <div class="form-btn">
-                                <button>{{ __('messages.Add') }}</button>
-                            </div>
                         </form>
                     </div>
                 </div>

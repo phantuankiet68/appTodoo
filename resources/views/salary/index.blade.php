@@ -210,12 +210,6 @@
                                         </tbody>
                                         @endforeach
                                     </table>
-                                    <div class="pagination">
-                                        <button id="prev" onclick="prevPage()">Prev</button>
-                                        <span id="page-info">1</span>
-                                        <span id="page-info">2</span>
-                                        <button id="next" onclick="nextPage()">Next</button>
-                                    </div>
                                 </div>
                             </div>
                         </div>

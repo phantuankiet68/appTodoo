@@ -104,6 +104,9 @@
         <form id="contentForm" method="POST" action="{{ route('tasks.store') }}">
             @csrf
             <h2>{{ __('messages.Add New') }}</h2>
+            <div class="form-btn">
+                <button type="submit">{{ __('messages.Save changes') }}</button>
+            </div>
             @if (Auth::check())
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
             @endif
@@ -128,9 +131,6 @@
                         <option value="0">{{ __('messages.Hide') }}</option>
                     </select>
                 </div>
-            </div>
-            <div class="form-btn">
-                <button type="submit">{{ __('messages.Add New') }}</button>
             </div>
             <div class="BtnCloseCreate" onclick="closeCreateTask()">
                 <p>X</p>

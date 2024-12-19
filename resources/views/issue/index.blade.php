@@ -52,14 +52,14 @@
                     <thead>
                         <tr>
                             <th class="t-center" style="width: 60px;">ID</th>
-                            <th>{{ __('messages.Key') }}</th>
-                            <th>{{ __('messages.Subject') }}</th>
-                            <th>{{ __('messages.Create by') }}</th>
-                            <th>{{ __('messages.Level') }}</th>
-                            <th>{{ __('messages.Status') }}</th>
+                            <th class="text-center">{{ __('messages.Key') }}</th>
+                            <th class="ml-3">{{ __('messages.Subject') }}</th>
+                            <th class="text-center">{{ __('messages.Create by') }}</th>
+                            <th class="ml-3">{{ __('messages.Level') }}</th>
+                            <th class="ml-3">{{ __('messages.Status') }}</th>
                             <th class="text-center">{{ __('messages.Notification') }}</th>
-                            <th>{{ __('messages.End Date') }}</th>
-                            <th>{{ __('messages.Category') }}</th>
+                            <th class="text-center">{{ __('messages.End Date') }}</th>
+                            <th class="text-center">{{ __('messages.Category') }}</th>
                             <th class="text-center">{{ __('messages.Settings') }}</th>
                         </tr>
                     </thead>
@@ -69,21 +69,21 @@
                             <td class="jus-center">
                                 <p class="td-1">{{$issue->id}}</p>
                             </td>
-                            <td><a class="key_issue" href="#">{{$issue->key}}</a></td>
-                            <td><div class="text-truncate">{!!$issue->description!!}</p></td>
+                            <td class="text-center"><a class="key_issue" href="#">{{$issue->key}}</a></td>
+                            <td class="ml-3"><div class="text-truncate">{!!$issue->description!!}</p></td>
                             <td>
-                                <div class="table_user">
+                                <div class="table_user text-center">
                                     <p>{{ $issue->user ? $issue->user->full_name : 'Không có danh mục' }}</p>
                                 </div>
                             </td>
-                            <td class="pending">
+                            <td class="pending ml-3">
                                 @if ($issue->level == 1)
                                 <p class="importantIssue">{{ __('messages.Important') }}</p>
                                 @else
                                 <p class="normalIssue">{{ __('messages.Normal') }}</p>
                                 @endif
                             </td>
-                            <td class="pending">
+                            <td class="pending ml-3">
                                 @if ($issue->status == 2)
                                     <p class="resolvedIssue">{{ __('messages.Done') }}</p>
                                 @elseif ($issue->status == 1)
@@ -104,8 +104,8 @@
                                     @endif
                                 </div>
                             </td>
-                            <td>{{$issue->end_date}}</td>
-                            <td>{{ $issue->category ? $issue->category->name : 'Không có danh mục' }}</td>
+                            <td class="text-center">{{$issue->end_date}}</td>
+                            <td class="text-center">{{ $issue->category ? $issue->category->name : 'Không có danh mục' }}</td>
                             <td class="text-center">
                                 <a href="{{ route('issue.show', $issue->id) }}">
                                     <i class="fa-regular fa-pen-to-square edit"></i>

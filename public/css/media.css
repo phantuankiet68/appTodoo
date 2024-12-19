@@ -36,7 +36,7 @@
     }
 
     .containerPage {
-        height: 82vh !important;
+        height: 81vh !important;
     }
 
     .select-dropdown {
@@ -124,10 +124,20 @@
     }
     .infoControllerRightInfo {
         width: 100%;
-        height: 73.5% !important;
+        height: 69.5% !important;
     }
     .post-info,.UserContainer{
         height: 81vh !important;
+    }
+    ul.navSidebar li a {
+        font-size: 14px !important;
+        font-weight: 300 !important;
+    }
+    .InformationLeftMenu a {
+        padding: 10.1px !important;
+    }
+    .tablinks {
+        padding: 10px !important;
     }
 }
 

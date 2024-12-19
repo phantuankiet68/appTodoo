@@ -3220,6 +3220,9 @@ button.btn-add{
     align-items: center;
     gap: 10px;
 }
+.table_user.text-center{
+    justify-content: center;
+}
 .table_user .table_user_image{
      width: 35px;
      height: 35px;

@@ -18,8 +18,8 @@ class SalaryController extends Controller
     {
         $salaries = Salary::with(['user'])
             ->where('user_id', Auth::id())
-            ->orderBy('id', 'asc')
-            ->paginate(2);
+            ->orderBy('id', 'desc')
+            ->paginate(10);
         
         foreach ($salaries as $item) {
             $startTime = Carbon::parse($item->start_time);
