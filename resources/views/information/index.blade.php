@@ -108,17 +108,6 @@
 </div>
 @endif
 
-<script>
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .then(editor => {
-            editorInstance = editor; 
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    
-</script>
 
 
 <script>

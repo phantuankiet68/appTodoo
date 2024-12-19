@@ -1,10 +1,14 @@
-RewriteEngine On
-RewriteCond %{REQUEST_URI} !^/appTodoo/public/
-RewriteRule ^(.*)$ /appTodoo/public/$1 [L,QSA]
+; # Đảm bảo RewriteEngine được bật
+; RewriteEngine On
 
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^ index.php [L]
-</IfModule>
+; # Điều hướng tất cả yêu cầu đến thư mục public của Laravel
+; RewriteCond %{REQUEST_URI} !^/appTodoo/public/
+; RewriteRule ^(.*)$ /appTodoo/public/$1 [L,QSA]
+
+; # Nếu yêu cầu không phải là tệp tin hay thư mục có sẵn, chuyển đến index.php
+; <IfModule mod_rewrite.c>
+;     RewriteEngine On
+;     RewriteCond %{REQUEST_FILENAME} !-f
+;     RewriteCond %{REQUEST_FILENAME} !-d
+;     RewriteRule ^(.*)$ /appTodoo/public/index.php [L]
+; </IfModule>

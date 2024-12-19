@@ -14,7 +14,7 @@
                         <div class="chatPostUser">
                             <div class="chatImage">
                                 <div class="imgUser">
-                                    <img src="{{asset('assets/images/vietnam.jpg')}}" alt="" srcset="">
+                                    <img src="{{ asset(Auth::user()->image ?? 'assets/images/background.jpg') }}" alt="Image Description" />
                                 </div>
                             </div>
                             <div class="thinkUser userName">
@@ -57,7 +57,7 @@
                             <div class="spaceBettween">
                                 <div class="commentUserPost">
                                     <div class="commentUserImage">
-                                        <img src="{{asset('assets/images/user1.jpg')}}" alt="" srcset="">
+                                        <img src="{{ asset(Auth::user()->image ?? 'assets/images/background.jpg') }}" alt="Image Description" />
                                     </div>
                                 </div>
                                 <div class="commentSendPost">
@@ -78,7 +78,7 @@
                             <div class="commentShare">
                                 <div class="commentUserSharePost">
                                     <div class="commentUserImage">
-                                        <img src="{{asset('assets/images/user2.jpg')}}" alt="" srcset="">
+                                        <img src="{{ asset($comment->user->image ?? 'assets/images/background.jpg') }}" alt="Image Description" />
                                     </div>
                                 </div>
                                 <div class="commentSection">

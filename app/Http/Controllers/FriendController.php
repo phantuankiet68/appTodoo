@@ -16,7 +16,7 @@ class FriendController extends Controller
     {
         $userId = auth()->id();
 
-        $friends = Friendship::where('user_id', $userId)
+        $friends = Friendship::with('user')->where('user_id', $userId)
             ->where('status', 'accepted') 
             ->get()
             ->map(function ($friendship) {

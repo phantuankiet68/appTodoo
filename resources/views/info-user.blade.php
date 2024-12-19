@@ -1,7 +1,7 @@
 <div class="InformationLeft">
     <div class="InformationLeftUser">
         <div class="InformationLeftUserImage">
-            <img src="{{asset('assets/images/user1.jpg')}}">
+            <img src="{{ asset(Auth::user()->image) }}" alt="Image Description" />
         </div>
         <div class="InformationLeftUserContent">
             <div class="InformationLeftUserContentTop">
@@ -190,7 +190,7 @@
                 </div>
             </div>
             <div class="form-btn">
-                <button type="submit">{{ __('messages.Save changes') }}</button>
+                <button type="submit" id="submitButton">{{ __('messages.Save changes') }}</button>
             </div>
             <div class="BtnCloseCreate" onclick="closeUploadImage()">
                 <p>X</p>

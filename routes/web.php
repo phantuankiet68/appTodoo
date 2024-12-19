@@ -125,6 +125,7 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::delete('/v1/system/notes/{id}', [NoteController::class, 'destroyA'])->name('note.destroyA');
     Route::post('/v1/system/upload-image/{id}', [InformationController::class, 'uploadImage'])->name('uploadImage.public');
 
+
     Route::get('/v1/system/chart-component', [ComponentController::class, 'index_chart_component'])->name('chartComponent.index');
 
     Route::get('/message', [MessageController::class, 'index'])->name('message.index');

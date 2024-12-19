@@ -2259,7 +2259,7 @@ td{
 
 /* Header */
 .upload-area__header {
-
+    color: #1F2937;
 }
 
 .upload-area__title {
@@ -2320,6 +2320,7 @@ td{
     margin-top: 2.1875rem;
     cursor: pointer;
     transition: border-color 300ms ease-in-out;
+    color: #1F2937;
 }
 
 .upload-area__drop-zoon:hover {
@@ -2431,6 +2432,7 @@ td{
     opacity: 0;
     transition: none 500ms ease-in-out;
     transition-property: visibility, opacity;
+    color: #1F2937;
 }
 
 /* (duploaded-file--open) Modifier Class */
@@ -2543,4 +2545,8 @@ td{
     color: #fff;
     background-color: #555555;
     border: 1px solid #1571bf;
+}
+
+.fc-view-harness{
+    height: 100% !important;
 }

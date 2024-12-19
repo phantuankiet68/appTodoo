@@ -12,7 +12,7 @@
                 <ul id="friendsList">
                     @foreach($friends as $item)
                     <li class="friend online">
-                        <img src="{{asset('assets/images/user.jpg')}}" alt="Friend 1">
+                        <img src="{{ asset($item->user->image ?? 'assets/images/background.jpg') }}" alt="Image Description" />
                         <div>
                             <p id="chatName">{{$item-> full_name}}</p>
                             <span class="status">Online</span>
