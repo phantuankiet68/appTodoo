@@ -35,18 +35,18 @@ class SettingController extends Controller
         return redirect()->back()->with('success', 'Setting updated successfully');
     }
 
-    public function updatecv($id, Request $request)
+    public function updateposts($id, Request $request)
     {
         $setting = Setting::findOrFail($id);
-        $setting->cv = $request->has('cv') ? 1 : 0;
+        $setting->posts = $request->has('posts') ? 1 : 0;
         $setting->save();
         return redirect()->back()->with('success', 'Setting updated successfully');
     }
 
-    public function updatecalendar($id, Request $request)
+    public function updatechat($id, Request $request)
     {
         $setting = Setting::findOrFail($id);
-        $setting->calendar = $request->has('calendar') ? 1 : 0;
+        $setting->chat = $request->has('chat') ? 1 : 0;
         $setting->save();
         return redirect()->back()->with('success', 'Setting updated successfully');
     }

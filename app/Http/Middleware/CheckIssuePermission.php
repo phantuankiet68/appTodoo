@@ -29,15 +29,15 @@ class CheckIssuePermission
             } else {
                 view()->share('can_view_issue', false);
             }
-            if ($setting && $setting->cv == 1) {
-                view()->share('can_view_cv', true);
+            if ($setting && $setting->posts == 1) {
+                view()->share('can_view_posts', true);
             } else {
-                view()->share('can_view_cv', false);
+                view()->share('can_view_posts', false);
             }
-            if ($setting && $setting->calendar == 1) {
-                view()->share('can_view_calendar', true);
+            if ($setting && $setting->chat == 1) {
+                view()->share('can_view_chat', true);
             } else {
-                view()->share('can_view_calendar', false);
+                view()->share('can_view_chat', false);
             }
             if ($setting && $setting->task == 1) {
                 view()->share('can_view_task', true);

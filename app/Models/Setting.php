@@ -12,7 +12,7 @@ class Setting extends Model
     protected $table = 'settings'; 
 
     protected $fillable = [
-        'user_id', 'setting', 'issue', 'cv', 'calendar', 'task', 'workflow',
+        'user_id', 'setting', 'issue', 'posts', 'chat', 'task', 'workflow',
         'salary', 'expense', 'add_japanese', 'japanese', 'learn_japanese',
         'add_english', 'english', 'learn_english', 'question', 'word', 'excel',
         'test_code', 'component', 'color', 'html', 'js', 'vue', 'react', 'jquery',
@@ -23,8 +23,8 @@ class Setting extends Model
     protected $attributes = [
         'setting' => 0,
         'issue' => 0,
-        'cv' => 0,
-        'calendar' => 0,
+        'posts' => 0,
+        'chat' => 0,
         'task' => 0,
         'workflow' => 0,
         'salary' => 0,

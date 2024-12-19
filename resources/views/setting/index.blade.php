@@ -68,22 +68,22 @@
                     </div>
                     <button type="submit" style="display: none;">Submit</button>
                 </form>
-                <form action="{{ route('update.cv', $item->id) }}" method="POST" class="form-switch">
+                <form action="{{ route('update.posts', $item->id) }}" method="POST" class="form-switch">
                     @csrf
                     @method('POST')
-                    <label for="toggle3">{{ __('messages.Curriculum Vitae') }}</label>
+                    <label for="toggle3">{{ __('messages.Posts') }}</label>
                     <div class="switch">
-                        <input type="checkbox" id="toggle3" name="cv" value="{{$item->cv}}" {{ $item->cv == 1 ? 'checked' : '' }} />
+                        <input type="checkbox" id="toggle3" name="posts" value="{{$item->posts}}" {{ $item->posts == 1 ? 'checked' : '' }} />
                         <label for="toggle3"></label>
                     </div>
                     <button type="submit" style="display: none;">Submit</button>
                 </form>
-                <form action="{{ route('update.calendar', $item->id) }}" method="POST" class="form-switch">
+                <form action="{{ route('update.chat', $item->id) }}" method="POST" class="form-switch">
                     @csrf
                     @method('POST')
-                    <label for="toggle4">{{ __('messages.Calendar') }}</label>
+                    <label for="toggle4">{{ __('messages.Chat') }}</label>
                     <div class="switch">
-                        <input type="checkbox" id="toggle4" name="calendar" value="{{$item->calendar}}" {{ $item->calendar == 1 ? 'checked' : '' }} />
+                        <input type="checkbox" id="toggle4" name="chat" value="{{$item->chat}}" {{ $item->chat == 1 ? 'checked' : '' }} />
                         <label for="toggle4"></label>
                     </div>
                     <button type="submit" style="display: none;">Submit</button>

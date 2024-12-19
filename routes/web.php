@@ -127,8 +127,8 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::get('/user/{itemId}', [SettingController::class, 'index'])->name('settings.index');
     Route::post('/update-setting/{id}', [SettingController::class, 'updateSetting'])->name('update.setting');
     Route::post('/update-issue/{id}', [SettingController::class, 'updateissue'])->name('update.issue');
-    Route::post('/update-cv/{id}', [SettingController::class, 'updatecv'])->name('update.cv');
-    Route::post('/update-calendar/{id}', [SettingController::class, 'updatecalendar'])->name('update.calendar');
+    Route::post('/update-posts/{id}', [SettingController::class, 'updateposts'])->name('update.posts');
+    Route::post('/update-chat/{id}', [SettingController::class, 'updatechat'])->name('update.chat');
     Route::post('/update-task/{id}', [SettingController::class, 'updatetask'])->name('update.task');
     Route::post('/update-Workflow/{id}', [SettingController::class, 'updateWorkflow'])->name('update.Workflow');
     Route::post('/update-salary/{id}', [SettingController::class, 'update_salary'])->name('update.salary');

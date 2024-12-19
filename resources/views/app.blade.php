@@ -33,11 +33,18 @@
                 <ul class="navSidebar">
                     <div class="title-menu"><span>{{ __('messages.Application') }}</span></div>
                     <li><a class="hoverMenu" href="{{ route('dashboard.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-house"></i> {{ __('messages.Dashboard') }}</div></a></li>
+                    @if($can_view_setting)
                     <li><a class="hoverMenu" href="{{ route('user.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-gear"></i> {{ __('messages.Settings') }}</div></a></li>
+                    @endif
                     <li><a class="hoverMenu" href="{{ route('information.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-message"></i> {{ __('messages.Information') }}</div></a></li>
+                    @if($can_view_posts)
                     <li><a class="hoverMenu" href="{{ route('chat.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-file"></i> {{ __('messages.Posts') }}</div></a></li>
+                    @endif
+                    @if($can_view_chat)
                     <li><a class="hoverMenu" href="{{ route('message.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-message"></i> {{ __('messages.Chat') }}</div></a></li>
+                    @endif
                     <div class="title-menu"><span>{{ __('messages.Tasks') }}</span></div>
+                    @if($can_view_issue)
                     <li class="menu-item">
                         <a class="hoverMenu" href="javascript:void(0)"><div class="subBoxMenu"><i class="fa-solid fa-box-tissue"></i> {{ __('messages.Tasks') }} </div>
                             <div class="chevron">
@@ -52,12 +59,14 @@
                                         </div>
                                     </a>
                                 </li>
+                            @if($can_view_task)
                             <li><a href="{{ route('tasks.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Tasks') }}</div></a></li>
                             <li><a href="{{ route('workflows.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Workflow') }}</div></a></li>
-                            <li><a href="{{ route('salaries.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Salary') }}</div></a></li>
-                            <li><a href="{{ route('expense.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Expenses') }}</div></a></li>
+                            @endif
                         </ul>
                     </li>
+                    @endif
+                    @if($can_view_japanese)
                     <li class="menu-item">
                         <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-solid fa-fire"></i> {{ __('messages.Japanese') }} </div>
                             <div class="chevron">
@@ -68,14 +77,14 @@
                             @if($can_view_add_japanese)
                             <li><a href="{{ route('japanese.addJapanese') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Add New') }}</div></a></li>
                             @endif
-                            @if($can_view_japanese)
                             <li><a href="{{ route('japanese.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Japanese') }}</div></a></li>
-                            @endif
                             @if($can_view_learn_japanese)
                             <li><a href="{{ route('learn_more.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Learn vocabulary') }}</div></a></li>
                             @endif
                         </ul>
                     </li>
+                    @endif
+                    @if($can_view_english)
                     <li class="menu-item">
                         <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-solid fa-fire"></i> {{ __('messages.English') }} </div>
                             <div class="chevron">
@@ -86,14 +95,14 @@
                             @if($can_view_add_english)
                             <li><a href="{{ route('english.addEnglish') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Add New') }}</div></a></li>
                             @endif
-                            @if($can_view_english)
                             <li><a href="{{ route('english.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.English') }}</div></a></li>
-                            @endif
                             @if($can_view_learn_english)
                             <li><a href="{{ route('learn_more_english.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Learn vocabulary') }}</div></a></li>
                             @endif
                         </ul>
                     </li>
+                    @endif
+                    @if($can_view_question)
                     <li class="menu-item">
                         <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-solid fa-fire"></i> {{ __('messages.Question') }} </div>
                             <div class="chevron">
@@ -101,9 +110,7 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
-                            @if($can_view_question)
                             <li><a href="{{ route('question.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Question') }}</div></a></li>
-                            @endif
                             @if($can_view_word)
                             <li><a href="{{ route('question.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Word') }}</div></a></li>
                             @endif
@@ -112,10 +119,12 @@
                             @endif
                         </ul>
                     </li>
+                    @endif
                     <div class="title-menu"><span>{{ __('messages.User Interface') }}</span></div>
                     @if($can_view_test_code)
                     <li><a class="hoverMenu" href="{{ route('test_code.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-check-to-slot"></i> {{ __('messages.Test code') }}</div></a></li>
                     @endif
+                    @if($can_view_component)
                     <li class="menu-item">
                         <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-brands fa-codepen"></i> {{ __('messages.Code') }} </div>
                             <div class="chevron">
@@ -123,14 +132,14 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
-                            @if($can_view_component)
                             <li><a href="{{ route('component.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Component') }}</div></a></li>
-                            @endif
                             @if($can_view_color)
                             <li><a href="{{ route('colors.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Color') }}</div></a></li>
                             @endif
                         </ul>
                     </li>
+                    @endif
+                    @if($can_view_html)
                     <li class="menu-item">
                         <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-brands fa-codepen"></i> {{ __('messages.Front-end') }} </div>
                             <div class="chevron">
@@ -138,9 +147,7 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
-                            @if($can_view_html)
                             <li><a href="{{ route('codes.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.HTML/CSS') }}</div></a></li>
-                            @endif
                             @if($can_view_js)
                             <li><a href="{{ route('javascripts.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Javascript') }}</div></a></li>
                             @endif
@@ -158,6 +165,8 @@
                             @endif
                         </ul>
                     </li>
+                    @endif
+                    @if($can_view_php)
                     <li class="menu-item">
                         <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-brands fa-codepen"></i> {{ __('messages.Back-end') }} </div>
                             <div class="chevron">
@@ -165,9 +174,7 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
-                            @if($can_view_php)
                             <li><a href="{{ route('codes.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.PHP') }}</div></a></li>
-                            @endif
                             @if($can_view_laravel)
                             <li><a href="{{ route('javascripts.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Laravel') }}</div></a></li>
                             @endif
@@ -185,6 +192,8 @@
                             @endif
                         </ul>
                     </li>
+                    @endif
+                    @if($can_view_ftp)
                     <li class="menu-item">
                         <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-brands fa-codepen"></i> {{ __('messages.SQL') }} </div>
                             <div class="chevron">
@@ -192,9 +201,7 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
-                            @if($can_view_ftp)
                             <li><a href="{{ route('codes.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.FTP') }}</div></a></li>
-                            @endif
                             @if($can_view_ubuntu)
                             <li><a href="{{ route('javascripts.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.UBUTU') }}</div></a></li>
                             @endif
@@ -212,6 +219,7 @@
                             @endif
                         </ul>
                     </li>
+                    @endif
                     @if($can_view_error)
                     <li><a class="hoverMenu" href="/calendar"><div class="subBoxMenu"><i class="fa-regular fa-calendar"></i> {{ __('messages.Error') }}</div></a></li>
                     @endif
