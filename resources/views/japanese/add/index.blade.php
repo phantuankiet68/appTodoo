@@ -48,7 +48,7 @@
                                 <table>
                                     <thead>
                                         <tr>
-                                            <th>{{ __('messages.Image') }}</th>
+                                            <th>Image</th>
                                             <th>{{ __('messages.Name') }}</th>
                                             <th>{{ __('messages.Meaning of word') }}</th>
                                             <th>{{ __('messages.Category') }}</th>
@@ -60,7 +60,9 @@
                                         @foreach($paragraph as $item)
                                         <tr>
                                             <td>
-                                                <img class="imageParagraph" src="{{ asset('assets/images/' . $item->image) }}" alt="">
+                                                <div class="paragraph-img">
+                                                    <img class="imageParagraph" src="{{ asset($item->image) }}" alt="">
+                                                </div>
                                             </td>
                                             <td>{{$item->name}}</td>
                                             <td>

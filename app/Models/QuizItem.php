@@ -30,6 +30,6 @@ class QuizItem extends Model
 
     public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(CategoryLanguage::class);
     }
 }

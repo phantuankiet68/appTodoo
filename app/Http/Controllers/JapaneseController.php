@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
+use App\Models\CategoryLanguage;
 use App\Models\Vocabulary;
 use App\Models\Structure;
 use App\Models\QuizItem;
@@ -19,11 +19,11 @@ class JapaneseController extends Controller
      */
     public function index()
     {
-        $category = Category::where('key', 5)->get();
-        $vocabulary = Vocabulary::with(['category'])->where('language_id', 3)->get();
-        $structures = Structure::with(['category'])->where('language_id', 3)->get();
-        $QuizItems = QuizItem::with(['category'])->where('language_id', 3)->get();
-        $paragraph = Paragraph::with(['category'])->where('language_id', 3)->get();
+        $category = CategoryLanguage::get();
+        $vocabulary = Vocabulary::with(['category'])->where('language_id', 3)->where('category_id', 1)->get();
+        $structures = Structure::with(['category'])->where('language_id', 3)->where('category_id', 1)->get();
+        $QuizItems = QuizItem::with(['category'])->where('language_id', 3)->where('category_id', 1)->get();
+        $paragraph = Paragraph::with(['category'])->where('language_id', 3)->where('category_id', 1)->get();
         $result = Result::with(['category'])->where('language_id', 3)->where('user_id', Auth::id())->orderBy('created_at', 'desc')->paginate(1);
         return view('japanese.index',compact('category','vocabulary','structures','QuizItems','paragraph','result'));
     }
@@ -35,7 +35,7 @@ class JapaneseController extends Controller
      */
     public function addJapanese()
     {
-        $category = Category::where('key', 5)->get();
+        $category = CategoryLanguage::get();
         $vocabulary = Vocabulary::with(['category'])->where('language_id', 3)->paginate(10);
         $structures = Structure::with(['category'])->where('language_id', 3)->paginate(10);
         $QuizItems = QuizItem::with(['category'])->where('language_id', 3)->paginate(11);

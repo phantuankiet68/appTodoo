@@ -27,7 +27,7 @@
                         @foreach($paragraph as $para)
                         <div class="error-content-left">
                             <div class="imageerror">
-                                <img src="{{ asset('assets/' . $para->image) }}" alt="Image">
+                                <img src="{{ asset($para->image) }}" alt="Image">
                             </div>
                             <div class="content-paragraph">{!!$para->description!!}</div>
                         </div>

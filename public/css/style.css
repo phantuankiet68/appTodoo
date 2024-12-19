@@ -2434,6 +2434,7 @@ h3{
     justify-content: space-between;
     align-items: center;
     gap: 5px;
+    font-size: 14px;
 }
 
 .d-flex .bar-icon-click{

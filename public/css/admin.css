@@ -1244,7 +1244,6 @@ td{
 .error-content-left {
     position: relative;
     width: 100%;
-    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -2193,46 +2192,45 @@ td{
     justify-content: center;
     align-items: center;
 }
-
 .dark-mode ul.navSidebar li:hover a i {
-   background-color: #40c3f7;
-}
-
-.dark-mode h3{
-    color: #1F2937;
-}
-
-.input-name:read-only {
-    background-color: #e8eaee;
-    color: #09b9ff;
-}
-
-.dark-mode .todoCol-5{
-   background-color: #555555;
-}
-
-.ml-3{
-    padding-left: 3px;
-}
-
-.txt-center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#CreateTask .form-input-category label {
-    padding: 4.5px 0 !important;
-}
-#CreateTask .form-input-category input {
-    padding: 3.5px 0 !important;
-}
-
-
-/* Upload Area */
-#uploadImageUser{
-    display: none;
-}
+    background-color: #40c3f7;
+ }
+ 
+ .dark-mode h3{
+     color: #1F2937;
+ }
+ 
+ .input-name:read-only {
+     background-color: #e8eaee;
+     color: #09b9ff;
+ }
+ 
+ .dark-mode .todoCol-5{
+    background-color: #555555;
+ }
+ 
+ .ml-3{
+     padding-left: 3px;
+ }
+ 
+ .txt-center{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+ 
+ #CreateTask .form-input-category label {
+     padding: 4.5px 0 !important;
+ }
+ #CreateTask .form-input-category input {
+     padding: 3.5px 0 !important;
+ }
+ 
+ 
+ /* Upload Area */
+ #uploadImageUser{
+     display: none;
+ }
 .upload-area {
     width: 96%;
     max-width: 25rem;
@@ -2520,4 +2518,29 @@ td{
 .uploaded-file__counter {
     font-size: 1rem;
     color: var(--clr-light-gray);
+}
+.hoverMenu.dark-mode:hover .subBoxMenu i{
+    color: #fff;
+    background-color: #40c3f7;
+}
+
+.hoverMenu.dark-mode:hover .chevron i{
+    color: #fff;
+    background-color: #40c3f7;
+}
+.paragraph-img{
+    width: 30px;
+    height: 30px;
+}
+.paragraph-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #0cbaff;
+}
+.dark-mode .japanese-container-left,.dark-mode .imageerror{
+    color: #fff;
+    background-color: #555555;
+    border: 1px solid #1571bf;
 }

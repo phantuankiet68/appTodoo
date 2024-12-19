@@ -1371,7 +1371,19 @@
     border-top: 1px solid #1571bf;
     border-right: 1px solid #1571bf;
     border-bottom: 1px solid #1571bf;
+    background-color: #555555;
 }
+.dark-mode .details-section label{
+    color: #fff;
+}
+
+.dark-mode .alternate-list li:nth-child(odd),.dark-mode .commentBody {
+    background-color: #555555;
+}
+.dark-mode .alternate-list li:nth-child(even) {
+    background-color: rgb(100 93 93);
+}
+
 
 .dashboard-content.dark-mode .col-4 .commentBodyBox:last-child {
     border-bottom: 1px solid #1571bf;

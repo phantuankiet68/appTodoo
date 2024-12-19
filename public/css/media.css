@@ -234,4 +234,11 @@
     .InformationLeftCard{
         padding:19px 10px !important;
     }
+    td, th{
+        padding-block: 23px !important;
+    }
+    .commentBody {
+        width: 100%;
+        height: 29vh !important;
+    }
 }
