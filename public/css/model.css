@@ -1599,7 +1599,6 @@
 .chat-left{
     width: 100%;
     height: 90vh;
-    padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -1608,7 +1607,6 @@
 
 .chat-center{
     width: 100%;
-    padding: 10px;
     height: 80vh;
 }
 
@@ -1659,7 +1657,7 @@ p.space {
 }
 
 .chatImage{
-    width: 6%;
+    width: 3%;
     justify-content: center;
     align-items: center;
     border-radius: 50%;
@@ -1852,7 +1850,7 @@ p.space {
 }
 
 .commentUserPost{
-    width: 6%;
+    width: 5%;
 }
 .commentUserImage{
     width: 42px;

@@ -8,7 +8,7 @@
         @include('info-user')
         <div class="InformationRight">
             @foreach($posts as $item)
-            <div class="post-info">
+            <div class="post-user-info">
                 <div class="chat-center">
                     <div class="createPost">
                         <div class="chatPostUser">

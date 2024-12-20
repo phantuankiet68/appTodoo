@@ -22,47 +22,47 @@
                                         </div>
                                     </div>
                                     <div class="recentViewImage">
-                                        <img src="{{asset('assets/images/background-login.jpg')}}" alt="">
+                                        <img src="{{ asset(Auth::user()->image ?? 'assets/images/background.jpg') }}" alt="Image Description" />
                                     </div>
                                 </div>
                                 <div class="recentView">
                                     <div class="recentViewUser">
                                         <div class="recentViewUserImage">
-                                            <img src="{{asset('assets/images/preview.jpg')}}" alt="">
+                                        <img src="{{ asset('assets/images/background.jpg') }}" alt="Image Description" />
                                         </div>
                                     </div>
                                     <div class="recentViewImage">
-                                        <img src="{{asset('assets/images/background-login.jpg')}}" alt="">
+                                        <img src="{{ asset('assets/images/background.jpg') }}" alt="Image Description" />
                                     </div>
                                 </div>
                                 <div class="recentView">
                                     <div class="recentViewUser">
                                         <div class="recentViewUserImage">
-                                            <img src="{{asset('assets/images/preview.jpg')}}" alt="">
+                                            <img src="{{asset('assets/images/body.jpg')}}" alt="">
                                         </div>
                                     </div>
                                     <div class="recentViewImage">
-                                        <img src="{{asset('assets/images/background-login.jpg')}}" alt="">
+                                        <img src="{{asset('assets/images/body.jpg')}}" alt="">
                                     </div>
                                 </div>
                                 <div class="recentView">
                                     <div class="recentViewUser">
                                         <div class="recentViewUserImage">
-                                            <img src="{{asset('assets/images/user1.jpg')}}" alt="">
+                                            <img src="{{asset('assets/images/body.jpg')}}" alt="">
                                         </div>
                                     </div>
                                     <div class="recentViewImage">
-                                        <img src="{{asset('assets/images/background-login.jpg')}}" alt="">
+                                        <img src="{{asset('assets/images/body.jpg')}}" alt="">
                                     </div>
                                 </div>
                                 <div class="recentView">
                                     <div class="recentViewUser">
                                         <div class="recentViewUserImage">
-                                            <img src="{{asset('assets/images/user1.jpg')}}" alt="">
+                                            <img src="{{asset('assets/images/body.jpg')}}" alt="">
                                         </div>
                                     </div>
                                     <div class="recentViewImage">
-                                        <img src="{{asset('assets/images/background-login.jpg')}}" alt="">
+                                        <img src="{{asset('assets/images/body.jpg')}}" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                             <div class="chatPostUser">
                                 <div class="chatImage">
                                     <div class="imgUser">
-                                        <img src="{{asset('assets/images/vietnam.jpg')}}" alt="" srcset="">
+                                        <img src="{{ asset($item->user->image ?? 'assets/images/body.jpg') }}" alt="Image Description" />
                                     </div>
                                 </div>
                                 <div class="thinkUser userName">
@@ -115,7 +115,7 @@
                                 <div class="spaceBettween">
                                     <div class="commentUserPost">
                                         <div class="commentUserImage">
-                                            <img src="{{asset('assets/images/user1.jpg')}}" alt="" srcset="">
+                                            <img src="{{ asset(Auth::user()->image ?? 'assets/images/background.jpg') }}" alt="Image Description" />
                                         </div>
                                     </div>
                                     <div class="commentSendPost">
@@ -216,7 +216,7 @@
                             <div class="commentShare">
                                 <div class="commentUserSharePost">
                                     <div class="commentUserImage">
-                                        <img src="{{ asset('assets/images/user2.jpg') }}" alt="User Image">
+                                        <img src="{{ asset(Auth::user()->image ?? 'assets/images/background.jpg') }}" alt="Image Description" />
                                     </div>
                                 </div>
                                 <div class="commentSection">

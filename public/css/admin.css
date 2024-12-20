@@ -2051,6 +2051,12 @@ td{
     gap: 10px;
 }
 
+.salary-container form{
+    background-color: #ffffff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
 .salaryBody{
     width: 58.5%;
 }
@@ -2549,4 +2555,18 @@ td{
 
 .fc-view-harness{
     height: 100% !important;
+}
+
+.post-user-info {
+    width: 100%;
+    display: flex;
+    height: 90.5vh;
+    justify-content: center;
+    overflow: auto;
+    border-radius: 5px;
+    background-color: #ffffff;
+}
+
+.post-user-info .chat-center{
+    border-radius: 5px;
 }

@@ -139,6 +139,15 @@
     .tablinks {
         padding: 10px !important;
     }
+    .expense_normal {
+        font-size: 11px !important;
+    }
+    .title-todo-bottom a {
+        font-size: 13px !important;
+    }
+    .chat-left {
+        height: 89vh !important;
+    }
 }
 
 @media screen and (max-width: 1504px){

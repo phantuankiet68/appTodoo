@@ -39,7 +39,7 @@ class InformationController extends Controller
                 $image->move(public_path('assets/images'), $filename);
     
                 $relativePath = 'assets/images/' . $filename;
-                $user->image = $relativePath; // Update image name
+                $user->image = $relativePath;
                 $user->save();
     
                 return response()->json(['success' => 'Image uploaded successfully!']);
