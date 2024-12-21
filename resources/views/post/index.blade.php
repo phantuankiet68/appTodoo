@@ -84,7 +84,7 @@
                                 <div class="commentSection">
                                     <div class="commentShareContent">
                                         <div class="commentShareUser">
-                                            <i class="fa-solid fa-heart"></i> <p>{{$comment->user->full_name}}</p> <i class="fa-solid fa-heart"></i>
+                                            <p>{{$comment->user->full_name}}</p> | <p>{{$item->created_at}}</p>
                                         </div>
                                         <p>{{$comment->comment}}</p>
                                     </div>

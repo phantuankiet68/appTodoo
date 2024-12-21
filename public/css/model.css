@@ -1868,7 +1868,7 @@ p.space {
 .commentShareUser{
     display: flex;
     align-items: center;
-    gap: 2px;
+    gap: 6px;
 }
 
 .commentShareUser i{
@@ -1908,7 +1908,7 @@ p.space {
     margin-left: 10px;
 }
 .commentShare{
-    padding: 10px;
+    padding: 10px 0;
     display: flex;
     gap: 20px;
     background-color: #fff;
@@ -1964,7 +1964,7 @@ p.space {
 }
 
 .dashboard-content.dark-mode .chat-center{
-    border: 1px solid #1571bf;
+    border: 1px solid #40c3f7;
 }
 
 .settingUserImage img{

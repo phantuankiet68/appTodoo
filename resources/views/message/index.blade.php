@@ -8,10 +8,10 @@
     <div class="sidebar-chat">
         <div class="chat-user">
             <div class="chat-user-img">
-                <img src="{{asset('assets/images/english.jpg')}}">
+                <img src="{{ asset(Auth::user()->image ?? 'assets/images/background.jpg') }}" alt="Image Description" />
             </div>
             <div class="chat-user-content">
-                <p class="user-box">David Peters</p>
+                <p class="user-box">{{Auth::user()->full_name}}</p>
                 <p class="status">Senior Developer</p>
             </div>
         </div>
@@ -50,7 +50,7 @@
           <ul class="contacts-list">
               @foreach ($friends as $friend)
               <li class="contact" data-id="{{ $friend->id }}">
-                  <img src="{{asset('assets/images/english.jpg')}}">
+                    <img src="{{ asset($friend->user->image ?? 'assets/images/body.jpg') }}" alt="Image Description" />
                   <div>
                       <p>{{ $friend->full_name }}</p>
                       <p class="status">Developer</p>
@@ -64,7 +64,7 @@
     <!-- Chat Area -->
     <div class="chat-area">
         <div class="chat-header">
-            <img id="chatImage" src="{{asset('assets/images/english.jpg')}}">
+            <img id="chatImage" src="{{ asset('assets/images/body.jpg') }}" alt="Image Description" />
             <div>
                 <p class="chat-name" id="chatName">Chưa có lựa chọn</p>
                 <p class="chat-status">Online</p>
@@ -111,22 +111,22 @@
 
     <!-- Profile Details -->
     <div class="profile-details">
-    <img src="{{asset('assets/images/english.jpg')}}">
-      <h2>Dianne Jhonson</h2>
-      <p>Junior Developer</p>
-      <div class="actions">
-        <button>Chat</button>
-        <button>Video Call</button>
-      </div>
-      <div class="attachments">
-        <h3>Attachments</h3>
-        <div class="file-icons">
-          <span>📄 PDF</span>
-          <span>🖼️ Image</span>
-          <span>📁 File</span>
+        <img id="chatImage" src="{{ asset('assets/images/body.jpg') }}" alt="Image Description" />
+        <p class="chat-name" id="chatName">Chưa có lựa chọn</p>
+        <p class="chat-status">Online</p>
+        <div class="actions">
+            <button>Chat</button>
+            <button>Video Call</button>
         </div>
-      </div>
-    </div>
+        <div class="attachments">
+            <h3>Attachments</h3>
+            <div class="file-icons">
+            <span>📄 PDF</span>
+            <span>🖼️ Image</span>
+            <span>📁 File</span>
+            </div>
+        </div>
+        </div>
   </div>
 <script>
   $(document).ready(function() {

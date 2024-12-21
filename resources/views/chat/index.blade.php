@@ -4,7 +4,72 @@
 
 @section('content')
 <div class="todo">
-    <div class="chat-container">
+    <div class="post-container">
+        <div class="post-sidebar">
+            <div class="post-sidebar-list">
+                <a href="" class="menu-post">
+                    <div class="post-sidebar-user">
+                        <div class="imgUser">
+                            <img src="{{ asset(Auth::user()->image ?? 'assets/images/background.jpg') }}" alt="Image Description" />
+                        </div>
+                        <div class="thinkUser userName">
+                            <span>{{ Auth::user()->full_name }}</span>
+                        </div>
+                    </div>
+                </a>
+                <hr />
+                <a href="" class="menu-post">
+                    <div class="menu-post-box">
+                        <i class="fa-solid fa-plus"></i> Thêm mới
+                    </div>
+                </a>
+                <a href="" class="menu-post">
+                    <div class="menu-post-box">
+                        <i class="fa-regular fa-calendar-minus"></i> Bài viết
+                    </div>
+                </a>
+                <a href="" class="menu-post">
+                    <div class="menu-post-box">
+                        <i class="fa-solid fa-people-group"></i> Nhóm
+                    </div>
+                </a>
+                <a href="" class="menu-post">
+                    <div class="menu-post-box">
+                        <i class="fa-solid fa-layer-group"></i> Đã lưu
+                    </div>
+                </a>
+                <a href="" class="menu-post">
+                    <div class="menu-post-box">
+                        <i class="fa-solid fa-store"></i> Chợ mới
+                    </div>
+                </a>
+                <a href="" class="menu-post">
+                    <div class="menu-post-box">
+                        <i class="fa-solid fa-store"></i> Đồ ăn vặt
+                    </div>
+                </a>
+                <a href="" class="menu-post">
+                    <div class="menu-post-box">
+                        <i class="fa-solid fa-mug-hot"></i> Đồ uống
+                    </div>
+                </a>
+                <a href="" class="menu-post">
+                    <div class="menu-post-box">
+                        <i class="fa-solid fa-mug-hot"></i> Pháp luật
+                    </div>
+                </a>
+                <a href="" class="menu-post">
+                    <div class="menu-post-box">
+                        <i class="fa-solid fa-mug-hot"></i> Sức khỏe
+                    </div>
+                </a>
+                <a href="" class="menu-post">
+                    <div class="menu-post-box">
+                        <i class="fa-solid fa-headphones"></i> Giải trí
+                    </div>
+                </a>
+            </div>
+        </div>
         <div class="chat_post">
             <div class="chat_row">
                 <div class="chat-left">
@@ -212,6 +277,7 @@
                     $('.commentsContainer').empty();
                     
                     data.forEach(comment => {
+                        const formattedDate = comment.user.created_at.replace("T", " ").split(".")[0];
                         $('.commentsContainer').append(`
                             <div class="commentShare">
                                 <div class="commentUserSharePost">
@@ -222,7 +288,7 @@
                                 <div class="commentSection">
                                     <div class="commentShareContent">
                                         <div class="commentShareUser">
-                                            <i class="fa-solid fa-heart"></i> <p>${comment.user.full_name}</p> <i class="fa-solid fa-heart"></i>
+                                             <p>${comment.user.full_name}</p> | <p>${formattedDate}</p>
                                         </div>
                                         <p>${comment.comment}</p>
                                     </div>

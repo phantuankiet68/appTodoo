@@ -1521,6 +1521,81 @@ td{
   padding: 10px;
 }
 
+.post-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    gap: 10px;
+}
+
+.post-sidebar {
+    width: 30%;
+    border-radius: 5px;
+}
+
+.post-sidebar-list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.post-sidebar-list a{
+    width: 100%;
+    min-height: 60px;
+    padding: 0px 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.post-sidebar-list a:nth-child(1){
+    background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%) !important;
+}
+.post-sidebar-user{
+    display: flex;
+    align-items: center;
+    background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+    min-height: 60px;
+    padding: 0px 0px 5px 0px;
+    border-radius: 5px;
+}
+
+.post-sidebar-user .imgUser {
+    width: 70px !important;
+}
+
+.post-sidebar-user .imgUser img{
+    width: 45px !important;
+    height: 45px !important;
+    border-radius: 50%;
+    border: 5px solid #f8e6c2;
+}
+
+.post-sidebar-user .thinkUser span {
+    font-size: 20px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.post-sidebar-list hr{
+    width: 100%;
+    height: 2px;
+    background: #ffffff;
+    color: #ffffff;
+    border: 2px solid #fff;
+}
+
+.menu-post-box{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    gap: 10px;
+}
+
 .chat-info {
     display: flex;
     width: 100%;
@@ -1830,6 +1905,9 @@ td{
     width: 83%;
     font-family: "Poppins", sans-serif;
 }
+.chat-user-friend .search-bar input{
+    border: 1px solid #d7d6d6;
+}
 .search-bar button{
     padding: 8px;
 }
@@ -2020,9 +2098,28 @@ td{
 .dark-mode .commentPost{
     border: 1px solid #40c3f7;
 }
+.dark-mode .salary-container form {
+    background-color: #555555;
+    border: 1px solid #40c3f7;
+}
+.expense-container {
+    display: flex;
+    gap: 10px;
+}
+
+.expense-container  form {
+    background-color: #ffffff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.dark-mode .expense-container form {
+    background-color: #555555;
+    border: 1px solid #40c3f7;
+}
 
 .dark-mode .Container.dark-mode .chat-center .createPost {
-    padding: 0 20px;
+    padding: 10px 20px;
 }
 
 .dashboard-content.dark-mode .wrapper {

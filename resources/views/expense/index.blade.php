@@ -7,7 +7,7 @@
     <div class="infoController">
         @include('info-user')
         <div class="InformationRight">
-            <div class="salary-container">
+            <div class="expense-container">
                 <form action="{{ route('expense.store') }}" method="POST">
                 @csrf
                     <div class="button-spend">

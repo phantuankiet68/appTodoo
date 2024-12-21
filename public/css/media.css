@@ -228,7 +228,7 @@
         padding: 30px 10px !important;
     }
     .infoControllerRightInfo {
-        height: 75% !important;
+        height: 73.8% !important;
     }
     .chat-messages {
         height: 75vh !important;
@@ -249,5 +249,17 @@
     }
     .post-info, .UserContainer {
         height: 91vh !important;
+    }
+    .commentSendPost {
+        width: 93% !important;
+    }
+    .thinkUser {
+        width: 93% !important;
+    }
+    .expense-container {
+        height: 99.5% !important;
+    }
+    .salary-container {
+        height: 90% !important;
     }
 }
