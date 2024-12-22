@@ -99,38 +99,29 @@
         </nav>
     </header>
     <section class="hero" id="home">
-        <div class="page-left-item banner">
-            <div class="banner-website">
-                <div id="particles-js"></div>
-                <div class="banner-content">
-                    <div class="patern-layer-content">
-                        <div class="patern-layer-UpSkillHub">
-                            <h1>Triskill</h1>
-                            <div class="wavy">
-                                <span style="--i:1;">W</span>
-                                <span style="--i:2;">E</span>
-                                <span style="--i:3;">B</span>
-                                <span style="--i:4;">S</span>
-                                <span style="--i:5;">I</span>
-                                <span style="--i:6;">T</span>
-                                <span style="--i:7;">E</span>
-                                <span style="--i:8;">D</span>
-                                <span style="--i:9;">E</span>
-                                <span style="--i:10;">V</span>
-                                <span style="--i:11;">E</span>
-                                <span style="--i:12;">L</span>
-                                <span style="--i:13;">O</span>
-                                <span style="--i:14;">P</span>
+        <div class="page-left-item">
+            <div class="banner">
+                <div class="app-text">
+                    <div class="app-text-box">
+                        <div class="txtBanner">
+                            <div  class="txtBannerImage">
+                                <img src="{{ asset('assets/images/logo-website.png') }}" alt="">
                             </div>
-                            <div class="btn-more-here">
-                                <a href="#About" class="btn-more">{{ __('messages.More here') }}</a>
+                            <h1>TRYSKILL</h1>
+                        </div>
+                        <h3>Website Developer</h3>
+                        <blockquote>"Tryskill" có thể đại diện cho một hành trình hoặc nỗ lực trong việc học và cải thiện kỹ năng trong lĩnh vực công nghệ. </blockquote>
+                        <blockquote>Một chương trình, ứng dụng hoặc nền tảng học tập:  ứng dụng giúp người dùng rèn luyện và cải thiện kỹ năng của mình thông qua các thử thách và bài học thực hành.</blockquote>
+                        <div class="btn-group">
+                            <div class="signup-btn">Sign up now</div>
+                            <div class="play-btn">
                                 <a href="/dashboard" class="btn-dashboard">{{ __('messages.Dashboard') }}</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="banner-image">
-                    <img src="{{ asset('assets/images/about-banner1.png') }}" alt="">
+                <div class="app-picture">
+                    <img src="{{ asset('assets/images/banner-pro.jpg') }}" alt="">
                 </div>
             </div>
         </div>
@@ -138,64 +129,24 @@
     <section class="path-app" id="path-app">
         <div class="path-container">
             <div class="path-card-item">
-                <div class="card-item-box">
-                    <h3>{{ __('messages.Online Programs') }}</h3>
-                    <img class="card-item-img" src="{{ asset('assets/images/logo-website.png') }}" alt="">
-                </div>
-                <div class="card-item-content">
-                    <h3>{{ __('messages.Online Programs') }}</h3>
-                    <p>{{ __('messages.Features of Online Programs:') }}<br/>
-                        {{ __('messages.Flexible, affordable, and rich in content with structured learning paths. Ideal for professionals, students, and those exploring new fields.') }}
-                    </p>
-                    <div class="btn-register">
-                        <button onclick="Register();"> {{ __('messages.Register') }}</button>
-                    </div>
-                </div>
+                <div class="icon">🕵️‍♂️</div> <!-- Biểu tượng SEO -->
+                <h3>SEO Consultancy</h3>
+                <p>Giúp tối ưu hóa website, nâng cao thứ hạng tìm kiếm và tăng trưởng doanh thu bền vững..</p>
             </div>
             <div class="path-card-item">
-                <div class="card-item-box">
-                    <h3>{{ __('messages.Coding Programs') }}</h3>
-                    <img class="card-item-img" src="{{ asset('assets/images/logo-website.png') }}" alt="">
-                </div>
-                <div class="card-item-content">
-                    <h3>{{ __('messages.Coding Programs') }}</h3>
-                    <p>{{ __('messages.Features of Coding Programs:') }}<br/>
-                        {{ __('messages.Learn basic programming, practice hands-on, and build a portfolio. Suitable for professionals, students, and those enhancing coding skills.') }}
-                    </p>
-                    <div class="btn-register">
-                        <button onclick="Register();"> {{ __('messages.Register') }}</button>
-                    </div>
-                </div>
+                <div class="icon">📈</div> <!-- Biểu tượng Phân tích đối thủ -->
+                <h3>Competitor Analysis</h3>
+                <p>Giúp bạn hiểu rõ đối thủ, phát hiện cơ hội và chiến lược tối ưu để vượt trội trên thị trường..</p>
             </div>
             <div class="path-card-item">
-                <div class="card-item-box">
-                    <h3>{{ __('messages.English Programs') }}</h3>
-                    <img class="card-item-img" src="{{ asset('assets/images/logo-website.png') }}" alt="">
-                </div>
-                <div class="card-item-content">
-                    <h3>{{ __('messages.English Programs') }}</h3>
-                    <p>{{ __('messages.Features of English Programs:') }}<br/>
-                        {{ __('messages.Improve listening, speaking, reading, and writing with content for all levels. Perfect for students, professionals, and those seeking global communication.') }}
-                    </p>
-                    <div class="btn-register">
-                        <button onclick="Register();"> {{ __('messages.Register') }}</button>
-                    </div>
-                </div>
+                <div class="icon">📣</div> <!-- Biểu tượng Tiếp thị truyền thông xã hội -->
+                <h3>Social Media Marketing</h3>
+                <p>Giúp xây dựng thương hiệu mạnh mẽ, tăng tương tác và thu hút khách hàng qua các nền tảng mạng xã hội.</p>
             </div>
             <div class="path-card-item">
-                <div class="card-item-box">
-                    <h3>{{ __('messages.Japanese Programs') }}</h3>
-                    <img class="card-item-img" src="{{ asset('assets/images/logo-website.png') }}" alt="">
-                </div>
-                <div class="card-item-content">
-                    <h3>{{ __('messages.Japanese Programs') }}</h3>
-                    <p>{{ __('messages.Features of Japanese Programs:') }}<br/>
-                        {{ __('messages.Learn Japanese from basics, focusing on grammar, communication. Ideal for professionals, students, and those aiming to work or study in Japan.') }}
-                    </p>
-                    <div class="btn-register">
-                        <button onclick="Register();"> {{ __('messages.Register') }}</button>
-                    </div>
-                </div>
+                <div class="icon">🌐</div> <!-- Biểu tượng Phát triển web -->
+                <h3 class="highlight">Web Development</h3>
+                <p>Cung cấp giải pháp thiết kế và phát triển website chuyên nghiệp, tối ưu hóa trải nghiệm người dùng.</p>
             </div>
         </div>
     </section>
