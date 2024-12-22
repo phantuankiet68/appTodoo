@@ -205,7 +205,7 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::resource('learn_more_english', LearnMoreEngLishController::class);
     Route::resource('structures', StructureController::class);
     Route::resource('quiz', QuizItemController::class);
-    Route::post('/paragraph/store', [ParagraphController::class, 'store'])->name('paragraph.store');
+    Route::resource('paragraph', ParagraphController::class);
     Route::post('/quiz/submit', [JapaneseController::class, 'submitQuiz'])->name('quiz.submit');
     Route::post('/send-email', [MailController::class, 'sendMail'])->name('send.email');
     Route::get('/events', [EventController::class, 'getEvents']);

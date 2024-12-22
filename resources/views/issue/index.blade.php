@@ -417,7 +417,7 @@
 </script>
 
 <script>
-     document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             const popup = document.querySelector('#popup-success');
             if (popup) {
                 popup.style.display = 'flex';

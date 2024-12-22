@@ -81,6 +81,16 @@ class JapaneseController extends Controller
 
         return redirect()->back()->with('success', 'Kết quả đã được lưu!');
     }
+    public function show($id)
+    {
+        $path_id = $id;
+        $category = CategoryLanguage::get();
+        $vocabulary = Vocabulary::with(['category'])->where('language_id', 3)->where('category_id', $id)->get();
+        $structures = Structure::with(['category'])->where('language_id', 3)->where('category_id', $id)->get();
+        $QuizItems = QuizItem::with(['category'])->where('language_id', 3)->where('category_id', $id)->get();
+        $paragraph = Paragraph::with(['category'])->where('language_id', 3)->where('category_id', $id)->get();
+        return view('showJapanese.index', compact('path_id','category', 'vocabulary', 'structures', 'QuizItems', 'paragraph'));
+    }
 
     
 

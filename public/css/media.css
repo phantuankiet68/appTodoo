@@ -211,7 +211,7 @@
         height: 92vh !important;
     }
     .error-content-left {
-        height: 85vh !important;
+        height: 83.5vh !important;
     }
     .error-content-right {
         width: 100%;
@@ -261,5 +261,11 @@
     }
     .salary-container {
         height: 90% !important;
+    }
+    .formTab {
+        height: 98% !important;
+    }
+    .formGrammar p {
+        font-size: 15px !important;
     }
 }

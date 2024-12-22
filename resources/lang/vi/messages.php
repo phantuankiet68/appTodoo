@@ -379,7 +379,6 @@ return [
     'Mongo'=>'Mongo',
     'MySqlWorkBench'=>'MySqlWorkBench',
     'postgreSQL'=>'postgreSQL',
-    'Error'=>'Error',
     'Chat' => 'Chat',
-    'Confirm'=>'Xác nhận',
+    'If you truly want to learn, please don’t give up. Thank you very much.'=>'Nếu muốn thật sự muốn học thì xin đừng bỏ lỡ. Xin cảm ơn rất nhiều.',
 ];

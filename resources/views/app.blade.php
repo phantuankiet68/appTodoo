@@ -77,6 +77,7 @@
                             <li><a href="{{ route('japanese.addJapanese') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Add New') }}</div></a></li>
                             @endif
                             <li><a href="{{ route('japanese.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Japanese') }}</div></a></li>
+                            <li><a href="{{ route('learn_more_test.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Learn vocabulary') }}</div></a></li>
                             @if($can_view_learn_japanese)
                             <li><a href="{{ route('learn_more.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Learn vocabulary') }}</div></a></li>
                             @endif

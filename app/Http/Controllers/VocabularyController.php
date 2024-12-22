@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Vocabulary;
-
+use App\Models\CategoryLanguage;
 class VocabularyController extends Controller
 {
     /**
@@ -48,8 +48,10 @@ class VocabularyController extends Controller
     */
     public function show($id)
     {
-        $vocabulary = Vocabulary::findOrFail($id);
-        return response()->json($vocabulary);
+        $path_id = $id;
+        $category = CategoryLanguage::get();
+        $vocabularies = Vocabulary::with(['category'])->where('language_id', 3)->where('category_id', $id)->get();
+        return view('showVocabulary.index', compact('path_id','category','vocabularies'));
     }
 
     // Function to update vocabulary in the database

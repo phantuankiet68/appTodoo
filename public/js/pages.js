@@ -200,11 +200,10 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener("DOMContentLoaded", function () {
     const hrefTests = document.querySelectorAll('.hrefTest');
     const totalItems = hrefTests.length;
-    const itemsPerPage = 10; // Số lượng hrefTest hiển thị mỗi trang
+    const itemsPerPage = 10;
     let currentPage = 0;
 
     function showPage(page) {
-        // Tính toán chỉ số bắt đầu và kết thúc
         const start = page * itemsPerPage;
         const end = start + itemsPerPage;
 
@@ -212,12 +211,35 @@ document.addEventListener("DOMContentLoaded", function () {
         hrefTests.forEach((item, index) => {
             item.classList.remove('active');
             if (index >= start && index < end) {
-                item.classList.add('active'); // Hiển thị các phần tử trong khoảng
+                item.classList.add('active');
+            }
+        });
+
+        // Cập nhật trạng thái nút
+        document.getElementById('prevBtn').disabled = page === 0;
+        document.getElementById('nextBtn').disabled = end >= totalItems;
+    }
+
+    function handlePagination() {
+        // Lắng nghe sự kiện click vào các nút điều hướng
+        document.getElementById('prevBtn').addEventListener('click', function () {
+            if (currentPage > 0) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        });
+
+        document.getElementById('nextBtn').addEventListener('click', function () {
+            if ((currentPage + 1) * itemsPerPage < totalItems) {
+                currentPage++;
+                showPage(currentPage);
             }
         });
     }
 
-    // Thiết lập hiển thị trang đầu tiên
+    // Hiển thị trang đầu tiên
     showPage(currentPage);
 
+    // Thêm sự kiện cho các nút
+    handlePagination();
 });

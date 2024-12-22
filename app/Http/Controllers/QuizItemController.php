@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\QuizItem;
-
+use App\Models\CategoryLanguage;
+use App\Models\Result;
+use Illuminate\Support\Facades\Auth;
 class QuizItemController extends Controller
 {
     /**
@@ -49,10 +51,13 @@ class QuizItemController extends Controller
      */
     public function show($id)
     {
-        $QuizItems = QuizItem::findOrFail($id);
-        return response()->json($QuizItems);
+        $path_id = $id;
+        $path_id_x = $id + 1;
+        $category = CategoryLanguage::get();
+        $QuizItems = QuizItem::with(['category'])->where('language_id', 3)->where('category_id', $id)->get();
+        $result = Result::with(['category'])->where('language_id', 3)->where('user_id', Auth::id())->orderBy('created_at', 'desc')->paginate(1);
+        return view('showQuizItem.index', compact('path_id','path_id_x','category','QuizItems','result'));
     }
-
 
     /**
      * Update the specified resource in storage.

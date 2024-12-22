@@ -669,6 +669,76 @@
         </div>
     </form>
 </div>
+
+@if (session('success'))
+<div id="popup-success">
+    <ul class="notifications">
+        <li class="toast success hide">
+            <div class="column">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Success:  {{ session('success') }}.</span>
+            </div>
+        </li>
+    </ul>
+</div>
+@endif
+
+@if (session('error'))
+<div id="popup-error">
+    <ul class="notifications">
+        <li class="toast error hide">
+            <div class="column">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Error:  {{ session('error') }}.</span>
+            </div>
+        </li>
+    </ul>
+</div>
+@endif
+
+@if ($errors->any())
+    <div id="popup-error">
+        <ul class="notifications">
+            @foreach ($errors->all() as $error)
+                <li class="toast error hide">
+                    <div class="column">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Error:  {{ $error }}.</span>
+                    </div>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+@if (session('success_create'))
+<div id="popup-success">
+    <ul class="notifications">
+        <li class="toast success hide">
+            <div class="column">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Success:  {{ session('success_create') }}.</span>
+            </div>
+        </li>
+    </ul>
+</div>
+@endif
+
+
+@if (session('success_update'))
+<div id="popup-success">
+    <ul class="notifications">
+        <li class="toast success hide">
+            <div class="column">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Success:  {{ session('success_update') }}.</span>
+            </div>
+        </li>
+    </ul>
+</div>
+@endif
+
+
 <script>
     ClassicEditor
       .create(document.querySelector('#editor'))
@@ -680,7 +750,25 @@
       });
 </script>
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.querySelector('#popup-success');
+        if (popup) {
+            popup.style.display = 'flex';
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 6000);
+        }
+    });
 
+    document.addEventListener('DOMContentLoaded', function() {
+        const popup = document.querySelector('#popup-error');
+        if (popup) {
+            popup.style.display = 'flex';
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 6000);
+        }
+    });
     function CreateParagraphForm(){
         const modelCreateParagraph = document.getElementById('Paragraph')
         if (modelCreateParagraph.style.display === 'none' || modelCreateParagraph.style.display === '') {

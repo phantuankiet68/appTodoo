@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Structure;
-
+use App\Models\CategoryLanguage;
 class StructureController extends Controller
 {
     /**
@@ -46,8 +46,10 @@ class StructureController extends Controller
      */
     public function show($id)
     {
-        $structure = Structure::findOrFail($id);
-        return response()->json($structure);
+        $path_id = $id;
+        $category = CategoryLanguage::get();
+        $structure = Structure::with(['category'])->where('language_id', 3)->where('category_id', $id)->get();
+        return view('showStructure.index', compact('path_id','category','structure'));
     }
 
     /**

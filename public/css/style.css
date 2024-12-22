@@ -1580,7 +1580,7 @@ button.button:hover{
 
 .form-btn {
     width: 100%;
-    margin: 0 10px 10px 0;
+    margin:10px 10px 10px 0;
     display: flex;
     justify-content: right;
     align-items: center;
@@ -2562,6 +2562,7 @@ h3{
 .dashboard-content.dark-mode .japanese-container-right{
     border: 1px solid #1571bf;
     color: #fff;
+    background-color: #555555;
 }
 
 .japanese-container-left ul li{
@@ -2729,13 +2730,14 @@ h3{
 }
 
 .formGrammar {
-    width: 48.7%;
+    width: 49%;
     padding: 10px;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     display: flex;
     flex-direction: column;
     gap: 5px;
     border-radius: 5px;
+    background-color: #ffffff;
 }
 .submitBtn{
     margin-bottom: 50px;
@@ -4407,10 +4409,11 @@ list-style: none;
 }
 
 .question {
-    width: 48.7%;
+    width: 49%;
     box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
     padding: 10px;
     border-radius: 5px;
+    background: #ffffff;
 }
 .formResult{
     width: 100%;

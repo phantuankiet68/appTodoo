@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Paragraph;
+use App\Models\CategoryLanguage;
 class ParagraphController extends Controller
 {
      /**
@@ -19,7 +20,7 @@ class ParagraphController extends Controller
             'category_id' => 'required|integer',
             'name' => 'required|string|max:255',
             'description' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image',
         ]);
     
         if ($request->hasFile('image')) {
@@ -30,8 +31,15 @@ class ParagraphController extends Controller
         }
         Paragraph::create($validatedData);
     
-        return redirect()->route('japanese.addJapanese')
-            ->with('success', 'Paragraph created successfully!');
+        return redirect()->route('japanese.addJapanese')->with('success', 'Paragraph created successfully!');
     }    
+
+    public function show($id)
+    {
+        $path_id = $id;
+        $category = CategoryLanguage::get();
+        $paragraph = Paragraph::with(['category'])->where('language_id', 3)->where('category_id', $id)->get();
+        return view('showParagraph.index', compact('path_id','category','paragraph'));
+    }
     
 }

@@ -10,7 +10,6 @@
         </div>
         <div class="learnMore-container">
             <div class="learnMore-setting">
-                <a href="{{ route('learn_more.index') }}">Prev <i class="fa-solid fa-rotate-left"></i></a>
                 <button onclick="reloadPage(event);">Load Data <i class="fa-brands fa-windows"></i></button>
                 <button onclick="changeValue()">Changes <i class="fa-solid fa-right-left"></i></button>
                 <a href="{{ route('learn_more.pdf') }}">DownLoad <i class="fa-solid fa-download"></i></a>
@@ -109,4 +108,7 @@
         </ul>
     </div>
 @endif
+<script>
+    
+</script>
 @endsection

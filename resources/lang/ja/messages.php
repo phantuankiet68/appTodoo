@@ -381,5 +381,5 @@ return [
     'postgreSQL'=>'postgreSQL',
     'Error'=>'Error',
     'Chat' => 'Chat',
-    'Confirm'=>'確認',
+    'If you truly want to learn, please don’t give up. Thank you very much.'=>'本気で学びたいのであれば、どうか諦めないでください。本当にありがとうございます。',
 ];

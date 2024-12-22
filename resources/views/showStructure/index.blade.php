@@ -4,21 +4,29 @@
 
 @section('content')
 <div class="todo">
-    <div class="japanese-container">
-        <div class="japanese-container-left">
-            <h4>All lessons</h4>
-            <div class="lessonList mt-10">
-                @foreach($category as $cate)
-                    <a href="/japanese/{{ $cate->id }}">{{ $cate->name }}  <i class="fa-solid fa-lock icon-lock"></i></a>
+    <div class="japanese-header">
+        <div class="japanese-header-left">
+            <a href="/japanese/{{ $path_id }}"><i class="fa-solid fa-circle-left"></i> Quay lại</a>
+        </div>
+        <div class="japanese-header-right">
+            <a href="/quiz/{{ $path_id }}">Tiếp theo <i class="fa-solid fa-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="japanese-container-box">
+        <div class="formTab">
+            <div class="listFormGrammar">
+                @foreach($structure as $item)
+                <div class="formGrammar">
+                    <h4>{{$item->structure}}</h4>
+                    <p>{{$item->meaning_of_structure}}</p>
+                    <p>VD: {{$item->example}}</p>
+                    <p>{{$item->meaning_of_example}}</p>
+                </div>
                 @endforeach
             </div>
         </div>
-        <div class="japanese-container-right background-lesson">
-            
-        </div>
     </div>
 </div>
-
 <script>
     function openTabJapanese(event, tabId) {
         var tabContents = document.querySelectorAll('.tab-content');
