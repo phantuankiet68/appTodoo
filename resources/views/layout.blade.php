@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="{{ asset('css/layout-one.css') }}">
     <link rel="stylesheet" href="{{ asset('css/media-layout.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 
     </head>
 <body>
@@ -25,7 +24,7 @@
     <button id="scroll-top">
         <i class="fas fa-arrow-up"></i>
     </button>
-    <header>
+    <header id="home">
         <div class="header-aside">
             <div class="header-aside-list hidden">
                 <a href="">{{ __('messages.Connect') }} <i class="fa-solid fa-wifi"></i> | </a>
@@ -75,30 +74,27 @@
                     <a href="#home">{{ __('messages.Home') }}</a>
                 </li>
                 <li>
-                    <a href="#courses">{{ __('messages.About') }}</a>
+                    <a href="#about">{{ __('messages.About') }}</a>
                 </li>
                 <li>
                     <a href="#features">{{ __('messages.Feature') }}</a>
                 </li>
                 <li>
-                    <a href="#courses">{{ __('messages.Course') }}</a>
+                    <a href="#service">{{ __('messages.Service') }}</a>
                 </li>
                 <li>
-                    <a href="#testimonial">{{ __('messages.Service') }}</a>
-                </li>
-                <li>
-                    <a href="#download-app">{{ __('messages.Product') }}</a>
+                    <a href="#product">{{ __('messages.Product') }}</a>
                 </li>
                 <li>
                     <a href="#download-app">{{ __('messages.Question') }}</a>
                 </li>
                 <li>
-                    <a href="#download-app">{{ __('messages.Contact') }}</a>
+                    <a href="#contact">{{ __('messages.Contact') }}</a>
                 </li>
             </ul>
         </nav>
     </header>
-    <section class="hero" id="home">
+    <section class="hero">
         <div class="page-left-item">
             <div class="banner">
                 <div class="app-text">
@@ -126,7 +122,7 @@
             </div>
         </div>
     </section>
-    <section class="path-app" id="path-app">
+    <section class="path-app">
         <div class="path-container">
             <div class="path-card-item">
                 <div class="icon">🕵️‍♂️</div> <!-- Biểu tượng SEO -->
@@ -150,7 +146,7 @@
             </div>
         </div>
     </section>
-    <section class="download-app background-path" id="download-app">
+    <section class="download-app background-path"  id="about">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.About Us') }}</h2>
@@ -161,7 +157,7 @@
         </div>
         <div class="row">
           <div class="column">
-            <img src="{{asset('assets/images/about-pro.png')}}" />
+            <img src="{{asset('assets/images/backgrounda.png')}}" />
           </div>
           <div class="column">
             <div class="app-feature">
@@ -194,7 +190,36 @@
           </div>
         </div>
     </section>
-    <section class="path-app" id="features">
+    <section class="path-service">
+        <div class="path-service">
+            <div class="section" style="border-color: orange;">
+                <div class="icon">🎨</div>
+                <h3>THIẾT KẾ</h3>
+                <p>Phân tích các yêu cầu hình BPD, thiết kế giao diện.</p>
+            </div>
+            <div class="section" style="border-color: green;">
+                <div class="icon">⚙️</div>
+                <h3>THỰC HIỆN</h3>
+                <p>Lập trình các chức năng theo yêu cầu.</p>
+            </div>
+            <div class="section" style="border-color: blue;">
+                <div class="icon">🔍</div>
+                <h3>KIỂM THỬ</h3>
+                <p>Xem xét các module chức năng.</p>
+            </div>
+            <div class="section" style="border-color: red;">
+                <div class="icon">📊</div>
+                <h3>KHẢO SÁT DỰ ÁN</h3>
+                <p>Lập kế hoạch khảo sát và kiểm tra hiệu quả.</p>
+            </div>
+            <div class="section" style="border-color: yellow;">
+                <div class="icon">🚀</div>
+                <h3>TRIỂN KHAI VÀ BẢO TRÌ</h3>
+                <p>Lập kế hoạch triển khai và bảo trì hệ thống.</p>
+            </div>        
+        </div>
+    </section>
+    <section id="features">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.New Features') }}</h2>
@@ -311,54 +336,45 @@
         </div>
       </div>
     </section>
-    <section class="path-app background-path" id="testimonial">
-        <div class="title-home">
-            <span class="title-left"></span>
-            <h2>{{ __('messages.UP Members') }}</h2>
-            <span class="title-right"></span>
-        </div>
-        <div class="title-desc">
-            <p class="section-desc">{{ __('messages.Unlock Now') }}</p>
-        </div>
+    <section>
         <div class="slider-container swiper">
             <div class="slider-home">
                 <div class="card-home swiper-wrapper">
                     <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
+                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
                         <h2 class="user-name">Phan Tuấn Kiệt</h2>
                         <p class="user-profession">Software Developer</p>
                         <button class="message-btn">Liên hệ ngay</button>
                     </div>
                     <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
+                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
                         <h2 class="user-name">Nguyễn Trung Nghĩa</h2>
                         <p class="user-profession">Software Developer</p>
                         <button class="message-btn">Liên hệ ngay</button>
                     </div>
                     <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
+                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
                         <h2 class="user-name">Nguyễn Tường Vi</h2>
                         <p class="user-profession">Software Developer</p>
                         <button class="message-btn">Liên hệ ngay</button>
                     </div>
                     <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
+                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
                         <h2 class="user-name">Lê Quang Huy</h2>
                         <p class="user-profession">Software Developer</p>
                         <button class="message-btn">Liên hệ ngay</button>
                     </div>
                     <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/user1.jpg')}}" alt="James Wilson" class="user-img">
+                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
                         <h2 class="user-name">Trần Minh Thuận</h2>
                         <p class="user-profession">Software Developer</p>
                         <button class="message-btn">Liên hệ ngay</button>
                     </div>
                 </div>
-                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
-    <section class="courses" id="courses">
+    <section class="courses" id="service">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.New Service') }}</h2>
@@ -367,79 +383,120 @@
         <div class="title-desc">
             <p class="section-desc">{{ __('messages.Unlock Now') }}</p>
         </div>
-        <div class="pricing-section">
-            <div class="pricing-cards">
-                <div class="pricing-card table" id="service1">
-                    <div class="price-tag">
-                        <div class="price-header">Design UX/UI</div>
-                        <div class="price-body">
-                            <span class="currency">$</span>
-                            <span class="price">***</span>
-                            <span class="cents">.000 VND</span>
-                        </div>
-                    </div>
-                    <ul class="features">
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Tạo ra các trang web chuẩn HTML5, CSS3 với mã nguồn sạch sẽ. Có thể sử dụng các Thư viện CSS đa năng dành cho css.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng hiệu ứng chuyển động mượt mà và các tính năng động.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Sử dụng JavaScript để nâng cao tính tương tác.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Giao diện web được tối ưu hóa trên tất cả các thiết bị, từ desktop, tablet đến điện thoại di động.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng WordPress để tạo ra những trang web dễ dàng cập nhật, chỉnh sửa và mở rộng.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>sử dụng validation được thực hiện để đảm bảo rằng trang web hoạt động chính xác và không có lỗi.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Dịch vụ cập nhật thiết kế và tính năng sau 6 tháng.</li>
-                    </ul>
-                </div>
-                <div class="pricing-card table" id="service2"> 
-                    <div class="ribbon"><span>Recommend</span></div>
-                    <div class="price-tag">
-                        <div class="price-header">Dashboard</div>
-                        <div class="price-body">
-                            <span class="currency">$</span>
-                            <span class="price">20</span>
-                            <span class="cents">.000 VND</span>
-                        </div>
-                    </div>
-                    <ul class="features">
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Web Developer - Giúp người dùng học và ứng dụng kiến thức lập trình vào công việc một cách hiệu quả và tiện lợi</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Content Creation - Hướng dẫn lập kế hoạch, sản xuất và chia sẻ nội dung một cách hấp dẫn và hiệu quả.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Task Issue - Quản lý dự án, chia công việc thành nhiều giai đoạn để tối ưu hóa hiệu suất.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Financial - Cung cấp công cụ lập kế hoạch tài chính, giám sát và quản lý chi tiêu cá nhân.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Daily Task - Giúp người dùng liệt kê và quản lý công việc hàng ngày một cách tỉ mỉ và tiện lợi.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Japanese & English - Các khóa học ngoại ngữ nhằm giúp người học nắm vững kiến thức và kiểm tra kỹ năng của mình.</li>
-                    </ul>
-                </div>
-                <div class="pricing-card table" id="service3"> 
-                    <div class="price-tag">
-                        <div class="price-header">Website Developer</div>
-                        <div class="price-body">
-                            <span class="currency">$</span>
-                            <span class="price">***</span>
-                            <span class="cents">.000 VND</span>
-                        </div>
-                    </div>
-                    <ul class="features">
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Hiện Tại team chúng tôi có hơn 5 người và đã có kinh nghiệm làm việc thực tế tại các công ty nước ngoài.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Chúng tôi đã có hơn 2 năm kinh nghiệm làm việc thực tế và đã tốt nghiệp đaị học theo chuyên ngành Công Nghệ Thông Tin, chuyên ngành Công Nghệ Phần Mềm.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Chúng tôi có thể tham gia và thích nghi với cương vị là 1 người full-stack về lập trình website.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Thời gian làm remote từ 7h đến 12h tối mỗi ngày và có thể làm fulltime vào thứ 7 và chủ nhật.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Nếu các bạn đang có 1 dự án về website hãy liên hệ chúng tôi để trao đổi thêm thông tin.</li>
-                        <li><span class="pricing-success"><i class="fa-solid fa-check"></i></span>Cảm ơn mọi người vì đã tham quan về trang của chúng tôi! Rất chân thành và cảm ơn.</li>
-                    </ul>
-                </div>
+       <div class="pricing-design"> 
+            <div class="pricing-table">
+                <h1>Bảng Giá</h1>
+                <div class="item"><span>01</span> <p>Number of new and modified screens.</p></div>
+                <div class="item"><span>02</span> <p>Use HTML, CSS, and responsive design to complete</p></div>
+                <div class="item"><span>03</span> <p>Use JavaScript to complete.</p></div>
+                <div class="item"><span>04</span> <p>Use Frontend Development Tools to complete.</p></div>
+                <div class="item"><span>05</span> <p>Use Backend Development Tools to complete.</p></div>
+                <div class="item"><span>06</span> <p>Deployment & Hosting</p></div>
+                <div class="item"><span>07</span> <p>The product is under a safe warranty for 6 months.</p></div>
             </div>
-        </div>
+            <div class="pricing-table-box1">
+                <h1>10$</h1>
+                <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 1 screens</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
+                <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
+                <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+            </div>
+            <div class="pricing-table-box2">
+                <h1>20$</h1>
+                <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 3 screens</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
+                <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+            </div>
+            <div class="pricing-table-box3">
+                <h1>30$</h1>
+                <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 5 screens</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+            </div>
+            <div class="pricing-table-box4">
+                <h1>100$</h1>
+                <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 10 screens</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+            </div>
+       </div>
     </section>
-    <section class="path-app background-path" id="courses">
+    <section>
+        <div class="wrapper-service">
+            <div class="itemLeft item1"><p>HTML5/CSS3</p></div>
+            <div class="itemLeft item2"><p>Bootstrap</p></div>
+            <div class="itemLeft item3"><p>Tailwind CSS</p></div>
+            <div class="itemLeft item4"><p>Ant Design</p></div>
+            <div class="itemLeft item5"><p>UI element</p></div>
+            <div class="itemLeft item6"><p>JavaScript</p></div>
+            <div class="itemLeft item7"><p>React.js</p></div>
+            <div class="itemLeft item8"><p>Next.js</p></div>
+            <div class="itemLeft item9"><p>Vue.js</p></div>
+            <div class="itemLeft item10"><p>Nuxt.js</p></div>
+            <div class="itemLeft item11"><p>TypeScript</p></div>
+            <div class="itemLeft item12"><p>Angular</p></div>
+            <div class="itemLeft item13"><p>Package Managers</p></div>
+            <div class="itemLeft item14"><p>Git</p></div>
+            <div class="itemLeft item15"><p>Backlog</p></div>
+            <div class="itemLeft item16"><p>Figma</p></div>
+            <div class="itemLeft item17"><p>Adobe XD</p></div>
+            <div class="itemLeft item18"><p>Canva</p></div>
+            <div class="itemLeft item19"><p>Photoshop</p></div>
+            <div class="itemLeft item20"><p>OpenAi</p></div>
+            <div class="itemLeft item21"><p>Postman</p></div>
+            <div class="itemLeft item22"><p>Swagger</p></div>
+            <div class="itemLeft item23"><p>Selenium</p></div>
+          </div>
+          <div class="wrapper-service">
+            <div class="itemRight item1"></div>
+            <div class="itemRight item1"><p>Node.js</p></div>
+            <div class="itemRight item2"><p>PHP (Laravel)</p></div>
+            <div class="itemRight item3"><p>Java (Spring)</p></div>
+            <div class="itemRight item4"><p>C# (.NET)</p></div>
+            <div class="itemRight item5"><p>Python(Django)</p></div>
+            <div class="itemRight item6"><p>MySQL</p></div>
+            <div class="itemRight item7"><p>PostgreSQL</p></div>
+            <div class="itemRight item8"><p>MongoDB (NoSQL)</p></div>
+            <div class="itemRight item9"><p>SQL Server</p></div>
+            <div class="itemRight item10"><p>MySQL Workbench</p></div>
+            <div class="itemRight item11"><p>Apache</p></div>
+            <div class="itemRight item12"><p>Nginx</p></div>
+            <div class="itemRight item13"><p>IIS</p></div>
+            <div class="itemRight item14"><p>Postman</p></div>
+            <div class="itemRight item15"><p>Swagger</p></div>
+            <div class="itemRight item16"><p>Docker</p></div>
+            <div class="itemRight item17"><p>FTP</p></div>
+            <div class="itemRight item18"><p>Ubuntu</p></div>
+            <div class="itemRight item19"><p>Webpack</p></div>
+            <div class="itemRight item20"><p>Gulp</p></div>
+            <div class="itemRight item21"><p>Grunt</p></div>
+          </div>
+    </section>
+    <section class="background-path" id="product">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.New Product') }}</h2>
             <span class="title-right"></span>
         </div>
-        <div class="section-desc">
-            <div class="section-desc-spacebetween">
-                <button><i class="fa-regular fa-circle-up"></i></button>
-                {{ __('messages.Unlock all the amazing new features with our software') }}
-                <button><i class="fa-regular fa-circle-down"></i></button>
-            </div>
+        <div class="title-desc section-desc-spacebetween">
+            <button><i class="fa-regular fa-circle-up"></i></button>
+            <p class="section-desc">{{ __('messages.Unlock Now') }}</p>
+            <button><i class="fa-regular fa-circle-down"></i></button>
         </div>
         <div class="product-container">
             <div class="product-card">
@@ -453,7 +510,7 @@
                 <div class="cover">
                     <div class="coverFront">
                         <div>
-                            <img src="{{asset('assets/images/1730874816_product1.jpg')}}" alt="" class="sh_img">
+                            <img src="{{asset('assets/images/product1.jpg')}}" alt="" class="sh_img">
                         </div>
                     </div>
                 <div class="coverBack"></div>
@@ -470,7 +527,7 @@
                 <div class="cover">
                     <div class="coverFront">
                         <div>
-                            <img src="{{asset('assets/images/1730874816_product1.jpg')}}" alt="" class="sh_img">
+                            <img src="{{asset('assets/images/product2.jpg')}}" alt="" class="sh_img">
                         </div>
                     </div>
                 <div class="coverBack"></div>
@@ -487,7 +544,7 @@
                 <div class="cover">
                     <div class="coverFront">
                         <div>
-                            <img src="{{asset('assets/images/1730874816_product1.jpg')}}" alt="" class="sh_img">
+                            <img src="{{asset('assets/images/product3.jpg')}}" alt="" class="sh_img">
                         </div>
                     </div>
                 <div class="coverBack"></div>
@@ -504,7 +561,7 @@
                 <div class="cover">
                     <div class="coverFront">
                         <div>
-                            <img src="{{asset('assets/images/1730874816_product1.jpg')}}" alt="" class="sh_img">
+                            <img src="{{asset('assets/images/product4.jpg')}}" alt="" class="sh_img">
                         </div>
                     </div>
                 <div class="coverBack"></div>
@@ -521,7 +578,7 @@
                 <div class="cover">
                     <div class="coverFront">
                         <div>
-                            <img src="{{asset('assets/images/1730874816_product1.jpg')}}" alt="" class="sh_img">
+                            <img src="{{asset('assets/images/product5.jpg')}}" alt="" class="sh_img">
                         </div>
                     </div>
                 <div class="coverBack"></div>
@@ -538,7 +595,7 @@
                 <div class="cover">
                     <div class="coverFront">
                         <div>
-                            <img src="{{asset('assets/images/1730874816_product1.jpg')}}" alt="" class="sh_img">
+                            <img src="{{asset('assets/images/product6.jpg')}}" alt="" class="sh_img">
                         </div>
                     </div>
                 <div class="coverBack"></div>
@@ -546,116 +603,31 @@
             </div>
         </div>
     </section>
-    <section class="courses" id="courses">
-        <div class="title-home">
-            <span class="title-left"></span>
-            <h2>{{ __('messages.General Questions') }}</h2>
-            <span class="title-right"></span>
-        </div>
-        <p class="section-desc">
-            {{ __('messages.These are some questions related to the product I am currently using.') }}
-        </p>
-        <div class="accordion">
-            <div class="accordion-item active">
-                <div class="accordion-header">
-                    <span>{{ __('messages.How do I register an account?') }}</span>
-                    <span class="icon">+</span>
-                </div>
-                <div class="accordion-content">
-                    <blockquote>
-                        “ {{ __('messages.Click on the "Register" button at the top corner of the page. Fill in your personal information, such as email and password, and confirm through the email sent to your inbox. It only takes a few minutes to complete. After registering, you can access all features on the website. If you encounter any issues, don’t hesitate to contact the support team for prompt assistance!') }} ”
-                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
-                    </blockquote>
-                </div>
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat">
+                <div class="icon">🚀</div>
+                <h2>000+</h2>
+                <p>Dịch Vụ Cung Cấp</p>
             </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>{{ __('messages.Can I change my personal information?') }}</span>
-                    <span class="icon">+</span>
-                </div>
-                <div class="accordion-content">
-                    <blockquote>
-                        “ {{ __('messages.You can easily update your personal information at any time. Simply go to the "Personal Profile" section in your account. Click on the information you wish to edit and save the changes. The system will update immediately, allowing you to continue using the service without interruption. Don’t forget to review and ensure your details are always accurate to avoid any potential disruptions in service.') }} ”
-                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
-                    </blockquote>
-                </div>
+            <div class="stat">
+                <div class="icon">📍</div>
+                <h2>000+</h2>
+                <p>Địa Điểm</p>
             </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>{{ __('messages.What payment methods are supported?') }}</span>
-                    <span class="icon">+</span>
-                </div>
-                <div class="accordion-content">
-                    <blockquote>
-                        “ {{ __('messages.We support various convenient payment methods, including bank transfers, credit cards, and e-wallets such as Momo and ZaloPay. All transactions are encrypted to ensure absolute security. You can choose the method that suits you best. Our payment system is integrated with modern security features, giving you peace of mind when using it.') }} ”
-                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
-                    </blockquote>
-                </div>
+            <div class="stat">
+                <div class="icon">💳</div>
+                <h2>000+</h2>
+                <p>Giao Dịch Thành Công</p>
             </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>{{ __('messages.Can I request a refund?') }}</span>
-                    <span class="icon">+</span>
-                </div>
-                <div class="accordion-content">
-                    <blockquote>
-                        “ {{ __('messages.Yes, you can request a refund if you are not satisfied with the product or service. Simply submit a refund request through the customer support section within 7 days of the transaction. Our support team will handle your request promptly and transparently. Don’t forget to review the refund policy carefully before submitting your request. Your satisfaction is our top priority!') }} ”
-                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
-                    </blockquote>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>{{ __('messages.How can I contact customer support?') }}</span>
-                    <span class="icon">+</span>
-                </div>
-                <div class="accordion-content">
-                    <blockquote>
-                        “ {{ __('messages.You can reach us through various channels. Send an email, call our hotline, or use the 24/7 live chat feature on our website. Our team is always ready to assist you with the utmost dedication. We are committed to addressing all your concerns and providing the best solutions as quickly as possible. Don’t hesitate—contact us whenever you need!') }} ”
-                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
-                    </blockquote>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>{{ __('messages.How do I recover my account password?') }}</span>
-                    <span class="icon">+</span>
-                </div>
-                <div class="accordion-content">
-                    <blockquote>
-                        “ {{ __('messages.If you forget your password, simply click "Forgot Password" on the login page. Enter your registered email, and we will send password recovery instructions to your email. Follow the steps in the email to create a new password. This process is secured to ensure the safety of your account. If you do not receive the email, please check your spam folder or contact our support team for immediate assistance.') }} ”
-                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
-                    </blockquote>
-                    
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>{{ __('messages.Can I cancel my account?') }}</span>
-                    <span class="icon">+</span>
-                </div>
-                <div class="accordion-content">
-                    <blockquote>
-                        “ {{ __('messages.You have full rights to cancel your account if you no longer wish to use the service. Go to "Account Settings" and select the "Cancel Account" option. Please think carefully before proceeding, as this action will delete all your data. If you need assistance or prefer to pause your account instead of canceling, our support team is always ready to help you find a more suitable solution.') }} ”
-                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
-                    </blockquote>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span>{{ __('messages.What offers are available for new customers?') }}</span>
-                    <span class="icon">+</span>
-                </div>
-                <div class="accordion-content">
-                    <blockquote>
-                        “ {{ __('messages.We always have attractive promotional offers for new customers. For example, a 10% discount on your first purchase or a free 7-day trial. Promotions are regularly updated on our homepage or via email. Don’t miss the chance to experience high-quality services at the best cost. Sign up today to receive exclusive offers just for you!') }} ”
-                        <span class="author">- {{ __('messages.Phan Tuan Kiet') }}</span>
-                    </blockquote>
-                </div>
+            <div class="stat">
+                <div class="icon">📁</div>
+                <h2>000+</h2>
+                <p>Tài Liệu</p>
             </div>
         </div>
     </section>
-    <section class="path-app background-path" id="courses">
+    <section class="background-path" id="contact">
         <div class="title-home">
             <span class="title-left"></span>
             <h2>{{ __('messages.Contact Us Now') }}</h2>
@@ -831,7 +803,7 @@
             </div>
             <div class="form-input-category">
                 <label for="password">Password <span class="red">*</span></label>
-                <input type="password" class="input-name" name="password" id="password" placeholder="Nhập password">
+                <input type="password" class="input-name" name="password" placeholder="Nhập password">
                 <span class="input-error" id="password_error"></span>
             </div>
             <div class="form-input-category">
@@ -862,6 +834,25 @@
                 <p>X</p>
             </div>
         </form>
+        </div>
+    </div>
+    <div class="modal" id="loading">
+        <div class="loading">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="wavy">
+                <span style="--i:1;">L</span>
+                <span style="--i:2;">o</span>
+                <span style="--i:3;">a</span>
+                <span style="--i:4;">d</span>
+                <span style="--i:5;">i</span>
+                <span style="--i:6;">n</span>
+                <span style="--i:7;">g</span>
+                <span style="--i:8;">.</span>
+                <span style="--i:9;">.</span>
+                <span style="--i:10;">.</span>
+            </div>
         </div>
     </div>
 
@@ -909,6 +900,13 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
+        window.addEventListener('load', function() {
+            document.getElementById('loading').style.display = 'flex';
+
+            setTimeout(function() {
+                document.getElementById('loading').style.display = 'none';
+            }, 5000);
+        });
         document.getElementById('toggle-password').addEventListener('click', function () {
             const passwordInput = document.getElementById('password');
             const toggleIcon = this;
@@ -1028,8 +1026,6 @@
         }
 
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js"></script>
-    <script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
     <script src="{{ asset('js/layout.js') }}"></script>
 </body>
 </html>
