@@ -67,6 +67,10 @@ body{
     background-color: #ffffff;
 }
 
+.header-aside-list a i{
+    color: #ffffff;
+}
+
 .path-app{
     margin-top: 90px;
 }
@@ -2036,13 +2040,13 @@ textarea{
     padding: 20px;
     position: absolute;
     width: 100%;
-    max-width: 430px;
+    max-width: 368px;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    background-color: #fff;
-    border-radius: 5px;
+    background: linear-gradient(145deg, #83e7ff, #ff8ab9);
+    border-radius: 32px;
     z-index: 100;
 }
 
@@ -2081,14 +2085,22 @@ textarea{
     padding: 10px;
     position: absolute;
     width: 100%;
-    max-width: 36%;
+    max-width: 368px;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    background-color: #fff;
+    background: linear-gradient(145deg, #83e7ff, #ff8ab9);
     border-radius: 5px;
     z-index: 100;
+}
+
+.ModelCreateRegister .login .group{
+    margin-bottom: 10px;
+}
+
+.ModelCreateRegister .login{
+    padding: 20px 30px;
 }
 
 
@@ -3361,4 +3373,128 @@ blockquote .author {
     100%{
         transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
     }
+}
+
+
+.login {
+    background-color: #efefef;
+    width: 100%;
+    text-align: center;
+    border: 2px solid var(--border-color);
+    border-radius: 30px;
+    padding: 50px 30px;
+    box-shadow: 0 50px 150px #fff5f533;
+    position: relative;
+}
+.login .title{
+    font-size: x-large;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.login .des{
+    margin-bottom: 20px;
+}
+.login .group{
+    height: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    background: #fff;
+    border-radius: 32px;
+    justify-content: center;
+    align-items: center;
+}
+.login .group input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #ffffff;
+    padding: 5px 20px;
+    border-radius: 46px;
+    font-family: Poppins;
+    outline: none;
+}
+.login .group span {
+    color: #777;
+    display: flex;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+.login .group span ion-icon:nth-child(2){
+    display: none;
+}
+.login .recovery{
+    text-align: right;
+    margin-bottom: 20px;
+    font-size: small;
+}
+.login .signIn button{
+    background-color: #FA6A69;
+    width: 100%;
+    border-radius: 10px;
+    height: 50px;
+    border: none;
+    font-family: Poppins;
+    box-shadow: 0 10px 20px #FA6A6999;
+    margin-bottom: 40px;
+    transition: 0.5s;
+    color: #fff;
+}
+.login .signIn button:active{
+    box-shadow: none;
+    transform: translateY(5px);
+}
+.login .or{
+    font-size: small;
+    margin-bottom: 20px;
+    position: relative;
+}
+.login .or::before,
+.login .or::after{
+    width: 50px;
+    height: 1px;
+    background-image:  
+        linear-gradient(
+            to left, #444, transparent
+        );
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 20px;
+}
+.login .or::after{
+    left: unset;
+    right: 20px;
+    background-image:  
+        linear-gradient(
+            to right, #444, transparent
+        );
+}
+.login  .list .item img{
+    width: 30px;
+}
+.login .list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 40px;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+.login .list .item{
+    border: 2px solid #ffffff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login .register{
+    font-size: small;
+}
+.login .recovery a, .register a{
+    color: #1364cf;
+    text-decoration: none
+}
+
+.group input:focus {
+  box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
 }

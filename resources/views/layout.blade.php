@@ -754,84 +754,88 @@
           </footer>
     </section>
     <script src="{{ asset('js/layout.js') }}"></script>
-
     <div class="modal" id="CreateLogin">
         <div class="ModelCreateLogin">
             <form method="POST" action="{{ url(app()->getLocale() . '/login') }}">
                 @csrf
-                <h2>Đăng nhập</h2>
-                <div class="form-input-category">
-                    <label for="email">Email</label>
-                    <input type="email" class="input-name" name="email" placeholder="Nhập email">
-                </div>
-                <div class="form-input-category">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" class="input-name" name="password" placeholder="Nhập password">
-                    <i class="fa-solid fa-eye" id="toggle-password"></i>
-                </div>
-                <div class="form-login-input">
-                    <div class="remember">
-                        <input type="checkbox" name="remember" id="">
-                        <span>Ghi nhớ mật khẩu</span>
+                <div class="login">
+                    <div class="title">Đăng nhập!</div>
+                    <div class="des">
+                        We are glad to have you back! <br> beeb missed!
                     </div>
-                    <a href="">Quên mật khẩu?</a>
-                </div>
-                <div class="form-btn">
-                    <button type="submit">Đăng nhập</button>
-                </div>
-                <div class="BtnCloseCreate" onclick="closeCreateLogin()">
-                    <p>X</p>
+                    <div class="group">
+                        <input type="email" name="email" placeholder="Nhập email">
+                    </div>
+                    <div class="group">
+                        <input type="password" id="password" name="password" placeholder="Nhập password">
+                        <span id="showPassword">
+                            <i class="fa-solid fa-eye" id="toggle-password"></i>
+                        </span>
+                    </div>
+                    <div class="recovery">
+                        <a href="">Recovery password</a>
+                    </div>
+                    <div class="signIn">
+                        <button type="submit">Đăng nhập</button>
+                    </div>
+                    <div class="or">
+                        Or continue with
+                    </div>
+                    <div class="list">
+                        <a href="" class="item">
+                            <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="">
+                        </a>
+                        <a href="" class="item">
+                            <img src="https://museumandgallery.org/wp-content/uploads/2020/03/Facebook-Icon-Facebook-Logo-Social-Media-Fb-Logo-Facebook-Logo-PNG-and-Vector-with-Transparent-Background-for-Free-Download.png" alt="">
+                        </a>
+                        <a href=""class="item">
+                            <img src="https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png" alt="">
+                        </a>
+                    </div>
+                    <div class="register">
+                        Not a member? <a href="">Register now</a>
+                    </div>
+
                 </div>
             </form>
         </div>
     </div>
-
+    <!-- <div class="modal" id="CreateRegister"> -->
      <div class="modal" id="CreateRegister">
         <div class="ModelCreateRegister">
         <form  action="{{ route('register') }}" method="POST" onsubmit="return validateForm()">
             @csrf
-            <h2>Đăng Ký</h2>
-            <div class="form-input-category">
-                <label for="full_name">Họ và tên <span class="red">*</span></label>
-                <input type="text" class="input-name" name="full_name" id="full_name" placeholder="Nhập Họ và tên">
-                <span class="input-error" id="full_name_error"></span>
-            </div>
-            <div class="form-input-category">
-                <label for="email">Email <span class="red">*</span></label>
-                <input type="email" class="input-name" name="email" id="email" placeholder="Nhập email">
-                <span class="input-error" id="email_error"></span>
-            </div>
-            <div class="form-input-category">
-                <label for="password">Password <span class="red">*</span></label>
-                <input type="password" class="input-name" name="password" placeholder="Nhập password">
-                <span class="input-error" id="password_error"></span>
-            </div>
-            <div class="form-input-category">
-                <label for="password_confirmation">Password Confirmation <span class="red">*</span></label>
-                <input type="password" class="input-name" name="password_confirmation" id="password_confirmation" placeholder="Nhập confirm password">
-                <span class="input-error" id="password_confirmation_error"></span>
-            </div>
-            <div class="form-input-category">
-                <label for="phone">Phone <span class="red">*</span></label>
-                <input type="text" class="input-name" name="phone" id="phone" placeholder="Nhập phone">
-                <span class="input-error" id="phone_error"></span>
-            </div>
-            <div class="form-input-category">
-                <label for="address">Address <span class="red">*</span></label>
-                <input type="text" class="input-name" name="address" id="address" placeholder="Nhập địa chỉ">
-                <span class="input-error" id="address_error"></span>
-            </div>
-            <div class="form-input-category">
-                <label for="gender">Gender <span class="red">*</span></label>
-                <input type="text" class="input-name" name="gender" id="gender" placeholder="Nhập giới tính">
-                <span class="input-error" id="gender_error"></span>
-            </div>
-            <input type="hidden" class="input-name" name="roles" value="0">
-            <div class="form-btn">
-                <button type="submit">Đăng Ký</button>
-            </div>
-            <div class="BtnCloseCreate" onclick="closeCreateRegister()">
-                <p>X</p>
+            <div class="login">
+                <div class="title">Đăng ký!</div>
+                <div class="des">
+                    We are glad to have you back! <br> beeb missed!
+                </div>
+                <div class="group">
+                    <input type="text" class="input-name" name="full_name" id="full_name" placeholder="Nhập Họ và tên">
+                </div>
+                <div class="group">
+                    <input type="email" name="email" placeholder="Nhập email">
+                </div>
+                <div class="group">
+                    <input type="password" name="password" placeholder="Nhập password">
+                </div>
+                <div class="group">
+                    <input type="password" class="input-name" name="password_confirmation" id="password_confirmation" placeholder="Nhập confirm password">
+                    <span class="input-error" id="password_confirmation_error"></span>
+                </div>
+                <div class="group">
+                    <input type="text" class="input-name" name="phone" id="phone" placeholder="Nhập phone">
+                </div>
+                <div class="group">
+                    <input type="text" class="input-name" name="address" id="address" placeholder="Nhập địa chỉ">
+                </div>
+                <div class="group">
+                    <input type="text" class="input-name" name="gender" id="gender" placeholder="Nhập giới tính">
+                </div>
+                <input type="hidden" class="input-name" name="roles" value="0">
+                <div class="signIn">
+                    <button type="submit">Đăng Ký</button>
+                </div>
             </div>
         </form>
         </div>
@@ -900,13 +904,13 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-        window.addEventListener('load', function() {
-            document.getElementById('loading').style.display = 'flex';
+        //window.addEventListener('load', function() {
+           //document.getElementById('loading').style.display = 'flex';
 
-            setTimeout(function() {
-                document.getElementById('loading').style.display = 'none';
-            }, 5000);
-        });
+           // setTimeout(function() {
+              //  document.getElementById('loading').style.display = 'none';
+            //}, 5000);
+        //});
         document.getElementById('toggle-password').addEventListener('click', function () {
             const passwordInput = document.getElementById('password');
             const toggleIcon = this;

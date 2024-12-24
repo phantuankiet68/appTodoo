@@ -1,3 +1,12 @@
+@media screen and (max-width: 1600px){
+    .pricing-table .item, .pricing-table-box1 .item ,.pricing-table-box2 .item ,.pricing-table-box3 .item,.pricing-table-box4 .item  {
+        background-color: #ffffff;
+        margin: 7px 0 !important;
+        padding: 7px 10px !important;
+    }
+}
+
+
 @media only screen and (max-width: 991px) {
     html {
         font-size: 56.25%;
