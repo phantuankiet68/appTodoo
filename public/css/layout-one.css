@@ -67,7 +67,7 @@ body{
     background-color: #ffffff;
 }
 
-.header-aside-list a i{
+.header-aside-list a.btn-login i{
     color: #ffffff;
 }
 
@@ -3414,10 +3414,12 @@ blockquote .author {
     outline: none;
 }
 .login .group span {
+    position: absolute;
     color: #777;
     display: flex;
     margin-right: 20px;
     cursor: pointer;
+    right: 25px;
     font-size: 14px;
 }
 .login .group span ion-icon:nth-child(2){
