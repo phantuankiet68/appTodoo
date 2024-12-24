@@ -493,115 +493,80 @@
             <h2>{{ __('messages.New Product') }}</h2>
             <span class="title-right"></span>
         </div>
-        <div class="title-desc section-desc-spacebetween">
-            <button><i class="fa-regular fa-circle-up"></i></button>
+        <div class="title-desc">
             <p class="section-desc">{{ __('messages.Unlock Now') }}</p>
-            <button><i class="fa-regular fa-circle-down"></i></button>
         </div>
-        <div class="product-container">
-            <div class="product-card">
-                <div style="padding: 20px;text-align: center;font-size:12px;">
-                <h1>Apps</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices in iaculis nunc sed augue.
-                </p>
-                <button class="sh_btn">Read more</button>
-                </div>
-                <div class="cover">
-                    <div class="coverFront">
-                        <div>
-                            <img src="{{asset('assets/images/product1.jpg')}}" alt="" class="sh_img">
-                        </div>
+        <div class="carousel">
+            <div class="controls">
+              <button type="button" class="btn btn-play" onclick="moveLeft()">
+                <i class="fa-solid fa-backward"></i>
+              </button>
+              <button type="button" class="btn btn-play" onclick="playPause()">
+                <i class="fa-solid fa-pause"></i>
+              </button>
+              <button type="button" class="btn btn-play" onclick="moveRight()">
+                <i class="fa-solid fa-forward"></i>
+              </button>
+            </div>
+            <div class="slide-center">
+              <div class="slider">
+                    <div class="slide active">
+                        <img src="{{asset('assets/images/product1.jpg')}}" />
                     </div>
-                <div class="coverBack"></div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product2.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product3.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product5.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product6.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product7.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product8.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product9.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product10.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product11.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product12.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product13.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product14.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product15.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product16.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product17.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product18.jpg')}}" />
+                    </div>
+                    <div class="slide">
+                        <img src="{{asset('assets/images/product19.jpg')}}" />
+                    </div>
                 </div>
             </div>
-            <div class="product-card">
-                <div style="padding: 20px;text-align: center;font-size:12px;">
-                <h1>Apps</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices in iaculis nunc sed augue.
-                </p>
-                <button class="sh_btn">Read more</button>
-                </div>
-                <div class="cover">
-                    <div class="coverFront">
-                        <div>
-                            <img src="{{asset('assets/images/product2.jpg')}}" alt="" class="sh_img">
-                        </div>
-                    </div>
-                <div class="coverBack"></div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div style="padding: 20px;text-align: center;font-size:12px;">
-                <h1>Apps</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices in iaculis nunc sed augue.
-                </p>
-                <button class="sh_btn">Read more</button>
-                </div>
-                <div class="cover">
-                    <div class="coverFront">
-                        <div>
-                            <img src="{{asset('assets/images/product3.jpg')}}" alt="" class="sh_img">
-                        </div>
-                    </div>
-                <div class="coverBack"></div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div style="padding: 20px;text-align: center;font-size:12px;">
-                <h1>Apps</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices in iaculis nunc sed augue.
-                </p>
-                <button class="sh_btn">Read more</button>
-                </div>
-                <div class="cover">
-                    <div class="coverFront">
-                        <div>
-                            <img src="{{asset('assets/images/product4.jpg')}}" alt="" class="sh_img">
-                        </div>
-                    </div>
-                <div class="coverBack"></div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div style="padding: 20px;text-align: center;font-size:12px;">
-                <h1>Apps</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices in iaculis nunc sed augue.
-                </p>
-                <button class="sh_btn">Read more</button>
-                </div>
-                <div class="cover">
-                    <div class="coverFront">
-                        <div>
-                            <img src="{{asset('assets/images/product5.jpg')}}" alt="" class="sh_img">
-                        </div>
-                    </div>
-                <div class="coverBack"></div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div style="padding: 20px;text-align: center;font-size:12px;">
-                <h1>Apps</h1>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices in iaculis nunc sed augue.
-                </p>
-                <button class="sh_btn">Read more</button>
-                </div>
-                <div class="cover">
-                    <div class="coverFront">
-                        <div>
-                            <img src="{{asset('assets/images/product6.jpg')}}" alt="" class="sh_img">
-                        </div>
-                    </div>
-                <div class="coverBack"></div>
-                </div>
-            </div>
-        </div>
+          </div>
     </section>
     <section class="stats">
         <div class="stats-container">
@@ -904,6 +869,41 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
+        var i = 0;
+        let slides = document.querySelectorAll(".slide");
+        let slider = document.querySelector(".slider");
+        var pause = false;
+        function moveRight() {
+            slides[i].className = "slide";
+            i = (i + 1) % slides.length;
+            slides[i].className = "slide active";
+            let Xvalue = -160 * i;
+            slider.style.transform = `translateX(${Xvalue}px)`;
+        }
+        function moveLeft() {
+            slides[i].className = "slide";
+            i = (i - 1 + slides.length) % slides.length;
+            slides[i].className = "slide active";
+            let Xvalue = -160 * i;
+            slider.style.transform = `translateX(${Xvalue}px)`;
+        }
+
+        const interval = setInterval(() => {
+            if (!pause) {
+            moveRight();
+            }
+        }, 2000);
+
+        function playPause() {
+            let state = document.querySelector(".icon");
+            if (state.innerHTML == "pause") {
+            state.innerHTML = "play_arrow";
+            pause = true;
+            } else {
+            state.innerHTML = "pause";
+            pause = false;
+            }
+        }
         //window.addEventListener('load', function() {
            //document.getElementById('loading').style.display = 'flex';
 
