@@ -164,26 +164,24 @@
         font-size: 14px !important;
         margin: 24px !important;
     }
-    #chart {
-        min-height: 350px !important;
-    }
+
     .chart-one {
         max-height: 340px !important;
     }
     .chart2 {
-        min-height: 429px !important;
+        min-height: 273px !important;
     }
     #chart-timeline,.apexchartsarea-datetime foreignObject{
         min-height: 400px !important;
     }
     .ideaUser {
-        height: 348px !important;
+        height: 295px !important;
     }
     .content-idea-user {
         height: 284px !important;
     }
     .chart1 {
-        min-height: 429px !important;
+        min-height: 265px !important;
     }
     .UserContainer {
         height: 84vh !important;
