@@ -42,7 +42,7 @@ use App\Http\Controllers\LearnMoreController;
 use App\Http\Controllers\LearnMoreEngLishController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\FriendshipController;
-
+use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SettingController;
@@ -113,6 +113,7 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/link/store', [ChatController::class, 'storeLink'])->name('link.store');
     
     Route::get('information', [InformationController::class, 'index'])->name('information.index');
+    Route::resource('projects', ProjectController::class);
     Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::resource('posts', PostController::class);
     Route::get('friend', [FriendController::class, 'index'])->name('friend.index');
