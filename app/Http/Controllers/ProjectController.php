@@ -19,7 +19,6 @@ class ProjectController extends Controller
 
     public function store(Request $request)
     {
-        // Validate input data
         $request->validate([
             'name' => 'required|string|max:255',
             'description' => 'nullable|string',
@@ -27,10 +26,9 @@ class ProjectController extends Controller
             'git' => 'nullable|url',
             'file' => 'nullable|file',
             'document' => 'nullable|file',
-            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif', // Chỉ cho phép hình ảnh
+            'image' => 'nullable|file|mimes:jpeg,png,jpg,gif',
         ]);
 
-        // Handle file uploads
         $filePath = null;
         if ($request->hasFile('file')) {
             $file = $request->file('file');
@@ -47,7 +45,6 @@ class ProjectController extends Controller
             $document->move(public_path('assets/documents'), $filename);
         }
 
-        // Handle single image upload
         $imagePath = null;
         if ($request->hasFile('image') && $request->file('image')->isValid()) { // Kiểm tra nếu có tệp và tệp hợp lệ
             $image = $request->file('image');
@@ -56,7 +53,6 @@ class ProjectController extends Controller
             $image->move(public_path('assets/images'), $filename);
         }
 
-        // Tạo dự án và lưu đường dẫn tệp vào cơ sở dữ liệu
         $project = Project::create([
             'name' => $request->name,
             'user_id' => $request->user_id,
@@ -64,15 +60,20 @@ class ProjectController extends Controller
             'git' => $request->git,
             'file' => $filePath,
             'document' => $documentPath,
-            'images' => $imagePath, // Lưu đường dẫn của ảnh vào cơ sở dữ liệu
+            'images' => $imagePath,
         ]);
 
-        // Gắn người dùng vào dự án
         $project->users()->attach($request->users);
 
         return redirect()->route('projects.index')->with('success', 'Dự án đã được tạo!');
     }
 
+    public function show($id)
+    {
+        $path_id = $id;
+        $projects = Project::findOrFail($id);
+        return view('projects.show.index', compact('projects','path_id'));
+    }
     
     
 }
