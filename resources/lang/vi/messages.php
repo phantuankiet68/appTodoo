@@ -381,4 +381,13 @@ return [
     'postgreSQL'=>'postgreSQL',
     'Chat' => 'Chat',
     'If you truly want to learn, please don’t give up. Thank you very much.'=>'Nếu muốn thật sự muốn học thì xin đừng bỏ lỡ. Xin cảm ơn rất nhiều.',
+    'Enter email...'=>'Nhập email...',
+    'Enter password...'=>'Nhập mật khẩu...',
+    'Recover password'=>'Khôi phục mật khẩu',
+    'Or continue with'=>'Hoặc tiếp tục với',
+    'Not a member?'=>'Chưa phải là thành viên?',
+    'Register now'=>'Đăng ký ngay',
+    'Forgot Password'=>'Quên mật khẩu',
+    'Enter your email and we will send you a link to reset your password.'=>'Nhập email của bạn và chúng tôi sẽ gửi liên kết để bạn đặt lại mật khẩu.',
+
 ];

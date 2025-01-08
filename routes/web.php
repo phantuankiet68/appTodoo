@@ -112,6 +112,9 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/change-password/{id}', [AuthController::class, 'changePassword'])->name('change.password');
     Route::post('/link/store', [ChatController::class, 'storeLink'])->name('link.store');
     
+
+    Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('forgot.password');
+
     Route::get('information', [InformationController::class, 'index'])->name('information.index');
     Route::resource('projects', ProjectController::class);
     Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');

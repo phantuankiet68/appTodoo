@@ -1177,11 +1177,11 @@ td{
 }
 
 .form-input-category .input-name {
-    width: 80.8%;
-    padding: 4.5px 10px;
+    width: 70%;
+    padding: 7px 10px;
     border: 1px solid #d7d6d6;
     outline: none;
-    font-size: 13px;
+    font-size: 15px;
     border-radius: 0;
     font-family: "Poppins", sans-serif;
 }
@@ -1197,6 +1197,7 @@ td{
 .model h2{
     text-align: center;
     padding: 10px 0;
+    color: #404142;
 }
 
 .upload-container {
@@ -1221,15 +1222,15 @@ td{
   }
 
 .form-input-category label {
-    width: 18.8%;
+    width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #fbe4c5;
-    padding: 3.5px 0;
+    padding: 8px 0;
     margin: 0;
     color: #656565;
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .form-input-category .input-key{
@@ -1260,9 +1261,10 @@ td{
     justify-content: center;
     align-items: center;
     background-color: #fbe4c5;
-    padding: 3.5px 0;
+    padding: 8px 0;
     margin: 0;
     color: #656565;
+    font-size: 15px;
 }
 
 .form-group-info .form-input-category label{
@@ -2572,8 +2574,8 @@ td{
 }
 
 .salaryBody .form-input-category .input-name {
-    width: 80.8%;
-    padding: 2.8px 10px;
+    width: 70%;
+    padding: 7px 10px;
     border: 1px solid #d7d6d6;
     outline: none;
     font-size: 13px;
@@ -3418,8 +3420,8 @@ td{
 .add-task-btn {
     display: flex;
     align-items: center;
-    padding: 8px 12px;
-    background: #007bff;
+    padding: 10px 21px;
+    background: #40c3f7;
     color: white;
     border: none;
     border-radius: 4px;
@@ -3431,7 +3433,7 @@ td{
 }
 
 .add-task-btn:hover {
-    background: #0056b3;
+    background: #4ea3ff;
 }
 
 .task-table {
@@ -3445,14 +3447,12 @@ td{
 
 .task-table th, .task-table td {
     position: relative;
-    padding: 12px;
+    padding: 20px 10px;
     text-align: left;
 }
 
-.expandable {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+.ml-10{
+    margin-left: 10px;
 }
 
 .expand-btn {
@@ -3464,15 +3464,16 @@ td{
 .task-table td.sub-item{
     padding-left: 40px;
 }
-
-.task-table td.sub-item::before{
-    content: "\f1e3";
-    font-family: "Font Awesome 6 Free";
-    position: absolute;
-    top: 31%;
-    font-size: 20px;
-    left: 10px;
+tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
+    background-color: #fff;
+}
+.task-table td.sub-item i{
+    font-size: 16px;
+    margin-right: 10px;
     color: coral;
+}
+.sub-item span{
+    font-size: 15px;
 }
 
 .sub-task.hidden {
@@ -3507,19 +3508,34 @@ td{
 }
 
 .action-btn {
-    background: none;
+    background: #48dcff;
     border: none;
     cursor: pointer;
     margin: 0 5px;
+    padding: 5px 10px;
     font-size: 16px;
 }
 
 .action-btn i {
-    color: #555;
+    color: #fff;
 }
 
 .action-btn:hover i {
     color: #007bff;
+}
+
+.btn-stt{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: none;
+    background: #b1e0fe;
+    color: #fff;
+    font-weight: bold;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
   
 
@@ -3691,4 +3707,64 @@ td{
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 13px;
+}
+
+/* Reset */
+
+/* Circle Container */
+.circle-container {
+    position: relative;
+    width: 35px;
+    height: 35px;
+}
+
+/* Outer Circle */
+.circle {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#e1dbdb 0% 30%, #51f6b1 30% 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Inner Content */
+.inner-content {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: #9ed4ff;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.inner-content .number {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+/* Animation for Glow Effect */
+@keyframes rotateGlow {
+    0% {
+    transform: translate(-50%, -5px) rotate(0deg);
+    }
+    100% {
+    transform: translate(-50%, -5px) rotate(360deg);
+    }
+}
+
+.btn-success{
+    padding: 5px 10px;
+    background: #49ffd1;
+    border: 0;
+    color: #fff;
+    border-radius: 5px;
 }

@@ -727,27 +727,24 @@
             <form method="POST" action="{{ url(app()->getLocale() . '/login') }}">
                 @csrf
                 <div class="login">
-                    <div class="title">Đăng nhập!</div>
-                    <div class="des">
-                        We are glad to have you back! <br> beeb missed!
+                    <div class="title">{{ __('messages.Login') }}</div>
+                    <div class="group">
+                        <input type="email" name="email" placeholder="{{ __('messages.Enter email...') }}">
                     </div>
                     <div class="group">
-                        <input type="email" name="email" placeholder="Nhập email">
-                    </div>
-                    <div class="group">
-                        <input type="password" id="password" name="password" placeholder="Nhập password">
+                        <input type="password" id="password" name="password" placeholder="{{ __('messages.Enter password...') }}">
                         <span id="showPassword">
                             <i class="fa-solid fa-eye" id="toggle-password"></i>
                         </span>
                     </div>
                     <div class="recovery">
-                        <a href="">Recovery password</a>
+                        <a href="">{{ __('messages.Recover password') }}</a>
                     </div>
                     <div class="signIn">
-                        <button type="submit">Đăng nhập</button>
+                        <button type="submit">{{ __('messages.Login') }}</button>
                     </div>
-                    <div class="or">
-                        Or continue with
+                    {{-- <div class="or">
+                        {{ __('messages.Or continue with') }}
                     </div>
                     <div class="list">
                         <a href="" class="item">
@@ -756,18 +753,33 @@
                         <a href="" class="item">
                             <img src="https://museumandgallery.org/wp-content/uploads/2020/03/Facebook-Icon-Facebook-Logo-Social-Media-Fb-Logo-Facebook-Logo-PNG-and-Vector-with-Transparent-Background-for-Free-Download.png" alt="">
                         </a>
-                        <a href=""class="item">
-                            <img src="https://www.iconpacks.net/icons/2/free-twitter-logo-icon-2429-thumb.png" alt="">
-                        </a>
-                    </div>
+                    </div> --}}
                     <div class="register">
-                        Not a member? <a href="">Register now</a>
+                     {{ __('messages.Not a member?') }} <a href="#register" class="btn-login" onclick="Register();">{{ __('messages.Register now') }}</a>
                     </div>
 
                 </div>
             </form>
         </div>
     </div>
+    {{-- <div class="modal" id="">
+        <div class="ModelCreateRegister">
+            <form action="{{ route('forgot.password') }}" method="POST">
+                @csrf
+                <div class="login">
+                    <img src="{{ asset('assets/images/forgot.png') }}" width="80" class="image-forgot" alt="Exclamation mark icon indicating a warning or important notice" />
+                    <h3 class="title">{{ __('messages.Forgot Password') }}</h3>
+                    <p class="message">{{ __('messages.Enter your email and we will send you a link to reset your password.') }}</p>
+                    <div class="group">
+                        <input type="email" name="email" placeholder="{{ __('messages.Enter email...') }}" required>
+                    </div>
+                    <div class="signIn">
+                        <button type="submit">{{ __('messages.Forgot Password') }}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div> --}}
     <!-- <div class="modal" id="CreateRegister"> -->
      <div class="modal" id="CreateRegister">
         <div class="ModelCreateRegister">

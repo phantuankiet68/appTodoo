@@ -5,19 +5,28 @@
     <div class="project-wrapper-right">
         <div class="task-container">
             <header class="task-header">
-              <div class="task-title">Task Info</div>
+                <div class="domain-info">
+                    <div class="domain-info-left">
+                        <div class="project-image">
+                            @if($project->images)
+                                <img src="{{ asset($project->images) }}" alt="Project Image">
+                            @else
+                                <span>No image available</span>
+                            @endif
+                        </div>
+                    </div>
+                    <div class="domain-info-right">
+                        <span class="domain-name">{{ $project->name }}</span>
+                        <span class="plan">{{ $project->user->full_name }}</span>
+                    </div>
+                </div>
               <div class="task-controls">
                 <input type="text" class="search-input" placeholder="Search">
-                <div class="date-filter">
-                  <input type="date">
-                  <input type="date">
-                </div>
                 <button class="add-task-btn">
                   <i class="fa-solid fa-plus"></i> Task
                 </button>
               </div>
             </header>
-            
             <table class="task-table">
               <thead>
                 <tr>
@@ -27,69 +36,91 @@
                   <th>Status</th>
                   <th>Start Date</th>
                   <th>Due Date</th>
+                  <th>complete</th>
                   <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
                 <!-- Main Task -->
                 <tr class="task-row">
-                  <td class="expandable">
-                    <button class="expand-btn"><i class="fa-solid fa-chevron-right"></i></button>
-                    Blog
-                  </td>
-                  <td>Content</td>
-                  <td>Unassigned</td>
-                  <td class="status not-started">Not Started</td>
-                  <td>Jan 1, 2015</td>
-                  <td>Jan 15, 2015</td>
-                  <td>
-                    <button class="action-btn"><i class="fa-solid fa-pen"></i></button>
-                    <button class="action-btn"><i class="fa-solid fa-trash"></i></button>
-                  </td>
+                    <td class="expandable">
+                        <button class="expand-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                        <span class="ml-10">Blog</span>
+                    </td>
+                    <td>
+                        <div class="circle-container">
+                            <div class="circle">
+                            <div class="inner-content">
+                                <div class="number">9</div>
+                            </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>Unassigned</td>
+                        <td>
+                            <p class="status not-started">
+                                Not Started
+                            </p>
+                        </td>
+                    <td>20-10-2021</td>
+                    <td>20-10-2021</td>
+                    <td>
+                        <button class="btn-success">Hoàn thành</button>
+                    </td>
+                    <td>
+                        <button class="action-btn"><i class="fa-solid fa-plus"></i></button>
+                        <button class="action-btn"><i class="fa-solid fa-trash"></i></button>
+                    </td>
                 </tr>
-                <!-- Sub-Tasks -->
                 <tr class="sub-task hidden">
-                  <td class="sub-item">Write 3 posts</td>
-                  <td>Content</td>
+                  <td class="sub-item"><i class="fa-solid fa-arrow-right"></i> <span>Write 3 posts</span></td>
+                    <td>
+                        <button class="btn-stt">1</button>
+                    </td>
                   <td>Maggie Sheldon</td>
-                  <td class="status completed">Completed</td>
+                  
+                    <td>
+                        <p class="status completed">
+                            Completed
+                        </p>                    
+                    </td>
                   <td>Jan 4, 2015</td>
                   <td>Jan 10, 2015</td>
                   <td>
-                    <button class="action-btn"><i class="fa-solid fa-pen"></i></button>
-                    <button class="action-btn"><i class="fa-solid fa-trash"></i></button>
-                  </td>
-                </tr>
-                <tr class="sub-task hidden">
-                  <td class="sub-item">Review & Edits</td>
-                  <td>Content</td>
-                  <td>Shire Henderson</td>
-                  <td class="status completed">Completed</td>
-                  <td>Jan 5, 2015</td>
-                  <td>Jan 12, 2015</td>
+                    <button class="btn-success">Hoàn thành</button>
+                    </td>
                   <td>
                     <button class="action-btn"><i class="fa-solid fa-pen"></i></button>
                     <button class="action-btn"><i class="fa-solid fa-trash"></i></button>
                   </td>
                 </tr>
                 <tr class="sub-task hidden">
-                  <td class="sub-item">Deploy</td>
-                  <td>Content</td>
-                  <td>Shire Henderson</td>
-                  <td class="status started">Started</td>
-                  <td>Jan 11, 2015</td>
-                  <td>Jan 15, 2015</td>
-                  <td>
-                    <button class="action-btn"><i class="fa-solid fa-pen"></i></button>
-                    <button class="action-btn"><i class="fa-solid fa-trash"></i></button>
-                  </td>
-                </tr>
+                    <td class="sub-item"><i class="fa-solid fa-arrow-right"></i> <span>Write 3 posts</span></td>
+                      <td>
+                          <button class="btn-stt">2</button>
+                      </td>
+                    <td>Maggie Sheldon</td>
+                    
+                      <td>
+                          <p class="status completed">
+                              Completed
+                          </p>                    
+                      </td>
+                    <td>Jan 4, 2015</td>
+                    <td>Jan 10, 2015</td>
+                    <td>
+                      <button class="btn-success">Hoàn thành</button>
+                      </td>
+                    <td>
+                      <button class="action-btn"><i class="fa-solid fa-pen"></i></button>
+                      <button class="action-btn"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                  </tr>
+                
+               
               </tbody>
             </table>
           </div>
-    </div>
-    <div class="project-wrapper-left">
-      
     </div>
 </div>
 @if (session('success'))
@@ -132,6 +163,59 @@
         </ul>
     </div>
 @endif
+
+<div class="model" id="">
+    <div class="modelFormB">
+        <form method="POST" class="modelForm" action="{{ route('issue.store') }}" enctype="multipart/form-data">
+            @csrf
+            <h2>{{ __('messages.Add New') }}</h2>
+            @if (Auth::check())
+                <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
+            @endif
+        
+            <div class="form-input-category">
+                <label for="subject">{{ __('messages.Subject') }}</label>
+                <input type="text" class="input-name" id="subject" name="subject">
+            </div>
+            <div class="form-input-category mt-10">
+                <label for="start_date">{{ __('messages.Start Date') }}</label>
+                <input type="date" class="input-name" id="start_date" name="start_date">
+            </div>
+            <div class="form-input-category  mt-10">
+                <label for="end_date">{{ __('messages.End Date') }}</label>
+                <input type="date" class="input-name" id="end_date" name="end_date">
+            </div>
+            <div class="form-select-category mt-10">
+                <label for="level">{{ __('messages.Level') }}</label>
+                <select name="level" id="level">
+                    <option value="0">{{ __('messages.Normal') }}</option>
+                    <option value="1">{{ __('messages.Important') }}</option>
+                </select>
+            </div>
+            <div class="form-select-category mt-10">
+                <label for="level">{{ __('messages.Level') }}</label>
+                <select name="level" id="level">
+                    <option value="0">{{ __('messages.Normal') }}</option>
+                    <option value="1">{{ __('messages.Important') }}</option>
+                </select>
+            </div>
+            <div class="form-select-category mt-10">
+                <label for="level">{{ __('messages.Level') }}</label>
+                <select name="level" id="level">
+                    <option value="0">{{ __('messages.Normal') }}</option>
+                    <option value="1">{{ __('messages.Important') }}</option>
+                </select>
+            </div>
+            <div class="form-btn center mt-10">
+                <button type="submit">{{ __('messages.Save changes') }}</button>
+            </div>
+        
+            <div class="BtnCloseCreate" onclick="closeCreateIssuePopup()">
+                <p>X</p>
+            </div>
+        </form>
+    </div>
+</div>
 <script>
     ClassicEditor
       .create(document.querySelector('#editor'))
@@ -143,6 +227,7 @@
       });
 </script>
 <script>
+
 document.addEventListener('DOMContentLoaded', () => {
   const expandButtons = document.querySelectorAll('.expand-btn');
 

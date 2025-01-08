@@ -71,8 +71,8 @@ class ProjectController extends Controller
     public function show($id)
     {
         $path_id = $id;
-        $projects = Project::findOrFail($id);
-        return view('projects.show.index', compact('projects','path_id'));
+        $project = Project::findOrFail($id);
+        return view('projects.show.index', compact('project','path_id'));
     }
     
     

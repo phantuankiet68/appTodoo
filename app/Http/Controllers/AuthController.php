@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Profile;
 use App\Models\Setting;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Lang;
 
 class AuthController extends Controller
 {
@@ -191,5 +193,24 @@ class AuthController extends Controller
         $user->save(); 
 
         return redirect()->back()->with('success', 'Password changed successfully.');
+    }
+    public function sendResetLink(Request $request)
+    {
+        // Validate email
+        $request->validate([
+            'email' => 'required|email|exists:users,email', // Kiểm tra email có tồn tại trong database không
+        ]);
+
+        // Gửi yêu cầu reset mật khẩu qua email
+        $response = Password::sendResetLink(
+            $request->only('email')
+        );
+
+        // Kiểm tra phản hồi từ hệ thống gửi email
+        if ($response == Password::RESET_LINK_SENT) {
+            return back()->with('status', Lang::get($response));
+        } else {
+            return back()->withErrors(['email' => Lang::get($response)]);
+        }
     }
 }

@@ -382,4 +382,13 @@ return [
     'Error'=>'Error',
     'Chat' => 'Chat',
     'If you truly want to learn, please don’t give up. Thank you very much.'=>'本気で学びたいのであれば、どうか諦めないでください。本当にありがとうございます。',
+    'Enter email...'=>'メールアドレスを入力してください',
+    'Enter password...'=>'パスワードを入力してください',
+    'Recover password'=>'パスワードを回復する',
+    'Or continue with'=>'または次の方法で続行',
+    'Not a member?'=>'メンバーではありませんか？',
+    'Register now'=>'今すぐ登録',
+    'Forgot Password'=>'パスワードを忘れました',
+    'Enter your email and we will send you a link to reset your password.'=>'メールアドレスを入力すると、パスワードをリセットするためのリンクをお送りします。',
+    
 ];
