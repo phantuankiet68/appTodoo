@@ -1,0 +1,16 @@
+.dark-mode .side-bar {
+    background-color: #12202b9c;
+    border-right: 1px solid #6fd2ff;
+}
+
+.dark-mode .side-bar .features-item{
+    color: #787878;
+}
+.dark-mode .container {
+    background-color: #12202b9c;
+}
+
+.dark-mode header{
+    background-color: #12202b9c;
+    border-bottom: 1px solid #6fd2ff;
+}

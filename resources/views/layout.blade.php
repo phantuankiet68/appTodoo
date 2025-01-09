@@ -17,12 +17,12 @@
     {{-- <link rel="stylesheet" href="{{ asset('css/layout-one.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('css/media-layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/local.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dark.css') }}">
     <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images//logo-website.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images//logo-website.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images//logo-website.png') }}">
-    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
 </head>
 
 <body>
@@ -30,28 +30,41 @@
         $locale = session()->get('locale', 'vi');
         App::setLocale($locale);
     @endphp
-    <button id="scroll-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-
-    <div class="side-bar">
+    <div class="side-bar collapse">
         <div class="logo-name-wrapper">
             <div class="logo-name">
                 <img src="{{ asset('assets/images/logo-website.png') }}"     width="40" class="logo" alt="logo app" srcset="" />
                 <span class="logo-name__name">TRYSKILL</span>
             </div>
             <button class="logo-name__button">
-                <i class="bx bx-arrow-from-right logo-name__icon" id="logo-name__icon"></i>
+                <i class="bx bx-arrow-from-left logo-name__icon" id="logo-name__icon"></i>
             </button>
         </div>
         <ul class="features-list">
             <li class="features-item inbox active">
-                <i class="bx bxs-inbox features-item-icon inbox-icon"><span class="status"></span></i>
-                <span class="features-item-text">Profile</span>
-                <span class="tooltip">Inbox</span>
+                <i class="bx bxs-home-alt features-item-icon inbox-icon"><span class="status"></span></i>
+                <i class="fa-solid fa-house"></i>
+                <span class="features-item-text">Home</span>
+                <span class="tooltip">Home</span>
             </li>
-
+            <li class="features-item spam">
+                <i class="bx bxs-calendar-check features-item-icon"></i>
+                <span class="features-item-text">Calendar</span>
+                <span class="inbox-number blue">99</span>
+                <span class="tooltip">Calendar</span>
+            </li>
+            <li class="features-item spam">
+                <i class="bx bx-news features-item-icon"></i>
+                <span class="features-item-text">News</span>
+                <span class="inbox-number red">99</span>
+                <span class="tooltip">News</span>
+            </li>
+            <li class="features-item spam">
+                <i class="bx bxs-chat features-item-icon"></i>
+                <span class="features-item-text">Chat</span>
+                <span class="inbox-number yellow">99</span>
+                <span class="tooltip">Chat</span>
+            </li>
             <li class="features-item draft">
                 <i class="bx bx-file-blank features-item-icon"></i>
                 <span class="features-item-text">Project</span>
@@ -61,9 +74,9 @@
 
             <li class="features-item star">
                 <i class="bx bx-star features-item-icon"></i>
-                <span class="features-item-text">Starred</span>
+                <span class="features-item-text">Task</span>
                 <span class="inbox-number green">99</span>
-                <span class="tooltip">Starred</span>
+                <span class="tooltip">Task</span>
             </li>
             <li class="features-item sent">
                 <i class="bx bx-send features-item-icon"></i>
@@ -72,113 +85,79 @@
                 <span class="tooltip">Sent</span>
             </li>
             <li class="features-item trash">
-                <i class="bx bx-trash features-item-icon"></i>
-                <span class="features-item-text">Trash</span>
+                <i class="bx bxs-bar-chart-alt-2 features-item-icon"></i>
+                <span class="features-item-text">Expense</span>
                 <span class="inbox-number light-blue">99</span>
-                <span class="tooltip">Trash</span>
-            </li>
-            <li class="features-item spam">
-                <i class="bx bx-message-square-error features-item-icon"></i>
-                <span class="features-item-text">Spam</span>
-                <span class="inbox-number blue">99</span>
-                <span class="tooltip">Spam</span>
-            </li>
-            <li class="features-item spam">
-                <i class="bx bx-message-square-error features-item-icon"></i>
-                <span class="features-item-text">Spam</span>
-                <span class="inbox-number red">99</span>
-                <span class="tooltip">Spam</span>
-            </li>
-            <li class="features-item spam">
-                <i class="bx bx-message-square-error features-item-icon"></i>
-                <span class="features-item-text">Spam</span>
-                <span class="inbox-number yellow">99</span>
-                <span class="tooltip">Spam</span>
+                <span class="tooltip">Expense</span>
             </li>
         </ul>
 
         <ul class="category-list">
-            <div class="category-header">Message categories</div>
-            <li class="category-item">
-                <span class="category-item-status" style="background-color: #79d861"></span><span
-                    class="category-item-text">My works</span><span class="category-item-number">9</span>
-                <span class="tooltip">My works</span>
+            <li class="features-item spam">
+                <i class="bx bxs-add-to-queue features-item-icon"></i>
+                <span class="features-item-text">English</span>
+                <span class="inbox-number blue">99</span>
+                <span class="tooltip">English</span>
             </li>
-            <li class="category-item">
-                <span class="category-item-status" style="background-color: #c43c5d"></span><span
-                    class="category-item-text">Accountant</span><span class="category-item-number">43</span>
-                <span class="tooltip">Accountant</span>
+            <li class="features-item spam">
+                <i class="bx bxs-add-to-queue features-item-icon"></i>
+                <span class="features-item-text">Japanese</span>
+                <span class="inbox-number blue">99</span>
+                <span class="tooltip">Japanese</span>
             </li>
-            <li class="category-item">
-                <span class="category-item-status" style="background-color: #ff5050"></span><span
-                    class="category-item-text">Works</span><span class="category-item-number">78</span>
-                <span class="tooltip">Works</span>
+            <li class="features-item spam">
+                <i class="bx bxs-add-to-queue features-item-icon"></i>
+                <span class="features-item-text">Question</span>
+                <span class="inbox-number blue">99</span>
+                <span class="tooltip">Question</span>
             </li>
-            <li class="category-item">
-                <span class="category-item-status" style="background-color: #42ffdd"></span><span
-                    class="category-item-text">Marketing</span><span class="category-item-number">253</span>
-                <span class="tooltip">Marketing</span>
+            <li class="features-item spam">
+                <i class="bx bx-edit features-item-icon"></i>
+                <span class="features-item-text">Note</span>
+                <span class="inbox-number blue">99</span>
+                <span class="tooltip">Note</span>
             </li>
         </ul>
 
         <ul class="chat-list">
-            <div class="chat-header">recent chats</div>
-            <button class="chat-new-btn">
-                <i class="bx bxs-plus-circle chat-icon"></i>
-                <span class="chat-new-btn-text">Start New Chat</span>
-                <span class="tooltip">New Chat</span>
-            </button>
-
-            <li class="chat-item">
-                <span class="chat-item-avatar-wrapper has-message">
-                    <img src="./assets/images/chris-evans.jpg" alt="avatar" class="chat-item-avatar" />
-                </span>
-                <span class="chat-item-name">Steve Rogers</span>
-                <span class="chat-item-number">53</span>
+            <li class="features-item spam">
+                <i class="bx bx-code-block features-item-icon"></i>
+                <span class="features-item-text">Code</span>
+                <span class="inbox-number blue">99</span>
+                <span class="tooltip">Code</span>
             </li>
-            <li class="chat-item">
-                <span class="chat-item-avatar-wrapper">
-                    <img src="./assets/images/tony-stark.jpg" alt="avatar" class="chat-item-avatar" />
-                </span>
-                <span class="chat-item-name">Tony Stark</span><span class="chat-item-status"
-                    style="background-color: #79d861"></span>
+            <li class="features-item spam">
+                <i class="bx bx-code-block features-item-icon"></i>
+                <span class="features-item-text">Component</span>
+                <span class="inbox-number blue">99</span>
+                <span class="tooltip">Component</span>
+            </li>
+            <li class="features-item spam">
+                <i class="bx bx-alarm-exclamation features-item-icon"></i>
+                <span class="features-item-text">Error</span>
+                <span class="inbox-number blue">99</span>
+                <span class="tooltip">Error</span>
+            </li>
+            <li class="features-item spam">
+                <i class="bx bxs-folder-minus features-item-icon"></i>
+                <span class="features-item-text">Remote</span>
+                <span class="inbox-number blue">99</span>
+                <span class="tooltip">Remote</span>
             </li>
         </ul>
     </div>
-    <div class="container">
+    <div class="container collapse">
         <header id="home">
             <div class="navbar">
                 <div class="navbar-left">
                     <div class="menu-item">
-                        <nav>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @switch($locale)
-                                        @case('vi')
-                                        <img src="{{ asset('assets/images/vietnam.jpg') }}" width="25px"> Việt Nam
-                                        @break
-                                        @case('en')
-                                        <img src="{{ asset('assets/images/english.jpg') }}" width="25px"> English
-                                        @break
-                                        @default
-                                        <img src="{{ asset('assets/images/japan.jpg') }}" width="25px"> Japan
-                                    @endswitch
-                                    <span class="caret"></span>
-                                </a>
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('/vi') }}">
-                                        <img src="{{ asset('assets/images/vietnam.jpg') }}" width="25px"> Việt Nam
-                                    </a>
-                                    <a class="dropdown-item" href="{{ url('/ja') }}">
-                                        <img src="{{ asset('assets/images/japan.jpg') }}" width="25px"> Japan
-                                    </a>
-                                    <a class="dropdown-item" href="{{ url('/en') }}">
-                                        <img src="{{ asset('assets/images/english.jpg') }}" width="25px"> English
-                                    </a>
-                                </div>
-                            </li>
-                        </nav>
+                        <div class="toggle-container menu-active">
+                            <input type="checkbox" id="toggle" class="toggle">
+                            <label for="toggle" class="toggle-label">
+                              <span class="light-icon">&#9728;</span> <!-- Biểu tượng mặt trời -->
+                              <span class="dark-icon">&#9790;</span> <!-- Biểu tượng mặt trăng -->
+                            </label>
+                          </div>
                     </div>
                     <div class="menu-item dropdown menu-active">
                         <i class="fas fa-th-large">
@@ -223,23 +202,58 @@
                         </span>
                     </div>
                     <div class="menu-item">
-                        <div class="toggle-container menu-active">
-                            <input type="checkbox" id="toggle" class="toggle">
-                            <label for="toggle" class="toggle-label">
-                              <span class="light-icon">&#9728;</span> <!-- Biểu tượng mặt trời -->
-                              <span class="dark-icon">&#9790;</span> <!-- Biểu tượng mặt trăng -->
-                            </label>
-                          </div>
+                        <nav>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    @switch($locale)
+                                        @case('vi')
+                                        <img src="{{ asset('assets/images/vietnam.jpg') }}" width="25px"> Việt Nam
+                                        @break
+                                        @case('en')
+                                        <img src="{{ asset('assets/images/english.jpg') }}" width="25px"> English
+                                        @break
+                                        @default
+                                        <img src="{{ asset('assets/images/japan.jpg') }}" width="25px"> Japan
+                                    @endswitch
+                                    <span class="caret"></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ url('/vi') }}">
+                                        <img src="{{ asset('assets/images/vietnam.jpg') }}" width="25px"> Việt Nam
+                                    </a>
+                                    <a class="dropdown-item" href="{{ url('/ja') }}">
+                                        <img src="{{ asset('assets/images/japan.jpg') }}" width="25px"> Japan
+                                    </a>
+                                    <a class="dropdown-item" href="{{ url('/en') }}">
+                                        <img src="{{ asset('assets/images/english.jpg') }}" width="25px"> English
+                                    </a>
+                                </div>
+                            </li>
+                        </nav>
                     </div>
-                    <div class="profile">
-                        <img alt="Profile picture" height="30"
-                            src="https://storage.googleapis.com/a1aa/image/linx8Jhlu7pJJJxVczUlT2G9BZGYAgLDXEm8eqdl3Iw0eEDUA.jpg"
-                            width="30" />
-                        <span>
-                            Alina Mclourd
-                        </span>
-                        <i class="fas fa-light fa-caret-down"></i>
-                    </div>
+                    @if (Auth::check())
+                        <div class="profile">
+                            <img alt="Profile picture" height="30"
+                                src="https://storage.googleapis.com/a1aa/image/linx8Jhlu7pJJJxVczUlT2G9BZGYAgLDXEm8eqdl3Iw0eEDUA.jpg"
+                                width="30" />
+                            <span>
+                                Alina Mclourd
+                            </span>
+                            <i class="fas fa-light fa-caret-down"></i>
+                            <div class="sub-profile">
+                                <div class="d-flex flex-direction gap-10">
+                                    <a href="" class="d-flex align-items gap-10"><i class="fa-sharp fas fa-user-secret"></i>Profile</a>
+                                    <a href="" class="d-flex align-items gap-10"><i class="fa-solid fa-layer-group"></i> Quản lí</a>
+                                    <a href="" class="d-flex align-items gap-10" ><i class="fa-solid fa-gear"></i>Setting</a>
+                                    <a href="/"  onclick="logout()" class="d-flex align-items gap-10"><i class="bx bx-log-out" ></i>Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    @else
+                        <a href="#login" class="btn-login" onclick="Login();"><i class="fa-regular fa-user"></i> {{ __('messages.Login') }}</a>
+                        <a href="#register" class="btn-login" onclick="Register();"><i class="fa-regular fa-user"></i> {{ __('messages.Register') }}</a>
+                    @endif  
                 </div>
             </div>
         </header>
@@ -280,8 +294,7 @@
                         </a>
                     </div> --}}
                     <div class="register">
-                        {{ __('messages.Not a member?') }} <a href="#register" class="btn-login"
-                            onclick="Register();">{{ __('messages.Register now') }}</a>
+                        {{ __('messages.Not a member?') }} <a href="#register" class="btn-login-box" onclick="Register();">{{ __('messages.Register now') }}</a>
                     </div>
 
                 </div>
@@ -415,207 +428,96 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
-        const toggle = document.getElementById("toggle");
+    document.addEventListener('DOMContentLoaded', function() {
+        const toggle = document.getElementById('toggle');
+        const savedMode = localStorage.getItem('theme');
 
-        toggle.addEventListener("change", function() {
-        if (this.checked) {
-            document.body.classList.add("dark-mode");
-            document.body.classList.remove("light-mode");
+        // Set initial mode based on localStorage
+        if (savedMode) {
+            document.body.classList.add(savedMode);
+            toggle.checked = savedMode === 'dark-mode';
         } else {
-            document.body.classList.add("light-mode");
-            document.body.classList.remove("dark-mode");
-        }
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav a');
-
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.forEach(link => link.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-        });
-
-        var i = 0;
-        let slides = document.querySelectorAll(".slide");
-        let slider = document.querySelector(".slider");
-        var pause = false;
-
-        function moveRight() {
-            slides[i].className = "slide";
-            i = (i + 1) % slides.length;
-            slides[i].className = "slide active";
-            let Xvalue = -160 * i;
-            slider.style.transform = `translateX(${Xvalue}px)`;
+            document.body.classList.add('light-mode'); // Default mode
         }
 
-        function moveLeft() {
-            slides[i].className = "slide";
-            i = (i - 1 + slides.length) % slides.length;
-            slides[i].className = "slide active";
-            let Xvalue = -160 * i;
-            slider.style.transform = `translateX(${Xvalue}px)`;
-        }
-
-        const interval = setInterval(() => {
-            if (!pause) {
-                moveRight();
-            }
-        }, 2000);
-
-        function playPause() {
-            let state = document.querySelector(".icon");
-            if (state.innerHTML == "pause") {
-                state.innerHTML = "play_arrow";
-                pause = true;
+        toggle.addEventListener('change', function() {
+            if (this.checked) {
+                document.body.classList.add('dark-mode');
+                document.body.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark-mode');
             } else {
-                state.innerHTML = "pause";
-                pause = false;
+                document.body.classList.add('light-mode');
+                document.body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light-mode');
             }
-        }
-        //window.addEventListener('load', function() {
-        //document.getElementById('loading').style.display = 'flex';
+        });
+    });
 
-        // setTimeout(function() {
-        //  document.getElementById('loading').style.display = 'none';
-        //}, 5000);
-        //});
-        document.getElementById('toggle-password').addEventListener('click', function() {
-            const passwordInput = document.getElementById('password');
-            const toggleIcon = this;
+        // window.addEventListener('load', function() {
+        //     document.getElementById('loading').style.display = 'flex';
 
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                toggleIcon.classList.remove('fa-eye');
-                toggleIcon.classList.add('fa-eye-slash');
+        //     setTimeout(function() {
+        //     document.getElementById('loading').style.display = 'none';
+        //     }, 5000);
+        // });
+        let sideBar = document.querySelector('.side-bar');
+        let arrowCollapse = document.querySelector('#logo-name__icon');
+        const Container = document.querySelector('.container');
+        sideBar.onclick = () => {
+            sideBar.classList.toggle('collapse');
+            Container.classList.toggle('collapse');
+            arrowCollapse.classList.toggle('collapse');
+            if (arrowCollapse.classList.contains('collapse')) {
+                arrowCollapse.classList ='bx bx-arrow-from-right logo-name__icon collapse';
             } else {
-                passwordInput.type = 'password';
-                toggleIcon.classList.remove('fa-eye-slash');
-                toggleIcon.classList.add('fa-eye');
+                arrowCollapse.classList = 'bx bx-arrow-from-left logo-name__icon';
             }
-        });
-
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const accordionItem = header.parentElement;
-
-                // Đóng tất cả các accordion items khác
-                document.querySelectorAll('.accordion-item').forEach(item => {
-                    if (item !== accordionItem) {
-                        item.classList.remove('active');
-                    }
-                });
-
-                // Toggle trạng thái của accordion item hiện tại
-                accordionItem.classList.toggle('active');
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-            const popup = document.querySelector('#popup-success');
-            if (popup) {
-                popup.style.display = 'flex';
-                setTimeout(() => {
-                    popup.style.display = 'none';
-                }, 6000);
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const popup = document.querySelector('#popup-error');
-            if (popup) {
-                popup.style.display = 'flex';
-                setTimeout(() => {
-                    popup.style.display = 'none';
-                }, 6000);
-            }
-        });
-
-        let hamMenuIcon = document.getElementById("ham-menu");
-        let navBar = document.getElementById("nav-bar");
-        let navLinks = navBar.querySelectorAll("li");
-        let scrollTopBtn = document.getElementById("scroll-top");
-
-        hamMenuIcon.addEventListener("click", () => {
-            navBar.classList.toggle("active");
-            hamMenuIcon.classList.toggle("fa-times");
-        });
-        navLinks.forEach((navLinks) => {
-            navLinks.addEventListener("click", () => {
-                navBar.classList.remove("active");
-                hamMenuIcon.classList.toggle("fa-times");
-            });
-        });
-
-        let header = document.querySelector("header");
-        window.onscroll = () => {
-            let pos = document.documentElement.scrollTop;
-            if (pos > 0) {
-                header.classList.add("sticky");
-            } else {
-                header.classList.remove("sticky");
-            }
-            if (pos > 300) {
-                scrollTopBtn.style.display = "grid";
-            } else {
-                scrollTopBtn.style.display = "none";
-            }
-
-            scrollTopBtn.addEventListener("click", () => {
-                document.documentElement.scrollTop = 0;
-            });
         };
+        document.addEventListener('DOMContentLoaded', function() {
+            const profile = document.querySelector('.profile');
+            const subProfile = document.querySelector('.sub-profile');
 
+            profile.addEventListener('click', function(event) {
+                subProfile.style.display = subProfile.style.display === 'block' ? 'none' : 'block';
+                event.stopPropagation(); // Prevents the click event from propagating to the document
+            });
+
+            document.addEventListener('click', function() {
+                subProfile.style.display = 'none';
+            });
+        });
         function logout() {
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
             fetch("{{ route('logout') }}", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "X-CSRF-TOKEN": csrfToken
-                    },
-                })
-                .then(response => {
-                    if (response.ok) {
-                        return response.json(); // Trích xuất JSON từ phản hồi
-                    } else {
-                        throw new Error('Logout failed');
-                    }
-                })
-                .then(data => {
-                    if (data.success) {
-                        // Xóa cookie và điều hướng về trang chủ
-                        document.cookie.split(";").forEach(cookie => {
-                            document.cookie = cookie
-                                .replace(/^ +/, "")
-                                .replace(/=.*/, "=;expires=" + new Date(0).toUTCString() + ";path=/");
-                        });
-
-                        window.location.href = "{{ route('home.index', ['locale' => session('locale', 'vi')]) }}";
-
-                    }
-                })
-                .catch(error => console.error("Logout failed:", error));
-        }
-    </script>
-    <script type="text/javascript">
-        {
-            let sideBar = document.querySelector('.side-bar');
-            let arrowCollapse = document.querySelector('#logo-name__icon');
-            sideBar.onclick = () => {
-                sideBar.classList.toggle('collapse');
-                arrowCollapse.classList.toggle('collapse');
-                if (arrowCollapse.classList.contains('collapse')) {
-                    arrowCollapse.classList =
-                        'bx bx-arrow-from-left logo-name__icon collapse';
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": csrfToken
+                },
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
                 } else {
-                    arrowCollapse.classList = 'bx bx-arrow-from-right logo-name__icon';
+                    throw new Error('Logout failed');
                 }
-            };
+            })
+            .then(data => {
+                if (data.success) {
+                    document.cookie.split(";").forEach(cookie => {
+                        document.cookie = cookie
+                            .replace(/^ +/, "")
+                            .replace(/=.*/, "=;expires=" + new Date(0).toUTCString() + ";path=/");
+                    });
+
+                    window.location.href = "{{ route('home.index', ['locale' => session('locale', 'vi')]) }}";
+
+                }
+            })
+            .catch(error => console.error("Logout failed:", error));
         }
     </script>
-
     <script src="{{ asset('js/layout.js') }}"></script>
 </body>
 
