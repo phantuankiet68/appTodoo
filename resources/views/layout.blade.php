@@ -38,53 +38,61 @@
     <div class="side-bar">
         <div class="logo-name-wrapper">
             <div class="logo-name">
-                <img src="./assets/images/logo.png" class="logo" alt="logo app" srcset="" />
-                <span class="logo-name__name">CSSScript</span>
+                <img src="{{ asset('assets/images/logo-website.png') }}"     width="40" class="logo" alt="logo app" srcset="" />
+                <span class="logo-name__name">TRYSKILL</span>
             </div>
             <button class="logo-name__button">
                 <i class="bx bx-arrow-from-right logo-name__icon" id="logo-name__icon"></i>
             </button>
-            <!-- <i class='bx bx-arrow-from-left'></i> -->
         </div>
-
-        <div class="message">
-            <i class="message-icon bx bx-message-square-edit"></i>
-            <span class="message-text">New Mesage</span>
-            <span class="tooltip">New Mesage</span>
-        </div>
-
         <ul class="features-list">
             <li class="features-item inbox active">
                 <i class="bx bxs-inbox features-item-icon inbox-icon"><span class="status"></span></i>
-                <span class="features-item-text">Inbox</span>
-                <span class="inbox-number">99</span>
+                <span class="features-item-text">Profile</span>
                 <span class="tooltip">Inbox</span>
             </li>
 
             <li class="features-item draft">
                 <i class="bx bx-file-blank features-item-icon"></i>
-                <span class="features-item-text">Draft</span>
-                <span class="tooltip">Draft</span>
+                <span class="features-item-text">Project</span>
+                <span class="inbox-number organ">99</span>
+                <span class="tooltip">Project</span>
             </li>
 
             <li class="features-item star">
                 <i class="bx bx-star features-item-icon"></i>
                 <span class="features-item-text">Starred</span>
+                <span class="inbox-number green">99</span>
                 <span class="tooltip">Starred</span>
             </li>
             <li class="features-item sent">
                 <i class="bx bx-send features-item-icon"></i>
                 <span class="features-item-text">Sent</span>
+                <span class="inbox-number purple">99</span>
                 <span class="tooltip">Sent</span>
             </li>
             <li class="features-item trash">
                 <i class="bx bx-trash features-item-icon"></i>
                 <span class="features-item-text">Trash</span>
+                <span class="inbox-number light-blue">99</span>
                 <span class="tooltip">Trash</span>
             </li>
             <li class="features-item spam">
                 <i class="bx bx-message-square-error features-item-icon"></i>
                 <span class="features-item-text">Spam</span>
+                <span class="inbox-number blue">99</span>
+                <span class="tooltip">Spam</span>
+            </li>
+            <li class="features-item spam">
+                <i class="bx bx-message-square-error features-item-icon"></i>
+                <span class="features-item-text">Spam</span>
+                <span class="inbox-number red">99</span>
+                <span class="tooltip">Spam</span>
+            </li>
+            <li class="features-item spam">
+                <i class="bx bx-message-square-error features-item-icon"></i>
+                <span class="features-item-text">Spam</span>
+                <span class="inbox-number yellow">99</span>
                 <span class="tooltip">Spam</span>
             </li>
         </ul>
