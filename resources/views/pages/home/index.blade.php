@@ -6,15 +6,13 @@
         <div class="slide-one-left">
             <div class="slider">
                 <div class="slide" style="background-color: #fff;">
-                    <div class="main-content">
-                       
-                    </div>
-                </div>
-                <div class="slide" style="background-color: #f6e5b3;">
                     <section class="download-app background-path"  id="about">
                         <div class="row">
-                        <div class="column">
-                            <img src="{{asset('assets/images/backgrounda.png')}}" />
+                        <div class="column background-column">
+                            <img src="{{asset('assets/images/pattern-1.png')}}" />
+                            <div class="btn-web-develop">
+                                <button>Trải nghiệm ngay</button>
+                            </div>
                         </div>
                         <div class="column">
                             <div class="app-feature">
@@ -231,7 +229,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="slide" style="background-color: #f6e5b3;">
+                <div class="slide" style="background-color: #fff;">
                     <section class="path-app">
                         <div class="path-container">
                             <div class="path-card-item">
@@ -356,7 +354,9 @@
                         <div class="sub-header">コピペでできる便利カスタマイズまとめ</div>
                         <div class="list-card">
                             <div class="card">
-                                <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
+                                <div class="card-img">
+                                    <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
+                                </div>
                                 <div class="project-user">
                                     <p>Phan Tuan kiet</p>
                                 </div>
@@ -368,7 +368,9 @@
                                 </div>
                             </div>
                             <div class="card">
-                                <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
+                                <div class="card-img">
+                                    <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
+                                </div>
                                 <div class="project-user">
                                     <p>Phan Tuan kiet</p>
                                 </div>
@@ -380,7 +382,9 @@
                                 </div>
                             </div>
                             <div class="card">
-                                <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
+                                <div class="card-img">
+                                    <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
+                                </div>
                                 <div class="project-user">
                                     <p>Phan Tuan kiet</p>
                                 </div>
@@ -392,7 +396,9 @@
                                 </div>
                             </div>
                             <div class="card">
-                                <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
+                                <div class="card-img">
+                                    <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
+                                </div>
                                 <div class="project-user">
                                     <p>Phan Tuan kiet</p>
                                 </div>
@@ -404,7 +410,9 @@
                                 </div>
                             </div>
                             <div class="card">
-                                <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
+                                <div class="card-img">
+                                    <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
+                                </div>
                                 <div class="project-user">
                                     <p>Phan Tuan kiet</p>
                                 </div>
@@ -416,7 +424,9 @@
                                 </div>
                             </div>
                             <div class="card">
-                                <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
+                                <div class="card-img">
+                                    <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
+                                </div>
                                 <div class="project-user">
                                     <p>Phan Tuan kiet</p>
                                 </div>
@@ -424,6 +434,112 @@
                                 <div class="content-expert-show">
                                     <i class="fa-duotone fas fa-caret-left"></i>
                                     <button class="btn-show">Xem hồ sơ</button>
+                                    <i class="fa-duotone fas fa-caret-right"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
+                                </div>
+                                <div class="project-user">
+                                    <p>Phan Tuan kiet</p>
+                                </div>
+                                <p class="card-title">【VJP-CONNECT】</p>
+                                <div class="content-expert-show">
+                                    <i class="fa-duotone fas fa-caret-left"></i>
+                                    <button class="btn-show">Xem hồ sơ</button>
+                                    <i class="fa-duotone fas fa-caret-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide" style="background-color: #fff;">
+                    <div class="main-content">
+                        <h3 class="title">WordPress</h3>
+                        <div class="sub-header">コピペでできる便利カスタマイズまとめ</div>
+                        <div class="list-card">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="{{asset('assets/images/news1.png')}}" />
+                                </div>
+                                <div class="project-user">
+                                    <p>15-8-2000</p>
+                                </div>
+                                <p class="card-title">【VJP-CONNECT】</p>
+                                <div class="content-expert-show">
+                                    <i class="fa-duotone fas fa-caret-left"></i>
+                                    <button class="btn-show">Xem thêm</button>
+                                    <i class="fa-duotone fas fa-caret-right"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="{{asset('assets/images/news1.png')}}" />
+                                </div>
+                                <div class="project-user">
+                                    <p>15-8-2000</p>
+                                </div>
+                                <p class="card-title">【VJP-CONNECT】</p>
+                                <div class="content-expert-show">
+                                    <i class="fa-duotone fas fa-caret-left"></i>
+                                    <button class="btn-show">Xem thêm</button>
+                                    <i class="fa-duotone fas fa-caret-right"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="{{asset('assets/images/news1.png')}}" />
+                                </div>
+                                <div class="project-user">
+                                    <p>15-8-2000</p>
+                                </div>
+                                <p class="card-title">【VJP-CONNECT】</p>
+                                <div class="content-expert-show">
+                                    <i class="fa-duotone fas fa-caret-left"></i>
+                                    <button class="btn-show">Xem thêm</button>
+                                    <i class="fa-duotone fas fa-caret-right"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="{{asset('assets/images/news1.png')}}" />
+                                </div>
+                                <div class="project-user">
+                                    <p>15-8-2000</p>
+                                </div>
+                                <p class="card-title">【VJP-CONNECT】</p>
+                                <div class="content-expert-show">
+                                    <i class="fa-duotone fas fa-caret-left"></i>
+                                    <button class="btn-show">Xem thêm</button>
+                                    <i class="fa-duotone fas fa-caret-right"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="{{asset('assets/images/news1.png')}}" />
+                                </div>
+                                <div class="project-user">
+                                    <p>15-8-2000</p>
+                                </div>
+                                <p class="card-title">【VJP-CONNECT】</p>
+                                <div class="content-expert-show">
+                                    <i class="fa-duotone fas fa-caret-left"></i>
+                                    <button class="btn-show">Xem thêm</button>
+                                    <i class="fa-duotone fas fa-caret-right"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="{{asset('assets/images/news1.png')}}" />
+                                </div>
+                                <div class="project-user">
+                                    <p>15-8-2000</p>
+                                </div>
+                                <p class="card-title">【VJP-CONNECT】</p>
+                                <div class="content-expert-show">
+                                    <i class="fa-duotone fas fa-caret-left"></i>
+                                    <button class="btn-show">Xem thêm</button>
                                     <i class="fa-duotone fas fa-caret-right"></i>
                                 </div>
                             </div>
@@ -519,7 +635,6 @@
                         </section>
                     </div>
                 </div>
-                <div class="slide" style="background-color: #532e2e;">Slide 3</div>
             </div>
         </div>
         @include('pages.components.aside.index')

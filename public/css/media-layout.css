@@ -1,211 +1,69 @@
 
 
-@media only screen and (max-width: 991px) {
-    html {
-        font-size: 56.25%;
-    }
-    #header-shape {
-        display: none;
-    }
-
-    .header-aside-list.hidden{
-        display: none !important;
-    }
-    .header-aside {
-        width: 100%;
-        display: flex;
-        justify-content: center !important;
-        height: 25px;
-    }
-    header nav {
-        margin-top: 16px !important;
-    }
-
-    .banner{
-        flex-direction: column;
-    }
-
-    .app-text {
-        width: 100% !important;
-        padding-left: 20px !important;
-        margin-top: 20px;
-    }
-    .app-text blockquote {
-        margin: 0px !important;
-        padding-right: 0 !important;
-    }
-
-    .btn-group {
-        margin-top: 16px !important;
-    }
-
-    .btn-group .signup-btn {
-        padding: 15px 26px !important;
-    }
-
-    .path-container {
-        flex-direction: column;
-    }
-
-    .path-card-item {
-        width: 100%;
-    }
-
-    .path-container {
-        height: 122vh !important;
-    }
-
-    .title-home h2 {
-        font-size: 32px !important;
-    }
-    .row {
-        flex-direction: column;
-        margin-top: 54px;
-    }
-
-    .download-app img {
-        width: 100% !important;
-    }
-
-    .background-path {
-        height: 105vh !important;
-    }
-
-
-    .path-service {
-        height: 130vh !important;
-        flex-direction: column;
-    }
-    .section {
-        width: 100%;
-    }
-    .row-services,.stats-container {
-        flex-direction: column;
-    }
-    .service {
-        position: relative;
-        width: 100%;
-    }
-    .courses {
-        overflow: scroll;
-        height: 75vh !important;
-    }
-
-    .slide.active {
-        width: 100% !important;
-        height: auto !important;
-    }
-    .slide {
-        width: 100% !important;
-        height: auto !important;
-    }
-
-    .background-path#product {
-        height: 76vh !important;
-    }
-
-    .pricing-design {
-        width: 1368px !important;
-    }
-
-    .app-picture {
-        width: 100% !important;
-        float: left;
-    }
-
-    .contact-form-container {
-        width: 100% !important;
-        float: right;
-        border-radius: 0px 30px 30px 0px;
-        padding: 10px !important;
-    }
-    .background-path#contact{
-        height: auto !important;
-    }
-
-    section {
-        padding: 3rem 10px !important;
-    }
-
-    .hero-img {
-        grid-row: 1;
-    }
-    nav ul a,
-    nav a#logo {
-        color: var(--white-shade-1);
-    }
-    .hero-content h1,
-    .hero-content p {
-        text-align: center;
-    }
-    .hero-content h1 {
-        color: var(--white-shade-1);
-    }
-    .hero-content p {
-        color: var(--white-shade-2);
-    }
-    .hero-content .primary-btn {
-        background-color: var(--white-shade-1);
-        color: var(--base-shade-1);
-    }
-    .hero-content .secondary-btn {
-        color: var(--white-shade-1);
-        border-color: var(--white-shade-1);
-    }
-    .btn-container {
-        justify-content: center;
-    }
-
-    .app-feature div {
-        justify-content: center;
-    }
+@media only screen and (max-width: 1540px) {
     .app-feature p {
-        text-align: justify;
+        font-size: 1.6rem !important;
+        margin: 0 !important;
     }
-    .download-app a img {
-        width: 50%;
+    .app-feature div {
+        padding: 7px 10px !important;
     }
-    #ham-menu {
-        display: block;
-        color: #282a2a !important;
+    .menu-slide-items .menu-item {
+        padding: 25px 5px !important;
     }
+    .menu-slide-items {
+        margin-bottom: 20px !important;
+    }
+    .pagination button {
+        padding: 18px 0px !important;
+    }
+    .card {
+        min-height: 338px !important;
+    }
+    .card-img {
+        height: 228px !important;
+    }
+    .card .card-user-img img {
+        width: 200px !important;
+        height: 200px !important;
+    }
+    .path-container{
+        height: 90vh !important;
+    }
+    .path-card-item {
+        min-height: 326px !important;
+        padding: 25px !important;
+    }
+    .pricing-table-box1 .item {
+        margin: 37px 0 !important;
+    }
+    .pricing-table-box2 .item {
+        margin: 37px 0 !important;
+    }
+    .pricing-table-box3 .item {
+        margin: 37px 0 !important;
+    }
+    .pricing-table-box4 .item {
+        margin: 37px 0 !important; 
+    }
+    .pricing-table .item {
+        background-color: #ffffff;
+        margin: 37px 0 !important;
+    }
+
+    .info-details li {
+        margin-top: 38px !important;
+    }
+    .contact-form .form-group input, .contact-form .form-group textarea {
+        padding: 13px !important;
+        font-size: 16px !important;
+    }
+    .contact-form .form-group textarea {
+        min-height: 396px !important;
+    }
+
 }
 
 @media only screen and (max-width: 767px) {
-    html {
-        font-size: 50%;
-    }
-    header {
-        padding: 2rem 4rem;
-    }
-    nav a#logo,
-    #ham-menu {
-        font-size: var(--heading-font-size-2);
-    }
-    nav ul {
-        background-color: var(--black-shade-1);
-        position: fixed;
-        left: -100vw;
-        top: 105.4px;
-        height: calc(100vh - 70.4px);
-        width: 100vw;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
-        transition: 1s;
-        gap: 0;
-    }
-    nav ul a {
-        font-size: var(--heading-font-size-3);
-    }
-    .sticky nav ul a {
-        color: var(--white-shade-1);
-    }
-    nav ul a:hover {
-        color: #57fcf8;
-    }
-    #scroll-top {
-        height: 6rem;
-        width: 6rem;
-    }
+   
 }

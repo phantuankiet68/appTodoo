@@ -43,107 +43,139 @@
         <div class="croll-sidebar">
             <ul class="features-list">
                 <li class="features-item inbox active">
-                    <i class="bx bxs-home-alt features-item-icon inbox-icon"><span class="status"></span></i>
-                    <i class="fa-solid fa-house"></i>
-                    <span class="features-item-text">Home</span>
-                    <span class="tooltip">Home</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bxs-home-alt features-item-icon inbox-icon"><span class="status"></span></i>
+                        <i class="fa-solid fa-house"></i>
+                        <span class="features-item-text">{{ __('messages.Home') }}</span>
+                        <span class="tooltip">{{ __('messages.Home') }}</span>
+                    </a>
                 </li>
                 <li class="features-item spam">
-                    <i class="bx bxs-calendar-check features-item-icon"></i>
-                    <span class="features-item-text">Calendar</span>
-                    <span class="inbox-number blue">99</span>
-                    <span class="tooltip">Calendar</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bxs-calendar-check features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Calendar') }}</span>
+                        <span class="inbox-number blue">99</span>
+                        <span class="tooltip">{{ __('messages.Calendar') }}</span>
+                    </a>
                 </li>
                 <li class="features-item spam">
-                    <i class="bx bx-news features-item-icon"></i>
-                    <span class="features-item-text">News</span>
-                    <span class="inbox-number red">99</span>
-                    <span class="tooltip">News</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bx-news features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.News') }}</span>
+                        <span class="inbox-number red">99</span>
+                        <span class="tooltip">News</span>
+                    </a>
                 </li>
                 <li class="features-item spam">
-                    <i class="bx bxs-chat features-item-icon"></i>
-                    <span class="features-item-text">Chat</span>
-                    <span class="inbox-number yellow">99</span>
-                    <span class="tooltip">Chat</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bxs-chat features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Message') }}</span>
+                        <span class="inbox-number yellow">99</span>
+                        <span class="tooltip">{{ __('messages.Message') }}</span>
+                    </a>
                 </li>
                 <li class="features-item draft">
-                    <i class="bx bx-file-blank features-item-icon"></i>
-                    <span class="features-item-text">Project</span>
-                    <span class="inbox-number organ">99</span>
-                    <span class="tooltip">Project</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bx-file-blank features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Project') }}</span>
+                        <span class="inbox-number organ">99</span>
+                        <span class="tooltip">{{ __('messages.Project') }}</span>
+                    </a>
                 </li>
 
                 <li class="features-item star">
-                    <i class="bx bx-star features-item-icon"></i>
-                    <span class="features-item-text">Task</span>
-                    <span class="inbox-number green">99</span>
-                    <span class="tooltip">Task</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bx-star features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Tasks') }}</span>
+                        <span class="inbox-number green">99</span>
+                        <span class="tooltip">{{ __('messages.Tasks') }}</span>
+                    </a>
                 </li>
                 <li class="features-item sent">
-                    <i class="bx bx-send features-item-icon"></i>
-                    <span class="features-item-text">Sent</span>
-                    <span class="inbox-number purple">99</span>
-                    <span class="tooltip">Sent</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bx-send features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Sent') }}</span>
+                        <span class="inbox-number purple">99</span>
+                        <span class="tooltip">{{ __('messages.Sent') }}</span>
+                    </a>
                 </li>
                 <li class="features-item trash">
-                    <i class="bx bxs-bar-chart-alt-2 features-item-icon"></i>
-                    <span class="features-item-text">Expense</span>
-                    <span class="inbox-number light-blue">99</span>
-                    <span class="tooltip">Expense</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bxs-bar-chart-alt-2 features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Expenses') }}</span>
+                        <span class="inbox-number light-blue">99</span>
+                        <span class="tooltip">{{ __('messages.Expenses') }}</span>
+                    </a>
                 </li>
             </ul>
 
             <ul class="category-list">
                 <li class="features-item spam">
-                    <i class="bx bxs-add-to-queue features-item-icon"></i>
-                    <span class="features-item-text">English</span>
-                    <span class="inbox-number blue">99</span>
-                    <span class="tooltip">English</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bxs-add-to-queue features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.English') }}</span>
+                        <span class="inbox-number blue">99</span>
+                        <span class="tooltip">{{ __('messages.English') }}</span>
+                    </a>
                 </li>
                 <li class="features-item spam">
-                    <i class="bx bxs-add-to-queue features-item-icon"></i>
-                    <span class="features-item-text">Japanese</span>
-                    <span class="inbox-number blue">99</span>
-                    <span class="tooltip">Japanese</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bxs-add-to-queue features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Japanese') }}</span>
+                        <span class="inbox-number blue">99</span>
+                        <span class="tooltip">{{ __('messages.Japanese') }}</span>
+                    </a>
                 </li>
                 <li class="features-item spam">
-                    <i class="bx bxs-add-to-queue features-item-icon"></i>
-                    <span class="features-item-text">Question</span>
-                    <span class="inbox-number blue">99</span>
-                    <span class="tooltip">Question</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bxs-add-to-queue features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Question') }}</span>
+                        <span class="inbox-number blue">99</span>
+                        <span class="tooltip">{{ __('messages.Question') }}</span>
+                    </a>
                 </li>
                 <li class="features-item spam">
-                    <i class="bx bx-edit features-item-icon"></i>
-                    <span class="features-item-text">Note</span>
-                    <span class="inbox-number blue">99</span>
-                    <span class="tooltip">Note</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bx-edit features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Note') }}</span>
+                        <span class="inbox-number blue">99</span>
+                        <span class="tooltip">{{ __('messages.Note') }}</span>
+                    </a>
                 </li>
             </ul>
 
             <ul class="chat-list">
                 <li class="features-item spam">
-                    <i class="bx bx-code-block features-item-icon"></i>
-                    <span class="features-item-text">Code</span>
-                    <span class="inbox-number blue">99</span>
-                    <span class="tooltip">Code</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bx-code-block features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Code') }}</span>
+                        <span class="inbox-number blue">99</span>
+                        <span class="tooltip">{{ __('messages.Code') }}</span>
+                    </a>
                 </li>
                 <li class="features-item spam">
-                    <i class="bx bx-code-block features-item-icon"></i>
-                    <span class="features-item-text">Component</span>
-                    <span class="inbox-number blue">99</span>
-                    <span class="tooltip">Component</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bx-code-block features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Component') }}</span>
+                        <span class="inbox-number blue">99</span>
+                        <span class="tooltip">{{ __('messages.Component') }}</span>
+                    </a>
                 </li>
                 <li class="features-item spam">
-                    <i class="bx bx-alarm-exclamation features-item-icon"></i>
-                    <span class="features-item-text">Error</span>
-                    <span class="inbox-number blue">99</span>
-                    <span class="tooltip">Error</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bx-alarm-exclamation features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Error') }}</span>
+                        <span class="inbox-number blue">99</span>
+                        <span class="tooltip">{{ __('messages.Error') }}</span>
+                    </a>
                 </li>
                 <li class="features-item spam">
-                    <i class="bx bxs-folder-minus features-item-icon"></i>
-                    <span class="features-item-text">Remote</span>
-                    <span class="inbox-number blue">99</span>
-                    <span class="tooltip">Remote</span>
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bxs-folder-minus features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Remove') }}</span>
+                        <span class="inbox-number blue">99</span>
+                        <span class="tooltip">{{ __('messages.Remove') }}</span>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -165,21 +197,21 @@
                         <i class="fas fa-th-large">
                         </i>
                         <span>
-                            Mega Menu
+                            {{ __('messages.Mega Menu') }}
                         </span>
                     </div>
                     <div class="menu-item dropdown menu-active">
                         <i class="fas fa-cog">
                         </i>
                         <span>
-                            Settings
+                            {{ __('messages.Settings') }}
                         </span>
                     </div>
                     <div class="menu-item dropdown menu-active">
                         <i class="fas fa-project-diagram">
                         </i>
                         <span>
-                            Projects
+                            {{ __('messages.Charts & Graphs') }}
                         </span>
                     </div>
                 </div>
@@ -246,7 +278,7 @@
                             <div class="sub-profile">
                                 <div class="d-flex flex-direction gap-10">
                                     <a href="" class="d-flex align-items gap-10"><i class="fa-sharp fas fa-user-secret"></i>Profile</a>
-                                    <a href="" class="d-flex align-items gap-10"><i class="fa-solid fa-layer-group"></i> Quản lí</a>
+                                    <a href="/dashboard" class="d-flex align-items gap-10"><i class="fa-solid fa-layer-group"></i> Quản lí</a>
                                     <a href="" class="d-flex align-items gap-10" ><i class="fa-solid fa-gear"></i>Setting</a>
                                     <a href="/"  onclick="logout()" class="d-flex align-items gap-10"><i class="bx bx-log-out" ></i>Logout</a>
                                 </div>
@@ -282,7 +314,7 @@
                         </span>
                     </div>
                     <div class="recovery">
-                        <a href="">{{ __('messages.Recover password') }}</a>
+                        <a href="" class="d-flex align-items">{{ __('messages.Recover password') }}</a>
                     </div>
                     <div class="signIn">
                         <button type="submit">{{ __('messages.Login') }}</button>
@@ -480,19 +512,6 @@
                 arrowCollapse.classList = 'bx bx-arrow-from-left logo-name__icon';
             }
         };
-        document.addEventListener('DOMContentLoaded', function() {
-            const profile = document.querySelector('.profile');
-            const subProfile = document.querySelector('.sub-profile');
-
-            profile.addEventListener('click', function(event) {
-                subProfile.style.display = subProfile.style.display === 'block' ? 'none' : 'block';
-                event.stopPropagation(); // Prevents the click event from propagating to the document
-            });
-
-            document.addEventListener('click', function() {
-                subProfile.style.display = 'none';
-            });
-        });
         function logout() {
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
@@ -523,6 +542,27 @@
                 }
             })
             .catch(error => console.error("Logout failed:", error));
+        }
+        if (window.location.pathname === '/en') {
+            const sideBar = document.querySelector('.side-bar.collapse');
+            const container = document.querySelector('.container.collapse');
+
+            if (sideBar) sideBar.classList.remove('collapse');
+            if (container) container.classList.remove('collapse');
+        }
+        if (window.location.pathname === '/vi') {
+            const sideBar = document.querySelector('.side-bar.collapse');
+            const container = document.querySelector('.container.collapse');
+
+            if (sideBar) sideBar.classList.remove('collapse');
+            if (container) container.classList.remove('collapse');
+        }
+        if (window.location.pathname === '/ja') {
+            const sideBar = document.querySelector('.side-bar.collapse');
+            const container = document.querySelector('.container.collapse');
+
+            if (sideBar) sideBar.classList.remove('collapse');
+            if (container) container.classList.remove('collapse');
         }
     </script>
     <script src="{{ asset('js/layout.js') }}"></script>

@@ -91,6 +91,10 @@ font-size: 100%;
 font: inherit;
 vertical-align: baseline;
 }
+a{
+    text-decoration: none;
+    color: #343435;
+}
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -133,6 +137,11 @@ border-spacing: 0;
     overscroll-behavior: none; 
     -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+
+.collapse .features-item-text {
+    font-size: 1px !important;
 }
 
 .croll-sidebar::-webkit-scrollbar {
@@ -990,7 +999,7 @@ header nav {
 }
 
 .login {
-    background-color: #efefef;
+    background-color: #84d0ec;
     width: 100%;
     text-align: center;
     border: 2px solid var(--border-color);
@@ -1277,16 +1286,6 @@ header nav {
 }
 
 
-.login {
-    background-color: #dedede;
-    width: 100%;
-    text-align: center;
-    border: 2px solid var(--border-color);
-    border-radius: 8px;
-    padding: 30px;
-    box-shadow: 0 50px 150px #fff5f533;
-    position: relative;
-}
 
 .login .group {
     height: 50px;
@@ -1606,7 +1605,7 @@ a.google span {
 }
 .pagination {
     display: flex;
-    gap: 15px;
+    gap: 13px;
     flex-wrap: wrap;
 }
 .pagination button {
@@ -1618,6 +1617,12 @@ a.google span {
     cursor: pointer;
     width: 30%;
     border-radius: 5px;
+}
+
+.pagination button:hover{
+    cursor: pointer;
+    border: 1px solid #32d2ff;
+    color: #32d2ff;
 }
 .pagination button.active {
     background: #42bff7;
@@ -1742,7 +1747,7 @@ a.google span {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 80%;
+    width: 85%;
     margin: 0 22px;
     border-radius: 5px;
 }
@@ -1769,12 +1774,14 @@ a.google span {
     border-radius: 0 5px 5px 0;
 }
 .menu {
-    background-color: #f7941d;
+    background-color: #ffb964;
     color: white;
     padding: 10px;
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 .menu-slide-items{
     width: 100%;
@@ -1795,6 +1802,15 @@ a.google span {
     border-radius: 10px;
     color: #ff9200;
 }
+.menu-slide-items .menu-item:hover{
+    border: 1px solid #31b3ff;
+    cursor: pointer;
+}
+
+.menu-slide-items .menu-item:hover i, .menu-slide-items .menu-item:hover span{
+    color: #31b3ff;
+}
+
 .menu-slide-items .menu-item i{
     text-align: center;
     font-size: 18px;
@@ -1809,8 +1825,17 @@ a.google span {
     border-radius: 5px;
     color: #343435;
 }
+
+.background-column {
+    position: relative;
+    height: 90vh;
+    background: linear-gradient(rgb(146 102 102 / 72%), rgb(193 160 118 / 72%)), url(../assets/images/banner-a.png);
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+}
 .jump-section-title {
-    background-color: #f7941d;
+    background-color: #ffb964;
     color: white;
     padding: 10px;
     font-size: 18px;
@@ -1830,7 +1855,6 @@ a.google span {
 .row {
     width: 100%;
     display: flex;
-    align-items: center;
     justify-content: space-between;
     gap: 2rem;
     color: #000;
@@ -1844,7 +1868,23 @@ a.google span {
 }
 
 .column img{
-    width: 100%;
+    width: 50%;
+}
+
+.btn-web-develop{
+    margin: 123px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn-web-develop button{
+    padding: 20px 40px;
+    background: #ffc77e5e;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    font-size: 25px;
+    color: #fff;
+    text-transform: uppercase;
 }
 
 .app-feature:not(:last-child) {
@@ -1858,7 +1898,7 @@ a.google span {
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: #f7941d;
+    background: #ffb964;
     padding: 5px 10px;
     color: #fff;
 }
@@ -1903,7 +1943,7 @@ a.google span {
     gap: 10px;
     color: #343435;
     flex-wrap: wrap;
-    padding: 20px;
+    padding: 10px;
 }
 
 .path-card-item i {
@@ -1931,7 +1971,7 @@ a.google span {
 }
 .path-card-item p {
     font-size: 15px;
-    color: #666;
+    color: #343435;
     text-align: justify;
     line-height: 20px;
 }
@@ -1996,6 +2036,7 @@ a.google span {
     color: #fff;
 }
 .pricing-table .item span {
+    min-width: 12%;
     font-weight: bold;
     font-size: 18px;
     width: 40px;

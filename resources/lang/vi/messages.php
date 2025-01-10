@@ -389,5 +389,10 @@ return [
     'Register now'=>'Đăng ký ngay',
     'Forgot Password'=>'Quên mật khẩu',
     'Enter your email and we will send you a link to reset your password.'=>'Nhập email của bạn và chúng tôi sẽ gửi liên kết để bạn đặt lại mật khẩu.',
+    'News'=>'Tin tức',
+    'Remove'=>'Xóa/Loại bỏ',
+    'Mega Menu'=>'Mega Menu',
+    'Charts & Graphs'=>'Biểu đồ & Đồ thị',
+
 
 ];
