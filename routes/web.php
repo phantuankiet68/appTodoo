@@ -72,7 +72,7 @@ Route::get('{locale}', function ($locale) {
         abort(404); 
     }
 
-    return view('layout'); 
+    return view('pages.home.index'); 
 })->where('locale', 'vi|en|ja');
 
 Route::fallback(function () {

@@ -40,111 +40,113 @@
                 <i class="bx bx-arrow-from-left logo-name__icon" id="logo-name__icon"></i>
             </button>
         </div>
-        <ul class="features-list">
-            <li class="features-item inbox active">
-                <i class="bx bxs-home-alt features-item-icon inbox-icon"><span class="status"></span></i>
-                <i class="fa-solid fa-house"></i>
-                <span class="features-item-text">Home</span>
-                <span class="tooltip">Home</span>
-            </li>
-            <li class="features-item spam">
-                <i class="bx bxs-calendar-check features-item-icon"></i>
-                <span class="features-item-text">Calendar</span>
-                <span class="inbox-number blue">99</span>
-                <span class="tooltip">Calendar</span>
-            </li>
-            <li class="features-item spam">
-                <i class="bx bx-news features-item-icon"></i>
-                <span class="features-item-text">News</span>
-                <span class="inbox-number red">99</span>
-                <span class="tooltip">News</span>
-            </li>
-            <li class="features-item spam">
-                <i class="bx bxs-chat features-item-icon"></i>
-                <span class="features-item-text">Chat</span>
-                <span class="inbox-number yellow">99</span>
-                <span class="tooltip">Chat</span>
-            </li>
-            <li class="features-item draft">
-                <i class="bx bx-file-blank features-item-icon"></i>
-                <span class="features-item-text">Project</span>
-                <span class="inbox-number organ">99</span>
-                <span class="tooltip">Project</span>
-            </li>
+        <div class="croll-sidebar">
+            <ul class="features-list">
+                <li class="features-item inbox active">
+                    <i class="bx bxs-home-alt features-item-icon inbox-icon"><span class="status"></span></i>
+                    <i class="fa-solid fa-house"></i>
+                    <span class="features-item-text">Home</span>
+                    <span class="tooltip">Home</span>
+                </li>
+                <li class="features-item spam">
+                    <i class="bx bxs-calendar-check features-item-icon"></i>
+                    <span class="features-item-text">Calendar</span>
+                    <span class="inbox-number blue">99</span>
+                    <span class="tooltip">Calendar</span>
+                </li>
+                <li class="features-item spam">
+                    <i class="bx bx-news features-item-icon"></i>
+                    <span class="features-item-text">News</span>
+                    <span class="inbox-number red">99</span>
+                    <span class="tooltip">News</span>
+                </li>
+                <li class="features-item spam">
+                    <i class="bx bxs-chat features-item-icon"></i>
+                    <span class="features-item-text">Chat</span>
+                    <span class="inbox-number yellow">99</span>
+                    <span class="tooltip">Chat</span>
+                </li>
+                <li class="features-item draft">
+                    <i class="bx bx-file-blank features-item-icon"></i>
+                    <span class="features-item-text">Project</span>
+                    <span class="inbox-number organ">99</span>
+                    <span class="tooltip">Project</span>
+                </li>
 
-            <li class="features-item star">
-                <i class="bx bx-star features-item-icon"></i>
-                <span class="features-item-text">Task</span>
-                <span class="inbox-number green">99</span>
-                <span class="tooltip">Task</span>
-            </li>
-            <li class="features-item sent">
-                <i class="bx bx-send features-item-icon"></i>
-                <span class="features-item-text">Sent</span>
-                <span class="inbox-number purple">99</span>
-                <span class="tooltip">Sent</span>
-            </li>
-            <li class="features-item trash">
-                <i class="bx bxs-bar-chart-alt-2 features-item-icon"></i>
-                <span class="features-item-text">Expense</span>
-                <span class="inbox-number light-blue">99</span>
-                <span class="tooltip">Expense</span>
-            </li>
-        </ul>
+                <li class="features-item star">
+                    <i class="bx bx-star features-item-icon"></i>
+                    <span class="features-item-text">Task</span>
+                    <span class="inbox-number green">99</span>
+                    <span class="tooltip">Task</span>
+                </li>
+                <li class="features-item sent">
+                    <i class="bx bx-send features-item-icon"></i>
+                    <span class="features-item-text">Sent</span>
+                    <span class="inbox-number purple">99</span>
+                    <span class="tooltip">Sent</span>
+                </li>
+                <li class="features-item trash">
+                    <i class="bx bxs-bar-chart-alt-2 features-item-icon"></i>
+                    <span class="features-item-text">Expense</span>
+                    <span class="inbox-number light-blue">99</span>
+                    <span class="tooltip">Expense</span>
+                </li>
+            </ul>
 
-        <ul class="category-list">
-            <li class="features-item spam">
-                <i class="bx bxs-add-to-queue features-item-icon"></i>
-                <span class="features-item-text">English</span>
-                <span class="inbox-number blue">99</span>
-                <span class="tooltip">English</span>
-            </li>
-            <li class="features-item spam">
-                <i class="bx bxs-add-to-queue features-item-icon"></i>
-                <span class="features-item-text">Japanese</span>
-                <span class="inbox-number blue">99</span>
-                <span class="tooltip">Japanese</span>
-            </li>
-            <li class="features-item spam">
-                <i class="bx bxs-add-to-queue features-item-icon"></i>
-                <span class="features-item-text">Question</span>
-                <span class="inbox-number blue">99</span>
-                <span class="tooltip">Question</span>
-            </li>
-            <li class="features-item spam">
-                <i class="bx bx-edit features-item-icon"></i>
-                <span class="features-item-text">Note</span>
-                <span class="inbox-number blue">99</span>
-                <span class="tooltip">Note</span>
-            </li>
-        </ul>
+            <ul class="category-list">
+                <li class="features-item spam">
+                    <i class="bx bxs-add-to-queue features-item-icon"></i>
+                    <span class="features-item-text">English</span>
+                    <span class="inbox-number blue">99</span>
+                    <span class="tooltip">English</span>
+                </li>
+                <li class="features-item spam">
+                    <i class="bx bxs-add-to-queue features-item-icon"></i>
+                    <span class="features-item-text">Japanese</span>
+                    <span class="inbox-number blue">99</span>
+                    <span class="tooltip">Japanese</span>
+                </li>
+                <li class="features-item spam">
+                    <i class="bx bxs-add-to-queue features-item-icon"></i>
+                    <span class="features-item-text">Question</span>
+                    <span class="inbox-number blue">99</span>
+                    <span class="tooltip">Question</span>
+                </li>
+                <li class="features-item spam">
+                    <i class="bx bx-edit features-item-icon"></i>
+                    <span class="features-item-text">Note</span>
+                    <span class="inbox-number blue">99</span>
+                    <span class="tooltip">Note</span>
+                </li>
+            </ul>
 
-        <ul class="chat-list">
-            <li class="features-item spam">
-                <i class="bx bx-code-block features-item-icon"></i>
-                <span class="features-item-text">Code</span>
-                <span class="inbox-number blue">99</span>
-                <span class="tooltip">Code</span>
-            </li>
-            <li class="features-item spam">
-                <i class="bx bx-code-block features-item-icon"></i>
-                <span class="features-item-text">Component</span>
-                <span class="inbox-number blue">99</span>
-                <span class="tooltip">Component</span>
-            </li>
-            <li class="features-item spam">
-                <i class="bx bx-alarm-exclamation features-item-icon"></i>
-                <span class="features-item-text">Error</span>
-                <span class="inbox-number blue">99</span>
-                <span class="tooltip">Error</span>
-            </li>
-            <li class="features-item spam">
-                <i class="bx bxs-folder-minus features-item-icon"></i>
-                <span class="features-item-text">Remote</span>
-                <span class="inbox-number blue">99</span>
-                <span class="tooltip">Remote</span>
-            </li>
-        </ul>
+            <ul class="chat-list">
+                <li class="features-item spam">
+                    <i class="bx bx-code-block features-item-icon"></i>
+                    <span class="features-item-text">Code</span>
+                    <span class="inbox-number blue">99</span>
+                    <span class="tooltip">Code</span>
+                </li>
+                <li class="features-item spam">
+                    <i class="bx bx-code-block features-item-icon"></i>
+                    <span class="features-item-text">Component</span>
+                    <span class="inbox-number blue">99</span>
+                    <span class="tooltip">Component</span>
+                </li>
+                <li class="features-item spam">
+                    <i class="bx bx-alarm-exclamation features-item-icon"></i>
+                    <span class="features-item-text">Error</span>
+                    <span class="inbox-number blue">99</span>
+                    <span class="tooltip">Error</span>
+                </li>
+                <li class="features-item spam">
+                    <i class="bx bxs-folder-minus features-item-icon"></i>
+                    <span class="features-item-text">Remote</span>
+                    <span class="inbox-number blue">99</span>
+                    <span class="tooltip">Remote</span>
+                </li>
+            </ul>
+        </div>
     </div>
     <div class="container collapse">
         <header id="home">
@@ -257,6 +259,9 @@
                 </div>
             </div>
         </header>
+        <div class="container-body">
+            @yield('content')
+        </div>
     </div>
 
     <script src="{{ asset('js/layout.js') }}"></script>
@@ -426,7 +431,9 @@
     @endif
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
+  <script>
+    
+  </script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const toggle = document.getElementById('toggle');
