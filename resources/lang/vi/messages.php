@@ -393,6 +393,14 @@ return [
     'Remove'=>'Xóa/Loại bỏ',
     'Mega Menu'=>'Mega Menu',
     'Charts & Graphs'=>'Biểu đồ & Đồ thị',
-
-
+    'Menu'=>'Menu',
+    'Click to Jump'=>'Nhấn để duy chuyển',
+    '"Tryskill" can represent a journey or an effort in learning and improving skills in the field of technology. A program, application, or learning platform: an app that helps users practice and enhance their skills through challenges and practical lessons.'=>'「Tryskill」 "Tryskill" có thể đại diện cho một hành trình hoặc nỗ lực trong việc học và cải thiện kỹ năng trong lĩnh vực công nghệ. Một chương trình, ứng dụng hoặc nền tảng học tập: ứng dụng giúp người dùng rèn luyện và cải thiện kỹ năng của mình thông qua các thử thách và bài học thực hành.',
+    'Transform knowledge into skills! A website offering programming exercises, English, and Japanese practice to help you apply what you have learned in real-life scenarios, enhance learning efficiency, and foster personal development.'=>'Biến kiến thức thành kỹ năng! Website cung cấp bài tập lập trình, thực hành tiếng Anh, tiếng Nhật để bạn áp dụng ngay vào thực tế, nâng cao hiệu quả học tập và phát triển bản thân.',
+    'Download lectures to study anytime, anywhere, without worrying about losing internet connection! Conquer programming, English, and Japanese effortlessly with materials always at your fingertips.'=>'Tải bài giảng để học mọi lúc, mọi nơi, không lo mất mạng! Chinh phục lập trình, tiếng Anh, tiếng Nhật dễ dàng với tài liệu luôn sẵn trong tay.',
+    'Image'=>'Hình ảnh',
+    'Chat GPT'=>'Chat GPT',
+    'Design UI'=>'Thiết kế giao diện',
+    'Latest News'=>'Tin tức mới nhất', 
+    'See More'=>'Xem thêm',
 ];

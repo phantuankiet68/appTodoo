@@ -52,7 +52,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FriendController;
 use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\App;
-
+use App\Http\Controllers\News\NewsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -112,6 +112,7 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/change-password/{id}', [AuthController::class, 'changePassword'])->name('change.password');
     Route::post('/link/store', [ChatController::class, 'storeLink'])->name('link.store');
     
+    Route::resource('/v2/news', NewsController::class);
 
     Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('forgot.password');
 

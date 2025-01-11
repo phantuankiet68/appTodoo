@@ -1,6 +1,6 @@
 
 
-@media only screen and (max-width: 1540px) {
+@media only screen and (max-width: 1504px) {
     .app-feature p {
         font-size: 1.6rem !important;
         margin: 0 !important;
@@ -60,6 +60,9 @@
     }
     .contact-form .form-group textarea {
         min-height: 396px !important;
+    }
+    .btn-web-develop {
+        margin: 123px 0!important;
     }
 
 }

@@ -784,7 +784,7 @@ header nav {
     justify-content: center;
     margin-left: 0 !important;
 }
-.navbar-right .profile {
+.navbar-right .profile-user-tab {
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -818,18 +818,22 @@ header nav {
     border-radius: 5px;
 }
 
+.profile-user-tab.active .sub-profile {
+    display: block;
+}
+
 
 .sub-profile a:hover{
     background: antiquewhite;
     cursor: pointer;
 }
-.navbar-right .profile img {
+.navbar-right .profile-user-tab img {
     border-radius: 50%;
     width: 30px;
     height: 30px;
     margin-right: 10px;
 }
-.navbar-right .profile span {
+.navbar-right .profile-user-tab span {
     margin-right: 10px;
 }
 .navbar-right .menu-icon {
@@ -999,7 +1003,7 @@ header nav {
 }
 
 .login {
-    background-color: #84d0ec;
+    background-color: #f5f0f0;
     width: 100%;
     text-align: center;
     border: 2px solid var(--border-color);
@@ -1872,7 +1876,7 @@ a.google span {
 }
 
 .btn-web-develop{
-    margin: 123px 0;
+    margin: 45px 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1931,6 +1935,11 @@ a.google span {
     color: #343435;
     line-height: 1.8;
     font-weight: 400;
+}
+
+.dark-mode .app-feature p {
+    color: #33b9ff;
+    font-weight: 300;
 }
 
 .path-container {
@@ -2532,7 +2541,7 @@ a.google span {
 
 .contact-form .form-group textarea {
     resize: none;
-    min-height: 240px;
+    min-height: 300px;
 }
 
 .contact-form .btn {
@@ -2608,4 +2617,8 @@ a.google span {
         margin: 10px 0px;
     }
    
+}
+
+.dark-mode .slide-one-left .slider .slide{
+    background-color: #12202b9c !important;
 }

@@ -393,4 +393,15 @@ return [
     'Remove'=>'削除する',
     'Mega Menu'=>'メガメニュー',
     'Charts & Graphs'=>'チャートとグラフ',
+    'Menu'=>'メニュー',
+    'Click to Jump'=>'クリックしてジャンプ',
+    'Tryskill can represent a journey or an effort in learning and improving skills in the field of technology. A program, application, or learning platform: an app that helps users practice and enhance their skills through challenges and practical lessons.'=>'「Tryskill」 は、技術分野でのスキルを学び、向上させるための旅や努力を象徴することができます。プログラム、アプリケーション、または学習プラットフォーム：ユーザーが挑戦や実践的なレッスンを通じてスキルを鍛え、向上させるのに役立つアプリです。',
+    'Transform knowledge into skills! A website offering programming exercises, English, and Japanese practice to help you apply what you have learned in real-life scenarios, enhance learning efficiency, and foster personal development.'=>'知識をスキルに変えよう！プログラミング練習問題や英語・日本語の実践課題を提供するウェブサイトで、学んだことを実生活で活かし、学習効率を高め、自己成長を促進します。',
+    'Download lectures to study anytime, anywhere, without worrying about losing internet connection! Conquer programming, English, and Japanese effortlessly with materials always at your fingertips.'=>'講義資料をダウンロードして、いつでもどこでも学習可能！ネット接続がなくても心配いりません。プログラミング、英語、日本語を手元の資料で簡単に習得しましょう。',
+    'Image'=>'画像',
+    'Chat GPT'=>'チャットGPT',
+    'Design UI'=>'UIデザイン',
+    'Latest News'=>'最新ニュース', 
+    'See More'=>'もっと見る',
+
 ];

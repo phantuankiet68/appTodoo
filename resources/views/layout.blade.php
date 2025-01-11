@@ -267,12 +267,12 @@
                         </nav>
                     </div>
                     @if (Auth::check())
-                        <div class="profile">
+                        <div class="profile-user-tab">
                             <img alt="Profile picture" height="30"
                                 src="https://storage.googleapis.com/a1aa/image/linx8Jhlu7pJJJxVczUlT2G9BZGYAgLDXEm8eqdl3Iw0eEDUA.jpg"
                                 width="30" />
                             <span>
-                                Alina Mclourd
+                                {{ Auth::user()->full_name }}
                             </span>
                             <i class="fas fa-light fa-caret-down"></i>
                             <div class="sub-profile">
@@ -464,7 +464,23 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    
+    document.addEventListener("DOMContentLoaded", function () {
+        const profile = document.querySelector(".profile-user-tab");
+        const subProfile = document.querySelector(".sub-profile");
+
+        profile.addEventListener("click", function (e) {
+            e.stopPropagation();
+            profile.classList.toggle("active");
+        });
+
+        document.addEventListener("click", function () {
+            profile.classList.remove("active");
+        });
+
+        subProfile.addEventListener("click", function (e) {
+            e.stopPropagation();
+        });
+    });
   </script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {

@@ -3322,11 +3322,24 @@ td{
     text-align: center;
     border: 2px dashed #cccccc;
     border-radius: 5px;
-    padding: 15px 20px 10px 20px;
+    padding: 10px;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
 }
 
+.mt-5{
+    margin-top: 5px;
+}
+
+.title-sub {
+    width: 100%;
+    background-color: #feb785;
+    margin-bottom: 10px;
+    padding: 6px;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
 .project-wrapper .ck-content {
     height: 180px;
 }
@@ -3766,5 +3779,128 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     background: #49ffd1;
     border: 0;
     color: #fff;
+    border-radius: 5px;
+}
+
+.news-container{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+}
+
+.news-container{
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.news-container-body{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    padding: 10px;
+    display: flex;
+}
+.news-container-table{
+    width: 70%;
+    padding: 0 10px;
+}
+.news-container-form{
+    width: 30%;
+}
+.text-truncate{
+    max-width: 100%;
+    width: 250px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    white-space: normal;
+}
+.news-container-form .form-input-category label {
+    padding: 6px 0;
+}
+
+.news-container-form .form-input-category .input-name {
+    padding: 5px 10px;
+}
+
+.news-container-form .form-select-category label {
+    padding: 6px 0;
+}
+
+.file-item .remove-file {
+    margin-left: 10px;
+    color: red;
+    cursor: pointer;
+}
+
+.file-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+
+.upload-box:hover {
+    background-color: #f0f8ff;
+}
+
+.upload-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-icon {
+    font-size: 40px;
+    color: #6c6c6c;
+}
+
+.uploaded-files {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.file-item i {
+    margin-right: 10px;
+    font-size: 24px;
+}
+
+.file-item .progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-left: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.file-item .progress-bar .progress {
+    height: 100%;
+    background-color: #00bfff;
+    width: 0%;
+    transition: width 0.4s ease;
+}
+
+.file-item .remove-file {
+    margin-left: 10px;
+    color: red;
+    cursor: pointer;
+}
+
+.file-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
     border-radius: 5px;
 }

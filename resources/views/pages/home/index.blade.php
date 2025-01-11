@@ -11,18 +11,17 @@
                         <div class="column background-column">
                             <img src="{{asset('assets/images/pattern-1.png')}}" />
                             <div class="btn-web-develop">
-                                <button>Trải nghiệm ngay</button>
+                                <button>{{ __('messages.Experience Now') }}</button>
                             </div>
                         </div>
                         <div class="column">
                             <div class="app-feature">
                                 <div>
                                 <i class="fas fa-star"></i>
-                                <h3>Giới thiệu</h3>
+                                <h3>{{ __('messages.About') }}</h3>
                                 </div>
                                 <p>
-                                    "Tryskill" có thể đại diện cho một hành trình hoặc nỗ lực trong việc học và cải thiện kỹ năng trong lĩnh vực công nghệ. <br>
-                                    Một chương trình, ứng dụng hoặc nền tảng học tập: ứng dụng giúp người dùng rèn luyện và cải thiện kỹ năng của mình thông qua các thử thách và bài học thực hành.
+                                   {{ __('messages.Tryskill can represent a journey or an effort in learning and improving skills in the field of technology. A program, application, or learning platform: an app that helps users practice and enhance their skills through challenges and practical lessons.') }}
                                 </p>
                             </div>
                             <div class="app-feature">
@@ -31,7 +30,7 @@
                                 <h3>{{ __('messages.Practical Application') }}</h3>
                                 </div>
                                 <p>
-                                    Biến kiến thức thành kỹ năng! Website cung cấp bài tập lập trình, thực hành tiếng Anh, tiếng Nhật để bạn áp dụng ngay vào thực tế, nâng cao hiệu quả học tập và phát triển bản thân.
+                                {{ __('messages.Transform knowledge into skills! A website offering programming exercises, English, and Japanese practice to help you apply what you have learned in real-life scenarios, enhance learning efficiency, and foster personal development.') }}
                                 </p>
                             </div>
                             <div class="app-feature">
@@ -49,7 +48,7 @@
                                     <h3>{{ __('messages.Download Lectures') }}</h3>
                                 </div>
                                 <p>
-                                Tải bài giảng để học mọi lúc, mọi nơi, không lo mất mạng! Chinh phục lập trình, tiếng Anh, tiếng Nhật dễ dàng với tài liệu luôn sẵn trong tay.
+                                    {{ __('messages.Download lectures to study anytime, anywhere, without worrying about losing internet connection! Conquer programming, English, and Japanese effortlessly with materials always at your fingertips.') }}
                                 </p>
                             </div>
                         </div>
@@ -58,8 +57,8 @@
                 </div>
                 <div class="slide" style="background-color: #fff;">
                     <div class="main-content">
-                        <h3 class="title">WordPress</h3>
-                        <div class="sub-header">コピペでできる便利カスタマイズまとめ</div>
+                        <h3 class="title">{{ __('messages.News') }}</h3>
+                        <div class="sub-header">{{ __('messages.Latest News') }}</div>
                         <div class="list-card">
                             <div class="card">
                                 <div class="card-img">
@@ -71,7 +70,7 @@
                                 <p class="card-title">【VJP-CONNECT】</p>
                                 <div class="content-expert-show">
                                     <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Xem thêm</button>
+                                    <button class="btn-show">{{ __('messages.See More') }}</button>
                                     <i class="fa-duotone fas fa-caret-right"></i>
                                 </div>
                             </div>
@@ -85,63 +84,7 @@
                                 <p class="card-title">【VJP-CONNECT】</p>
                                 <div class="content-expert-show">
                                     <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Xem thêm</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-img">
-                                    <img src="{{asset('assets/images/news1.png')}}" />
-                                </div>
-                                <div class="project-user">
-                                    <p>15-8-2000</p>
-                                </div>
-                                <p class="card-title">【VJP-CONNECT】</p>
-                                <div class="content-expert-show">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Xem thêm</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-img">
-                                    <img src="{{asset('assets/images/news1.png')}}" />
-                                </div>
-                                <div class="project-user">
-                                    <p>15-8-2000</p>
-                                </div>
-                                <p class="card-title">【VJP-CONNECT】</p>
-                                <div class="content-expert-show">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Xem thêm</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-img">
-                                    <img src="{{asset('assets/images/news1.png')}}" />
-                                </div>
-                                <div class="project-user">
-                                    <p>15-8-2000</p>
-                                </div>
-                                <p class="card-title">【VJP-CONNECT】</p>
-                                <div class="content-expert-show">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Xem thêm</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-img">
-                                    <img src="{{asset('assets/images/news1.png')}}" />
-                                </div>
-                                <div class="project-user">
-                                    <p>15-8-2000</p>
-                                </div>
-                                <p class="card-title">【VJP-CONNECT】</p>
-                                <div class="content-expert-show">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Xem thêm</button>
+                                    <button class="btn-show">{{ __('messages.See More') }}</button>
                                     <i class="fa-duotone fas fa-caret-right"></i>
                                 </div>
                             </div>

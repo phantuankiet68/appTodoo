@@ -33,6 +33,16 @@
                 @endif
                 </div>
                 <ul class="navSidebar">
+                    <li class="menu-item">
+                        <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-solid fa-fire"></i> {{ __('messages.Home') }} </div>
+                            <div class="chevron">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </div>
+                        </a>
+                        <ul class="subSidebar">
+                            <li><a href="{{ route('news.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.News') }}</div></a></li>
+                        </ul>
+                    </li>
                     <div class="title-menu"><span>{{ __('messages.Application') }}</span></div>
                     <li><a class="hoverMenu" href="{{ route('dashboard.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-house"></i> {{ __('messages.Dashboard') }}</div></a></li>
                     @if($can_view_setting)

@@ -1,3 +1,10 @@
+.dark-mode {
+    .contact-form .form-group label {
+        font-size: 16px;
+        color: #fff;
+    }
+}
+
 .dark-mode .side-bar {
     background-color: #12202b9c;
     border-right: 1px solid #6fd2ff;
@@ -13,4 +20,20 @@
 .dark-mode header{
     background-color: #12202b9c;
     border-bottom: 1px solid #6fd2ff;
+}
+
+.dark-mode .slide-one-right{
+    background-color: #12202b9c;
+}
+
+.dark-mode .menu-slide-items .menu-item i {
+    color: #fff;
+}
+
+.dark-mode .menu-slide-items .menu-item span {
+    color: #fff;
+}
+
+.dark-mode .info-sub-title {
+    color: #fff;
 }
