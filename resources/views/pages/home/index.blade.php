@@ -168,7 +168,7 @@
                 </div>
                 <div class="slide" style="background-color: #fff;">
                     <div class="main-content">
-                    <div class="pricing-design"> 
+                        <div class="pricing-design"> 
                                 <div class="pricing-table">
                                     <h1>{{ __('messages.Pricing Table') }}</h1>
                                     <div class="item"><span>01</span> <p>{{ __('messages.Number of new and modified screens:') }}</p></div>
@@ -227,94 +227,30 @@
                         <h3 class="title">{{ __('messages.Project') }}</h3>
                         <div class="sub-header">{{ __('messages.Projects participated in') }}</div>
                         <div class="list-card">
-                            <div class="card">
-                                <div class="card-img">
-                                    <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
+                            @if($projects->isEmpty())
+                                <p>{{ __('messages.No News Available') }}</p>
+                            @else
+                                @foreach($projects as $item)
+                                <div class="card">
+                                    <div class="card-img">
+                                        <img src="{{asset($item->image_path)}}" />
+                                    </div>
+                                    <div class="project-user">
+                                        <p>{{ $item->created_at->format('d-m-Y') }}</p>
+                                    </div>
+                                    <p class="card-title">【{{ $item->name}}】</p>
+                                    <div class="content-expert-show">
+                                        <i class="fa-duotone fas fa-caret-left"></i>
+                                        <button class="btn-show" onclick="ShowProject('{{ $item->id }}')">{{ __('messages.See More') }}</button>
+                                        <i class="fa-duotone fas fa-caret-right"></i>
+                                    </div>
                                 </div>
-                                <div class="project-user">
-                                    <p>Phan Tuan kiet</p>
-                                </div>
-                                <p class="card-title">【VJP-CONNECT】</p>
-                                <div class="content-expert-show">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Xem hồ sơ</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-img">
-                                    <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
-                                </div>
-                                <div class="project-user">
-                                    <p>Phan Tuan kiet</p>
-                                </div>
-                                <p class="card-title">【VJP-CONNECT】</p>
-                                <div class="content-expert-show">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Xem hồ sơ</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-img">
-                                    <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
-                                </div>
-                                <div class="project-user">
-                                    <p>Phan Tuan kiet</p>
-                                </div>
-                                <p class="card-title">【VJP-CONNECT】</p>
-                                <div class="content-expert-show">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Xem hồ sơ</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-img">
-                                    <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
-                                </div>
-                                <div class="project-user">
-                                    <p>Phan Tuan kiet</p>
-                                </div>
-                                <p class="card-title">【VJP-CONNECT】</p>
-                                <div class="content-expert-show">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Xem hồ sơ</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-img">
-                                    <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
-                                </div>
-                                <div class="project-user">
-                                    <p>Phan Tuan kiet</p>
-                                </div>
-                                <p class="card-title">【VJP-CONNECT】</p>
-                                <div class="content-expert-show">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Xem hồ sơ</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-img">
-                                    <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
-                                </div>
-                                <div class="project-user">
-                                    <p>Phan Tuan kiet</p>
-                                </div>
-                                <p class="card-title">【VJP-CONNECT】</p>
-                                <div class="content-expert-show">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Xem hồ sơ</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
+                                @endforeach
+                            @endif
                         </div>
                     </div>
                 </div>
-                <div class="slide" style="background-color: #fff;">
+                <!-- <div class="slide" style="background-color: #fff;">
                     <div class="main-content">
                         <h3 class="title">WordPress</h3>
                         <div class="sub-header">コピペでできる便利カスタマイズまとめ</div>
@@ -405,7 +341,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="slide" style="background-color: #fff;">
                     <div class="main-content">
                         <section id="section-wrapper">
@@ -517,6 +453,24 @@
     </div>
 </div>
 
+
+<div class="modal" id="modelProject">
+    <div class="showProjectPopup">
+        <div class="showProjectPopupLeft">
+            <img src="" />
+        </div>
+        <div class="showProjectPopupRight">
+            <h3>Học thoi nào</h3>  
+            <div class="showProjectPopupRightContent">
+                
+            </div>                        
+        </div>
+        <div class="BtnClose" onclick="closeShowProject()">
+            <p>X</p>
+        </div>
+    </div>
+</div>
+
 <style>
     .pricing-table-box1 h1::after {
         content: "{{ __('messages.Starter') }}";
@@ -532,12 +486,46 @@
     }
 </style>
 <script>
+    function ShowProject(id) {
+        const showPopupNews = document.getElementById('modelProject');
+        if (showPopupNews.style.display === 'none' || showPopupNews.style.display === '') {
+            showPopupNews.style.display = 'block';
+            fetch(`/show/project/${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Tin tức không tồn tại');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.querySelector('.showProjectPopupRight h3').innerText = data.name;
+                document.querySelector('.showProjectPopupRightContent').innerHTML = data.description;
+                document.querySelector('.showProjectPopupLeft img').src = data.image_path;
+                const showPopupNews = document.getElementById('modelProject');
+                showPopupNews.classList.add('show');
+            })
+            .catch(error => {
+                console.error(error);
+                alert('Không thể tải tin tức. Vui lòng thử lại.');
+            });
+        } else {
+            showPopupNews.style.display = 'none';
+        }
+    }
+
+    function closeShowProject() {
+        const showPopupNews = document.getElementById('modelProject');
+        if (showPopupNews.style.display === 'none' || showPopupNews.style.display === '') {
+            showPopupNews.style.display = 'block';
+        } else {
+            showPopupNews.style.display = 'none';
+        }
+    }
     function ShowNews(id) {
-        console.log("News ID:", id);
         const showPopupNews = document.getElementById('modelNews');
         if (showPopupNews.style.display === 'none' || showPopupNews.style.display === '') {
             showPopupNews.style.display = 'block';
-            fetch(`/news/${id}`)
+            fetch(`/show/news/${id}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Tin tức không tồn tại');

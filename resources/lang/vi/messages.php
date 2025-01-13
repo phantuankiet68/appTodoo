@@ -433,4 +433,5 @@ return [
     'Website members'=>'Thành viên website',
     'Total members'=>'Tổng số thành viên',
     'Projects participated in'=>'Những dự án từng tham gia',
+    'Search within the website'=>'Tìm kiếm trong trang web',
 ];

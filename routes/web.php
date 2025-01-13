@@ -55,6 +55,7 @@ use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Home\HomeProjectController;
 use App\Http\Controllers\News\NewsController;
 use App\Models\News;
+use App\Models\ProjectHome;
 
 /*
 |--------------------------------------------------------------------------
@@ -85,8 +86,11 @@ Route::get('{locale}', function ($locale) {
     $news = News::where('language', $languageId)
     ->orderBy('stt', 'asc')
     ->get();
+    $projects = ProjectHome::where('language', $languageId)
+    ->orderBy('stt', 'asc')
+    ->get();
 
-    return view('pages.home.index', compact('news')); 
+    return view('pages.home.index', compact('news', 'projects')); 
 
 })->where('locale', 'vi|en|ja');
 
@@ -128,7 +132,8 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/link/store', [ChatController::class, 'storeLink'])->name('link.store');
     
     Route::resource('/v2/news', NewsController::class);
-    Route::get('/news/{id}', [NewsController::class, 'show'])->name('news.show');
+    Route::get('show/news/{id}', [NewsController::class, 'show'])->name('news.show');
+    Route::get('show/project/{id}', [HomeProjectController::class, 'show']);
     Route::resource('/v2/project', HomeProjectController::class);
 
     Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('forgot.password');

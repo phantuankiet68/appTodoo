@@ -1614,8 +1614,8 @@ a.google span {
 }
 .pagination button {
     padding: 9px 0px;
-    border: 1px solid #fff;
-    background-color: #f6e5b3;
+    border: 1px solid #343435;
+    background-color: #ffffff;
     color: #343435;
     font-size: 1.3rem;
     cursor: pointer;
@@ -1641,7 +1641,7 @@ a.google span {
 .slide-one-right {
     width: 25%;
     height: 100vh;
-    background-color: #f6e5b3;
+    background-color: #ffffff;
     padding: 10px;
 }
 
@@ -1653,12 +1653,12 @@ a.google span {
 
 .main-content {
     flex: 3;
-    padding: 10px 0px;
+    padding: 10px;
 }
 
 .sub-header {
     background-color: #b9b5b0;
-    padding: 5px;
+    padding: 5px 10px;
     font-size: 18px;
     margin-bottom: 5px;
 }
@@ -1808,7 +1808,7 @@ a.google span {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    border: 1px solid #fff;
+    border: 1px solid #343435;
     padding: 15px 5px;
     border-radius: 10px;
     color: #ff9200;
@@ -1858,7 +1858,7 @@ a.google span {
 }
 
 .slide-one-left h3.title{
-    padding: 10px 20px;
+    padding: 10px;
     background: #ffd39e;
     margin-bottom: 5px;
 }
@@ -2716,5 +2716,74 @@ a.google span {
 }
 
 .showNewsPopupRightContent p strong{
+    font-weight: bold;
+}
+
+#modelProject{
+    display: none;
+}
+
+.showProjectPopup{
+    position: absolute;
+    width: 90%;
+    background-color: #fff;
+}
+
+.showProjectPopup {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 3% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.showProjectPopupLeft{
+    width: 40%;
+    height: 82vh;
+}
+
+.showProjectPopupRight{
+    width: 60%;
+    height: 82vh;
+}
+
+
+.showProjectPopupLeft img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    object-fit: contain;
+}
+
+.showProjectPopupRight {
+    padding: 0 0px 0px 10px;
+}
+
+.showProjectPopupRight h3 {
+    padding: 20px 10px;
+    background: bisque;
+    font-size: 21px;
+    font-weight: 500;
+    text-align: justify;
+    border-radius: 5px;
+}
+
+.showProjectPopupRightContent{
+    width: 100%;
+    height: 72vh;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: justify;
+    line-height: 21px;
+    overflow: auto;
+}
+
+.showProjectPopupRightContent p strong{
     font-weight: bold;
 }

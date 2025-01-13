@@ -1,6 +1,6 @@
 <div class="slide-one-right">
     <div class="search-box">
-        <input placeholder="サイト内を検索" type="text"/>
+        <input placeholder="{{ __('messages.Search within the website') }}" type="text"/>
         <button>
             <i class="fas fa-search"></i>
         </button>

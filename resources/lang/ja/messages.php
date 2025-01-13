@@ -436,4 +436,5 @@ return [
     'Website members'=>'ウェブサイトメンバー',
     'Total members'=>'総メンバー数',
     'Projects participated in'=>'参加したプロジェクト',
+    'Search within the website'=>'サイト内を検索',
 ];

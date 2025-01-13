@@ -74,7 +74,18 @@ class HomeProjectController extends Controller
      */
     public function show($id)
     {
-        //
+        $news = ProjectHome::find($id);
+
+        if (!$news) {
+            return response()->json(['error' => 'ProjectHome not found'], 404);
+        }
+
+        return response()->json([
+            'id' => $news->id,
+            'name' => $news->name,
+            'description' => $news->description,
+            'image_path' => asset($news->image_path)
+        ]);
     }
 
     /**

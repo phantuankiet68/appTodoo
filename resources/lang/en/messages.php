@@ -437,4 +437,5 @@ return [
     'Website members'=>'Website members',
     'Total members'=>'Total members',
     'Projects participated in'=>'Projects participated in',
+    'Search within the website'=>'Search within the website',
 ];

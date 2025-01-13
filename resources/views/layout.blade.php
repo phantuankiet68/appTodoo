@@ -463,25 +463,33 @@
     @endif
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const profile = document.querySelector(".profile-user-tab");
-        const subProfile = document.querySelector(".sub-profile");
-
-        profile.addEventListener("click", function (e) {
-            e.stopPropagation();
-            profile.classList.toggle("active");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const profile = document.querySelector(".profile-user-tab");
+            const subProfile = document.querySelector(".sub-profile");
+    
+            if (profile) {
+                profile.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                    profile.classList.toggle("active");
+                });
+    
+                document.addEventListener("click", function () {
+                    profile.classList.remove("active");
+                });
+            } else {
+                console.error("Element .profile-user-tab not found.");
+            }
+    
+            if (subProfile) {
+                subProfile.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                });
+            } else {
+                console.error("Element .sub-profile not found.");
+            }
         });
-
-        document.addEventListener("click", function () {
-            profile.classList.remove("active");
-        });
-
-        subProfile.addEventListener("click", function (e) {
-            e.stopPropagation();
-        });
-    });
-  </script>
+    </script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const toggle = document.getElementById('toggle');
