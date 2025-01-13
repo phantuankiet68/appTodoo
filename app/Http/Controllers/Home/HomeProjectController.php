@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\News;
+namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\News;
+use App\Models\ProjectHome;
 
-
-class NewsController extends Controller
+class HomeProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::get();
-        return view('admin.news.index', compact('news'));
+        $projects = ProjectHome::get();
+        return view('admin.project.index', compact('projects'));
     }
 
     /**
@@ -62,7 +61,7 @@ class NewsController extends Controller
             $validatedData['image_path'] = 'assets/images/' . $filename;
         }
 
-        News::create($validatedData);
+        ProjectHome::create($validatedData);
 
         return redirect()->back()->with('success', __('messages.News saved successfully!'));
     }
@@ -75,18 +74,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        $news = News::find($id);
-
-        if (!$news) {
-            return response()->json(['error' => 'News not found'], 404);
-        }
-
-        return response()->json([
-            'id' => $news->id,
-            'name' => $news->name,
-            'description' => $news->description,
-            'image_path' => asset($news->image_path)
-        ]);
+        //
     }
 
     /**

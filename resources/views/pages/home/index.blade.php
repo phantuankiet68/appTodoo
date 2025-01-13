@@ -74,7 +74,7 @@
                                 <p class="card-title">【{{ $item->name}}】</p>
                                 <div class="content-expert-show">
                                     <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">{{ __('messages.See More') }}</button>
+                                    <button class="btn-show" onclick="ShowNews('{{ $item->id }}')">{{ __('messages.See More') }}</button>
                                     <i class="fa-duotone fas fa-caret-right"></i>
                                 </div>
                             </div>
@@ -224,23 +224,9 @@
                 </div>
                 <div class="slide" style="background-color: #fff;">
                     <div class="main-content">
-                        <h3 class="title">WordPress</h3>
-                        <div class="sub-header">コピペでできる便利カスタマイズまとめ</div>
+                        <h3 class="title">{{ __('messages.Project') }}</h3>
+                        <div class="sub-header">{{ __('messages.Projects participated in') }}</div>
                         <div class="list-card">
-                            <div class="card">
-                                <div class="card-img">
-                                    <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
-                                </div>
-                                <div class="project-user">
-                                    <p>Phan Tuan kiet</p>
-                                </div>
-                                <p class="card-title">【VJP-CONNECT】</p>
-                                <div class="content-expert-show">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Xem hồ sơ</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
                             <div class="card">
                                 <div class="card-img">
                                     <img alt="リンクカードの作り方" src="{{ asset('assets/images/project1.png') }}"/>
@@ -514,6 +500,23 @@
         @include('pages.components.aside.index')
     </div>
 </div>
+<div class="modal" id="modelNews">
+    <div class="showNewsPopup">
+        <div class="showNewsPopupLeft">
+            <img src="" />
+        </div>
+        <div class="showNewsPopupRight">
+            <h3>Học thoi nào</h3>  
+            <div class="showNewsPopupRightContent">
+                
+            </div>                        
+        </div>
+        <div class="BtnClose" onclick="closeShowNews()">
+            <p>X</p>
+        </div>
+    </div>
+</div>
+
 <style>
     .pricing-table-box1 h1::after {
         content: "{{ __('messages.Starter') }}";
@@ -529,6 +532,44 @@
     }
 </style>
 <script>
+    function ShowNews(id) {
+        console.log("News ID:", id);
+        const showPopupNews = document.getElementById('modelNews');
+        if (showPopupNews.style.display === 'none' || showPopupNews.style.display === '') {
+            showPopupNews.style.display = 'block';
+            fetch(`/news/${id}`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Tin tức không tồn tại');
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.querySelector('.showNewsPopupRight h3').innerText = data.name;
+                document.querySelector('.showNewsPopupRightContent').innerHTML = data.description;
+                document.querySelector('.showNewsPopupLeft img').src = data.image_path;
+                const showPopupNews = document.getElementById('modelNews');
+                showPopupNews.classList.add('show');
+            })
+            .catch(error => {
+                console.error(error);
+                alert('Không thể tải tin tức. Vui lòng thử lại.');
+            });
+        } else {
+            showPopupNews.style.display = 'none';
+        }
+    }
+
+    function closeShowNews() {
+        const showPopupNews = document.getElementById('modelNews');
+        if (showPopupNews.style.display === 'none' || showPopupNews.style.display === '') {
+            showPopupNews.style.display = 'block';
+        } else {
+            showPopupNews.style.display = 'none';
+        }
+    }
+
+
     document.addEventListener("DOMContentLoaded", function () {
         const slider = document.querySelector(".slider");
         const pagination = document.querySelector(".pagination");

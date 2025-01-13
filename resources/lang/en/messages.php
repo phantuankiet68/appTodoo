@@ -436,5 +436,5 @@ return [
     'Not Possible'=>'Not Possible',
     'Website members'=>'Website members',
     'Total members'=>'Total members',
-
+    'Projects participated in'=>'Projects participated in',
 ];

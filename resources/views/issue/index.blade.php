@@ -634,6 +634,7 @@ document.querySelector('.modelForm').addEventListener('submit', function(event) 
             modelCreateTask.style.display = 'none';
         }
     }
+    
     function closeCreateCategoryFormPopup() {
         const modelCreateTask = document.querySelector('.ModelCreateCategory');
         if (modelCreateTask.style.display === 'none' || modelCreateTask.style.display === '') {

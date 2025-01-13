@@ -432,4 +432,5 @@ return [
     'The product is under a safe warranty for 6 months.'=>'Sản phẩm được bảo hành an toàn trong 6 tháng.',
     'Website members'=>'Thành viên website',
     'Total members'=>'Tổng số thành viên',
+    'Projects participated in'=>'Những dự án từng tham gia',
 ];

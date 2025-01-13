@@ -435,4 +435,5 @@ return [
     'Not Possible'=>'不可能',
     'Website members'=>'ウェブサイトメンバー',
     'Total members'=>'総メンバー数',
+    'Projects participated in'=>'参加したプロジェクト',
 ];

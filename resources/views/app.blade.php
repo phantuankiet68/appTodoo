@@ -41,6 +41,7 @@
                         </a>
                         <ul class="subSidebar">
                             <li><a href="{{ route('news.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.News') }}</div></a></li>
+                            <li><a href="{{ route('project.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Project') }}</div></a></li>
                         </ul>
                     </li>
                     <div class="title-menu"><span>{{ __('messages.Application') }}</span></div>
