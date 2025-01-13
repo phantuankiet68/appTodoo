@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\News;
 
 class HomeController extends Controller
 {
@@ -14,7 +15,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-         return view('pages.home.index');
+        $news = News::get();
+        return view('pages.home.index', compact('news'));
     }
 
     /**

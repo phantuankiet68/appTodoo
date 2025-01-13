@@ -41,9 +41,9 @@ class NewsController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'user_id' => 'required|integer|exists:users,id',
-            'image_path' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'image_path' => 'nullable|image',
             'description' => 'nullable|string',
-            'language' => 'required|string|in:vi,en,ja',
+            'language' => 'required|string',
             'status' => 'required|boolean',
             'stt' => 'required|integer',
         ]);

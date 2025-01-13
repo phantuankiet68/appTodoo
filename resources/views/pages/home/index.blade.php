@@ -60,115 +60,46 @@
                         <h3 class="title">{{ __('messages.News') }}</h3>
                         <div class="sub-header">{{ __('messages.Latest News') }}</div>
                         <div class="list-card">
+                        @if($news->isEmpty())
+                            <p>{{ __('messages.No News Available') }}</p>
+                        @else
+                            @foreach($news as $item)
                             <div class="card">
                                 <div class="card-img">
-                                    <img src="{{asset('assets/images/news1.png')}}" />
+                                    <img src="{{asset($item->image_path)}}" />
                                 </div>
                                 <div class="project-user">
-                                    <p>15-8-2000</p>
+                                    <p>{{ $item->created_at->format('d-m-Y') }}</p>
                                 </div>
-                                <p class="card-title">【VJP-CONNECT】</p>
+                                <p class="card-title">【{{ $item->name}}】</p>
                                 <div class="content-expert-show">
                                     <i class="fa-duotone fas fa-caret-left"></i>
                                     <button class="btn-show">{{ __('messages.See More') }}</button>
                                     <i class="fa-duotone fas fa-caret-right"></i>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-img">
-                                    <img src="{{asset('assets/images/news1.png')}}" />
-                                </div>
-                                <div class="project-user">
-                                    <p>15-8-2000</p>
-                                </div>
-                                <p class="card-title">【VJP-CONNECT】</p>
-                                <div class="content-expert-show">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">{{ __('messages.See More') }}</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
+                            @endforeach
+                        @endif
                         </div>
                     </div>
                 </div>
                 <div class="slide" style="background-color: #fff;">
                     <div class="main-content">
-                        <h3 class="title">WordPress</h3>
-                        <div class="sub-header">コピペでできる便利カスタマイズまとめ</div>
+                        <h3 class="title">{{ __('messages.Website members') }}</h3>
+                        <div class="sub-header">{{ __('messages.Total members') }}</div>
                         <div class="list-card">
                             <div class="card">
                                 <div class="card-user-img">
                                     <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
                                 </div>
-                                <p class="text-center">Phan Tuấn Kiệt</p>
-                                <p class="card-title mt-10">【Software Developer】</p>
+                                <p class="text-center">{{ __('messages.Phan Tuan Kiet') }}</p>
+                                <p class="card-title mt-10">【{{ __('messages.Website Developer') }}】</p>
                                 <div class="content-expert-show mx-20">
                                     <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Liên hệ ngay</button>
+                                    <button class="btn-show">{{ __('messages.Contact Us Now') }}</button>
                                     <i class="fa-duotone fas fa-caret-right"></i>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-user-img">
-                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                                </div>
-                                <p class="text-center">Phan Tuấn Kiệt</p>
-                                <p class="card-title mt-10">【Software Developer】</p>
-                                <div class="content-expert-show mx-20">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Liên hệ ngay</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-user-img">
-                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                                </div>
-                                <p class="text-center">Phan Tuấn Kiệt</p>
-                                <p class="card-title mt-10">【Software Developer】</p>
-                                <div class="content-expert-show mx-20">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Liên hệ ngay</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-user-img">
-                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                                </div>
-                                <p class="text-center">Phan Tuấn Kiệt</p>
-                                <p class="card-title mt-10">【Software Developer】</p>
-                                <div class="content-expert-show mx-20">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Liên hệ ngay</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-user-img">
-                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                                </div>
-                                <p class="text-center">Phan Tuấn Kiệt</p>
-                                <p class="card-title mt-10">【Software Developer】</p>
-                                <div class="content-expert-show mx-20">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Liên hệ ngay</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
-                            <div class="card">
-                                <div class="card-user-img">
-                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                                </div>
-                                <p class="text-center">Phan Tuấn Kiệt</p>
-                                <p class="card-title mt-10">【Software Developer】</p>
-                                <div class="content-expert-show mx-20">
-                                    <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show">Liên hệ ngay</button>
-                                    <i class="fa-duotone fas fa-caret-right"></i>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
                 </div>
@@ -179,57 +110,57 @@
                                 <div class="card-icon">
                                     <i class="fas fa-search"></i>
                                 </div>
-                                <h3>SEO Consultancy</h3>
-                                <p>Tối ưu hóa trang web của bạn để xếp hạng cao hơn trên công cụ tìm kiếm, thu hút nhiều lượt truy cập và tăng khả năng chuyển đổi. </p>
+                                <h3>{{ __('messages.SEO Consultancy') }}</h3>
+                                <p>{{ __('messages.Optimize your website to rank higher on search engines, attract more traffic, and increase conversion rates.') }}</p>
                             </div>
                             <div class="path-card-item">
                                 <div class="card-icon">
                                     <i class="fas fa-chart-line"></i>
                                 </div>
-                                <h3>Competitor Analysis</h3>
-                                <p>Phân tích đối thủ cạnh tranh giúp bạn nhận diện cơ hội, thách thức và xây dựng chiến lược vượt trội. Tối ưu hóa điểm mạnh để tạo ra lợi thế cạnh tranh bền vững!</p>
+                                <h3>{{ __('messages.Competitor Analysis') }}</h3>
+                                <p>{{ __('messages.Competitor analysis helps you identify opportunities, challenges, and build superior strategies. Optimize your strengths to create sustainable competitive advantages!') }}</p>
                             </div>
                             <div class="path-card-item">
                                 <div class="card-icon">
                                     <i class="fas fa-share-alt"></i>
                                 </div>
-                                <h3>Social Marketing</h3>
-                                <p>Tiếp thị xã hội giúp bạn tiếp cận mục tiêu và xây dựng mối quan hệ với khách hàng. Tận dụng mạng xã hội để thúc đẩy sự phát triển cho thương hiệu!</p>
+                                <h3>{{ __('messages.Social Marketing') }}</h3>
+                                <p>{{ __('messages.Social marketing helps you reach your goals and build strong relationships with customers. Leverage social media to drive growth for your brand!') }}</p>
                             </div>
                             <div class="path-card-item">
                                 <div class="card-icon">
                                     <i class="fas fa-code"></i>
                                 </div>
-                                <h3>Web Development</h3>
-                                <p>Phát triển web giúp xây dựng trang web chất lượng, tối ưu hiệu suất. Tạo giải pháp web mạnh mẽ để thúc đẩy sự phát triển và thành công cho doanh nghiệp!</p>
+                                <h3>{{ __('messages.Web Development') }}</h3>
+                                <p>{{ __('messages.Web development helps build high-quality websites and optimize performance. Create powerful web solutions to drive growth and success for your business!') }}</p>
                             </div>
                             <div class="path-card-item">
                                 <div class="card-icon">
                                     <i class="fas fa-pen-nib"></i>
                                 </div>
-                                <h3>Content Marketing</h3>
-                                <p>Content Marketing tạo ra nội dung giá trị, thu hút và giữ chân khách hàng. Xây dựng chiến lược nội dung để nâng cao nhận thức và lòng tin!</p>
+                                <h3>{{ __('messages.Content Marketing') }}</h3>
+                                <p>{{ __('messages.Create valuable content to attract and retain customers. Develop a content strategy to enhance awareness and build trust!') }}</p>
                             </div>
                             <div class="path-card-item">
                                 <div class="card-icon">
                                     <i class="fas fa-envelope"></i>
                                 </div>
-                                <h3>Email Marketing</h3>
-                                <p>Email Marketing giúp tiếp cận khách hàng trực tiếp và tăng cường tương tác. Xây dựng chiến lược email hiệu quả để thúc đẩy doanh thu và phát triển thương hiệu!</p>
+                                <h3>{{ __('messages.Email Marketing') }}</h3>
+                                <p>{{ __('messages.Reach customers directly and boost engagement. Build effective email strategies to drive revenue and grow your brand!') }}</p>
                             </div>
                             <div class="path-card-item">
                                 <div class="card-icon">
                                     <i class="fas fa-bullhorn"></i>
                                 </div>
-                                <h3>Pay-Per-Click</h3>
-                                <p>Pay-Per-Click giúp tiếp cận khách hàng tiềm năng và tối ưu hóa chi phí quảng cáo. Tăng trưởng nhanh chóng và hiệu quả với chiến lược PPC thông minh!</p>
+                                <h3>{{ __('messages.Pay-Per-Click') }}</h3>
+                                <p>{{ __('messages.Reach potential customers and optimize advertising costs. Achieve rapid growth with smart PPC strategies!') }}</p>
                             </div>
                             <div class="path-card-item">
                                 <div class="card-icon">
                                     <i class="fas fa-paint-brush"></i>
                                 </div>
-                                <h3>UX/UI Design</h3>
-                                <p>UX/UI Design tạo ra trải nghiệm người dùng mượt mà và giao diện hấp dẫn. Tối ưu hóa thiết kế để nâng cao sự hài lòng và tương tác của người dùng!</p>
+                                <h3>{{ __('messages.UX/UI Design') }}</h3>
+                                <p>{{ __('messages.Create smooth user experiences and appealing interfaces. Optimize designs to improve user satisfaction and engagement!') }}</p>
                             </div>
 
                         </div>
@@ -239,54 +170,54 @@
                     <div class="main-content">
                     <div class="pricing-design"> 
                                 <div class="pricing-table">
-                                    <h1>Bảng Giá</h1>
-                                    <div class="item"><span>01</span> <p>Number of new and modified screens.</p></div>
-                                    <div class="item"><span>02</span> <p>Use HTML, CSS, and responsive design to complete</p></div>
-                                    <div class="item"><span>03</span> <p>Use JavaScript to complete.</p></div>
-                                    <div class="item"><span>04</span> <p>Use Frontend Development Tools to complete.</p></div>
-                                    <div class="item"><span>05</span> <p>Use Backend Development Tools to complete.</p></div>
-                                    <div class="item"><span>06</span> <p>Deployment &amp; Hosting</p></div>
-                                    <div class="item"><span>07</span> <p>The product is under a safe warranty for 6 months.</p></div>
+                                    <h1>{{ __('messages.Pricing Table') }}</h1>
+                                    <div class="item"><span>01</span> <p>{{ __('messages.Number of new and modified screens:') }}</p></div>
+                                    <div class="item"><span>02</span> <p>{{ __('messages.Use HTML, CSS, and responsive design to complete:') }}</p></div>
+                                    <div class="item"><span>03</span> <p>{{ __('messages.Use JavaScript to complete:') }}</p></div>
+                                    <div class="item"><span>04</span> <p>{{ __('messages.Use Frontend Development Tools to complete:') }}</p></div>
+                                    <div class="item"><span>05</span> <p>{{ __('messages.Use Backend Development Tools to complete:') }}</p></div>
+                                    <div class="item"><span>06</span> <p>{{ __('messages.Deployment & Hosting:') }}</p></div>
+                                    <div class="item"><span>07</span> <p>{{ __('messages.The product is under a safe warranty for 6 months.') }}</p></div>
                                 </div>
                                 <div class="pricing-table-box1">
                                     <h1>10$</h1>
-                                    <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 1 screens</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                                    <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
-                                    <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
-                                    <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                                    <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 1 {{ __('messages.Screens') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
+                                    <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> {{ __('messages.Not Possible') }}</p></div>
+                                    <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> {{ __('messages.Not Possible') }}</p></div>
+                                    <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> {{ __('messages.Not Possible') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
                                 </div>
                                 <div class="pricing-table-box2">
                                     <h1>20$</h1>
-                                    <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 3 screens</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                                    <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
-                                    <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                                    <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 3 {{ __('messages.Screens') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
+                                    <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> {{ __('messages.Not Possible') }}</p></div>
+                                    <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> {{ __('messages.Not Possible') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
                                 </div>
                                 <div class="pricing-table-box3">
                                     <h1>30$</h1>
-                                    <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 5 screens</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                                    <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                                    <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 5 {{ __('messages.Screens') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
+                                    <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> {{ __('messages.Not Possible') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
                                 </div>
                                 <div class="pricing-table-box4">
                                     <h1>100$</h1>
-                                    <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 10 screens</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
+                                    <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 10 {{ __('messages.Screens') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
+                                    <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> {{ __('messages.Possible') }}</p></div>
                                 </div>
                         </div>
                     </div>
@@ -583,22 +514,43 @@
         @include('pages.components.aside.index')
     </div>
 </div>
-
+<style>
+    .pricing-table-box1 h1::after {
+        content: "{{ __('messages.Starter') }}";
+    }
+    .pricing-table-box2 h1::after {
+        content: "{{ __('messages.Business') }}";
+    }
+    .pricing-table-box3 h1::after {
+        content: "{{ __('messages.Professional') }}";
+    }
+    .pricing-table-box4 h1::after {
+        content: "{{ __('messages.Premium') }}";
+    }
+</style>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         const slider = document.querySelector(".slider");
         const pagination = document.querySelector(".pagination");
         let currentIndex = 0;
 
+        const savedIndex = localStorage.getItem("currentIndex");
+        if (savedIndex !== null) {
+            currentIndex = parseInt(savedIndex, 10);
+        }
+
         function updateSlider(index) {
             currentIndex = index;
             slider.style.transform = `translateY(-${currentIndex * 100}vh)`;
             updatePagination();
+
+            localStorage.setItem("currentIndex", currentIndex);
         }
+
         function updatePagination() {
             const buttons = pagination.querySelectorAll("button");
             buttons.forEach((button, index) => {
-            button.classList.toggle("active", index === currentIndex);
+                button.classList.toggle("active", index === currentIndex);
             });
         }
 
@@ -608,7 +560,8 @@
             button.addEventListener("click", () => updateSlider(i));
             pagination.appendChild(button);
         }
-        updatePagination();
-        });
+
+        updateSlider(currentIndex);
+    });
 </script>
 @endsection

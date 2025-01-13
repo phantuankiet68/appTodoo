@@ -53,6 +53,8 @@ use App\Http\Controllers\FriendController;
 use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\News\NewsController;
+use App\Models\News;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,7 +74,19 @@ Route::get('{locale}', function ($locale) {
         abort(404); 
     }
 
-    return view('pages.home.index'); 
+    $languageMap = [
+        'vi' => 1,
+        'en' => 2,
+        'ja' => 3,
+    ];
+
+    $languageId = $languageMap[$locale];
+    $news = News::where('language', $languageId)
+    ->orderBy('stt', 'asc')
+    ->get();
+
+    return view('pages.home.index', compact('news')); 
+
 })->where('locale', 'vi|en|ja');
 
 Route::fallback(function () {

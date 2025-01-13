@@ -3804,6 +3804,8 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 .news-container-table{
     width: 70%;
     padding: 0 10px;
+    height: 100%;
+    overflow: scroll;
 }
 .news-container-form{
     width: 30%;
