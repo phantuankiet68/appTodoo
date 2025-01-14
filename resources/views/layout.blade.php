@@ -239,7 +239,7 @@
                         <nav>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     @switch($locale)
                                         @case('vi')
                                         <img src="{{ asset('assets/images/vietnam.jpg') }}" width="25px"> Việt Nam
@@ -253,18 +253,18 @@
                                     <span class="caret"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ url('/vi') }}">
+                                    <a class="dropdown-item" href="{{ url()->current() }}?lang=vi">
                                         <img src="{{ asset('assets/images/vietnam.jpg') }}" width="25px"> Việt Nam
                                     </a>
-                                    <a class="dropdown-item" href="{{ url('/ja') }}">
+                                    <a class="dropdown-item" href="{{ url()->current() }}?lang=ja">
                                         <img src="{{ asset('assets/images/japan.jpg') }}" width="25px"> Japan
                                     </a>
-                                    <a class="dropdown-item" href="{{ url('/en') }}">
+                                    <a class="dropdown-item" href="{{ url()->current() }}?lang=en">
                                         <img src="{{ asset('assets/images/english.jpg') }}" width="25px"> English
                                     </a>
                                 </div>
                             </li>
-                        </nav>
+                        </nav>                        
                     </div>
                     @if (Auth::check())
                         <div class="profile-user-tab">

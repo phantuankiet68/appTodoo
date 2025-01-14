@@ -56,7 +56,6 @@ use App\Http\Controllers\Home\HomeProjectController;
 use App\Http\Controllers\News\NewsController;
 use App\Http\Controllers\Home\HomeCalendarController;
 use App\Models\News;
-use App\Models\ProjectHome;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,40 +68,12 @@ use App\Models\ProjectHome;
 |
 */
 
-Route::get('{locale}', function ($locale) {
-    if (in_array($locale, ['vi', 'en', 'ja'])) {
-        session()->put('locale', $locale);
-        App::setLocale($locale);
-    } else {
-        abort(404); 
-    }
-
-    $languageMap = [
-        'vi' => 1,
-        'en' => 2,
-        'ja' => 3,
-    ];
-
-    $languageId = $languageMap[$locale];
-    $news = News::where('language', $languageId)
-    ->orderBy('stt', 'asc')
-    ->get();
-    $projects = ProjectHome::where('language', $languageId)
-    ->orderBy('stt', 'asc')
-    ->get();
-
-    return view('pages.home.index', compact('news', 'projects')); 
-
-})->where('locale', 'vi|en|ja');
 
 Route::fallback(function () {
     return view('error'); 
 });
 
-
-Route::group(['prefix' => 'en'], function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home.index');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home.index');
 
 
 Route::post('send-contact', [ContactController::class, 'sendContactForm'])->name('send.contact');
@@ -127,6 +98,9 @@ Route::get('/learn-more/pdf', [LearnMoreController::class, 'exportPdf'])->name('
 
 Route::get('/profile/{full_name}', [HomeController::class, 'profile'])->name('profile.show');
 
+Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], function () {
+    Route::resource('/calendar', HomeCalendarController::class);
+});
 
 Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/change-password/{id}', [AuthController::class, 'changePassword'])->name('change.password');

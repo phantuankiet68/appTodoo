@@ -27,7 +27,11 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->configureRateLimiting();
-
+        
+        $locale = session('locale', 'en'); // Lấy ngôn ngữ từ session
+        app()->setLocale($locale);
+    
+        parent::boot();
         $this->routes(function () {
             Route::middleware('api')
                 ->prefix('api')

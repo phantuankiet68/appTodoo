@@ -1,9 +1,9 @@
 <?php
 namespace App\Http\Middleware;
 
-use App;
 use Closure;
-
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 class Localization
 {
     /**
@@ -14,9 +14,11 @@ class Localization
      */
     public function handle($request, Closure $next)
     {
-        if (session()->has('locale')) {
-            App::setLocale(session()->get('locale'));
-        }
+        $lang = $request->query('lang', Session::get('locale', 'en'));
+
+        Session::put('locale', $lang);
+        App::setLocale($lang);
+
         return $next($request);
     }
 }
