@@ -437,4 +437,7 @@ return [
     'Total members'=>'総メンバー数',
     'Projects participated in'=>'参加したプロジェクト',
     'Search within the website'=>'サイト内を検索',
+    'Warning'=>'警告',
+    'We are sorry, but you need to log in with your personal account to use this feature!'=>'申し訳ありませんが、この機能を利用するには個人アカウントでログインする必要があります。',
+    'Not Found'=> '見つかりません',
 ];

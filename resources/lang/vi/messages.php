@@ -434,4 +434,7 @@ return [
     'Total members'=>'Tổng số thành viên',
     'Projects participated in'=>'Những dự án từng tham gia',
     'Search within the website'=>'Tìm kiếm trong trang web',
+    'Warning'=>'Cảnh báo',
+    'We are sorry, but you need to log in with your personal account to use this feature!'=>'Chúng tôi rất tiếc, nhưng bạn cần đăng nhập bằng tài khoản cá nhân để sử dụng tính năng này!',
+    'Not Found'=> 'Không tìm thấy',
 ];

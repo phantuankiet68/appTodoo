@@ -30,7 +30,7 @@
         $locale = session()->get('locale', 'vi');
         App::setLocale($locale);
     @endphp
-    <div class="side-bar collapse">
+    <div class="side-bar">
         <div class="logo-name-wrapper">
             <div class="logo-name">
                 <img src="{{ asset('assets/images/logo-website.png') }}"     width="40" class="logo" alt="logo app" srcset="" />
@@ -180,7 +180,7 @@
             </ul>
         </div>
     </div>
-    <div class="container collapse">
+    <div class="container">
         <header id="home">
             <div class="navbar">
                 <div class="navbar-left">
@@ -566,27 +566,6 @@
                 }
             })
             .catch(error => console.error("Logout failed:", error));
-        }
-        if (window.location.pathname === '/en') {
-            const sideBar = document.querySelector('.side-bar.collapse');
-            const container = document.querySelector('.container.collapse');
-
-            if (sideBar) sideBar.classList.remove('collapse');
-            if (container) container.classList.remove('collapse');
-        }
-        if (window.location.pathname === '/vi') {
-            const sideBar = document.querySelector('.side-bar.collapse');
-            const container = document.querySelector('.container.collapse');
-
-            if (sideBar) sideBar.classList.remove('collapse');
-            if (container) container.classList.remove('collapse');
-        }
-        if (window.location.pathname === '/ja') {
-            const sideBar = document.querySelector('.side-bar.collapse');
-            const container = document.querySelector('.container.collapse');
-
-            if (sideBar) sideBar.classList.remove('collapse');
-            if (container) container.classList.remove('collapse');
         }
     </script>
     <script src="{{ asset('js/layout.js') }}"></script>

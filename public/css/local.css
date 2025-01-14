@@ -1003,7 +1003,7 @@ header nav {
 }
 
 .login {
-    background-color: #f5f0f0;
+    background-color: #fff;
     width: 100%;
     text-align: center;
     border: 2px solid var(--border-color);
@@ -1033,7 +1033,7 @@ header nav {
 .login .group input {
     width: 100%;
     height: 100%;
-    border: none;
+    border: 1px solid #a3b5bc;
     background-color: #ffffff;
     padding: 5px 20px;
     border-radius: 46px;
@@ -1300,15 +1300,7 @@ header nav {
     justify-content: center;
     align-items: center;
 }
-.login .group input {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background-color: #ffffff;
-    padding: 5px 20px;
-    border-radius: 46px;
-    outline: none;
-}
+
 .media-options a {
   display: flex;
   align-items: center;
@@ -1689,6 +1681,7 @@ a.google span {
     border: 1px solid #4fcdf5;
     border-radius: 5px;
     color: #4fcdf5;
+    font-size: 13px;
 }
 
 .btn-show{
@@ -2452,8 +2445,8 @@ a.google span {
 .info-details li .contact-icon::after {
     content: '';
     position: absolute;
-    inset: 2px;
-    background: #e9f4f9;
+    inset: 3px;
+    background: #fff;
 }
 
 .info-details li .contact-icon b{
@@ -2766,11 +2759,12 @@ a.google span {
 }
 
 .showProjectPopupRight h3 {
-    padding: 20px 10px;
+    padding: 10px;
     background: bisque;
     font-size: 21px;
     font-weight: 500;
-    text-align: justify;
+    text-align: left;
+    line-height: 28px;
     border-radius: 5px;
 }
 
@@ -2786,4 +2780,119 @@ a.google span {
 
 .showProjectPopupRightContent p strong{
     font-weight: bold;
+}
+
+
+.warning {
+    position: relative;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 20%;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    margin: 13% auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-warning {
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.card-warning:hover {
+    transform: translateY(-10px);
+}
+
+.card-warning.red {
+    background-color: #ffe6e6;
+}
+
+.card-warning.green {
+    background-color: #ffe197;
+}
+
+.card-warning .icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    animation: pulse 1.5s infinite;
+}
+
+.card-warning .icon.red {
+    background-color: #ffcccc;
+}
+
+.card-warning .icon.green {
+    background-color: #ffbe5d;
+}
+
+.card-warning .icon .symbol {
+    font-size: 40px;
+    color: white;
+}
+
+.card-warning .icon.red .symbol {
+    color: #ff0000;
+}
+
+.card-warning .icon.green .symbol {
+    color: #fff;
+}
+
+.card-warning .text {
+    text-align: center;
+}
+
+.card-warning .text h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.card-warning .text p {
+    margin: 5px 0;
+    color: #666;
+    padding: 10px;
+    line-height: 26px;
+}
+
+.card-warning .button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card-warning .button:hover {
+    background-color: #f0f0f0;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+#warning{
+    display: none;
 }

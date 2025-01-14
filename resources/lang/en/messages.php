@@ -438,4 +438,7 @@ return [
     'Total members'=>'Total members',
     'Projects participated in'=>'Projects participated in',
     'Search within the website'=>'Search within the website',
+    'Warning'=>'Warning',
+    'We are sorry, but you need to log in with your personal account to use this feature!'=>'We are sorry, but you need to log in with your personal account to use this feature!',
+    'Not Found'=> 'Not Found',
 ];
