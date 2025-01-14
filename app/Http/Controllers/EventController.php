@@ -11,7 +11,7 @@ class EventController extends Controller
 {
     public function index()
     {
-        return view('calendar.index');
+        return view('pages.calendar.index');
     }
 
     public function getEvents()
@@ -35,15 +35,15 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-        $event = Event::create($request->all());
-        return redirect()->route('information.index')->with('success', __('messages.Create_success'));
+        $event = Event::create(array_merge($request->all(), ['color' => $request->color ?? '#000000']));
+        return redirect()->route('calendar.index')->with('success', __('messages.success'));
     }
 
     public function update(Request $request, $id)
     {
         $event = Event::find($id);
         $event->update($request->all());
-        return redirect()->route('information.index')->with('success', __('messages.Create_success'));
+        return redirect()->route('calendar.index')->with('success', __('messages.success'));
     }
 
     public function destroy($id)
@@ -52,9 +52,9 @@ class EventController extends Controller
 
         if ($event) {
             $event->delete();
-            redirect()->route('information.index')->with('success', __('messages.Create_success'));
+            redirect()->route('calendar.index')->with('success', __('messages.success'));
         }
     
-        return redirect()->route('information.index')->with('success_create', __('messages.Create_success'));
+        return redirect()->route('calendar.index')->with('success', __('messages.success'));
     }
 }

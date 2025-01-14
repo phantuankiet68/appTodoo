@@ -74,7 +74,11 @@
                                 <p class="card-title">【{{ $item->name}}】</p>
                                 <div class="content-expert-show">
                                     <i class="fa-duotone fas fa-caret-left"></i>
-                                    <button class="btn-show" onclick="ShowNews('{{ $item->id }}')">{{ __('messages.See More') }}</button>
+                                    @if (Auth::check())
+                                        <button class="btn-show" onclick="ShowNews('{{ $item->id }}')">{{ __('messages.See More') }}</button>
+                                    @else
+                                        <button class="btn-show" onclick="ShowProjectWarning()">{{ __('messages.See More') }}</button>
+                                    @endif
                                     <i class="fa-duotone fas fa-caret-right"></i>
                                 </div>
                             </div>
@@ -241,7 +245,11 @@
                                     <p class="card-title">【{{ $item->name}}】</p>
                                     <div class="content-expert-show">
                                         <i class="fa-duotone fas fa-caret-left"></i>
-                                        <button class="btn-show" onclick="ShowProject('{{ $item->id }}')">{{ __('messages.See More') }}</button>
+                                        @if (Auth::check())
+                                            <button class="btn-show" onclick="ShowProject('{{ $item->id }}')">{{ __('messages.See More') }}</button>
+                                        @else
+                                            <button class="btn-show" onclick="ShowProjectWarning()">{{ __('messages.See More') }}</button>
+                                        @endif
                                         <i class="fa-duotone fas fa-caret-right"></i>
                                     </div>
                                 </div>
@@ -442,9 +450,9 @@
             <img src="" />
         </div>
         <div class="showNewsPopupRight">
-            <h3>Học thoi nào</h3>  
+            <h3>{{ __('messages.Not Found') }}</h3>  
             <div class="showNewsPopupRightContent">
-                
+                {{ __('messages.Not Found') }}
             </div>                        
         </div>
         <div class="BtnClose" onclick="closeShowNews()">
@@ -460,12 +468,29 @@
             <img src="" />
         </div>
         <div class="showProjectPopupRight">
-            <h3>Học thoi nào</h3>  
+            <h3>{{ __('messages.Not Found') }}</h3>  
             <div class="showProjectPopupRightContent">
-                
+                {{ __('messages.Not Found') }}
             </div>                        
         </div>
         <div class="BtnClose" onclick="closeShowProject()">
+            <p>X</p>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="warning">
+    <div class="warning">
+        <div class="card-warning red">
+            <div class="icon red">
+                <div class="symbol"><i class="fa-solid fa-exclamation"></i></div>
+            </div>
+            <div class="text">
+                <h2>{{ __('messages.Warning') }}</h2>
+                <p>{{ __('messages.We are sorry, but you need to log in with your personal account to use this feature!') }}</p>
+            </div>
+        </div>
+        <div class="BtnClose" onclick="closeShowWarning()">
             <p>X</p>
         </div>
     </div>
@@ -510,6 +535,24 @@
             });
         } else {
             showPopupNews.style.display = 'none';
+        }
+    }
+
+    function ShowProjectWarning() {
+        const showPopupNews = document.getElementById('warning');
+        if (showPopupNews.style.display === 'none' || showPopupNews.style.display === '') {
+            showPopupNews.style.display = 'block';
+        } else {
+            showPopupNews.style.display = 'none';
+        }
+    }
+
+    function closeShowWarning() {
+        const ShowWarning = document.getElementById('warning');
+        if (ShowWarning.style.display === 'none' || ShowWarning.style.display === '') {
+            ShowWarning.style.display = 'block';
+        } else {
+            ShowWarning.style.display = 'none';
         }
     }
 

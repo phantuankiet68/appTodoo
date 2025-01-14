@@ -43,7 +43,7 @@
         <div class="croll-sidebar">
             <ul class="features-list">
                 <li class="features-item inbox active">
-                    <a href="" class="d-flex align-items">
+                    <a href="/" class="d-flex align-items">
                         <i class="bx bxs-home-alt features-item-icon inbox-icon"><span class="status"></span></i>
                         <i class="fa-solid fa-house"></i>
                         <span class="features-item-text">{{ __('messages.Home') }}</span>
@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items">
+                    <a href="/v1/calendar" class="d-flex align-items">
                         <i class="bx bxs-calendar-check features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Calendar') }}</span>
                         <span class="inbox-number blue">99</span>
@@ -567,6 +567,42 @@
             })
             .catch(error => console.error("Logout failed:", error));
         }
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.querySelector('#popup-success');
+            if (popup) {
+                popup.style.display = 'flex';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 6000);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.querySelector('#popup-error');
+            if (popup) {
+                popup.style.display = 'flex';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 6000);
+            }
+        });
+
+        document.getElementById('toggle-password').addEventListener('click', function () {
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = this;
+
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                toggleIcon.classList.remove('fa-eye');
+                toggleIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                toggleIcon.classList.remove('fa-eye-slash');
+                toggleIcon.classList.add('fa-eye');
+            }
+        });
     </script>
     <script src="{{ asset('js/layout.js') }}"></script>
 </body>

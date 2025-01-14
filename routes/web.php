@@ -54,6 +54,7 @@ use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Home\HomeProjectController;
 use App\Http\Controllers\News\NewsController;
+use App\Http\Controllers\Home\HomeCalendarController;
 use App\Models\News;
 use App\Models\ProjectHome;
 
@@ -135,6 +136,7 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::get('show/news/{id}', [NewsController::class, 'show'])->name('news.show');
     Route::get('show/project/{id}', [HomeProjectController::class, 'show']);
     Route::resource('/v2/project', HomeProjectController::class);
+    Route::resource('/v1/calendar', HomeCalendarController::class);
 
     Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('forgot.password');
 
@@ -236,7 +238,7 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/quiz/submit', [JapaneseController::class, 'submitQuiz'])->name('quiz.submit');
     Route::post('/send-email', [MailController::class, 'sendMail'])->name('send.email');
     Route::get('/events', [EventController::class, 'getEvents']);
-    Route::get('/calendar', [EventController::class, 'index'])->name('calendar.index');
+    Route::get('/calendars', [EventController::class, 'index'])->name('calendar.index');
     Route::post('/event', [EventController::class, 'store'])->name('event.store');
     Route::put('/event/{id}', [EventController::class, 'update']);
     Route::delete('/event/{id}', [EventController::class, 'destroy']);
