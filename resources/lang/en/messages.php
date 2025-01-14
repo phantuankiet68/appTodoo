@@ -459,4 +459,9 @@ return [
     'Holiday'=> 'Holiday',
     'Party'=> 'Party',
     'Add New Event'=> 'Add New Event',
+    'Enter title...' => 'Enter title...',
+    'Enter date (dd-mm-yyyy)' => 'Enter date (dd-mm-yyyy)',
+    'Search' => 'Search',
+    'Search event' => 'Search event',
+
 ];

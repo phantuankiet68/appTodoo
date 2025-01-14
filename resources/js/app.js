@@ -74,6 +74,20 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     calendar.render();
+    document.getElementById('search-btn').addEventListener('click', function() {
+        let inputDate = document.getElementById('date-input').value;
+        let dateParts = inputDate.split('-'); // Ngày định dạng dd-mm-yyyy
+        if (dateParts.length === 3) {
+            let formattedDate = new Date(`${dateParts[2]}-${dateParts[1]}-${dateParts[0]}`);
+            if (!isNaN(formattedDate.getTime())) {
+                calendar.gotoDate(formattedDate); // Chuyển lịch đến ngày tương ứng
+            } else {
+                alert('Invalid date format. Please enter in dd-mm-yyyy format.');
+            }
+        } else {
+            alert('Please enter a valid date in dd-mm-yyyy format.');
+        }
+    });
 });
 
 

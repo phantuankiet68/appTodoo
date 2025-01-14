@@ -6,12 +6,44 @@
     <div class="calendar-left">
         <div class="calendar-container">
             <div class="search-box">
-                <input placeholder="Search within the website" type="text">
-                <button>
+                <input id="date-input" placeholder="{{ __('messages.Enter date (dd-mm-yyyy)') }}"  type="text">
+                <button id="search-btn">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
-           
+            <div class="title-search">
+                <span>{{ __('messages.Search event') }}</span>
+            </div>
+            <form action="{{ route('calendar.index') }}" method="GET">
+                <div class="search-box">
+                    <input id="date-input" name="search"  placeholder="{{ __('messages.Enter title...') }}"  type="text" value="{{ request('search') }}">
+                    <button id="search-btn" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </form>
+            <div class="tables">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>{{ __('messages.Name') }}</th>
+                            <th class="text-center">{{ __('messages.Date') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbody-event">
+                        @foreach($event as $item)
+                        <tr>
+                            <td>
+                                <div class="text-truncate" style="width: 176px;">
+                                    {{ $item->title }}   
+                                </div>
+                            </td>
+                            <td class="text-center">{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <div class="calendar-right">
@@ -150,7 +182,7 @@
 
 
 <script>
-
+    
     function closeCreateCalendar() {
         const ModelCreateCalendar = document.querySelector('.ModelCreateCalendar');
         

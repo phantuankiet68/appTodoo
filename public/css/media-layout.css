@@ -65,6 +65,16 @@
         margin: 123px 0!important;
     }
 
+    .calendar-left {
+        width: 25% !important;
+    }
+    .calendar-right {
+        width: 75% !important;
+    }
+    .calendar {
+        min-height: 91vh !important;
+    }
+
 }
 
 @media only screen and (max-width: 767px) {

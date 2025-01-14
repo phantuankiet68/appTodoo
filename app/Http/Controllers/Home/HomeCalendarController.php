@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Event;
+
 
 class HomeCalendarController extends Controller
 {
@@ -12,9 +14,22 @@ class HomeCalendarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.calendar.index');
+        // Lấy từ khóa tìm kiếm từ input
+        $search = $request->input('search');
+
+        // Nếu có từ khóa, thêm điều kiện vào truy vấn
+        $query = Event::query();
+        if (!empty($search)) {
+            $query->where('title', 'LIKE', "%{$search}%");
+        }
+
+        // Lấy dữ liệu
+        $event = $query->get();
+
+        // Trả về view với dữ liệu
+        return view('pages.calendar.index', compact('event'));
     }
 
     /**

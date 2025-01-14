@@ -238,7 +238,7 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/quiz/submit', [JapaneseController::class, 'submitQuiz'])->name('quiz.submit');
     Route::post('/send-email', [MailController::class, 'sendMail'])->name('send.email');
     Route::get('/events', [EventController::class, 'getEvents']);
-    Route::get('/calendars', [EventController::class, 'index'])->name('calendar.index');
+    Route::get('/calendars', [EventController::class, 'index']);
     Route::post('/event', [EventController::class, 'store'])->name('event.store');
     Route::put('/event/{id}', [EventController::class, 'update']);
     Route::delete('/event/{id}', [EventController::class, 'destroy']);

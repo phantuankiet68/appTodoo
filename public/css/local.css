@@ -1758,7 +1758,7 @@ a.google span {
     padding: 10px 0;
     background: bisque;
     color: #656565;
-    font-size: 13px;
+    font-size: 15px;
 }
 .form-select-category{
     display: flex;
@@ -1775,6 +1775,7 @@ a.google span {
     border-radius: 0;
     border: 1px solid #d7d6d6;
     outline: none;
+    font-size: 15px;
 }
 .ModelCreateCalendar .form-input-category .form-select-category label{
     width: 50%;
@@ -1791,7 +1792,7 @@ a.google span {
     padding: 6px 10px;
     border: 1px solid #d7d6d6;
     outline: none;
-    font-size: 13px;
+    font-size: 15px;
     border-radius: 0;
 }
 .ModelCreateCalendar .form-input-category .input-name {
@@ -1799,7 +1800,7 @@ a.google span {
     padding: 6px 10px;
     border: 1px solid #d7d6d6;
     outline: none;
-    font-size: 13px;
+    font-size: 15px;
     border-radius: 0;
     font-family: "Poppins", sans-serif;
 }
@@ -2074,11 +2075,21 @@ a.google span {
     align-items: center;
     margin-bottom: 15px;
 }
+.title-search{
+    padding: 7px 0;
+    font-size: 18px;
+}
 .search-box input {
     flex: 1;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px 0 0 5px;
+    font-size: 15px;
+}
+
+.search-box input:focus{
+    border: 1px solid #d6d6d7;
+    outline: none;
 }
 .search-box button {
     padding: 10px;
@@ -2086,6 +2097,13 @@ a.google span {
     border-left: none;
     background-color: white;
     border-radius: 0 5px 5px 0;
+    font-size: 15px;
+}
+
+.search-box button:hover{
+    background-color: #12aeff;
+    color: #fff;
+    cursor: pointer;
 }
 .menu {
     background-color: #ffb964;
@@ -2771,7 +2789,22 @@ a.google span {
     z-index: 5;
 }
 
+.text-truncate{
+    max-width: 100%;
+    width: 168px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    white-space: normal;
+}
 
+.tbody-event tr td {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 18px 10px;
+}
 
 .text-contact p{
     color: #676a8b;
@@ -3389,6 +3422,8 @@ table th {
     border: none;
     outline: none;
     border-radius: 5px;
+    font-size: 15px;
+    line-height: 23px;
 }
 
 

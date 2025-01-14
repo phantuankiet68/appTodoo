@@ -455,4 +455,8 @@ return [
     'Holiday'=> 'Ngày Lễ',
     'Party'=> 'Đám tiệc',
     'Add New Event'=> 'Thêm mới sự kiện',
+    'Enter title...' => 'Nhập tiêu đề...',
+    'Enter date (dd-mm-yyyy)' => 'Nhập ngày (dd-mm-yyyy)',
+    'Search' => 'Tìm kiếm',
+    'Search event' => 'Tìm kiếm sự kiện',
 ];

@@ -458,4 +458,8 @@ return [
     'Holiday'=> '休日',
     'Party'=> 'パーティー',
     'Add New Event'=> '新しいイベントを追加',
+    'Enter title...' => 'Nhập tiêu đề...',
+    'Enter date (dd-mm-yyyy)' => '日付を入力してください (dd-mm-yyyy)',
+    'Search' => '検索',
+    'Search event' => 'イベント検索',
 ];
