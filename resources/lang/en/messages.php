@@ -463,5 +463,21 @@ return [
     'Enter date (dd-mm-yyyy)' => 'Enter date (dd-mm-yyyy)',
     'Search' => 'Search',
     'Search event' => 'Search event',
+    'Technology'=> 'Technology',
+    'Programming'=> 'Programming',
+    'Design'=> 'Design',
+    'Fitness'=> 'Fitness',
+    'Culture'=> 'Culture',
+    'Creativity'=> 'Creativity',
+    'Views'=> 'Views',
+    'Down'=> 'Down',
+    'Shares'=> 'Shares',
+    'Recent News'=> 'Recent News',
+    'All Recent News'=> 'All Recent News',
+    'Total views:'=> 'Total views:',
+    'Total downloads:'=> 'Total downloads:',
+    'Total shares:'=> 'Total shares:',
+    ''=> '',
+
 
 ];

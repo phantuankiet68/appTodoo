@@ -54,16 +54,16 @@
                     <a href="/v1/calendar" class="d-flex align-items">
                         <i class="bx bxs-calendar-check features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Calendar') }}</span>
-                        <span class="inbox-number blue">99</span>
+                        <span class="inbox-number blue">{{ $totalEvents ?? 'N/A' }}</span>
                         <span class="tooltip">{{ __('messages.Calendar') }}</span>
                     </a>
                 </li>
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items">
+                    <a href="{{ route('index_home.news') }}" class="d-flex align-items">
                         <i class="bx bx-news features-item-icon"></i>
-                        <span class="features-item-text">{{ __('messages.News') }}</span>
+                        <span class="features-item-text">Blog</span>
                         <span class="inbox-number red">99</span>
-                        <span class="tooltip">News</span>
+                        <span class="tooltip">Blog</span>
                     </a>
                 </li>
                 <li class="features-item spam">
@@ -362,10 +362,7 @@
             <form action="{{ route('register') }}" method="POST" onsubmit="return validateForm()">
                 @csrf
                 <div class="login">
-                    <div class="title">Đăng ký!</div>
-                    <div class="des">
-                        We are glad to have you back! <br> beeb missed!
-                    </div>
+                    <div class="title">Đăng ký</div>
                     <div class="group">
                         <input type="text" class="input-name" name="full_name" id="full_name"
                             placeholder="Nhập Họ và tên">

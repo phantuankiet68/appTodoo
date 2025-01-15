@@ -27,18 +27,20 @@
                     <thead>
                         <tr>
                             <th>{{ __('messages.Name') }}</th>
-                            <th class="text-center">{{ __('messages.Date') }}</th>
+                            <th class="text-center">{{ __('messages.Start Date') }}</th>
+                            <th class="text-center">{{ __('messages.End Date') }}</th>
                         </tr>
                     </thead>
                     <tbody class="tbody-event">
-                        @foreach($event as $item)
+                        @foreach($events as $item)
                         <tr>
                             <td>
-                                <div class="text-truncate" style="width: 176px;">
+                                <div class="text-truncate" style="width: 100%;">
                                     {{ $item->title }}   
                                 </div>
                             </td>
-                            <td class="text-center">{{ \Carbon\Carbon::parse($item->created_at)->format('d-m-Y') }}</td>
+                            <td class="text-center">{{ \Carbon\Carbon::parse($item->start)->format('d-m-Y') }}</td>
+                            <td class="text-center">{{ \Carbon\Carbon::parse($item->end)->format('d-m-Y') }}</td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -182,7 +184,6 @@
 
 
 <script>
-    
     function closeCreateCalendar() {
         const ModelCreateCalendar = document.querySelector('.ModelCreateCalendar');
         
