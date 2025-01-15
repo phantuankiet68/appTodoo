@@ -29,10 +29,12 @@ class HomeController extends Controller
         $languageId = $languageMap[$locale] ?? 2; // Mặc định là English
     
         $news = News::where('language', $languageId)
-            ->orderBy('stt', 'asc')
+            ->orderBy('stt', 'desc')
+            ->limit(6)
             ->get();
         $projects = ProjectHome::where('language', $languageId)
-            ->orderBy('stt', 'asc')
+            ->orderBy('stt', 'desc')
+            ->limit(6)
             ->get();
     
         return view('pages.home.index', compact('news', 'projects'));

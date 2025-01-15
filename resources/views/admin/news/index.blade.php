@@ -45,6 +45,19 @@
                         <option value="0">{{ __('messages.Hide') }}</option>
                     </select>
                 </div>
+                <div class="form-select-category mt-10">
+                    <label for="category">{{ __('messages.Category') }}</label>
+                    <select name="category" id="status">
+                        <option value="1">{{ __('messages.Traveling') }}</option>
+                        <option value="2">{{ __('messages.Technology') }}</option>
+                        <option value="3">{{ __('messages.Programming') }}</option>
+                        <option value="4">{{ __('messages.Design') }}</option>
+                        <option value="5">{{ __('messages.Fitness') }}</option>
+                        <option value="6">{{ __('messages.Culture') }}</option>
+                        <option value="7">{{ __('messages.Creativity') }}</option>
+                        <option value="8">{{ __('messages.Sports') }}</option>
+                    </select>
+                </div>
                 <div class="form-btn">
                     <button type="submit">{{ __('messages.Save changes') }}</button>
                 </div>

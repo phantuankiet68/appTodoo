@@ -34,6 +34,7 @@ class NewsController extends Controller
             'image_path' => 'nullable|image',
             'description' => 'nullable|string',
             'language' => 'required|string',
+            'category' => 'required',
             'status' => 'required|boolean',
             'stt' => 'required|integer',
         ]);
@@ -121,7 +122,31 @@ class NewsController extends Controller
      */
     public function index_home()
     {
-        return view('pages.news.index');
+        $locale = session('locale', 'en');
+        
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+    
+        $news = News::where('language', $languageId)
+            ->orderBy('stt', 'desc')
+            ->get();
+
+        $news_first = News::with(['user'])->where('language', $languageId)
+            ->orderBy('stt', 'desc')
+            ->first();
+        return view('pages.news.index', compact('news', 'news_first'));
+    }
+
+
+    public function show_home($id)
+    {
+        $news = News::find($id);
+        return view('pages.news.show.index', compact('news'));
     }
 
 }

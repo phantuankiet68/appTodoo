@@ -3,14 +3,22 @@
 @section('content')
 <div class="blog-container">
     <div class="main-article">
-        <img alt="Person wearing VR headset with colorful background" src="https://placehold.co/600x400"/>
-        <h1> VR Is the Use of Computer Technology to Create a Simulated Environment.</h1>
+        @if($news_first && $news_first->image_path)
+            <img src="{{asset($news_first->image_path)}}" alt="Image">
+        @else
+            <p>No image available</p>
+        @endif
+        <a href="{{ route('show_home.news', ['id' => $news_first->id]) }}">
+            <h1>{{ $news_first->name }}</h1>
+        </a>
         <div class="meta">
-            <span>By Ashley Graham</span>
-            <span>July 23, 2018</span>
-            <span>4k {{ __('messages.Down') }}</span>
-            <span>4k {{ __('messages.Views') }}</span>
-            <span> 230 {{ __('messages.Shares') }}</span>
+            <span>{{ $news_first->user->full_name}}</span>
+            <span>{{ $news_first->created_at->format('d-m-Y') }}</span>
+        </div>
+        <div class="view-box">
+            <span class="down"><i class="fa-solid fa-download"></i> 4k {{ __('messages.Down') }}</span>
+            <span class="view"><i class="fa-solid fa-street-view"></i> 4k {{ __('messages.Views') }}</span>
+            <span class="share"><i class="fa-regular fa-share-from-square"></i>  230 {{ __('messages.Shares') }}</span>
         </div>
     </div>
     <div class="recent-news">
@@ -19,94 +27,35 @@
             <a href="#">{{ __('messages.All Recent News') }}</a>
         </div>
         <div class="list-blog no-croll">
+            @foreach($news as $item)
             <div class="blog-item">
-                <a href="">
+                <a href="{{ route('show_home.news', ['id' => $item->id]) }}">
                     <div class="blog-item-image">
-                        <img alt="Person with a dog" src="https://placehold.co/80x80"/>
+                        <img src="{{asset($item->image_path)}}" />
                     </div>
                     <div class="blog-item-content">
-                        <div class="category travel">{{ __('messages.Traveling') }} <span>20-10-2023</span></div>
-                        <h3>50 Years After The Moon Landing: How Close Is Space Travel, Really?</h3>
+                        @if($item->category == 1)
+                            <div class="category travel">{{ __('messages.Traveling') }} <span>{{ $item->created_at->format('d-m-Y') }}</span></div>
+                        @elseif($item->category == 2)
+                            <div class="category technology">{{ __('messages.Technology') }} <span>{{ $item->created_at->format('d-m-Y') }}</span></div>
+                        @elseif($item->category == 3)
+                            <div class="category programming">{{ __('messages.Programming') }} <span>{{ $item->created_at->format('d-m-Y') }}</span></div>
+                        @elseif($item->category == 4)
+                            <div class="category design">{{ __('messages.Design') }} <span>{{ $item->created_at->format('d-m-Y') }}</span></div>
+                        @elseif($item->category == 5)
+                            <div class="category fitness">{{ __('messages.Fitness') }} <span>{{ $item->created_at->format('d-m-Y') }}</span></div>
+                        @elseif($item->category == 6)
+                            <div class="category culture">{{ __('messages.Culture') }} <span>{{ $item->created_at->format('d-m-Y') }}</span></div>
+                        @elseif($item->category == 7)
+                            <div class="category creativity">{{ __('messages.Creativity') }} <span>{{ $item->created_at->format('d-m-Y') }}</span></div>
+                        @else
+                            <div class="category sports">{{ __('messages.Sports') }} <span>{{ $item->created_at->format('d-m-Y') }}</span></div>
+                        @endif
+                        <h3>{{ $item->name}}</h3>
                     </div>
                 </a>
             </div>
-            <div class="blog-item">
-                <a href="">
-                    <div class="blog-item-image">
-                        <img alt="Person with a dog" src="https://placehold.co/80x80"/>
-                    </div>
-                    <div class="blog-item-content">
-                        <div class="category technology">{{ __('messages.Technology') }} <span>20-10-2023</span></div>
-                        <h3>50 Years After The Moon Landing: How Close Is Space Travel, Really?</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="blog-item">
-                <a href="">
-                    <div class="blog-item-image">
-                        <img alt="Person with a dog" src="https://placehold.co/80x80"/>
-                    </div>
-                    <div class="blog-item-content">
-                        <div class="category programming">{{ __('messages.Programming') }} <span>20-10-2023</span></div>
-                        <h3>50 Years After The Moon Landing: How Close Is Space Travel, Really?</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="blog-item">
-                <a href="">
-                    <div class="blog-item-image">
-                        <img alt="Person with a dog" src="https://placehold.co/80x80"/>
-                    </div>
-                    <div class="blog-item-content">
-                        <div class="category design">{{ __('messages.Design') }} <span>20-10-2023</span></div>
-                        <h3>50 Years After The Moon Landing: How Close Is Space Travel, Really?</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="blog-item">
-                <a href="">
-                    <div class="blog-item-image">
-                        <img alt="Person with a dog" src="https://placehold.co/80x80"/>
-                    </div>
-                    <div class="blog-item-content">
-                        <div class="category fitness">{{ __('messages.Fitness') }} <span>20-10-2023</span></div>
-                        <h3>50 Years After The Moon Landing: How Close Is Space Travel, Really?</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="blog-item">
-                <a href="">
-                    <div class="blog-item-image">
-                        <img alt="Person with a dog" src="https://placehold.co/80x80"/>
-                    </div>
-                    <div class="blog-item-content">
-                        <div class="category culture">{{ __('messages.Culture') }} <span>20-10-2023</span></div>
-                        <h3>50 Years After The Moon Landing: How Close Is Space Travel, Really?</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="blog-item">
-                <a href="">
-                    <div class="blog-item-image">
-                        <img alt="Person with a dog" src="https://placehold.co/80x80"/>
-                    </div>
-                    <div class="blog-item-content">
-                        <div class="category creativity">{{ __('messages.Creativity') }} <span>20-10-2023</span></div>
-                        <h3>50 Years After The Moon Landing: How Close Is Space Travel, Really?</h3>
-                    </div>
-                </a>
-            </div>
-            <div class="blog-item">
-                <a href="">
-                    <div class="blog-item-image">
-                        <img alt="Person with a dog" src="https://placehold.co/80x80"/>
-                    </div>
-                    <div class="blog-item-content">
-                        <div class="category sports">{{ __('messages.Sports') }} <span>20-10-2023</span></div>
-                        <h3>50 Years After The Moon Landing: How Close Is Space Travel, Really?</h3>
-                    </div>
-                </a>
-            </div>
+            @endforeach
         </div>
     </div>
     <div class="blog-aside">

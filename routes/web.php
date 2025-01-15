@@ -101,6 +101,7 @@ Route::get('/profile/{full_name}', [HomeController::class, 'profile'])->name('pr
 Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], function () {
     Route::resource('/calendar', HomeCalendarController::class);
     Route::get('/blog', [NewsController::class, 'index_home'])->name('index_home.news');
+    Route::get('/blog/{id}', [NewsController::class, 'show_home'])->name('show_home.news');
 });
 
 Route::group(['middleware' => ['auth', 'role.check']], function() {

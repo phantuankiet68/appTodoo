@@ -15,6 +15,7 @@ class News extends Model
         'image_path',
         'description',
         'language',
+        'category',
         'status',
         'stt'
     ];

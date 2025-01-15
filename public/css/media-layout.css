@@ -71,8 +71,11 @@
     .calendar-right {
         width: 75% !important;
     }
-    .calendar {
+    .calendar, .blog-container {
         min-height: 91vh !important;
+    }
+    .list-control p {
+        padding: 30px 10px !important;
     }
 
 }
