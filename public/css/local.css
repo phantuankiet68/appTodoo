@@ -3632,9 +3632,12 @@ table th {
     width: 27.5%;
 }
 
+.mt-30{
+    margin-top: 30px;
+}
 
 .blog-aside{
-    width: 19.2%;
+    width: 23.9%;
 }
 .blog-item a{
     width: 100%;
@@ -3790,7 +3793,7 @@ table th {
 }
 
 .blog-content{
-    width: 78%;
+    width: 74%;
     margin-bottom: 74px;
 }
 
@@ -3873,7 +3876,7 @@ table th {
 }
 
 .blog-content-header{
-    margin-top: 20px;
+    margin-top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -3894,9 +3897,165 @@ table th {
     margin-bottom: 20px;
 }
 
-.entry-crumbs a{
+.entry-crumbs a, .entry-crumbs span{
     font-size: 15px;
 }
 .entry-crumbs i {
     font-size: 8px;
+}
+:root {
+    --app-brand-one: #004f62;
+    --app-brand-two: #003b49;
+    --app-brand-inverse: #e6f5f7;
+    --app-border-radius: 4px;
+    --spacer: 1rem;
+    --breadcrumb-border: #a2c7cc;
+}
+.breadcrumbs {
+    display: flex;
+    list-style: none;
+    margin: 0 0 20px 0;
+    overflow: hidden;
+    background-color: #f1b380;
+}
+
+.breadcrumbs li {
+    display: contents;
+}
+
+.breadcrumbs li .breadcrumb,
+.breadcrumbs li [itemprop="name"] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.breadcrumbs li .breadcrumb {
+    position: relative;
+    color: var(--app-brand-one);
+    outline: none;
+}
+
+.breadcrumbs li .breadcrumb .material-icons {
+    font-size: 1.5em;
+    margin-right: calc(var(--spacer) / 2);
+    opacity: 0.85;
+}
+
+.breadcrumbs li a.breadcrumb {
+    text-decoration: none;
+}
+
+.breadcrumbs li a.breadcrumb .material-icons {
+    transition: transform 150ms;
+}
+
+.breadcrumbs li a.breadcrumb:active .material-icons {
+    transform: scale(0.8);
+}
+
+/* First variation */
+.breadcrumbs.breadcrumbs--one {
+    padding: 0 0 0 var(--spacer);
+    border-color: var(--breadcrumb-border);
+    border-style: solid;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+}
+
+.breadcrumbs.breadcrumbs--one li .breadcrumb {
+    position: relative;
+    margin-left: calc(-1 * var(--spacer));
+    margin-right: var(--spacer);
+}
+
+.breadcrumbs.breadcrumbs--one li [itemprop="name"] {
+    padding: calc(var(--spacer) / 2) calc(var(--spacer) / 2) calc(var(--spacer) / 2) calc(var(--spacer) * 2);
+}
+
+.breadcrumbs.breadcrumbs--one li a.breadcrumb {
+    text-decoration: none;
+    background: linear-gradient(to right, white 0%, var(--app-brand-inverse) 50%);
+}
+
+.breadcrumbs.breadcrumbs--one li a.breadcrumb:hover,
+.breadcrumbs.breadcrumbs--one li a.breadcrumb:focus {
+    background: var(--app-brand-one);
+    color: var(--app-brand-inverse);
+}
+
+.breadcrumbs.breadcrumbs--one li a.breadcrumb::after {
+    --breadcrumb-arrow-size: calc(var(--spacer) * 1.5);
+    content: "";
+    display: block;
+    width: var(--breadcrumb-arrow-size);
+    height: var(--breadcrumb-arrow-size);
+    z-index: 1;
+    margin-right: calc(-1 * var(--breadcrumb-arrow-size) / 2);
+    background-color: var(--app-brand-inverse);
+    border: 3px solid var(--breadcrumb-border);
+    transform: rotate(45deg) skew(15deg, 15deg);
+    transform-origin: center;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    border-radius: 0 4px 0 0;
+}
+
+.breadcrumbs.breadcrumbs--one li:first-child [itemprop="name"] {
+    padding-left: calc(var(--spacer) * 1.5);
+}
+
+/* Second variation */
+.breadcrumbs.breadcrumbs--two li .breadcrumb [itemprop="name"] {
+    padding: 8px 20px;
+}
+
+.breadcrumbs.breadcrumbs--two li a.breadcrumb {
+    position: relative;
+    color: #fff;
+}
+
+.breadcrumbs.breadcrumbs--two li a.breadcrumb::after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: calc(var(--spacer) / 1.25);
+    z-index: 1;
+    margin-right: calc(-1 * var(--spacer) / 2);
+    clip-path: polygon(45% 0, 100% 50%, 45% 100%, 0% 100%, 55% 50%, 0% 0%);
+    background-color: #fff;
+}
+
+.breadcrumbs.breadcrumbs--two li a.breadcrumb:hover,
+.breadcrumbs.breadcrumbs--two li a.breadcrumb:focus {
+    text-decoration: underline;
+}
+
+
+
+button {
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+}
+
+/* Icon font (ideally SVG instead) */
+.material-icons {
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    font-size: inherit;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "liga";
 }

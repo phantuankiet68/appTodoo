@@ -145,8 +145,22 @@ class NewsController extends Controller
 
     public function show_home($id)
     {
+        $locale = session('locale', 'en');
+        
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+    
+        $new = News::where('language', $languageId)
+            ->orderBy('stt', 'desc')
+            ->get();
+
         $news = News::find($id);
-        return view('pages.news.show.index', compact('news'));
+        return view('pages.news.show.index', compact('news', 'new'));
     }
 
 }

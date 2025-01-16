@@ -15,11 +15,13 @@
             <span>{{ $news_first->user->full_name}}</span>
             <span>{{ $news_first->created_at->format('d-m-Y') }}</span>
         </div>
+        @if($news_first->category == 3)
         <div class="view-box">
             <span class="down"><i class="fa-solid fa-download"></i> 4k {{ __('messages.Down') }}</span>
             <span class="view"><i class="fa-solid fa-street-view"></i> 4k {{ __('messages.Views') }}</span>
             <span class="share"><i class="fa-regular fa-share-from-square"></i>  230 {{ __('messages.Shares') }}</span>
         </div>
+        @endif
     </div>
     <div class="recent-news">
         <div class="all-news">
