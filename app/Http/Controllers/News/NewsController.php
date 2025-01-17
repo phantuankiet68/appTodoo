@@ -5,7 +5,7 @@ namespace App\Http\Controllers\News;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\News;
-
+use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
@@ -155,12 +155,12 @@ class NewsController extends Controller
             })
             ->orderBy('stt', 'desc')
             ->first();
-            
+
         return view('pages.news.index', compact('news', 'news_first'));
     }
 
 
-    public function show_home($id)
+   public function show_home($id, Request $request)
     {
         $locale = session('locale', 'en');
         
@@ -169,15 +169,22 @@ class NewsController extends Controller
             'en' => 2,
             'ja' => 3,
         ];
-    
+
         $languageId = $languageMap[$locale] ?? 2;
-    
+
         $new = News::where('language', $languageId)
             ->orderBy('stt', 'desc')
             ->get();
 
-        $news = News::find($id);
+        $news = News::findOrFail($id);
+
+        $news->views()->updateOrCreate(
+            [],
+            [
+                'view_count' => DB::raw('view_count + 1'),
+            ]
+        );
+
         return view('pages.news.show.index', compact('news', 'new'));
     }
-
 }
