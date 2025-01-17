@@ -477,7 +477,7 @@ return [
     'Total views:'=> 'Total views:',
     'Total downloads:'=> 'Total downloads:',
     'Total shares:'=> 'Total shares:',
-    ''=> '',
+    'Please enter key.....'=> 'Please enter key.....',
 
 
 ];

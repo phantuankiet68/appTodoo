@@ -473,4 +473,5 @@ return [
     'Total views:'=> 'Tổng lượt xem:',
     'Total downloads:'=> 'Tổng lượt tải xuống: ',
     'Total shares:'=> 'Tổng lượt chia sẻ:',
+    'Please enter key.....'=> 'Vui lòng nhập khóa.....',
 ];

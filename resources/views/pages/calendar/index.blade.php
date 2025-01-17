@@ -3,60 +3,73 @@
 @section('content')
 
 <div class="calendar">
-    <div class="calendar-left">
-        <div class="calendar-container">
-            <div class="search-box">
-                <input id="date-input" placeholder="{{ __('messages.Enter date (dd-mm-yyyy)') }}"  type="text">
-                <button id="search-btn">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-            <div class="title-search">
-                <span>{{ __('messages.Search event') }}</span>
-            </div>
-            <form action="{{ route('calendar.index') }}" method="GET">
-                <div class="search-box">
-                    <input id="date-input" name="search"  placeholder="{{ __('messages.Enter title...') }}"  type="text" value="{{ request('search') }}">
-                    <button id="search-btn" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
+    <ol class="breadcrumbs breadcrumbs--two" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a class="breadcrumb" href="/" itemprop="item">
+            <span itemprop="name">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </span>
+            </a>
+            <meta itemprop="position" content="1" />
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a class="breadcrumb" href="/v1/blog/" itemprop="item">
+            <span itemprop="name">
+                <i class="bx bx-news features-item-icon"></i>
+                <span>Blog</span>
+                </span>
+            </a>
+            <meta itemprop="position" content="2" />
+        </li>
+    </ol>
+    <div class="calendar-body">
+        <div class="calendar-left">
+            <div class="calendar-container">
+                <form action="{{ route('calendar.index') }}" method="GET">
+                    <div class="search-box">
+                        <input  name="search"  placeholder="{{ __('messages.Enter title...') }}"  type="text" value="{{ request('search') }}">
+                        <button id="search-btn" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="tables">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>{{ __('messages.Name') }}</th>
+                                <th class="text-center">{{ __('messages.Start Date') }}</th>
+                                <th class="text-center">{{ __('messages.End Date') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody class="tbody-event">
+                            @foreach($events as $item)
+                            <tr>
+                                <td>
+                                    <div class="text-truncate" style="width: 100%;">
+                                        {{ $item->title }}   
+                                    </div>
+                                </td>
+                                <td class="text-center">{{ \Carbon\Carbon::parse($item->start)->format('d-m-Y') }}</td>
+                                <td class="text-center">{{ \Carbon\Carbon::parse($item->end)->format('d-m-Y') }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
-            </form>
-            <div class="tables">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>{{ __('messages.Name') }}</th>
-                            <th class="text-center">{{ __('messages.Start Date') }}</th>
-                            <th class="text-center">{{ __('messages.End Date') }}</th>
-                        </tr>
-                    </thead>
-                    <tbody class="tbody-event">
-                        @foreach($events as $item)
-                        <tr>
-                            <td>
-                                <div class="text-truncate" style="width: 100%;">
-                                    {{ $item->title }}   
-                                </div>
-                            </td>
-                            <td class="text-center">{{ \Carbon\Carbon::parse($item->start)->format('d-m-Y') }}</td>
-                            <td class="text-center">{{ \Carbon\Carbon::parse($item->end)->format('d-m-Y') }}</td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
             </div>
         </div>
-    </div>
-    <div class="calendar-right">
-        <div id="calendar"></div>
+        <div class="calendar-right">
+            <div id="calendar"></div>
+        </div>
     </div>
 </div>
 <div class="ModelCreateCalendar">
     <form  method="POST" action="{{ route('event.store') }}" >
     @csrf
         @if (Auth::check())
-            <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
         @endif
         <div class="form-group-info">
             <div class="form-input-category">
@@ -88,7 +101,7 @@
                 </div>
                 <div class="form-textarea-category">
                     <label for="description">{{ __('messages.Description') }}</label>
-                    <textarea id="editor" class="textArea_description" name="description"></textarea> 
+                    <textarea class="textArea_description" name="description"></textarea> 
                 </div>
                 <div class="form-select-category mt-5">
                     <label for="order">{{ __('messages.Calendar') }}</label>
@@ -143,7 +156,7 @@
         @csrf
         @method('PUT')
         @if (Auth::check())
-            <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}"/>
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
         @endif
         <input type="hidden" id="event_id" name="event_id" value="">
         <div class="form-group-info mt-30">
@@ -160,7 +173,7 @@
         </div>
         <div class="form-textarea-category">
             <label for="description">{{ __('messages.Description') }}</label>
-            <textarea id="editor" class="textArea_description" name="description"></textarea> 
+            <textarea class="textArea_description" name="description"></textarea> 
         </div>
         <div class="form-btn">
             <button type="submit">{{ __('messages.Update') }}</button>

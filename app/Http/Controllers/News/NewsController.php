@@ -120,25 +120,42 @@ class NewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index_home()
+    public function index_home(Request $request)
     {
         $locale = session('locale', 'en');
-        
+
         $languageMap = [
             'vi' => 1,
             'en' => 2,
             'ja' => 3,
         ];
-    
+
         $languageId = $languageMap[$locale] ?? 2;
-    
+
+        $searchKey = $request->input('search_key');
+        $category = $request->input('category');
+
         $news = News::where('language', $languageId)
+            ->when($searchKey, function ($query, $searchKey) {
+                return $query->where('name', 'like', '%' . $searchKey . '%');
+            })
+            ->when($category, function ($query, $category) {
+                return $query->where('category', $category);
+            })
             ->orderBy('stt', 'desc')
             ->get();
 
-        $news_first = News::with(['user'])->where('language', $languageId)
+        $news_first = News::with(['user'])
+            ->where('language', $languageId)
+            ->when($searchKey, function ($query, $searchKey) {
+                return $query->where('name', 'like', '%' . $searchKey . '%');
+            })
+            ->when($category, function ($query, $category) {
+                return $query->where('category', $category);
+            })
             ->orderBy('stt', 'desc')
             ->first();
+            
         return view('pages.news.index', compact('news', 'news_first'));
     }
 

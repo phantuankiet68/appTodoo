@@ -1,34 +1,34 @@
 @extends('layout')
 @section('title', 'Home Page')
 @section('content')
+<ol class="breadcrumbs breadcrumbs--two" itemscope itemtype="http://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a class="breadcrumb" href="/" itemprop="item">
+        <span itemprop="name">
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </span>
+        </a>
+        <meta itemprop="position" content="1" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <a class="breadcrumb" href="/v1/blog/" itemprop="item">
+        <span itemprop="name">
+            <i class="bx bx-news features-item-icon"></i>
+            <span>Blog</span>
+            </span>
+        </a>
+        <meta itemprop="position" content="2" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+        <span class="breadcrumb">
+        <span itemprop="name">{{$news->name}}</span>
+        </span>
+        <meta itemprop="position" content="3" />
+    </li>
+</ol>
 <div class="blog-container">
     <div class="blog-content">
-        <ol class="breadcrumbs breadcrumbs--two" itemscope itemtype="http://schema.org/BreadcrumbList">
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <a class="breadcrumb" href="/" itemprop="item">
-                <span itemprop="name">
-                    <i class="fa-solid fa-house"></i>
-                    <span>Home</span>
-                </span>
-              </a>
-              <meta itemprop="position" content="1" />
-            </li>
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <a class="breadcrumb" href="/v1/blog/" itemprop="item">
-                <span itemprop="name">
-                    <i class="bx bx-news features-item-icon"></i>
-                    <span>Blog</span>
-                 </span>
-              </a>
-              <meta itemprop="position" content="2" />
-            </li>
-            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <span class="breadcrumb">
-                <span itemprop="name">{{$news->name}}</span>
-              </span>
-              <meta itemprop="position" content="3" />
-            </li>
-        </ol>
         <h3 class="entry-title">{{$news->name}}</h3>
         <div class="blog-content-header">
             <button class="view"><i class="fa-solid fa-street-view"></i>  {{ $news->user->full_name}}</button>

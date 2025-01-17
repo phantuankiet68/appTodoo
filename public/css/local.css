@@ -1077,7 +1077,7 @@ header nav {
   }
   
   body.dark-mode {
-    background-color: #121212;
+    background-color: #555555;
     color: white;
   }
 
@@ -1710,12 +1710,18 @@ a.google span {
     background-color: #fff;
     padding: 10px;
     width: 100%;
+    height: auto;
+}
+
+.calendar-body {
+    background-color: #fff;
+    width: 100%;
     display: flex;
     height: auto;
 }
 
 .calendar-left{
-    width: 35%;
+    width: 45%;
 }
 
 .container-body.no-scroll {
@@ -1735,14 +1741,14 @@ a.google span {
     flex-shrink: 1;
     font-weight: 400 !important;
     min-width: 0px;
-    padding: 15px 5px !important;
+    padding: 5px 5px !important;
     font-size: 13px !important;
     color: #fff;
     overflow: hidden;
 }
 
 .fc-h-event .fc-event-title-container {
-    padding: 15px !important;
+    padding: 5px !important;
 }
 
 .fc-daygrid-dot-event .fc-daygrid-event-dot{
@@ -2078,18 +2084,22 @@ a.google span {
 .search-box {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
+}
+
+.fc .fc-toolbar.fc-header-toolbar {
+    margin-bottom: .5em !important;
 }
 .title-search{
     padding: 7px 0;
-    font-size: 18px;
+    font-size: 16px;
 }
 .search-box input {
     flex: 1;
-    padding: 10px;
+    padding: 9px;
     border: 1px solid #ddd;
     border-radius: 5px 0 0 5px;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .search-box input:focus{
@@ -2795,7 +2805,7 @@ a.google span {
 }
 
 .text-truncate{
-    max-width: 100%;
+    max-width: 95%;
     width: 168px;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
@@ -2808,11 +2818,11 @@ a.google span {
 .tbody-event tr td {
     text-align: center;
     border: 1px solid #ddd;
-    padding: 18px 8px;
+    padding: 13px 9px;
 }
 
 .calendar-container .tables{
-    height: 68vh;
+    height: 75.5vh;
     overflow: auto;
 }
 
@@ -3553,7 +3563,7 @@ table th {
 
 .blog-container {
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     display: flex;
     flex-wrap: wrap;
     background-color: #fff;
@@ -3563,7 +3573,7 @@ table th {
     display: flex;
     width: 100%;
     flex-direction:  column;
-    gap: 17px;
+    gap: 12px;
 }
 .blog-item{
     width: 100%;
@@ -3579,13 +3589,13 @@ table th {
 }
 .main-article img{
     width: 100%;
-    height: 67vh;
+    height: 56vh;
     object-fit: cover;
 }
 
 .main-article h1 {
     font-size: 24px;
-    margin: 10px 0 20px;
+    margin: 10px 0 15px;
     line-height: 30px;
 }
 
@@ -3637,7 +3647,7 @@ table th {
 }
 
 .blog-aside{
-    width: 23.9%;
+    width: 19.39%;
 }
 .blog-item a{
     width: 100%;
@@ -3731,7 +3741,7 @@ table th {
 
 .list-category-blog a {
     width: 100%;
-    padding: 12px 10px;
+    padding: 10px;
     border-radius: 6px;
     border: 1px solid #d6d6d7;
     display: flex;
@@ -3914,9 +3924,10 @@ table th {
 .breadcrumbs {
     display: flex;
     list-style: none;
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
     overflow: hidden;
-    background-color: #f1b380;
+    background-color: #fff;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 
 .breadcrumbs li {
@@ -4011,7 +4022,7 @@ table th {
 
 .breadcrumbs.breadcrumbs--two li a.breadcrumb {
     position: relative;
-    color: #fff;
+    color: #706f6f;
 }
 
 .breadcrumbs.breadcrumbs--two li a.breadcrumb::after {
@@ -4022,7 +4033,7 @@ table th {
     z-index: 1;
     margin-right: calc(-1 * var(--spacer) / 2);
     clip-path: polygon(45% 0, 100% 50%, 45% 100%, 0% 100%, 55% 50%, 0% 0%);
-    background-color: #fff;
+    background-color: #49ebff;
 }
 
 .breadcrumbs.breadcrumbs--two li a.breadcrumb:hover,
@@ -4058,4 +4069,11 @@ button {
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
     font-feature-settings: "liga";
+}
+
+.not-found-search{
+    padding: 20px;
+    background: #ff8888;
+    color: #fff;
+    font-size: 18px;
 }

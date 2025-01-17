@@ -62,7 +62,7 @@
                     <a href="{{ route('index_home.news') }}" class="d-flex align-items">
                         <i class="bx bx-news features-item-icon"></i>
                         <span class="features-item-text">Blog</span>
-                        <span class="inbox-number red">99</span>
+                        <span class="inbox-number red">{{ $totalNews }}</span>
                         <span class="tooltip">Blog</span>
                     </a>
                 </li>
