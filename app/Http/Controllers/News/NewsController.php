@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\News;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\View;
 class NewsController extends Controller
 {
     /**
@@ -156,7 +156,9 @@ class NewsController extends Controller
             ->orderBy('stt', 'desc')
             ->first();
 
-        return view('pages.news.index', compact('news', 'news_first'));
+        $totalViews = View::count();
+
+        return view('pages.news.index', compact('news', 'news_first','totalViews'));
     }
 
 
@@ -184,7 +186,8 @@ class NewsController extends Controller
                 'view_count' => DB::raw('view_count + 1'),
             ]
         );
+        $totalViews = View::count();
 
-        return view('pages.news.show.index', compact('news', 'new'));
+        return view('pages.news.show.index', compact('news', 'new','totalViews'));
     }
 }

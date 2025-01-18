@@ -474,4 +474,6 @@ return [
     'Total downloads:'=> 'Tổng lượt tải xuống: ',
     'Total shares:'=> 'Tổng lượt chia sẻ:',
     'Please enter key.....'=> 'Vui lòng nhập khóa.....',
+    'Document'=> 'Tài liệu',
+    'Blog'=> 'Blog',
 ];

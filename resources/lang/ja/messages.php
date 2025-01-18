@@ -476,5 +476,7 @@ return [
     'Total views:'=> '総ビュー数:',
     'Total downloads:'=> '総ダウンロード数: ',
     'Total shares:'=> '総シェア数:',
-   'Please enter key.....'=> 'キーを入力してください.....',
+    'Please enter key.....'=> 'キーを入力してください.....',
+    'Document'=> 'ドキュメント',
+    'Blog'=> 'ブログ',
 ];

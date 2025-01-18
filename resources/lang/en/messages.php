@@ -478,6 +478,7 @@ return [
     'Total downloads:'=> 'Total downloads:',
     'Total shares:'=> 'Total shares:',
     'Please enter key.....'=> 'Please enter key.....',
-
+    'Document'=> 'Document',
+    'Blog'=> 'Blog',
 
 ];
