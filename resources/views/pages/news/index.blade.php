@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('page')
 @section('title', 'Home Page')
 @section('content')
 <ol class="breadcrumbs breadcrumbs--two" itemscope itemtype="http://schema.org/BreadcrumbList">

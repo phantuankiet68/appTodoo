@@ -64,7 +64,7 @@ body{
     position: relative;
     display: flex;
     top: 78px;
-    padding: 20px 50px;
+    padding: 50px;
     background-color: #ffffff;
     gap: 10px;
 }
@@ -886,7 +886,7 @@ header {
     width: 100%;
     padding: 1.5rem 5rem;
     z-index: 5; 
-    background: rgba(0, 0, 0, 0.4);
+    background: rgb(232 79 0 / 40%);
     box-shadow: 0 2rem 1.5rem rgba(0, 0, 0, 0.05);
 }
 
@@ -2596,7 +2596,7 @@ a.google span {
 .about{
     position: relative;
     width: 100%;
-    height: 80vh;
+    height: 70vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2683,15 +2683,78 @@ a.google span {
 .about-right h1{
     margin-top: 0;
     margin-bottom: .5rem;
-    font-size: 4.4rem;
+    font-size: 3rem;
     font-weight: 700;
     line-height: 1.2;
     color: #011A41;
     word-spacing: 0;
 }
 
+.about-right-content{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.about-right-footer{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #d6d6d7;
+    justify-content: space-between;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.about-right-footer-box{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.about-right-footer-box .about-icon{
+    width: 50px;
+    height: 50px;
+    background: #35c2fe;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
+}
+
+.about-right-footer-box div h4{
+    margin: 0;
+}
+.about-right-footer-box div span{
+    font-size: 15px;
+}
 
 
+.title-space {
+    width: 100%;
+    margin: 47px 0 0;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title-space h2 {
+    --b: 6px;
+    --w: 80px;
+    --g: 15px;
+    --c: #0B486B;
+    background: conic-gradient(from 45deg at left, var(--c) 25%, #0000 0) 0, conic-gradient(from -135deg at right, var(--c) 25%, #0000 0) 100%;
+    background-size: 91% 100%;
+    background-repeat: no-repeat;
+    border-image: linear-gradient(#0000 calc(50% - var(--b) / 2), var(--c) 0 calc(50% + var(--b) / 2), #0000 0) 1 / 0 var(--w) / calc(var(--w) + var(--g));
+    padding: 6px 102px;
+    color: #fff;
+    font-size: 30px;
+}
 
 
 .path-list-card{
@@ -2701,6 +2764,55 @@ a.google span {
     justify-content: space-between;
     align-items: center;
 }
+
+.title-space-box {
+    width: 100%;
+    margin:0 0 30px 0;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.title-space-box h2 {
+    --b: 6px;
+    --w: 80px;
+    --g: 15px;
+    --c: #0B486B;
+    background: conic-gradient(from 45deg at left, var(--c) 25%, #0000 0) 0, conic-gradient(from -135deg at right, var(--c) 25%, #0000 0) 100%;
+    background-size: 91% 100%;
+    background-repeat: no-repeat;
+    border-image: linear-gradient(#0000 calc(50% - var(--b) / 2), var(--c) 0 calc(50% + var(--b) / 2), #0000 0) 1 / 0 var(--w) / calc(var(--w) + var(--g));
+    padding: 6px 102px;
+    color: #fff;
+    font-size: 30px;
+}
+
+.title-space-body {
+    width: 100%;
+    margin:30px 0 0;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.title-space-body h2 {
+    --b: 6px;
+    --w: 80px;
+    --g: 15px;
+    --c: #0B486B;
+    background: conic-gradient(from 45deg at left, var(--c) 25%, #0000 0) 0, conic-gradient(from -135deg at right, var(--c) 25%, #0000 0) 100%;
+    background-size: 91% 100%;
+    background-repeat: no-repeat;
+    border-image: linear-gradient(#0000 calc(50% - var(--b) / 2), var(--c) 0 calc(50% + var(--b) / 2), #0000 0) 1 / 0 var(--w) / calc(var(--w) + var(--g));
+    padding: 6px 102px;
+    color: #fff;
+    font-size: 30px;
+}
+
 
 .path-card{
     position: relative;
@@ -2750,7 +2862,7 @@ a.google span {
 .background-path{
     background-color: #ffffff;
     border-radius: 10px;
-    height: 90vh;
+    height: 80vh;
 }
 .path-service {
     height: 46vh;
@@ -2964,7 +3076,7 @@ blockquote .author {
 }
 #section-wrapper{
     width: 100%;
-    padding: 10px;
+    padding: 0px 50px;
 }
 .box-wrapper{
     position: relative;
@@ -3128,7 +3240,7 @@ blockquote .author {
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: #35c2fe;
     color: white;
     border: none;
     border-radius: 5px;
@@ -3137,7 +3249,7 @@ blockquote .author {
 }
 
 .contact-form .btn:hover {
-    background-color: #0056b3;
+    opacity: .8;
 }
 
 .submit-button{
@@ -3612,9 +3724,13 @@ blockquote .author {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #fff;
+    background-color: #f5f5f5;
     padding: 20px;
     width: 100%;
+    background: linear-gradient(rgb(255 200 68 / 90%), rgb(255 173 108 / 90%)), url(../assets/images/pattern-number.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
 }
 .stat {
     color: white;
@@ -3623,11 +3739,12 @@ blockquote .author {
 .stat h2 {
     margin: 0;
     font-size: 36px;
-    color: #1e293b;
+    color: white;
 }
 .stat p {
     margin: 5px 0;
     font-size: 16px;
+    color: white;
 }
 .icon {
     font-size: 40px;

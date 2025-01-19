@@ -480,5 +480,6 @@ return [
     'Please enter key.....'=> 'Please enter key.....',
     'Document'=> 'Document',
     'Blog'=> 'Blog',
+    'Team'=> 'Team',
 
 ];

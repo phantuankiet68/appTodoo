@@ -192,7 +192,10 @@
             </div>
         </div>
     </section>
-    <section class="path-app">
+    <div class="title-space">
+        <h2 style="--w: 50vw;--c: rgb(232 79 0 / 40%);--b:4px;--g:-5px">{{ __('messages.About') }}</h2>
+    </div>
+    <section>
         <div class="about">
             <div class="about-left">
                 <div class="about-left-img">
@@ -206,19 +209,44 @@
                 </div>
             </div>
             <div class="about-right">
-                <h1>We Help Our Clients To Grow Their Business</h1>
+                <h1>We help you better understand AI, coding, English, and Japanese.</h1>
+                <div class="about-right-content">
+                    <p>AI (Trí tuệ nhân tạo): Giúp khách hàng hiểu cách AI hoạt động, ứng dụng AI vào thực tế, và cách nó có thể mang lại lợi ích cho công việc hoặc doanh nghiệp của họ.</p>
+                    <p>Coding (Lập trình): Hỗ trợ khách hàng học hoặc cải thiện kỹ năng lập trình, từ các ngôn ngữ cơ bản đến các kỹ thuật nâng cao phù hợp với nhu cầu thực tế.</p>
+                    <p>English (Tiếng Anh): Cung cấp công cụ và phương pháp để cải thiện khả năng giao tiếp, viết, và hiểu tiếng Anh, từ cơ bản đến nâng cao.</p>
+                    <p>Japanese (Tiếng Nhật): Đào tạo hoặc hỗ trợ học tiếng Nhật, từ việc học ngôn ngữ đến hiểu văn hóa, ứng dụng vào công việc và giao tiếp hàng ngày.</p>    
+                    <p><i>Chúng tôi hướng đến việc hỗ trợ khách hàng nâng cao kiến thức và kỹ năng trong bốn lĩnh vực quan trọng: AI, lập trình, tiếng Anh và tiếng Nhật, nhằm giúp họ phát triển bản thân, mở rộng cơ hội nghề nghiệp và đạt được thành công bền vững trong thời đại công nghệ và hội nhập.</i></p>
+                </div>
+                <div class="about-right-footer">
+                    <div class="about-right-footer-box">
+                        <span class="about-icon"><i class="fa fa-times"></i></span>
+                        <div>
+                            <h4>No Hidden Cost</h4>
+                            <span>xác nhận</span>
+                        </div>
+                    </div>
+                    <div class="about-right-footer-box">
+                        <span class="about-icon"><i class="fa fa-users"></i></span>
+                        <div>
+                            <h4>Dedicated Team</h4>
+                            <span>xác nhận</span>
+                        </div>
+                    </div>
+                    <div class="about-right-footer-box">
+                        <span class="about-icon"><i class="fa fa-phone"></i></span>
+                        <div>
+                            <h4>24/7 Available</h4>
+                            <span>xác nhận</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
+    <div class="title-space-box">
+        <h2 style="--w: 50vw;--c: rgb(232 79 0 / 40%);--b:4px;--g:-5px">{{ __('messages.Product') }}</h2>
+    </div>
     <section class="download-app background-path"  id="about">
-        <div class="title-home">
-            <span class="title-left"></span>
-            <h2>{{ __('messages.About Us') }}</h2>
-            <span class="title-right"></span>
-        </div>
-        <div class="title-desc">
-            <p class="section-desc">{{ __('messages.Unlock Now') }}</p>
-        </div>
         <div class="row">
           <div class="column">
             <img src="{{asset('assets/images/backgrounda.png')}}" />
@@ -253,6 +281,238 @@
             </div>
           </div>
         </div>
+    </section>
+    <div class="title-space-body">
+        <h2 style="--w: 50vw;--c: rgb(232 79 0 / 40%);--b:4px;--g:-5px">{{ __('messages.Service') }}</h2>
+    </div>
+    <section id="about">
+        <div class="row">
+          <div class="column">
+            a
+          </div>
+          <div class="column">
+            <div class="app-feature">
+                <div>
+                  <i class="fas fa-star"></i>
+                  <h3>{{ __('messages.Practical Application') }}</h3>
+                </div>
+                <p>
+                    {{ __('messages.Practical application allows users to apply learned knowledge and skills to daily life or work tasks. On the website, this feature helps you practice through programming exercises or English and Japanese language activities, enhancing learning effectiveness and personal growth.') }}
+                </p>
+              </div>
+            <div class="app-feature">
+                <div>
+                    <i class="fas fa-star"></i>
+                    <h3>{{ __('messages.Set Reminders') }}</h3>
+                </div>
+                <p>
+                    {{ __('messages.The reminder feature on the website helps you manage your time and tasks more effectively. You can schedule study sessions, practice routines, or complete personal tasks on time, ensuring you never miss important commitments.') }}
+                </p>
+            </div>
+            <div class="app-feature">
+                <div>
+                    <i class="fas fa-star"></i>
+                    <h3>{{ __('messages.Download Lectures') }}</h3>
+                </div>
+                <p>
+                    {{ __('messages.Downloading lectures lets you access learning materials anytime, anywhere, even without an internet connection. This feature offers flexibility, making it easier to study programming, English, and Japanese effectively.') }}
+                </p>
+            </div>
+          </div>
+        </div>
+    </section>
+    <div class="title-space-box">
+        <h2 style="--w: 50vw;--c: rgb(232 79 0 / 40%);--b:4px;--g:-5px">{{ __('messages.Team') }}</h2>
+    </div>
+    <section class="download-app background-path"  id="about">
+        <div class="row">
+          <div class="column">
+            <img src="{{asset('assets/images/backgrounda.png')}}" />
+          </div>
+          <div class="column">
+            <div class="app-feature">
+                <div>
+                  <i class="fas fa-star"></i>
+                  <h3>{{ __('messages.Practical Application') }}</h3>
+                </div>
+                <p>
+                    {{ __('messages.Practical application allows users to apply learned knowledge and skills to daily life or work tasks. On the website, this feature helps you practice through programming exercises or English and Japanese language activities, enhancing learning effectiveness and personal growth.') }}
+                </p>
+              </div>
+            <div class="app-feature">
+                <div>
+                    <i class="fas fa-star"></i>
+                    <h3>{{ __('messages.Set Reminders') }}</h3>
+                </div>
+                <p>
+                    {{ __('messages.The reminder feature on the website helps you manage your time and tasks more effectively. You can schedule study sessions, practice routines, or complete personal tasks on time, ensuring you never miss important commitments.') }}
+                </p>
+            </div>
+            <div class="app-feature">
+                <div>
+                    <i class="fas fa-star"></i>
+                    <h3>{{ __('messages.Download Lectures') }}</h3>
+                </div>
+                <p>
+                    {{ __('messages.Downloading lectures lets you access learning materials anytime, anywhere, even without an internet connection. This feature offers flexibility, making it easier to study programming, English, and Japanese effectively.') }}
+                </p>
+            </div>
+          </div>
+        </div>
+    </section>
+    <div class="title-space-body">
+        <h2 style="--w: 50vw;--c: rgb(232 79 0 / 40%);--b:4px;--g:-5px">{{ __('messages.Blog') }}</h2>
+    </div>
+    <section id="about">
+        <div class="row">
+          <div class="column">
+            a
+          </div>
+          <div class="column">
+            <div class="app-feature">
+                <div>
+                  <i class="fas fa-star"></i>
+                  <h3>{{ __('messages.Practical Application') }}</h3>
+                </div>
+                <p>
+                    {{ __('messages.Practical application allows users to apply learned knowledge and skills to daily life or work tasks. On the website, this feature helps you practice through programming exercises or English and Japanese language activities, enhancing learning effectiveness and personal growth.') }}
+                </p>
+              </div>
+            <div class="app-feature">
+                <div>
+                    <i class="fas fa-star"></i>
+                    <h3>{{ __('messages.Set Reminders') }}</h3>
+                </div>
+                <p>
+                    {{ __('messages.The reminder feature on the website helps you manage your time and tasks more effectively. You can schedule study sessions, practice routines, or complete personal tasks on time, ensuring you never miss important commitments.') }}
+                </p>
+            </div>
+            <div class="app-feature">
+                <div>
+                    <i class="fas fa-star"></i>
+                    <h3>{{ __('messages.Download Lectures') }}</h3>
+                </div>
+                <p>
+                    {{ __('messages.Downloading lectures lets you access learning materials anytime, anywhere, even without an internet connection. This feature offers flexibility, making it easier to study programming, English, and Japanese effectively.') }}
+                </p>
+            </div>
+          </div>
+        </div>
+    </section>
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat">
+                <div class="icon">🚀</div>
+                <h2>000+</h2>
+                <p>Dịch Vụ Cung Cấp</p>
+            </div>
+            <div class="stat">
+                <div class="icon">📍</div>
+                <h2>000+</h2>
+                <p>Địa Điểm</p>
+            </div>
+            <div class="stat">
+                <div class="icon">💳</div>
+                <h2>000+</h2>
+                <p>Giao Dịch Thành Công</p>
+            </div>
+            <div class="stat">
+                <div class="icon">📁</div>
+                <h2>000+</h2>
+                <p>Tài Liệu</p>
+            </div>
+        </div>
+    </section>
+    <div class="title-space-body">
+        <h2 style="--w: 50vw;--c: rgb(232 79 0 / 40%);--b:4px;--g:-5px">{{ __('messages.Contact') }}</h2>
+    </div>
+    <section id="about">
+        <section id="section-wrapper">
+            <div class="box-wrapper">
+                <div class="info-wrap">
+                    <h3 class="info-sub-title">{{ __('messages.Take a moment to fill out the form, and our dedicated team of experts will get back to you within 24 hours. We are always ready to listen and provide the most suitable solutions, ensuring you receive the best support possible!') }}</h3>
+                    <ul class="info-details">
+                        <li>
+                            <div class="contact-icon">
+                                <b></b>
+                                <i class="fas fa-location-dot"></i>
+                            </div>
+                            <div class="text-contact">
+                                <p>{{ __('messages.Address') }}:</p> <a href="tel:+ 0768173369">{{__('messages.Tan The Hoa, Tan Phu District, Ho Chi Minh City.')}}</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <b></b>
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="text-contact">
+                                <p>{{ __('messages.Phone') }}:</p> <a href="tel:+ 0768173369">+ 0768173369</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <b></b>
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                            <div class="text-contact">
+                                <p >{{ __('messages.Email') }}:</p> 
+                                <a  href="mailto:tuankietity@gmail.com">tuankietity@gmail.com</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <b></b>
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="text-contact">
+                                <p class="mx-10">{{ __('messages.Website') }}:</p> <a class="mx-10" href="https://www.upskillhub.io.vn/">https://www.upskillhub.io.vn/</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <b></b>
+                                <i class="fab fa-facebook"></i>
+                            </div>
+                            <div class="text-contact">
+                                <p class="mx-10">{{ __('messages.Website') }}:</p> <a class="mx-10" href="#">{{ __('messages.Updating') }}</a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="contact-icon">
+                                <b></b>
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                            <div class="text-contact">
+                                <a class="mx-10" href="https://www.linkedin.com/in/phan-tuấn-kiệt-00bab2283">https://www.linkedin.com/in/phan-tuấn-kiệt-00bab2283</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" action="{{ route('send.contact') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">{{ __('messages.Name') }}</label>
+                            <input type="text" name="name" placeholder="{{ __('messages.Name') }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">{{ __('messages.Email') }}</label>
+                            <input type="email" name="email" placeholder="{{ __('messages.Email') }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">{{ __('messages.Subject') }}</label>
+                            <input type="text" name="subject" placeholder="{{ __('messages.Subject') }}" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">{{ __('messages.Message') }}</label>
+                            <textarea name="message" placeholder="{{ __('messages.Message') }}" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">{{ __('messages.Send') }}</button>
+                    </form>
+                </div>
+            </div>
+        </section>
     </section>
     <section class="path-service">
         <div class="path-service">
@@ -551,207 +811,9 @@
             <div class="itemRight item21"><p>Grunt</p></div>
           </div>
     </section>
-    <section class="background-path" id="product">
-        <div class="title-home">
-            <span class="title-left"></span>
-            <h2>{{ __('messages.New Product') }}</h2>
-            <span class="title-right"></span>
-        </div>
-        <div class="title-desc">
-            <p class="section-desc">{{ __('messages.Unlock Now') }}</p>
-        </div>
-        <div class="carousel">
-            <div class="controls">
-              <button type="button" class="btn btn-play" onclick="moveLeft()">
-                <i class="fa-solid fa-backward"></i>
-              </button>
-              <button type="button" class="btn btn-play" onclick="playPause()">
-                <i class="fa-solid fa-pause"></i>
-              </button>
-              <button type="button" class="btn btn-play" onclick="moveRight()">
-                <i class="fa-solid fa-forward"></i>
-              </button>
-            </div>
-            <div class="slide-center">
-              <div class="slider">
-                    <div class="slide active">
-                        <img src="{{asset('assets/images/product1.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product2.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product3.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product5.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product6.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product7.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product8.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product9.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product10.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product11.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product12.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product13.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product14.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product15.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product16.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product17.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product18.jpg')}}" />
-                    </div>
-                    <div class="slide">
-                        <img src="{{asset('assets/images/product19.jpg')}}" />
-                    </div>
-                </div>
-            </div>
-          </div>
-    </section>
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat">
-                <div class="icon">🚀</div>
-                <h2>000+</h2>
-                <p>Dịch Vụ Cung Cấp</p>
-            </div>
-            <div class="stat">
-                <div class="icon">📍</div>
-                <h2>000+</h2>
-                <p>Địa Điểm</p>
-            </div>
-            <div class="stat">
-                <div class="icon">💳</div>
-                <h2>000+</h2>
-                <p>Giao Dịch Thành Công</p>
-            </div>
-            <div class="stat">
-                <div class="icon">📁</div>
-                <h2>000+</h2>
-                <p>Tài Liệu</p>
-            </div>
-        </div>
-    </section>
-    <section class="background-path" id="contact">
-        <div class="title-home">
-            <span class="title-left"></span>
-            <h2>{{ __('messages.Contact Us Now') }}</h2>
-            <span class="title-right"></span>
-        </div>
-        <p class="section-desc">
-            {{ __('messages.Feel free to reach out to us for answers to your questions.') }}
-        </p>
-        <section id="section-wrapper">
-            <div class="box-wrapper">
-                <div class="info-wrap">
-                    <h3 class="info-sub-title">{{ __('messages.Take a moment to fill out the form, and our dedicated team of experts will get back to you within 24 hours. We are always ready to listen and provide the most suitable solutions, ensuring you receive the best support possible!') }}</h3>
-                    <ul class="info-details">
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fas fa-location-dot"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p>{{ __('messages.Address') }}:</p> <a href="tel:+ 0768173369">{{__('messages.Tan The Hoa, Tan Phu District, Ho Chi Minh City.')}}</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p>{{ __('messages.Phone') }}:</p> <a href="tel:+ 0768173369">+ 0768173369</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fas fa-paper-plane"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p >{{ __('messages.Email') }}:</p> 
-                                <a  href="mailto:tuankietity@gmail.com">tuankietity@gmail.com</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p class="mx-10">{{ __('messages.Website') }}:</p> <a class="mx-10" href="https://www.upskillhub.io.vn/">https://www.upskillhub.io.vn/</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fab fa-facebook"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p class="mx-10">{{ __('messages.Website') }}:</p> <a class="mx-10" href="#">{{ __('messages.Updating') }}</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fab fa-linkedin-in"></i>
-                            </div>
-                            <div class="text-contact">
-                                <a class="mx-10" href="https://www.linkedin.com/in/phan-tuấn-kiệt-00bab2283">https://www.linkedin.com/in/phan-tuấn-kiệt-00bab2283</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="contact-form-container">
-                    <form class="contact-form" action="{{ route('send.contact') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label for="name">{{ __('messages.Name') }}</label>
-                            <input type="text" name="name" placeholder="{{ __('messages.Name') }}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">{{ __('messages.Email') }}</label>
-                            <input type="email" name="email" placeholder="{{ __('messages.Email') }}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">{{ __('messages.Subject') }}</label>
-                            <input type="text" name="subject" placeholder="{{ __('messages.Subject') }}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">{{ __('messages.Message') }}</label>
-                            <textarea name="message" placeholder="{{ __('messages.Message') }}" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">{{ __('messages.Send') }}</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </section>
+
+
+
 
     <section class="download-app" id="download-app">
         <footer class="footer">
