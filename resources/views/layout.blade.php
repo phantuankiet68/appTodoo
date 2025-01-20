@@ -193,7 +193,7 @@
         </div>
     </section>
     <div class="title-space">
-        <h2 style="--w: 50vw;--c: rgb(232 79 0 / 40%);--b:4px;--g:-5px">{{ __('messages.About') }}</h2>
+        <h2 style="--w: 50vw;--c: rgb(55 170 255 / 40%);--b:4px;--g:-5px">{{ __('messages.About') }}</h2>
     </div>
     <section>
         <div class="about">
@@ -244,42 +244,25 @@
         </div>
     </section>
     <div class="title-space-box">
-        <h2 style="--w: 50vw;--c: rgb(232 79 0 / 40%);--b:4px;--g:-5px">{{ __('messages.Product') }}</h2>
+        <h2 style="--w: 50vw;--c: rgb(55 170 255 / 40%);--b:4px;--g:-5px">{{ __('messages.Product') }}</h2>
     </div>
-    <section class="download-app background-path"  id="about">
-        <div class="row">
-          <div class="column">
-            <img src="{{asset('assets/images/backgrounda.png')}}" />
-          </div>
-          <div class="column">
-            <div class="app-feature">
-                <div>
-                  <i class="fas fa-star"></i>
-                  <h3>{{ __('messages.Practical Application') }}</h3>
+    <section id="about">
+        <div class="product">
+            <div class="product-left">
+                <h1>We help you better understand AI, coding, English, and Japanese.</h1>
+                <div class="product-left-content">
+                    <p>AI (Trí tuệ nhân tạo): Giúp khách hàng hiểu cách AI hoạt động, ứng dụng AI vào thực tế, và cách nó có thể mang lại lợi ích cho công việc hoặc doanh nghiệp của họ.</p>
+                    <p>Coding (Lập trình): Hỗ trợ khách hàng học hoặc cải thiện kỹ năng lập trình, từ các ngôn ngữ cơ bản đến các kỹ thuật nâng cao phù hợp với nhu cầu thực tế.</p>
+                    <p>English (Tiếng Anh): Cung cấp công cụ và phương pháp để cải thiện khả năng giao tiếp, viết, và hiểu tiếng Anh, từ cơ bản đến nâng cao.</p>
+                    <p>Japanese (Tiếng Nhật): Đào tạo hoặc hỗ trợ học tiếng Nhật, từ việc học ngôn ngữ đến hiểu văn hóa, ứng dụng vào công việc và giao tiếp hàng ngày.</p>    
+                    <p><i>Chúng tôi hướng đến việc hỗ trợ khách hàng nâng cao kiến thức và kỹ năng trong bốn lĩnh vực quan trọng: AI, lập trình, tiếng Anh và tiếng Nhật, nhằm giúp họ phát triển bản thân, mở rộng cơ hội nghề nghiệp và đạt được thành công bền vững trong thời đại công nghệ và hội nhập.</i></p>
                 </div>
-                <p>
-                    {{ __('messages.Practical application allows users to apply learned knowledge and skills to daily life or work tasks. On the website, this feature helps you practice through programming exercises or English and Japanese language activities, enhancing learning effectiveness and personal growth.') }}
-                </p>
-              </div>
-            <div class="app-feature">
-                <div>
-                    <i class="fas fa-star"></i>
-                    <h3>{{ __('messages.Set Reminders') }}</h3>
-                </div>
-                <p>
-                    {{ __('messages.The reminder feature on the website helps you manage your time and tasks more effectively. You can schedule study sessions, practice routines, or complete personal tasks on time, ensuring you never miss important commitments.') }}
-                </p>
             </div>
-            <div class="app-feature">
-                <div>
-                    <i class="fas fa-star"></i>
-                    <h3>{{ __('messages.Download Lectures') }}</h3>
+            <div class="product-right">
+                <div class="product-right-img">
+                    <img src="{{asset('assets/images/product-home.png')}}" />
                 </div>
-                <p>
-                    {{ __('messages.Downloading lectures lets you access learning materials anytime, anywhere, even without an internet connection. This feature offers flexibility, making it easier to study programming, English, and Japanese effectively.') }}
-                </p>
             </div>
-          </div>
         </div>
     </section>
     <div class="title-space-body">
