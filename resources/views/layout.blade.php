@@ -249,13 +249,15 @@
     <section id="about">
         <div class="product">
             <div class="product-left">
-                <h1>We help you better understand AI, coding, English, and Japanese.</h1>
+                <h1>We develop dashboards to manage personal matters more efficiently and flexibly.</h1>
                 <div class="product-left-content">
-                    <p>AI (Trí tuệ nhân tạo): Giúp khách hàng hiểu cách AI hoạt động, ứng dụng AI vào thực tế, và cách nó có thể mang lại lợi ích cho công việc hoặc doanh nghiệp của họ.</p>
-                    <p>Coding (Lập trình): Hỗ trợ khách hàng học hoặc cải thiện kỹ năng lập trình, từ các ngôn ngữ cơ bản đến các kỹ thuật nâng cao phù hợp với nhu cầu thực tế.</p>
-                    <p>English (Tiếng Anh): Cung cấp công cụ và phương pháp để cải thiện khả năng giao tiếp, viết, và hiểu tiếng Anh, từ cơ bản đến nâng cao.</p>
-                    <p>Japanese (Tiếng Nhật): Đào tạo hoặc hỗ trợ học tiếng Nhật, từ việc học ngôn ngữ đến hiểu văn hóa, ứng dụng vào công việc và giao tiếp hàng ngày.</p>    
-                    <p><i>Chúng tôi hướng đến việc hỗ trợ khách hàng nâng cao kiến thức và kỹ năng trong bốn lĩnh vực quan trọng: AI, lập trình, tiếng Anh và tiếng Nhật, nhằm giúp họ phát triển bản thân, mở rộng cơ hội nghề nghiệp và đạt được thành công bền vững trong thời đại công nghệ và hội nhập.</i></p>
+                    <p>Our solution empowers you to take full control of your personal management with ease.</p>
+                    <p>Experience a smarter, more dynamic way to stay organized and achieve your goals!</p>
+                    <p>Để đạt được kết quả như mong muốn, hãy luôn nỗ lực hết mình và chịu trách nhiệm với những hành động của bản thân. Sự kiên trì và ý thức trách nhiệm chính là chìa khóa dẫn đến thành công!</p>
+                    <p>Join us today and unlock the potential of seamless personal management!</p>
+                    <div class="product-left-content-btn">
+                        <button>Đăng ký ngay</button>
+                    </div>
                 </div>
             </div>
             <div class="product-right">
@@ -266,42 +268,92 @@
         </div>
     </section>
     <div class="title-space-body">
-        <h2 style="--w: 50vw;--c: rgb(232 79 0 / 40%);--b:4px;--g:-5px">{{ __('messages.Service') }}</h2>
+        <h2 style="--w: 50vw;--c: rgb(55 170 255 / 40%);--b:4px;--g:-5px">{{ __('messages.Service') }}</h2>
     </div>
     <section id="about">
-        <div class="row">
-          <div class="column">
-            a
-          </div>
-          <div class="column">
-            <div class="app-feature">
-                <div>
-                  <i class="fas fa-star"></i>
-                  <h3>{{ __('messages.Practical Application') }}</h3>
+        <div class="service">
+            <div class="service-left">
+                <div class="service-left-body active" id="service-1">
+                    <div class="service-left-body-img">
+                        <img src="{{asset('assets/images/service.png')}}" />
+                    </div>
+                    <div class="service-left-body-content">
+                        <h3>3 years of experience working as a web developer.</h3>
+                        <p>Tôi tốt nghiệp trường Đại Học Công Nghệ TP.Hồ Chí Minh</p>
+                        <p>Tôi có hơn 3 năm kinh nghiệm chuyên môn trong lĩnh vực phát triển web, bao gồm hơn 1 năm làm việc với vai trò nhà phát triển outsource và 2 năm làm việc như một nhân sự nội bộ. Hiện tại, tôi đang làm việc cho một công ty quốc tế, nơi tôi đã có cơ hội tham gia vào nhiều dự án đa dạng và đầy thử thách. Trong vai trò là một full-task developer, tôi đã đóng góp thành công vào các dự án như GrownUpWord, VJP-Connect, Plain-International và một số hệ thống nội bộ của công ty.</p>
+                        <p>Khả năng thích nghi với các môi trường làm việc khác nhau và đóng góp hiệu quả cho cả đội ngũ trong nước và quốc tế là yếu tố quan trọng giúp tôi mang lại các giải pháp chất lượng cao. Tôi đam mê tạo ra các ứng dụng web hiệu quả, có khả năng mở rộng và thân thiện với người dùng, đồng thời luôn tìm kiếm cơ hội để phát triển và cải thiện trong lĩnh vực không ngừng thay đổi này.</p>
+                    </div>
                 </div>
-                <p>
-                    {{ __('messages.Practical application allows users to apply learned knowledge and skills to daily life or work tasks. On the website, this feature helps you practice through programming exercises or English and Japanese language activities, enhancing learning effectiveness and personal growth.') }}
-                </p>
-              </div>
-            <div class="app-feature">
-                <div>
-                    <i class="fas fa-star"></i>
-                    <h3>{{ __('messages.Set Reminders') }}</h3>
+                <div class="service-left-body" id="service-2">
+                    <div class="service-left-body-img">
+                        <img src="{{asset('assets/images/service1.png')}}" />
+                    </div>
+                    <div class="service-left-body-content">
+                        <h3>Với cương vị là nhà phát triển về Giao diện người dùng</h3>
+                        <p>tôi chuyên tạo ra các giao diện web trực quan, hấp dẫn và thân thiện với người dùng, mang lại trải nghiệm liền mạch. Vai trò của tôi bao gồm việc chuyển đổi các ý tưởng thiết kế thành các trang web chức năng và tương tác bằng cách sử dụng các công nghệ web hiện đại như HTML5, CSS3 và JavaScript, cùng với các framework như React, Angular hoặc Vue.js.</p>
+                        <p>Tôi có khả năng phối hợp chặt chẽ với các nhà thiết kế UX, đảm bảo tính tương thích đa trình duyệt và tối ưu hóa hiệu suất trên nhiều thiết bị.</p>
+                        <p>Tôi có kinh nghiệm làm việc với các công cụ thiết kế UX/UI như Figma và Adobe XD để chuyển đổi các bản thiết kế wireframe và prototype thành các giao diện thực tế, mang lại giá trị cho người dùng. Ngoài ra, tôi cũng thành thạo trong việc xử lý file Excel để quản lý dữ liệu và hỗ trợ quá trình lập kế hoạch hoặc phân tích liên quan đến dự án.</p>
+                    </div>
                 </div>
-                <p>
-                    {{ __('messages.The reminder feature on the website helps you manage your time and tasks more effectively. You can schedule study sessions, practice routines, or complete personal tasks on time, ensuring you never miss important commitments.') }}
-                </p>
+                <div class="service-left-body" id="service-3">
+                    <div class="service-left-body-img">
+                        <img src="{{asset('assets/images/service2.png')}}" />
+                    </div>
+                    <div class="service-left-body-content">
+                        <h3>Với cương vị là nhà phát triển về Back-end</h3>
+                        <p>Tôi chuyên xây dựng và duy trì logic phía server, cung cấp sức mạnh cho các ứng dụng web. Chuyên môn của tôi nằm ở việc thiết kế các hệ thống có khả năng mở rộng và bảo mật, phát triển API và quản lý cơ sở dữ liệu để đảm bảo tích hợp và chức năng liền mạch trên nhiều nền tảng.</p>
+                        <p>Trong vai trò của mình, tôi phối hợp chặt chẽ với các nhà phát triển front-end, nhà thiết kế UX và các bên liên quan khác để tạo ra các giải pháp từ đầu đến cuối, đáp ứng yêu cầu của cả người dùng và doanh nghiệp. Tôi có kinh nghiệm sâu rộng với các công nghệ back-end hiện đại như Node.js, Python (Django/Flask), CShap, Java (Spring Boot), và PHP (Laravel).</p>
+                        <p>Ngoài ra, tôi thành thạo trong việc quản lý hệ thống cơ sở dữ liệu như MySQL, PostgreSQL, MongoDB, và MySQL Workbench, với trọng tâm là tối ưu hóa và xử lý dữ liệu hiệu quả. </p>
+                    </div>
+                </div>
+                <div class="service-left-body" id="service-4">
+                    <div class="service-left-body-img">
+                        <img src="{{asset('assets/images/service3.png')}}" />
+                    </div>
+                    <div class="service-left-body-content">
+                        <h3>Với cương vị là nhà phát triển Full-task</h3>
+                        <p>Tôi đảm nhận trách nhiệm trên toàn bộ ngăn xếp phát triển, bao gồm cả phát triển front-end và back-end, cũng như triển khai và bảo trì hệ thống (Run-end Development). Chuyên môn của tôi bao quát một loạt các công nghệ và công cụ, đảm bảo cung cấp các giải pháp mạnh mẽ, có khả năng mở rộng và hiệu quả cho các hệ thống phức tạp.</p>
+                        <p>Tôi có kinh nghiệm thực tiễn làm việc với môi trường Ubuntu 20.04 và 22.04, nơi tôi quản lý máy chủ, cấu hình ứng dụng và xử lý các công việc triển khai. Kiến thức về FTP và Docker cho phép tôi chuyển giao và triển khai ứng dụng một cách hiệu quả, thiết lập các container cho môi trường phát triển độc lập và tối ưu hóa quy trình CI/CD.</p>
+                    </div>
+                </div>
+                <div class="service-left-body" id="service-5">
+                    <div class="service-left-body-img">
+                        <img src="{{asset('assets/images/service4.png')}}" />
+                    </div>
+                    <div class="service-left-body-content">
+                        <h3>Nghiên cứu mới</h3>
+                        <p>Hiện tại, tôi đang làm việc với SVF Design, sử dụng mã nguồn từ WingArc. Trách nhiệm của tôi bao gồm thiết kế, tùy chỉnh và tối ưu hóa các mẫu tài liệu, báo cáo và bố cục để đáp ứng các yêu cầu cụ thể của khách hàng. Tận dụng các công cụ và framework của WingArc, tôi đảm bảo rằng sản phẩm đầu ra vừa có tính thẩm mỹ cao vừa hoạt động hiệu quả. Vai trò của tôi cũng bao gồm việc phối hợp với các nhóm để tích hợp các giải pháp SVF vào hệ thống hiện tại một cách liền mạch, đồng thời duy trì các tiêu chuẩn cao về độ chính xác và hiệu suất.</p>
+                        <p>Dự án này cũng là một thử thách lớn đối với tôi, vì nó đòi hỏi sự hiểu biết sâu sắc về công nghệ nền tảng cũng như sự tận tâm trong việc làm chủ tài liệu và các công cụ. Tôi đã dành nhiều nỗ lực để nghiên cứu và tìm hiểu tài liệu liên quan, nhờ đó vượt qua được những khó khăn ban đầu và đạt được những kết quả đáng kể. Bằng cách không ngừng cải thiện kiến thức và kỹ năng, tôi mong muốn mang lại các giải pháp tốt hơn và tận dụng tối đa trải nghiệm học tập quý báu này.</p>
+                    </div>
+                </div>
+                <div class="service-left-body" id="service-6">
+                    <div class="service-left-body-img">
+                        <img src="{{asset('assets/images/service5.png')}}" />
+                    </div>
+                    <div class="service-left-body-content">
+                        <h3>Dịch vụ Remote</h3>
+                        <p>Giá cả: thương lượng</p>
+                        <div class="item_service d-flex align-center gap-10"><span>01</span> <p>Number of new and modified screens.</p></div>
+                        <div class="item_service d-flex align-center gap-10"><span>02</span> <p>Use HTML, CSS, and responsive design to complete</p></div>
+                        <div class="item_service d-flex align-center gap-10"><span>03</span> <p>Use JavaScript to complete.</p></div>
+                        <div class="item_service d-flex align-center gap-10"><span>04</span> <p>Use Frontend Development Tools to complete.</p></div>
+                        <div class="item_service d-flex align-center gap-10"><span>05</span> <p>Use Backend Development Tools to complete.</p></div>
+                        <div class="item_service d-flex align-center gap-10"><span>06</span> <p>Deployment & Hosting</p></div>
+                        <div class="item_service d-flex align-center gap-10"><span>07</span> <p>Testing</p></div>
+                        <div class="item_service d-flex align-center gap-10"><span>08</span> <p>Bảo hành cho công việc 6 tháng</p></div>
+                    </div>
+                </div>
             </div>
-            <div class="app-feature">
-                <div>
-                    <i class="fas fa-star"></i>
-                    <h3>{{ __('messages.Download Lectures') }}</h3>
+            <div class="service-right">
+                <div class="service-right-slide">
+                    <button data-target="service-1"><i class="fa fa-bars text-primary me-3"></i> Self-introduction</button>
+                    <button data-target="service-2"><i class="fa fa-bars text-primary me-3"></i> Front-end Development</button>
+                    <button data-target="service-3"><i class="fa fa-bars text-primary me-3"></i> Back-end Development</button>
+                    <button data-target="service-4"><i class="fa fa-bars text-primary me-3"></i> Nhà phát triển Full-task</button>
+                    <button data-target="service-5"><i class="fa fa-bars text-primary me-3"></i> Nghiên cứu mới</button>
+                    <button data-target="service-6"><i class="fa fa-bars text-primary me-3"></i> Dịch vụ Remote</button>
                 </div>
-                <p>
-                    {{ __('messages.Downloading lectures lets you access learning materials anytime, anywhere, even without an internet connection. This feature offers flexibility, making it easier to study programming, English, and Japanese effectively.') }}
-                </p>
             </div>
-          </div>
         </div>
     </section>
     <div class="title-space-box">
@@ -990,6 +1042,28 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".service-right-slide button");
+            const services = document.querySelectorAll(".service-left-body");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function () {
+                    // Lấy target từ data-target
+                    const target = this.getAttribute("data-target");
+
+                    // Ẩn tất cả các phần tử service-left-body
+                    services.forEach(service => {
+                        service.classList.remove("active");
+                    });
+
+                    // Hiển thị phần tử tương ứng
+                    const activeService = document.getElementById(target);
+                    if (activeService) {
+                        activeService.classList.add("active");
+                    }
+                });
+            });
+        });
         document.addEventListener("DOMContentLoaded", function () {
             const slides = document.querySelectorAll(".banner-left-slide-img");
             const prevButton = document.querySelector(".banner-left-prev");
