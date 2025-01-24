@@ -23,10 +23,10 @@ document.addEventListener("DOMContentLoaded", function() {
                 slidesPerView: 3
             },
             1024: {
-                slidesPerView: 4
+                slidesPerView: 5
             },
             1920: {
-                slidesPerView: 4
+                slidesPerView: 5
             },
         }
     });

@@ -357,81 +357,242 @@
         </div>
     </section>
     <div class="title-space-box">
-        <h2 style="--w: 50vw;--c: rgb(232 79 0 / 40%);--b:4px;--g:-5px">{{ __('messages.Team') }}</h2>
+        <h2 style="--w: 50vw;--c: rgb(55 170 255 / 40%);--b:4px;--g:-5px">{{ __('messages.Team') }}</h2>
     </div>
-    <section class="download-app background-path"  id="about">
-        <div class="row">
-          <div class="column">
-            <img src="{{asset('assets/images/backgrounda.png')}}" />
-          </div>
-          <div class="column">
-            <div class="app-feature">
-                <div>
-                  <i class="fas fa-star"></i>
-                  <h3>{{ __('messages.Practical Application') }}</h3>
+    <section  id="Team">
+    <div class="slider-container swiper">
+            <div class="slider-home">
+                <div class="card-home swiper-wrapper">
+                    <div class="card-home-item swiper-slide">
+                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
+                        <h2 class="user-name">Phan Tuấn Kiệt</h2>
+                        <p class="user-profession">Software Developer</p>
+                        <button class="message-btn">Liên hệ ngay</button>
+                    </div>
+                    <div class="card-home-item swiper-slide">
+                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
+                        <h2 class="user-name">Nguyễn Trung Nghĩa</h2>
+                        <p class="user-profession">Software Developer</p>
+                        <button class="message-btn">Liên hệ ngay</button>
+                    </div>
+                    <div class="card-home-item swiper-slide">
+                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
+                        <h2 class="user-name">Nguyễn Tường Vi</h2>
+                        <p class="user-profession">Software Developer</p>
+                        <button class="message-btn">Liên hệ ngay</button>
+                    </div>
+                    <div class="card-home-item swiper-slide">
+                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
+                        <h2 class="user-name">Lê Quang Huy</h2>
+                        <p class="user-profession">Software Developer</p>
+                        <button class="message-btn">Liên hệ ngay</button>
+                    </div>
+                    <div class="card-home-item swiper-slide">
+                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
+                        <h2 class="user-name">Trần Minh Thuận</h2>
+                        <p class="user-profession">Software Developer</p>
+                        <button class="message-btn">Liên hệ ngay</button>
+                    </div>
                 </div>
-                <p>
-                    {{ __('messages.Practical application allows users to apply learned knowledge and skills to daily life or work tasks. On the website, this feature helps you practice through programming exercises or English and Japanese language activities, enhancing learning effectiveness and personal growth.') }}
-                </p>
-              </div>
-            <div class="app-feature">
-                <div>
-                    <i class="fas fa-star"></i>
-                    <h3>{{ __('messages.Set Reminders') }}</h3>
-                </div>
-                <p>
-                    {{ __('messages.The reminder feature on the website helps you manage your time and tasks more effectively. You can schedule study sessions, practice routines, or complete personal tasks on time, ensuring you never miss important commitments.') }}
-                </p>
             </div>
-            <div class="app-feature">
-                <div>
-                    <i class="fas fa-star"></i>
-                    <h3>{{ __('messages.Download Lectures') }}</h3>
-                </div>
-                <p>
-                    {{ __('messages.Downloading lectures lets you access learning materials anytime, anywhere, even without an internet connection. This feature offers flexibility, making it easier to study programming, English, and Japanese effectively.') }}
-                </p>
-            </div>
-          </div>
         </div>
     </section>
     <div class="title-space-body">
-        <h2 style="--w: 50vw;--c: rgb(232 79 0 / 40%);--b:4px;--g:-5px">{{ __('messages.Blog') }}</h2>
+        <h2 style="--w: 50vw;--c: rgb(55 170 255 / 40%);--b:4px;--g:-5px">{{ __('messages.Document') }}</h2>
     </div>
     <section id="about">
-        <div class="row">
-          <div class="column">
-            a
-          </div>
-          <div class="column">
-            <div class="app-feature">
-                <div>
-                  <i class="fas fa-star"></i>
-                  <h3>{{ __('messages.Practical Application') }}</h3>
+        <div class="blog_container">
+            <div class="blog_products">
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service2.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
                 </div>
-                <p>
-                    {{ __('messages.Practical application allows users to apply learned knowledge and skills to daily life or work tasks. On the website, this feature helps you practice through programming exercises or English and Japanese language activities, enhancing learning effectiveness and personal growth.') }}
-                </p>
-              </div>
-            <div class="app-feature">
-                <div>
-                    <i class="fas fa-star"></i>
-                    <h3>{{ __('messages.Set Reminders') }}</h3>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service2.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
                 </div>
-                <p>
-                    {{ __('messages.The reminder feature on the website helps you manage your time and tasks more effectively. You can schedule study sessions, practice routines, or complete personal tasks on time, ensuring you never miss important commitments.') }}
-                </p>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service2.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service2.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service2.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service2.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service2.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service2.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service2.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service2.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
             </div>
-            <div class="app-feature">
-                <div>
-                    <i class="fas fa-star"></i>
-                    <h3>{{ __('messages.Download Lectures') }}</h3>
+        </div>
+    </section>
+    <div class="title-space-body">
+        <h2 style="--w: 50vw;--c: rgb(55 170 255 / 40%);--b:4px;--g:-5px">{{ __('messages.Blog') }}</h2>
+    </div>
+    <section id="about">
+        <div class="blog_container">
+            <div class="blog_products">
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service3.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
                 </div>
-                <p>
-                    {{ __('messages.Downloading lectures lets you access learning materials anytime, anywhere, even without an internet connection. This feature offers flexibility, making it easier to study programming, English, and Japanese effectively.') }}
-                </p>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service3.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service3.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service3.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service3.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service3.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service3.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service3.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service3.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
+                <div class="blog_product">
+                    <div class="blog_product-img">
+                        <img src="{{asset('assets/images/service3.png')}}" />
+                    </div>
+                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                    <div class="price">₫199,600</div>
+                    <div class="old-price">₫249,500</div>
+                    <div class="discount">-20%</div>
+                </div>
             </div>
-          </div>
         </div>
     </section>
     <section class="stats">
@@ -549,305 +710,6 @@
             </div>
         </section>
     </section>
-    <section class="path-service">
-        <div class="path-service">
-            <div class="section" style="border-color: orange;">
-                <div class="icon">🎨</div>
-                <h3>THIẾT KẾ</h3>
-                <p>Phân tích các yêu cầu hình BPD, thiết kế giao diện.</p>
-            </div>
-            <div class="section" style="border-color: green;">
-                <div class="icon">⚙️</div>
-                <h3>THỰC HIỆN</h3>
-                <p>Lập trình các chức năng theo yêu cầu.</p>
-            </div>
-            <div class="section" style="border-color: blue;">
-                <div class="icon">🔍</div>
-                <h3>KIỂM THỬ</h3>
-                <p>Xem xét các module chức năng.</p>
-            </div>
-            <div class="section" style="border-color: red;">
-                <div class="icon">📊</div>
-                <h3>KHẢO SÁT DỰ ÁN</h3>
-                <p>Lập kế hoạch khảo sát và kiểm tra hiệu quả.</p>
-            </div>
-            <div class="section" style="border-color: yellow;">
-                <div class="icon">🚀</div>
-                <h3>TRIỂN KHAI VÀ BẢO TRÌ</h3>
-                <p>Lập kế hoạch triển khai và bảo trì hệ thống.</p>
-            </div>        
-        </div>
-    </section>
-    <section id="features">
-        <div class="title-home">
-            <span class="title-left"></span>
-            <h2>{{ __('messages.New Features') }}</h2>
-            <span class="title-right"></span>
-        </div>
-        <div class="title-desc">
-            <p class="section-desc">{{ __('messages.Experience Now') }}</p>
-        </div>
-        <div class="row-services">
-            <div class="service">
-                <div class="services">
-                    <div class="service-logo">
-                        <i class="fa-solid fa-pen-ruler"></i>
-                    </div>
-                    <h4>{{ __('messages.Website Developer') }}</h4>
-                    <div class="service-content">
-                        <p>{{ __('messages.Courses help users learn and apply knowledge to their work conveniently and effectively. These courses are designed to provide an easy-to-understand and practical learning experience, enabling learners to quickly improve their skills and achieve desired results.') }}</p>
-                    </div>
-                </div>
-                <div class="shadowOne"></div>
-                <div class="shadowTwo"></div>
-            </div>
-            <div class="service">
-                <div class="services">
-                    <div class="service-logo">
-                        <i class="fa-brands fa-app-store"></i>
-                    </div>
-                    <h4>{{ __('messages.UX/UI Design') }}</h4>
-                    <div class="service-content">
-                        <p>{{ __('messages.We will research user needs to develop ready-to-use components that provide solutions for ease of use and optimization. These components are designed to meet practical requirements, ensuring high efficiency during usage.') }}</p>
-                    </div>
-                </div>
-                <div class="shadowOne"></div>
-                <div class="shadowTwo"></div>
-            </div>
-            <div class="service">
-                <div class="services">
-                    <div class="service-logo">
-                        <i class="fa-brands fa-app-store"></i>
-                    </div>
-                    <h4>{{ __('messages.Task Issue') }}</h4>
-                    <div class="service-content">
-                        <p>{{ __('messages.In work, a project is often divided into multiple phases to facilitate management and address each issue effectively, ensuring completion within a specific timeframe. This division helps maintain the progress and quality of the project at each stage.') }} </p>
-                    </div>
-                </div>
-                <div class="shadowOne"></div>
-                <div class="shadowTwo"></div>
-            </div>
-            <div class="service">
-                <div class="services">
-                    <div class="service-logo">
-                        <i class="fa-brands fa-app-store"></i>
-                    </div>
-                    <h4>{{ __('messages.Financial') }}</h4>
-                    <div class="service-content">
-                        <p>{{ __('messages.We have developed a process for planning, tracking, and managing personal finances to ensure financial stability, thereby improving the quality of life. This process helps users manage their expenses effectively, achieve financial goals, and maintain balance in their lives.') }}</p>
-                    </div>
-                </div>
-                <div class="shadowOne"></div>
-                <div class="shadowTwo"></div>
-            </div>
-            <div class="service">
-                <div class="services">
-                    <div class="service-logo">
-                        <i class="fa-brands fa-app-store"></i>
-                    </div>
-                    <h4>{{ __('messages.Languages') }}</h4>
-                    <div class="service-content">
-                        <p>{{ __('messages.We design English and Japanese courses to help you enhance your knowledge and improve communication skills in various situations, from basic to advanced levels. The courses include concise lessons and assessments to evaluate progress, ensuring effective learning and rapid improvement.') }}</p>
-                    </div>
-                </div>
-                <div class="shadowOne"></div>
-                <div class="shadowTwo"></div>
-            </div>
-            <div class="service">
-                <div class="services">
-                    <div class="service-logo">
-                        <i class="fa-brands fa-app-store"></i>
-                    </div>
-                    <h4>{{ __('messages.Calendar') }}</h4>
-                    <div class="service-content">
-                        <p>{{ __('messages.We develop a system designed to manage important information and organize tasks within a specific schedule. This tool helps users structure their work scientifically, track progress, and ensure deadlines are met. It provides flexible and efficient management capabilities.') }}</p>
-                    </div>
-                </div>
-                <div class="shadowOne"></div>
-                <div class="shadowTwo"></div>
-            </div>
-            <div class="service">
-                <div class="services">
-                    <div class="service-logo">
-                        <i class="fa-brands fa-app-store"></i>
-                    </div>
-                    <h4>{{ __('messages.English') }}</h4>
-                    <div class="service-content">
-                        <p>{{ __('messages.We develop an English learning method aimed at helping learners manage important information and organize their study time scientifically. This tool assists learners in structuring an effective study plan, tracking progress, and achieving their goals within the set timeframe.') }}</p>
-                    </div>
-                </div>
-                <div class="shadowOne"></div>
-                <div class="shadowTwo"></div>
-            </div>
-            <div class="service">
-                <div class="services">
-                    <div class="service-logo">
-                        <i class="fa-brands fa-app-store"></i>
-                    </div>
-                    <h4>{{ __('messages.Japanese') }}</h4>
-                    <div class="service-content">
-                        <p>{{ __('messages.We develop a Japanese learning method aimed at helping learners manage important information and organize their study time scientifically. This method assists learners in structuring an effective study plan, tracking progress, and achieving their goals within the desired timeframe.') }}</p>
-                    </div>
-                </div>
-                <div class="shadowOne"></div>
-                <div class="shadowTwo"></div>
-            </div>
-        </div>
-      </div>
-    </section>
-    <section>
-        <div class="slider-container swiper">
-            <div class="slider-home">
-                <div class="card-home swiper-wrapper">
-                    <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">Phan Tuấn Kiệt</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Liên hệ ngay</button>
-                    </div>
-                    <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">Nguyễn Trung Nghĩa</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Liên hệ ngay</button>
-                    </div>
-                    <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">Nguyễn Tường Vi</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Liên hệ ngay</button>
-                    </div>
-                    <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">Lê Quang Huy</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Liên hệ ngay</button>
-                    </div>
-                    <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">Trần Minh Thuận</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Liên hệ ngay</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="courses" id="service">
-        <div class="title-home">
-            <span class="title-left"></span>
-            <h2>{{ __('messages.New Service') }}</h2>
-            <span class="title-right"></span>
-        </div>
-        <div class="title-desc">
-            <p class="section-desc">{{ __('messages.Unlock Now') }}</p>
-        </div>
-       <div class="pricing-design"> 
-            <div class="pricing-table">
-                <h1>Bảng Giá</h1>
-                <div class="item"><span>01</span> <p>Number of new and modified screens.</p></div>
-                <div class="item"><span>02</span> <p>Use HTML, CSS, and responsive design to complete</p></div>
-                <div class="item"><span>03</span> <p>Use JavaScript to complete.</p></div>
-                <div class="item"><span>04</span> <p>Use Frontend Development Tools to complete.</p></div>
-                <div class="item"><span>05</span> <p>Use Backend Development Tools to complete.</p></div>
-                <div class="item"><span>06</span> <p>Deployment & Hosting</p></div>
-                <div class="item"><span>07</span> <p>The product is under a safe warranty for 6 months.</p></div>
-            </div>
-            <div class="pricing-table-box1">
-                <h1>10$</h1>
-                <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 1 screens</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
-                <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
-                <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-            </div>
-            <div class="pricing-table-box2">
-                <h1>20$</h1>
-                <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 3 screens</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
-                <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-            </div>
-            <div class="pricing-table-box3">
-                <h1>30$</h1>
-                <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 5 screens</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                <div class="item NotPossible"><span><i class="fa-solid fa-xmark"></i></span> <p> Not Possible</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-            </div>
-            <div class="pricing-table-box4">
-                <h1>100$</h1>
-                <div class="item"><span><i class="fa-solid fa-pen-to-square"></i></span> <p> 10 screens</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-                <div class="item Possible"><span><i class="fa-solid fa-check"></i></span> <p> Possible</p></div>
-            </div>
-       </div>
-    </section>
-    <section>
-        <div class="wrapper-service">
-            <div class="itemLeft item1"><p>HTML5/CSS3</p></div>
-            <div class="itemLeft item2"><p>Bootstrap</p></div>
-            <div class="itemLeft item3"><p>Tailwind CSS</p></div>
-            <div class="itemLeft item4"><p>Ant Design</p></div>
-            <div class="itemLeft item5"><p>UI element</p></div>
-            <div class="itemLeft item6"><p>JavaScript</p></div>
-            <div class="itemLeft item7"><p>React.js</p></div>
-            <div class="itemLeft item8"><p>Next.js</p></div>
-            <div class="itemLeft item9"><p>Vue.js</p></div>
-            <div class="itemLeft item10"><p>Nuxt.js</p></div>
-            <div class="itemLeft item11"><p>TypeScript</p></div>
-            <div class="itemLeft item12"><p>Angular</p></div>
-            <div class="itemLeft item13"><p>Package Managers</p></div>
-            <div class="itemLeft item14"><p>Git</p></div>
-            <div class="itemLeft item15"><p>Backlog</p></div>
-            <div class="itemLeft item16"><p>Figma</p></div>
-            <div class="itemLeft item17"><p>Adobe XD</p></div>
-            <div class="itemLeft item18"><p>Canva</p></div>
-            <div class="itemLeft item19"><p>Photoshop</p></div>
-            <div class="itemLeft item20"><p>OpenAi</p></div>
-            <div class="itemLeft item21"><p>Postman</p></div>
-            <div class="itemLeft item22"><p>Swagger</p></div>
-            <div class="itemLeft item23"><p>Selenium</p></div>
-          </div>
-          <div class="wrapper-service">
-            <div class="itemRight item1"></div>
-            <div class="itemRight item1"><p>Node.js</p></div>
-            <div class="itemRight item2"><p>PHP (Laravel)</p></div>
-            <div class="itemRight item3"><p>Java (Spring)</p></div>
-            <div class="itemRight item4"><p>C# (.NET)</p></div>
-            <div class="itemRight item5"><p>Python(Django)</p></div>
-            <div class="itemRight item6"><p>MySQL</p></div>
-            <div class="itemRight item7"><p>PostgreSQL</p></div>
-            <div class="itemRight item8"><p>MongoDB (NoSQL)</p></div>
-            <div class="itemRight item9"><p>SQL Server</p></div>
-            <div class="itemRight item10"><p>MySQL Workbench</p></div>
-            <div class="itemRight item11"><p>Apache</p></div>
-            <div class="itemRight item12"><p>Nginx</p></div>
-            <div class="itemRight item13"><p>IIS</p></div>
-            <div class="itemRight item14"><p>Postman</p></div>
-            <div class="itemRight item15"><p>Swagger</p></div>
-            <div class="itemRight item16"><p>Docker</p></div>
-            <div class="itemRight item17"><p>FTP</p></div>
-            <div class="itemRight item18"><p>Ubuntu</p></div>
-            <div class="itemRight item19"><p>Webpack</p></div>
-            <div class="itemRight item20"><p>Gulp</p></div>
-            <div class="itemRight item21"><p>Grunt</p></div>
-          </div>
-    </section>
-
-
 
 
     <section class="download-app" id="download-app">
@@ -1064,94 +926,8 @@
                 });
             });
         });
-        document.addEventListener("DOMContentLoaded", function () {
-            const slides = document.querySelectorAll(".banner-left-slide-img");
-            const prevButton = document.querySelector(".banner-left-prev");
-            const nextButton = document.querySelector(".banner-left-next");
-            let currentSlide = 0;
-            let autoSlideInterval;
+       
 
-            function showSlide(index) {
-                slides.forEach((slide, idx) => {
-                    if (idx === index) {
-                        slide.classList.add("active");
-                        slide.style.display = "block";
-                    } else {
-                        slide.classList.remove("active");
-                        slide.style.display = "none";
-                    }
-                });
-            }
-
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            }
-
-            function prevSlide() {
-                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-                showSlide(currentSlide);
-            }
-
-            function startAutoSlide() {
-                autoSlideInterval = setInterval(nextSlide, 20000);
-            }
-
-            function stopAutoSlide() {
-                clearInterval(autoSlideInterval);
-            }
-
-            showSlide(currentSlide);
-            startAutoSlide();
-
-            prevButton.addEventListener("click", () => {
-                stopAutoSlide();
-                prevSlide();
-                startAutoSlide();
-            });
-
-            nextButton.addEventListener("click", () => {
-                stopAutoSlide();
-                nextSlide();
-                startAutoSlide();
-            });
-        });
-
-        var i = 0;
-        let slides = document.querySelectorAll(".slide");
-        let slider = document.querySelector(".slider");
-        var pause = false;
-        function moveRight() {
-            slides[i].className = "slide";
-            i = (i + 1) % slides.length;
-            slides[i].className = "slide active";
-            let Xvalue = -160 * i;
-            slider.style.transform = `translateX(${Xvalue}px)`;
-        }
-        function moveLeft() {
-            slides[i].className = "slide";
-            i = (i - 1 + slides.length) % slides.length;
-            slides[i].className = "slide active";
-            let Xvalue = -160 * i;
-            slider.style.transform = `translateX(${Xvalue}px)`;
-        }
-
-        const interval = setInterval(() => {
-            if (!pause) {
-            moveRight();
-            }
-        }, 2000);
-
-        function playPause() {
-            let state = document.querySelector(".icon");
-            if (state.innerHTML == "pause") {
-            state.innerHTML = "play_arrow";
-            pause = true;
-            } else {
-            state.innerHTML = "pause";
-            pause = false;
-            }
-        }
         //window.addEventListener('load', function() {
            //document.getElementById('loading').style.display = 'flex';
 
