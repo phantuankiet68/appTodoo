@@ -55,7 +55,7 @@
                 <span class="liner"></span>
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         @switch($locale)
                             @case('vi')
                             <img src="{{ asset('assets/images/vietnam.jpg') }}" width="25px"> Việt Nam
@@ -127,591 +127,613 @@
             </ul>
         </nav>
     </header>
-    <section class="hero">
-        <div class="page-left-item">
-            <div class="banner">
-                <div class="banner-left">
-                    <div class="banner-left-slide">
-                        <div class="banner-left-slide">
-                            <div class="banner-left-slide-img">
-                                <img src="{{asset('assets/images/banner3.png')}}" />
+    <div class="app-wrapper">
+        <div class="container-wrapper">
+            <div class="main">
+                <div class="hero">
+                    <div class="page-left-item">
+                        <div class="banner">
+                            <div class="banner-left">
+                                <div class="content">
+                                    <div class="images">
+                                        <img src="{{asset('assets/images/ex1.jpg')}}">
+                                        <img src="{{asset('assets/images/w-2.jpg')}}">
+                                        <img src="{{asset('assets/images/w-3.jpg')}}">
+                                    </div>
+                                    <div class="btm-slides">
+                                        <span onclick="btm_slide(1)"></span>
+                                        <span onclick="btm_slide(2)"></span>
+                                        <span onclick="btm_slide(3)"></span>
+                                    </div>
+                                    <div class="sliders left" onclick="side_slide(-1)">
+                                        <span class="fas fa-angle-left"></span>
+                                    </div>
+                                    <div class="sliders right" onclick="side_slide(1)">
+                                        <span class="fas fa-angle-right"></span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="banner-left-slide-img" style="display: none">
-                                <img src="{{asset('assets/images/banner1.png')}}" />
-                            </div>
-                            <div class="banner-left-slide-img">
-                                <img src="{{asset('assets/images/banner2.png')}}" />
+                            <div class="banner-right">
+                                <div class="banner-right-top">
+                                    <div class="banner-right-top-img">
+                                        <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                    </div>
+                                </div>
+                                <div class="banner-right-body">
+                                    <div class="banner-right-body-img">
+                                        <img src="{{asset('assets/images/w-3.jpg')}}" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="banner-left-prev"><i class="fa-solid fa-angle-left"></i></div>
-                    <div class="banner-left-next"><i class="fa-solid fa-angle-right"></i></div>
                 </div>
-                <div class="banner-right">
-                    <div class="banner-right-top">
-                        <div class="banner-right-top-img">
-                            <img src="{{asset('assets/images/banner-top-1.png')}}" />
+                <section>
+                <div class="row">
+                    <!-- Column One -->
+                    <div class="column">
+                    <div class="card">
+                        <div class="icon">
+                        <i class="fa-solid fa-user"></i>
                         </div>
-                        <div class="banner-right-top-1">
-                            <span>Đứng đầu trong công nghệ mới</span>
+                        <h3>User Friendly</h3>
+                        <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
+                        asperiores natus ad molestiae aliquid explicabo. Iste eaque quo et
+                        commodi.
+                        </p>
+                    </div>
+                    </div>
+                    <!-- Column Two -->
+                    <div class="column">
+                    <div class="card">
+                        <div class="icon">
+                        <i class="fa-solid fa-shield-halved"></i>
                         </div>
-                        <div class="banner-right-top-2">
-                            <span> Khả năng học từ dữ liệu</span>
+                        <h3>Super Secure</h3>
+                        <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
+                        asperiores natus ad molestiae aliquid explicabo. Iste eaque quo et
+                        commodi.
+                        </p>
+                    </div>
+                    </div>
+                    <!-- Column Three -->
+                    <div class="column">
+                    <div class="card">
+                        <div class="icon">
+                        <i class="fa-solid fa-headset"></i>
                         </div>
-                        <div class="banner-right-top-3">
-                            <span>Tạo Sinh Nội Dung</span>
+                        <h3>Quick Support</h3>
+                        <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
+                        asperiores natus ad molestiae aliquid explicabo. Iste eaque quo et
+                        commodi.
+                        </p>
+                    </div>
+                    </div>
+                    <div class="column">
+                    <div class="card">
+                        <div class="icon">
+                        <i class="fa-solid fa-headset"></i>
                         </div>
-                        <div class="banner-right-top-4">
-                            <span>Tư duy tự lập và ra quyết định</span>
-                        </div>
-                        <div class="banner-right-top-5">
-                            <span>Xử lý ngôn ngữ tự nhiên</span>
+                        <h3>Quick Support</h3>
+                        <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
+                        asperiores natus ad molestiae aliquid explicabo. Iste eaque quo et
+                        commodi.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+                </section>
+                <section class="about-container">
+                    <div class="layout-tile">
+                        <h3>About</h3>
+                        <div class="layout-tile-btn">
+                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
                         </div>
                     </div>
-                    <div class="banner-right-body">
-                        <div class="banner-right-body-img">
-                            <img src="{{asset('assets/images/banner-body-1.png')}}" />
+                    <div class="about">
+                        <div class="about-left">
+                            <div class="about-left-img">
+                                <img src="{{asset('assets/images/product-home.png')}}" />
+                            </div>
                         </div>
-                        <div class="banner-right-body-1">
-                            <span>Top 3 công nghệ</span>
-                        </div>
-                        <div class="banner-right-body-2">
-                            <span> Tự động hóa marketing</span>
-                        </div>
-                        <div class="banner-right-body-3">
-                            <span>Tính linh hoạt và đa dạng kênh</span>
-                        </div>
-                        <div class="banner-right-body-4">
-                            <span>Phân tích và đo lường hiệu quả chiến dịch</span>
-                        </div>
-                        <div class="banner-right-body-5">
-                            <span>Tiếp cận khách hàng chính xác và cá nhân hóa</span>
+                        <div class="about-right">
+                            <h1>We help you better understand AI, coding, English, and Japanese.</h1>
+                            <div class="about-right-content">
+                                <p>AI (Trí tuệ nhân tạo): Giúp khách hàng hiểu cách AI hoạt động, ứng dụng AI vào thực tế, và cách nó có thể mang lại lợi ích cho công việc hoặc doanh nghiệp của họ.</p>
+                                <p>Coding (Lập trình): Hỗ trợ khách hàng học hoặc cải thiện kỹ năng lập trình, từ các ngôn ngữ cơ bản đến các kỹ thuật nâng cao phù hợp với nhu cầu thực tế.</p>
+                                <p>English (Tiếng Anh): Cung cấp công cụ và phương pháp để cải thiện khả năng giao tiếp, viết, và hiểu tiếng Anh, từ cơ bản đến nâng cao.</p>
+                                <p>Japanese (Tiếng Nhật): Đào tạo hoặc hỗ trợ học tiếng Nhật, từ việc học ngôn ngữ đến hiểu văn hóa, ứng dụng vào công việc và giao tiếp hàng ngày.</p>    
+                                <p><i>Chúng tôi hướng đến việc hỗ trợ khách hàng nâng cao kiến thức và kỹ năng trong bốn lĩnh vực quan trọng: AI, lập trình, tiếng Anh và tiếng Nhật, nhằm giúp họ phát triển bản thân, mở rộng cơ hội nghề nghiệp và đạt được thành công bền vững trong thời đại công nghệ và hội nhập.</i></p>
+                            </div>
+                            <div class="about-right-footer">
+                                <div class="about-right-footer-box">
+                                    <span class="about-icon"><i class="fa fa-times"></i></span>
+                                    <div>
+                                        <h4>No Hidden Cost</h4>
+                                        <span>xác nhận</span>
+                                    </div>
+                                </div>
+                                <div class="about-right-footer-box">
+                                    <span class="about-icon"><i class="fa fa-users"></i></span>
+                                    <div>
+                                        <h4>Dedicated Team</h4>
+                                        <span>xác nhận</span>
+                                    </div>
+                                </div>
+                                <div class="about-right-footer-box">
+                                    <span class="about-icon"><i class="fa fa-phone"></i></span>
+                                    <div>
+                                        <h4>24/7 Available</h4>
+                                        <span>xác nhận</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </section>
+                <!-- <section id="about">
+                    <div class="layout-tile">
+                        <h3>Product</h3>
+                        <div class="layout-tile-btn">
+                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="product">
+                        <div class="product-left">
+                            <h1>We develop dashboards to manage personal matters more efficiently and flexibly.</h1>
+                            <div class="product-left-content">
+                                <p>Our solution empowers you to take full control of your personal management with ease.</p>
+                                <p>Experience a smarter, more dynamic way to stay organized and achieve your goals!</p>
+                                <p>Để đạt được kết quả như mong muốn, hãy luôn nỗ lực hết mình và chịu trách nhiệm với những hành động của bản thân. Sự kiên trì và ý thức trách nhiệm chính là chìa khóa dẫn đến thành công!</p>
+                                <p>Join us today and unlock the potential of seamless personal management!</p>
+                                <div class="product-left-content-btn">
+                                    <button>Đăng ký ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-right">
+                            <div class="product-right-img">
+                                <img src="{{asset('assets/images/product-home.png')}}" />
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                -->
+                <section id="about">
+                    <div class="layout-tile">
+                        <h3>service</h3>
+                        <div class="layout-tile-btn">
+                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="service">
+                        <div class="service-right">
+                            <div class="service-right-slide">
+                                <button data-target="service-1"><i class="fa fa-bars text-primary me-3"></i> Self-introduction</button>
+                                <button data-target="service-2"><i class="fa fa-bars text-primary me-3"></i> Front-end Development</button>
+                                <button data-target="service-3"><i class="fa fa-bars text-primary me-3"></i> Back-end Development</button>
+                                <button data-target="service-4"><i class="fa fa-bars text-primary me-3"></i> Nhà phát triển Full-task</button>
+                                <button data-target="service-5"><i class="fa fa-bars text-primary me-3"></i> Nghiên cứu mới</button>
+                                <button data-target="service-6"><i class="fa fa-bars text-primary me-3"></i> Dịch vụ Remote</button>
+                            </div>
+                        </div>
+                        <div class="service-left">
+                            <div class="service-left-body active" id="service-1">
+                                <div class="service-left-body-img">
+                                    <img src="{{asset('assets/images/w-3.jpg')}}" />
+                                </div>
+                                <div class="service-left-body-content">
+                                    <h3>3 years of experience working as a web developer.</h3>
+                                    <p>Tôi tốt nghiệp trường Đại Học Công Nghệ TP.Hồ Chí Minh</p>
+                                    <p>Tôi có hơn 3 năm kinh nghiệm chuyên môn trong lĩnh vực phát triển web, bao gồm hơn 1 năm làm việc với vai trò nhà phát triển outsource và 2 năm làm việc như một nhân sự nội bộ. Hiện tại, tôi đang làm việc cho một công ty quốc tế, nơi tôi đã có cơ hội tham gia vào nhiều dự án đa dạng và đầy thử thách. Trong vai trò là một full-task developer, tôi đã đóng góp thành công vào các dự án như GrownUpWord, VJP-Connect, Plain-International và một số hệ thống nội bộ của công ty.</p>
+                                    <p>Khả năng thích nghi với các môi trường làm việc khác nhau và đóng góp hiệu quả cho cả đội ngũ trong nước và quốc tế là yếu tố quan trọng giúp tôi mang lại các giải pháp chất lượng cao. Tôi đam mê tạo ra các ứng dụng web hiệu quả, có khả năng mở rộng và thân thiện với người dùng, đồng thời luôn tìm kiếm cơ hội để phát triển và cải thiện trong lĩnh vực không ngừng thay đổi này.</p>
+                                </div>
+                            </div>
+                            <div class="service-left-body" id="service-2">
+                                <div class="service-left-body-img">
+                                    <img src="{{asset('assets/images/service1.png')}}" />
+                                </div>
+                                <div class="service-left-body-content">
+                                    <h3>Với cương vị là nhà phát triển về Giao diện người dùng</h3>
+                                    <p>tôi chuyên tạo ra các giao diện web trực quan, hấp dẫn và thân thiện với người dùng, mang lại trải nghiệm liền mạch. Vai trò của tôi bao gồm việc chuyển đổi các ý tưởng thiết kế thành các trang web chức năng và tương tác bằng cách sử dụng các công nghệ web hiện đại như HTML5, CSS3 và JavaScript, cùng với các framework như React, Angular hoặc Vue.js.</p>
+                                    <p>Tôi có khả năng phối hợp chặt chẽ với các nhà thiết kế UX, đảm bảo tính tương thích đa trình duyệt và tối ưu hóa hiệu suất trên nhiều thiết bị.</p>
+                                    <p>Tôi có kinh nghiệm làm việc với các công cụ thiết kế UX/UI như Figma và Adobe XD để chuyển đổi các bản thiết kế wireframe và prototype thành các giao diện thực tế, mang lại giá trị cho người dùng. Ngoài ra, tôi cũng thành thạo trong việc xử lý file Excel để quản lý dữ liệu và hỗ trợ quá trình lập kế hoạch hoặc phân tích liên quan đến dự án.</p>
+                                </div>
+                            </div>
+                            <div class="service-left-body" id="service-3">
+                                <div class="service-left-body-img">
+                                    <img src="{{asset('assets/images/service2.png')}}" />
+                                </div>
+                                <div class="service-left-body-content">
+                                    <h3>Với cương vị là nhà phát triển về Back-end</h3>
+                                    <p>Tôi chuyên xây dựng và duy trì logic phía server, cung cấp sức mạnh cho các ứng dụng web. Chuyên môn của tôi nằm ở việc thiết kế các hệ thống có khả năng mở rộng và bảo mật, phát triển API và quản lý cơ sở dữ liệu để đảm bảo tích hợp và chức năng liền mạch trên nhiều nền tảng.</p>
+                                    <p>Trong vai trò của mình, tôi phối hợp chặt chẽ với các nhà phát triển front-end, nhà thiết kế UX và các bên liên quan khác để tạo ra các giải pháp từ đầu đến cuối, đáp ứng yêu cầu của cả người dùng và doanh nghiệp. Tôi có kinh nghiệm sâu rộng với các công nghệ back-end hiện đại như Node.js, Python (Django/Flask), CShap, Java (Spring Boot), và PHP (Laravel).</p>
+                                    <p>Ngoài ra, tôi thành thạo trong việc quản lý hệ thống cơ sở dữ liệu như MySQL, PostgreSQL, MongoDB, và MySQL Workbench, với trọng tâm là tối ưu hóa và xử lý dữ liệu hiệu quả. </p>
+                                </div>
+                            </div>
+                            <div class="service-left-body" id="service-4">
+                                <div class="service-left-body-img">
+                                    <img src="{{asset('assets/images/service3.png')}}" />
+                                </div>
+                                <div class="service-left-body-content">
+                                    <h3>Với cương vị là nhà phát triển Full-task</h3>
+                                    <p>Tôi đảm nhận trách nhiệm trên toàn bộ ngăn xếp phát triển, bao gồm cả phát triển front-end và back-end, cũng như triển khai và bảo trì hệ thống (Run-end Development). Chuyên môn của tôi bao quát một loạt các công nghệ và công cụ, đảm bảo cung cấp các giải pháp mạnh mẽ, có khả năng mở rộng và hiệu quả cho các hệ thống phức tạp.</p>
+                                    <p>Tôi có kinh nghiệm thực tiễn làm việc với môi trường Ubuntu 20.04 và 22.04, nơi tôi quản lý máy chủ, cấu hình ứng dụng và xử lý các công việc triển khai. Kiến thức về FTP và Docker cho phép tôi chuyển giao và triển khai ứng dụng một cách hiệu quả, thiết lập các container cho môi trường phát triển độc lập và tối ưu hóa quy trình CI/CD.</p>
+                                </div>
+                            </div>
+                            <div class="service-left-body" id="service-5">
+                                <div class="service-left-body-img">
+                                    <img src="{{asset('assets/images/service4.png')}}" />
+                                </div>
+                                <div class="service-left-body-content">
+                                    <h3>Nghiên cứu mới</h3>
+                                    <p>Hiện tại, tôi đang làm việc với SVF Design, sử dụng mã nguồn từ WingArc. Trách nhiệm của tôi bao gồm thiết kế, tùy chỉnh và tối ưu hóa các mẫu tài liệu, báo cáo và bố cục để đáp ứng các yêu cầu cụ thể của khách hàng. Tận dụng các công cụ và framework của WingArc, tôi đảm bảo rằng sản phẩm đầu ra vừa có tính thẩm mỹ cao vừa hoạt động hiệu quả. Vai trò của tôi cũng bao gồm việc phối hợp với các nhóm để tích hợp các giải pháp SVF vào hệ thống hiện tại một cách liền mạch, đồng thời duy trì các tiêu chuẩn cao về độ chính xác và hiệu suất.</p>
+                                    <p>Dự án này cũng là một thử thách lớn đối với tôi, vì nó đòi hỏi sự hiểu biết sâu sắc về công nghệ nền tảng cũng như sự tận tâm trong việc làm chủ tài liệu và các công cụ. Tôi đã dành nhiều nỗ lực để nghiên cứu và tìm hiểu tài liệu liên quan, nhờ đó vượt qua được những khó khăn ban đầu và đạt được những kết quả đáng kể. Bằng cách không ngừng cải thiện kiến thức và kỹ năng, tôi mong muốn mang lại các giải pháp tốt hơn và tận dụng tối đa trải nghiệm học tập quý báu này.</p>
+                                </div>
+                            </div>
+                            <div class="service-left-body" id="service-6">
+                                <div class="service-left-body-img">
+                                    <img src="{{asset('assets/images/service5.png')}}" />
+                                </div>
+                                <div class="service-left-body-content">
+                                    <h3>Dịch vụ Remote</h3>
+                                    <p>Giá cả: thương lượng</p>
+                                    <div class="item_service d-flex align-center gap-10"><span>01</span> <p>Number of new and modified screens.</p></div>
+                                    <div class="item_service d-flex align-center gap-10"><span>02</span> <p>Use HTML, CSS, and responsive design to complete</p></div>
+                                    <div class="item_service d-flex align-center gap-10"><span>03</span> <p>Use JavaScript to complete.</p></div>
+                                    <div class="item_service d-flex align-center gap-10"><span>04</span> <p>Use Frontend Development Tools to complete.</p></div>
+                                    <div class="item_service d-flex align-center gap-10"><span>05</span> <p>Use Backend Development Tools to complete.</p></div>
+                                    <div class="item_service d-flex align-center gap-10"><span>06</span> <p>Deployment & Hosting</p></div>
+                                    <div class="item_service d-flex align-center gap-10"><span>07</span> <p>Testing</p></div>
+                                    <div class="item_service d-flex align-center gap-10"><span>08</span> <p>Bảo hành cho công việc 6 tháng</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section  id="Team">
+                    <div class="layout-tile">
+                        <h3>Team</h3>
+                        <div class="layout-tile-btn">
+                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="slider-container swiper">
+                        <div class="slider-home">
+                            <div class="card-home swiper-wrapper">
+                                <div class="card-home-item swiper-slide">
+                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
+                                    <h2 class="user-name">Phan Tuấn Kiệt</h2>
+                                    <p class="user-profession">Software Developer</p>
+                                    <button class="message-btn">Liên hệ ngay</button>
+                                </div>
+                                <div class="card-home-item swiper-slide">
+                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
+                                    <h2 class="user-name">Phan Duy Linh</h2>
+                                    <p class="user-profession">Software Developer</p>
+                                    <button class="message-btn">Liên hệ ngay</button>
+                                </div>
+                                <div class="card-home-item swiper-slide">
+                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
+                                    <h2 class="user-name">Nguyễn Tường Vi</h2>
+                                    <p class="user-profession">Software Developer</p>
+                                    <button class="message-btn">Liên hệ ngay</button>
+                                </div>
+                                <div class="card-home-item swiper-slide">
+                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
+                                    <h2 class="user-name">Lê Quang Huy</h2>
+                                    <p class="user-profession">Software Developer</p>
+                                    <button class="message-btn">Liên hệ ngay</button>
+                                </div>
+                                <div class="card-home-item swiper-slide">
+                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
+                                    <h2 class="user-name">Phan Duy Kha</h2>
+                                    <p class="user-profession">Software Developer</p>
+                                    <button class="message-btn">Liên hệ ngay</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="about">
+                    <div class="layout-tile">
+                        <h3>Document</h3>
+                        <div class="layout-tile-btn">
+                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog_container">
+                        <div class="blog_products">
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="about">
+                    <div class="layout-tile">
+                        <h3>Blog</h3>
+                        <div class="layout-tile-btn">
+                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="blog_container">
+                        <div class="blog_products">
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            <div class="blog_product">
+                                <div class="blog_product-img">
+                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
+                                </div>
+                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
+                                <div class="price">₫199,600</div>
+                                <div class="old-price">₫249,500</div>
+                                <div class="discount">-20%</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </section>
+                <section class="stats">
+                    <div class="stats-container">
+                        <div class="stat">
+                            <div class="icon">🚀</div>
+                            <h2>000+</h2>
+                            <p>Dịch Vụ Cung Cấp</p>
+                        </div>
+                        <div class="stat">
+                            <div class="icon">📍</div>
+                            <h2>000+</h2>
+                            <p>Địa Điểm</p>
+                        </div>
+                        <div class="stat">
+                            <div class="icon">💳</div>
+                            <h2>000+</h2>
+                            <p>Giao Dịch Thành Công</p>
+                        </div>
+                        <div class="stat">
+                            <div class="icon">📁</div>
+                            <h2>000+</h2>
+                            <p>Tài Liệu</p>
+                        </div>
+                    </div>
+                </section>
+                <section id="about">
+                        <div class="layout-tile">
+                            <h3>{{ __('messages.Contact') }}</h3>
+                            <div class="layout-tile-btn">
+                                <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <section id="section-wrapper">
+                            <div class="box-wrapper">
+                                <div class="info-wrap">
+                                    <h3 class="info-sub-title">{{ __('messages.Take a moment to fill out the form, and our dedicated team of experts will get back to you within 24 hours. We are always ready to listen and provide the most suitable solutions, ensuring you receive the best support possible!') }}</h3>
+                                    <ul class="info-details">
+                                        <li>
+                                            <div class="contact-icon">
+                                                <b></b>
+                                                <i class="fas fa-location-dot"></i>
+                                            </div>
+                                            <div class="text-contact">
+                                                <p>{{ __('messages.Address') }}:</p> <a href="tel:+ 0768173369">{{__('messages.Tan The Hoa, Tan Phu District, Ho Chi Minh City.')}}</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="contact-icon">
+                                                <b></b>
+                                                <i class="fas fa-phone-alt"></i>
+                                            </div>
+                                            <div class="text-contact">
+                                                <p>{{ __('messages.Phone') }}:</p> <a href="tel:+ 0768173369">+ 0768173369</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="contact-icon">
+                                                <b></b>
+                                                <i class="fas fa-paper-plane"></i>
+                                            </div>
+                                            <div class="text-contact">
+                                                <p >{{ __('messages.Email') }}:</p> 
+                                                <a  href="mailto:tuankietity@gmail.com">tuankietity@gmail.com</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="contact-icon">
+                                                <b></b>
+                                                <i class="fas fa-globe"></i>
+                                            </div>
+                                            <div class="text-contact">
+                                                <p class="mx-10">{{ __('messages.Website') }}:</p> <a class="mx-10" href="https://www.upskillhub.io.vn/">https://www.upskillhub.io.vn/</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="contact-icon">
+                                                <b></b>
+                                                <i class="fab fa-facebook"></i>
+                                            </div>
+                                            <div class="text-contact">
+                                                <p class="mx-10">{{ __('messages.Website') }}:</p> <a class="mx-10" href="#">{{ __('messages.Updating') }}</a>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="contact-icon">
+                                                <b></b>
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </div>
+                                            <div class="text-contact">
+                                                <a class="mx-10" href="https://www.linkedin.com/in/phan-tuấn-kiệt-00bab2283">https://www.linkedin.com/in/phan-tuấn-kiệt-00bab2283</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="contact-form-container">
+                                    <form class="contact-form" action="{{ route('send.contact') }}" method="POST">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="name">{{ __('messages.Name') }}</label>
+                                            <input type="text" name="name" placeholder="{{ __('messages.Name') }}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">{{ __('messages.Email') }}</label>
+                                            <input type="email" name="email" placeholder="{{ __('messages.Email') }}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="subject">{{ __('messages.Subject') }}</label>
+                                            <input type="text" name="subject" placeholder="{{ __('messages.Subject') }}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="message">{{ __('messages.Message') }}</label>
+                                            <textarea name="message" placeholder="{{ __('messages.Message') }}" rows="5" required></textarea>
+                                        </div>
+                                        <button type="submit" class="btn">{{ __('messages.Send') }}</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                    </section>
+            </div>
+            <div class="aside">
+                <div class="aside-top">
+                    <span>sssss</span>
                 </div>
             </div>
         </div>
-    </section>
-    <div class="title-space">
-        <h2 style="--w: 50vw;--c: rgb(55 170 255 / 40%);--b:4px;--g:-5px">{{ __('messages.About') }}</h2>
     </div>
-    <section>
-        <div class="about">
-            <div class="about-left">
-                <div class="about-left-img">
-                    <img src="{{asset('assets/images/about1.png')}}" />
-                </div>
-                <div class="line-about">
-                    <span class="ai">AI</span>
-                    <span class="code">Code</span>
-                    <span class="english">English</span>
-                    <span class="japanese">Japanese</span>
-                </div>
-            </div>
-            <div class="about-right">
-                <h1>We help you better understand AI, coding, English, and Japanese.</h1>
-                <div class="about-right-content">
-                    <p>AI (Trí tuệ nhân tạo): Giúp khách hàng hiểu cách AI hoạt động, ứng dụng AI vào thực tế, và cách nó có thể mang lại lợi ích cho công việc hoặc doanh nghiệp của họ.</p>
-                    <p>Coding (Lập trình): Hỗ trợ khách hàng học hoặc cải thiện kỹ năng lập trình, từ các ngôn ngữ cơ bản đến các kỹ thuật nâng cao phù hợp với nhu cầu thực tế.</p>
-                    <p>English (Tiếng Anh): Cung cấp công cụ và phương pháp để cải thiện khả năng giao tiếp, viết, và hiểu tiếng Anh, từ cơ bản đến nâng cao.</p>
-                    <p>Japanese (Tiếng Nhật): Đào tạo hoặc hỗ trợ học tiếng Nhật, từ việc học ngôn ngữ đến hiểu văn hóa, ứng dụng vào công việc và giao tiếp hàng ngày.</p>    
-                    <p><i>Chúng tôi hướng đến việc hỗ trợ khách hàng nâng cao kiến thức và kỹ năng trong bốn lĩnh vực quan trọng: AI, lập trình, tiếng Anh và tiếng Nhật, nhằm giúp họ phát triển bản thân, mở rộng cơ hội nghề nghiệp và đạt được thành công bền vững trong thời đại công nghệ và hội nhập.</i></p>
-                </div>
-                <div class="about-right-footer">
-                    <div class="about-right-footer-box">
-                        <span class="about-icon"><i class="fa fa-times"></i></span>
-                        <div>
-                            <h4>No Hidden Cost</h4>
-                            <span>xác nhận</span>
-                        </div>
-                    </div>
-                    <div class="about-right-footer-box">
-                        <span class="about-icon"><i class="fa fa-users"></i></span>
-                        <div>
-                            <h4>Dedicated Team</h4>
-                            <span>xác nhận</span>
-                        </div>
-                    </div>
-                    <div class="about-right-footer-box">
-                        <span class="about-icon"><i class="fa fa-phone"></i></span>
-                        <div>
-                            <h4>24/7 Available</h4>
-                            <span>xác nhận</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="title-space-box">
-        <h2 style="--w: 50vw;--c: rgb(55 170 255 / 40%);--b:4px;--g:-5px">{{ __('messages.Product') }}</h2>
-    </div>
-    <section id="about">
-        <div class="product">
-            <div class="product-left">
-                <h1>We develop dashboards to manage personal matters more efficiently and flexibly.</h1>
-                <div class="product-left-content">
-                    <p>Our solution empowers you to take full control of your personal management with ease.</p>
-                    <p>Experience a smarter, more dynamic way to stay organized and achieve your goals!</p>
-                    <p>Để đạt được kết quả như mong muốn, hãy luôn nỗ lực hết mình và chịu trách nhiệm với những hành động của bản thân. Sự kiên trì và ý thức trách nhiệm chính là chìa khóa dẫn đến thành công!</p>
-                    <p>Join us today and unlock the potential of seamless personal management!</p>
-                    <div class="product-left-content-btn">
-                        <button>Đăng ký ngay</button>
-                    </div>
-                </div>
-            </div>
-            <div class="product-right">
-                <div class="product-right-img">
-                    <img src="{{asset('assets/images/product-home.png')}}" />
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="title-space-body">
-        <h2 style="--w: 50vw;--c: rgb(55 170 255 / 40%);--b:4px;--g:-5px">{{ __('messages.Service') }}</h2>
-    </div>
-    <section id="about">
-        <div class="service">
-            <div class="service-left">
-                <div class="service-left-body active" id="service-1">
-                    <div class="service-left-body-img">
-                        <img src="{{asset('assets/images/service.png')}}" />
-                    </div>
-                    <div class="service-left-body-content">
-                        <h3>3 years of experience working as a web developer.</h3>
-                        <p>Tôi tốt nghiệp trường Đại Học Công Nghệ TP.Hồ Chí Minh</p>
-                        <p>Tôi có hơn 3 năm kinh nghiệm chuyên môn trong lĩnh vực phát triển web, bao gồm hơn 1 năm làm việc với vai trò nhà phát triển outsource và 2 năm làm việc như một nhân sự nội bộ. Hiện tại, tôi đang làm việc cho một công ty quốc tế, nơi tôi đã có cơ hội tham gia vào nhiều dự án đa dạng và đầy thử thách. Trong vai trò là một full-task developer, tôi đã đóng góp thành công vào các dự án như GrownUpWord, VJP-Connect, Plain-International và một số hệ thống nội bộ của công ty.</p>
-                        <p>Khả năng thích nghi với các môi trường làm việc khác nhau và đóng góp hiệu quả cho cả đội ngũ trong nước và quốc tế là yếu tố quan trọng giúp tôi mang lại các giải pháp chất lượng cao. Tôi đam mê tạo ra các ứng dụng web hiệu quả, có khả năng mở rộng và thân thiện với người dùng, đồng thời luôn tìm kiếm cơ hội để phát triển và cải thiện trong lĩnh vực không ngừng thay đổi này.</p>
-                    </div>
-                </div>
-                <div class="service-left-body" id="service-2">
-                    <div class="service-left-body-img">
-                        <img src="{{asset('assets/images/service1.png')}}" />
-                    </div>
-                    <div class="service-left-body-content">
-                        <h3>Với cương vị là nhà phát triển về Giao diện người dùng</h3>
-                        <p>tôi chuyên tạo ra các giao diện web trực quan, hấp dẫn và thân thiện với người dùng, mang lại trải nghiệm liền mạch. Vai trò của tôi bao gồm việc chuyển đổi các ý tưởng thiết kế thành các trang web chức năng và tương tác bằng cách sử dụng các công nghệ web hiện đại như HTML5, CSS3 và JavaScript, cùng với các framework như React, Angular hoặc Vue.js.</p>
-                        <p>Tôi có khả năng phối hợp chặt chẽ với các nhà thiết kế UX, đảm bảo tính tương thích đa trình duyệt và tối ưu hóa hiệu suất trên nhiều thiết bị.</p>
-                        <p>Tôi có kinh nghiệm làm việc với các công cụ thiết kế UX/UI như Figma và Adobe XD để chuyển đổi các bản thiết kế wireframe và prototype thành các giao diện thực tế, mang lại giá trị cho người dùng. Ngoài ra, tôi cũng thành thạo trong việc xử lý file Excel để quản lý dữ liệu và hỗ trợ quá trình lập kế hoạch hoặc phân tích liên quan đến dự án.</p>
-                    </div>
-                </div>
-                <div class="service-left-body" id="service-3">
-                    <div class="service-left-body-img">
-                        <img src="{{asset('assets/images/service2.png')}}" />
-                    </div>
-                    <div class="service-left-body-content">
-                        <h3>Với cương vị là nhà phát triển về Back-end</h3>
-                        <p>Tôi chuyên xây dựng và duy trì logic phía server, cung cấp sức mạnh cho các ứng dụng web. Chuyên môn của tôi nằm ở việc thiết kế các hệ thống có khả năng mở rộng và bảo mật, phát triển API và quản lý cơ sở dữ liệu để đảm bảo tích hợp và chức năng liền mạch trên nhiều nền tảng.</p>
-                        <p>Trong vai trò của mình, tôi phối hợp chặt chẽ với các nhà phát triển front-end, nhà thiết kế UX và các bên liên quan khác để tạo ra các giải pháp từ đầu đến cuối, đáp ứng yêu cầu của cả người dùng và doanh nghiệp. Tôi có kinh nghiệm sâu rộng với các công nghệ back-end hiện đại như Node.js, Python (Django/Flask), CShap, Java (Spring Boot), và PHP (Laravel).</p>
-                        <p>Ngoài ra, tôi thành thạo trong việc quản lý hệ thống cơ sở dữ liệu như MySQL, PostgreSQL, MongoDB, và MySQL Workbench, với trọng tâm là tối ưu hóa và xử lý dữ liệu hiệu quả. </p>
-                    </div>
-                </div>
-                <div class="service-left-body" id="service-4">
-                    <div class="service-left-body-img">
-                        <img src="{{asset('assets/images/service3.png')}}" />
-                    </div>
-                    <div class="service-left-body-content">
-                        <h3>Với cương vị là nhà phát triển Full-task</h3>
-                        <p>Tôi đảm nhận trách nhiệm trên toàn bộ ngăn xếp phát triển, bao gồm cả phát triển front-end và back-end, cũng như triển khai và bảo trì hệ thống (Run-end Development). Chuyên môn của tôi bao quát một loạt các công nghệ và công cụ, đảm bảo cung cấp các giải pháp mạnh mẽ, có khả năng mở rộng và hiệu quả cho các hệ thống phức tạp.</p>
-                        <p>Tôi có kinh nghiệm thực tiễn làm việc với môi trường Ubuntu 20.04 và 22.04, nơi tôi quản lý máy chủ, cấu hình ứng dụng và xử lý các công việc triển khai. Kiến thức về FTP và Docker cho phép tôi chuyển giao và triển khai ứng dụng một cách hiệu quả, thiết lập các container cho môi trường phát triển độc lập và tối ưu hóa quy trình CI/CD.</p>
-                    </div>
-                </div>
-                <div class="service-left-body" id="service-5">
-                    <div class="service-left-body-img">
-                        <img src="{{asset('assets/images/service4.png')}}" />
-                    </div>
-                    <div class="service-left-body-content">
-                        <h3>Nghiên cứu mới</h3>
-                        <p>Hiện tại, tôi đang làm việc với SVF Design, sử dụng mã nguồn từ WingArc. Trách nhiệm của tôi bao gồm thiết kế, tùy chỉnh và tối ưu hóa các mẫu tài liệu, báo cáo và bố cục để đáp ứng các yêu cầu cụ thể của khách hàng. Tận dụng các công cụ và framework của WingArc, tôi đảm bảo rằng sản phẩm đầu ra vừa có tính thẩm mỹ cao vừa hoạt động hiệu quả. Vai trò của tôi cũng bao gồm việc phối hợp với các nhóm để tích hợp các giải pháp SVF vào hệ thống hiện tại một cách liền mạch, đồng thời duy trì các tiêu chuẩn cao về độ chính xác và hiệu suất.</p>
-                        <p>Dự án này cũng là một thử thách lớn đối với tôi, vì nó đòi hỏi sự hiểu biết sâu sắc về công nghệ nền tảng cũng như sự tận tâm trong việc làm chủ tài liệu và các công cụ. Tôi đã dành nhiều nỗ lực để nghiên cứu và tìm hiểu tài liệu liên quan, nhờ đó vượt qua được những khó khăn ban đầu và đạt được những kết quả đáng kể. Bằng cách không ngừng cải thiện kiến thức và kỹ năng, tôi mong muốn mang lại các giải pháp tốt hơn và tận dụng tối đa trải nghiệm học tập quý báu này.</p>
-                    </div>
-                </div>
-                <div class="service-left-body" id="service-6">
-                    <div class="service-left-body-img">
-                        <img src="{{asset('assets/images/service5.png')}}" />
-                    </div>
-                    <div class="service-left-body-content">
-                        <h3>Dịch vụ Remote</h3>
-                        <p>Giá cả: thương lượng</p>
-                        <div class="item_service d-flex align-center gap-10"><span>01</span> <p>Number of new and modified screens.</p></div>
-                        <div class="item_service d-flex align-center gap-10"><span>02</span> <p>Use HTML, CSS, and responsive design to complete</p></div>
-                        <div class="item_service d-flex align-center gap-10"><span>03</span> <p>Use JavaScript to complete.</p></div>
-                        <div class="item_service d-flex align-center gap-10"><span>04</span> <p>Use Frontend Development Tools to complete.</p></div>
-                        <div class="item_service d-flex align-center gap-10"><span>05</span> <p>Use Backend Development Tools to complete.</p></div>
-                        <div class="item_service d-flex align-center gap-10"><span>06</span> <p>Deployment & Hosting</p></div>
-                        <div class="item_service d-flex align-center gap-10"><span>07</span> <p>Testing</p></div>
-                        <div class="item_service d-flex align-center gap-10"><span>08</span> <p>Bảo hành cho công việc 6 tháng</p></div>
-                    </div>
-                </div>
-            </div>
-            <div class="service-right">
-                <div class="service-right-slide">
-                    <button data-target="service-1"><i class="fa fa-bars text-primary me-3"></i> Self-introduction</button>
-                    <button data-target="service-2"><i class="fa fa-bars text-primary me-3"></i> Front-end Development</button>
-                    <button data-target="service-3"><i class="fa fa-bars text-primary me-3"></i> Back-end Development</button>
-                    <button data-target="service-4"><i class="fa fa-bars text-primary me-3"></i> Nhà phát triển Full-task</button>
-                    <button data-target="service-5"><i class="fa fa-bars text-primary me-3"></i> Nghiên cứu mới</button>
-                    <button data-target="service-6"><i class="fa fa-bars text-primary me-3"></i> Dịch vụ Remote</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="title-space-box">
-        <h2 style="--w: 50vw;--c: rgb(55 170 255 / 40%);--b:4px;--g:-5px">{{ __('messages.Team') }}</h2>
-    </div>
-    <section  id="Team">
-    <div class="slider-container swiper">
-            <div class="slider-home">
-                <div class="card-home swiper-wrapper">
-                    <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">Phan Tuấn Kiệt</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Liên hệ ngay</button>
-                    </div>
-                    <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">Nguyễn Trung Nghĩa</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Liên hệ ngay</button>
-                    </div>
-                    <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">Nguyễn Tường Vi</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Liên hệ ngay</button>
-                    </div>
-                    <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">Lê Quang Huy</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Liên hệ ngay</button>
-                    </div>
-                    <div class="card-home-item swiper-slide">
-                        <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                        <h2 class="user-name">Trần Minh Thuận</h2>
-                        <p class="user-profession">Software Developer</p>
-                        <button class="message-btn">Liên hệ ngay</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="title-space-body">
-        <h2 style="--w: 50vw;--c: rgb(55 170 255 / 40%);--b:4px;--g:-5px">{{ __('messages.Document') }}</h2>
-    </div>
-    <section id="about">
-        <div class="blog_container">
-            <div class="blog_products">
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service2.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service2.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service2.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service2.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service2.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service2.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service2.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service2.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service2.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service2.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="title-space-body">
-        <h2 style="--w: 50vw;--c: rgb(55 170 255 / 40%);--b:4px;--g:-5px">{{ __('messages.Blog') }}</h2>
-    </div>
-    <section id="about">
-        <div class="blog_container">
-            <div class="blog_products">
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service3.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service3.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service3.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service3.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service3.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service3.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service3.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service3.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service3.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-                <div class="blog_product">
-                    <div class="blog_product-img">
-                        <img src="{{asset('assets/images/service3.png')}}" />
-                    </div>
-                    <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                    <div class="price">₫199,600</div>
-                    <div class="old-price">₫249,500</div>
-                    <div class="discount">-20%</div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat">
-                <div class="icon">🚀</div>
-                <h2>000+</h2>
-                <p>Dịch Vụ Cung Cấp</p>
-            </div>
-            <div class="stat">
-                <div class="icon">📍</div>
-                <h2>000+</h2>
-                <p>Địa Điểm</p>
-            </div>
-            <div class="stat">
-                <div class="icon">💳</div>
-                <h2>000+</h2>
-                <p>Giao Dịch Thành Công</p>
-            </div>
-            <div class="stat">
-                <div class="icon">📁</div>
-                <h2>000+</h2>
-                <p>Tài Liệu</p>
-            </div>
-        </div>
-    </section>
-    <div class="title-space-body">
-        <h2 style="--w: 50vw;--c: rgb(232 79 0 / 40%);--b:4px;--g:-5px">{{ __('messages.Contact') }}</h2>
-    </div>
-    <section id="about">
-        <section id="section-wrapper">
-            <div class="box-wrapper">
-                <div class="info-wrap">
-                    <h3 class="info-sub-title">{{ __('messages.Take a moment to fill out the form, and our dedicated team of experts will get back to you within 24 hours. We are always ready to listen and provide the most suitable solutions, ensuring you receive the best support possible!') }}</h3>
-                    <ul class="info-details">
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fas fa-location-dot"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p>{{ __('messages.Address') }}:</p> <a href="tel:+ 0768173369">{{__('messages.Tan The Hoa, Tan Phu District, Ho Chi Minh City.')}}</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p>{{ __('messages.Phone') }}:</p> <a href="tel:+ 0768173369">+ 0768173369</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fas fa-paper-plane"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p >{{ __('messages.Email') }}:</p> 
-                                <a  href="mailto:tuankietity@gmail.com">tuankietity@gmail.com</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p class="mx-10">{{ __('messages.Website') }}:</p> <a class="mx-10" href="https://www.upskillhub.io.vn/">https://www.upskillhub.io.vn/</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fab fa-facebook"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p class="mx-10">{{ __('messages.Website') }}:</p> <a class="mx-10" href="#">{{ __('messages.Updating') }}</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fab fa-linkedin-in"></i>
-                            </div>
-                            <div class="text-contact">
-                                <a class="mx-10" href="https://www.linkedin.com/in/phan-tuấn-kiệt-00bab2283">https://www.linkedin.com/in/phan-tuấn-kiệt-00bab2283</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="contact-form-container">
-                    <form class="contact-form" action="{{ route('send.contact') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label for="name">{{ __('messages.Name') }}</label>
-                            <input type="text" name="name" placeholder="{{ __('messages.Name') }}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">{{ __('messages.Email') }}</label>
-                            <input type="email" name="email" placeholder="{{ __('messages.Email') }}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">{{ __('messages.Subject') }}</label>
-                            <input type="text" name="subject" placeholder="{{ __('messages.Subject') }}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">{{ __('messages.Message') }}</label>
-                            <textarea name="message" placeholder="{{ __('messages.Message') }}" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">{{ __('messages.Send') }}</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </section>
-
-
     <section class="download-app" id="download-app">
         <footer class="footer">
             <ul class="social-icon">
@@ -904,6 +926,46 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
+        var indexValue = 1;
+        showImg(indexValue);
+
+        // Tự động chuyển ảnh sau mỗi 10 giây
+        setInterval(function() {
+        side_slide(1); // Chuyển sang ảnh kế tiếp
+        }, 10000);
+
+        function btm_slide(e) {
+        showImg(indexValue = e);
+        }
+
+        function side_slide(e) {
+        showImg(indexValue += e);
+        }
+
+        function showImg(e) {
+        var i;
+        const img = document.querySelectorAll('.banner-left .content .images img');
+        const slider = document.querySelectorAll('.btm-slides span');
+
+        if (e > img.length) {
+            indexValue = 1;
+        }
+        if (e < 1) {
+            indexValue = img.length;
+        }
+
+        for (i = 0; i < img.length; i++) {
+            img[i].style.display = "none";
+        }
+
+        for (i = 0; i < slider.length; i++) {
+            slider[i].style.background = "rgba(255,255,255,0.1)";
+        }
+
+        img[indexValue - 1].style.display = "block";
+        slider[indexValue - 1].style.background = "white";
+        }
+
         document.addEventListener("DOMContentLoaded", function () {
             const buttons = document.querySelectorAll(".service-right-slide button");
             const services = document.querySelectorAll(".service-left-body");
