@@ -249,50 +249,22 @@
                         </div>
                     </div>
                 </section>
-                <!-- <section id="about">
-                    <div class="layout-tile">
-                        <h3>Product</h3>
-                        <div class="layout-tile-btn">
-                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="product">
-                        <div class="product-left">
-                            <h1>We develop dashboards to manage personal matters more efficiently and flexibly.</h1>
-                            <div class="product-left-content">
-                                <p>Our solution empowers you to take full control of your personal management with ease.</p>
-                                <p>Experience a smarter, more dynamic way to stay organized and achieve your goals!</p>
-                                <p>Để đạt được kết quả như mong muốn, hãy luôn nỗ lực hết mình và chịu trách nhiệm với những hành động của bản thân. Sự kiên trì và ý thức trách nhiệm chính là chìa khóa dẫn đến thành công!</p>
-                                <p>Join us today and unlock the potential of seamless personal management!</p>
-                                <div class="product-left-content-btn">
-                                    <button>Đăng ký ngay</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-right">
-                            <div class="product-right-img">
-                                <img src="{{asset('assets/images/product-home.png')}}" />
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                -->
                 <section id="about">
                     <div class="layout-tile">
-                        <h3>service</h3>
+                        <h3>{{ __('messages.Service') }}</h3>
                         <div class="layout-tile-btn">
-                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+                            <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="service">
                         <div class="service-right">
                             <div class="service-right-slide">
-                                <button data-target="service-1"><i class="fa fa-bars text-primary me-3"></i> Self-introduction</button>
-                                <button data-target="service-2"><i class="fa fa-bars text-primary me-3"></i> Front-end Development</button>
-                                <button data-target="service-3"><i class="fa fa-bars text-primary me-3"></i> Back-end Development</button>
-                                <button data-target="service-4"><i class="fa fa-bars text-primary me-3"></i> Nhà phát triển Full-task</button>
-                                <button data-target="service-5"><i class="fa fa-bars text-primary me-3"></i> Nghiên cứu mới</button>
-                                <button data-target="service-6"><i class="fa fa-bars text-primary me-3"></i> Dịch vụ Remote</button>
+                                <button data-target="service-1"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.Self-Introduction') }}</button>
+                                <button data-target="service-2"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.Front-end Development') }}</button>
+                                <button data-target="service-3"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.Back-end Development') }}</button>
+                                <button data-target="service-4"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.Full-task Developer') }}</button>
+                                <button data-target="service-5"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.New Research') }}</button>
+                                <button data-target="service-6"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.Remote Service') }}</button>
                             </div>
                         </div>
                         <div class="service-left">
@@ -301,10 +273,14 @@
                                     <img src="{{asset('assets/images/w-3.jpg')}}" />
                                 </div>
                                 <div class="service-left-body-content">
-                                    <h3>3 years of experience working as a web developer.</h3>
-                                    <p>Tôi tốt nghiệp trường Đại Học Công Nghệ TP.Hồ Chí Minh</p>
-                                    <p>Tôi có hơn 3 năm kinh nghiệm chuyên môn trong lĩnh vực phát triển web, bao gồm hơn 1 năm làm việc với vai trò nhà phát triển outsource và 2 năm làm việc như một nhân sự nội bộ. Hiện tại, tôi đang làm việc cho một công ty quốc tế, nơi tôi đã có cơ hội tham gia vào nhiều dự án đa dạng và đầy thử thách. Trong vai trò là một full-task developer, tôi đã đóng góp thành công vào các dự án như GrownUpWord, VJP-Connect, Plain-International và một số hệ thống nội bộ của công ty.</p>
-                                    <p>Khả năng thích nghi với các môi trường làm việc khác nhau và đóng góp hiệu quả cho cả đội ngũ trong nước và quốc tế là yếu tố quan trọng giúp tôi mang lại các giải pháp chất lượng cao. Tôi đam mê tạo ra các ứng dụng web hiệu quả, có khả năng mở rộng và thân thiện với người dùng, đồng thời luôn tìm kiếm cơ hội để phát triển và cải thiện trong lĩnh vực không ngừng thay đổi này.</p>
+                                    <h3>{{ __('messages.3 years of experience working as a web developer') }}</h3>
+                                    <p>{{ __('messages.My name is Phan Tuấn Kiệt. I am from Bến Tre and currently living and working in Ho Chi Minh City.') }}</p>
+                                    <p class="text-red">{{ __('messages.Graduated from Ho Chi Minh City University of Technology.') }}</p>
+                                    <p>- {{ __('messages.I have over 3 years of professional experience in web development.') }}</p>
+                                    <p>- {{ __('messages.I have over 1 year of experience working as a front-end developer at a company specializing in outsourcing.') }}</p>
+                                    <p>- {{ __('messages.And 2 years working as an in-house developer. In the role of a full-task developer, I have successfully contributed to projects such as GrownUpWord, VJP-Connect, Plain-International, and several internal company systems.') }}</p>
+                                    <p>- {{ __('messages.Currently, I am working for an international company, where I have had the opportunity to participate in various diverse and challenging projects.') }}</p>
+                                    <p>* {{ __('messages.The ability to adapt to different work environments and contribute effectively to both domestic and international teams is a key factor that enables me to deliver high-quality solutions.') }}</p>
                                 </div>
                             </div>
                             <div class="service-left-body" id="service-2">
@@ -312,10 +288,12 @@
                                     <img src="{{asset('assets/images/service1.png')}}" />
                                 </div>
                                 <div class="service-left-body-content">
-                                    <h3>Với cương vị là nhà phát triển về Giao diện người dùng</h3>
-                                    <p>tôi chuyên tạo ra các giao diện web trực quan, hấp dẫn và thân thiện với người dùng, mang lại trải nghiệm liền mạch. Vai trò của tôi bao gồm việc chuyển đổi các ý tưởng thiết kế thành các trang web chức năng và tương tác bằng cách sử dụng các công nghệ web hiện đại như HTML5, CSS3 và JavaScript, cùng với các framework như React, Angular hoặc Vue.js.</p>
-                                    <p>Tôi có khả năng phối hợp chặt chẽ với các nhà thiết kế UX, đảm bảo tính tương thích đa trình duyệt và tối ưu hóa hiệu suất trên nhiều thiết bị.</p>
-                                    <p>Tôi có kinh nghiệm làm việc với các công cụ thiết kế UX/UI như Figma và Adobe XD để chuyển đổi các bản thiết kế wireframe và prototype thành các giao diện thực tế, mang lại giá trị cho người dùng. Ngoài ra, tôi cũng thành thạo trong việc xử lý file Excel để quản lý dữ liệu và hỗ trợ quá trình lập kế hoạch hoặc phân tích liên quan đến dự án.</p>
+                                    <h3>{{ __('messages.As a User Interface Developer') }}</h3>
+                                    <p>{{ __('messages.I specialize in creating intuitive, engaging, and user-friendly web interfaces that provide a seamless experience.') }}</p> 
+                                    <p>- {{ __('messages.My role involves translating design ideas into functional and interactive websites using modern web technologies such as HTML5, CSS3, and JavaScript, along with frameworks like React, Angular, or Vue.js.') }}</p>
+                                    <p>- {{ __('messages.I have the ability to collaborate closely with UX designers, ensuring cross-browser compatibility and optimizing performance across various devices.') }}</p>
+                                    <p>- {{ __('messages.I have experience working with UX/UI design tools like Figma and Adobe XD to transform wireframe and prototype designs into functional interfaces that deliver value to users.') }}</p> 
+                                    <p>* {{ __('messages.Additionally, I am proficient in handling Excel files for data management, supporting project planning, and analysis. However, I use Git and Backlog to manage versions and track project progress more effectively.') }}</p>
                                 </div>
                             </div>
                             <div class="service-left-body" id="service-3">
@@ -323,10 +301,12 @@
                                     <img src="{{asset('assets/images/service2.png')}}" />
                                 </div>
                                 <div class="service-left-body-content">
-                                    <h3>Với cương vị là nhà phát triển về Back-end</h3>
-                                    <p>Tôi chuyên xây dựng và duy trì logic phía server, cung cấp sức mạnh cho các ứng dụng web. Chuyên môn của tôi nằm ở việc thiết kế các hệ thống có khả năng mở rộng và bảo mật, phát triển API và quản lý cơ sở dữ liệu để đảm bảo tích hợp và chức năng liền mạch trên nhiều nền tảng.</p>
-                                    <p>Trong vai trò của mình, tôi phối hợp chặt chẽ với các nhà phát triển front-end, nhà thiết kế UX và các bên liên quan khác để tạo ra các giải pháp từ đầu đến cuối, đáp ứng yêu cầu của cả người dùng và doanh nghiệp. Tôi có kinh nghiệm sâu rộng với các công nghệ back-end hiện đại như Node.js, Python (Django/Flask), CShap, Java (Spring Boot), và PHP (Laravel).</p>
-                                    <p>Ngoài ra, tôi thành thạo trong việc quản lý hệ thống cơ sở dữ liệu như MySQL, PostgreSQL, MongoDB, và MySQL Workbench, với trọng tâm là tối ưu hóa và xử lý dữ liệu hiệu quả. </p>
+                                    <h3>{{ __('messages.Back-end Developer') }}</h3>
+                                    <p>{{ __('messages.I specialize in building and maintaining server-side logic, powering web applications.') }}</p> 
+                                    <p>- {{ __('messages.My expertise lies in designing scalable and secure systems, developing APIs, and managing databases to ensure seamless integration and functionality across multiple platforms.') }}</p>
+                                    <p>- {{ __('messages.In my role, I collaborate closely with front-end developers, UX designers, and other stakeholders to create end-to-end solutions that meet the needs of both users and businesses.') }}</p>
+                                    <p>- {{ __('messages.I have extensive experience with modern back-end technologies such as Node.js, Python (Django/Flask), CSharp, Java (Spring Boot), and PHP (Laravel).') }}</p>
+                                    <p>*{{ __('messages.Additionally, I am proficient in managing database systems such as MySQL, PostgreSQL, MongoDB, and MySQL Workbench, with a focus on data optimization and efficient processing. However, I recognize the need to improve my skills in using Git and Backlog to manage versions and track work progress more effectively during project development.') }}</p>
                                 </div>
                             </div>
                             <div class="service-left-body" id="service-4">
@@ -334,9 +314,12 @@
                                     <img src="{{asset('assets/images/service3.png')}}" />
                                 </div>
                                 <div class="service-left-body-content">
-                                    <h3>Với cương vị là nhà phát triển Full-task</h3>
-                                    <p>Tôi đảm nhận trách nhiệm trên toàn bộ ngăn xếp phát triển, bao gồm cả phát triển front-end và back-end, cũng như triển khai và bảo trì hệ thống (Run-end Development). Chuyên môn của tôi bao quát một loạt các công nghệ và công cụ, đảm bảo cung cấp các giải pháp mạnh mẽ, có khả năng mở rộng và hiệu quả cho các hệ thống phức tạp.</p>
-                                    <p>Tôi có kinh nghiệm thực tiễn làm việc với môi trường Ubuntu 20.04 và 22.04, nơi tôi quản lý máy chủ, cấu hình ứng dụng và xử lý các công việc triển khai. Kiến thức về FTP và Docker cho phép tôi chuyển giao và triển khai ứng dụng một cách hiệu quả, thiết lập các container cho môi trường phát triển độc lập và tối ưu hóa quy trình CI/CD.</p>
+                                    <h3>{{ __('messages.Full-task Developer') }}</h3>
+                                    <p>{{ __('messages.I am responsible for the entire software development process, from UI/UX design (Front-end) to server-side logic implementation (Back-end), as well as deployment and system maintenance.') }}</p>
+                                    <p>- {{ __('messages.Front-end: Proficient in HTML5, CSS3, JavaScript, along with frameworks such as React.js, Vue.js, and Angular. I focus on user experience (UX) and optimizing interface performance.') }}</p>
+                                    <p>- {{ __('messages.Back-end: Experienced with Node.js, Python (Django/Flask), Java (Spring Boot), PHP (Laravel), and C#. I specialize in API development, database optimization (MySQL, PostgreSQL, MongoDB), and ensuring system security.') }}</p>
+                                    <p>- {{ __('messages.Deployment & System Management: Proficient in the Ubuntu environment, using Git and Backlog for project management, along with Docker and CI/CD to optimize the deployment process.') }}</p>
+                                    <p>* {{ __('messages.Additionally, I have knowledge of FTP and Docker, allowing me to efficiently transfer and deploy applications, set up containers for independent development environments, and optimize the CI/CD process.') }}</p>
                                 </div>
                             </div>
                             <div class="service-left-body" id="service-5">
@@ -344,9 +327,12 @@
                                     <img src="{{asset('assets/images/service4.png')}}" />
                                 </div>
                                 <div class="service-left-body-content">
-                                    <h3>Nghiên cứu mới</h3>
-                                    <p>Hiện tại, tôi đang làm việc với SVF Design, sử dụng mã nguồn từ WingArc. Trách nhiệm của tôi bao gồm thiết kế, tùy chỉnh và tối ưu hóa các mẫu tài liệu, báo cáo và bố cục để đáp ứng các yêu cầu cụ thể của khách hàng. Tận dụng các công cụ và framework của WingArc, tôi đảm bảo rằng sản phẩm đầu ra vừa có tính thẩm mỹ cao vừa hoạt động hiệu quả. Vai trò của tôi cũng bao gồm việc phối hợp với các nhóm để tích hợp các giải pháp SVF vào hệ thống hiện tại một cách liền mạch, đồng thời duy trì các tiêu chuẩn cao về độ chính xác và hiệu suất.</p>
-                                    <p>Dự án này cũng là một thử thách lớn đối với tôi, vì nó đòi hỏi sự hiểu biết sâu sắc về công nghệ nền tảng cũng như sự tận tâm trong việc làm chủ tài liệu và các công cụ. Tôi đã dành nhiều nỗ lực để nghiên cứu và tìm hiểu tài liệu liên quan, nhờ đó vượt qua được những khó khăn ban đầu và đạt được những kết quả đáng kể. Bằng cách không ngừng cải thiện kiến thức và kỹ năng, tôi mong muốn mang lại các giải pháp tốt hơn và tận dụng tối đa trải nghiệm học tập quý báu này.</p>
+                                    <h3>{{ __('messages.New research') }}</h3>
+                                    <p>{{ __('messages.Currently, I am working with SVF Design, using source code from WingArc. My responsibilities include designing, customizing, and optimizing templates, reports, and layouts to meet specific customer requirements.') }}</p> 
+                                    <p>- {{ __('messages.By leveraging the tools and frameworks of WingArc, I ensure that the output product is both aesthetically pleasing and performs efficiently.') }}</p> 
+                                    <p>- {{ __('messages.My role also includes collaborating with teams to seamlessly integrate SVF solutions into the current system while maintaining high standards of accuracy and performance.') }}</p>
+                                    <p>- {{ __('messages.This project is also a great challenge for me, as it requires a deep understanding of the underlying technology as well as dedication in mastering the documentation and tools.') }} </p>    
+                                    <p>* {{ __('messages.I have put a lot of effort into researching and studying the relevant documentation, which allowed me to overcome the initial challenges and achieve significant results. By continuously improving my knowledge and skills, I aim to deliver better solutions and make the most of this valuable learning experience.') }}</p>
                                 </div>
                             </div>
                             <div class="service-left-body" id="service-6">
@@ -354,16 +340,16 @@
                                     <img src="{{asset('assets/images/service5.png')}}" />
                                 </div>
                                 <div class="service-left-body-content">
-                                    <h3>Dịch vụ Remote</h3>
-                                    <p>Giá cả: thương lượng</p>
-                                    <div class="item_service d-flex align-center gap-10"><span>01</span> <p>Number of new and modified screens.</p></div>
-                                    <div class="item_service d-flex align-center gap-10"><span>02</span> <p>Use HTML, CSS, and responsive design to complete</p></div>
-                                    <div class="item_service d-flex align-center gap-10"><span>03</span> <p>Use JavaScript to complete.</p></div>
-                                    <div class="item_service d-flex align-center gap-10"><span>04</span> <p>Use Frontend Development Tools to complete.</p></div>
-                                    <div class="item_service d-flex align-center gap-10"><span>05</span> <p>Use Backend Development Tools to complete.</p></div>
-                                    <div class="item_service d-flex align-center gap-10"><span>06</span> <p>Deployment & Hosting</p></div>
-                                    <div class="item_service d-flex align-center gap-10"><span>07</span> <p>Testing</p></div>
-                                    <div class="item_service d-flex align-center gap-10"><span>08</span> <p>Bảo hành cho công việc 6 tháng</p></div>
+                                    <h3>{{ __('messages.Remote service') }}</h3>
+                                    <p>{{ __('messages.Price: negotiable') }}</p>
+                                    <div class="item_service d-flex align-center gap-10"><span>01</span> <p>{{ __('messages.Number of new and modified screens.') }}</p></div>
+                                    <div class="item_service d-flex align-center gap-10"><span>02</span> <p>{{ __('messages.Use HTML, CSS, and responsive design to complete.') }}</p></div>
+                                    <div class="item_service d-flex align-center gap-10"><span>03</span> <p>{{ __('messages.Use JavaScript to complete.') }}</p></div>
+                                    <div class="item_service d-flex align-center gap-10"><span>04</span> <p>{{ __('messages.Use Frontend Development Tools to complete.') }}</p></div>
+                                    <div class="item_service d-flex align-center gap-10"><span>05</span> <p>{{ __('messages.Use Backend Development Tools to complete.') }}</p></div>
+                                    <div class="item_service d-flex align-center gap-10"><span>06</span> <p>{{ __('messages.Deployment & Hosting.') }}</p></div>
+                                    <div class="item_service d-flex align-center gap-10"><span>07</span> <p>{{ __('messages.Testing.') }}</p></div>
+                                    <div class="item_service d-flex align-center gap-10"><span>08</span> <p>{{ __('messages.6-month warranty for the work.') }}</p></div>
                                 </div>
                             </div>
                         </div>

@@ -986,6 +986,7 @@ nav ul a:hover {
     padding: 20px;
     display: flex;
     align-items: center;
+    min-height: 65vh;
 }
 
 .service-left-body{
@@ -1002,6 +1003,10 @@ nav ul a:hover {
     display: flex;
 }
 
+
+.text-red{
+    color: red;
+}
 .service-left-body h3 {
     margin-top: 0;
     margin-bottom: .5rem;
@@ -2445,7 +2450,6 @@ a.google span {
     padding: 15px;
     border: 1px solid #d6d6d7;
     justify-content: space-between;
-    margin-top: 25px;
     border-radius: 10px;
 }
 
