@@ -46,7 +46,7 @@ html {
 }
 
 body {
-    background-color: rgb(238 238 238 / 50%);
+    background-color: #f8eed7;
 }
 .app-wrapper{
     width: 100%;
@@ -56,24 +56,15 @@ body {
 }
 .container-wrapper {
     width: 100%;
-    max-width: 1450px;
+    max-width: 1300px;
     display: flex;
     justify-content: space-between;
 }
 .main{
-    width: 78%;
-}
-
-.aside {
-    width: 20%;
-    margin-top: 154px;
-}
-
-.aside-top{
     width: 100%;
-    height: 10vh;
-    background-color: #fff;
 }
+
+
 .page-left-item{
     width: 100%;
     height: 100%;
@@ -180,6 +171,7 @@ body {
 .banner-right-top-img img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .banner-right-body{
@@ -772,13 +764,12 @@ h1 {
 }
 
 .column h3 {
-    font-size: var(--heading-font-size-3);
+    font-size: 20px;
     color: #2c2c2c;
     font-weight: 700;
     margin: 0.2rem 0 0.8rem 0;
     text-align: center;
     text-transform: uppercase;
-    font-family: "Quicksand", sans-serif;
 }
 h4 {
     font-size: var(--heading-font-size-4);
@@ -957,207 +948,6 @@ nav ul a:hover {
     gap: 3rem;
 }
 
-/*------ Section: Features ------*/
-
-#features{
-   background-color: #fff;
-}
-.features .row {
-    align-items: stretch;
-}
-.features .column {
-    padding: 6rem 2rem;
-    border-radius: var(--border-radius-1);
-}
-.features .column p {
-    text-align: center;
-}
-.features h3 {
-    margin: 3rem 0;
-}
-
-.features .column:hover {
-    background-color: var(--base-shade-1);
-}
-.features .column:hover h3 {
-    color: var(--white-shade-1);
-}
-.features .column:hover p {
-    color: var(--white-shade-2);
-}
-.features .column:hover i {
-    background-color: var(--white-shade-1);
-    color: var(--base-shade-1);
-}
-/*------ Section: Courses ------*/
-.courses .row {
-    align-items: stretch;
-    padding: 20px 0;
-}
-
-.courses{
-    height: 95vh;
-    width: 100%;
-    background: #fff;
-}
-
-.contact{
-    height: 110vh;
-    width: 100%;
-    background-color: #e9f4f9;
-}
-
-.courses .column {
-    box-shadow: 0 0.5rem 2.4rem 0.6rem rgba(0, 0, 0, 0.06);
-    border-radius: var(--border-radius-1);
-    display: flex;
-    flex-direction: column;
-    background: rgb(255, 255, 255, 0.4);
-}
-.courses .column > *:not(img) {
-    padding: 0 2rem;
-}
-.courses .column img {
-    border-radius: var(--border-radius-1) var(--border-radius-1) 0 0;
-    width: 100%;
-}
-.courses .column p {
-    text-align: justify;
-    flex-grow: 1;
-}
-.courses-btn {
-    display: flex;
-    justify-content: center;
-}
-.courses-btn .btn:hover {
-    color: var(--white-shade-1);
-    background-color: var(--base-shade-1);
-}
-/*------ Section: Testimonials ------*/
-.testimonial {
-   background-color: #e9f4f9;
-    height: 110vh;
-}
-
-.testimonial .row {
-    align-items: stretch;
-}
-.testimonial .column {
-    background-color: var(--white-shade-1);
-    padding: 4rem 3rem;
-    text-align: center;
-    border-radius: var(--border-radius-1);
-    display: flex;
-    flex-direction: column;
-}
-.testimonial-image {
-    height: 14rem;
-    width: 14rem;
-    margin: auto;
-    padding: 0.9rem;
-    background: linear-gradient(
-    var(--white-shade-1) 50%,
-    var(--base-shade-1) 50%
-    );
-    border-radius: 50%;
-}
-.testimonial-image img {
-    width: 100%;
-    border-radius: 50%;
-}
-.testimonial .column p {
-    margin: 4rem 0;
-    flex-grow: 1;
-}
-/*------ Section: Download App ------*/
-.download-app .column:nth-child(1) {
-    display: flex;
-    justify-content: center;
-    margin-top: -58px;
-}
-.download-app .column:nth-child(2) {
-    padding: 0 2rem;
-}
-.download-app img {
-    display: block;
-    width: 90%;
-}
-.app-feature {
-    border-bottom: 1.5px dashed rgba(var(--grad-color-1), 0.4);
-}
-.app-feature:not(:last-child) {
-    margin-bottom: 1.5rem;
-}
-.app-feature div {
-    display: flex;
-    gap: 2rem;
-}
-.app-feature p {
-    margin-bottom: 1.5rem;
-}
-.download-app .fas {
-    display: flex;
-    background-color: var(--white-shade-2);
-    height: 3rem;
-    width: 3rem;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    font-size: 2rem;
-    text-align: center;
-    color: var(--base-shade-1);
-}
-.download-app h3 {
-    display: inline-block;
-}
-.download-btns {
-    display: flex;
-}
-.download-btns a {
-    display: inline;
-    text-align: center;
-}
-.download-btns a img {
-    display: inline-block;
-    width: 70%;
-}
-/*------ Section: Footer ------*/
-footer {
-    background-color: var(--black-shade-1);
-}
-footer h3 {
-    margin: 0;
-}
-footer h3,
-footer h4 {
-    color: var(--white-shade-1);
-    text-align: center;
-}
-footer .row {
-    margin-bottom: 6rem;
-}
-.footer-about {
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    padding-bottom: 3rem;
-    border-bottom: 2px solid var(--white-shade-1);
-}
-.social-links {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
-}
-.social-links a {
-    font-size: 3rem;
-    text-decoration: none;
-    color: var(--white-shade-1);
-}
-footer p {
-    text-align: center;
-}
-
 /*------ Scroll Top Button ------*/
 #scroll-top {
     position: fixed;
@@ -1280,12 +1070,12 @@ footer p {
     height: auto;
     background: #fff;
     border: none;
-    padding: 10px;
+    padding: 15px 10px;
     color: #000;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 15px;
     display: flex;
-    gap: 10px;
+    gap: 6px;
     align-items: center;
     cursor: pointer;
 }
@@ -2626,7 +2416,7 @@ a.google span {
 .about-right {
     width: 50%;
     height: 100%;
-    min-height: 70vh;
+    min-height: 74vh;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 5px;
@@ -2649,13 +2439,13 @@ a.google span {
     margin-top: 20px;
 }
 
-.about-right-footer{
+.about-right-footer {
     display: flex;
     align-items: center;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #d6d6d7;
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 25px;
     border-radius: 10px;
 }
 
@@ -2923,8 +2713,8 @@ a.google span {
 .about-right-content {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
+    gap: 6px;
+    margin-top: 8px;
 }
 
 .product-right-img{
@@ -4198,15 +3988,15 @@ blockquote .author {
 }
 
 .card {
-    padding: 3.1em 1.25em;
+    padding: 3em 1.25em;
     text-align: center;
-    background: linear-gradient(0deg, #35c2fe 10px, transparent 10px);
     background-repeat: no-repeat;
     background-position: 0 0.62em;
-    box-shadow: 0 0 2.5em rgba(0, 0, 0, 0.15);
     border-radius: 0.5em;
     transition: 0.5s;
     cursor: pointer;
+    background: #ffffff;
+    min-height: 36vh;
 }
 .card .icon {
     font-size: 2.5em;
@@ -4229,11 +4019,13 @@ blockquote .author {
     transition: 0.5s;
 }
 .card h3 {
-    font-size: 1.3em;
-    margin: 1em 0 1.4em 0;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-    color: #070024;
+    margin-top: 20px;
+    margin-bottom: .5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #011A41;
+    word-spacing: 0;
 }
 .card p {
     line-height: 2em;
@@ -4246,3 +4038,167 @@ blockquote .author {
     height: 2.25em;
     width: 2.25em;
 }
+
+
+.wiki-body{
+    width: 100%;
+    min-height: 30vh;
+}
+
+.swiper-wrapper .card{
+    position: relative;
+    background-color: #fff;
+    border-radius: 20px;
+    height: 460px;
+    width: 296px;
+    margin: 20px 0;
+    padding: 0 0 10px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.swiper-wrapper .card .card-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    position: relative;
+    z-index: 100;
+}
+.swiper-wrapper .card .image{
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    padding: 3px;
+    background: #fff;
+    box-shadow: 0px -1px 4px 2px rgba(0, 0, 0, 0.25);
+}
+.swiper-wrapper .card .image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #fff;
+}
+.box1{
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(106.32deg, #f3a60f 14.23%,
+    rgba(255, 25, 25, 0) 139.97%);
+}
+.box2{
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(106.32deg, #00c2ff 14.23%,
+    rgba(255, 25, 25, 0) 139.97%);
+}
+.box3{
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(106.32deg, #f30fdd 14.23%,
+    rgba(255, 25, 25, 0) 139.97%);
+}
+.swiper-wrapper .card .media-icons{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 20px;
+}
+.swiper-wrapper .card .media-icons i{
+    color: #fff;
+    opacity: 0.7;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.swiper-wrapper .card .media-icons i:hover{
+    opacity: 1;
+}
+.swiper-wrapper .card .name-profession{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+.name-profession .name{
+    font-size: 20px;
+    font-weight: 600;
+    color: #222;
+}
+.name-profession .profession{
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+}
+.swiper-wrapper .card .rating{
+    display: flex;
+    align-items: center;
+    margin-top: 18px;
+}
+.swiper-wrapper .card .rating i{
+    font-size: 18px;
+    margin: 0 2px;
+    color: orange;
+}
+.swiper-wrapper .card .about{
+    display: flex;
+    text-align: center;
+    color: #444;
+    margin-top: 45px;
+    margin-bottom: 5px; 
+}
+.swiper-wrapper .card .button{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.swiper-wrapper .card .b1 button{
+    background: #f3a323;
+}
+.swiper-wrapper .card .b2 button{
+    background: #14bff2;
+}
+.swiper-wrapper .card .b3 button{
+    background: #f337e2;
+}
+.swiper-wrapper .card .button button{
+    outline: none;
+    border: none;
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.swiper-wrapper .card .button button:hover{
+    opacity: 0.8;
+}
+.swiper-pagination{
+    position: absolute;
+    top: 510px;
+}
+.swiper-pagination-bullet{
+    height: 15px;
+    width: 15px;
+    border-radius: 25px;
+    background: #e634d7;
+}
+.swiper-button-next, .swiper-button-prev{
+    opacity: 0.7;
+    color: #e634d7;
+    transition: all 0.3s ease;
+}
+.swiper-button-next:hover, .swiper-button-prev:hover{
+    opacity: 1;
+    color: #e634d7;
+}
+

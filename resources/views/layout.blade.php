@@ -136,9 +136,9 @@
                             <div class="banner-left">
                                 <div class="content">
                                     <div class="images">
-                                        <img src="{{asset('assets/images/ex1.jpg')}}">
-                                        <img src="{{asset('assets/images/w-2.jpg')}}">
                                         <img src="{{asset('assets/images/w-3.jpg')}}">
+                                        <img src="{{asset('assets/images/w-2.jpg')}}">
+                                        <img src="{{asset('assets/images/w-1.jpg')}}">
                                     </div>
                                     <div class="btm-slides">
                                         <span onclick="btm_slide(1)"></span>
@@ -156,12 +156,12 @@
                             <div class="banner-right">
                                 <div class="banner-right-top">
                                     <div class="banner-right-top-img">
-                                        <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                        <img src="{{asset('assets/images/w-4.jpg')}}" />
                                     </div>
                                 </div>
                                 <div class="banner-right-body">
                                     <div class="banner-right-body-img">
-                                        <img src="{{asset('assets/images/w-3.jpg')}}" />
+                                        <img src="{{asset('assets/images/w-5.jpg')}}" />
                                     </div>
                                 </div>
                             </div>
@@ -170,46 +170,22 @@
                 </div>
                 <section>
                 <div class="row">
-                    <!-- Column One -->
                     <div class="column">
                     <div class="card">
                         <div class="icon">
                         <i class="fa-solid fa-user"></i>
                         </div>
-                        <h3>User Friendly</h3>
-                        <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-                        asperiores natus ad molestiae aliquid explicabo. Iste eaque quo et
-                        commodi.
-                        </p>
+                        <h3>{{ __('messages.SEO Consultancy') }}</h3>
+                        <p>{{ __('messages.Help optimize websites, improve search rankings, and achieve sustainable revenue growth') }}</p>
                     </div>
                     </div>
-                    <!-- Column Two -->
                     <div class="column">
                     <div class="card">
                         <div class="icon">
                         <i class="fa-solid fa-shield-halved"></i>
                         </div>
-                        <h3>Super Secure</h3>
-                        <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-                        asperiores natus ad molestiae aliquid explicabo. Iste eaque quo et
-                        commodi.
-                        </p>
-                    </div>
-                    </div>
-                    <!-- Column Three -->
-                    <div class="column">
-                    <div class="card">
-                        <div class="icon">
-                        <i class="fa-solid fa-headset"></i>
-                        </div>
-                        <h3>Quick Support</h3>
-                        <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-                        asperiores natus ad molestiae aliquid explicabo. Iste eaque quo et
-                        commodi.
-                        </p>
+                        <h3>{{ __('messages.Competitor Analysis') }}</h3>
+                        <p>{{ __('messages.Help you understand competitors, identify opportunities, and develop optimal strategies to excel in the market') }}</p>
                     </div>
                     </div>
                     <div class="column">
@@ -217,21 +193,26 @@
                         <div class="icon">
                         <i class="fa-solid fa-headset"></i>
                         </div>
-                        <h3>Quick Support</h3>
-                        <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-                        asperiores natus ad molestiae aliquid explicabo. Iste eaque quo et
-                        commodi.
-                        </p>
+                        <h3>{{ __('messages.Marketing') }}</h3>
+                        <p>{{ __('messages.Help build a strong brand, increase engagement, and attract customers through social media platforms') }}</p>
+                    </div>
+                    </div>
+                    <div class="column">
+                    <div class="card">
+                        <div class="icon">
+                        <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h3>{{ __('messages.Web Development') }}</h3>
+                        <p>{{ __('messages.Provide professional website design and development solutions, optimizing user experience') }}</p>
                     </div>
                     </div>
                 </div>
                 </section>
                 <section class="about-container">
                     <div class="layout-tile">
-                        <h3>About</h3>
+                        <h3>{{ __('messages.About') }}</h3>
                         <div class="layout-tile-btn">
-                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+                            <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="about">
@@ -241,34 +222,27 @@
                             </div>
                         </div>
                         <div class="about-right">
-                            <h1>We help you better understand AI, coding, English, and Japanese.</h1>
+                            <h1>{{ __('messages.We help you better understand AI, coding, English, and Japanese') }}</h1>
                             <div class="about-right-content">
-                                <p>AI (Trí tuệ nhân tạo): Giúp khách hàng hiểu cách AI hoạt động, ứng dụng AI vào thực tế, và cách nó có thể mang lại lợi ích cho công việc hoặc doanh nghiệp của họ.</p>
-                                <p>Coding (Lập trình): Hỗ trợ khách hàng học hoặc cải thiện kỹ năng lập trình, từ các ngôn ngữ cơ bản đến các kỹ thuật nâng cao phù hợp với nhu cầu thực tế.</p>
-                                <p>English (Tiếng Anh): Cung cấp công cụ và phương pháp để cải thiện khả năng giao tiếp, viết, và hiểu tiếng Anh, từ cơ bản đến nâng cao.</p>
-                                <p>Japanese (Tiếng Nhật): Đào tạo hoặc hỗ trợ học tiếng Nhật, từ việc học ngôn ngữ đến hiểu văn hóa, ứng dụng vào công việc và giao tiếp hàng ngày.</p>    
-                                <p><i>Chúng tôi hướng đến việc hỗ trợ khách hàng nâng cao kiến thức và kỹ năng trong bốn lĩnh vực quan trọng: AI, lập trình, tiếng Anh và tiếng Nhật, nhằm giúp họ phát triển bản thân, mở rộng cơ hội nghề nghiệp và đạt được thành công bền vững trong thời đại công nghệ và hội nhập.</i></p>
+                                <p>{{ __('messages.AI (Artificial Intelligence): Helps customers understand how AI works, its real-world applications, and how it can benefit their work or business.') }}</p>
+                                <p>{{ __('messages.Coding: Supports customers in learning or improving their programming skills, from basic languages to advanced techniques tailored to real-world needs.') }}</p>
+                                <p>{{ __('messages.English: Provides tools and methods to improve communication, writing, and comprehension skills in English, from basic to advanced levels.') }}</p>
+                                <p>{{ __('messages.Japanese: Provides training or support in learning Japanese, from language acquisition to understanding culture, and applying it to work and daily communication.') }}</p>    
+                                <p><i>{{ __('messages.We aim to support customers in enhancing their knowledge and skills in four key areas: AI, coding, English, and Japanese, to help them develop personally, expand career opportunities, and achieve sustainable success in the era of technology and integration.') }}</i></p>
                             </div>
                             <div class="about-right-footer">
                                 <div class="about-right-footer-box">
-                                    <span class="about-icon"><i class="fa fa-times"></i></span>
-                                    <div>
-                                        <h4>No Hidden Cost</h4>
-                                        <span>xác nhận</span>
-                                    </div>
-                                </div>
-                                <div class="about-right-footer-box">
                                     <span class="about-icon"><i class="fa fa-users"></i></span>
                                     <div>
-                                        <h4>Dedicated Team</h4>
-                                        <span>xác nhận</span>
+                                        <h4>{{ __('messages.Dedicated Team') }}</h4>
+                                        <span>{{ __('messages.Confirmation') }}</span>
                                     </div>
                                 </div>
                                 <div class="about-right-footer-box">
                                     <span class="about-icon"><i class="fa fa-phone"></i></span>
                                     <div>
-                                        <h4>24/7 Available</h4>
-                                        <span>xác nhận</span>
+                                        <h4>{{ __('messages.24/7 Available') }}</h4>
+                                        <span>{{ __('messages.Confirmation') }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -403,37 +377,162 @@
                         </div>
                     </div>
                     <div class="slider-container swiper">
-                        <div class="slider-home">
-                            <div class="card-home swiper-wrapper">
-                                <div class="card-home-item swiper-slide">
-                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                                    <h2 class="user-name">Phan Tuấn Kiệt</h2>
-                                    <p class="user-profession">Software Developer</p>
-                                    <button class="message-btn">Liên hệ ngay</button>
+                    <div class="swiper mySwiper container">
+                            <div class="swiper-wrapper content">
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-home-item swiper-slide">
-                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                                    <h2 class="user-name">Phan Duy Linh</h2>
-                                    <p class="user-profession">Software Developer</p>
-                                    <button class="message-btn">Liên hệ ngay</button>
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-home-item swiper-slide">
-                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                                    <h2 class="user-name">Nguyễn Tường Vi</h2>
-                                    <p class="user-profession">Software Developer</p>
-                                    <button class="message-btn">Liên hệ ngay</button>
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-home-item swiper-slide">
-                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                                    <h2 class="user-name">Lê Quang Huy</h2>
-                                    <p class="user-profession">Software Developer</p>
-                                    <button class="message-btn">Liên hệ ngay</button>
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="card-home-item swiper-slide">
-                                    <img src="{{asset('assets/images/userAI.jpg')}}" alt="James Wilson" class="user-img">
-                                    <h2 class="user-name">Phan Duy Kha</h2>
-                                    <p class="user-profession">Software Developer</p>
-                                    <button class="message-btn">Liên hệ ngay</button>
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -519,6 +618,344 @@
                                 <div class="price">₫199,600</div>
                                 <div class="old-price">₫249,500</div>
                                 <div class="discount">-20%</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="about">
+                    <div class="layout-tile">
+                        <h3>New interface</h3>
+                        <div class="layout-tile-btn">
+                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="wiki-body">
+                        <div class="swiper mySwiper container">
+                            <div class="swiper-wrapper content">
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="about">
+                    <div class="layout-tile">
+                        <h3>Wiki</h3>
+                        <div class="layout-tile-btn">
+                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="wiki-body">
+                        <div class="swiper mySwiper container">
+                            <div class="swiper-wrapper content">
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <div class="box1"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Andrew James</span>
+                                            <span class="profession">Graphic Designer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">About Me</button>
+                                            <button class="hireMe">Hire Me</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -727,11 +1164,6 @@
                         </section>
                     </section>
             </div>
-            <div class="aside">
-                <div class="aside-top">
-                    <span>sssss</span>
-                </div>
-            </div>
         </div>
     </div>
     <section class="download-app" id="download-app">
@@ -926,6 +1358,27 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 4,
+            spaceBetween: 30,
+            grabCursor: true,
+            autoplay: {
+                delay: 2500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+                },
+            slidesPerGroup: 1,
+            loop: true,
+            loopFillGroupWithBlank: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            });
         var indexValue = 1;
         showImg(indexValue);
 
