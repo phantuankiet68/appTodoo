@@ -5,6 +5,11 @@ return [
     'Facebook'=>'Facebook',
     'TikTok'=>'TikTok',
     'Login'=>'ログイン',
+    'Enter email...'=>'メールアドレスを入力してください...',
+    'Enter password...'=>'パスワードを入力してください...',
+    'Recover password'=>'パスワードを復元する',
+    'Not a member?'=>'会員ではありませんか？',
+    'Register now'=>'今すぐ登録',
     'Register'=>'登録',
     'Logout'=>'ログアウト',
     'Home'=>'ホーム',
@@ -86,4 +91,19 @@ return [
     'Deployment & Hosting.'=>'展開とホスティング。',
     'Testing.'=>'テスト。.',
     '6-month warranty for the work.'=>'作業に対して6ヶ月の保証。',
+    //Team
+    'Team'=>'チーム',
+    'Phan Tuan Kiet'=>'ファン・トゥアン・キエット',
+    'Junior Developer'=>'ジュニアデベロッパ',
+    'Graduated: Ho Chi Minh City University of Technology'=>'卒業: ホーチミン市工科大学',
+    'Experience: 3 years'=>'経験: 3年',
+    'Worked at: Japanese company'=>'勤務先: 日本企業y',
+    'Contact Me'=>'お問い合わせ ',
+    'Hire Me'=>'採用してください',
+    'Le Viet Duc'=>'レ・ヴィエット・ドゥック',
+    'Senior Developer'=>'シニアデベロッパー',
+    'Graduated: University of Science'=>'卒業: 自然科学大学',
+    'Experience: 5 years'=>'経験: 5年',
+
+
 ];

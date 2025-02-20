@@ -15,7 +15,7 @@
                     <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}">
                 @endif
                 <div class="form-input-category">
-                    <label for="name">{{ __('messages.Name') }}</label>
+                    <label for="name">Name</label>
                     <input type="text" class="input-name" name="name" required>
                 </div>
                 <div class="form-input-category mt-5">
@@ -23,7 +23,7 @@
                     <input type="text" class="input-name" name="stt" required>
                 </div>
                 <div class="form-select-category mt-5">
-                    <label for="status">{{ __('messages.Status') }}</label>
+                    <label for="status">Status</label>
                     <select name="language" id="language">
                         <option value="1">Việt Nam</option>
                         <option value="2">English</option>
@@ -31,7 +31,7 @@
                     </select>
                 </div>
                 <div class="form-textarea-category">
-                    <label for="description">{{ __('messages.Code') }}</label>
+                    <label for="description">Code</label>
                     <textarea id="editor" name="description"></textarea>
                 </div>
                 <div class="form-input-category mt-5">
@@ -39,14 +39,14 @@
                     <input type="file" class="input-name" name="image_path">
                 </div>
                 <div class="form-select-category mt-10">
-                    <label for="status">{{ __('messages.Status') }}</label>
+                    <label for="status">Status</label>
                     <select name="status" id="status">
-                        <option value="1">{{ __('messages.Show') }}</option>
-                        <option value="0">{{ __('messages.Hide') }}</option>
+                        <option value="1">Show</option>
+                        <option value="0">Hide</option>
                     </select>
                 </div>
                 <div class="form-btn">
-                    <button type="submit">{{ __('messages.Save changes') }}</button>
+                    <button type="submit">Save changes</button>
                 </div>
             </form>
 
@@ -58,11 +58,11 @@
                         <tr>
                             <th class="t-center" style="width: 60px;">ID</th>
                             <th class="text-center">STT</th>
-                            <th class="ml-3">{{ __('messages.Name') }}</th>
-                            <th class="text-center">{{ __('messages.Create by') }}</th>
-                            <th class="ml-3">{{ __('messages.Languages') }}</th>
-                            <th class="ml-3">{{ __('messages.Status') }}</th>
-                            <th class="text-center">{{ __('messages.Settings') }}</th>
+                            <th class="ml-3">Name</th>
+                            <th class="text-center">Create by</th>
+                            <th class="ml-3">Languages</th>
+                            <th class="ml-3">Status</th>
+                            <th class="text-center">Settings</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -80,9 +80,9 @@
                             </td>
                             <td class="pending ml-3">
                                 @if ($item->status == 1)
-                                    <p class="resolvedIssue">{{ __('messages.Show') }}</p>
+                                    <p class="resolvedIssue">Show</p>
                                 @else
-                                    <p class="openIssue">{{ __('messages.Hide') }}</p>
+                                    <p class="openIssue">Hide</p>
                                 @endif
                             </td>
                             <td class="text-center">{{ $item->created_at->format('d-m-Y') }}</td>

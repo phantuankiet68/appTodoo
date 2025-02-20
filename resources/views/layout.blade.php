@@ -270,7 +270,7 @@
                         <div class="service-left">
                             <div class="service-left-body active" id="service-1">
                                 <div class="service-left-body-img">
-                                    <img src="{{asset('assets/images/w-3.jpg')}}" />
+                                    <img src="{{asset('assets/images/team1.jpg')}}" />
                                 </div>
                                 <div class="service-left-body-content">
                                     <h3>{{ __('messages.3 years of experience working as a web developer') }}</h3>
@@ -357,19 +357,19 @@
                 </section>
                 <section  id="Team">
                     <div class="layout-tile">
-                        <h3>Team</h3>
+                        <h3>{{ __('messages.Team') }}</h3>
                         <div class="layout-tile-btn">
-                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+                            <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="slider-container swiper">
-                    <div class="swiper mySwiper container">
+                        <div class="swiper mySwiper container">
                             <div class="swiper-wrapper content">
                                 <div class="swiper-slide card">
                                     <div class="box1"></div>
                                     <div class="card-content">
                                         <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                            <img src="{{asset('assets/images/team1.jpg')}}" alt="">
                                         </div>
                                         <div class="media-icons">
                                             <i class="fab fa-facebook"></i>
@@ -377,8 +377,8 @@
                                             <i class="fab fa-github"></i>
                                         </div>
                                         <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
+                                            <span class="name">{{ __('messages.Phan Tuan Kiet') }}</span>
+                                            <span class="profession">{{ __('messages.Junior Developer') }}</span>
                                         </div>
                                         <div class="rating">
                                             <i class="fas fa-star"></i>
@@ -388,19 +388,120 @@
                                             <i class="fas fa-star"></i>
                                         </div>
                                         <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                            <p>{{ __('messages.Graduated: Ho Chi Minh City University of Technology') }} (IT)</p>
+                                            <p>{{ __('messages.Experience: 3 years') }}</p>
+                                            <p>{{ __('messages.Worked at: Japanese company') }}</p>
                                         </div>
                                         <div class="button b1">
+                                            <button class="aboutMe">{{ __('messages.Contact Me') }}</button>
+                                            <button class="hireMe">{{ __('messages.Hire Me') }}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <div class="box2"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="{{asset('assets/images/team2.jpg')}}" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">{{ __('messages.Le Viet Duc') }}</span>
+                                            <span class="profession">{{ __('messages.Senior Developer') }}</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>{{ __('messages.Graduated: University of Science') }} (IT)</p>
+                                            <p>{{ __('messages.Experience: 5 years') }}</p>
+                                            <p>{{ __('messages.Worked at: Japanese company') }}</p>
+                                        </div>
+                                        <div class="button b2">
+                                            <button class="aboutMe">{{ __('messages.Contact Me') }}</button>
+                                            <button class="hireMe">{{ __('messages.Hire Me') }}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <div class="box3"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="{{asset('assets/images/team5.jpg')}}" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Hồ Sỹ Bình</span>
+                                            <span class="profession">{{ __('messages.Junior Developer') }}</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>{{ __('messages.Graduated: Ho Chi Minh City University of Technology') }}</p>
+                                            <p>{{ __('messages.Experience: 3 years') }}</p>
+                                            <p>{{ __('messages.Worked at: Japanese company') }}</p>
+                                        </div>
+                                        <div class="button b1">
+                                            <button class="aboutMe">{{ __('messages.Contact Me') }}</button>
+                                            <button class="hireMe">{{ __('messages.Hire Me') }}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide card">
+                                    <div class="box4"></div>
+                                    <div class="card-content">
+                                        <div class="image">
+                                            <img src="{{asset('assets/images/team4.jpg')}}" alt="">
+                                        </div>
+                                        <div class="media-icons">
+                                            <i class="fab fa-facebook"></i>
+                                            <i class="fab fa-twitter"></i>
+                                            <i class="fab fa-github"></i>
+                                        </div>
+                                        <div class="name-profession">
+                                            <span class="name">Phùng Thanh Liêm</span>
+                                            <span class="profession">Mid-level Developer</span>
+                                        </div>
+                                        <div class="rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="about-name">
+                                            <p>Tốt nghiệp: Đại học Công Nghiệp TP.HỒ CHÍ MINH</p>
+                                            <p>Kinh nghiệm: 4 năm</p>
+                                            <p>Làm việc: công ty Nhật.</p>
+                                        </div>
+                                        <div class="button b2">
                                             <button class="aboutMe">About Me</button>
                                             <button class="hireMe">Hire Me</button>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="swiper-slide card">
-                                    <div class="box1"></div>
+                                    <div class="box5"></div>
                                     <div class="card-content">
                                         <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
+                                        <img src="{{asset('assets/images/team6.jpg')}}" alt="">
                                         </div>
                                         <div class="media-icons">
                                             <i class="fab fa-facebook"></i>
@@ -408,8 +509,8 @@
                                             <i class="fab fa-github"></i>
                                         </div>
                                         <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
+                                            <span class="name">Phan Duy Linh</span>
+                                            <span class="profession">Mid-level Developer</span>
                                         </div>
                                         <div class="rating">
                                             <i class="fas fa-star"></i>
@@ -419,102 +520,11 @@
                                             <i class="fas fa-star"></i>
                                         </div>
                                         <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
+                                            <p>Tốt nghiệp: Đại học Công Nghiệp TP.HỒ CHÍ MINH</p>
+                                            <p>Kinh nghiệm: 4 năm</p>
+                                            <p>Làm việc: công ty Nhật.</p>
                                         </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide card">
-                                    <div class="box1"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
-                                        </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide card">
-                                    <div class="box1"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
-                                        </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide card">
-                                    <div class="box1"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
-                                        </div>
-                                        <div class="button b1">
+                                        <div class="button b2">
                                             <button class="aboutMe">About Me</button>
                                             <button class="hireMe">Hire Me</button>
                                         </div>

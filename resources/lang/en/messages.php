@@ -5,6 +5,11 @@ return [
     'Facebook'=>'Facebook',
     'TikTok'=>'TikTok',
     'Login'=>'Login',
+    'Enter email...'=>'Enter email...',
+    'Enter password...'=>'Enter password...',
+    'Recover password'=>'Recover password',
+    'Not a member?'=>'Not a member?',
+    'Register now'=>'Register now',
     'Register'=>'Register',
     'Logout'=>'Logout',
     'Home'=>'Home',
@@ -85,5 +90,18 @@ return [
     'Testing.'=>'Testing.',
     '6-month warranty for the work.'=>'6-month warranty for the work.',
 
-
+    //Team
+    'Team'=>'Team',
+    'Phan Tuan Kiet'=>'Phan Tuan Kiet',
+    'Junior Developer'=>'Junior Developer',
+    'Graduated: Ho Chi Minh City University of Technology'=>'Graduated: Ho Chi Minh City University of Technology',
+    'Experience: 3 years'=>'Experience: 3 years',
+    'Worked at: Japanese company'=>'Worked at: Japanese company',
+    'Contact Me'=>'Contact Me',
+    'Hire Me'=>'Hire Me',
+    'Le Viet Duc'=>'Lê Việt Đức',
+    'Senior Developer'=>'Senior Developer',
+    'Graduated: University of Science'=>'Graduated: University of Science',
+    'Experience: 5 years'=>'Experience: 5 years',
+    
 ];

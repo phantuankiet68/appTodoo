@@ -34,14 +34,15 @@
                 </div>
                 <ul class="navSidebar">
                     <li class="menu-item">
-                        <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-solid fa-fire"></i> {{ __('messages.Home') }} </div>
+                        <a class="hoverMenu" href="#"><div class="subBoxMenu"><i class="fa-solid fa-house-chimney-window"></i> {{ __('messages.Home') }} </div>
                             <div class="chevron">
                                 <i class="fa-solid fa-chevron-right"></i>
                             </div>
                         </a>
                         <ul class="subSidebar">
-                            <li><a href="{{ route('news.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.News') }}</div></a></li>
-                            <li><a href="{{ route('project.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Project') }}</div></a></li>
+                            <li><a href="{{ route('news.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-folder"></i> News</div></a></li>
+                            <li><a href="{{ route('project.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-folder"></i> Project</div></a></li>
+                            <li><a href="{{ route('project.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-folder"></i> Team</div></a></li>
                         </ul>
                     </li>
                     <div class="title-menu"><span>{{ __('messages.Application') }}</span></div>
@@ -273,7 +274,7 @@
                         <div class="star">
                             <div class="d-flex">
                                 <i class="fa-solid fa-star color-yellow"></i>
-                                {{ __('messages.Stars') }}
+                                Stars
                             </div>
                             <div class="form-star">
                                 <div class="triangleleft"></div>
@@ -306,7 +307,7 @@
                         <div class="star">
                             <div class="d-flex">
                                 <i class="fa-solid fa-envelope"></i>
-                                {{ __('messages.Email') }}
+                                Email
                             </div>
                             <div class="form-star">
                                 <div class="triangleleft"></div>
@@ -345,7 +346,7 @@
                         <div class="notify">
                             <div class="d-flex">
                                 <i class="fa-solid fa-bell"></i>
-                                {{ __('messages.Notification') }}
+                                Notification
                             </div>
                             <div class="form-notify">
                                 <div class="triangle"></div>
@@ -378,28 +379,28 @@
                         <div class="setting">
                             <a href="#" class="d-flex">
                                 <i class="fa-solid fa-gear"></i>
-                                {{ __('messages.Settings') }}
+                                Settings
                             </a>
                             <div class="form-setting">
                                 <div class="triangle"></div>
                                 <div class="list-setting">
                                     <div class="setting-info">
-                                        <a href="#">{{ __('messages.Personal Informations') }}</a>
+                                        <a href="#">Personal Informations</a>
                                     </div> 
                                 </div>
                                 <div class="list-setting">
                                     <div class="setting-info">
-                                        <a href="">{{ __('messages.Change Password') }}</a>
+                                        <a href="">Change Password</a>
                                     </div> 
                                 </div>
                                 <div class="list-setting">
                                     <div class="setting-info">
-                                        <a href="">{{ __('messages.Change Wallpaper') }}</a>
+                                        <a href="">Change Wallpaper</a>
                                     </div> 
                                 </div>
                                 <div class="list-setting">
                                     <div class="setting-info">
-                                        <a href="">{{ __('messages.Add User') }}</a>
+                                        <a href="">Add User</a>
                                     </div> 
                                 </div>
                             </div>

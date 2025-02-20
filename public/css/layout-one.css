@@ -3627,7 +3627,7 @@ blockquote .author {
 
 
 .login {
-    background-color: #efefef;
+    background-color: #ffffff;
     width: 100%;
     text-align: center;
     border: 2px solid var(--border-color);
@@ -3662,6 +3662,7 @@ blockquote .author {
     padding: 5px 20px;
     border-radius: 46px;
     outline: none;
+    border: 1px solid #d6d6d7;
 }
 .login .group span {
     position: absolute;
@@ -3986,9 +3987,11 @@ blockquote .author {
     font-weight: 600;
     color: #070024;
 }
-
-.column {
+.row .column {
     width: 23%;
+}
+.column {
+    width: 100%;
 }
 
 .card {
@@ -4063,7 +4066,7 @@ blockquote .author {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 30px;
+    padding: 30px 20px;
     position: relative;
     z-index: 100;
 }
@@ -4104,6 +4107,23 @@ blockquote .author {
     height: 30%;
     border-radius: 20px 20px 0 0;
     background: linear-gradient(106.32deg, #f30fdd 14.23%,
+    rgba(255, 25, 25, 0) 139.97%);
+}
+.box4{
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(106.32deg, #0ff340 14.23%,
+    rgba(255, 25, 25, 0) 139.97%);
+}
+
+.box5{
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    border-radius: 20px 20px 0 0;
+    background: linear-gradient(106.32deg, #0fcdf3 14.23%,
     rgba(255, 25, 25, 0) 139.97%);
 }
 .swiper-wrapper .card .media-icons{
@@ -4162,6 +4182,7 @@ blockquote .author {
     width: 100%;
     display: flex;
     justify-content: space-around;
+    gap: 10px;
     margin-top: 20px;
 }
 .swiper-wrapper .card .b1 button{
@@ -4177,11 +4198,12 @@ blockquote .author {
     outline: none;
     border: none;
     color: #fff;
-    padding: 8px 22px;
+    padding: 8px 13px;
     border-radius: 5px;
     font-size: 14px;
     transition: all 0.3s ease;
     cursor: pointer;
+    width: 50%;
 }
 .swiper-wrapper .card .button button:hover{
     opacity: 0.8;
