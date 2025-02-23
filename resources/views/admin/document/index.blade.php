@@ -7,21 +7,24 @@
     <div class="news-container-body">
         <div class="news-container-form">
             <div class="title-sub">
-                <h3>Tạo Đội nhóm mới</h3>
+                <h3>Tạo Document mới</h3>
             </div>
-            <form action="{{ route('teams.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('documents.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @if (Auth::check())
+                    <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}">
+                @endif
                 <div class="form-input-category mt-5">
-                    <label for="stt">STT</label>
-                    <input type="text" class="input-name" name="stt" required>
+                    <label for="stt">Title</label>
+                    <input type="text" class="input-name" name="title" required>
                 </div>
-                <div class="form-input-category mt-5">
-                    <label for="name">Name</label>
-                    <input type="text" class="input-name" name="name" required>
-                </div>
-                <div class="form-input-category mt-5">
-                    <label for="name">Level</label>
-                    <input type="text" class="input-name" name="level" required>
+                <div class="form-select-category mt-5">
+                    <label for="level">Level</label>
+                    <select name="level" id="level">
+                        <option value="1">Basic</option>
+                        <option value="2">Independent</option>
+                        <option value="3">Proficient</option>
+                    </select>
                 </div>
                 <div class="form-select-category mt-5">
                     <label for="status">Language</label>
@@ -65,7 +68,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($teams as $item)
+                        @foreach($documents as $item)
                         <tr>
                             <td class="jus-center">
                                 <p class="td-1">{{$item->stt}}</p>
@@ -198,40 +201,30 @@
     fileInput.addEventListener('change', () => handleFiles(fileInput.files));
 
     function handleFiles(files) {
-        // Ẩn phần upload-box
         uploadBox.style.display = 'none';
 
         Array.from(files).forEach((file) => {
             const fileReader = new FileReader();
             const fileItem = document.createElement('div');
             fileItem.className = 'file-item';
-
-            // Create file preview
             fileReader.onload = (e) => {
                 const preview = document.createElement('img');
                 preview.src = e.target.result;
                 fileItem.appendChild(preview);
             };
-
-            // Create progress bar
             const progressBarContainer = document.createElement('div');
             progressBarContainer.className = 'progress-bar';
             const progressBar = document.createElement('div');
             progressBar.className = 'progress';
             progressBarContainer.appendChild(progressBar);
-
-            // Simulate upload progress
             setTimeout(() => {
                 progressBar.style.width = '100%';
             }, 300);
-
-            // Add remove button
             const removeButton = document.createElement('span');
             removeButton.className = 'remove-file';
             removeButton.innerHTML = '✖';
             removeButton.addEventListener('click', () => {
                 fileItem.remove();
-                // Hiển thị lại phần upload-box nếu không còn file nào
                 if (uploadedFiles.children.length === 0) {
                     uploadBox.style.display = 'block';
                 }

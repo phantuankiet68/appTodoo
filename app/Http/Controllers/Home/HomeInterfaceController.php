@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\teamHome;
+use App\Models\interfaceHome;
 
-class HomeTeamController extends Controller
+
+class HomeInterfaceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,21 +16,26 @@ class HomeTeamController extends Controller
      */
     public function index()
     {
-        $teams = teamHome::get();
-        return view('admin.team.index', compact('teams'));
+        $interfaces = interfaceHome::get();
+        return view('admin.interface.index', compact('interfaces'));
     }
 
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'name' => 'required|string|max:255',
-            'level' => 'required|string|max:255',
+            'user_id' => 'required|integer|exists:users,id',
+            'title' => 'required|string|max:255',
             'image_path' => 'nullable|image',
             'description' => 'nullable|string',
             'language' => 'required|string',
             'status' => 'required|boolean',
-            'stt' => 'required|integer',
         ]);
 
         if ($request->hasFile('image_path')) {
@@ -46,10 +52,11 @@ class HomeTeamController extends Controller
             $validatedData['image_path'] = 'assets/images/' . $filename;
         }
 
-        teamHome::create($validatedData);
+        interfaceHome::create($validatedData);
 
         return redirect()->back()->with('success', __('messages.Team saved successfully!'));
     }
+
 
     /**
      * Display the specified resource.

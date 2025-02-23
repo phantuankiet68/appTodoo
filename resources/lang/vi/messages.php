@@ -83,17 +83,10 @@ return [
     'I have put a lot of effort into researching and studying the relevant documentation, which allowed me to overcome the initial challenges and achieve significant results. By continuously improving my knowledge and skills, I aim to deliver better solutions and make the most of this valuable learning experience.'=>'Tôi đã dành nhiều nỗ lực để nghiên cứu và tìm hiểu tài liệu liên quan, nhờ đó vượt qua được những khó khăn ban đầu và đạt được những kết quả đáng kể. Bằng cách không ngừng cải thiện kiến thức và kỹ năng, tôi mong muốn mang lại các giải pháp tốt hơn và tận dụng tối đa trải nghiệm học tập quý báu này.',
     //Team
     'Team'=>'Đội ngũ',
-    'Phan Tuan Kiet'=>'Phan Tuấn Kiệt',
-    'Junior Developer'=>'Lập trình viên cấp Junior',
-    'Graduated: Ho Chi Minh City University of Technology'=>'Tốt nghiệp: Trường Đại Học Công Nghệ TP. Hồ Chí Minh',
-    'Experience: 3 years'=>'Kinh nghiệm: 3 năm',
-    'Worked at: Japanese company'=>'Làm việc tại: Công ty Nhật',
     'Contact Me'=>'Liên hệ ',
     'Hire Me'=>'Thuê tôi',
-    'Le Viet Duc'=>'Lê Việt Đức',
-    'Senior Developer'=>'Lập trình viên cấp Senior',
-    'Graduated: University of Science'=>'Tốt nghiệp: Trường Đại Học Khoa Học Tự Nhiên',
-    'Experience: 5 years'=>'Kinh nghiệm: 5 năm',
+    'New Interface'=>'Giao diện mới',
+    'Wiki'=>'Wiki',
 
 
 ];

@@ -92,16 +92,12 @@ return [
 
     //Team
     'Team'=>'Team',
-    'Phan Tuan Kiet'=>'Phan Tuan Kiet',
-    'Junior Developer'=>'Junior Developer',
-    'Graduated: Ho Chi Minh City University of Technology'=>'Graduated: Ho Chi Minh City University of Technology',
-    'Experience: 3 years'=>'Experience: 3 years',
-    'Worked at: Japanese company'=>'Worked at: Japanese company',
     'Contact Me'=>'Contact Me',
     'Hire Me'=>'Hire Me',
-    'Le Viet Duc'=>'Lê Việt Đức',
-    'Senior Developer'=>'Senior Developer',
-    'Graduated: University of Science'=>'Graduated: University of Science',
-    'Experience: 5 years'=>'Experience: 5 years',
+
+
+    'New Interface'=>'New Interface',
+    'Wiki'=>'Wiki',
+    'Team'=>'Team',
     
 ];

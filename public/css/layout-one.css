@@ -3913,11 +3913,13 @@ blockquote .author {
 }
 
 .blog_product {
-    width: 23.6%;
+    width: 32.2%;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    padding: 10px;
+    min-height: 35vh;
 }
 .blog_product-img {
     width: 100%;
@@ -3937,7 +3939,7 @@ blockquote .author {
     font-weight: bold;
     color: #333;
     margin: 10px 0;
-    padding: 0 10px;
+    text-align: left;
 }
 
 .blog_product .price {
@@ -3957,6 +3959,39 @@ blockquote .author {
     font-size: 14px;
 }
 
+.user-document {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.user-document-like{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 45px;
+    margin-top: 10px;
+}
+
+.user-document-like p.eye-gray {
+    background: linear-gradient(106.32deg, #9da6a8 14.23%, rgba(255, 25, 25, 0) 139.97%);
+    padding: 5px 25px;
+    border-radius: 20px;
+    color: #fff;
+}
+.user-document-like p.eye-blue{
+    background: linear-gradient(106.32deg, #00c2ff 14.23%, rgba(255, 25, 25, 0) 139.97%);
+    padding: 5px 25px;
+    border-radius: 20px;
+    color: #fff;
+}
+.user-document-like p.eye-green {
+    background: linear-gradient(106.32deg, #07ff6a 14.23%, rgba(255, 25, 25, 0) 139.97%);
+    padding: 5px 25px;
+    border-radius: 20px;
+    color: #fff;
+}
 .shop-all {
     text-align: right;
     margin-top: 20px;
@@ -4062,6 +4097,23 @@ blockquote .author {
     padding: 0 0 10px 0;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
+
+.swiper-wrapper .card.card-interface{
+    max-height: 260px;
+    border-radius: 5px;
+}
+
+.swiper-wrapper .card.card-interface img{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.swiper-wrapper .card.card-interface span{
+    font-size: 20px;
+}
+
+
+
 .swiper-wrapper .card .card-content{
     display: flex;
     flex-direction: column;
@@ -4198,7 +4250,7 @@ blockquote .author {
     outline: none;
     border: none;
     color: #fff;
-    padding: 8px 13px;
+    padding: 8px 6px;
     border-radius: 5px;
     font-size: 14px;
     transition: all 0.3s ease;

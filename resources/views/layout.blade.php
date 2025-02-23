@@ -251,6 +251,26 @@
                 </section>
                 <section id="about">
                     <div class="layout-tile">
+                        <h3>{{ __('messages.New Interface') }}</h3>
+                        <div class="layout-tile-btn">
+                            <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="wiki-body">
+                        <div class="swiper mySwiper container">
+                            <div class="swiper-wrapper content">
+                                @foreach($interfaces as $item)
+                                <div class="swiper-slide card card-interface">
+                                    <img src="{{ asset($item->image_path) }}" alt="">
+                                    <span>{{ $item->title }}</span>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="about">
+                    <div class="layout-tile">
                         <h3>{{ __('messages.Service') }}</h3>
                         <div class="layout-tile-btn">
                             <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
@@ -365,44 +385,12 @@
                     <div class="slider-container swiper">
                         <div class="swiper mySwiper container">
                             <div class="swiper-wrapper content">
-                                <div class="swiper-slide card">
-                                    <div class="box1"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="{{asset('assets/images/team1.jpg')}}" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">{{ __('messages.Phan Tuan Kiet') }}</span>
-                                            <span class="profession">{{ __('messages.Junior Developer') }}</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>{{ __('messages.Graduated: Ho Chi Minh City University of Technology') }} (IT)</p>
-                                            <p>{{ __('messages.Experience: 3 years') }}</p>
-                                            <p>{{ __('messages.Worked at: Japanese company') }}</p>
-                                        </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">{{ __('messages.Contact Me') }}</button>
-                                            <button class="hireMe">{{ __('messages.Hire Me') }}</button>
-                                        </div>
-                                    </div>
-                                </div>
+                                @foreach($teams as $item)
                                 <div class="swiper-slide card">
                                     <div class="box2"></div>
                                     <div class="card-content">
                                         <div class="image">
-                                            <img src="{{asset('assets/images/team2.jpg')}}" alt="">
+                                            <img src="{{ asset($item->image_path) }}" alt="">
                                         </div>
                                         <div class="media-icons">
                                             <i class="fab fa-facebook"></i>
@@ -410,8 +398,8 @@
                                             <i class="fab fa-github"></i>
                                         </div>
                                         <div class="name-profession">
-                                            <span class="name">{{ __('messages.Le Viet Duc') }}</span>
-                                            <span class="profession">{{ __('messages.Senior Developer') }}</span>
+                                            <span class="name">{{ $item->name }}</span>
+                                            <span class="profession">{{ $item->level }}</span>
                                         </div>
                                         <div class="rating">
                                             <i class="fas fa-star"></i>
@@ -421,9 +409,7 @@
                                             <i class="fas fa-star"></i>
                                         </div>
                                         <div class="about-name">
-                                            <p>{{ __('messages.Graduated: University of Science') }} (IT)</p>
-                                            <p>{{ __('messages.Experience: 5 years') }}</p>
-                                            <p>{{ __('messages.Worked at: Japanese company') }}</p>
+                                            {!! $item->description !!}
                                         </div>
                                         <div class="button b2">
                                             <button class="aboutMe">{{ __('messages.Contact Me') }}</button>
@@ -431,526 +417,150 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide card">
-                                    <div class="box3"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="{{asset('assets/images/team5.jpg')}}" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Hồ Sỹ Bình</span>
-                                            <span class="profession">{{ __('messages.Junior Developer') }}</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>{{ __('messages.Graduated: Ho Chi Minh City University of Technology') }}</p>
-                                            <p>{{ __('messages.Experience: 3 years') }}</p>
-                                            <p>{{ __('messages.Worked at: Japanese company') }}</p>
-                                        </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">{{ __('messages.Contact Me') }}</button>
-                                            <button class="hireMe">{{ __('messages.Hire Me') }}</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide card">
-                                    <div class="box4"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="{{asset('assets/images/team4.jpg')}}" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Phùng Thanh Liêm</span>
-                                            <span class="profession">Mid-level Developer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Tốt nghiệp: Đại học Công Nghiệp TP.HỒ CHÍ MINH</p>
-                                            <p>Kinh nghiệm: 4 năm</p>
-                                            <p>Làm việc: công ty Nhật.</p>
-                                        </div>
-                                        <div class="button b2">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide card">
-                                    <div class="box5"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                        <img src="{{asset('assets/images/team6.jpg')}}" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Phan Duy Linh</span>
-                                            <span class="profession">Mid-level Developer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Tốt nghiệp: Đại học Công Nghiệp TP.HỒ CHÍ MINH</p>
-                                            <p>Kinh nghiệm: 4 năm</p>
-                                            <p>Làm việc: công ty Nhật.</p>
-                                        </div>
-                                        <div class="button b2">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </section>
                 <section id="about">
                     <div class="layout-tile">
-                        <h3>Document</h3>
+                        <h3>{{ __('messages.Document') }}</h3>
                         <div class="layout-tile-btn">
-                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+                            <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="blog_container">
                         <div class="blog_products">
+                            @foreach($documents as $item)
                             <div class="blog_product">
                                 <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                    <img src="{{ asset($item->image_path) }}" />
                                 </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
+                                <div class="name">{{ $item->title }}</div>
+                                <div class="user-document">
+                                    <p><i class="fa-solid fa-user"></i> {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
+                                    <p><i class="fa-solid fa-calendar-days"></i> {{ $item->created_at }}</p>
+                                </div>
+                                <div class="user-document-like">
+                                    <p class="eye-gray"><i class="fa-solid fa-eye"></i> 200</p>
+                                    <p class="eye-blue"><i class="fa-solid fa-thumbs-up"></i> 200</p>
+                                    <p class="eye-green"><i class="fa-solid fa-share"></i> 200</p>
+                                </div>
                             </div>
+                            @endforeach
+                            @foreach($documents as $item)
                             <div class="blog_product">
                                 <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                    <img src="{{ asset($item->image_path) }}" />
                                 </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
+                                <div class="name">{{ $item->title }}</div>
+                                <div class="user-document">
+                                    <p><i class="fa-solid fa-user"></i> {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
+                                    <p><i class="fa-solid fa-calendar-days"></i> {{ $item->created_at }}</p>
+                                </div>
+                                <div class="user-document-like">
+                                    <p class="eye-gray"><i class="fa-solid fa-eye"></i> 200</p>
+                                    <p class="eye-blue"><i class="fa-solid fa-thumbs-up"></i> 200</p>
+                                    <p class="eye-green"><i class="fa-solid fa-share"></i> 200</p>
+                                </div>
                             </div>
+                            @endforeach
+                            @foreach($documents as $item)
                             <div class="blog_product">
                                 <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                    <img src="{{ asset($item->image_path) }}" />
                                 </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
+                                <div class="name">{{ $item->title }}</div>
+                                <div class="user-document">
+                                    <p><i class="fa-solid fa-user"></i> {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
+                                    <p><i class="fa-solid fa-calendar-days"></i> {{ $item->created_at }}</p>
+                                </div>
+                                <div class="user-document-like">
+                                    <p class="eye-gray"><i class="fa-solid fa-eye"></i> 200</p>
+                                    <p class="eye-blue"><i class="fa-solid fa-thumbs-up"></i> 200</p>
+                                    <p class="eye-green"><i class="fa-solid fa-share"></i> 200</p>
+                                </div>
                             </div>
+                            @endforeach
+                            @foreach($documents as $item)
                             <div class="blog_product">
                                 <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                    <img src="{{ asset($item->image_path) }}" />
                                 </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
+                                <div class="name">{{ $item->title }}</div>
+                                <div class="user-document">
+                                    <p><i class="fa-solid fa-user"></i> {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
+                                    <p><i class="fa-solid fa-calendar-days"></i> {{ $item->created_at }}</p>
+                                </div>
+                                <div class="user-document-like">
+                                    <p class="eye-gray"><i class="fa-solid fa-eye"></i> 200</p>
+                                    <p class="eye-blue"><i class="fa-solid fa-thumbs-up"></i> 200</p>
+                                    <p class="eye-green"><i class="fa-solid fa-share"></i> 200</p>
+                                </div>
                             </div>
+                            @endforeach
+                            @foreach($documents as $item)
                             <div class="blog_product">
                                 <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                    <img src="{{ asset($item->image_path) }}" />
                                 </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
+                                <div class="name">{{ $item->title }}</div>
+                                <div class="user-document">
+                                    <p><i class="fa-solid fa-user"></i> {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
+                                    <p><i class="fa-solid fa-calendar-days"></i> {{ $item->created_at }}</p>
+                                </div>
+                                <div class="user-document-like">
+                                    <p class="eye-gray"><i class="fa-solid fa-eye"></i> 200</p>
+                                    <p class="eye-blue"><i class="fa-solid fa-thumbs-up"></i> 200</p>
+                                    <p class="eye-green"><i class="fa-solid fa-share"></i> 200</p>
+                                </div>
                             </div>
+                            @endforeach
+                            @foreach($documents as $item)
                             <div class="blog_product">
                                 <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                    <img src="{{ asset($item->image_path) }}" />
                                 </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
-                            </div>
-                            <div class="blog_product">
-                                <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                <div class="name">{{ $item->title }}</div>
+                                <div class="user-document">
+                                    <p><i class="fa-solid fa-user"></i> {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
+                                    <p><i class="fa-solid fa-calendar-days"></i> {{ $item->created_at }}</p>
                                 </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
-                            </div>
-                            <div class="blog_product">
-                                <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-1.jpg')}}" />
+                                <div class="user-document-like">
+                                    <p class="eye-gray"><i class="fa-solid fa-eye"></i> 200</p>
+                                    <p class="eye-blue"><i class="fa-solid fa-thumbs-up"></i> 200</p>
+                                    <p class="eye-green"><i class="fa-solid fa-share"></i> 200</p>
                                 </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
                             </div>
+                            @endforeach
+
                         </div>
                     </div>
                 </section>
                 <section id="about">
                     <div class="layout-tile">
-                        <h3>New interface</h3>
+                        <h3>{{ __('messages.Wiki') }}</h3>
                         <div class="layout-tile-btn">
-                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+                            <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="wiki-body">
                         <div class="swiper mySwiper container">
                             <div class="swiper-wrapper content">
-                                <div class="swiper-slide card">
-                                    <div class="box1"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
-                                        </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
+                                <div class="swiper-slide card card-interface">
+                                    
                                 </div>
-                                <div class="swiper-slide card">
-                                    <div class="box1"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
-                                        </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
+                                <div class="swiper-slide card card-interface">
+                                    
                                 </div>
-                                <div class="swiper-slide card">
-                                    <div class="box1"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
-                                        </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
+                                <div class="swiper-slide card card-interface">
+                                
                                 </div>
-                                <div class="swiper-slide card">
-                                    <div class="box1"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
-                                        </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
+                                <div class="swiper-slide card card-interface">
+                                
                                 </div>
-                                <div class="swiper-slide card">
-                                    <div class="box1"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
-                                        </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <section id="about">
-                    <div class="layout-tile">
-                        <h3>Wiki</h3>
-                        <div class="layout-tile-btn">
-                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="wiki-body">
-                        <div class="swiper mySwiper container">
-                            <div class="swiper-wrapper content">
-                                <div class="swiper-slide card">
-                                    <div class="box1"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
-                                        </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide card">
-                                    <div class="box1"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
-                                        </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide card">
-                                    <div class="box1"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
-                                        </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide card">
-                                    <div class="box1"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
-                                        </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide card">
-                                    <div class="box1"></div>
-                                    <div class="card-content">
-                                        <div class="image">
-                                            <img src="https://img.freepik.com/free-photo/bohemian-man-with-his-arms-crossed_1368-3542.jpg?size=626&ext=jpg&uid=R70460828&ga=GA1.2.1826433234.1647754373" alt="">
-                                        </div>
-                                        <div class="media-icons">
-                                            <i class="fab fa-facebook"></i>
-                                            <i class="fab fa-twitter"></i>
-                                            <i class="fab fa-github"></i>
-                                        </div>
-                                        <div class="name-profession">
-                                            <span class="name">Andrew James</span>
-                                            <span class="profession">Graphic Designer</span>
-                                        </div>
-                                        <div class="rating">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                        <div class="about-name">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi nobis sequi, nam tenetur magni.</p>
-                                        </div>
-                                        <div class="button b1">
-                                            <button class="aboutMe">About Me</button>
-                                            <button class="hireMe">Hire Me</button>
-                                        </div>
-                                    </div>
+                                <div class="swiper-slide card card-interface">
+                                
                                 </div>
                             </div>
                         </div>
@@ -965,79 +575,14 @@
                     </div>
                     <div class="blog_container">
                         <div class="blog_products">
+                             @foreach($news as $item)
                             <div class="blog_product">
                                 <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
+                                    <img src="{{ asset($item->image_path) }}" />
                                 </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
+                                <div class="name">{{ $item->name }}</div>
                             </div>
-                            <div class="blog_product">
-                                <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
-                                </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
-                            </div>
-                            <div class="blog_product">
-                                <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
-                                </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
-                            </div>
-                            <div class="blog_product">
-                                <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
-                                </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
-                            </div>
-                            <div class="blog_product">
-                                <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
-                                </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
-                            </div>
-                            <div class="blog_product">
-                                <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
-                                </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
-                            </div>
-                            <div class="blog_product">
-                                <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
-                                </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
-                            </div>
-                            <div class="blog_product">
-                                <div class="blog_product-img">
-                                    <img src="{{asset('assets/images/w-2.jpg')}}" />
-                                </div>
-                                <div class="name">Thùng Sữa chua uống Probi Hương Dâu chai...</div>
-                                <div class="price">₫199,600</div>
-                                <div class="old-price">₫249,500</div>
-                                <div class="discount">-20%</div>
-                            </div>
-                            
+                            @endforeach
                         </div>
                     </div>
                 </section>

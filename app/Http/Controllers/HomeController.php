@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\News;
+use App\Models\teamHome;
 use App\Models\ProjectHome;
-
+use App\Models\documentHome;
+use App\Models\interfaceHome;
 class HomeController extends Controller
 {
     /**
@@ -16,7 +18,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // Lấy giá trị locale từ session (mặc định là 'en')
+
         $locale = session('locale', 'en');
         
         $languageMap = [
@@ -25,8 +27,7 @@ class HomeController extends Controller
             'ja' => 3,
         ];
     
-        // Kiểm tra và gán giá trị languageId
-        $languageId = $languageMap[$locale] ?? 2; // Mặc định là English
+        $languageId = $languageMap[$locale] ?? 2;
     
         $news = News::where('language', $languageId)
             ->orderBy('stt', 'desc')
@@ -36,8 +37,22 @@ class HomeController extends Controller
             ->orderBy('stt', 'desc')
             ->limit(6)
             ->get();
-    
-        return view('pages.home.index', compact('news', 'projects'));
+        $teams = teamHome::where('language', $languageId)
+            ->orderBy('stt', 'desc')
+            ->limit(6)
+            ->get();    
+
+        $documents = documentHome::where('language', $languageId)
+            ->orderBy('id', 'desc')
+            ->limit(6)
+            ->get();  
+
+        $interfaces = interfaceHome::where('language', $languageId)
+            ->orderBy('id', 'desc')
+            ->limit(6)
+            ->get();      
+
+        return view('pages.home.index', compact('news', 'projects', 'teams','documents', 'interfaces'));
     }
 
     /**

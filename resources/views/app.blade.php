@@ -40,9 +40,11 @@
                             </div>
                         </a>
                         <ul class="subSidebar">
-                            <li><a href="{{ route('news.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-folder"></i> News</div></a></li>
-                            <li><a href="{{ route('project.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-folder"></i> Project</div></a></li>
-                            <li><a href="{{ route('project.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-folder"></i> Team</div></a></li>
+                            <li><a href="{{ route('news.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> News</div></a></li>
+                            <li><a href="{{ route('project.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> Project</div></a></li>
+                            <li><a href="{{ route('teams.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> Team</div></a></li>
+                            <li><a href="{{ route('documents.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> Document</div></a></li>
+                            <li><a href="{{ route('interfaces.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> Interface</div></a></li>
                         </ul>
                     </li>
                     <div class="title-menu"><span>{{ __('messages.Application') }}</span></div>

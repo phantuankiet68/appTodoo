@@ -55,6 +55,9 @@ use Illuminate\Support\Facades\App;
 use App\Http\Controllers\Home\HomeProjectController;
 use App\Http\Controllers\News\NewsController;
 use App\Http\Controllers\Home\HomeCalendarController;
+use App\Http\Controllers\Home\HomeTeamController;
+use App\Http\Controllers\Home\HomeDocumentController;
+use App\Http\Controllers\Home\HomeInterfaceController;
 use App\Models\News;
 
 /*
@@ -113,6 +116,13 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::get('show/project/{id}', [HomeProjectController::class, 'show']);
     Route::resource('/v2/project', HomeProjectController::class);
     Route::resource('/v1/calendar', HomeCalendarController::class);
+
+
+    Route::resource('/v2/teams', HomeTeamController::class);
+
+    Route::resource('/v2/documents', HomeDocumentController::class);
+
+    Route::resource('/v2/interfaces', HomeInterfaceController::class);
 
     Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('forgot.password');
 
