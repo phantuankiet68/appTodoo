@@ -110,7 +110,7 @@
                                 <a href="{{ route('issue.show', $issue->id) }}">
                                     <i class="fa-regular fa-pen-to-square edit"></i>
                                 </a>
-                                <a href="#" onclick="showDeleteIssuePopup({{ $issue->id }})">
+                                <a href="#" onclick="showDeleteIssuePopup('{{ $issue->id }}')">
                                     <i class="fa-solid fa-trash delete"></i>
                                 </a>
                             </td>
@@ -148,14 +148,14 @@
                                     <td class="text-center "> 
                                         <input type="checkbox" name="status[]" id="status_{{ $cate->id }}" 
                                             value="1" {{ $cate->status == 1 ? 'checked' : '' }}>
-                                    <td class="text-center">
-                                        <a href="#" onclick="showEditPopup({{ $cate->id }})">
-                                            <i class="fa-regular fa-pen-to-square edit"></i>
-                                        </a>
-                                        <a href="#" onclick="showDeletePopup({{ $cate->id }})">
-                                            <i class="fa-solid fa-trash delete"></i>
-                                        </a>
-                                    </td>
+                                            <td class="text-center">
+                                                <a href="javascript:void(0);" onclick="event.preventDefault(); showEditPopup('{{ $cate->id }}');">
+                                                    <i class="fa-regular fa-pen-to-square edit"></i>
+                                                </a>
+                                                <a href="javascript:void(0);" onclick="event.preventDefault(); showDeletePopup('{{ $cate->id }}');">
+                                                    <i class="fa-solid fa-trash delete"></i>
+                                                </a>
+                                            </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -523,7 +523,7 @@ document.querySelector('.modelForm').addEventListener('submit', function(event) 
         const categoryId = document.getElementById('category').value;
         const userId = document.getElementById('user').value;
 
-        let url = '{{ route('issue.index') }}?';
+        let url = "{{ route('issue.index') }}?";
         if (categoryId) {
             url += 'category_id=' + categoryId + '&';
         }

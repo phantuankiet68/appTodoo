@@ -35,12 +35,17 @@
                 <a href="">{{ __('messages.TikTok') }} <i class="fa-brands fa-tiktok"></i></a> 
             </div>
             <div class="header-aside-list">
-                <a href="">
+                <a href="" class="header-aside-list-bell">
                     <div>
                         <i class="fa-solid fa-bell"></i>
                     </div> 
                     <div>
                         {{ __('messages.Notification') }}
+                    </div>
+                    <div class="header-aside-list-body-notification">
+                        <div class="aside-box"></div>
+                        <h3>{{ __('messages.New Notification') }}</h3>
+                        <p>{{ __('messages.There are no new notifications at the moment! Please log in to see more details.') }}</p>
                     </div>
                 </a>
                 <span class="liner"></span>
@@ -49,7 +54,12 @@
                         <i class="fa-solid fa-circle-exclamation"></i>
                     </div> 
                     <div>
-                        {{ __('messages.Notification') }}
+                        {{ __('messages.Help') }}
+                    </div>
+                    <div class="header-aside-list-body-help">
+                        <div class="aside-box"></div>
+                        <h3>{{ __('messages.New Notification') }}</h3>
+                        <p>{{ __('messages.There are no new notifications at the moment! Please log in to see more details.') }}</p>
                     </div>
                 </a> 
                 <span class="liner"></span>
@@ -135,6 +145,13 @@
                         <div class="banner">
                             <div class="banner-left">
                                 <div class="content">
+                                    <div class="banner-title">
+                                        <h1>TRYSKILL</h1>
+                                        <p>{{ __('messages.🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟') }}</p>
+                                        <p>{{ __('messages.💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!') }}</p>
+                                        <p>{{ __('messages.🌏 Additionally, I provide English and Japanese learning resources to help you improve your language skills, so you can confidently communicate and work in an international environment.') }}</p>
+                                        <p>{{ __('messages.📌 Let learn, grow, and conquer new challenges together! Are you ready? 😃') }}</p>
+                                    </div>
                                     <div class="images">
                                         <img src="{{asset('assets/images/w-3.jpg')}}">
                                         <img src="{{asset('assets/images/w-2.jpg')}}">
@@ -260,7 +277,7 @@
                         <div class="swiper mySwiper container">
                             <div class="swiper-wrapper content">
                                 @foreach($interfaces as $item)
-                                <div class="swiper-slide card card-interface">
+                                <div class="swiper-slide card card-interface" onclick="showInterface('{{ $item->id }}')">
                                     <img src="{{ asset($item->image_path) }}" alt="">
                                     <span>{{ $item->title }}</span>
                                 </div>
@@ -547,21 +564,12 @@
                     <div class="wiki-body">
                         <div class="swiper mySwiper container">
                             <div class="swiper-wrapper content">
+                                @foreach($wikis as $item)
                                 <div class="swiper-slide card card-interface">
-                                    
+                                    <img src="{{ asset($item->image_path) }}" />
+                                    <div class="name">{{ $item->title }}</div>
                                 </div>
-                                <div class="swiper-slide card card-interface">
-                                    
-                                </div>
-                                <div class="swiper-slide card card-interface">
-                                
-                                </div>
-                                <div class="swiper-slide card card-interface">
-                                
-                                </div>
-                                <div class="swiper-slide card card-interface">
-                                
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -854,6 +862,7 @@
             </div>
         </div>
     </div>
+
 
     @if (session('success'))
     <div id="popup-success">

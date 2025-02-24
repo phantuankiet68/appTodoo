@@ -97,6 +97,14 @@ return [
     'Hire Me'=>'採用してください',
     'New Interface'=>'新しいインターフェース',
     'Wiki'=>'ウィキ',
+    'Notification'=>'通知',
+    'Help'=>'助ける',
+    'New Notification'=>'新しい通知',
 
+    'There are no new notifications at the moment! Please log in to see more details.'=>'現在、新しい通知はありません！詳細を見るにはログインしてください。',
+    '🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟'=>'🌟 個人ウェブサイト – 旅の足跡とスキルの成長を刻む場所 🌟',
+    '💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!'=>'💻 あなたがテクノロジーに情熱を持ち、効率的なコードの書き方を学びたい、またはゼロからプログラミングの世界を探求したいなら、ここがあなたのための場所です！',
+    '🌏 Additionally, I provide English and Japanese learning resources to help you improve your language skills, so you can confidently communicate and work in an international environment.'=>'🌏 さらに、英語と日本語の学習資料も提供しており、言語スキルを向上させ、国際的な環境で自信を持ってコミュニケーションし、働けるようサポートします。',
+    '📌 Let learn, grow, and conquer new challenges together! Are you ready? 😃'=>'📌 一緒に学び、成長し、新たな挑戦を乗り越えましょう！準備はできましたか？😃',
 
 ];

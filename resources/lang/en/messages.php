@@ -94,10 +94,18 @@ return [
     'Team'=>'Team',
     'Contact Me'=>'Contact Me',
     'Hire Me'=>'Hire Me',
-
+    'Notification'=>'Notification',
+    'Help'=>'Help',
+    'New Notification'=>'New Notification',
 
     'New Interface'=>'New Interface',
     'Wiki'=>'Wiki',
-    'Team'=>'Team',
-    
+
+
+    'There are no new notifications at the moment! Please log in to see more details.'=>'There are no new notifications at the moment! Please log in to see more details.',
+    '🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟'=>'🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟',
+    '💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!'=>'💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!',
+    '🌏 Additionally, I provide English and Japanese learning resources to help you improve your language skills, so you can confidently communicate and work in an international environment.'=>'🌏 Additionally, I provide English and Japanese learning resources to help you improve your language skills, so you can confidently communicate and work in an international environment.',
+    '📌 Let learn, grow, and conquer new challenges together! Are you ready? 😃'=>'📌 Let learn, grow, and conquer new challenges together! Are you ready? 😃',
+
 ];

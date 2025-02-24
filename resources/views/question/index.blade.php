@@ -49,7 +49,7 @@
     <div class="body-todo">
         <div class="questionList hover-container">
             @foreach($questions as $item)
-            <div class="questionItem" onclick="showEditQuestion({{$item->id}})">
+            <div class="questionItem" onclick="showEditQuestion('{{$item->id}}')">
                 <div class="questionContent">
                     <span class="questionTop">Câu hỏi: </span>
                     <p class="questionBottom">{{$item->question}}</p>

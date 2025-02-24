@@ -58,6 +58,7 @@ use App\Http\Controllers\Home\HomeCalendarController;
 use App\Http\Controllers\Home\HomeTeamController;
 use App\Http\Controllers\Home\HomeDocumentController;
 use App\Http\Controllers\Home\HomeInterfaceController;
+use App\Http\Controllers\Home\HomeWikiController;
 use App\Models\News;
 
 /*
@@ -123,6 +124,13 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::resource('/v2/documents', HomeDocumentController::class);
 
     Route::resource('/v2/interfaces', HomeInterfaceController::class);
+    Route::get('/interfaces/{id}', [HomeInterfaceController::class, 'show'])->name('interfaces.show');
+    Route::put('/interfaces/{id}', [HomeInterfaceController::class, 'update'])->name('interfaces.update');
+
+
+
+
+    Route::resource('/v2/wikis', HomeWikiController::class);
 
     Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('forgot.password');
 

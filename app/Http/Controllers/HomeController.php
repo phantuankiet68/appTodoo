@@ -9,6 +9,9 @@ use App\Models\teamHome;
 use App\Models\ProjectHome;
 use App\Models\documentHome;
 use App\Models\interfaceHome;
+use App\Models\wikiHome;
+
+
 class HomeController extends Controller
 {
     /**
@@ -50,9 +53,13 @@ class HomeController extends Controller
         $interfaces = interfaceHome::where('language', $languageId)
             ->orderBy('id', 'desc')
             ->limit(6)
-            ->get();      
+            ->get();    
+        $wikis = wikiHome::where('language', $languageId)
+            ->orderBy('id', 'desc')
+            ->limit(6)
+            ->get();    
 
-        return view('pages.home.index', compact('news', 'projects', 'teams','documents', 'interfaces'));
+        return view('pages.home.index', compact('news', 'projects', 'teams','documents', 'interfaces','wikis'));
     }
 
     /**

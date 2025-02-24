@@ -87,6 +87,14 @@ return [
     'Hire Me'=>'Thuê tôi',
     'New Interface'=>'Giao diện mới',
     'Wiki'=>'Wiki',
+    'Notification'=>'Thông báo',
+    'Help'=>'Hỗ trợ',
+    'New Notification'=>'Thông báo mới',
 
+    'There are no new notifications at the moment! Please log in to see more details.'=>'Hiện tại không có thông báo mới! Hãy đăng nhập để xem thêm chi tiết.',
+    '🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟'=>'🌟 Website cá nhân – Nơi ghi dấu hành trình & phát triển kỹ năng 🌟',
+    '💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!'=>'💻 Nếu bạn đam mê công nghệ, muốn học cách viết code hiệu quả hoặc khám phá thế giới lập trình từ con số 0, thì đây chính là nơi dành cho bạn!',
+    '🌏 Additionally, I provide English and Japanese learning resources to help you improve your language skills, so you can confidently communicate and work in an international environment.'=>'🌏 Ngoài ra, tôi còn cung cấp tài nguyên học tiếng Anh và tiếng Nhật, giúp bạn nâng cao khả năng ngôn ngữ để tự tin giao tiếp và làm việc trong môi trường quốc tế.',
+    '📌 Let learn, grow, and conquer new challenges together! Are you ready? 😃'=>'📌 Cùng nhau học hỏi, phát triển và chinh phục những thử thách mới! Bạn đã sẵn sàng chưa? 😃',
 
 ];

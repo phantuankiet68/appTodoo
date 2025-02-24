@@ -5,18 +5,18 @@
 @section('content')
 <div class="news-container">
     <div class="news-container-body">
-        <div class="news-container-form">
+        <div class="news-container-form interfaces">
             <div class="title-sub">
                 <h3>Tạo interfaces mới</h3>
             </div>
-            <form action="{{ route('interfaces.store') }}" method="POST" enctype="multipart/form-data">
+            <form id="editForm" action="{{ route('interfaces.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @if (Auth::check())
-                    <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}">
-                @endif
+                @method('PUT')
+                <input type="hidden" name="id" id="interface_id" value="">
+
                 <div class="form-input-category mt-5">
                     <label for="stt">Title</label>
-                    <input type="text" class="input-name" name="title" required>
+                    <input type="text" class="input-name" name="title" id="title" required>
                 </div>
 
                 <div class="form-select-category mt-5">
@@ -27,14 +27,17 @@
                         <option value="3">Japan</option>
                     </select>
                 </div>
+
                 <div class="form-textarea-category">
                     <label for="description">Code</label>
                     <textarea id="editor" name="description"></textarea>
                 </div>
+
                 <div class="form-input-category mt-5">
                     <label for="file">Image</label>
                     <input type="file" class="input-name" name="image_path">
                 </div>
+
                 <div class="form-select-category mt-10">
                     <label for="status">Status</label>
                     <select name="status" id="status">
@@ -42,10 +45,12 @@
                         <option value="0">Hide</option>
                     </select>
                 </div>
+
                 <div class="form-btn">
                     <button type="submit">Save changes</button>
                 </div>
             </form>
+
         </div>
         <div class="news-container-table">
         <div class="tables">
@@ -53,8 +58,8 @@
                     <thead>
                         <tr>
                             <th class="t-center" style="width: 60px;">STT</th>
-                            <th class="ml-3">Name</th>
-                            <th class="text-center">Create by</th>
+                            <th class="ml-3">Title</th>
+                            <th class="text-center">Create at</th>
                             <th class="ml-3">Languages</th>
                             <th class="ml-3">Status</th>
                             <th class="text-center">Settings</th>
@@ -64,14 +69,15 @@
                         @foreach($interfaces as $item)
                         <tr>
                             <td class="jus-center">
-                                <p class="td-1">{{$item->stt}}</p>
+                                <p class="td-1">{{$item->id}}</p>
                             </td>
-                            <td class="ml-3"><div class="text-truncate">{!!$item->name!!}</p></td>
+                            <td class="ml-3"><div class="text-truncate">{!!$item->title!!}</p></td>
                             <td>
                                 <div class="table_user text-center">
-                                    <p>{{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
+                                    <p>{{ $item->created_at->format('d-m-Y') }}</p>
                                 </div>
                             </td>
+                            <td class="text-center">{{ $item->language }}</td>
                             <td class="pending ml-3">
                                 @if ($item->status == 1)
                                     <p class="resolvedIssue">Show</p>
@@ -79,9 +85,8 @@
                                     <p class="openIssue">Hide</p>
                                 @endif
                             </td>
-                            <td class="text-center">{{ $item->created_at->format('d-m-Y') }}</td>
                             <td class="text-center">
-                                <a href="">
+                                <a href="javascript:void(0);" onclick="showEditInterface('{{ $item->id }}');">
                                     <i class="fa-regular fa-pen-to-square edit"></i>
                                 </a>
                                 <a href="#">
@@ -138,17 +143,54 @@
         </ul>
     </div>
 @endif
+
+
 <script>
     ClassicEditor
-      .create(document.querySelector('#editor'))
-      .then(editor => {
-        editorInstance = editor; 
-      })
-      .catch(error => {
-          console.error(error);
-      });
+        .create(document.querySelector('#editor'), {
+            toolbar: {
+                items: [
+                    'heading', '|',
+                    'bold', 'italic', 'underline', '|',
+                    'link', 'bulletedList', 'numberedList', '|',
+                    'insertTable', 'blockQuote', '|',
+                    'undo', 'redo'
+                ]
+            }
+        })
+        .then(editor => {
+            editorInstance = editor; 
+        })
+        .catch(error => {
+            console.error(error);
+        });
 </script>
+
 <script>
+    function showEditInterface(id) {
+        fetch("{{ url('interfaces') }}/" + id)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('interface_id').value = data.id;
+            document.getElementById('title').value = data.title;
+            document.getElementById('language').value = data.language;
+            document.getElementById('status').value = data.status;
+
+            if (editorInstance) {
+                editorInstance.setData(data.description);
+            } else {
+                document.querySelector('textarea[name="description"]').value = data.description;
+            }
+            document.getElementById('editForm').action = "{{ url('interfaces') }}/" + id;
+            document.getElementById('editForm').style.display = 'block';
+        })
+        .catch(error => console.error('Error:', error));
+    }
+</script>
+
+
+<script>
+
     document.addEventListener('DOMContentLoaded', function() {
         const popup = document.querySelector('#popup-success');
         if (popup) {

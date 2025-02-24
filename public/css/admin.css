@@ -3802,13 +3802,19 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     display: flex;
 }
 .news-container-table{
-    width: 70%;
+    width: 60%;
     padding: 0 10px;
     height: 100%;
     overflow: scroll;
 }
+
+.interfaces .ck-content {
+    height: 360px;
+}
+
+
 .news-container-form{
-    width: 30%;
+    width: 40%;
 }
 .text-truncate{
     max-width: 100%;

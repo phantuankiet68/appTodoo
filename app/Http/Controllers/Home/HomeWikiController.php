@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Home;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\interfaceHome;
+use App\Models\wikiHome;
 
 
-class HomeInterfaceController extends Controller
+class HomeWikiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +16,9 @@ class HomeInterfaceController extends Controller
      */
     public function index()
     {
-        $interfaces = interfaceHome::get();
-        return view('admin.interface.index', compact('interfaces'));
+        $wikis = wikiHome::get();
+        return view('admin.wiki.index', compact('wikis'));
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -52,11 +51,10 @@ class HomeInterfaceController extends Controller
             $validatedData['image_path'] = 'assets/images/' . $filename;
         }
 
-        interfaceHome::create($validatedData);
+        wikiHome::create($validatedData);
 
         return redirect()->back()->with('success', __('messages.Team saved successfully!'));
     }
-
 
     /**
      * Display the specified resource.
@@ -66,11 +64,20 @@ class HomeInterfaceController extends Controller
      */
     public function show($id)
     {
-        $interfaces = interfaceHome::findOrFail($id);
-        return response()->json($interfaces);
+        //
     }
 
-  
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -80,23 +87,7 @@ class HomeInterfaceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $interface = interfaceHome::findOrFail($id);
-    
-        $interface->title = $request->input('title');
-        $interface->language = $request->input('language');
-        $interface->description = $request->input('description');
-        $interface->status = $request->input('status');
-    
-        if ($request->hasFile('image_path')) {
-            $image = $request->file('image_path');
-            $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $imageName);
-            $interface->image_path = $imageName;
-        }
-    
-        $interface->save();
-    
-        return redirect()->to('/v2/interfaces')->with('success', 'Update successfully!');
+        //
     }
 
     /**
