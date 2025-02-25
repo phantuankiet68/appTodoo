@@ -268,7 +268,7 @@
                 </section>
                 <section id="about">
                     <div class="layout-tile">
-                        <h3>{{ __('messages.New Interface') }}</h3>
+                        <h3>{{ __('messages.New Experience') }}</h3>
                         <div class="layout-tile-btn">
                             <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
                         </div>
@@ -277,10 +277,10 @@
                         <div class="swiper mySwiper container">
                             <div class="swiper-wrapper content">
                                 @foreach($interfaces as $item)
-                                <div class="swiper-slide card card-interface" onclick="showInterface('{{ $item->id }}')">
+                                <a href="{{ route('new_experience.view', $item->id) }}" class="swiper-slide card card-interface">
                                     <img src="{{ asset($item->image_path) }}" alt="">
                                     <span>{{ $item->title }}</span>
-                                </div>
+                                </a>
                                 @endforeach
                             </div>
                         </div>

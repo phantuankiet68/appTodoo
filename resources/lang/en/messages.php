@@ -98,7 +98,7 @@ return [
     'Help'=>'Help',
     'New Notification'=>'New Notification',
 
-    'New Interface'=>'New Interface',
+    'New Experience'=>'New Experience',
     'Wiki'=>'Wiki',
 
 

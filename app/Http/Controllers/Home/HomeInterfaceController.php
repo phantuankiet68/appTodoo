@@ -70,6 +70,35 @@ class HomeInterfaceController extends Controller
         return response()->json($interfaces);
     }
 
+
+     /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function view($id)
+    {
+        $locale = session('locale', 'en');
+        
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+
+        $interfaces = interfaceHome::findOrFail($id);
+
+        $interfaceList = interfaceHome::where('language', $languageId)
+        ->orderBy('id', 'desc')
+        ->limit(6)
+        ->get();
+
+        return view('home.interface.showInterface', compact('interfaces', 'interfaceList'));
+    }
+
   
     /**
      * Update the specified resource in storage.

@@ -85,7 +85,7 @@ return [
     'Team'=>'Đội ngũ',
     'Contact Me'=>'Liên hệ ',
     'Hire Me'=>'Thuê tôi',
-    'New Interface'=>'Giao diện mới',
+    'New Experience'=>'Trải nghiệm mới',
     'Wiki'=>'Wiki',
     'Notification'=>'Thông báo',
     'Help'=>'Hỗ trợ',

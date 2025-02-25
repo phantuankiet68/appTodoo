@@ -95,7 +95,7 @@ return [
     'Team'=>'チーム',
     'Contact Me'=>'お問い合わせ ',
     'Hire Me'=>'採用してください',
-    'New Interface'=>'新しいインターフェース',
+    'New Experience'=>'新しい体験',
     'Wiki'=>'ウィキ',
     'Notification'=>'通知',
     'Help'=>'助ける',

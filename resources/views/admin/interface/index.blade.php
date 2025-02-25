@@ -7,13 +7,15 @@
     <div class="news-container-body">
         <div class="news-container-form interfaces">
             <div class="title-sub">
-                <h3>Tạo interfaces mới</h3>
+                <h3>Tạo New Experience mới</h3>
             </div>
             <form id="editForm" action="{{ route('interfaces.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
+                <!-- @method('PUT') -->
                 <input type="hidden" name="id" id="interface_id" value="">
-
+                @if (Auth::check())
+                    <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}">
+                @endif
                 <div class="form-input-category mt-5">
                     <label for="stt">Title</label>
                     <input type="text" class="input-name" name="title" id="title" required>
@@ -168,7 +170,7 @@
 
 <script>
     function showEditInterface(id) {
-        fetch("{{ url('interfaces') }}/" + id)
+        fetch("{{ url('interfaces/show') }}/" + id)
         .then(response => response.json())
         .then(data => {
             document.getElementById('interface_id').value = data.id;

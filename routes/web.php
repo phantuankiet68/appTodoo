@@ -102,10 +102,13 @@ Route::get('/learn-more/pdf', [LearnMoreController::class, 'exportPdf'])->name('
 
 Route::get('/profile/{full_name}', [HomeController::class, 'profile'])->name('profile.show');
 
+Route::get('/new_experience/{id}', [HomeInterfaceController::class, 'view'])->name('new_experience.view');
+
 Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], function () {
     Route::resource('/calendar', HomeCalendarController::class);
     Route::get('/blog', [NewsController::class, 'index_home'])->name('index_home.news');
     Route::get('/blog/{id}', [NewsController::class, 'show_home'])->name('show_home.news');
+    
 });
 
 Route::group(['middleware' => ['auth', 'role.check']], function() {
@@ -124,9 +127,8 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::resource('/v2/documents', HomeDocumentController::class);
 
     Route::resource('/v2/interfaces', HomeInterfaceController::class);
-    Route::get('/interfaces/{id}', [HomeInterfaceController::class, 'show'])->name('interfaces.show');
+    Route::get('/interfaces/show/{id}', [HomeInterfaceController::class, 'show'])->name('interfaces.show');
     Route::put('/interfaces/{id}', [HomeInterfaceController::class, 'update'])->name('interfaces.update');
-
 
 
 
