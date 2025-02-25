@@ -270,7 +270,7 @@
                     <div class="layout-tile">
                         <h3>{{ __('messages.New Experience') }}</h3>
                         <div class="layout-tile-btn">
-                            <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
+                            <a href="{{ route('new_experience.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="wiki-body">

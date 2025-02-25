@@ -90,7 +90,17 @@ return [
     'Notification'=>'Thông báo',
     'Help'=>'Hỗ trợ',
     'New Notification'=>'Thông báo mới',
-
+    'Total Quantity'=>'Tổng số lượng',
+    'Total Views'=>'Tổng số lượt xem',
+    'Total Likes'=>'Tổng số lượt like',
+    'Total Shares'=>'Tổng số lượt share',
+    'Remote'=>'Remote',
+    'Are you looking for someone to work remotely?'=>'Bạn đang tìm kiếm người làm remote?',
+    'Contact us now'=>'Hãy liên hệ chúng tôi ngay!',
+    'Contact Now'=>'Liên hệ ngay',
+    'Updating'=>'Đang cập nhật',
+    'RelatedPosts' => 'Bài viết liên quan',
+    
     'There are no new notifications at the moment! Please log in to see more details.'=>'Hiện tại không có thông báo mới! Hãy đăng nhập để xem thêm chi tiết.',
     '🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟'=>'🌟 Website cá nhân – Nơi ghi dấu hành trình & phát triển kỹ năng 🌟',
     '💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!'=>'💻 Nếu bạn đam mê công nghệ, muốn học cách viết code hiệu quả hoặc khám phá thế giới lập trình từ con số 0, thì đây chính là nơi dành cho bạn!',

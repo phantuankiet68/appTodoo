@@ -100,7 +100,17 @@ return [
     'Notification'=>'通知',
     'Help'=>'助ける',
     'New Notification'=>'新しい通知',
-
+    'Total Quantity'=>'総数',
+    'Total Views'=>'総閲覧数',
+    'Total Likes'=>'総「いいね」数',
+    'Total Shares'=>'総シェア数',
+    'Remote'=>'リモート',
+    'Are you looking for someone to work remotely?'=>'リモートで働く人を探していますか？',
+    'Contact us now'=>'今すぐお問い合わせください',
+    'Contact Now'=>'今すぐ連絡',
+    'Updating'=>'更新中',
+    'RelatedPosts' => '関連記事',
+    
     'There are no new notifications at the moment! Please log in to see more details.'=>'現在、新しい通知はありません！詳細を見るにはログインしてください。',
     '🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟'=>'🌟 個人ウェブサイト – 旅の足跡とスキルの成長を刻む場所 🌟',
     '💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!'=>'💻 あなたがテクノロジーに情熱を持ち、効率的なコードの書き方を学びたい、またはゼロからプログラミングの世界を探求したいなら、ここがあなたのための場所です！',

@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\interfaceHome;
-
+use App\Models\View;
+use App\Models\Like;
+use App\Models\Share;
 
 class HomeInterfaceController extends Controller
 {
@@ -18,6 +20,31 @@ class HomeInterfaceController extends Controller
     {
         $interfaces = interfaceHome::get();
         return view('admin.interface.index', compact('interfaces'));
+    }
+
+    public function index_home()
+    {
+        
+        $locale = session('locale', 'en');
+        
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+    
+        $interfaces = InterfaceHome::withCount(['views', 'likes','shares'])
+            ->where('language', $languageId)
+            ->orderBy('id', 'desc')
+            ->get();
+
+        $totalViews = View::whereNotNull('interface_id')->count();
+        $totalLikes = Like::whereNotNull('interface_id')->count();
+        $totalShares = Share::whereNotNull('interface_id')->count();
+
+        return view('home.interface.index', compact('interfaces','totalViews', 'totalLikes','totalShares'));
     }
 
 
@@ -96,8 +123,45 @@ class HomeInterfaceController extends Controller
         ->limit(6)
         ->get();
 
-        return view('home.interface.showInterface', compact('interfaces', 'interfaceList'));
+        $totalViews = View::where('interface_id', $id)->count();
+        $totalShares = Share::where('interface_id', $id)->count();
+        $totalLikes = Like::where('interface_id', $id)->count();
+
+        View::create([
+            'interface_id' => $id,
+            'view_count' => 1,
+        ]);
+
+
+        return view('home.interface.showInterface', compact('interfaces', 'interfaceList','totalViews','totalLikes', 'totalShares'));
     }
+
+    public function store_like(Request $request, $id)
+    {
+        $interface = InterfaceHome::findOrFail($id);
+        
+        Like::create([
+            'interface_id' => $interface->id,
+            'view_count' => 1, 
+        ]);
+
+        return redirect()->route('new_experience.view', $interface->id)
+                        ->with('success', 'Like added successfully!');
+    }
+    
+    public function store_share(Request $request, $id)
+    {
+        $interface = InterfaceHome::findOrFail($id);
+        
+        Share::create([
+            'interface_id' => $interface->id,
+            'view_count' => 1, 
+        ]);
+
+        return redirect()->route('new_experience.view', $interface->id)
+                        ->with('success', 'Like added successfully!');
+    }
+
 
   
     /**

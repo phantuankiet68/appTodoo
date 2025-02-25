@@ -5,8 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class View extends Model
+class Like extends Model
 {
     use HasFactory;
-    protected $fillable = ['news_id', 'interface_id', 'view_count', 'ip_address', 'user_agent'];
+    protected $fillable = ['news_id', 'interface_id', 'view_count'];
+    
 }

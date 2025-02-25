@@ -97,7 +97,6 @@ return [
     'Notification'=>'Notification',
     'Help'=>'Help',
     'New Notification'=>'New Notification',
-
     'New Experience'=>'New Experience',
     'Wiki'=>'Wiki',
 
@@ -107,5 +106,19 @@ return [
     '💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!'=>'💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!',
     '🌏 Additionally, I provide English and Japanese learning resources to help you improve your language skills, so you can confidently communicate and work in an international environment.'=>'🌏 Additionally, I provide English and Japanese learning resources to help you improve your language skills, so you can confidently communicate and work in an international environment.',
     '📌 Let learn, grow, and conquer new challenges together! Are you ready? 😃'=>'📌 Let learn, grow, and conquer new challenges together! Are you ready? 😃',
+
+    'Total Quantity'=>'Total Quantity',
+    'Total Views'=>'Total Views',
+    'Total Likes'=>'Total Likes',
+    'Total Shares'=>'Total Shares',
+    'Remote'=>'Remote',
+    'Are you looking for someone to work remotely?'=>'Are you looking for someone to work remotely?',
+    'Contact us now'=>'Contact us now',
+    'Contact Now'=>'Contact Now',
+    'Updating'=>'Updating',
+    'RelatedPosts' => 'Related Posts',
+    'Wiki'=>'Wiki',
+    'Wiki'=>'Wiki',
+
 
 ];
