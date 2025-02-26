@@ -279,7 +279,7 @@
                                 @foreach($interfaces as $item)
                                 <a href="{{ route('new_experience.view', $item->id) }}" class="swiper-slide card card-interface">
                                     <img src="{{ asset($item->image_path) }}" alt="">
-                                    <span>{{ $item->title }}</span>
+                                    <p>{{ $item->title }}</p>
                                 </a>
                                 @endforeach
                             </div>
@@ -464,7 +464,7 @@
                     <div class="layout-tile">
                         <h3>{{ __('messages.Wiki') }}</h3>
                         <div class="layout-tile-btn">
-                            <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
+                            <a href="{{ route('wikis.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="wiki-body">
@@ -473,7 +473,7 @@
                                 @foreach($wikis as $item)
                                 <div class="swiper-slide card card-interface">
                                     <img src="{{ asset($item->image_path) }}" />
-                                    <div class="name">{{ $item->title }}</div>
+                                    <p class="name">{{ $item->title }}</p>
                                 </div>
                                 @endforeach
                             </div>

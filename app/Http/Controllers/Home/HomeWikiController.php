@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\wikiHome;
-
+use App\Models\ViewNow;
+use App\Models\LikeNow;
+use App\Models\ShareNow;
 
 class HomeWikiController extends Controller
 {
@@ -56,6 +58,31 @@ class HomeWikiController extends Controller
         return redirect()->back()->with('success', __('messages.Team saved successfully!'));
     }
 
+    public function index_home()
+    {
+        
+        $locale = session('locale', 'en');
+        
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+    
+        $wikis = wikiHome::withCount(['views', 'likes','shares'])
+            ->where('language', $languageId)
+            ->orderBy('id', 'desc')
+            ->get();
+
+        $totalViews = ViewNow::whereNotNull('wiki_id')->count();
+        $totalLikes = LikeNow::whereNotNull('wiki_id')->count();
+        $totalShares = ShareNow::whereNotNull('wiki_id')->count();
+
+        return view('home.wiki.index', compact('wikis','totalViews', 'totalLikes','totalShares'));
+    }
+
     /**
      * Display the specified resource.
      *
@@ -68,15 +95,43 @@ class HomeWikiController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Display the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function view($id)
     {
-        //
+        $locale = session('locale', 'en');
+        
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+
+        $wikis = wikiHome::findOrFail($id);
+
+        $wikiList = wikiHome::where('language', $languageId)
+        ->orderBy('id', 'desc')
+        ->limit(6)
+        ->get();
+
+        $totalViews = ViewNow::where('wiki_id', $id)->count();
+        $totalShares = ShareNow::where('wiki_id', $id)->count();
+        $totalLikes = LikeNow::where('wiki_id', $id)->count();
+
+        ViewNow::create([
+            'wiki_id' => $id,
+            'view_count' => 1,
+        ]);
+
+
+        return view('home.wiki.showWiki', compact('wikis', 'wikiList','totalViews','totalLikes', 'totalShares'));
     }
+
 
     /**
      * Update the specified resource in storage.

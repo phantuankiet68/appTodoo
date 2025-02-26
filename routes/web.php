@@ -120,6 +120,10 @@ Route::post('/documents/store_like/{id}', [HomeDocumentController::class, 'store
 Route::post('/documents/store_share/{id}', [HomeDocumentController::class, 'store_share'])->name('store_share.documents');
 
 
+//wiki
+Route::get('/wikis', [HomeWikiController::class, 'index_home'])->name('wikis.list');
+Route::get('/wikis/{id}', [HomeWikiController::class, 'view'])->name('wikis.view');
+
 Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], function () {
     Route::resource('/calendar', HomeCalendarController::class);
     Route::get('/blog', [NewsController::class, 'index_home'])->name('index_home.news');
@@ -148,7 +152,7 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
 
 
     Route::resource('/v2/wikis', HomeWikiController::class);
-    
+
 
     Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('forgot.password');
 

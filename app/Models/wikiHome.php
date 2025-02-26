@@ -20,4 +20,16 @@ class wikiHome extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function views()
+    {
+        return $this->hasMany(ViewNow::class, 'wiki_id', 'id');
+    }
+    public function likes()
+    {
+        return $this->hasMany(LikeNow::class, 'wiki_id', 'id');
+    }
+    public function shares()
+    {
+        return $this->hasMany(ShareNow::class, 'wiki_id', 'id');
+    }
 }

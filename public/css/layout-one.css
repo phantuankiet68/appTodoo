@@ -4181,10 +4181,11 @@ blockquote .author {
 }
 
 .swiper-wrapper .card.card-interface {
-    max-height: 260px;
+    max-height: 370px;
     border-radius: 5px;
     text-decoration: none;
     color: coral;
+    padding: 10px;
 }
 
 .swiper-wrapper .card.card-interface img{
@@ -4192,9 +4193,10 @@ blockquote .author {
     margin-bottom: 5px;
 }
 
-.swiper-wrapper .card.card-interface span{
+.swiper-wrapper .card.card-interface p{
     font-size: 16px;
     color: #7c7c7c;
+    text-align: left;
 }
 
 .banner-title {
@@ -4338,6 +4340,13 @@ blockquote .author {
 .swiper-wrapper .card .b1 button{
     background: #f3a323;
 }
+
+.swiper-wrapper .card.card-interface .name {
+    font-size: 16px;
+    color: #7c7c7c;
+}
+
+
 .swiper-wrapper .card .b2 button{
     background: #14bff2;
 }
