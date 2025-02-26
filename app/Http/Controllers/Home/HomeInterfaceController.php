@@ -148,7 +148,7 @@ class HomeInterfaceController extends Controller
         return redirect()->route('new_experience.view', $interface->id)
                         ->with('success', 'Like added successfully!');
     }
-    
+
     public function store_share(Request $request, $id)
     {
         $interface = InterfaceHome::findOrFail($id);

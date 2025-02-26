@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\teamHome;
+use App\Models\View;
+use App\Models\Like;
+use App\Models\Share;
 
 class HomeTeamController extends Controller
 {
@@ -17,6 +20,27 @@ class HomeTeamController extends Controller
     {
         $teams = teamHome::get();
         return view('admin.team.index', compact('teams'));
+    }
+
+    public function index_home()
+    {
+        
+        $locale = session('locale', 'en');
+        
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+    
+        $teams = teamHome::where('language', $languageId)
+            ->orderBy('id', 'asc')
+            ->get();
+
+
+        return view('home.team.index', compact('teams'));
     }
 
 

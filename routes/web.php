@@ -107,6 +107,9 @@ Route::get('/new_experience', [HomeInterfaceController::class, 'index_home'])->n
 Route::post('/new_experience/store_like/{id}', [HomeInterfaceController::class, 'store_like'])->name('store_like.new_experience');
 Route::post('/new_experience/store_share/{id}', [HomeInterfaceController::class, 'store_share'])->name('store_share.new_experience');
 
+
+Route::get('/teams', [HomeTeamController::class, 'index_home'])->name('teams.list');
+
 Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], function () {
     Route::resource('/calendar', HomeCalendarController::class);
     Route::get('/blog', [NewsController::class, 'index_home'])->name('index_home.news');

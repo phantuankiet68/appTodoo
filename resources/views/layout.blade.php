@@ -111,7 +111,7 @@
             <i class="fas fa-bars" id="ham-menu"></i>
             <ul id="nav-bar">
                 <li>
-                    <a href="#home"><i class="fa-solid fa-house"></i> {{ __('messages.Home') }}</a>
+                    <a href="/"><i class="fa-solid fa-house"></i> {{ __('messages.Home') }}</a>
                 </li>
                 <li>
                     <a href="#about"><i class="fa-regular fa-address-card"></i> {{ __('messages.About') }}</a>
@@ -396,7 +396,7 @@
                     <div class="layout-tile">
                         <h3>{{ __('messages.Team') }}</h3>
                         <div class="layout-tile-btn">
-                            <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
+                            <a href="{{ route('teams.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="slider-container swiper">
@@ -454,103 +454,9 @@
                                     <img src="{{ asset($item->image_path) }}" />
                                 </div>
                                 <div class="name">{{ $item->title }}</div>
-                                <div class="user-document">
-                                    <p><i class="fa-solid fa-user"></i> {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
-                                    <p><i class="fa-solid fa-calendar-days"></i> {{ $item->created_at }}</p>
-                                </div>
-                                <div class="user-document-like">
-                                    <p class="eye-gray"><i class="fa-solid fa-eye"></i> 200</p>
-                                    <p class="eye-blue"><i class="fa-solid fa-thumbs-up"></i> 200</p>
-                                    <p class="eye-green"><i class="fa-solid fa-share"></i> 200</p>
-                                </div>
+                                <div class="trustTitle5">{!! $item->description !!}</div>
                             </div>
-                            @endforeach
-                            @foreach($documents as $item)
-                            <div class="blog_product">
-                                <div class="blog_product-img">
-                                    <img src="{{ asset($item->image_path) }}" />
-                                </div>
-                                <div class="name">{{ $item->title }}</div>
-                                <div class="user-document">
-                                    <p><i class="fa-solid fa-user"></i> {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
-                                    <p><i class="fa-solid fa-calendar-days"></i> {{ $item->created_at }}</p>
-                                </div>
-                                <div class="user-document-like">
-                                    <p class="eye-gray"><i class="fa-solid fa-eye"></i> 200</p>
-                                    <p class="eye-blue"><i class="fa-solid fa-thumbs-up"></i> 200</p>
-                                    <p class="eye-green"><i class="fa-solid fa-share"></i> 200</p>
-                                </div>
-                            </div>
-                            @endforeach
-                            @foreach($documents as $item)
-                            <div class="blog_product">
-                                <div class="blog_product-img">
-                                    <img src="{{ asset($item->image_path) }}" />
-                                </div>
-                                <div class="name">{{ $item->title }}</div>
-                                <div class="user-document">
-                                    <p><i class="fa-solid fa-user"></i> {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
-                                    <p><i class="fa-solid fa-calendar-days"></i> {{ $item->created_at }}</p>
-                                </div>
-                                <div class="user-document-like">
-                                    <p class="eye-gray"><i class="fa-solid fa-eye"></i> 200</p>
-                                    <p class="eye-blue"><i class="fa-solid fa-thumbs-up"></i> 200</p>
-                                    <p class="eye-green"><i class="fa-solid fa-share"></i> 200</p>
-                                </div>
-                            </div>
-                            @endforeach
-                            @foreach($documents as $item)
-                            <div class="blog_product">
-                                <div class="blog_product-img">
-                                    <img src="{{ asset($item->image_path) }}" />
-                                </div>
-                                <div class="name">{{ $item->title }}</div>
-                                <div class="user-document">
-                                    <p><i class="fa-solid fa-user"></i> {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
-                                    <p><i class="fa-solid fa-calendar-days"></i> {{ $item->created_at }}</p>
-                                </div>
-                                <div class="user-document-like">
-                                    <p class="eye-gray"><i class="fa-solid fa-eye"></i> 200</p>
-                                    <p class="eye-blue"><i class="fa-solid fa-thumbs-up"></i> 200</p>
-                                    <p class="eye-green"><i class="fa-solid fa-share"></i> 200</p>
-                                </div>
-                            </div>
-                            @endforeach
-                            @foreach($documents as $item)
-                            <div class="blog_product">
-                                <div class="blog_product-img">
-                                    <img src="{{ asset($item->image_path) }}" />
-                                </div>
-                                <div class="name">{{ $item->title }}</div>
-                                <div class="user-document">
-                                    <p><i class="fa-solid fa-user"></i> {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
-                                    <p><i class="fa-solid fa-calendar-days"></i> {{ $item->created_at }}</p>
-                                </div>
-                                <div class="user-document-like">
-                                    <p class="eye-gray"><i class="fa-solid fa-eye"></i> 200</p>
-                                    <p class="eye-blue"><i class="fa-solid fa-thumbs-up"></i> 200</p>
-                                    <p class="eye-green"><i class="fa-solid fa-share"></i> 200</p>
-                                </div>
-                            </div>
-                            @endforeach
-                            @foreach($documents as $item)
-                            <div class="blog_product">
-                                <div class="blog_product-img">
-                                    <img src="{{ asset($item->image_path) }}" />
-                                </div>
-                                <div class="name">{{ $item->title }}</div>
-                                <div class="user-document">
-                                    <p><i class="fa-solid fa-user"></i> {{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
-                                    <p><i class="fa-solid fa-calendar-days"></i> {{ $item->created_at }}</p>
-                                </div>
-                                <div class="user-document-like">
-                                    <p class="eye-gray"><i class="fa-solid fa-eye"></i> 200</p>
-                                    <p class="eye-blue"><i class="fa-solid fa-thumbs-up"></i> 200</p>
-                                    <p class="eye-green"><i class="fa-solid fa-share"></i> 200</p>
-                                </div>
-                            </div>
-                            @endforeach
-
+                            @endforeach                            
                         </div>
                     </div>
                 </section>

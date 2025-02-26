@@ -33,15 +33,15 @@ class HomeController extends Controller
         $languageId = $languageMap[$locale] ?? 2;
     
         $news = News::where('language', $languageId)
-            ->orderBy('stt', 'desc')
+            ->orderBy('id', 'desc')
             ->limit(6)
             ->get();
         $projects = ProjectHome::where('language', $languageId)
-            ->orderBy('stt', 'desc')
+            ->orderBy('id', 'desc')
             ->limit(6)
             ->get();
         $teams = teamHome::where('language', $languageId)
-            ->orderBy('stt', 'desc')
+            ->orderBy('id', 'desc')
             ->limit(6)
             ->get();    
 

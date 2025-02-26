@@ -5,8 +5,8 @@
 @section('content')
 <div class="mt-120">
     <div class="breadcrumb flat">
-        <a href="/" class="active">HOME</a>
-        <a href="{{ route('new_experience.list') }}">New Experience</a>
+        <a href="/" class="active">{{ __('messages.Home') }}</a>
+        <a href="{{ route('new_experience.list') }}">{{ __('messages.New Experience') }}</a>
         <a href="#">{{ $interfaces->id }} {{ $interfaces->title }}</a>
     </div>
     <h1>{{ $interfaces->title }}</h1>
