@@ -123,6 +123,9 @@ Route::post('/documents/store_share/{id}', [HomeDocumentController::class, 'stor
 //wiki
 Route::get('/wikis', [HomeWikiController::class, 'index_home'])->name('wikis.list');
 Route::get('/wikis/{id}', [HomeWikiController::class, 'view'])->name('wikis.view');
+Route::post('/wikis/store_like/{id}', [HomeWikiController::class, 'store_like'])->name('store_like.wikis');
+Route::post('/wikis/store_share/{id}', [HomeWikiController::class, 'store_share'])->name('store_share.wikis');
+
 
 Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], function () {
     Route::resource('/calendar', HomeCalendarController::class);

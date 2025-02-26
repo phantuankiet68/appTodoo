@@ -30,6 +30,6 @@ class News extends Model
 
     public function views()
     {
-        return $this->hasOne(View::class);
+        return $this->hasOne(ViewNow::class);
     }
 }

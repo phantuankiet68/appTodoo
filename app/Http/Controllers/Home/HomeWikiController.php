@@ -82,6 +82,32 @@ class HomeWikiController extends Controller
 
         return view('home.wiki.index', compact('wikis','totalViews', 'totalLikes','totalShares'));
     }
+    public function store_like(Request $request, $id)
+    {
+        $interface = wikiHome::findOrFail($id);
+        
+        LikeNow::create([
+            'wiki_id' => $interface->id,
+            'view_count' => 1, 
+        ]);
+
+        return redirect()->route('wikis.view', $interface->id)
+                        ->with('success', 'Like added successfully!');
+    }
+
+    public function store_share(Request $request, $id)
+    {
+        $interface = wikiHome::findOrFail($id);
+        
+        ShareNow::create([
+            'wiki_id' => $interface->id,
+            'view_count' => 1, 
+        ]);
+
+        return redirect()->route('wikis.view', $interface->id)
+                        ->with('success', 'Like added successfully!');
+    }
+
 
     /**
      * Display the specified resource.

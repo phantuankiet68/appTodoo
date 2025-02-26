@@ -17,13 +17,13 @@
                 <p><i class="fa-solid fa-calendar-days"></i> {{ $wikis->created_at }}</p>
                 <div class="action-view">
                     <p><i class="fa-solid fa-eye"></i> {{ $totalViews }}</p>
-                    <form id="likeForm" action="{{ route('store_like.new_experience', $wikis->id) }}" method="POST" style="display: none;">
+                    <form id="likeForm" action="{{ route('store_like.wikis', $wikis->id) }}" method="POST" style="display: none;">
                         @csrf
                     </form>
                     <p class="eye-blue" onclick="document.getElementById('likeForm').submit()" style="cursor:pointer;">
                         <i class="fa-solid fa-thumbs-up"></i> {{ $totalLikes }}
                     </p>
-                    <form id="shareForm" action="{{ route('store_share.new_experience', $wikis->id) }}" method="POST" style="display: none;">
+                    <form id="shareForm" action="{{ route('store_share.wikis', $wikis->id) }}" method="POST" style="display: none;">
                         @csrf
                     </form>
                     <p class="eye-green" onclick="document.getElementById('shareForm').submit()" style="cursor:pointer;">

@@ -225,6 +225,26 @@
                     </div>
                 </div>
                 </section>
+                <section id="about">
+                    <div class="layout-tile">
+                        <h3>{{ __('messages.Wiki') }}</h3>
+                        <div class="layout-tile-btn">
+                            <a href="{{ route('wikis.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="wiki-body">
+                        <div class="swiper mySwiper container">
+                            <div class="swiper-wrapper content">
+                                @foreach($wikis as $item)
+                                <a href="{{ route('wikis.view', $item->id) }}" class="swiper-slide card card-interface">
+                                    <img src="{{ asset($item->image_path) }}" />
+                                    <p class="name">{{ $item->title }}</p>
+                                </a>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <section class="about-container">
                     <div class="layout-tile">
                         <h3>{{ __('messages.About') }}</h3>
@@ -453,7 +473,7 @@
                                 <div class="blog_product-img">
                                     <img src="{{ asset($item->image_path) }}" />
                                 </div>
-                                <div class="name">{{ $item->title }}</div>
+                                <div class="name trustTitle">{{ $item->title }}</div>
                                 <div class="trustTitle5">{!! $item->description !!}</div>
                             </a>
                             @endforeach                            
@@ -462,19 +482,19 @@
                 </section>
                 <section id="about">
                     <div class="layout-tile">
-                        <h3>{{ __('messages.Wiki') }}</h3>
+                        <h3>{{ __('messages.New Experience') }}</h3>
                         <div class="layout-tile-btn">
-                            <a href="{{ route('wikis.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
+                            <a href="{{ route('new_experience.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="wiki-body">
                         <div class="swiper mySwiper container">
                             <div class="swiper-wrapper content">
-                                @foreach($wikis as $item)
-                                <div class="swiper-slide card card-interface">
-                                    <img src="{{ asset($item->image_path) }}" />
-                                    <p class="name">{{ $item->title }}</p>
-                                </div>
+                                @foreach($interfaces as $item)
+                                <a href="{{ route('new_experience.view', $item->id) }}" class="swiper-slide card card-interface">
+                                    <img src="{{ asset($item->image_path) }}" alt="">
+                                    <p>{{ $item->title }}</p>
+                                </a>
                                 @endforeach
                             </div>
                         </div>
@@ -482,9 +502,9 @@
                 </section>
                 <section id="about">
                     <div class="layout-tile">
-                        <h3>Blog</h3>
+                        <h3>{{ __('messages.Blog') }}</h3>
                         <div class="layout-tile-btn">
-                            <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+                            <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="blog_container">
@@ -497,30 +517,6 @@
                                 <div class="name">{{ $item->name }}</div>
                             </div>
                             @endforeach
-                        </div>
-                    </div>
-                </section>
-                <section class="stats">
-                    <div class="stats-container">
-                        <div class="stat">
-                            <div class="icon">🚀</div>
-                            <h2>000+</h2>
-                            <p>Dịch Vụ Cung Cấp</p>
-                        </div>
-                        <div class="stat">
-                            <div class="icon">📍</div>
-                            <h2>000+</h2>
-                            <p>Địa Điểm</p>
-                        </div>
-                        <div class="stat">
-                            <div class="icon">💳</div>
-                            <h2>000+</h2>
-                            <p>Giao Dịch Thành Công</p>
-                        </div>
-                        <div class="stat">
-                            <div class="icon">📁</div>
-                            <h2>000+</h2>
-                            <p>Tài Liệu</p>
                         </div>
                     </div>
                 </section>

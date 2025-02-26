@@ -99,7 +99,7 @@ return [
     'New Notification'=>'New Notification',
     'New Experience'=>'New Experience',
     'Wiki'=>'Wiki',
-
+    'Latest News'=>'Latest News',
 
     'There are no new notifications at the moment! Please log in to see more details.'=>'There are no new notifications at the moment! Please log in to see more details.',
     '🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟'=>'🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟',

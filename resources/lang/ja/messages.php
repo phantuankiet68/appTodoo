@@ -110,6 +110,7 @@ return [
     'Contact Now'=>'今すぐ連絡',
     'Updating'=>'更新中',
     'RelatedPosts' => '関連記事',
+    'Latest News'=>' 最新ニュース',
     
     'There are no new notifications at the moment! Please log in to see more details.'=>'現在、新しい通知はありません！詳細を見るにはログインしてください。',
     '🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟'=>'🌟 個人ウェブサイト – 旅の足跡とスキルの成長を刻む場所 🌟',
