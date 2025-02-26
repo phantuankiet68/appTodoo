@@ -18,14 +18,14 @@ class interfaceHome extends Model
     ];
     public function views()
     {
-        return $this->hasMany(View::class, 'interface_id', 'id');
+        return $this->hasMany(ViewNow::class, 'interface_id', 'id');
     }
     public function likes()
     {
-        return $this->hasMany(Like::class, 'interface_id', 'id');
+        return $this->hasMany(LikeNow::class, 'interface_id', 'id');
     }
     public function shares()
     {
-        return $this->hasMany(Share::class, 'interface_id', 'id');
+        return $this->hasMany(ShareNow::class, 'interface_id', 'id');
     }
 }

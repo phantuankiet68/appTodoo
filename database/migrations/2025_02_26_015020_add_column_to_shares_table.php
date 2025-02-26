@@ -13,9 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('views', function (Blueprint $table) {
+        Schema::create('share_nows', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedInteger('view_count')->default(0);
+            $table->unsignedBigInteger('news_id')->nullable();
+            $table->foreign('news_id')->references('id')->on('news')->onDelete('cascade');
             $table->unsignedBigInteger('interface_id')->nullable();;
             $table->foreign('interface_id')->references('id')->on('interface_homes')->onDelete('cascade');
+            $table->unsignedBigInteger('document_id')->nullable();
+            $table->foreign('document_id')->references('id')->on('document_homes')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -26,7 +33,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('views', function (Blueprint $table) {
+        Schema::table('share_nows', function (Blueprint $table) {
             //
         });
     }

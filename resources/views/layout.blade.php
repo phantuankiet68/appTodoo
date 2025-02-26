@@ -443,7 +443,7 @@
                     <div class="layout-tile">
                         <h3>{{ __('messages.Document') }}</h3>
                         <div class="layout-tile-btn">
-                            <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
+                            <a href="{{ route('documents.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="blog_container">

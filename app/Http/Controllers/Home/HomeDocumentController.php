@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\documentHome;
-
+use App\Models\ViewNow;
+use App\Models\LikeNow;
+use App\Models\ShareNow;
 
 class HomeDocumentController extends Controller
 {
@@ -20,6 +22,31 @@ class HomeDocumentController extends Controller
         return view('admin.document.index', compact('documents'));
     }
 
+
+    public function index_home()
+    {
+        
+        $locale = session('locale', 'en');
+        
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+    
+        $documents = documentHome::withCount(['views', 'likes','shares'])
+            ->where('language', $languageId)
+            ->orderBy('id', 'desc')
+            ->get();
+
+        $totalViews = ViewNow::whereNotNull('document_id')->count();
+        $totalLikes = LikeNow::whereNotNull('document_id')->count();
+        $totalShares = ShareNow::whereNotNull('document_id')->count();
+
+        return view('home.document.index', compact('documents','totalViews', 'totalLikes','totalShares'));
+    }
 
     /**
      * Store a newly created resource in storage.

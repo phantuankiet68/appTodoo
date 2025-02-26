@@ -102,13 +102,20 @@ Route::get('/learn-more/pdf', [LearnMoreController::class, 'exportPdf'])->name('
 
 Route::get('/profile/{full_name}', [HomeController::class, 'profile'])->name('profile.show');
 
+//new_experience
 Route::get('/new_experience/{id}', [HomeInterfaceController::class, 'view'])->name('new_experience.view');
 Route::get('/new_experience', [HomeInterfaceController::class, 'index_home'])->name('new_experience.list');
 Route::post('/new_experience/store_like/{id}', [HomeInterfaceController::class, 'store_like'])->name('store_like.new_experience');
 Route::post('/new_experience/store_share/{id}', [HomeInterfaceController::class, 'store_share'])->name('store_share.new_experience');
 
 
+//teams
 Route::get('/teams', [HomeTeamController::class, 'index_home'])->name('teams.list');
+
+
+//documents
+Route::get('/documents', [HomeDocumentController::class, 'index_home'])->name('documents.list');
+
 
 Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], function () {
     Route::resource('/calendar', HomeCalendarController::class);

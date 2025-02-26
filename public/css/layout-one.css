@@ -4759,6 +4759,7 @@ blockquote .author {
     justify-content: center;
     align-items: center;
     border-radius: 10px;
+    padding: 20px;
 }
 
 .list-new_experience-right-sales-content h2{

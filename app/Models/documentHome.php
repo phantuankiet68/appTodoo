@@ -22,4 +22,16 @@ class documentHome extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function views()
+    {
+        return $this->hasMany(ViewNow::class, 'interface_id', 'id');
+    }
+    public function likes()
+    {
+        return $this->hasMany(LikeNow::class, 'interface_id', 'id');
+    }
+    public function shares()
+    {
+        return $this->hasMany(ShareNow::class, 'interface_id', 'id');
+    }
 }

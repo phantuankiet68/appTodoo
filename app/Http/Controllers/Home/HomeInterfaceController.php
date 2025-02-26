@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Home;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\interfaceHome;
-use App\Models\View;
-use App\Models\Like;
-use App\Models\Share;
+use App\Models\ViewNow;
+use App\Models\LikeNow;
+use App\Models\ShareNow;
 
 class HomeInterfaceController extends Controller
 {
@@ -40,9 +40,9 @@ class HomeInterfaceController extends Controller
             ->orderBy('id', 'desc')
             ->get();
 
-        $totalViews = View::whereNotNull('interface_id')->count();
-        $totalLikes = Like::whereNotNull('interface_id')->count();
-        $totalShares = Share::whereNotNull('interface_id')->count();
+        $totalViews = ViewNow::whereNotNull('interface_id')->count();
+        $totalLikes = LikeNow::whereNotNull('interface_id')->count();
+        $totalShares = ShareNow::whereNotNull('interface_id')->count();
 
         return view('home.interface.index', compact('interfaces','totalViews', 'totalLikes','totalShares'));
     }
@@ -123,11 +123,11 @@ class HomeInterfaceController extends Controller
         ->limit(6)
         ->get();
 
-        $totalViews = View::where('interface_id', $id)->count();
-        $totalShares = Share::where('interface_id', $id)->count();
-        $totalLikes = Like::where('interface_id', $id)->count();
+        $totalViews = ViewNow::where('interface_id', $id)->count();
+        $totalShares = ShareNow::where('interface_id', $id)->count();
+        $totalLikes = LikeNow::where('interface_id', $id)->count();
 
-        View::create([
+        ViewNow::create([
             'interface_id' => $id,
             'view_count' => 1,
         ]);
@@ -140,7 +140,7 @@ class HomeInterfaceController extends Controller
     {
         $interface = InterfaceHome::findOrFail($id);
         
-        Like::create([
+        LikeNow::create([
             'interface_id' => $interface->id,
             'view_count' => 1, 
         ]);
@@ -153,7 +153,7 @@ class HomeInterfaceController extends Controller
     {
         $interface = InterfaceHome::findOrFail($id);
         
-        Share::create([
+        ShareNow::create([
             'interface_id' => $interface->id,
             'view_count' => 1, 
         ]);
