@@ -85,6 +85,64 @@ class HomeDocumentController extends Controller
         return redirect()->back()->with('success', __('messages.Team saved successfully!'));
     }
 
+    public function view($id)
+    {
+        $locale = session('locale', 'en');
+        
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+
+        $documents = documentHome::findOrFail($id);
+
+        $documentList = documentHome::where('language', $languageId)
+        ->orderBy('id', 'desc')
+        ->limit(6)
+        ->get();
+
+        $totalViews = ViewNow::where('document_id', $id)->count();
+        $totalShares = ShareNow::where('document_id', $id)->count();
+        $totalLikes = LikeNow::where('document_id', $id)->count();
+
+        ViewNow::create([
+            'document_id' => $id,
+            'view_count' => 1,
+        ]);
+
+
+        return view('home.document.showDocument', compact('documents', 'documentList','totalViews','totalLikes', 'totalShares'));
+    }
+
+    public function store_like(Request $request, $id)
+    {
+        $documents = documentHome::findOrFail($id);
+        
+        LikeNow::create([
+            'document_id' => $documents->id,
+            'view_count' => 1, 
+        ]);
+
+        return redirect()->route('documents.view', $documents->id)
+                        ->with('success', 'Like added successfully!');
+    }
+
+    public function store_share(Request $request, $id)
+    {
+        $documents = documentHome::findOrFail($id);
+        
+        ShareNow::create([
+            'document_id' => $documents->id,
+            'view_count' => 1, 
+        ]);
+
+        return redirect()->route('documents.view', $documents->id)
+                        ->with('success', 'Like added successfully!');
+    }
+
     /**
      * Display the specified resource.
      *
@@ -93,18 +151,8 @@ class HomeDocumentController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $documents = documentHome::findOrFail($id);
+        return response()->json($documents);
     }
 
     /**
@@ -116,7 +164,26 @@ class HomeDocumentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $document = documentHome::find($id);
+    
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'level' => 'required|integer',
+            'language' => 'required|integer',
+            'description' => 'nullable|string',
+            'status' => 'required|boolean',
+        ]);
+    
+        $document->update([
+            'title' => $request->title,
+            'level' => $request->level,
+            'language' => $request->language,
+            'description' => $request->description,
+            'status' => $request->status
+        ]);
+    
+    
+        return response()->json(['message' => 'Document updated successfully']);
     }
 
     /**

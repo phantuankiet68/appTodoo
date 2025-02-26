@@ -45,6 +45,7 @@
                             <li><a href="{{ route('teams.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> Team</div></a></li>
                             <li><a href="{{ route('documents.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> Document</div></a></li>
                             <li><a href="{{ route('interfaces.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> Interface</div></a></li>
+                            <li><a href="{{ route('wikis.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> Wiki</div></a></li>
                         </ul>
                     </li>
                     <div class="title-menu"><span>{{ __('messages.Application') }}</span></div>

@@ -1,17 +1,14 @@
 @extends('layoutPages')
-
-@section('title', 'Home Page')
-
 @section('content')
 <div class="mt-120">
     <div class="breadcrumb flat">
         <a href="/" class="active">{{ __('messages.Home') }}</a>
         <a href="{{ route('documents.list') }}">{{ __('messages.Document') }}</a>
     </div>
-    <div class="list-new_experience">
+    <div class="list-new_experience">   
         <div class="list-new_experience-left">
             @foreach($documents as $item)
-            <a href="{{ route('new_experience.view', $item->id) }}" class="list-new_experience-left-new">
+            <a href="{{ route('documents.view', $item->id) }}" class="list-new_experience-left-new">
                 <div class="list-new_experience-left-new-img">
                     <img src="{{ asset($item->image_path) }}" alt="">
                 </div>

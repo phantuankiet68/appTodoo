@@ -3990,14 +3990,19 @@ blockquote .author {
     gap: 21px;
 }
 
+.trustTitle5 h3{
+    font-size: 17px;
+}
+
 .blog_product {
-    width: 23.8%;
+    width: 32.2%;
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
     padding: 10px;
-    min-height: 35vh;
+    min-height: 56vh;
+    text-decoration: none;
+    color: #333333;
 }
 .blog_product-img {
     width: 100%;
@@ -4013,11 +4018,10 @@ blockquote .author {
 }
 
 .blog_product .name {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: bold;
     color: #333;
-    margin: 10px 0;
-    text-align: center;
+    margin: 10px 0 5px 0;
 }
 
 .blog_product .price {

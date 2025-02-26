@@ -115,6 +115,9 @@ Route::get('/teams', [HomeTeamController::class, 'index_home'])->name('teams.lis
 
 //documents
 Route::get('/documents', [HomeDocumentController::class, 'index_home'])->name('documents.list');
+Route::get('/documents/{id}', [HomeDocumentController::class, 'view'])->name('documents.view');
+Route::post('/documents/store_like/{id}', [HomeDocumentController::class, 'store_like'])->name('store_like.documents');
+Route::post('/documents/store_share/{id}', [HomeDocumentController::class, 'store_share'])->name('store_share.documents');
 
 
 Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], function () {
@@ -144,8 +147,8 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::put('/interfaces/{id}', [HomeInterfaceController::class, 'update'])->name('interfaces.update');
 
 
-
     Route::resource('/v2/wikis', HomeWikiController::class);
+    
 
     Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('forgot.password');
 

@@ -3,32 +3,24 @@
 @section('title', 'Home Page')
 
 @section('content')
-<div class="news-container documents">
+<div class="news-container">
     <div class="news-container-body">
-        <div class="news-container-form">
+        <div class="news-container-form interfaces">
             <div class="title-sub">
-                <h3>Tạo Document mới</h3>
+                <h3>Tạo New Experience mới</h3>
             </div>
-            <form id="formEdit" action="{{ route('documents.store') }}" method="POST" enctype="multipart/form-data">
+            <form id="editForm" action="{{ route('wikis.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                <!-- @method('PUT') -->
+                <input type="hidden" name="id" id="interface_id" value="">
                 @if (Auth::check())
                     <input type="hidden" id="user_id" name="user_id" value="{{ Auth::user()->id }}">
                 @endif
-
-                <input type="hidden" id="document_id" name="document_id">
-
                 <div class="form-input-category mt-5">
                     <label for="stt">Title</label>
-                    <input type="text" class="input-name" id="title" name="title" required>
+                    <input type="text" class="input-name" name="title" id="title" required>
                 </div>
-                <div class="form-select-category mt-5">
-                    <label for="level">Level</label>
-                    <select name="level" id="level">
-                        <option value="1">Basic</option>
-                        <option value="2">Independent</option>
-                        <option value="3">Proficient</option>
-                    </select>
-                </div>
+
                 <div class="form-select-category mt-5">
                     <label for="status">Language</label>
                     <select name="language" id="language">
@@ -37,14 +29,17 @@
                         <option value="3">Japan</option>
                     </select>
                 </div>
+
                 <div class="form-textarea-category">
                     <label for="description">Code</label>
                     <textarea id="editor" name="description"></textarea>
                 </div>
+
                 <div class="form-input-category mt-5">
                     <label for="file">Image</label>
                     <input type="file" class="input-name" name="image_path">
                 </div>
+
                 <div class="form-select-category mt-10">
                     <label for="status">Status</label>
                     <select name="status" id="status">
@@ -52,11 +47,12 @@
                         <option value="0">Hide</option>
                     </select>
                 </div>
+
                 <div class="form-btn">
                     <button type="submit">Save changes</button>
                 </div>
             </form>
-            <button class="update-data">Update data</button>
+
         </div>
         <div class="news-container-table">
         <div class="tables">
@@ -65,14 +61,14 @@
                         <tr>
                             <th class="t-center" style="width: 60px;">STT</th>
                             <th class="ml-3">Title</th>
-                            <th class="text-center">Create by</th>
+                            <th class="text-center">Create at</th>
                             <th class="ml-3">Languages</th>
                             <th class="ml-3">Status</th>
                             <th class="text-center">Settings</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($documents as $item)
+                        @foreach($wikis as $item)
                         <tr>
                             <td class="jus-center">
                                 <p class="td-1">{{$item->id}}</p>
@@ -80,18 +76,10 @@
                             <td class="ml-3"><div class="text-truncate">{!!$item->title!!}</p></td>
                             <td>
                                 <div class="table_user text-center">
-                                    <p>{{ $item->user ? $item->user->full_name : 'Không có danh mục' }}</p>
+                                    <p>{{ $item->created_at->format('d-m-Y') }}</p>
                                 </div>
                             </td>
-                            <td class="pending ml-3 text-center">
-                                @if ($item->language == 1)
-                                    <p>Việt Nam</p>
-                                @elseif ($item->language == 2)
-                                    <p>Anh</p>
-                                @else
-                                    <p>Nhật</p>
-                                @endif
-                            </td>
+                            <td class="text-center">{{ $item->language }}</td>
                             <td class="pending ml-3">
                                 @if ($item->status == 1)
                                     <p class="resolvedIssue">Show</p>
@@ -100,7 +88,7 @@
                                 @endif
                             </td>
                             <td class="text-center">
-                                <a href="#" onclick="showEdit('{{ $item->id }}')">
+                                <a href="javascript:void(0);" onclick="showEditInterface('{{ $item->id }}');">
                                     <i class="fa-regular fa-pen-to-square edit"></i>
                                 </a>
                                 <a href="#">
@@ -157,76 +145,53 @@
         </ul>
     </div>
 @endif
+
+
 <script>
     ClassicEditor
-      .create(document.querySelector('#editor'))
-      .then(editor => {
-        editorInstance = editor; 
-      })
-      .catch(error => {
-          console.error(error);
-      });
-</script>
-<script>
-    document.querySelector(".update-data").addEventListener("click", function (event) {
-        event.preventDefault();
-        let form = document.querySelector("#formEdit");
-        let id = document.querySelector("#document_id").value.trim();
-        fetch(`/v2/documents/${id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-                "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content"),
-                "X-Requested-With": "XMLHttpRequest"
-            },
-            body: JSON.stringify({
-                title: document.getElementById("title").value,
-                level: document.getElementById("level").value,
-                language: document.getElementById("language").value,
-                status: document.getElementById("status").value,
-                description: editorInstance.getData(),
-            })
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! Status: ${response.status}`);
+        .create(document.querySelector('#editor'), {
+            toolbar: {
+                items: [
+                    'heading', '|',
+                    'bold', 'italic', 'underline', '|',
+                    'link', 'bulletedList', 'numberedList', '|',
+                    'insertTable', 'blockQuote', '|',
+                    'undo', 'redo'
+                ]
             }
-            return response.json();
         })
-        .then(data => {
-            console.log("Update successful:", data);
-            alert("Update successfully!");
-            location.reload(); // ✅ Làm mới trang sau khi cập nhật thành công
+        .then(editor => {
+            editorInstance = editor; 
         })
         .catch(error => {
-            console.error("Error updating document:", error);
-            alert("Failed to update document.");
+            console.error(error);
         });
+</script>
 
-    });
+<script>
+    function showEditInterface(id) {
+        fetch("{{ url('interfaces/show') }}/" + id)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('interface_id').value = data.id;
+            document.getElementById('title').value = data.title;
+            document.getElementById('language').value = data.language;
+            document.getElementById('status').value = data.status;
 
-
-    function showEdit(id) {
-        fetch(`/v2/documents/${id}`)
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("document_id").value = data.id;
-                document.getElementById("title").value = data.title;
-                document.getElementById("level").value = data.level;
-                document.getElementById("language").value = data.language;
-                document.getElementById("status").value = data.status;
-                if (editorInstance) {
-                    editorInstance.setData(data.description);
-                }
-
-                if (typeof CKEDITOR !== "undefined") {
-                    CKEDITOR.instances.editor.setData(data.description);
-                }
-
-                document.getElementById("formEdit").style.display = "block";
-            })
-            .catch(error => console.error("Error fetching document:", error));
+            if (editorInstance) {
+                editorInstance.setData(data.description);
+            } else {
+                document.querySelector('textarea[name="description"]').value = data.description;
+            }
+            document.getElementById('editForm').action = "{{ url('interfaces') }}/" + id;
+            document.getElementById('editForm').style.display = 'block';
+        })
+        .catch(error => console.error('Error:', error));
     }
+</script>
+
+
+<script>
 
     document.addEventListener('DOMContentLoaded', function() {
         const popup = document.querySelector('#popup-success');

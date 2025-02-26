@@ -24,14 +24,14 @@ class documentHome extends Model
     }
     public function views()
     {
-        return $this->hasMany(ViewNow::class, 'interface_id', 'id');
+        return $this->hasMany(ViewNow::class, 'document_id', 'id');
     }
     public function likes()
     {
-        return $this->hasMany(LikeNow::class, 'interface_id', 'id');
+        return $this->hasMany(LikeNow::class, 'document_id', 'id');
     }
     public function shares()
     {
-        return $this->hasMany(ShareNow::class, 'interface_id', 'id');
+        return $this->hasMany(ShareNow::class, 'document_id', 'id');
     }
 }

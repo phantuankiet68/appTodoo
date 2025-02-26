@@ -449,13 +449,13 @@
                     <div class="blog_container">
                         <div class="blog_products">
                             @foreach($documents as $item)
-                            <div class="blog_product">
+                            <a href="{{ route('documents.view', $item->id) }}" class="blog_product">
                                 <div class="blog_product-img">
                                     <img src="{{ asset($item->image_path) }}" />
                                 </div>
                                 <div class="name">{{ $item->title }}</div>
                                 <div class="trustTitle5">{!! $item->description !!}</div>
-                            </div>
+                            </a>
                             @endforeach                            
                         </div>
                     </div>

@@ -3815,6 +3815,8 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 
 .news-container-form{
     width: 40%;
+    height: 100%;
+    position: relative;
 }
 .text-truncate{
     max-width: 100%;
@@ -3911,4 +3913,21 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     height: 40px;
     object-fit: cover;
     border-radius: 5px;
+}
+
+.documents .ck-content {
+    height: 330px !important;
+}
+
+.update-data {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    padding: 8px 25px;
+    background-color: #ffc36a;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 15px;
 }

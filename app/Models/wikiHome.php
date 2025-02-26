@@ -15,7 +15,6 @@ class wikiHome extends Model
         'description',
         'language',
         'status',
-        'stt',
     ];
     public function user()
     {
