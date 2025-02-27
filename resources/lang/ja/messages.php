@@ -119,4 +119,27 @@ return [
     '🌏 Additionally, I provide English and Japanese learning resources to help you improve your language skills, so you can confidently communicate and work in an international environment.'=>'🌏 さらに、英語と日本語の学習資料も提供しており、言語スキルを向上させ、国際的な環境で自信を持ってコミュニケーションし、働けるようサポートします。',
     '📌 Let learn, grow, and conquer new challenges together! Are you ready? 😃'=>'📌 一緒に学び、成長し、新たな挑戦を乗り越えましょう！準備はできましたか？😃',
 
+
+    //contact
+    'Take a moment to fill out the form, and our dedicated team of experts will get back to you within 24 hours. We are always ready to listen and provide the most suitable solutions, ensuring you receive the best support possible!'=>'フォームにご記入いただければ、専門のチームが24時間以内にご連絡いたします。私たちは常にお客様の声に耳を傾け、最適な解決策を提供し、最高のサポートをお届けできるよう努めています！',
+    'Address'=>'住所',
+    'Tan The Hoa, Tan Phu District, Ho Chi Minh City.'=>'タン・テ・ホア, タンフー区, ホーチミン市',
+    'Phone'=>'電話',
+    'Email'=>'メール',
+    'Website'=>'ウェブサイト',
+    'Name'=>'名前',
+    'Subject'=>'件名',
+    'Message'=>'メッセージ',
+    'Send'=>'送信',
+    
+
+    //footer
+    'Provided Services'=>'提供サービス',
+    'Location'=>'場所',
+    'Successful Transactions'=>'取引成功',
+    'Documents'=>'資料',
+    'Need Help?'=>'お困りですか？',
+    '© 2023. All rights reserved. Designed by'=>'© 2023. All rights reserved. Designed by',
+    'Phan Tuan Kiet'=>'Phan Tuan Kiet',
+
 ];

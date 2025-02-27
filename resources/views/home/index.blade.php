@@ -1,54 +1,54 @@
 @extends('layout')
 @section('content')
 <div class="hero">
-                    <div class="page-left-item">
-                        <div class="banner">
-                            <div class="banner-left">
-                                <div class="content">
-                                    <div class="banner-title">
-                                        <h1>TRYSKILL</h1>
-                                        <p>{{ __('messages.🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟') }}</p>
-                                        <p>{{ __('messages.💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!') }}</p>
-                                        <p>{{ __('messages.🌏 Additionally, I provide English and Japanese learning resources to help you improve your language skills, so you can confidently communicate and work in an international environment.') }}</p>
-                                        <p>{{ __('messages.📌 Let learn, grow, and conquer new challenges together! Are you ready? 😃') }}</p>
-                                    </div>
-                                    <div class="images">
-                                        <img src="{{asset('assets/images/w-3.jpg')}}">
-                                        <img src="{{asset('assets/images/w-2.jpg')}}">
-                                        <img src="{{asset('assets/images/w-1.jpg')}}">
-                                    </div>
-                                    <div class="btm-slides">
-                                        <span onclick="btm_slide(1)"></span>
-                                        <span onclick="btm_slide(2)"></span>
-                                        <span onclick="btm_slide(3)"></span>
-                                    </div>
-                                    <div class="sliders left" onclick="side_slide(-1)">
-                                        <span class="fas fa-angle-left"></span>
-                                    </div>
-                                    <div class="sliders right" onclick="side_slide(1)">
-                                        <span class="fas fa-angle-right"></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="banner-right">
-                                <div class="banner-right-top">
-                                    <div class="banner-right-top-img">
-                                        <img src="{{asset('assets/images/w-4.jpg')}}" />
-                                    </div>
-                                </div>
-                                <div class="banner-right-body">
-                                    <div class="banner-right-body-img">
-                                        <img src="{{asset('assets/images/w-5.jpg')}}" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+    <div class="page-left-item">
+        <div class="banner">
+            <div class="banner-left">
+                <div class="content">
+                    <div class="banner-title">
+                        <h1>TRYSKILL</h1>
+                        <p>{{ __('messages.🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟') }}</p>
+                        <p>{{ __('messages.💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!') }}</p>
+                        <p>{{ __('messages.🌏 Additionally, I provide English and Japanese learning resources to help you improve your language skills, so you can confidently communicate and work in an international environment.') }}</p>
+                        <p>{{ __('messages.📌 Let learn, grow, and conquer new challenges together! Are you ready? 😃') }}</p>
+                    </div>
+                    <div class="images">
+                        <img src="{{asset('assets/images/w-3.jpg')}}">
+                        <img src="{{asset('assets/images/w-2.jpg')}}">
+                        <img src="{{asset('assets/images/w-1.jpg')}}">
+                    </div>
+                    <div class="btm-slides">
+                        <span onclick="btm_slide(1)"></span>
+                        <span onclick="btm_slide(2)"></span>
+                        <span onclick="btm_slide(3)"></span>
+                    </div>
+                    <div class="sliders left" onclick="side_slide(-1)">
+                        <span class="fas fa-angle-left"></span>
+                    </div>
+                    <div class="sliders right" onclick="side_slide(1)">
+                        <span class="fas fa-angle-right"></span>
                     </div>
                 </div>
-                <section>
-                <div class="row">
-                    <div class="column">
-                    <div class="card">
+            </div>
+            <div class="banner-right">
+                <div class="banner-right-top">
+                    <div class="banner-right-top-img">
+                        <img src="{{asset('assets/images/w-4.jpg')}}" />
+                    </div>
+                </div>
+                <div class="banner-right-body">
+                    <div class="banner-right-body-img">
+                        <img src="{{asset('assets/images/w-5.jpg')}}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+        <div class="row">
+            <div class="column">
+            <div class="card">
         <div class="icon">
         <i class="fa-solid fa-user"></i>
         </div>
@@ -176,31 +176,15 @@
     <div class="service">
         <div class="service-right">
             <div class="service-right-slide">
-                <button data-target="service-1"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.Self-Introduction') }}</button>
-                <button data-target="service-2"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.Front-end Development') }}</button>
-                <button data-target="service-3"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.Back-end Development') }}</button>
-                <button data-target="service-4"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.Full-task Developer') }}</button>
-                <button data-target="service-5"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.New Research') }}</button>
-                <button data-target="service-6"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.Remote Service') }}</button>
+                <button data-target="service-1"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.Front-end Development') }}</button>
+                <button data-target="service-2"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.Back-end Development') }}</button>
+                <button data-target="service-3"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.Full-task Developer') }}</button>
+                <button data-target="service-4"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.New Research') }}</button>
+                <button data-target="service-5"><i class="fa fa-bars text-primary me-3"></i>{{ __('messages.Remote Service') }}</button>
             </div>
         </div>
         <div class="service-left">
             <div class="service-left-body active" id="service-1">
-                <div class="service-left-body-img">
-                    <img src="{{asset('assets/images/team1.jpg')}}" />
-                </div>
-                <div class="service-left-body-content">
-                    <h3>{{ __('messages.3 years of experience working as a web developer') }}</h3>
-                    <p>{{ __('messages.My name is Phan Tuấn Kiệt. I am from Bến Tre and currently living and working in Ho Chi Minh City.') }}</p>
-                    <p class="text-red">{{ __('messages.Graduated from Ho Chi Minh City University of Technology.') }}</p>
-                    <p>- {{ __('messages.I have over 3 years of professional experience in web development.') }}</p>
-                    <p>- {{ __('messages.I have over 1 year of experience working as a front-end developer at a company specializing in outsourcing.') }}</p>
-                    <p>- {{ __('messages.And 2 years working as an in-house developer. In the role of a full-task developer, I have successfully contributed to projects such as GrownUpWord, VJP-Connect, Plain-International, and several internal company systems.') }}</p>
-                    <p>- {{ __('messages.Currently, I am working for an international company, where I have had the opportunity to participate in various diverse and challenging projects.') }}</p>
-                    <p>* {{ __('messages.The ability to adapt to different work environments and contribute effectively to both domestic and international teams is a key factor that enables me to deliver high-quality solutions.') }}</p>
-                </div>
-            </div>
-            <div class="service-left-body" id="service-2">
                 <div class="service-left-body-img">
                     <img src="{{asset('assets/images/service1.png')}}" />
                 </div>
@@ -213,7 +197,7 @@
                     <p>* {{ __('messages.Additionally, I am proficient in handling Excel files for data management, supporting project planning, and analysis. However, I use Git and Backlog to manage versions and track project progress more effectively.') }}</p>
                 </div>
             </div>
-            <div class="service-left-body" id="service-3">
+            <div class="service-left-body" id="service-2">
                 <div class="service-left-body-img">
                     <img src="{{asset('assets/images/service2.png')}}" />
                 </div>
@@ -226,7 +210,7 @@
                     <p>*{{ __('messages.Additionally, I am proficient in managing database systems such as MySQL, PostgreSQL, MongoDB, and MySQL Workbench, with a focus on data optimization and efficient processing. However, I recognize the need to improve my skills in using Git and Backlog to manage versions and track work progress more effectively during project development.') }}</p>
                 </div>
             </div>
-            <div class="service-left-body" id="service-4">
+            <div class="service-left-body" id="service-3">
                 <div class="service-left-body-img">
                     <img src="{{asset('assets/images/service3.png')}}" />
                 </div>
@@ -239,7 +223,7 @@
                     <p>* {{ __('messages.Additionally, I have knowledge of FTP and Docker, allowing me to efficiently transfer and deploy applications, set up containers for independent development environments, and optimize the CI/CD process.') }}</p>
                 </div>
             </div>
-            <div class="service-left-body" id="service-5">
+            <div class="service-left-body" id="service-4">
                 <div class="service-left-body-img">
                     <img src="{{asset('assets/images/service4.png')}}" />
                 </div>
@@ -252,7 +236,7 @@
                     <p>* {{ __('messages.I have put a lot of effort into researching and studying the relevant documentation, which allowed me to overcome the initial challenges and achieve significant results. By continuously improving my knowledge and skills, I aim to deliver better solutions and make the most of this valuable learning experience.') }}</p>
                 </div>
             </div>
-            <div class="service-left-body" id="service-6">
+            <div class="service-left-body" id="service-5">
                 <div class="service-left-body-img">
                     <img src="{{asset('assets/images/service5.png')}}" />
                 </div>
@@ -375,104 +359,45 @@
                     <img src="{{ asset($item->image_path) }}" />
                 </div>
                 <div class="name">{{ $item->title }}</div>
-                <div class="trustTitle5">{!! $item->description !!}</div>
+                <div class="trustTitle5">{!! $item->content !!}</div>
             </a>
             @endforeach
         </div>
     </div>
 </section>
 <section id="about">
-        <div class="layout-tile">
-            <h3>{{ __('messages.Contact') }}</h3>
-            <div class="layout-tile-btn">
-                <a href="">Xem thêm <i class="fa-solid fa-circle-right"></i></a>
+    <div class="layout-tile">
+        <h3>{{ __('messages.Contact') }}</h3>
+    </div>
+    <section id="section-wrapper">
+        <div class="box-wrapper">
+            <div class="info-wrap">
+                <img src="{{asset('assets/images/contact.png')}}" />
+            </div>
+            <div class="contact-form-container">
+            <h3 class="info-sub-title">{{ __('messages.Take a moment to fill out the form, and our dedicated team of experts will get back to you within 24 hours. We are always ready to listen and provide the most suitable solutions, ensuring you receive the best support possible!') }}</h3>
+                <form class="contact-form" action="{{ route('send.contact') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="name">{{ __('messages.Name') }}</label>
+                        <input type="text" name="name" placeholder="{{ __('messages.Name') }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">{{ __('messages.Email') }}</label>
+                        <input type="email" name="email" placeholder="{{ __('messages.Email') }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">{{ __('messages.Subject') }}</label>
+                        <input type="text" name="subject" placeholder="{{ __('messages.Subject') }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">{{ __('messages.Message') }}</label>
+                        <textarea name="message" placeholder="{{ __('messages.Message') }}" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn">{{ __('messages.Send') }}</button>
+                </form>
             </div>
         </div>
-        <section id="section-wrapper">
-            <div class="box-wrapper">
-                <div class="info-wrap">
-                    <h3 class="info-sub-title">{{ __('messages.Take a moment to fill out the form, and our dedicated team of experts will get back to you within 24 hours. We are always ready to listen and provide the most suitable solutions, ensuring you receive the best support possible!') }}</h3>
-                    <ul class="info-details">
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fas fa-location-dot"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p>{{ __('messages.Address') }}:</p> <a href="tel:+ 0768173369">{{__('messages.Tan The Hoa, Tan Phu District, Ho Chi Minh City.')}}</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p>{{ __('messages.Phone') }}:</p> <a href="tel:+ 0768173369">+ 0768173369</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fas fa-paper-plane"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p >{{ __('messages.Email') }}:</p> 
-                                <a  href="mailto:tuankietity@gmail.com">tuankietity@gmail.com</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fas fa-globe"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p class="mx-10">{{ __('messages.Website') }}:</p> <a class="mx-10" href="https://www.upskillhub.io.vn/">https://www.upskillhub.io.vn/</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fab fa-facebook"></i>
-                            </div>
-                            <div class="text-contact">
-                                <p class="mx-10">{{ __('messages.Website') }}:</p> <a class="mx-10" href="#">{{ __('messages.Updating') }}</a>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="contact-icon">
-                                <b></b>
-                                <i class="fab fa-linkedin-in"></i>
-                            </div>
-                            <div class="text-contact">
-                                <a class="mx-10" href="https://www.linkedin.com/in/phan-tuấn-kiệt-00bab2283">https://www.linkedin.com/in/phan-tuấn-kiệt-00bab2283</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="contact-form-container">
-                    <form class="contact-form" action="{{ route('send.contact') }}" method="POST">
-                        @csrf
-                        <div class="form-group">
-                            <label for="name">{{ __('messages.Name') }}</label>
-                            <input type="text" name="name" placeholder="{{ __('messages.Name') }}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">{{ __('messages.Email') }}</label>
-                            <input type="email" name="email" placeholder="{{ __('messages.Email') }}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">{{ __('messages.Subject') }}</label>
-                            <input type="text" name="subject" placeholder="{{ __('messages.Subject') }}" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">{{ __('messages.Message') }}</label>
-                            <textarea name="message" placeholder="{{ __('messages.Message') }}" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">{{ __('messages.Send') }}</button>
-                    </form>
-                </div>
-            </div>
-        </section>
     </section>
+</section>
 @endsection

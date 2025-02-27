@@ -119,8 +119,28 @@ return [
     'Contact Now'=>'Contact Now',
     'Updating'=>'Updating',
     'RelatedPosts' => 'Related Posts',
-    'Wiki'=>'Wiki',
-    'Wiki'=>'Wiki',
+
+    //contact
+    'Take a moment to fill out the form, and our dedicated team of experts will get back to you within 24 hours. We are always ready to listen and provide the most suitable solutions, ensuring you receive the best support possible!'=>'Take a moment to fill out the form, and our dedicated team of experts will get back to you within 24 hours. We are always ready to listen and provide the most suitable solutions, ensuring you receive the best support possible!',
+    'Address'=>'Address',
+    'Tan The Hoa, Tan Phu District, Ho Chi Minh City.'=>'Tan The Hoa, Tan Phu District, Ho Chi Minh City.',
+    'Phone'=>'Phone',
+    'Email'=>'Email',
+    'Website'=>'Website',
+    'Name'=>'Name',
+    'Subject'=>'Subject',
+    'Message'=>'Message',
+    'Send'=>'Send',
+
+
+    //footer
+    'Provided Services'=>'Provided Services',
+    'Location'=>'Location',
+    'Successful Transactions'=>'Successful Transactions',
+    'Documents'=>'Documents',
+    'Need Help?'=>'Need Help?',
+    '© 2023. All rights reserved. Designed by'=>'© 2023. All rights reserved. Designed by',
+    'Phan Tuan Kiet'=>'Phan Tuan Kiet',
 
 
 ];

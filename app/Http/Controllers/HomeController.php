@@ -65,7 +65,7 @@ class HomeController extends Controller
             ->limit(6)
             ->get();    
 
-        return view('pages.home.index', compact('blogs','news', 'projects', 'teams','documents', 'interfaces','wikis'));
+        return view('home.index', compact('blogs','news', 'projects', 'teams','documents', 'interfaces','wikis'));
     }
 
     /**

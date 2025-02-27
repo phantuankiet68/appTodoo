@@ -1,4 +1,4 @@
-@extends('layoutPages')
+@extends('layout')
 @section('content')
 <div class="mt-120">
     <div class="breadcrumb flat">
