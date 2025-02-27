@@ -549,5 +549,6 @@
 
     </script>
     <script src="{{ asset('js/layout.js') }}"></script>
+    <!-- Prism.js Script -->
 </body>
 </html>

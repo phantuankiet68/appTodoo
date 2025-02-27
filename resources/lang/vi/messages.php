@@ -101,6 +101,7 @@ return [
     'Updating'=>'Đang cập nhật',
     'RelatedPosts' => 'Bài viết liên quan',
     'Latest News'=>' Tin tức mới',
+    'You need to pay the registration fee!'=>'Bạn cần trả phí đăng ký!',
 
     
     'There are no new notifications at the moment! Please log in to see more details.'=>'Hiện tại không có thông báo mới! Hãy đăng nhập để xem thêm chi tiết.',

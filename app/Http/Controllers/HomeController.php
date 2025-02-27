@@ -10,6 +10,7 @@ use App\Models\ProjectHome;
 use App\Models\documentHome;
 use App\Models\interfaceHome;
 use App\Models\wikiHome;
+use App\Models\Blog;
 
 
 class HomeController extends Controller
@@ -59,7 +60,12 @@ class HomeController extends Controller
             ->limit(6)
             ->get();    
 
-        return view('pages.home.index', compact('news', 'projects', 'teams','documents', 'interfaces','wikis'));
+        $blogs = Blog::where('language', $languageId)
+            ->orderBy('id', 'desc')
+            ->limit(6)
+            ->get();    
+
+        return view('pages.home.index', compact('blogs','news', 'projects', 'teams','documents', 'interfaces','wikis'));
     }
 
     /**

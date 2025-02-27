@@ -11,11 +11,7 @@ use App\Models\ShareNow;
 
 class HomeInterfaceController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index()
     {
         $interfaces = interfaceHome::get();
@@ -48,12 +44,6 @@ class HomeInterfaceController extends Controller
     }
 
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -98,12 +88,7 @@ class HomeInterfaceController extends Controller
     }
 
 
-     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function view($id)
     {
         $locale = session('locale', 'en');
@@ -164,13 +149,7 @@ class HomeInterfaceController extends Controller
 
 
   
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function update(Request $request, $id)
     {
         $interface = interfaceHome::findOrFail($id);
@@ -192,12 +171,7 @@ class HomeInterfaceController extends Controller
         return redirect()->to('/v2/interfaces')->with('success', 'Update successfully!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy($id)
     {
         //

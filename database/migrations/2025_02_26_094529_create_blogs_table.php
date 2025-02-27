@@ -15,7 +15,20 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->string('title');
+            $table->tinyInteger('language');
+            $table->text('description')->nullable();
+            $table->text('html')->nullable();
+            $table->text('css')->nullable();
+            $table->text('javascript')->nullable();
+            $table->text('front_end')->nullable();
+            $table->text('back_end')->nullable();
+            $table->string('image_path')->nullable();
+            $table->boolean('status')->default(1);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

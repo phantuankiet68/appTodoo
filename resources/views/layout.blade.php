@@ -114,7 +114,7 @@
                     <a href="/"><i class="fa-solid fa-house"></i> {{ __('messages.Home') }}</a>
                 </li>
                 <li>
-                    <a href="#about"><i class="fa-regular fa-address-card"></i> {{ __('messages.About') }}</a>
+                    <a href="{{ route('wikis.list') }}"><i class="fa-regular fa-address-card"></i> {{ __('messages.Wiki') }}</a>
                 </li>
                 <li>
                     <a href="#service"> <i class="fa-brands fa-servicestack"></i> {{ __('messages.Service') }}</a>
@@ -123,16 +123,16 @@
                     <a href="#product"><i class="fa-brands fa-product-hunt"></i> {{ __('messages.Product') }}</a>
                 </li>
                 <li>
-                    <a href="#download-app"><i class="fa-solid fa-file"></i> {{ __('messages.Document') }}</a>
+                    <a href="{{ route('documents.list') }}"><i class="fa-solid fa-file"></i> {{ __('messages.Document') }}</a>
                 </li>
                 <li>
-                    <a href="#download-app"><i class="fa-solid fa-blog"></i> {{ __('messages.Blog') }}</a>
+                    <a href="{{ route('blogs.list') }}"><i class="fa-solid fa-blog"></i> {{ __('messages.Blog') }}</a>
                 </li>
                 <li>
                     <a href="#contact"><i class="fa-regular fa-address-book"></i> {{ __('messages.Contact') }}</a>
                 </li>
                 <li>
-                    <a href="#contact"><i class="fa-brands fa-windows"></i> {{ __('messages.Dashboard') }}</a>
+                    <a href="/dashboard"><i class="fa-brands fa-windows"></i> {{ __('messages.Dashboard') }}</a>
                 </li>
             </ul>
         </nav>
@@ -504,18 +504,19 @@
                     <div class="layout-tile">
                         <h3>{{ __('messages.Blog') }}</h3>
                         <div class="layout-tile-btn">
-                            <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
+                            <a href="{{ route('blogs.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
                         </div>
                     </div>
                     <div class="blog_container">
                         <div class="blog_products">
-                             @foreach($news as $item)
-                            <div class="blog_product">
+                             @foreach($blogs as $item)
+                            <a href="{{ route('blogs.view', $item->id) }}" class="blog_product">
                                 <div class="blog_product-img">
                                     <img src="{{ asset($item->image_path) }}" />
                                 </div>
-                                <div class="name">{{ $item->name }}</div>
-                            </div>
+                                <div class="name">{{ $item->title }}</div>
+                                <div class="trustTitle5">{!! $item->description !!}</div>
+                            </a>
                             @endforeach
                         </div>
                     </div>

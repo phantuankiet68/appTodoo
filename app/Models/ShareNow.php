@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ShareNow extends Model
 {
     use HasFactory;
-    protected $fillable = ['news_id', 'interface_id','document_id','wiki_id', 'view_count'];
+    protected $fillable = ['news_id', 'interface_id','document_id','wiki_id','blog_id', 'view_count'];
 }

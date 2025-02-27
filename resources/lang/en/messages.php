@@ -100,7 +100,9 @@ return [
     'New Experience'=>'New Experience',
     'Wiki'=>'Wiki',
     'Latest News'=>'Latest News',
+    'You need to pay the registration fee!'=>'You need to pay the registration fee!',
 
+    
     'There are no new notifications at the moment! Please log in to see more details.'=>'There are no new notifications at the moment! Please log in to see more details.',
     '🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟'=>'🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟',
     '💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!'=>'💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!',

@@ -14,6 +14,9 @@
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://cdn.ckeditor.com/ckeditor5/37.0.0/classic/ckeditor.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images//logo-website.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images//logo-website.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images//logo-website.png') }}">
@@ -46,6 +49,7 @@
                             <li><a href="{{ route('documents.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> Document</div></a></li>
                             <li><a href="{{ route('interfaces.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> Interface</div></a></li>
                             <li><a href="{{ route('wikis.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> Wiki</div></a></li>
+                            <li><a href="{{ route('blogs.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> {{ __('messages.Blog') }}</div></a></li>
                         </ul>
                     </li>
                     <div class="title-menu"><span>{{ __('messages.Application') }}</span></div>

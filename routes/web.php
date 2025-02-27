@@ -59,6 +59,7 @@ use App\Http\Controllers\Home\HomeTeamController;
 use App\Http\Controllers\Home\HomeDocumentController;
 use App\Http\Controllers\Home\HomeInterfaceController;
 use App\Http\Controllers\Home\HomeWikiController;
+use App\Http\Controllers\Home\HomeBlogController;
 use App\Models\News;
 
 /*
@@ -127,6 +128,13 @@ Route::post('/wikis/store_like/{id}', [HomeWikiController::class, 'store_like'])
 Route::post('/wikis/store_share/{id}', [HomeWikiController::class, 'store_share'])->name('store_share.wikis');
 
 
+//blog
+Route::get('/blogs', [HomeBlogController::class, 'index_home'])->name('blogs.list');
+Route::get('/blogs/{id}', [HomeBlogController::class, 'view'])->name('blogs.view');
+Route::post('/blogs/store_like/{id}', [HomeBlogController::class, 'store_like'])->name('store_like.blogs');
+Route::post('/blogs/store_share/{id}', [HomeBlogController::class, 'store_share'])->name('store_share.blogs');
+
+
 Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], function () {
     Route::resource('/calendar', HomeCalendarController::class);
     Route::get('/blog', [NewsController::class, 'index_home'])->name('index_home.news');
@@ -155,6 +163,8 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
 
 
     Route::resource('/v2/wikis', HomeWikiController::class);
+
+    Route::resource('/v2/blogs', HomeBlogController::class);
 
 
     Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('forgot.password');
