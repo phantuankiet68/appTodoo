@@ -48,7 +48,7 @@ class HomeController extends Controller
 
         $documents = documentHome::where('language', $languageId)
             ->orderBy('id', 'desc')
-            ->limit(6)
+            ->limit(8)
             ->get();  
 
         $interfaces = interfaceHome::where('language', $languageId)
