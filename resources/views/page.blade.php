@@ -43,7 +43,7 @@
         <div class="croll-sidebar">
             <ul class="features-list">
                 <li class="features-item inbox active">
-                    <a href="/" class="d-flex align-items">
+                    <a href="{{ route('home.index') }}" class="d-flex align-items">
                         <i class="bx bxs-home-alt features-item-icon inbox-icon"><span class="status"></span></i>
                         <i class="fa-solid fa-house"></i>
                         <span class="features-item-text">{{ __('messages.Dashboard') }}</span>
@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items">
+                    <a href="{{ route('messages.index') }}" class="d-flex align-items">
                         <i class="bx bxs-chat features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Message') }}</span>
                         <span class="inbox-number yellow">99</span>

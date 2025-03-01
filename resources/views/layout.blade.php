@@ -134,7 +134,7 @@
                     <a href="#contact"><i class="fa-regular fa-address-book"></i> {{ __('messages.Contact') }}</a>
                 </li>
                 <li>
-                    <a href="/dashboard"><i class="fa-brands fa-windows"></i> {{ __('messages.Dashboard') }}</a>
+                    <a href="/v1/home"><i class="fa-brands fa-windows"></i> {{ __('messages.Dashboard') }}</a>
                 </li>
             </ul>
         </nav>
