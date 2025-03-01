@@ -88,6 +88,116 @@
     }
 }
 
-@media only screen and (max-width: 767px) {
-   
+@media only screen and (max-width: 1024px) {
+    .main {
+        width: 100%;
+        padding: 10px;
+    }
+    header nav ul {
+        position: absolute;
+        list-style: none;
+        display: none;
+        right: 0;
+        background: #ffff;
+        top: 66%;
+        width: 200px;
+        height: auto;
+        margin: 20px 0;
+        gap: 1rem;
+    }
+    header nav ul#nav-bar.on {
+        display: block;
+        position: absolute;
+        list-style: none;
+        left: 74%;
+        background: #ffff;
+        top: 66%;
+        width: 200px;
+        height: auto;
+        margin: 20px 0;
+        gap: 1rem;
+    }
+    header nav ul li{
+        margin: 15px 0;
+    }
+    .banner-right{
+        display: none;
+    }
+    .banner-left{
+        width: 100%;
+    }
+    .banner-title {
+        position: absolute;
+        top: 6%;
+        left: 10%;
+        width: 46%;
+    }
+
+    .banner-title h1 {
+        margin-left: 162px;
+    }
+    .banner {
+        width: 100%;
+        height: 39vh;
+    }
+    .hero {
+        position: relative;
+        height: 43vh;
+        top: 106px;
+    }
+    .row .column {
+        width: 48.6%;
+    }
+    #ham-menu {
+        display: block;
+        font-size: 28px;
+        color: #fff;
+    }
+
+    .about {
+        flex-direction: column;
+    }
+
+    .about-left {
+        width: 100%;
+        min-height: 45vh;
+    }
+
+    .about-right {
+        width: 100%;
+        min-height: 45vh;
+    }
+
+    .service-left-body.active {
+        display: flex;
+        flex-direction: column;
+    }
+    .service-left-body-img {
+        width: 100%;
+        height: 100%;
+    }
+    .service-left-body-content {
+        width: 100%;
+        height: 100%;
+    }
+    .blog_product {
+        width: 48.6%;
+        min-height: 33vh;
+    }
+    .box-wrapper {
+        position: relative;
+        display: flex;
+        margin: auto;
+        border-radius: 30px;
+        flex-direction: column;
+    }
+    .info-wrap {
+        width: 100%;
+    }
+
+    .contact-form-container {
+        width: 100%;
+    }
+    
+
 }

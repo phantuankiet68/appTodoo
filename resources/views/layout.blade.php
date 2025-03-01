@@ -383,14 +383,13 @@
 
     <script>
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 4,
             spaceBetween: 30,
             grabCursor: true,
             autoplay: {
                 delay: 2500,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: true,
-                },
+            },
             slidesPerGroup: 1,
             loop: true,
             loopFillGroupWithBlank: true,
@@ -402,7 +401,16 @@
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
-            });
+            breakpoints: {
+
+                1025: { 
+                    slidesPerView: 4,
+                },
+                0: {
+                    slidesPerView: 2,
+                }
+            }
+        });
         var indexValue = 1;
         showImg(indexValue);
 
@@ -492,15 +500,13 @@
     document.querySelectorAll('.accordion-header').forEach(header => {
         header.addEventListener('click', () => {
             const accordionItem = header.parentElement;
-            
-            // Đóng tất cả các accordion items khác
+        
             document.querySelectorAll('.accordion-item').forEach(item => {
                 if (item !== accordionItem) {
                     item.classList.remove('active');
                 }
             });
 
-            // Toggle trạng thái của accordion item hiện tại
             accordionItem.classList.toggle('active');
         });
     });
@@ -530,14 +536,14 @@
         let scrollTopBtn = document.getElementById("scroll-top");
 
         hamMenuIcon.addEventListener("click", () => {
-        navBar.classList.toggle("active");
-        hamMenuIcon.classList.toggle("fa-times");
-        });
-        navLinks.forEach((navLinks) => {
-        navLinks.addEventListener("click", () => {
-            navBar.classList.remove("active");
+            navBar.classList.toggle("active");
             hamMenuIcon.classList.toggle("fa-times");
         });
+        navLinks.forEach((navLinks) => {
+            navLinks.addEventListener("click", () => {
+                navBar.classList.remove("active");
+                hamMenuIcon.classList.toggle("fa-times");
+            });
         });
 
         let header = document.querySelector("header");
@@ -558,6 +564,15 @@
             document.documentElement.scrollTop = 0;
         });
         };
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuButton = document.getElementById("ham-menu");
+            const navBar = document.getElementById("nav-bar");
+
+            menuButton.addEventListener("click", function() {
+                navBar.classList.toggle("on");
+            });
+        });
 
         function logout() {
             const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');

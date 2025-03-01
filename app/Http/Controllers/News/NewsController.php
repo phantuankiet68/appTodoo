@@ -156,9 +156,8 @@ class NewsController extends Controller
             ->orderBy('stt', 'desc')
             ->first();
 
-        $totalViews = View::count();
 
-        return view('pages.news.index', compact('news', 'news_first','totalViews'));
+        return view('pages.news.index', compact('news', 'news_first'));
     }
 
 
@@ -186,8 +185,7 @@ class NewsController extends Controller
                 'view_count' => DB::raw('view_count + 1'),
             ]
         );
-        $totalViews = View::count();
 
-        return view('pages.news.show.index', compact('news', 'new','totalViews'));
+        return view('pages.news.show.index', compact('news', 'new'));
     }
 }

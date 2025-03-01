@@ -103,7 +103,7 @@
         </form>
         <div class="list-control">
             <h3>All List</h3>
-            <p>{{ __('messages.Total views:') }} {{$totalViews}} views</p>
+            <p>{{ __('messages.Total views:') }}  views</p>
             <p>{{ __('messages.Total downloads:') }} 50 views</p>
             <p>{{ __('messages.Total shares:') }} 50 views</p>
         </div>

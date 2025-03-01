@@ -141,6 +141,28 @@ return [
     'Need Help?'=>'Need Help?',
     '© 2023. All rights reserved. Designed by'=>'© 2023. All rights reserved. Designed by',
     'Phan Tuan Kiet'=>'Phan Tuan Kiet',
+    'Calendar'=>'Calendar',
+    'Project'=>'Project',
+    'Tasks'=>'Tasks',
+    'Expenses'=>'Expenses',
+    'English'=>'English',
+    'Japanese'=>'Japanese',
+    'Note'=>'Note',
+    'Code'=>'Code',
+    'Component'=>'Component',
+    'Error'=>'Error',
+    'Mega Menu'=>'Mega Menu',
+    'Settings'=>'Settings',
+    'Enter title...'=>'Enter title...',
+    'Start Date'=>'Start Date',
+    'End Date'=>'End Date',
+
+    'Issues'=>'Issues',
+    'Board'=>'Board',
+    'Gantt chart'=>'Gantt chart',
+
+
+    
 
 
 ];

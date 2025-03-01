@@ -46,24 +46,8 @@
                     <a href="/" class="d-flex align-items">
                         <i class="bx bxs-home-alt features-item-icon inbox-icon"><span class="status"></span></i>
                         <i class="fa-solid fa-house"></i>
-                        <span class="features-item-text">{{ __('messages.Home') }}</span>
-                        <span class="tooltip">{{ __('messages.Home') }}</span>
-                    </a>
-                </li>
-                <li class="features-item spam">
-                    <a href="/v1/calendar" class="d-flex align-items">
-                        <i class="bx bxs-calendar-check features-item-icon"></i>
-                        <span class="features-item-text">{{ __('messages.Calendar') }}</span>
-                        <span class="inbox-number blue">{{ $totalEvents ?? 'N/A' }}</span>
-                        <span class="tooltip">{{ __('messages.Calendar') }}</span>
-                    </a>
-                </li>
-                <li class="features-item spam">
-                    <a href="{{ route('index_home.news') }}" class="d-flex align-items">
-                        <i class="bx bx-news features-item-icon"></i>
-                        <span class="features-item-text">Blog</span>
-                        <span class="inbox-number red">{{ $totalNews }}</span>
-                        <span class="tooltip">Blog</span>
+                        <span class="features-item-text">{{ __('messages.Dashboard') }}</span>
+                        <span class="tooltip">{{ __('messages.Dashboard') }}</span>
                     </a>
                 </li>
                 <li class="features-item spam">
@@ -74,12 +58,38 @@
                         <span class="tooltip">{{ __('messages.Message') }}</span>
                     </a>
                 </li>
+                <li class="features-item trash">
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bxs-bar-chart-alt-2 features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Expenses') }}</span>
+                        <span class="inbox-number light-blue">99</span>
+                        <span class="tooltip">{{ __('messages.Expenses') }}</span>
+                    </a>
+                </li>
+                <li class="features-item spam">
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bx-edit features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Note') }}</span>
+                        <span class="inbox-number blue">99</span>
+                        <span class="tooltip">{{ __('messages.Note') }}</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="features-list">
                 <li class="features-item draft">
                     <a href="" class="d-flex align-items">
                         <i class="bx bx-file-blank features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Project') }}</span>
                         <span class="inbox-number organ">99</span>
                         <span class="tooltip">{{ __('messages.Project') }}</span>
+                    </a>
+                </li>
+                <li class="features-item spam">
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bxs-chat features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Issues') }}</span>
+                        <span class="inbox-number yellow">99</span>
+                        <span class="tooltip">{{ __('messages.Issues') }}</span>
                     </a>
                 </li>
 
@@ -94,17 +104,17 @@
                 <li class="features-item sent">
                     <a href="" class="d-flex align-items">
                         <i class="bx bx-send features-item-icon"></i>
-                        <span class="features-item-text">{{ __('messages.Sent') }}</span>
+                        <span class="features-item-text">{{ __('messages.Board') }}</span>
                         <span class="inbox-number purple">99</span>
-                        <span class="tooltip">{{ __('messages.Sent') }}</span>
+                        <span class="tooltip">{{ __('messages.Board') }}</span>
                     </a>
                 </li>
                 <li class="features-item trash">
                     <a href="" class="d-flex align-items">
                         <i class="bx bxs-bar-chart-alt-2 features-item-icon"></i>
-                        <span class="features-item-text">{{ __('messages.Expenses') }}</span>
+                        <span class="features-item-text">{{ __('messages.Gantt chart') }}</span>
                         <span class="inbox-number light-blue">99</span>
-                        <span class="tooltip">{{ __('messages.Expenses') }}</span>
+                        <span class="tooltip">{{ __('messages.Gantt chart') }}</span>
                     </a>
                 </li>
             </ul>
@@ -205,13 +215,6 @@
                         </i>
                         <span>
                             {{ __('messages.Settings') }}
-                        </span>
-                    </div>
-                    <div class="menu-item dropdown menu-active">
-                        <i class="fas fa-project-diagram">
-                        </i>
-                        <span>
-                            {{ __('messages.Charts & Graphs') }}
                         </span>
                     </div>
                 </div>
