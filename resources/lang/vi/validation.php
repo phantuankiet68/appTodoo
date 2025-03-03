@@ -35,6 +35,15 @@ return [
     'password_confirmation' => 'Mật khẩu xác nhận không khớp.',
     'phone_required' => 'Trường Phone là bắt buộc.',
     'address_required' => 'Trường địa chỉ là bắt buộc.',
-    'gender_required' => 'Trường giới tính là bắt buộc.'
+    'gender_required' => 'Trường giới tính là bắt buộc.',
+
+    'title_required' => 'Tiêu đề là bắt buộc.',
+    'money_required' => 'Số tiền là bắt buộc.',
+    'money_numeric' => 'Số tiền phải là một số.',
+    'money_min' => 'Số tiền phải lớn hơn 0.',
+    'choose_required' => 'Danh mục là bắt buộc.',
+    'choose_in' => 'Danh mục được chọn không hợp lệ.',
+    'date_required' => 'Ngày là bắt buộc.',
+    'date_date' => 'Định dạng ngày không hợp lệ.',
 
 ];

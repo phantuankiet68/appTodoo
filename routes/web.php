@@ -62,6 +62,7 @@ use App\Http\Controllers\Home\HomeWikiController;
 use App\Http\Controllers\Home\HomeBlogController;
 use App\Http\Controllers\V1\V1DashboardController;
 use App\Http\Controllers\V1\V1MessageController;
+use App\Http\Controllers\V1\V1ExpenseController;
 use App\Models\News;
 
 /*
@@ -143,6 +144,7 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::get('/blog/{id}', [NewsController::class, 'show_home'])->name('show_home.news');
     Route::resource('/home', V1DashboardController::class);
     Route::resource('/messages', V1MessageController::class);
+    Route::resource('/expenses', V1ExpenseController::class);
     
 });
 

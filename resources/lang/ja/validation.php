@@ -36,4 +36,13 @@ return [
     'phone_required' => '電話のフィールドは必須です。',
     'address_required' => '住所のフィールドは必須です。',
     'gender_required' => '性別のフィールドは必須です。' ,
+    
+    'title_required' => 'タイトルは必須です。',
+    'money_required' => '金額は必須です。',
+    'money_numeric' => '金額は数字でなければなりません。',
+    'money_min' => '金額は0より大きくなければなりません。',
+    'choose_required' => 'カテゴリは必須です。',
+    'choose_in' => '選択したカテゴリが無効です。',
+    'date_required' => '日付は必須です。',
+    'date_date' => '日付の形式が無効です。',
 ];

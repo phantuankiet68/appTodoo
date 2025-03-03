@@ -161,4 +161,18 @@ return [
     'Board'=>'ボード',
     'Gantt chart'=>'ガントチャート',
 
+    'Enter expense details...'=>'支出の詳細を入力してください...',
+    'Enter expense amount...'=>'支出金額を入力してください...',
+    'Food'=>'食費',
+    'Sports'=>'スポーツ',
+    'E-wallet'=>'電子ウォレット',
+    'Other shopping'=>'その他の買い物',
+    'Other expenses'=>'その他の支出',
+    'House for rent'=>'家賃',
+    'Add new'=>'新規追加',
+    'Date'=>'日付',
+    'Money'=>'金額',
+    'Action'=>'操作',
+    'Remove'=>'削除',
+
 ];

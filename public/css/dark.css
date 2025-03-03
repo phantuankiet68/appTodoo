@@ -19,7 +19,10 @@
 .dark-mode .blog-container, 
 .dark-mode .slide-one-right,
 .dark-mode header,
-.dark-mode .container{
+.dark-mode .container,
+.dark-mode .expense-info-top,
+.dark-mode .expense-info-body-left-theader,
+.dark-mode .expense-info-body-left-tbody{
     background-color: #0e141f;
 }
 
@@ -48,6 +51,9 @@
 }
 
 .dark-mode .breadcrumbs,
-.dark-mode .blog-container{
+.dark-mode .blog-container,
+.dark-mode .expense-info-top,
+.dark-mode .expense-info-body-left-theader,
+.dark-mode .expense-info-body-left-tbody{
     border: 1px solid #6fd2ff;
 }

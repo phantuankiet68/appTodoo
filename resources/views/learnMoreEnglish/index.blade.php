@@ -153,7 +153,7 @@
                                         value="1" {{ $item->status == 1 ? 'checked' : '' }}>
                                 </td>
                                 <td class="text-center">
-                                    <button class="btn-show" onclick="showPopup({{ $item->id }})"><i class="fa-regular fa-eye"></i></button>
+                                    <button class="btn-show" onclick="showPopup('{{ $item->id }}')"><i class="fa-regular fa-eye"></i></button>
                                 </td>
                             </tr>
                             @endforeach

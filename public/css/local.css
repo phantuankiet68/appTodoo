@@ -4655,3 +4655,154 @@ button {
 .search-bar button{
     padding: 8px;
 }
+
+.expense-info-top{
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.form-design{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.form-design .input-big{
+    width: 30%;
+}
+.form-design .input-big input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #bdbdbd;
+    border-radius: 2px;
+    font-size: 15px;
+    outline: none;
+}
+
+.form-design .input-normal{
+    width: 20%;
+}
+
+.form-design .input-normal input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #bdbdbd;
+    border-radius: 2px;
+    font-size: 15px;
+    outline: none;
+}
+
+
+.form-design .input-small{
+    width: 15%;
+}
+
+.form-design .input-small input {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #bdbdbd;
+    border-radius: 2px;
+    font-size: 15px;
+    outline: none;
+}
+
+.form-design .input-small select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid #bdbdbd;
+    border-radius: 2px;
+    font-size: 15px;
+    outline: none;
+}
+
+.form-design button{
+    width: 10%;
+    padding: 11px;
+    border-radius: 2px;
+    font-size: 16px;
+    background: #1fff9a;
+    color: #fff;
+}
+
+.expense-info{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+.expense-info-body{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+}
+.expense-info-body-left {
+    width: 50%;
+    border-radius: 5px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.expense-info-body-left-theader{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10px;
+    border-radius: 5px;
+    background: #fff;
+}
+.expense-info-body-left-tbody-scroll{
+    height: 74vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#expenseChart{
+    background: #fff;
+    border-radius: 5px;
+}
+
+.expense-info-body-left-tbody {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    border-bottom: 1px solid #a2d3ff;
+    background: #fff;
+    align-items: center;
+    border-radius: 5px;
+}
+.expense-info-body-right{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.expense-info-body-right-top{
+    width: 100%;
+    height: 19vh;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.expense-info-body-right-top-body{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.expense-info-body-right-top-body p{
+    padding: 10px;
+    background: #fddaa4;
+    border-radius: 5px;
+    min-width: 158px;
+}

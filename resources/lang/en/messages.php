@@ -160,6 +160,21 @@ return [
     'Issues'=>'Issues',
     'Board'=>'Board',
     'Gantt chart'=>'Gantt chart',
+    
+    'Enter expense details...'=>'Enter expense details...',
+    'Enter expense amount...'=>'Enter expense amount...',
+    'Food'=>'Food',
+    'Sports'=>'Sports',
+    'E-wallet'=>'E-wallet',
+    'Other shopping'=>'Other shopping',
+    'Other expenses'=>'Other expenses',
+    'House for rent'=>'House for rent',
+    'Add new'=>'Add new',
+    'Date'=>'Date',
+    'Money'=>'Money',
+    'Action'=>'Action',
+    'Remove'=>'Remove',
+
 
 
     

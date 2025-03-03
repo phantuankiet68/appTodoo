@@ -21,7 +21,6 @@ return [
     'name_max' => 'The name may not be greater than 255 characters.',
     'description_nullable' => 'The description field may be null.',
     'current_start_date' => 'The start date must be a valid date.',
-    'status_integer' => 'The status must be an integer.',
     'required' => 'The :attribute field is required.',
     'exists' => 'The selected :attribute is invalid.',
     'date' => 'The :attribute is not a valid date.',
@@ -35,5 +34,15 @@ return [
     'password_confirmation' => 'The password confirmation does not match.',
     'phone_required' => 'The phone field is required.',
     'address_required' => 'The address field is required.',
-    'gender_required' => 'The gender field is required.'
+    'gender_required' => 'The gender field is required.',
+
+    'title_required' => 'Title is required.',
+    'money_required' => 'Money is required.',
+    'money_numeric' => 'Money must be a number.',
+    'money_min' => 'Money must be greater than 0.',
+    'choose_required' => 'Category is required.',
+    'choose_in' => 'Invalid category selected.',
+    'date_required' => 'Date is required.',
+    'date_date' => 'Invalid date format.',
+    
 ];

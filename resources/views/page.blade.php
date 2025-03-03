@@ -59,13 +59,14 @@
                     </a>
                 </li>
                 <li class="features-item trash">
-                    <a href="" class="d-flex align-items">
+                    <a href="{{ route('expenses.index') }}" class="d-flex align-items">
                         <i class="bx bxs-bar-chart-alt-2 features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Expenses') }}</span>
                         <span class="inbox-number light-blue">99</span>
                         <span class="tooltip">{{ __('messages.Expenses') }}</span>
                     </a>
                 </li>
+                
                 <li class="features-item spam">
                     <a href="" class="d-flex align-items">
                         <i class="bx bx-edit features-item-icon"></i>

@@ -150,4 +150,18 @@ return [
     'Board'=>'Bảng',
     'Gantt chart'=>'Biểu đồ',
 
+    'Enter expense details...'=>'Nhập chi tiết khoản chi tiêu...',
+    'Enter expense amount...'=>'Nhập số tiền chi tiêu...',
+    'Food'=>'Thức ăn',
+    'Sports'=>'Thể thao',
+    'E-wallet'=>'Ví điện tử',
+    'Other shopping'=>'Mua sắm khác',
+    'Other expenses'=>'Chi tiêu khác',
+    'House for rent'=>'Tiền thuê nhà',
+    'Add new'=>'Thêm mới',
+    'Date'=>'Ngày',
+    'Money'=>'Số tiền',
+    'Action'=>'Hành động',
+    'Remove'=>'Xóa',
+
 ];
