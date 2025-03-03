@@ -4724,8 +4724,12 @@ button {
     padding: 11px;
     border-radius: 2px;
     font-size: 16px;
-    background: #1fff9a;
+    background: #22e56c;
     color: #fff;
+}
+
+.form-design button:hover{
+    opacity: .8;
 }
 
 .expense-info{
@@ -4807,3 +4811,79 @@ button {
     min-width: 158px;
     color: #333333 !important;
 }
+
+
+.note-container {
+    width: 100%;
+    height: 81vh;
+    border: none;
+    position: relative;
+    padding: 10px;
+    overflow: auto;
+}   
+
+.draggable-text {
+    position: absolute;
+    cursor: grab;
+    background: #fff;
+    border-radius: 5px;
+    min-height: 160px;
+    min-width: 230px;
+    overflow: hidden;
+}
+
+.current_date{
+    padding: 8px 10px;
+    background: #42d3ff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn-close {
+    padding: 3px 5px;
+    background: red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.btn-close:hover{
+   opacity: .8;
+}
+
+.url_link {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    border-top: 1px solid #d7d7d7;
+}
+
+
+.title_note{
+    min-height: 12vh;
+    padding: 8px 10px;
+}
+
+.note-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.note-info-top {
+    width: 100%;
+    height: 8vh;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.draggable-text:active {
+    cursor: grabbing;
+}
+
+

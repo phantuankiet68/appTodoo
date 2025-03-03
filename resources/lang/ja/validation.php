@@ -44,4 +44,9 @@ return [
     'choose_in' => '選択したカテゴリが無効です。',
     'date_required' => '日付は必須です。',
     'date_date' => '日付の形式が無効です。',
+
+    'title_string' => 'The title must be a string.',
+    'title_max' => 'The title must not exceed 255 characters.',
+    'url_required' => 'Please enter a URL.',
+    'url_url' => 'Invalid URL format.',
 ];

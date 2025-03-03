@@ -62,6 +62,7 @@ use App\Http\Controllers\Home\HomeBlogController;
 use App\Http\Controllers\V1\V1DashboardController;
 use App\Http\Controllers\V1\V1MessageController;
 use App\Http\Controllers\V1\V1ExpenseController;
+use App\Http\Controllers\V1\V1NoteController;
 use App\Models\Expense;
 /*
 |--------------------------------------------------------------------------
@@ -146,7 +147,13 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
         $expenses = Expense::orderBy('current_date', 'asc')->get();
         return response()->json($expenses);
     });
+    Route::resource('/notes', V1NoteController::class);
+    Route::post('/notes/update-position', [V1NoteController::class, 'updatePosition'])->name('notes.updatePosition');
+
 });
+
+
+
 
 Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/change-password/{id}', [AuthController::class, 'changePassword'])->name('change.password');

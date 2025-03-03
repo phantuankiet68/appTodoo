@@ -68,11 +68,20 @@
                 </li>
                 
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items">
+                    <a href="{{ route('notes.index') }}" class="d-flex align-items">
                         <i class="bx bx-edit features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Note') }}</span>
                         <span class="inbox-number blue">99</span>
                         <span class="tooltip">{{ __('messages.Note') }}</span>
+                    </a>
+                </li>
+                
+                <li class="features-item star">
+                    <a href="" class="d-flex align-items">
+                        <i class="bx bx-star features-item-icon"></i>
+                        <span class="features-item-text">{{ __('messages.Tasks') }}</span>
+                        <span class="inbox-number green">99</span>
+                        <span class="tooltip">{{ __('messages.Tasks') }}</span>
                     </a>
                 </li>
             </ul>
@@ -91,15 +100,6 @@
                         <span class="features-item-text">{{ __('messages.Issues') }}</span>
                         <span class="inbox-number yellow">99</span>
                         <span class="tooltip">{{ __('messages.Issues') }}</span>
-                    </a>
-                </li>
-
-                <li class="features-item star">
-                    <a href="" class="d-flex align-items">
-                        <i class="bx bx-star features-item-icon"></i>
-                        <span class="features-item-text">{{ __('messages.Tasks') }}</span>
-                        <span class="inbox-number green">99</span>
-                        <span class="tooltip">{{ __('messages.Tasks') }}</span>
                     </a>
                 </li>
                 <li class="features-item sent">

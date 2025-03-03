@@ -44,5 +44,10 @@ return [
     'choose_in' => 'Invalid category selected.',
     'date_required' => 'Date is required.',
     'date_date' => 'Invalid date format.',
+
+    'title_string' => 'タイトルは文字列でなければなりません。',
+    'title_max' => 'タイトルは255文字以内にしてください。',
+    'url_required' => 'URLを入力してください。',
+    'url_url' => '無効なURL形式です。',
     
 ];

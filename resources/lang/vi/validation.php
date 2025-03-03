@@ -45,4 +45,9 @@ return [
     'date_required' => 'Ngày là bắt buộc.',
     'date_date' => 'Định dạng ngày không hợp lệ.',
 
+    'title_string' => 'Tiêu đề phải là một chuỗi ký tự.',
+    'title_max' => 'Tiêu đề không được vượt quá 255 ký tự.',
+    'url_required' => 'Vui lòng nhập URL.',
+    'url_url' => 'URL không hợp lệ.',
+
 ];
