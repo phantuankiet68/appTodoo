@@ -174,5 +174,6 @@ return [
     'Money'=>'金額',
     'Action'=>'操作',
     'Remove'=>'削除',
+    'Month'=>'月',
 
 ];

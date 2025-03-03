@@ -45,7 +45,7 @@
                         <p style="width: 20%;">{{ $item->current_date }}</p>
                         <p style="width: 50%;">{{ $item->title }}</p>
                         <p style="width: 15%;">{{ $item->money }}K VND</p>
-                        <button style="width: 15%;padding: 10px 5px;background: #fe4c4c;color: #fff;border-radius: 5px;">{{ __('messages.Remove') }}</button>
+                        <button style="width: 15%;padding: 10px 5px;background: #fe4c4c;color: #fff;border-radius: 5px;; cursor: pointer;" onclick="deleteExpense('{{ $item->id }}')">{{ __('messages.Remove') }}</button>
                     </div>
                 @endforeach
             </div>
@@ -54,18 +54,13 @@
         <div class="expense-info-body-right">
             <div class="expense-info-body-right-top">
                 <div class="expense-info-body-right-top-body">
-                    <p>Tháng 1: 5000k VND</p>
-                    <p>Tháng 2: 5000k VND</p>
-                    <p>Tháng 3: 5000k VND</p>
-                    <p>Tháng 4: 5000k VND</p>
-                    <p>Tháng 5: 5000k VND</p>
-                    <p>Tháng 6: 5000k VND</p>
-                    <p>Tháng 7: 5000k VND</p>
-                    <p>Tháng 8: 5000k VND</p>
-                    <p>Tháng 9: 5000k VND</p>
-                    <p>Tháng 10: 5000k VND</p>
-                    <p>Tháng 11: 5000k VND</p>
-                    <p>Tháng 12: 5000k VND</p>
+                    @foreach ($monthlyTotals as $month => $total)
+                        @if (app()->getLocale() === 'ja')
+                            <p>{{ $month }}{{ __('messages.Month') }}: {{ $total }}K VND</p>
+                        @else
+                            <p>{{ __('messages.Month') }} {{ $month }}: {{ $total }}K VND</p>
+                        @endif
+                    @endforeach
                 </div>
             </div>
             <canvas id="expenseChart" width="600" height="400"></canvas>
@@ -106,7 +101,25 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-     document.addEventListener('DOMContentLoaded', function() {
+    function deleteExpense(id) {
+        if (confirm("Are you sure you want to delete this expense?")) {
+            fetch(`/v1/expenses/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                location.reload();
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
         const popup = document.querySelector('#popup-success');
         if (popup) {
             popup.style.display = 'flex';
@@ -115,6 +128,7 @@
             }, 6000);
         }
     });
+
     document.addEventListener('DOMContentLoaded', function() {
         const popup = document.querySelector('#popup-category');
         if (popup) {
@@ -125,56 +139,62 @@
             }, 5000);
         }
     });
+
     document.addEventListener("DOMContentLoaded", function () {
         let today = new Date();
         let formattedDate = today.toISOString().split('T')[0];
         document.getElementById("dateInput").value = formattedDate;
     });
-    document.addEventListener("DOMContentLoaded", function () {
-            const ctx = document.getElementById('expenseChart').getContext('2d');
 
+    document.addEventListener("DOMContentLoaded", function () {
+    fetch('/v1/expenses-data')
+        .then(response => response.json())
+        .then(data => {
+            const labels = data.map(item => item.current_date);
+            const expenseData = data.map(item => item.money);
+
+            const ctx = document.getElementById('expenseChart').getContext('2d');
             new Chart(ctx, {
-                type: 'line', // Biểu đồ đường
+                type: 'line',
                 data: {
-                    labels: ['2024-04-15', '2024-04-16', '2024-04-17', '2024-04-18', '2024-04-19'], // Ngày
+                    labels: labels,
                     datasets: [{
                         label: 'Daily Expense Monitoring',
-                        data: [200, 250, 500, 200, 1200], // Dữ liệu chi tiêu
-                        borderColor: 'blue', // Màu đường
-                        backgroundColor: 'rgba(173, 216, 230, 0.5)', // Màu nền mờ
-                        borderWidth: 1.5, // Độ dày đường
-                        pointBackgroundColor: 'blue', // Màu điểm dữ liệu
-                        pointRadius: 4, // Kích thước điểm dữ liệu
-                        fill: true // Tô màu bên dưới đường
+                        data: expenseData,
+                        borderColor: 'blue',
+                        backgroundColor: 'rgba(173, 216, 230, 0.5)',
+                        borderWidth: 1.5,
+                        pointBackgroundColor: 'blue',
+                        pointRadius: 4,
+                        fill: true
                     }]
                 },
                 options: {
                     responsive: true,
                     scales: {
                         x: {
-                            type: 'category', // Trục X dạng danh mục (ngày)
                             title: {
                                 display: true,
-                                text: 'Date'
                             }
                         },
                         y: {
-                            beginAtZero: true, // Bắt đầu từ 0
+                            beginAtZero: true,
                             title: {
                                 display: true,
-                                text: 'Expense (VND)'
                             }
                         }
                     },
                     plugins: {
                         legend: {
                             display: true,
-                            position: 'top' // Hiển thị tiêu đề trên cùng
+                            position: 'top'
                         }
                     }
                 }
             });
-        });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+    });
 </script>
 
 @endsection

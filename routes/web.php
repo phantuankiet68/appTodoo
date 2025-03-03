@@ -8,7 +8,6 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\WorkflowController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SalaryController;
-use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\IssueController;
 use App\Http\Controllers\ProblemProcessController;
 use App\Http\Controllers\CvController;
@@ -63,8 +62,7 @@ use App\Http\Controllers\Home\HomeBlogController;
 use App\Http\Controllers\V1\V1DashboardController;
 use App\Http\Controllers\V1\V1MessageController;
 use App\Http\Controllers\V1\V1ExpenseController;
-use App\Models\News;
-
+use App\Models\Expense;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -101,7 +99,6 @@ Route::post('/vi/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/en/logout', [AuthController::class, 'logout'])->name('logout');
 Route::post('/ja/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/expenses/export-pdf', [ExpenseController::class, 'exportPdf'])->name('expenses.export.pdf');
 Route::get('/learn-more/pdf', [LearnMoreController::class, 'exportPdf'])->name('learn_more.pdf');
 
 Route::get('/profile/{full_name}', [HomeController::class, 'profile'])->name('profile.show');
@@ -145,7 +142,10 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::resource('/home', V1DashboardController::class);
     Route::resource('/messages', V1MessageController::class);
     Route::resource('/expenses', V1ExpenseController::class);
-    
+    Route::get('/expenses-data', function () {
+        $expenses = Expense::orderBy('current_date', 'asc')->get();
+        return response()->json($expenses);
+    });
 });
 
 Route::group(['middleware' => ['auth', 'role.check']], function() {
@@ -182,7 +182,6 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::get('friend', [FriendController::class, 'index'])->name('friend.index');
     Route::get('changePassword', [AuthController::class, 'changePasswordView'])->name('changePassword.index');
     Route::resource('salaries', SalaryController::class);
-    Route::resource('expense', ExpenseController::class);
     Route::resource('note', NoteController::class);
 
     Route::delete('/v1/system/link/{id}', [NoteController::class, 'destroy'])->name('link.destroy');
@@ -260,7 +259,6 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::resource('tasks', TaskController::class);
     Route::resource('workflows', WorkflowController::class);
     Route::patch('/update-status/{id}', [WorkflowController::class, 'updateStatus']);
-    Route::resource('expense', ExpenseController::class);
     Route::resource('food', FoodController::class);
     Route::resource('vocabularies', VocabularyController::class);
     Route::resource('learn_more', LearnMoreController::class);

@@ -5,14 +5,28 @@ namespace App\Http\Controllers\V1;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Expense;
+use Carbon\Carbon; 
+use Illuminate\Support\Facades\Auth;
+
 class V1ExpenseController extends Controller
 {
   
     public function index()
     {
-        $expenses = Expense::get();
-        return view('pages.expense.index', compact('expenses'));
+        $expenses = Expense::where('user_id', Auth::id())->get();
+    
+        $monthlyTotals = [];
+    
+        for ($i = 1; $i <= 12; $i++) {
+            $monthlyTotals[$i] = Expense::where('user_id', Auth::id())
+                ->whereMonth('current_date', $i)
+                ->whereYear('current_date', Carbon::now()->year)
+                ->sum('money');
+        }
+    
+        return view('pages.expense.index', compact('expenses', 'monthlyTotals'));
     }
+    
 
 
    
@@ -49,25 +63,16 @@ class V1ExpenseController extends Controller
     }
 
    
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-   
     public function destroy($id)
     {
-        //
+        $expense = Expense::find($id);
+    
+        if (!$expense) {
+            return response()->json(['message' => 'Expense not found'], 404);
+        }
+    
+        $expense->delete();
+    
+        return response()->json(['message' => 'Expense deleted successfully']);
     }
 }

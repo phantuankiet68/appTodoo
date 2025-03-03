@@ -21,7 +21,6 @@ return [
     'name_max' => '名前は255文字を超えてはいけません。',
     'description_nullable' => '説明フィールドはnullであることができます。',
     'current_start_date' => '開始日は有効な日付である必要があります。',
-    'status_integer' => 'ステータスは整数である必要があります。',
     'required' => ':attribute は必須項目です。',
     'exists' => '選択された :attribute は無効です。',
     'date' => ':attribute は有効な日付ではありません。',

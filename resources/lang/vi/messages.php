@@ -164,4 +164,6 @@ return [
     'Action'=>'Hành động',
     'Remove'=>'Xóa',
 
+    'Month'=>'tháng',
+
 ];

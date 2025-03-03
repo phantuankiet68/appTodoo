@@ -22,7 +22,8 @@
 .dark-mode .container,
 .dark-mode .expense-info-top,
 .dark-mode .expense-info-body-left-theader,
-.dark-mode .expense-info-body-left-tbody{
+.dark-mode .expense-info-body-left-tbody,
+.dark-mode .expense-info-body-right-top{
     background-color: #0e141f;
 }
 
@@ -54,6 +55,11 @@
 .dark-mode .blog-container,
 .dark-mode .expense-info-top,
 .dark-mode .expense-info-body-left-theader,
-.dark-mode .expense-info-body-left-tbody{
+.dark-mode .expense-info-body-left-tbody,
+.dark-mode .expense-info-body-right-top{
     border: 1px solid #6fd2ff;
+}
+
+.dark-mode .navbar-left .menu-item,.dark-mode .navbar-right .menu-item{
+    background-color: #fff;
 }

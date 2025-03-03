@@ -21,7 +21,6 @@ return [
     'name_max' => 'Tên không được vượt quá 255 ký tự.',
     'description_nullable' => 'Mô tả có thể bỏ trống.',
     'current_start_date' => 'Ngày bắt đầu phải là một ngày hợp lệ.',
-    'status_integer' => 'Trạng thái phải là một số nguyên.',
     'required' => 'Trường :attribute là bắt buộc.',
     'exists' => 'Giá trị :attribute không hợp lệ.',
     'date' => 'Trường :attribute không phải là ngày hợp lệ.',
