@@ -175,5 +175,20 @@ return [
     'Action'=>'操作',
     'Remove'=>'削除',
     'Month'=>'月',
+    'Save changes'=>'変更を保存',
+    'Content'=>'内容',
+    'Status'=>'状態',
+    'Show'=>'表示',
+    'Hide'=>'非表示',
+
+    'Open'=>'開く',
+    'Doing'=>'実行中',
+    'Testing'=>'テスト中',
+    'Done'=>'完了',
+    'Edit'=>'編集',
+    'Delete'=>'削除',
+    'Update'=>'更新',
+    
+    'Are you sure you want to delete?'=>'本当に削除してもよろしいですか？',
 
 ];

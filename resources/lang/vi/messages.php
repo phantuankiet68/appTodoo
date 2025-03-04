@@ -165,5 +165,22 @@ return [
     'Remove'=>'Xóa',
 
     'Month'=>'tháng',
+    'Save changes'=>'Lưu thay đổi',
+    'Content'=>'Nội dung',
+
+    'Status'=>'Trạng thái',
+    'Show'=>'Hiển thị',
+    'Hide'=>'Ẩn',
+
+    'Open'=>'Mở',
+    'Doing'=>'Đang thực hiện',
+    'Testing'=>'Đang kiểm tra',
+    'Done'=>'Hoàn thành',
+
+    'Edit'=>'Chỉnh sửa',
+    'Delete'=>'Xóa',
+    'Update'=>'Cập nhật',
+
+    'Are you sure you want to delete?'=>'Bạn có chắc chắn muốn xóa không?',
 
 ];

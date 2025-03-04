@@ -174,6 +174,23 @@ return [
     'Money'=>'Money',
     'Action'=>'Action',
     'Month'=>'Month',
+    'Created by'=>'Created by',
+    'Save changes'=>'Save changes',
+    'Content'=>'Content',
+    'Status'=>'Status',
+    'Show'=>'Show',
+    'Hide'=>'Hide',
+
+    'Open'=>'Open',
+    'Doing'=>'Doing',
+    'Testing'=>'Testing',
+    'Done'=>'Done',
+
+    'Edit'=>'Edit',
+    'Delete'=>'Delete',
+    'Update'=>'Update',
+    
+    'Are you sure you want to delete?'=>'Are you sure you want to delete?',
     
 
     

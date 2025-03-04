@@ -23,6 +23,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images//logo-website.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images//logo-website.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images//logo-website.png') }}">
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.0.0/classic/ckeditor.js"></script>
 </head>
 
 <body>
@@ -77,7 +78,7 @@
                 </li>
                 
                 <li class="features-item star">
-                    <a href="" class="d-flex align-items">
+                    <a href="{{ route('tasks.index') }}" class="d-flex align-items">
                         <i class="bx bx-star features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Tasks') }}</span>
                         <span class="inbox-number green">99</span>

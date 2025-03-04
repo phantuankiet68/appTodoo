@@ -63,6 +63,7 @@ use App\Http\Controllers\V1\V1DashboardController;
 use App\Http\Controllers\V1\V1MessageController;
 use App\Http\Controllers\V1\V1ExpenseController;
 use App\Http\Controllers\V1\V1NoteController;
+use App\Http\Controllers\V1\V1TaskController;
 use App\Models\Expense;
 /*
 |--------------------------------------------------------------------------
@@ -149,7 +150,7 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     });
     Route::resource('/notes', V1NoteController::class);
     Route::post('/notes/update-position', [V1NoteController::class, 'updatePosition'])->name('notes.updatePosition');
-
+    Route::resource('/tasks', V1TaskController::class);
 });
 
 
@@ -263,7 +264,7 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/reject-friend-request/{friendship}', [FriendshipController::class, 'rejectRequest'])->name('friend.reject');
     Route::post('/post/{id}/likes', [PostLikeController::class, 'store'])->name('postlikes.store');
     Route::resource('todo', TodoController::class);
-    Route::resource('tasks', TaskController::class);
+    Route::resource('task', TaskController::class);
     Route::resource('workflows', WorkflowController::class);
     Route::patch('/update-status/{id}', [WorkflowController::class, 'updateStatus']);
     Route::resource('food', FoodController::class);

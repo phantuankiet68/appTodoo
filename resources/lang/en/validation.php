@@ -50,4 +50,5 @@ return [
     'url_required' => 'URLを入力してください。',
     'url_url' => '無効なURL形式です。',
     
+    
 ];
