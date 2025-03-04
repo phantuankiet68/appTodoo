@@ -183,4 +183,42 @@ return [
 
     'Are you sure you want to delete?'=>'Bạn có chắc chắn muốn xóa không?',
 
+    
+    'Project Name'=>'Tên dự án',
+    'Add User'=>'Thêm người dùng',
+    'Git'=>'Git',
+    'Choose SQL'=>'Chọn SQL',
+    'or drop here'=>'hoặc kéo thả vào đây',
+    'Choose document'=>'Chọn tài liệu',
+    'Choose image'=>'Chọn hình ảnh',
+    'Pick a user...'=>'Chọn một người dùng...',
+
+    'Enter Git URL (Optional)'=>'Nhập URL Git (Tùy chọn)',
+    'Select user'=>'Chọn người dùng',
+    'Plan Name'=>'Tên gói',
+    'Storage'=>'Lưu trữ',
+    'Monthly Visitor'=>'Lượt truy cập hàng tháng',
+    'Domains'=>'Tên miền',
+    'Completed'=>'Đã hoàn thành',
+    'Not Completed'=>'Chưa hoàn thành',
+    'Active'=>'Hoạt động',
+
+    'Search by subject, key, description...'=>'Tìm kiếm theo chủ đề, từ khóa, mô tả...',
+
+    'Add Issue'=>'Thêm vấn đề',
+    'Gantt Chart'=>'Biểu đồ Gantt',
+    'File'=>'Tệp',
+    'Members'=>'Thành viên',
+    'Setting'=>'Cài đặt',
+
+    'Search'=>'Tìm kiếm',
+    'Notes'=>'Ghi chú',
+
+    'Priority'=>'Mức độ ưu tiên',
+    'Category'=>'Danh mục',
+    'Assignee'=>'Người được giao',
+    'Milestone'=>'Cột mốc',
+    'Due Date'=>'Hạn chót',
+    
+
 ];

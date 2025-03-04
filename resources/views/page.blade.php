@@ -87,8 +87,8 @@
                 </li>
             </ul>
             <ul class="features-list">
-                <li class="features-item draft">
-                    <a href="" class="d-flex align-items">
+                <li class="features-item draft mt-10">
+                    <a href="{{ route('projects.index') }}" class="d-flex align-items">
                         <i class="bx bx-file-blank features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Project') }}</span>
                         <span class="inbox-number organ">99</span>

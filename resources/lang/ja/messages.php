@@ -191,4 +191,40 @@ return [
     
     'Are you sure you want to delete?'=>'本当に削除してもよろしいですか？',
 
+    'Project Name'=>'プロジェクト名',
+    'Add User'=>'ユーザーを追加',
+    'Git'=>'Git',
+    'Choose SQL'=>'SQLを選択するか',
+    'or drop here'=>'ここにドロップしてください',
+    'Choose document'=>'ドキュメントを選択',
+    'Choose image'=>'画像を選択',
+    'Pick a user...'=>'ユーザーを選択...',
+
+    'Enter Git URL (Optional)'=>'GitのURLを入力（オプション）',
+    'Select user'=>'ユーザーを選択',
+    'Plan Name'=>'プラン名',
+    'Storage'=>'ストレージ',
+    'Monthly Visitor'=>'月間訪問者数',
+    'Domains'=>'ドメイン',
+    'Completed'=>'完了',
+    'Not Completed'=>'未完了',
+    'Active'=>'アクティブ',
+
+    'Search by subject, key, description...'=>'件名、キーワード、説明で検索...',
+
+    'Add Issue'=>'課題を追加',
+    'Gantt Chart'=>'ガントチャート',
+    'File'=>'ファイル',
+    'Members'=>'メンバー',
+    'Setting'=>'設定',
+
+    'Search'=>'検索',
+    'Notes'=>'メモ',
+
+    'Priority'=>'優先度',
+    'Category'=>'カテゴリ',
+    'Assignee'=>'担当者',
+    'Milestone'=>'マイルストーン',
+    'Due Date'=>'期限',
+
 ];

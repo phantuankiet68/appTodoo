@@ -191,6 +191,40 @@ return [
     'Update'=>'Update',
     
     'Are you sure you want to delete?'=>'Are you sure you want to delete?',
+
+    'Project Name'=>'Project Name',
+    'Add User'=>'Add User',
+    'Git'=>'Git',
+    'Choose SQL'=>'Choose SQL',
+    'or drop here'=>'or drop here',
+    'Choose document'=>'Choose document',
+    'Choose image'=>'Choose image',
+    'Pick a user...'=>'Pick a user...',
+
+    'Enter Git URL (Optional)'=>'Enter Git URL (Optional)',
+    'Select user'=>'Select user',
+    'Plan Name'=>'Plan Name',
+    'Storage'=>'Storage',
+    'Monthly Visitor'=>'Monthly Visitor',
+    'Domains'=>'Domains',
+    'Completed'=>'Completed',
+    'Not Completed'=>'Not Completed',
+    'Active'=>'Active',
+    'Search by subject, key, description...'=>'Search by subject, key, description...',
+
+    'Add Issue'=>'Add Issue',
+    'Gantt Chart'=>'Gantt Chart',
+    'File'=>'File',
+    'Members'=>'Members',
+    'Setting'=>'Setting',
+    'Search'=>'Search',
+    'Notes'=>'Notes',
+    
+    'Priority'=>'Priority',
+    'Category'=>'Category',
+    'Assignee'=>'Assignee',
+    'Milestone'=>'Milestone',
+    'Due Date'=>'Due Date',
     
 
     

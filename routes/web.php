@@ -64,6 +64,7 @@ use App\Http\Controllers\V1\V1MessageController;
 use App\Http\Controllers\V1\V1ExpenseController;
 use App\Http\Controllers\V1\V1NoteController;
 use App\Http\Controllers\V1\V1TaskController;
+use App\Http\Controllers\V1\V1ProjectController;
 use App\Models\Expense;
 /*
 |--------------------------------------------------------------------------
@@ -151,7 +152,12 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::resource('/notes', V1NoteController::class);
     Route::post('/notes/update-position', [V1NoteController::class, 'updatePosition'])->name('notes.updatePosition');
     Route::resource('/tasks', V1TaskController::class);
+    Route::resource('/projects', V1ProjectController::class);
+    Route::get('add_issue/{name?}', [V1ProjectController::class, 'addIssue'])->name('add_issue');
+    
 });
+
+
 
 
 
@@ -184,7 +190,7 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::post('/forgot-password', [AuthController::class, 'sendResetLink'])->name('forgot.password');
 
     Route::get('information', [InformationController::class, 'index'])->name('information.index');
-    Route::resource('projects', ProjectController::class);
+    Route::resource('project', ProjectController::class);
     Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
     Route::resource('posts', PostController::class);
     Route::get('friend', [FriendController::class, 'index'])->name('friend.index');
