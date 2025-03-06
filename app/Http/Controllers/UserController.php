@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 
+
 class UserController extends Controller
 {
     public function index(Request $request)
@@ -38,4 +39,10 @@ class UserController extends Controller
         $user->save();
         return redirect()->back()->with('success', 'Setting updated successfully');
     }
+    public function searchUsers(Request $request)
+    {
+        $users = User::where('full_name', 'LIKE', '%' . $request->query('name') . '%')->limit(5)->get();
+        return response()->json($users);
+    }
+
 }

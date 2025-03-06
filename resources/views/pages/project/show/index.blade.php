@@ -18,6 +18,7 @@
         </div>
         <div class="project-info-right-body">
             <div class="project-info-right-body-left">
+                @foreach ($issues as $item)
                 <a href="#" class="project-info-right-body-left-item">
                     <div class="project-info-right-body-left-item-top">
                         <div class="user-info">
@@ -25,21 +26,21 @@
                                 <img src="{{ asset('assets/images/service1.png') }}" alt="">
                             </div>
                             <div class="text-create-issue">
-                                <p class="name">Phan Tuấn Kiệt</p>
-                                <p>Assign: Phan Tuấn Kiệt</p>
+                                <p class="name">{{ $item->user->full_name }}</p>
+                                <p>Assign: {{ $item->assignee->full_name }}</p>
                             </div>
                             <button class="text-add-issue">Create Issue</button>
                         </div>
-                        <p>3 minutes ago</p>
+                        <p>{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</p>
                     </div>    
                     <div class="project-info-right-body-left-item-body">
-                        <h3><i class="red">aaa-119</i> 【汎用データ出力】　「テーブル名」項目から使用テーブルを選択するとエラー表示</h3>
-                        <p>@杭 紅艶 さん</p>
-                        <p>上記の件のエラーメッセージの件のにつきまして、現行機能は下記の様になっています</p>
-                        <p>１．左側のテーブル一覧は、TZ_汎用データ_テーブル連結定義の表示用連結テーブル名から表示しています。（抽出条件：TZ_汎用データ_テーブル連結定義.テーブル名=画面の主テーブル名）</p>
+                        <h3>{{ $item->title }}</h3>
+                        <div class="trustTitle3">
+                            {!! $item->description !!}
+                        </div>
                     </div>
                 </a>
-                
+                @endforeach
             </div>
             <div class="project-info-right-body-right">
                 <div class="project-info-right-body-right-search">
@@ -177,6 +178,6 @@
         </ul>
     </div>
 @endif
-
+<script src="{{ asset('js/pages/project.js') }}"></script>
 
 @endsection
