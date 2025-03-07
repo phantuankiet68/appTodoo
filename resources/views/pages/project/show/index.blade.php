@@ -45,7 +45,8 @@
             <div class="project-info-right-body-right">
                 <div class="project-info-right-body-right-note">
                     <p class="mb-5">* {{ __('messages.Notes') }}</p>
-                    <form action="" class="form-note">
+                    <form action="{{ route('projects.note') }}" method="POST" class="form-note">
+                    @csrf
                         @if (Auth::check())
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" readonly/>
                         @endif
@@ -55,20 +56,22 @@
                                 <textarea class="textarea" name="description" id="editor" placeholder="{{ __('messages.Use @mention to notify a colleague...') }}"></textarea>
                             </div>
                         </div>
-                        <button class="button">submit</button>
+                        <button class="button" type="submit">Submit</button>
                     </form>
                     <div class="project-info-right-body-right-note-list">
+                        @foreach ($notes as $item)
                         <div class="project-info-right-body-right-note-item">
                             <div class="user-info bg-organce p-10 space-between">
                                 <div class="text-create-issue">
-                                    <p class="name">Phan Tuấn Kiệt</p>
+                                    <p class="name">{{ $item->user->full_name }}</p>
                                 </div>
                                 <button>3 month</button>
                             </div>
                             <div class="w-full p-10">
-                                <p>Học theo phong cách w3 schooll</p>
+                                {!! $item->description !!}
                             </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

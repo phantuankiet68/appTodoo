@@ -10,8 +10,10 @@ use App\Models\MemberProject;
 use App\Models\AttachmentProject;
 use App\Models\IssueProject;
 use App\Models\Comment;
+use App\Models\NoteProject;
 use Illuminate\Support\Facades\Log; 
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 class V1ProjectController extends Controller
 {
    
@@ -86,7 +88,11 @@ class V1ProjectController extends Controller
             ->with('user', 'assignee')
             ->get();
 
-        return view('pages.project.show.index', compact('project', 'issues'));
+        $notes = NoteProject::where('project_id', $project->id)
+            ->with('user')
+            ->get();
+
+        return view('pages.project.show.index', compact('project', 'issues','notes'));
     }
 
     public function showIssues(Request $request, $name)
@@ -308,6 +314,22 @@ class V1ProjectController extends Controller
         return redirect()->back()->with('success', 'Files uploaded successfully.');
     }
 
+
+    public function storeNoteProject(Request $request)
+    {
+        $request->validate([
+            'description' => 'required|string',
+            'project_id' => 'required|exists:projects,id',
+        ]);
+
+        NoteProject::create([
+            'user_id' => Auth::id(),
+            'project_id' => $request->project_id,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->back()->with('success', 'Note added successfully!');
+    }
 
    
     public function edit($id)

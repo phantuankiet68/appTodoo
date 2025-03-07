@@ -6071,7 +6071,8 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 }
 .project-info-right-body-left-item-body h3 {
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
+    color: #5d647e;
 }
 
 .project-info-right-body-right-note input{

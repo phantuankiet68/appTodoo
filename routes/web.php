@@ -162,6 +162,7 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::get('/projects/{name}/{key}', [V1ProjectController::class, 'showIssueDetail'])->name('projects.showIssueDetail');
     Route::get('/get/get-projects', [V1ProjectController::class, 'getProjects']);
     Route::post('/projects/upload-files/issue', [V1ProjectController::class, 'storeAttachmentProject'])->name('files.store.issue');
+    Route::post('/projects/note', [V1ProjectController::class, 'storeNoteProject'])->name('projects.note');
 });
 
 Route::get('/search-users', [UserController::class, 'searchUsers']);
