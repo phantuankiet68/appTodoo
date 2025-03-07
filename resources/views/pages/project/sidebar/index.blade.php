@@ -17,7 +17,7 @@
     <a href="" data-menu="document_issue">
         <i class="fa-solid fa-file"></i> {{ __('messages.Document') }}
     </a>
-    <a href="" data-menu="git_issue">
+    <a href="{{ route('get.git', ['name' => $name ?? 'default-project']) }}" data-menu="git_issue">
         <i class="fa-solid fa-code-commit"></i> {{ __('messages.Git') }}
     </a>
     <a href="{{ route('member_issue', ['name' => $name ?? 'default-project']) }}" data-menu="member_issue">

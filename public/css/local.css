@@ -7009,3 +7009,47 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     opacity: .8;
     cursor: pointer;
 }
+
+.project-info-git{
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+.project-info-git h3{
+    font-size: 20px;
+    color: #616161;
+}
+
+.project-info-git ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.project-info-git ul li{
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.project-info-git-commit ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 60vh;
+    overflow: auto;
+}
+
+.project-info-git-commit ul li {
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    line-height: 1.8;
+}
+
+.project-info-git-commit h3{
+    font-size: 20px;
+    color: #616161;
+    margin-bottom: 10px;
+}

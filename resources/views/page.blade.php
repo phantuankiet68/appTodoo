@@ -85,9 +85,7 @@
                         <span class="tooltip">{{ __('messages.Tasks') }}</span>
                     </a>
                 </li>
-            </ul>
-            <ul class="features-list">
-                <li class="features-item draft mt-10">
+                <li class="features-item draft">
                     <a href="{{ route('projects.index') }}" class="d-flex align-items">
                         <i class="bx bx-file-blank features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Project') }}</span>
@@ -95,32 +93,8 @@
                         <span class="tooltip">{{ __('messages.Project') }}</span>
                     </a>
                 </li>
-                <li class="features-item spam">
-                    <a href="" class="d-flex align-items">
-                        <i class="bx bxs-chat features-item-icon"></i>
-                        <span class="features-item-text">{{ __('messages.Issues') }}</span>
-                        <span class="inbox-number yellow">99</span>
-                        <span class="tooltip">{{ __('messages.Issues') }}</span>
-                    </a>
-                </li>
-                <li class="features-item sent">
-                    <a href="" class="d-flex align-items">
-                        <i class="bx bx-send features-item-icon"></i>
-                        <span class="features-item-text">{{ __('messages.Board') }}</span>
-                        <span class="inbox-number purple">99</span>
-                        <span class="tooltip">{{ __('messages.Board') }}</span>
-                    </a>
-                </li>
-                <li class="features-item trash">
-                    <a href="" class="d-flex align-items">
-                        <i class="bx bxs-bar-chart-alt-2 features-item-icon"></i>
-                        <span class="features-item-text">{{ __('messages.Gantt chart') }}</span>
-                        <span class="inbox-number light-blue">99</span>
-                        <span class="tooltip">{{ __('messages.Gantt chart') }}</span>
-                    </a>
-                </li>
             </ul>
-
+          
             <ul class="category-list">
                 <li class="features-item spam">
                     <a href="" class="d-flex align-items">

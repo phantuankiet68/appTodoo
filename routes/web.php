@@ -78,6 +78,7 @@ use App\Models\Expense;
 */
 
 
+
 Route::fallback(function () {
     return view('error'); 
 });
@@ -163,7 +164,9 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::get('/get/get-projects', [V1ProjectController::class, 'getProjects']);
     Route::post('/projects/upload-files/issue', [V1ProjectController::class, 'storeAttachmentProject'])->name('files.store.issue');
     Route::post('/projects/note', [V1ProjectController::class, 'storeNoteProject'])->name('projects.note');
+    Route::get('/git/{name?}', [V1ProjectController::class, 'getGit'])->name('get.git');
 });
+
 
 Route::get('/search-users', [UserController::class, 'searchUsers']);
 

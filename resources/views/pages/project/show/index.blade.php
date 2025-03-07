@@ -65,7 +65,7 @@
                                 <div class="text-create-issue">
                                     <p class="name">{{ $item->user->full_name }}</p>
                                 </div>
-                                <button>3 month</button>
+                                <button>{{ \Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</button>
                             </div>
                             <div class="w-full p-10">
                                 {!! $item->description !!}

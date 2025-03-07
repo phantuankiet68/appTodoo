@@ -14,6 +14,10 @@ use App\Models\NoteProject;
 use Illuminate\Support\Facades\Log; 
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use App\Models\GitProject;
+use Illuminate\Support\Facades\Http;
+
+
 class V1ProjectController extends Controller
 {
    
@@ -331,7 +335,40 @@ class V1ProjectController extends Controller
         return redirect()->back()->with('success', 'Note added successfully!');
     }
 
-   
+    public function getGit($name, Request $request)
+    {
+        $project = Project::where('name', urldecode($name))->first();
+
+        if (!$project) {
+            return redirect()->route('projects.index')->with('error', 'Dự án không tồn tại.');
+        }
+
+        $gitRepo = GitProject::where('project_id', $project->id)->first();
+
+        if (!$gitRepo) {
+            return redirect()->back()->with('error', 'Không tìm thấy repository cho dự án này.');
+        }
+
+        preg_match('/github.com\/([^\/]+)\/([^\/]+)\.git/', $gitRepo->repo_url, $matches);
+
+        if (!isset($matches[1]) || !isset($matches[2])) {
+            return redirect()->back()->with('error', 'URL GitHub không hợp lệ.');
+        }
+
+        $owner = $matches[1];
+        $repo = $matches[2];
+
+        // Lấy danh sách commits
+        $commitResponse = Http::get("https://api.github.com/repos/$owner/$repo/commits");
+        $commits = $commitResponse->successful() ? $commitResponse->json() : [];
+
+        // Lấy danh sách branches
+        $branchResponse = Http::get("https://api.github.com/repos/$owner/$repo/branches");
+        $branches = $branchResponse->successful() ? $branchResponse->json() : [];
+
+        return view('pages.project.git.index', compact('project', 'commits', 'branches', 'gitRepo'));
+    }
+
     public function edit($id)
     {
         //

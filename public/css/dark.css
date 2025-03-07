@@ -29,16 +29,9 @@
 
 .dark-mode .breadcrumbs.breadcrumbs--two li a.breadcrumb,
 .dark-mode .menu-slide-items .menu-item i,
-.dark-mode span,
 .dark-mode .info-sub-title,
-.dark-mode h1,
-.dark-mode h2,
-.dark-mode h3,
 .dark-mode .list-category-blog a,
-.dark-mode .breadcrumbs.breadcrumbs--two li .breadcrumb [itemprop="name"],
-.dark-mode li,
-.dark-mode p,
-.dark-mode a {
+.dark-mode .breadcrumbs.breadcrumbs--two li .breadcrumb [itemprop="name"] {
     color: #ffffff;
 }
 .dark-mode .navbar-left .menu-item span,
