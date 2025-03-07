@@ -20,6 +20,7 @@ class IssueProject extends Model
         'category',
         'assignee_id',
         'milestone',
+        'key'
     ];
 
 

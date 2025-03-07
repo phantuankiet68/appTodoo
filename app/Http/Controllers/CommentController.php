@@ -3,49 +3,61 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\IssueProject;
 use App\Models\Comment;
-use App\Models\Issue;
 
 
 class CommentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request, $id)
+   
+    public function store(Request $request)
     {
-        $issue = Issue::findOrFail($id);
-
-        Comment::create([
-            'issue_id' => $issue->id,
-            'user_id' => auth()->id(),
-            'comment' => $request->comment,
+        $request->validate([
+            'issue_project_id' => 'required|exists:issue_projects,id',
+            'user_id' => 'required|exists:users,id',
+            'status' => 'required|integer',
+            'assignee' => 'required|exists:users,id',
+            'description' => 'nullable|string',
+            'url' => 'nullable|url',
+            'image' => 'nullable|image|max:2048',
         ]);
 
-        return redirect()->route('issue.show', $issue->id)->with('success', 'Comment added successfully!');
+        $imagePath = null;
+        if ($request->hasFile('image') && $request->file('image')->isValid()) { // Kiểm tra nếu có tệp và tệp hợp lệ
+            $image = $request->file('image');
+            $filename = uniqid() . '_' . hash('sha256', $image->getClientOriginalName()) . '.' . $image->getClientOriginalExtension();
+            $imagePath = 'assets/images/' . $filename;
+            $image->move(public_path('assets/images'), $filename);
+        }
+
+        Comment::create([
+            'issue_project_id' => $request->issue_project_id,
+            'user_id' => $request->user_id,
+            'description' => $request->description,
+            'url' => $request->url,
+            'image' => $imagePath,
+            'assignee_id' => $request->assignee,
+            'status' => $request->status,
+        ]);
+
+        IssueProject::where('id', $request->issue_project_id)->update([
+            'assignee_id' => $request->assignee,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->back()->with('success', 'Comment added and issue updated successfully!');
     }
 
     /**

@@ -18,8 +18,8 @@
         </div>
         <div class="project-info-right-body">
             <div class="project-info-right-body-left">
-                @foreach ($issues as $item)
-                <a href="#" class="project-info-right-body-left-item">
+            @foreach ($issues as $item)
+                <a href="{{ route('projects.showIssueDetail', ['name' => $project->name, 'key' => $item->key]) }}" class="project-info-right-body-left-item">
                     <div class="project-info-right-body-left-item-top">
                         <div class="user-info">
                             <div class="user-info-img">
@@ -40,96 +40,34 @@
                         </div>
                     </div>
                 </a>
-                @endforeach
+            @endforeach
             </div>
             <div class="project-info-right-body-right">
-                <div class="project-info-right-body-right-search">
-                    <form action="">
-                        <div class="w-full d-flex gap-5 flex-direction">
-                            <label for="">{{ __('messages.Search') }}</label>
-                            <input type="text" name="" id="">
-                        </div>
-                    </form>
-                </div>
                 <div class="project-info-right-body-right-note">
-                    <p>* {{ __('messages.Notes') }}</p>
-                    <form action="">
-                        <div class="w-full d-flex gap-5 flex-direction">
-                            <input type="text" name="" id="">
+                    <p class="mb-5">* {{ __('messages.Notes') }}</p>
+                    <form action="" class="form-note">
+                        @if (Auth::check())
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" readonly/>
+                        @endif
+                        <input type="hidden" name="project_id" value="{{ $project->id }}"/>
+                        <div class="height-22vh w-full d-flex gap-5 flex-direction">
+                            <div class="form-textarea-category mt-10">
+                                <textarea class="textarea" name="description" id="editor" placeholder="{{ __('messages.Use @mention to notify a colleague...') }}"></textarea>
+                            </div>
                         </div>
+                        <button class="button">submit</button>
                     </form>
                     <div class="project-info-right-body-right-note-list">
                         <div class="project-info-right-body-right-note-item">
-                            <div class="user-info space-between">
+                            <div class="user-info bg-organce p-10 space-between">
                                 <div class="text-create-issue">
                                     <p class="name">Phan Tuấn Kiệt</p>
                                 </div>
                                 <button>3 month</button>
                             </div>
-                            <p>Học theo phong cách w3 schooll</p>
-                        </div>
-                        <div class="project-info-right-body-right-note-item">
-                            <div class="user-info space-between">
-                                <div class="text-create-issue">
-                                    <p class="name">Phan Tuấn Kiệt</p>
-                                </div>
-                                <button>3 month</button>
+                            <div class="w-full p-10">
+                                <p>Học theo phong cách w3 schooll</p>
                             </div>
-                            <p>Học theo phong cách w3 schooll</p>
-                        </div>
-                        <div class="project-info-right-body-right-note-item">
-                            <div class="user-info space-between">
-                                <div class="text-create-issue">
-                                    <p class="name">Phan Tuấn Kiệt</p>
-                                </div>
-                                <button>3 month</button>
-                            </div>
-                            <p>Học theo phong cách w3 schooll</p>
-                        </div>
-                        <div class="project-info-right-body-right-note-item">
-                            <div class="user-info space-between">
-                                <div class="text-create-issue">
-                                    <p class="name">Phan Tuấn Kiệt</p>
-                                </div>
-                                <button>3 month</button>
-                            </div>
-                            <p>Học theo phong cách w3 schooll</p>
-                        </div>
-                        <div class="project-info-right-body-right-note-item">
-                            <div class="user-info space-between">
-                                <div class="text-create-issue">
-                                    <p class="name">Phan Tuấn Kiệt</p>
-                                </div>
-                                <button>3 month</button>
-                            </div>
-                            <p>Học theo phong cách w3 schooll</p>
-                        </div>
-                        <div class="project-info-right-body-right-note-item">
-                            <div class="user-info space-between">
-                                <div class="text-create-issue">
-                                    <p class="name">Phan Tuấn Kiệt</p>
-                                </div>
-                                <button>3 month</button>
-                            </div>
-                            <p>Học theo phong cách w3 schooll</p>
-                        </div>
-                        <div class="project-info-right-body-right-note-item">
-                            <div class="user-info space-between">
-                                <div class="text-create-issue">
-                                    <p class="name">Phan Tuấn Kiệt</p>
-                                </div>
-                                <button>3 month</button>
-                            </div>
-                            <p>Học theo phong cách w3 schooll</p>
-                        </div>
-                        <div class="project-info-right-body-right-note-item">
-                            <div class="user-info space-between">
-                                <div class="text-create-issue">
-                                    <p class="name">Phan Tuấn Kiệt</p>
-                                </div>
-                                <button>3 month</button>
-                            </div>
-                            <p>Học theo phong cách w3 schooll</p>
                         </div>
                     </div>
                 </div>
@@ -179,5 +117,15 @@
     </div>
 @endif
 <script src="{{ asset('js/pages/project.js') }}"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .then(editor => {
+            editorInstance = editor; 
+        })
+        .catch(error => {
+            console.error(error);
+        });
 
+</script>
 @endsection

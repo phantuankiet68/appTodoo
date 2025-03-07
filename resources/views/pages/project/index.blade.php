@@ -97,7 +97,7 @@
                 </div>
                 <div class="project-right-body-cr">
                     @foreach ($projects as $project)
-                    <a href="{{ route('projects.show', urlencode($project->name)) }}" class="project-list">
+                    <a href="{{ route('projects.show', urlencode($project->name)) }}" class="project-list" onclick="saveProject(event, this)">
                         <div class="domain-info">
                             <div class="domain-info-left">
                                 <div class="project-image">
@@ -193,6 +193,12 @@
             projectWrapper.style.display = 'none';
         }
     });
+    function saveProject(event, element) {
+        event.preventDefault();
+        const url = element.getAttribute("href");
+        localStorage.setItem("selectedProject", url);
+        window.location.href = url;
+    }
 </script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {

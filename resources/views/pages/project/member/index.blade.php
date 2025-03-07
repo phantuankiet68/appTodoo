@@ -4,7 +4,7 @@
 
 <div class="project-info">
     <div class="project-info-left">
-        @include('pages.project.sidebar.index')
+        @include('pages.project.sidebar.index', ['name' => $project->name])
     </div>
     <div class="project-info-right">
         <div class="project-member">

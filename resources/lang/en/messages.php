@@ -251,8 +251,8 @@ return [
     'Click or Drag files to upload'=>'Click or Drag files to upload',
     'Add a description'=>'Add a description',
     'Use @mention to notify a colleague...'=>'Use @mention to notify a colleague...',
-    'Role'=>'Role',
-    'Role'=>'Role',
+    'All'=>'All',
+    'Upload file'=>'Upload file',
     'Role'=>'Role',
     'Role'=>'Role',
 

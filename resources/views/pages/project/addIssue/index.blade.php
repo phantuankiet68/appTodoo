@@ -4,7 +4,7 @@
 
 <div class="project-info">
     <div class="project-info-left">
-        @include('pages.project.sidebar.index')
+        @include('pages.project.sidebar.index', ['name' => $project->name])
     </div>
     <div class="project-info-right">
         <div class="project-right-body">
@@ -18,9 +18,13 @@
                 @if (Auth::check())
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}" readonly/>
                 @endif
-
-                <div class="input-big mt-10">
-                    <input type="text" name="title" placeholder="{{ __('messages.Enter expense details...') }}">
+                <div class="d-flex space-between align-items-center gap-10">
+                    <div class="w-70 input-big mt-10">
+                        <input type="text" name="title" placeholder="{{ __('messages.Enter expense details...') }}">
+                    </div>
+                    <div class="w-30 input-big mt-10">
+                        <input type="text" id="projectName" name="key" value="aaa-" readonly>
+                    </div>
                 </div>
 
                 <div class="form-textarea-category mt-10">
@@ -160,6 +164,26 @@
 
 </script>
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch('/v1/get/get-projects')
+            .then(response => response.json())
+            .then(projects => {
+                let maxNumber = 0;
+
+                projects.forEach(name => {
+                    let match = name.match(/aaa-(\d+)$/);
+                    if (match) {
+                        let num = parseInt(match[1], 10);
+                        maxNumber = Math.max(maxNumber, num);
+                    }
+                });
+
+                let newNumber = (maxNumber + 1).toString().padStart(4, '0');
+                document.getElementById("projectName").value = "aaa-" + newNumber;
+            })
+            .catch(error => console.error("Lỗi tải dữ liệu:", error));
+    });
+
     document.getElementById('fileInput').addEventListener('change', function(event) {
         const files = event.target.files;
         const previewContainer = document.getElementById('previewContainer');

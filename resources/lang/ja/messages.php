@@ -252,5 +252,8 @@ return [
     'Click or Drag files to upload'=>'クリックまたはドラッグしてファイルをアップロード',
     'Add a description'=>'説明を追加',
     'Use @mention to notify a colleague...'=>'@mention を使用して同僚に通知...',
+    
+    'All'=>'Tất cả',
+    'Upload file'=>'ファイルをアップロードする',
 
 ];

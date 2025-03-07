@@ -9,7 +9,9 @@ use App\Models\Project;
 use App\Models\MemberProject;
 use App\Models\AttachmentProject;
 use App\Models\IssueProject;
-
+use App\Models\Comment;
+use Illuminate\Support\Facades\Log; 
+use Illuminate\Support\Str;
 class V1ProjectController extends Controller
 {
    
@@ -86,6 +88,79 @@ class V1ProjectController extends Controller
 
         return view('pages.project.show.index', compact('project', 'issues'));
     }
+
+    public function showIssues(Request $request, $name)
+    {
+        $project = Project::where('name', urldecode($name))->first();
+
+        if (!$project) {
+            return redirect()->route('projects.index')->with('error', 'Dự án không tồn tại.');
+        }
+
+        $query = IssueProject::where('project_id', $project->id)->with('user', 'assignee');
+
+        if ($request->has('status') && $request->status != '') {
+            $query->where('status', $request->status);
+        }
+
+        if ($request->has('priority') && $request->priority != '') {
+            $query->where('priority', $request->priority);
+        }
+
+        if ($request->has('category') && $request->category != '') {
+            $query->where('category', $request->category);
+        }
+
+        if ($request->has('assignee') && $request->assignee != '') {
+            $query->where('assignee_id', $request->assignee);
+        }
+
+        if ($request->has('milestone') && $request->milestone != '') {
+            $query->where('milestone', $request->milestone);
+        }
+
+        if ($request->has('title') && $request->title != '') {
+            $query->where('title', 'LIKE', '%' . $request->title . '%');
+        }
+
+        $issues = $query->get();
+        $members = MemberProject::where('project_id', $project->id)->with('user')->get();
+
+        if ($request->ajax()) {
+            return response()->json(['issues' => $issues]);
+        }
+
+        return view('pages.project.issue.index', compact('project', 'issues', 'members'));
+    }
+
+    public function getProjects()
+    {
+        try {
+            $projects = IssueProject::where('key', 'LIKE', 'aaa-%')->pluck('key');
+            Log::info("Dữ liệu lấy từ DB:", $projects->toArray()); 
+            return response()->json($projects);
+        } catch (\Exception $e) {
+            Log::error("Lỗi API getProjects: " . $e->getMessage());
+            return response()->json(['error' => 'Có lỗi xảy ra'], 500);
+        }
+    }
+    
+
+    public function showIssueDetail($name, $key)
+    {
+        $project = Project::where('name', $name)->firstOrFail();
+        $issue = IssueProject::where('key', $key)->where('project_id', $project->id)->firstOrFail();
+        $members = MemberProject::where('project_id', $project->id)->with('user')->get();
+
+        $comments = Comment::where('issue_project_id', $issue->id)->with('user','assignee')->get();
+        
+        $attachment = AttachmentProject::where('issue_project_id', $issue->id)->get();
+        
+        
+        return view('pages.project.issueDetail.index', compact('project', 'issue', 'members', 'comments', 'attachment'));
+    }
+
+
 
 
     public function member($name, Request $request)
@@ -173,6 +248,7 @@ class V1ProjectController extends Controller
             'category' => 'required|integer|in:1,2,3',
             'assignee' => 'nullable|exists:users,id',
             'milestone' => 'nullable|integer|in:1,2',
+            'key' => 'required|string|max:255',
             'attachments.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
@@ -188,6 +264,7 @@ class V1ProjectController extends Controller
             'category' => $request->category,
             'assignee_id' => $request->assignee,
             'milestone' => $request->milestone,
+            'key' => $request->key,
         ]);
 
         if ($request->hasFile('attachments')) {
@@ -203,6 +280,34 @@ class V1ProjectController extends Controller
 
         return redirect()->back()->with('success', 'Issue created successfully.');
     }
+
+    public function storeAttachmentProject(Request $request)
+    {
+        $request->validate([
+            'issue_project_id' => 'required',
+            'attachments.*' => 'required|file',
+        ]);
+
+        foreach ($request->file('attachments') as $file) {
+            $originalName = pathinfo($file->getClientOriginalName(), PATHINFO_FILENAME);
+            $cleanFileName = Str::slug($originalName) . '.' . $file->getClientOriginalExtension();
+            $filePath = 'assets/files/' . $cleanFileName;
+        
+            if (!file_exists(public_path('assets/files'))) {
+                mkdir(public_path('assets/files'), 0777, true);
+            }
+        
+            $file->move(public_path('assets/files'), $cleanFileName);
+        
+            AttachmentProject::create([
+                'issue_project_id' => $request->issue_project_id,
+                'file_path' => $filePath,
+            ]);
+        }
+
+        return redirect()->back()->with('success', 'Files uploaded successfully.');
+    }
+
 
    
     public function edit($id)

@@ -1,11 +1,11 @@
 <div class="project-info-left-menu">
-    <a href="{{ route('projects.show', ['project' => $name ?? 'default-project']) }}" data-menu="home_issue">
+    <a href="" data-menu="home_issue">
         <i class="fa-solid fa-house"></i> {{ __('messages.Home') }}
     </a>
     <a href="{{ route('add_issue', ['name' => $name ?? 'default-project']) }}" data-menu="add_issue">
         <i class="fa-solid fa-plus"></i> {{ __('messages.Add Issue') }}
     </a>
-    <a href="" data-menu="issue_issue">
+    <a href="{{ route('projects.showIssues', ['name' => $name ?? 'default-project']) }}" data-menu="issue_issue">
         <i class="fa-solid fa-list"></i> {{ __('messages.Issues') }}
     </a>
     <a href="" data-menu="board_issue">
@@ -16,12 +16,6 @@
     </a>
     <a href="" data-menu="document_issue">
         <i class="fa-solid fa-file"></i> {{ __('messages.Document') }}
-    </a>
-    <a href="" data-menu="word_issue">
-        <i class="fa-solid fa-file-word"></i> {{ __('messages.Wiki') }}
-    </a>
-    <a href="" data-menu="file_issue">
-        <i class="fa-solid fa-file-lines"></i> {{ __('messages.File') }}
     </a>
     <a href="" data-menu="git_issue">
         <i class="fa-solid fa-code-commit"></i> {{ __('messages.Git') }}

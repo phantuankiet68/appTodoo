@@ -244,5 +244,6 @@ return [
     'Click or Drag files to upload'=>'Nhấn hoặc kéo tệp để tải lên',
     'Add a description'=>'Thêm mô tả',
     'Use @mention to notify a colleague...'=>'Sử dụng @mention để thông báo cho đồng nghiệp...',
-
+    'All'=>'全て',
+    'Upload file'=>'Tải tệp lên',
 ];

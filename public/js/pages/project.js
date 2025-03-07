@@ -24,3 +24,12 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const selectedProject = localStorage.getItem("selectedProject");
+    const homeIssueLink = document.querySelector('a[data-menu="home_issue"]');
+
+    if (selectedProject && homeIssueLink) {
+        homeIssueLink.setAttribute("href", selectedProject);
+    }
+});

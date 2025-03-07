@@ -153,12 +153,15 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::post('/notes/update-position', [V1NoteController::class, 'updatePosition'])->name('notes.updatePosition');
     Route::resource('/tasks', V1TaskController::class);
     Route::resource('/projects', V1ProjectController::class);
-    Route::get('add_issue/{name?}', [V1ProjectController::class, 'addIssue'])->name('add_issue');
+    Route::get('/add_issue/{name?}', [V1ProjectController::class, 'addIssue'])->name('add_issue');
     Route::post('/add_issue/add-issues', [V1ProjectController::class, 'storeIssue'])->name('projects.storeIssue');
 
-    Route::get('member/{name?}', [V1ProjectController::class, 'member'])->name('member_issue');
+    Route::get('/member/{name?}', [V1ProjectController::class, 'member'])->name('member_issue');
     Route::post('/projects/{project}/add-members', [V1ProjectController::class, 'addMembers'])->name('projects.addMembers');
-    
+    Route::get('/projects/{name}/list-issue', [V1ProjectController::class, 'showIssues'])->name('projects.showIssues');
+    Route::get('/projects/{name}/{key}', [V1ProjectController::class, 'showIssueDetail'])->name('projects.showIssueDetail');
+    Route::get('/get/get-projects', [V1ProjectController::class, 'getProjects']);
+    Route::post('/projects/upload-files/issue', [V1ProjectController::class, 'storeAttachmentProject'])->name('files.store.issue');
 });
 
 Route::get('/search-users', [UserController::class, 'searchUsers']);
