@@ -253,8 +253,29 @@ return [
     'Use @mention to notify a colleague...'=>'Use @mention to notify a colleague...',
     'All'=>'All',
     'Upload file'=>'Upload file',
+    'Lesson'=>'Lesson',
+    'Add Lesson'=>'Add Lesson',
+    'Title'=>'Title',
+    'Submit'=>'Submit',
+    'Search text'=>'Search text',
+    'Search name...'=>'Search name...',
+    'Vocabulary'=>'Vocabulary',
+    'Add Vocabulary'=>'Add Vocabulary',
+
+    'Language'=>'Language',
+    'Meaning'=>'Meaning',
+    'Example'=>'Example',
+    'Translation'=>'Translation',
+    'Pronunciation'=>'Pronunciation',
+    'Level'=>'Level',
+    
+    'Lesson'=>'Lesson',
     'Role'=>'Role',
+    'Lesson'=>'Lesson',
     'Role'=>'Role',
+    'Lesson'=>'Lesson',
+    'Role'=>'Role',
+
 
     
 

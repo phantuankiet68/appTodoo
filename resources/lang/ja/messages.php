@@ -256,4 +256,20 @@ return [
     'All'=>'Tất cả',
     'Upload file'=>'ファイルをアップロードする',
 
+    'Lesson'=>'授業',
+    'Add Lesson'=>'レッスンを追加する',
+    'Title'=>'タイトル',
+    'Submit'=>'送信する',
+    'Search text'=>'テキストを検索する',
+    'Search name...'=>'名前を検索する...',
+    'Vocabulary'=>'語彙',
+    'Add Vocabulary'=>'語彙を追加する',
+
+    'Language'=>'言語',
+    'Meaning'=>'意味',
+    'Example'=>'例',
+    'Translation'=>'翻訳',
+    'Pronunciation'=>'発音',
+    'Level'=>'レベル',
+
 ];

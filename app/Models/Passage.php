@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Vocabulary extends Model
+class Passage extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id','lesson_id', 'language', 'name', 'meaning', 'example', 'translation','pronunciation', 'level', 'status'
+        'user_id','lesson_id','description'
     ];
 
     public function lesson()
@@ -21,6 +21,4 @@ class Vocabulary extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
-
-
 }

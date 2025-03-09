@@ -97,7 +97,7 @@
           
             <ul class="category-list">
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items">
+                    <a href="{{ route('englishs.index') }}" class="d-flex align-items">
                         <i class="bx bxs-add-to-queue features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.English') }}</span>
                         <span class="inbox-number blue">99</span>

@@ -65,6 +65,7 @@ use App\Http\Controllers\V1\V1ExpenseController;
 use App\Http\Controllers\V1\V1NoteController;
 use App\Http\Controllers\V1\V1TaskController;
 use App\Http\Controllers\V1\V1ProjectController;
+use App\Http\Controllers\V1\V1EnglishController;
 use App\Models\Expense;
 /*
 |--------------------------------------------------------------------------
@@ -165,6 +166,12 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::post('/projects/upload-files/issue', [V1ProjectController::class, 'storeAttachmentProject'])->name('files.store.issue');
     Route::post('/projects/note', [V1ProjectController::class, 'storeNoteProject'])->name('projects.note');
     Route::get('/git/{name?}', [V1ProjectController::class, 'getGit'])->name('get.git');
+    Route::resource('englishs', V1EnglishController::class);
+    Route::get('/vocabulary', [V1EnglishController::class, 'index_add_vocabulary'])->name('get.index_add_vocabulary');
+    Route::post('/store/lesson', [V1EnglishController::class, 'storeLesson'])->name('lessons.store');
+    Route::put('/lessons/update/{id}', [V1EnglishController::class, 'updateLesson']);
+    Route::post('/vocabulary/store', [V1EnglishController::class, 'storeVocabulary'])->name('vocabulary.store');
+    Route::get('/passage', [V1EnglishController::class, 'index_add_passage'])->name('get.index_add_passage');
 });
 
 
