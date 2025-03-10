@@ -120,7 +120,7 @@
             <a href="{{ route('englishs.index') }}">Back</a>
             <a href="{{ route('get.index_add_vocabulary')}}" class="active">Vocabulary</a>
             <a href="{{ route('get.index_add_passage')}}">Passage</a>
-            <a href="">Học cấu trúc</a>
+            <a href="{{ route('get.index_add_structure')}}">Học cấu trúc</a>
             <a href="">Kiểm tra từ vựng</a>
             <a href="">Kiểm tra cấu trúc</a>
         </div>

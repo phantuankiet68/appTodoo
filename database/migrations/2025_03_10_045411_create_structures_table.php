@@ -13,12 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('passages', function (Blueprint $table) {
+        Schema::create('structures', function (Blueprint $table) {
             $table->id();
+            $table->string('name')->nullable();
+            $table->text('structure')->nullable();
+            $table->text('example')->nullable();
+            $table->string('translation')->nullable();
+            $table->text('explanation')->nullable();
+            $table->string('language')->nullable();
+            $table->integer('level')->nullable();
+            $table->integer('status');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('lesson_id')->constrained()->onDelete('cascade');
-            $table->string('language');
-            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('passages');
+        Schema::dropIfExists('structures');
     }
 };

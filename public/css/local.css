@@ -6660,6 +6660,18 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     display: -webkit-box;
     white-space: normal;
 }
+
+.trustTitle1{
+    max-width: 100%;
+    width:  100%;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    white-space: normal;
+}
+
 .trustTitle3{
     max-width: 100%;
     width: 100%;
@@ -7415,4 +7427,56 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 .english-vocabulary-item-top a.active{
     background: #56c1ff;
     color: #fff;
+}
+
+.edit-english {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 7px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #1785ff;
+    font-size: 16px;
+}
+
+.edit-english:hover{
+    background-color: #1785ff;
+    color: #fff;
+}
+
+.delete-english{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding: 7px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: red;
+    font-size: 16px;
+}
+
+.delete-english:hover{
+    background-color: red;
+    color: #fff;
+}
+
+.show {
+    background: #7ad5fe;
+    border-radius: 10px;
+    color: #fff;
+    padding: 5px 10px;
+    max-width: 80px;
+}
+
+.hide {
+    background: red;
+    border-radius: 10px;
+    color: #fff;
+    padding: 5px 10px;
+    max-width: 80px;
+}
+
+.basic {
+    background: #24e24e;
+    border-radius: 10px;
+    color: #fff;
+    padding: 5px 10px;
+    max-width: 80px;
 }

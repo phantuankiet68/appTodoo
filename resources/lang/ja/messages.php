@@ -271,5 +271,6 @@ return [
     'Translation'=>'翻訳',
     'Pronunciation'=>'発音',
     'Level'=>'レベル',
+    'Description'=>'説明',
 
 ];

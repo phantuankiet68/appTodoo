@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Lesson;
 use App\Models\Vocabulary;
 use App\Models\Passage;
+use App\Models\Structure;
+
 use Illuminate\Support\Facades\Auth;
 use Exception;
 
@@ -61,10 +63,42 @@ class V1EnglishController extends Controller
             ->orderBy('id', 'asc')
             ->get();
 
-        $passages = Passage::orderBy('id', 'asc')->get();
+        $passages = Passage::whereHas('lesson', function ($query) {
+                $query->where('language', 2);
+            })
+            ->orderBy('id', 'asc')
+            ->with('user', 'lesson')
+            ->get();
+            
 
         return view('pages.english.passage.index', compact('passages','lessons'));
     }
+
+    public function index_add_structure()
+    {       
+        $locale = session('locale', 'en');
+        
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+
+        $lessons = Lesson::where('language', $languageId)
+            ->orderBy('id', 'asc')
+            ->get();
+
+        $structures = Structure::whereHas('lesson', function ($query) {
+            $query->where('language', 2);
+        })
+        ->orderBy('id', 'asc')
+        ->with('user', 'lesson')
+        ->get();
+        return view('pages.english.structure.index',compact('structures','lessons'));
+    }
+
 
     
 
@@ -135,39 +169,50 @@ class V1EnglishController extends Controller
 
     public function storePassage(Request $request)
     {
+
         $request->validate([
-            'lesson_id'     => 'required',
-            'language'      => 'required',
-            'name'          => 'required|string|max:255',
-            'meaning'       => 'required|string|max:255',
-            'example'       => 'nullable|string',
-            'translation'   => 'nullable|string',
-            'pronunciation' => 'nullable|string|max:255',
-            'level'         => 'required|string|max:255',
-            'status'        => 'boolean',
+            'lesson_id' => 'required|exists:lessons,id',
+            'description' => 'required|string',
         ]);
 
-        try {
-            Vocabulary::create([
-                'user_id'       => Auth::id(),
-                'lesson_id'     => $request->lesson_id,
-                'language'      => $request->language,
-                'name'          => $request->name,
-                'meaning'       => $request->meaning,
-                'example'       => $request->example,
-                'translation'   => $request->translation,
-                'pronunciation' => $request->pronunciation,
-                'level'         => $request->level,
-                'status'        => $request->status ?? 1,
-            ]);
+        Passage::create([
+            'user_id'       => Auth::id(),
+            'lesson_id' => $request->lesson_id,
+            'language' => $request->language,
+            'description' => $request->description,
+        ]);
 
-            return redirect()->back()->with('success', __('messages.Vocabulary added successfully!'));
-        } catch (\Exception $e) {
-            return response()->json([
-                'message' => 'Failed to add vocabulary!',
-                'error'   => $e->getMessage()
-            ], 500);
-        }
+        return response()->json(['success' => true]);
+
+    }
+    public function storeStructure(Request $request)
+    {
+        $request->validate([
+            'lesson_id' => 'required|exists:lessons,id',
+            'name' => 'required|string|max:255',
+            'structure' => 'required|string',
+            'example' => 'nullable|string',
+            'translation' => 'nullable|string',
+            'explanation' => 'nullable|string',
+            'language' => 'required|string|max:255',
+            'level' => 'nullable|integer',
+            'status' => 'nullable|integer|in:1,2',
+        ]);
+
+        Structure::create([
+            'lesson_id' => $request->lesson_id,
+            'user_id' => Auth::id(),
+            'name' => $request->name,
+            'structure' => $request->structure,
+            'example' => $request->example,
+            'translation' => $request->translation,
+            'explanation' => $request->explanation,
+            'language' => $request->language,
+            'level' => $request->level,
+            'status' => $request->status ?? 1,
+        ]);
+
+        return redirect()->back()->with('success', 'Structure added successfully!');
     }
 
     public function show($id)
@@ -190,12 +235,64 @@ class V1EnglishController extends Controller
         }
     }
 
+    public function updatePassage(Request $request, $id)
+    {
+        $passage = Passage::find($id);
+        if (!$passage) {
+            return response()->json(['error' => 'Không tìm thấy bài học'], 404);
+        }
+
+        $passage->description = $request->description;
+        $passage->save();
+
+        return response()->json(['success' => 'Cập nhật thành công']);
+    }
+    public function updateStructure(Request $request, $id)
+    {
+        $structure = Structure::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'structure' => 'required|string|max:255',
+            'example' => 'nullable|string|max:255',
+            'translation' => 'nullable|string|max:255',
+            'explanation' => 'nullable|string|max:255',
+            'level' => 'required|integer',
+            'status' => 'required|integer',
+            'lesson_id' => 'required|integer|exists:lessons,id',
+        ]);
+
+        $structure->update([
+            'name' => $request->name,
+            'structure' => $request->structure,
+            'example' => $request->example,
+            'translation' => $request->translation,
+            'explanation' => $request->explanation,
+            'level' => $request->level,
+            'status' => $request->status,
+            'lesson_id' => $request->lesson_id,
+        ]);
+
+        return redirect()->back()->with('success', 'Updated successfully!');
+    }
+
+
    
     public function update(Request $request, $id)
     {
         //
     }
 
+    public function deletePassage($id)
+    {
+        $passage = Passage::find($id);
+        if (!$passage) {
+            return response()->json(['error' => 'Không tìm thấy bài học'], 404);
+        }
+
+        $passage->delete();
+        return response()->json(['success' => 'Xóa thành công']);
+    }
     
     public function destroy($id)
     {

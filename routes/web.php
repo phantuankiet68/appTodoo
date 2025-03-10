@@ -172,6 +172,17 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::put('/lessons/update/{id}', [V1EnglishController::class, 'updateLesson']);
     Route::post('/vocabulary/store', [V1EnglishController::class, 'storeVocabulary'])->name('vocabulary.store');
     Route::get('/passage', [V1EnglishController::class, 'index_add_passage'])->name('get.index_add_passage');
+    Route::post('/passage/store', [V1EnglishController::class, 'storePassage'])->name('passage.store');
+    Route::put('/passage/{id}', [V1EnglishController::class, 'updatePassage']);
+    Route::delete('/passage/{id}', [V1EnglishController::class, 'deletePassage']);
+    Route::get('/structure', [V1EnglishController::class, 'index_add_structure'])->name('get.index_add_structure');
+    Route::post('/structure/store', [V1EnglishController::class, 'storeStructure'])->name('structure.store');
+    Route::post('/structure/update/{id}', [V1EnglishController::class, 'updateStructure'])->name('structure.update');
+
+
+
+
+
 });
 
 

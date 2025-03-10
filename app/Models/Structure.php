@@ -8,23 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 class Structure extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'language_id',
-        'category_id',
+        'name',
         'structure',
-        'meaning_of_structure',
         'example',
-        'meaning_of_example',
+        'translation',
+        'explanation',
+        'language',
+        'level',
+        'status',
+        'user_id',
+        'lesson_id'
     ];
 
-    public function language()
+
+    public function user()
     {
-        return $this->belongsTo(Language::class);
+        return $this->belongsTo(User::class);
     }
 
-    public function category()
+    public function lesson()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Lesson::class);
     }
 }

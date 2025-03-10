@@ -269,7 +269,7 @@ return [
     'Pronunciation'=>'Pronunciation',
     'Level'=>'Level',
     
-    'Lesson'=>'Lesson',
+    'Description'=>'Description',
     'Role'=>'Role',
     'Lesson'=>'Lesson',
     'Role'=>'Role',

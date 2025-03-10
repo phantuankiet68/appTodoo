@@ -260,4 +260,5 @@ return [
     'Translation'=>'Dịch thuật',
     'Pronunciation'=>'Phát âm',
     'Level'=>'Cấp độ',
+    'Description'=>'Mô tả',
 ];

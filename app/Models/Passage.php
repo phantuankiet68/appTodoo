@@ -9,7 +9,7 @@ class Passage extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id','lesson_id','description'
+        'user_id','lesson_id','language','description'
     ];
 
     public function lesson()
