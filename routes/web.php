@@ -178,6 +178,11 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::get('/structure', [V1EnglishController::class, 'index_add_structure'])->name('get.index_add_structure');
     Route::post('/structure/store', [V1EnglishController::class, 'storeStructure'])->name('structure.store');
     Route::post('/structure/update/{id}', [V1EnglishController::class, 'updateStructure'])->name('structure.update');
+    Route::get('/quizItem', [V1EnglishController::class, 'index_quiz_item'])->name('get.index_quiz_item');
+    Route::post('/quizItem/store', [V1EnglishController::class, 'storeQuizItem'])->name('storeQuizItem.store');
+    Route::post('/quiz-items/update/{id}', [V1EnglishController::class, 'updateQuizItem'])->name('quiz-items.update');
+    Route::get('/quizStructure', [V1EnglishController::class, 'index_quiz_structure'])->name('get.index_quiz_structure');
+
 
 
 

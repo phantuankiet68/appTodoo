@@ -7465,7 +7465,7 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     max-width: 80px;
 }
 
-.hide {
+.hidden {
     background: red;
     border-radius: 10px;
     color: #fff;

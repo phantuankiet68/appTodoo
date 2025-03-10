@@ -15,6 +15,17 @@ return new class extends Migration
     {
         Schema::create('quiz_items', function (Blueprint $table) {
             $table->id();
+            $table->string('question');
+            $table->string('option_a');
+            $table->string('option_b');
+            $table->string('option_c');
+            $table->string('option_d');
+            $table->string('correct_answer');
+            $table->text('explanation')->nullable();
+            $table->string('language')->nullable();
+            $table->integer('level')->nullable();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('lesson_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

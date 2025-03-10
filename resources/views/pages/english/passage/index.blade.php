@@ -33,11 +33,11 @@
     <div class="english-vocabulary-item">
         <div class="english-vocabulary-item-top">
             <a href="{{ route('englishs.index') }}">Back</a>
-            <a href="{{ route('get.index_add_vocabulary')}}" class="active">Vocabulary</a>
-            <a href="{{ route('get.index_add_passage')}}">Passage</a>
+            <a href="{{ route('get.index_add_vocabulary')}}">Vocabulary</a>
+            <a href="{{ route('get.index_add_passage')}}" class="active">Passage</a>
             <a href="{{ route('get.index_add_structure')}}">Học cấu trúc</a>
-            <a href="">Kiểm tra từ vựng</a>
-            <a href="">Kiểm tra cấu trúc</a>
+            <a href="{{ route('get.index_quiz_item')}}">Kiểm tra từ vựng</a>
+            <a href="{{ route('get.index_quiz_structure')}}">Kiểm tra cấu trúc</a>
         </div>
         <div class="w-full h-full d-flex flex-direction gap-10">
             <div class="english-vocabulary-theader">
