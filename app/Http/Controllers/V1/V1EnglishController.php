@@ -18,7 +18,72 @@ class V1EnglishController extends Controller
 {
     public function index()
     {
-        return view('pages.english.index');
+        $locale = session('locale', 'en');
+    
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+
+        $passage = Passage::where('language', 2)
+            ->where('lesson_id', 1)
+            ->orderBy('id', 'asc')
+            ->with('user', 'lesson')
+            ->first();
+
+        $lessons = Lesson::where('language', $languageId)
+            ->orderBy('id', 'asc')
+            ->get();
+    
+        $duplicatedNames = Vocabulary::select('name')
+            ->groupBy('name')
+            ->havingRaw('COUNT(name) > 1')
+            ->pluck('name');
+            
+        $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
+            ->where('language', operator: $languageId)
+            ->get();
+
+        return view('pages.english.index', compact('passage', 'vocabularies','lessons'));
+    }
+    public function showLesson($name)
+    {
+        $locale = session('locale', 'en');
+    
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+
+        $name = urldecode($name);
+        $lesson = Lesson::where('name', $name)->first();
+
+        $passage = Passage::where('language', $lesson->id)
+            ->where('lesson_id', 1)
+            ->orderBy('id', 'asc')
+            ->with('user', 'lesson')
+            ->first();
+
+        $lessons = Lesson::where('language', $languageId)
+            ->orderBy('id', 'asc')
+            ->get();
+    
+        $duplicatedNames = Vocabulary::select('name')
+            ->groupBy('name')
+            ->havingRaw('COUNT(name) > 1')
+            ->pluck('name');
+            
+        $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
+            ->where('language', operator: $languageId)
+            ->get();
+        
+        return view('pages.english.pagePassage.index', compact('passage', 'vocabularies','lessons','lesson'));
     }
 
     public function index_add_vocabulary()
@@ -42,11 +107,62 @@ class V1EnglishController extends Controller
             ->havingRaw('COUNT(name) > 1')
             ->pluck('name');
         
+        // $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
+        //     ->where('language', operator: $languageId)
+        //     ->get();
         $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
-            ->where('language', $languageId)
+            ->orderBy('id', 'desc')
             ->get();
 
         return view('pages.english.vocabulary.index', compact('lessons','vocabularies'));
+    }
+
+    public function showVocabulary($name)
+    {
+        $locale = session('locale', 'en');
+    
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+
+        $duplicatedNames = Vocabulary::select('name')
+            ->groupBy('name')
+            ->havingRaw('COUNT(name) > 1')
+            ->pluck('name');
+        
+        $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
+            ->where('language', operator: $languageId)
+            ->get();
+
+        $name = urldecode($name);
+
+        $lesson = Lesson::where('name', $name)->first();
+
+        $lessons = Lesson::where('language', $languageId)
+            ->orderBy('id', 'asc')
+            ->get();
+    
+        $vocabularie = Vocabulary::where('language', $languageId)
+            ->where('language', $lesson->id)
+            ->orderBy('id', 'asc')
+            ->get();
+
+
+        return view('pages.english.pageVocabulary.index', compact('vocabularie', 'vocabularies','lessons','lesson'));
+    }
+
+    public function searchVocabulary(Request $request)
+    {
+        $query = $request->input('query');
+
+        $vocabularies = Vocabulary::where('name', 'LIKE', "%{$query}%")
+            ->get();
+
+        return response()->json($vocabularies);
     }
 
     public function index_add_passage()
@@ -65,9 +181,7 @@ class V1EnglishController extends Controller
             ->orderBy('id', 'asc')
             ->get();
 
-        $passages = Passage::whereHas('lesson', function ($query) {
-                $query->where('language', 2);
-            })
+        $passages = Passage::where('language', 2)
             ->orderBy('id', 'asc')
             ->with('user', 'lesson')
             ->get();
@@ -75,6 +189,7 @@ class V1EnglishController extends Controller
 
         return view('pages.english.passage.index', compact('passages','lessons'));
     }
+    
 
     public function index_add_structure()
     {       
@@ -100,6 +215,98 @@ class V1EnglishController extends Controller
         ->get();
         return view('pages.english.structure.index',compact('structures','lessons'));
     }
+
+    public function showStructure($name)
+    {
+        $locale = session('locale', 'en');
+    
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+
+
+        $name = urldecode($name);
+
+        $lesson = Lesson::where('name', $name)->first();
+
+        $lessons = Lesson::where('language', $languageId)
+            ->orderBy('id', 'asc')
+            ->get();
+    
+        $structures = Structure::where('language', $languageId)
+            ->where('language', $lesson->id)
+            ->orderBy('id', 'asc')
+            ->get();
+
+
+        return view('pages.english.pageStructure.index', compact('structures','lessons','lesson'));
+    }
+
+    public function showLearnVocabulary($name)
+    {
+        $locale = session('locale', 'en');
+    
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+
+        $name = urldecode($name);
+
+        $lesson = Lesson::where('name', $name)->first();
+
+        $lessons = Lesson::where('language', $languageId)
+            ->orderBy('id', 'asc')
+            ->get();
+    
+        $vocabularie = Vocabulary::where('language', $languageId)
+            ->where('language', $lesson->id)
+            ->orderBy('id', 'asc')
+            ->get();
+
+
+        return view('pages.english.pageLearnVocabulary.index', compact('vocabularie','lessons','lesson'));
+    }
+
+    public function showCheckVocabulary($name)
+    {
+        $locale = session('locale', 'en');
+    
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+
+        $name = urldecode($name);
+
+        $lesson = Lesson::where('name', $name)->first();
+
+        $lessons = Lesson::where('language', $languageId)
+            ->orderBy('id', 'asc')
+            ->get();
+    
+        $quizItem = QuizItem::where('language', $languageId)
+            ->where('language', $lesson->id)
+            ->orderBy('id', 'asc')
+            ->get();
+
+
+        return view('pages.english.pageLearnVocabulary.index', compact('quizItem','lessons','lesson'));
+    }
+
+
+
+
 
     public function index_quiz_item()
     {       

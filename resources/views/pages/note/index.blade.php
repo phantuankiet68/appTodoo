@@ -131,7 +131,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 })
             })
             .then(response => response.json())
-            .then(data => console.log("Position saved:", data))
             .catch(error => console.error("Error:", error));
         });
     });

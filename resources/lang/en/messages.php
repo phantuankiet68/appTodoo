@@ -270,11 +270,15 @@ return [
     'Level'=>'Level',
     
     'Description'=>'Description',
-    'Role'=>'Role',
-    'Lesson'=>'Lesson',
-    'Role'=>'Role',
-    'Lesson'=>'Lesson',
-    'Role'=>'Role',
+    'Passage'=>'Passage',
+    'Vocabulary learning'=>'Vocabulary learning',
+    'Structure learning'=>'Structure learning',
+    'Vocabulary checking'=>'Vocabulary checking',
+    'Structure checking'=>'Structure checking',
+    'Meaning of the word'=>'Meaning of the word',
+
+    'Explanation'=>'Explanation',
+    'Learn vocabulary'=>'Learn vocabulary',
 
 
     

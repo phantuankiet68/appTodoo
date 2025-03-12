@@ -261,4 +261,13 @@ return [
     'Pronunciation'=>'Phát âm',
     'Level'=>'Cấp độ',
     'Description'=>'Mô tả',
+    'Passage'=>'Đoạn văn',
+    'Vocabulary learning'=>'Học từ vựng',
+    'Structure learning'=>'Học cấu trúc',
+    'Vocabulary checking'=>'Kiểm tra từ vựng',
+    'Structure checking'=>'Kiểm tra cấu trúc',
+    'Meaning of the word'=>'Nghĩa của từ',
+    'Explanation'=>'Giải thích',
+    'Learn vocabulary'=>'Học từ vựng',
+
 ];

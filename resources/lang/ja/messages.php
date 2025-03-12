@@ -273,4 +273,14 @@ return [
     'Level'=>'レベル',
     'Description'=>'説明',
 
+    'Passage'=>'文章',
+    'Vocabulary learning'=>'語彙学習',
+    'Structure learning'=>'構造学習',
+    'Vocabulary checking'=>'語彙確認',
+    'Structure checking'=>'構造確認',
+    'Meaning of the word'=>'単語の意味',
+
+    'Explanation'=>'説明',
+    'Learn vocabulary'=>'語彙を学ぶ',
+
 ];

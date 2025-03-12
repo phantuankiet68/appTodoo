@@ -183,9 +183,15 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::post('/quiz-items/update/{id}', [V1EnglishController::class, 'updateQuizItem'])->name('quiz-items.update');
     Route::get('/quizStructure', [V1EnglishController::class, 'index_quiz_structure'])->name('get.index_quiz_structure');
 
+    Route::get('/search-vocabulary', [V1EnglishController::class, 'searchVocabulary'])->name('search.vocabulary');
 
+    Route::get('/show/lesson/{name}',[V1EnglishController::class, 'showLesson'])->name('showLesson');
 
+    Route::get('/show/vocabulary/{name}',[V1EnglishController::class, 'showVocabulary'])->name('showVocabulary');
 
+    Route::get('/show/structure/{name}',[V1EnglishController::class, 'showStructure'])->name('showStructure');
+
+    Route::get('/show/learn/vocabulary/{name}',[V1EnglishController::class, 'showLearnVocabulary'])->name('showLearnVocabulary');
 
 
 });

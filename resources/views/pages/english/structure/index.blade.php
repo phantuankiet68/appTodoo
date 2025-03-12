@@ -72,9 +72,9 @@
             <a href="{{ route('englishs.index') }}">Back</a>
             <a href="{{ route('get.index_add_vocabulary')}}">Vocabulary</a>
             <a href="{{ route('get.index_add_passage')}}">Passage</a>
-            <a href="{{ route('get.index_add_structure')}}"  class="active">Học cấu trúc</a>
-            <a href="{{ route('get.index_quiz_item')}}">Kiểm tra từ vựng</a>
-            <a href="{{ route('get.index_quiz_structure')}}">Kiểm tra cấu trúc</a>
+            <a href="{{ route('get.index_add_structure')}}"  class="active">Structure</a>
+            <a href="{{ route('get.index_quiz_item')}}">Test Vocabulary</a>
+            <a href="{{ route('get.index_quiz_structure')}}">Test Structure</a>
         </div>
         <div class="w-full h-full d-flex flex-direction gap-10">
             <div class="english-vocabulary-theader">
@@ -84,38 +84,40 @@
                 <p style="width:10%; text-align: center;">{{ __('messages.Level') }}</p>
                 <p style="width:15%; text-align: center;">{{ __('messages.Action') }}</p>
             </div>
-            @foreach ($structures as $item)
-            <div class="english-vocabulary-tbody">
-                <p style="width:20%">{{ $item->name }}</p>
-                <p style="width:35%">{{ $item->structure }}</p>
-                <div style="width:15%;display: flex; justify-content: center;">
-                    @if ($item->status == 0)
-                        <p class="hidden text-center">Hide</p>
-                    @else
-                        <p class="show text-center">Show</p>
-                    @endif
+            <div class="english-tbody-scroll">
+                @foreach ($structures as $item)
+                <div class="english-vocabulary-tbody">
+                    <p style="width:20%">{{ $item->name }}</p>
+                    <p style="width:35%">{{ $item->structure }}</p>
+                    <div style="width:15%;display: flex; justify-content: center;">
+                        @if ($item->status == 0)
+                            <p class="hidden text-center">Hide</p>
+                        @else
+                            <p class="show text-center">Show</p>
+                        @endif
+                    </div>
+                    <div style="width:10%;display: flex; justify-content: center;">
+                        @if ($item->level == 1)
+                            <p class="basic text-center">Basic</p>
+                        @else
+                            <p class="show text-center">Pro</p>
+                        @endif
+                    </div>
+                    <p style="width:15%; text-align: center;">
+                        <button class="edit-english" onclick="editStructure(this)" data-id="{{ $item->id }}"
+                                data-name="{{ $item->name }}" data-structure="{{ $item->structure }}"
+                                data-example="{{ $item->example }}" data-translation="{{ $item->translation }}"
+                                data-explanation="{{ $item->explanation }}" data-level="{{ $item->level }}"
+                                data-status="{{ $item->status }}" data-lesson="{{ $item->lesson_id }}">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>
+                        <button class="delete-english" onclick="deleteStructure(this)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </p>
                 </div>
-                <div style="width:10%;display: flex; justify-content: center;">
-                    @if ($item->level == 1)
-                        <p class="basic text-center">Basic</p>
-                    @else
-                        <p class="show text-center">Pro</p>
-                    @endif
-                </div>
-                <p style="width:15%; text-align: center;">
-                    <button class="edit-english" onclick="editStructure(this)" data-id="{{ $item->id }}"
-                            data-name="{{ $item->name }}" data-structure="{{ $item->structure }}"
-                            data-example="{{ $item->example }}" data-translation="{{ $item->translation }}"
-                            data-explanation="{{ $item->explanation }}" data-level="{{ $item->level }}"
-                            data-status="{{ $item->status }}" data-lesson="{{ $item->lesson_id }}">
-                        <i class="fa-solid fa-pen-to-square"></i>
-                    </button>
-                    <button class="delete-english" onclick="deleteStructure(this)">
-                        <i class="fa-solid fa-trash"></i>
-                    </button>
-                </p>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </div>
 </div>

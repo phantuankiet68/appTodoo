@@ -4,29 +4,24 @@
 
 <div class="english-info">
     <div class="english-left">
-        <div class="english-left-vocabulary">
-            @foreach ($vocabularies as $item)
-            <div class="english-left-vocabulary-item">
-                <p>{{ $item->name }}</p>
-                <p>{{ $item->pronunciation }}</p>
-                <p>{{ $item->meaning }}</p>
-            </div>    
+        <div class="english-show-structure">
+            @foreach ( $structures as $item )
+            <div class="english-show-card">
+                <p>{{ __('messages.Structure learning') }}: {{ $item->name }}</p>
+                <p class="english-show-name"><b>{{ $item->structure }}</b></p>
+                <p class="english-show-example">{{ __('messages.Example') }}:  {{ $item->example }}</p>
+                <p class="english-show-translation">{{ __('messages.Translation') }}:  {{ $item->translation }}</p>
+                <p class="english-show-meaning">{{ __('messages.Explanation') }}:  {{ $item->explanation }}</p>
+            </div>
             @endforeach
         </div>
-        @if ($passage)
-            <div class="english-left-passage">
-                {!! $passage->description !!}
-            </div>
-        @else
-            <p>No passage found.</p>
-        @endif
     </div>
     <div class="english-right">
         <div class="english-right-top">
-            <a href="">{{ __('messages.Passage') }}</a>
-            <a href="">{{ __('messages.Vocabulary learning') }}</a>
-            <a href="">{{ __('messages.Structure learning') }}</a>
-            <a href="">{{ __('messages.Vocabulary checking') }}</a>
+            <a href="{{ route('showLesson', urlencode($lesson->name)) }}">{{ __('messages.Passage') }}</a>
+            <a href="{{ route('showVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Vocabulary learning') }}</a>
+            <a href="{{ route('showStructure', urlencode($lesson->name)) }}" class="active">{{ __('messages.Structure learning') }}</a>
+            <a  href="{{ route('showLearnVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Learn vocabulary') }}</a>
             <a href="">{{ __('messages.Vocabulary checking') }}</a>
             <a href="">{{ __('messages.Structure checking') }}</a>
         </div>
@@ -35,7 +30,7 @@
         </div>
         <div class="english-right-body">
             @foreach ($lessons as $item)
-                <a href="{{ route('showLesson', urlencode($item->name)) }}">{{ $item->name }}</a>
+                <a href="{{ route('showLesson', $item->name) }}">{{ $item->name }}</a>
             @endforeach
         </div>
     </div>

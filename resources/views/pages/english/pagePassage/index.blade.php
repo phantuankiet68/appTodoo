@@ -23,10 +23,10 @@
     </div>
     <div class="english-right">
         <div class="english-right-top">
-            <a href="">{{ __('messages.Passage') }}</a>
-            <a href="">{{ __('messages.Vocabulary learning') }}</a>
-            <a href="">{{ __('messages.Structure learning') }}</a>
-            <a href="">{{ __('messages.Vocabulary checking') }}</a>
+            <a href="{{ route('showLesson', urlencode($lesson->name)) }}" class="active">{{ __('messages.Passage') }}</a>
+            <a href="{{ route('showVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Vocabulary learning') }}</a>
+            <a href="{{ route('showStructure', urlencode($lesson->name)) }}">{{ __('messages.Structure learning') }}</a>
+            <a  href="{{ route('showLearnVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Learn vocabulary') }}</a>
             <a href="">{{ __('messages.Vocabulary checking') }}</a>
             <a href="">{{ __('messages.Structure checking') }}</a>
         </div>
@@ -35,7 +35,7 @@
         </div>
         <div class="english-right-body">
             @foreach ($lessons as $item)
-                <a href="{{ route('showLesson', urlencode($item->name)) }}">{{ $item->name }}</a>
+                <a href="{{ route('showLesson', $item->name) }}">{{ $item->name }}</a>
             @endforeach
         </div>
     </div>
@@ -58,6 +58,19 @@
         fabMain.addEventListener("click", () => {
             fabMenu.classList.toggle("openfad");
         });
+    });
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let navItem = document.querySelector(".nav-item a.nav-link");
+
+        navItem.style.display = "none";
+
+        navItem.addEventListener("mouseover", function () {
+            dropdown.style.display = "none";
+        });
+
     });
 </script>
 

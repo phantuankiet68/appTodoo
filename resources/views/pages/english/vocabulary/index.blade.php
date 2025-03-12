@@ -120,27 +120,40 @@
             <a href="{{ route('englishs.index') }}">Back</a>
             <a href="{{ route('get.index_add_vocabulary')}}" class="active">Vocabulary</a>
             <a href="{{ route('get.index_add_passage')}}">Passage</a>
-            <a href="{{ route('get.index_add_structure')}}">Học cấu trúc</a>
-            <a href="{{ route('get.index_quiz_item')}}">Kiểm tra từ vựng</a>
-            <a href="{{ route('get.index_quiz_structure')}}">Kiểm tra cấu trúc</a>
+            <a href="{{ route('get.index_add_structure')}}">Structure</a>
+            <a href="{{ route('get.index_quiz_item')}}">Test Vocabulary</a>
+            <a href="{{ route('get.index_quiz_structure')}}">Test Structure</a>
+        </div>
+        <div class="english-vocabulary-item-search">
+            <div class="w-full m-10">
+                <label for="search">{{ __('messages.Search text') }}</label>
+                <input type="text" id="searchVocabulary" name="search" class="w-full input mt-5" placeholder="{{ __('messages.Search name...') }}" />
+            </div>
         </div>
         <div class="w-full h-full d-flex flex-direction gap-10">
             <div class="english-vocabulary-theader">
-                <p style="width:25%">{{ __('messages.Name') }}</p>
-                <p style="width:25%">{{ __('messages.Meaning') }}</p>
-                <p style="width:25%">{{ __('messages.Pronunciation') }}</p>
-                <p style="width:10%; text-align: center;">{{ __('messages.Level') }}</p>
-                <p style="width:15%; text-align: center;">{{ __('messages.Action') }}</p>
+                <p style="width:25%; font-size: 13px;">{{ __('messages.Name') }}</p>
+                <p style="width:30%; font-size: 13px;">{{ __('messages.Meaning') }}</p>
+                <p style="width:30%; font-size: 13px;">{{ __('messages.Pronunciation') }}</p>
+                <p style="width:12%; font-size: 13px;text-align: center;">{{ __('messages.Action') }}</p>
             </div>
-            @foreach ($vocabularies as $item)
-            <div class="english-vocabulary-tbody">
-                <p style="width:25%">{{ $item->name }}</p>
-                <p style="width:25%">{{ $item->meaning }}</p>
-                <p style="width:25%">{{ $item->pronunciation }}</p>
-                <p style="width:10%; text-align: center;">{{ $item->level }}</p>
-                <p style="width:15%; text-align: center;">{{ __('messages.Action') }}</p>
+            <div class="english-tbody-scroll" id="vocabularyList">
+                @foreach ($vocabularies as $item)
+                <div class="english-vocabulary-tbody">
+                    <p style="width:25%; font-size: 13px;">{{ $item->name }}</p>
+                    <p style="width:30%; font-size: 13px;">{{ $item->meaning }}</p>
+                    <p style="width:30%; font-size: 13px;">{{ $item->pronunciation }}</p>
+                    <p style="width:12%; font-size: 13px; text-align: center;">
+                        <button class="edit-english" onclick="editStructure(this)">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </button>
+                        <button class="delete-english" onclick="deleteStructure(this)">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </p>
+                </div>
+                @endforeach
             </div>
-            @endforeach
         </div>
     </div>
 </div>
@@ -210,6 +223,51 @@
     });
 </script>
 <script>
+   document.addEventListener("DOMContentLoaded", function () {
+    function searchVocabulary() {
+        let query = document.getElementById("searchVocabulary").value;
+        let vocabularyList = document.getElementById("vocabularyList");
+
+        if (!vocabularyList) {
+            console.error("Error: vocabularyList not found!");
+            return;
+        }
+
+        fetch(`/v1/search-vocabulary?query=${query}`)
+            .then(response => response.json())
+            .then(data => {
+                vocabularyList.innerHTML = "";
+
+                if (data.length === 0) {
+                    vocabularyList.innerHTML = `<p style="text-align: center; font-size: 13px;">No results found</p>`;
+                } else {
+                    data.forEach(item => {
+                        vocabularyList.innerHTML += `
+                            <div class="english-vocabulary-tbody">
+                                <p style="width:25%; font-size: 13px;">${item.name}</p>
+                                <p style="width:30%; font-size: 13px;">${item.meaning}</p>
+                                <p style="width:30%; font-size: 13px;">${item.pronunciation}</p>
+                                <p style="width:12%; font-size: 13px; text-align: center;">
+                                    <button class="edit-english" onclick="editStructure(this)">
+                                        <i class="fa-solid fa-pen-to-square"></i>
+                                    </button>
+                                    <button class="delete-english" onclick="deleteStructure(this)">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </p>
+                            </div>
+                        `;
+                    });
+                }
+            })
+            .catch(error => console.error("Error fetching vocabulary:", error));
+    }
+
+    document.getElementById("searchVocabulary")?.addEventListener("keyup", searchVocabulary);
+});
+
+
+
     document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll(".save-btn").forEach((button) => {
             button.addEventListener("click", function () {

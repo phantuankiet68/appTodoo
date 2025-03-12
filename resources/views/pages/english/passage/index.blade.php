@@ -35,9 +35,9 @@
             <a href="{{ route('englishs.index') }}">Back</a>
             <a href="{{ route('get.index_add_vocabulary')}}">Vocabulary</a>
             <a href="{{ route('get.index_add_passage')}}" class="active">Passage</a>
-            <a href="{{ route('get.index_add_structure')}}">Học cấu trúc</a>
-            <a href="{{ route('get.index_quiz_item')}}">Kiểm tra từ vựng</a>
-            <a href="{{ route('get.index_quiz_structure')}}">Kiểm tra cấu trúc</a>
+            <a href="{{ route('get.index_add_structure')}}">Structure</a>
+            <a href="{{ route('get.index_quiz_item')}}">Test Vocabulary</a>
+            <a href="{{ route('get.index_quiz_structure')}}">Test Structure</a>
         </div>
         <div class="w-full h-full d-flex flex-direction gap-10">
             <div class="english-vocabulary-theader">
@@ -50,7 +50,7 @@
             <div class="english-vocabulary-tbody" data-id="{{ $item->id }}">
                 <p style="width:15%">{{ $item->lesson->name }}</p>
                 <p style="width:20%">{{ $item->user->full_name }}</p>
-                <div class="trustTitle1" style="width:50%; text-align: center;">{!! $item->description !!}</div>
+                <div class="trustTitle1" style="width:50%;">{!! $item->description !!}</div>
                 <p style="width:15%; text-align: center;">
                     <button class="edit-english" onclick="editEnglish(this)">
                         <i class="fa-solid fa-pen-to-square"></i>

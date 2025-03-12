@@ -85,9 +85,9 @@
             <a href="{{ route('englishs.index') }}">Back</a>
             <a href="{{ route('get.index_add_vocabulary')}}">Vocabulary</a>
             <a href="{{ route('get.index_add_passage')}}">Passage</a>
-            <a href="{{ route('get.index_add_structure')}}">Học cấu trúc</a>
-            <a href="{{ route('get.index_quiz_item')}}">Kiểm tra từ vựng </a>
-            <a href="{{ route('get.index_quiz_structure')}}" class="active">Kiểm tra cấu trúc</a>
+            <a href="{{ route('get.index_add_structure')}}">Structure</a>
+            <a href="{{ route('get.index_quiz_item')}}">Test Vocabulary</a>
+            <a href="{{ route('get.index_quiz_structure')}}" class="active">Test Structure</a>
         </div>
         <div class="w-full h-full d-flex flex-direction gap-10">
             <div class="english-vocabulary-theader">
