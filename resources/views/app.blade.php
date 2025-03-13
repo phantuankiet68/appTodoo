@@ -170,18 +170,6 @@
                         </a>
                         <ul class="subSidebar">
                             <li><a href="{{ route('codes.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.HTML/CSS') }}</div></a></li>
-                            @if($can_view_js)
-                            <li><a href="{{ route('javascripts.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Javascript') }}</div></a></li>
-                            @endif
-                            @if($can_view_vue)
-                            <li><a href="{{ route('vuejs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.VueJS') }}</div></a></li>
-                            @endif
-                            @if($can_view_react)
-                            <li><a href="{{ route('reactjs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.ReactJS') }}</div></a></li>
-                            @endif
-                            @if($can_view_jquery)
-                            <li><a href="{{ route('component.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.JqueryJS') }}</div></a></li>
-                            @endif
                             @if($can_view_angular)
                             <li><a href="{{ route('colors.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Angular') }}</div></a></li>
                             @endif
@@ -197,18 +185,6 @@
                         </a>
                         <ul class="subSidebar">
                             <li><a href="{{ route('codes.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.PHP') }}</div></a></li>
-                            @if($can_view_laravel)
-                            <li><a href="{{ route('javascripts.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Laravel') }}</div></a></li>
-                            @endif
-                            @if($can_view_node)
-                            <li><a href="{{ route('vuejs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.NodeJS') }}</div></a></li>
-                            @endif
-                            @if($can_view_cshap)
-                            <li><a href="{{ route('reactjs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.C#') }}</div></a></li>
-                            @endif
-                            @if($can_view_java)
-                            <li><a href="{{ route('component.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.JqueryJS') }}</div></a></li>
-                            @endif
                             @if($can_view_javascript)
                             <li><a href="{{ route('colors.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Java') }}</div></a></li>
                             @endif
@@ -224,18 +200,6 @@
                         </a>
                         <ul class="subSidebar">
                             <li><a href="{{ route('codes.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.FTP') }}</div></a></li>
-                            @if($can_view_ubuntu)
-                            <li><a href="{{ route('javascripts.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.UBUTU') }}</div></a></li>
-                            @endif
-                            @if($can_view_mysql)
-                            <li><a href="{{ route('vuejs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.MySQL') }}</div></a></li>
-                            @endif
-                            @if($can_view_sqlsever)
-                            <li><a href="{{ route('reactjs.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.SQLServer') }}</div></a></li>
-                            @endif
-                            @if($can_view_mongo)
-                            <li><a href="{{ route('component.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.Mongo') }}</div></a></li>
-                            @endif
                             @if($can_view_mysqlworkbench)
                             <li><a href="{{ route('colors.index') }}"><div class="subBoxMenu"><i class="fa-regular fa-circle"></i> {{ __('messages.MySqlWorkBench') }}</div></a></li>
                             @endif
