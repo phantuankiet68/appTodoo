@@ -13,24 +13,35 @@
             </div>    
             @endforeach
         </div>
-        @if ($passage)
-            <div class="english-left-passage">
-                {!! $passage->description !!}
+        <div class="english-left-body">
+            <div class="english-left-body-search">
+                <input type="text" class="input-search" id="search-input" placeholder="search">
+                <button class="button-search" id="search-button">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
             </div>
-        @else
-            <p>No passage found.</p>
-        @endif
+            <div class="show-result-english">
+                <p class="english-show-name"><b id="word-name"></b><i id="word-pronunciation"></i></p>
+                <p class="english-show-meaning">{{ __('messages.Meaning of the word') }}: <span id="word-meaning"></span></p>
+                <p class="english-show-example">{{ __('messages.Example') }}: <span id="word-example"></span></p>
+                <p class="english-show-translation">{{ __('messages.Translation') }}: <span id="word-translation"></span></p>
+            </div>
+            <div class="english-left-footer">
+                <p class="bold">{{ __('messages.importance') }}</p>
+                <p class="mt-5">{{ __('messages.description') }}</p>
+                <p class="bold mt-10">{{ __('messages.advice_title') }}</p>
+                <p class="mt-5">{{ __('messages.practice') }}</p>
+                <p class="mt-5">{{ __('messages.confidence') }}</p>
+                <p class="mt-5">{{ __('messages.vocabulary') }}</p>
+                <p class="mt-5">{{ __('messages.community') }}</p>
+                <p class="mt-5">{{ __('messages.writing') }}</p>
+                <p class="bold mt-10">{{ __('messages.future') }}</p>
+            </div>
+
+        </div>
     </div>
     <div class="english-right">
-        <div class="english-right-top">
-            <a href="">{{ __('messages.Passage') }}</a>
-            <a href="">{{ __('messages.Vocabulary learning') }}</a>
-            <a href="">{{ __('messages.Structure learning') }}</a>
-            <a href="">{{ __('messages.Vocabulary checking') }}</a>
-            <a href="">{{ __('messages.Vocabulary checking') }}</a>
-            <a href="">{{ __('messages.Structure checking') }}</a>
-        </div>
-        <div class="w-full mt-10">
+        <div class="w-full">
             <input type="text" name="url" class="w-full input"  placeholder="URL:"/> 
         </div>
         <div class="english-right-body">
@@ -59,6 +70,33 @@
             fabMenu.classList.toggle("openfad");
         });
     });
+
+    document.getElementById('search-button').addEventListener('click', function () {
+        let query = document.getElementById('search-input').value.trim();
+        let resultContainer = document.querySelector('.show-result-english');
+        if (query === '') {
+            alert('Vui lòng nhập từ cần tìm!');
+            return;
+        }
+
+        fetch(`/v1/vocabulary/search?query=${query}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data) {
+                    document.getElementById('word-name').innerText = data.name || 'Không tìm thấy';
+                    document.getElementById('word-meaning').innerText = data.meaning || 'N/A';
+                    document.getElementById('word-example').innerText = data.example || 'N/A';
+                    document.getElementById('word-translation').innerText = data.translation || 'N/A';
+                    document.getElementById('word-pronunciation').innerText = data.pronunciation || 'N/A';
+                    resultContainer.style.display = 'block';
+                } else {
+                    alert('Không tìm thấy từ vựng!');
+                }
+            })
+            .catch(error => console.error('Lỗi:', error));
+    });
+
+
 </script>
 
 @endsection

@@ -2081,37 +2081,36 @@ textarea{
     z-index: 100;
 }
 
-.login h3.title {
-    font-size: 33px;
-    font-weight: 800;
-    margin-bottom: 10px;
-    color: #4d5255;
-}
-.login .image-forgot{
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-}
-
-.login p.message {
-    margin-bottom: 10px;
-    color: #4d5255;
-    font-size: 13px;
-}
-
-.ModelCreateLogin h2{
-    font-size: 28px;
+.ModelCreateLogin .title {
+    color: #ffffff;
+    font-size: 30px;
     font-weight: 600;
-    color: #232836;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    background: #aed6fb;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
-.ModelCreateRegister h2{
-    font-size: 28px;
-    font-weight: 600;
-    color: #232836;
-    text-align: center;
+.ModelCreateLogin .group{
+    width: 100%;
+    padding:0 20px;
+    margin-top: 5px;
 }
+
+.ModelCreateLogin .group input {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    padding: 11px;
+    border: 1px solid #a6dfff;
+    border-radius: 5px;
+    outline: none;
+}
+
 
 .ModelCreateRegister label{
     font-size: 15px;
@@ -2134,7 +2133,7 @@ textarea{
     padding: 10px;
     position: absolute;
     width: 100%;
-    max-width: 368px;
+    max-width: 30%;
     top: 50%;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -2146,10 +2145,80 @@ textarea{
     margin-bottom: 10px;
 }
 
-.ModelCreateRegister .login{
+.ModelCreateRegisterz .login{
     padding: 20px 30px;
 }
 
+.register {
+    background-color: #ffffff;
+    width: 100%;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 50px 150px #fff5f533;
+    position: relative;
+}
+
+.ModelCreateRegister .title {
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    background: #aed6fb;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.ModelCreateRegister .group{
+    width: 100%;
+    padding:0 20px;
+    margin-top: 5px;
+}
+
+.ModelCreateRegister .group input {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    padding: 11px;
+    border: 1px solid #a6dfff;
+    border-radius: 5px;
+    outline: none;
+}
+
+.ModelCreateRegister .group select {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid #a6dfff;
+    border-radius: 5px;
+}
+
+input[readonly] {
+    background-color: #c1f8ff;
+    cursor: text;
+    user-select: all;
+}
+
+.signIn{
+    padding:15px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.signIn button{
+    padding: 5px 38px;
+    background: #fff;
+    border: 1px solid #a6dfff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signIn button:hover{
+    background-color: #00c2ff;
+    color: #fff;
+}
 
 .media-options a {
   display: flex;
@@ -3784,56 +3853,31 @@ blockquote .author {
 .login {
     background-color: #ffffff;
     width: 100%;
-    text-align: center;
     border: 2px solid var(--border-color);
     border-radius: 8px;
-    padding: 30px;
     box-shadow: 0 50px 150px #fff5f533;
     position: relative;
 }
-.login .title{
-    font-size: 35px;
-    font-weight: 800;
-    margin-bottom: 20px;
-    color: #4d5255;
-}
-.login .des{
-    margin-bottom: 20px;
-}
-.login .group{
-    height: 50px;
-    margin-bottom: 20px;
-    display: flex;
-    background: #fff;
-    border-radius: 32px;
-    justify-content: center;
-    align-items: center;
-}
-.login .group input {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background-color: #ffffff;
-    padding: 5px 20px;
-    border-radius: 46px;
-    outline: none;
-    border: 1px solid #d6d6d7;
-}
+
+
+
 .login .group span {
     position: absolute;
     color: #777;
     display: flex;
     margin-right: 20px;
     cursor: pointer;
-    right: 25px;
+    right: 10px;
     font-size: 14px;
+    top: 42px;
 }
+
+
 .login .group span ion-icon:nth-child(2){
     display: none;
 }
 .login .recovery{
     text-align: right;
-    margin-bottom: 20px;
     font-size: small;
 }
 .login .signIn button{
@@ -3843,7 +3887,6 @@ blockquote .author {
     height: 47px;
     border: none;
     box-shadow: 0 10px 20px #92d4ff99;
-    margin-bottom: 20px;
     transition: 0.5s;
     color: #fff;
 }
@@ -3896,12 +3939,24 @@ blockquote .author {
 }
 .login .register{
     font-size: small;
-}
-.login .recovery a, .register a{
-    color: #1364cf;
-    text-decoration: none
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
 }
 
+.login .register a{
+    color: #1364cf;
+    text-decoration: none;
+}
+.login .recovery a{
+    display: flex;
+    color: #1364cf;
+    text-decoration: none;
+    padding: 10px 20px;
+    justify-content: right;
+}
 .group input:focus {
   box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5);
 }

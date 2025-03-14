@@ -28,13 +28,8 @@ class V1EnglishController extends Controller
     
         $languageId = $languageMap[$locale] ?? 2;
 
-        $passage = Passage::where('language', 2)
-            ->where('lesson_id', 1)
-            ->orderBy('id', 'asc')
-            ->with('user', 'lesson')
-            ->first();
-
         $lessons = Lesson::where('language', $languageId)
+            ->where('difficulty', 1)
             ->orderBy('id', 'asc')
             ->get();
     
@@ -45,10 +40,37 @@ class V1EnglishController extends Controller
             
         $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
             ->where('language', operator: $languageId)
+            ->where('difficulty', 1)
             ->get();
 
-        return view('pages.english.index', compact('passage', 'vocabularies','lessons'));
+        return view('pages.english.index', compact( 'vocabularies','lessons'));
     }
+
+    public function indexsearch(Request $request) {
+        $locale = session('locale', 'en');
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+        $languageId = $languageMap[$locale] ?? 2;
+    
+        $query = $request->input('query');
+    
+        $vocabulary = Vocabulary::where('language', $languageId)
+            ->where('difficulty', 1)
+            ->where(function ($q) use ($query) {
+                $q->where('name', 'LIKE', "%$query%")
+                  ->orWhere('meaning', 'LIKE', "%$query%")
+                  ->orWhere('example', 'LIKE', "%$query%")
+                  ->orWhere('translation', 'LIKE', "%$query%");
+            })
+            ->first();
+    
+        return response()->json($vocabulary);
+    }
+    
+
     public function showLesson($name)
     {
         $locale = session('locale', 'en');
@@ -62,17 +84,7 @@ class V1EnglishController extends Controller
         $languageId = $languageMap[$locale] ?? 2;
 
         $name = urldecode($name);
-        $lesson = Lesson::where('name', $name)->first();
-
-        $passage = Passage::where('language', $lesson->id)
-            ->where('lesson_id', 1)
-            ->orderBy('id', 'asc')
-            ->with('user', 'lesson')
-            ->first();
-
-        $lessons = Lesson::where('language', $languageId)
-            ->orderBy('id', 'asc')
-            ->get();
+        $lesson = Lesson::where('name', $name)->where('difficulty', 1)->first();
     
         $duplicatedNames = Vocabulary::select('name')
             ->groupBy('name')
@@ -80,10 +92,17 @@ class V1EnglishController extends Controller
             ->pluck('name');
             
         $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
+            ->where('difficulty', 1)
             ->where('language', operator: $languageId)
             ->get();
+
+        $passage = Passage::where('language', $lesson->id)
+            ->where('lesson_id', 1)
+            ->orderBy('id', 'asc')
+            ->with('user', 'lesson')
+            ->first();
         
-        return view('pages.english.pagePassage.index', compact('passage', 'vocabularies','lessons','lesson'));
+        return view('pages.english.pagePassage.index', compact('passage', 'vocabularies','lesson'));
     }
 
     public function index_add_vocabulary()
@@ -99,6 +118,7 @@ class V1EnglishController extends Controller
         $languageId = $languageMap[$locale] ?? 2;
     
         $lessons = Lesson::where('language', $languageId)
+            ->where('difficulty', 1)
             ->orderBy('id', 'asc')
             ->get();
 
@@ -107,10 +127,8 @@ class V1EnglishController extends Controller
             ->havingRaw('COUNT(name) > 1')
             ->pluck('name');
         
-        // $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
-        //     ->where('language', operator: $languageId)
-        //     ->get();
         $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
+            ->where('difficulty', 1)
             ->orderBy('id', 'desc')
             ->get();
 
@@ -135,24 +153,22 @@ class V1EnglishController extends Controller
             ->pluck('name');
         
         $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
+            ->where('difficulty', 1)
             ->where('language', operator: $languageId)
             ->get();
 
         $name = urldecode($name);
 
-        $lesson = Lesson::where('name', $name)->first();
-
-        $lessons = Lesson::where('language', $languageId)
-            ->orderBy('id', 'asc')
-            ->get();
+        $lesson = Lesson::where('name', $name)->where('difficulty', 1)->first();
     
         $vocabularie = Vocabulary::where('language', $languageId)
+            ->where('difficulty', 1)
             ->where('language', $lesson->id)
             ->orderBy('id', 'asc')
             ->get();
 
 
-        return view('pages.english.pageVocabulary.index', compact('vocabularie', 'vocabularies','lessons','lesson'));
+        return view('pages.english.pageVocabulary.index', compact('vocabularie', 'vocabularies','lesson'));
     }
 
     public function searchVocabulary(Request $request)
@@ -160,6 +176,7 @@ class V1EnglishController extends Controller
         $query = $request->input('query');
 
         $vocabularies = Vocabulary::where('name', 'LIKE', "%{$query}%")
+            ->where('difficulty', 1)
             ->get();
 
         return response()->json($vocabularies);
@@ -178,10 +195,12 @@ class V1EnglishController extends Controller
         $languageId = $languageMap[$locale] ?? 2;
 
         $lessons = Lesson::where('language', $languageId)
+            ->where('difficulty', 1)
             ->orderBy('id', 'asc')
             ->get();
 
         $passages = Passage::where('language', 2)
+            ->where('difficulty', 1)
             ->orderBy('id', 'asc')
             ->with('user', 'lesson')
             ->get();
@@ -202,8 +221,8 @@ class V1EnglishController extends Controller
         ];
     
         $languageId = $languageMap[$locale] ?? 2;
-
         $lessons = Lesson::where('language', $languageId)
+            ->where('difficulty', 1)
             ->orderBy('id', 'asc')
             ->get();
 
@@ -211,6 +230,7 @@ class V1EnglishController extends Controller
             $query->where('language', 2);
         })
         ->orderBy('id', 'asc')
+        ->where('difficulty', 1)
         ->with('user', 'lesson')
         ->get();
         return view('pages.english.structure.index',compact('structures','lessons'));
@@ -231,19 +251,16 @@ class V1EnglishController extends Controller
 
         $name = urldecode($name);
 
-        $lesson = Lesson::where('name', $name)->first();
-
-        $lessons = Lesson::where('language', $languageId)
-            ->orderBy('id', 'asc')
-            ->get();
+        $lesson = Lesson::where('name', $name)->where('difficulty', 1)->first();
     
         $structures = Structure::where('language', $languageId)
+            ->where('difficulty', 1)
             ->where('language', $lesson->id)
             ->orderBy('id', 'asc')
             ->get();
 
 
-        return view('pages.english.pageStructure.index', compact('structures','lessons','lesson'));
+        return view('pages.english.pageStructure.index', compact('structures','lesson'));
     }
 
     public function showLearnVocabulary($name)
@@ -260,19 +277,16 @@ class V1EnglishController extends Controller
 
         $name = urldecode($name);
 
-        $lesson = Lesson::where('name', $name)->first();
-
-        $lessons = Lesson::where('language', $languageId)
-            ->orderBy('id', 'asc')
-            ->get();
+        $lesson = Lesson::where('name', $name)->where('difficulty', 1)->first();
     
         $vocabularie = Vocabulary::where('language', $languageId)
+            ->where('difficulty', 1)
             ->where('language', $lesson->id)
             ->orderBy('id', 'asc')
             ->get();
 
 
-        return view('pages.english.pageLearnVocabulary.index', compact('vocabularie','lessons','lesson'));
+        return view('pages.english.pageLearnVocabulary.index', compact('vocabularie','lesson'));
     }
 
     public function showCheckVocabulary($name)
@@ -289,20 +303,44 @@ class V1EnglishController extends Controller
 
         $name = urldecode($name);
 
-        $lesson = Lesson::where('name', $name)->first();
-
-        $lessons = Lesson::where('language', $languageId)
-            ->orderBy('id', 'asc')
-            ->get();
+        $lesson = Lesson::where('name', $name)->where('difficulty', 1)->first();
     
-        $quizItem = QuizItem::where('language', $languageId)
-            ->where('language', $lesson->id)
+        $quizItem = QuizItem::where('difficulty', 1)
+            ->where('lesson_id', $lesson->id)
+            ->where('quiz_category_id', 1)
+            ->orderBy('id', 'asc')
+            ->get();
+
+        return view('pages.english.pageCkeckVocabulary.index', compact('quizItem','lesson'));
+    }
+
+    public function showCheckStructure($name)
+    {
+        $locale = session('locale', 'en');
+    
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+    
+        $languageId = $languageMap[$locale] ?? 2;
+
+        $name = urldecode($name);
+
+        $lesson = Lesson::where('name', $name)->where('difficulty', 1)->first();
+        
+        $quizItem = QuizItem::where('language', 2)
+            ->where('lesson_id', $lesson->id)
+            ->where('difficulty', 1)
+            ->where('quiz_category_id', 2)
             ->orderBy('id', 'asc')
             ->get();
 
 
-        return view('pages.english.pageLearnVocabulary.index', compact('quizItem','lessons','lesson'));
+        return view('pages.english.pageCheckStructure.index', compact('quizItem','lesson'));
     }
+
 
 
 
@@ -321,15 +359,14 @@ class V1EnglishController extends Controller
         $languageId = $languageMap[$locale] ?? 2;
 
         $lessons = Lesson::where('language', $languageId)
+            ->where('difficulty', 1)
             ->orderBy('id', 'asc')
             ->get();
 
         $categories = QuizCategory::all();
 
         $quizItems = QuizItem::where('quiz_category_id', 1)
-            ->whereHas('lesson', function ($query) {
-                $query->where('language', 2);
-            })
+            ->where('difficulty', 1)
             ->orderBy('id', 'asc')
             ->with('user', 'lesson')
             ->get();
@@ -356,12 +393,11 @@ class V1EnglishController extends Controller
         $categories = QuizCategory::all();
 
         $quizItems = QuizItem::where('quiz_category_id', 2)
-            ->whereHas('lesson', function ($query) {
-                $query->where('language', 2);
-            })
+            ->where('difficulty', 1)
             ->orderBy('id', 'asc')
             ->with('user', 'lesson')
             ->get();
+        
         
         return view('pages.english.quizStructure.index',compact('quizItems','categories','lessons'));
     }
@@ -384,8 +420,10 @@ class V1EnglishController extends Controller
 
         try {
             Lesson::create([
+                'user_id' => Auth::id(),
                 'name' => $request->name,
                 'title' => $request->title,
+                'difficulty' => 1,
                 'language' => $request->language,
             ]);
 
@@ -413,6 +451,7 @@ class V1EnglishController extends Controller
             Vocabulary::create([
                 'user_id'       => Auth::id(),
                 'lesson_id'     => $request->lesson_id,
+                'difficulty' => 1,
                 'language'      => $request->language,
                 'name'          => $request->name,
                 'meaning'       => $request->meaning,
@@ -442,6 +481,7 @@ class V1EnglishController extends Controller
 
         Passage::create([
             'user_id'       => Auth::id(),
+            'difficulty' => 1,
             'lesson_id' => $request->lesson_id,
             'language' => $request->language,
             'description' => $request->description,
@@ -467,6 +507,7 @@ class V1EnglishController extends Controller
         Structure::create([
             'lesson_id' => $request->lesson_id,
             'user_id' => Auth::id(),
+            'difficulty' => 1,
             'name' => $request->name,
             'structure' => $request->structure,
             'example' => $request->example,
@@ -499,6 +540,7 @@ class V1EnglishController extends Controller
         QuizItem::create([
             'lesson_id' => $request->lesson_id,
             'quiz_category_id' => $request->quiz_category_id,
+            'difficulty' => 1,
             'question' => $request->question,
             'option_a' => $request->option_a,
             'option_b' => $request->option_b,

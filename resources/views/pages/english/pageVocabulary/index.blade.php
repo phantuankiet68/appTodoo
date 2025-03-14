@@ -21,37 +21,35 @@
             <a href="{{ route('showVocabulary', urlencode($lesson->name)) }}" class="active">{{ __('messages.Vocabulary learning') }}</a>
             <a href="{{ route('showStructure', urlencode($lesson->name)) }}">{{ __('messages.Structure learning') }}</a>
             <a  href="{{ route('showLearnVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Learn vocabulary') }}</a>
-            <a href="">{{ __('messages.Vocabulary checking') }}</a>
-            <a href="">{{ __('messages.Structure checking') }}</a>
+            <a href="{{ route('showCheckVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Vocabulary checking') }}</a>
+            <a href="{{ route('showCheckStructure', urlencode($lesson->name)) }}">{{ __('messages.Structure checking') }}</a>
         </div>
-        <div class="w-full mt-10">
-            <input type="text" name="url" class="w-full input"  placeholder="URL:"/> 
-        </div>
-        <div class="english-right-body">
-            @foreach ($lessons as $item)
-                <a href="{{ route('showLesson', $item->name) }}">{{ $item->name }}</a>
-            @endforeach
+        <div class="english-right-body-show">
+            <p>{{ __('messages.why_cant_learn') }}</p>
+            <p>{{ __('messages.why_difficult') }}</p>
+            <p>{{ __('messages.why_forget') }}</p>
+            <p>{{ __('messages.why_not_fluent') }}</p>
+            <p>{{ __('messages.why_nervous') }}</p>
+            <p>{{ __('messages.why_bad_pronunciation') }}</p>
+            <p>{{ __('messages.why_understand_but_not_speak') }}</p>
+            <p>{{ __('messages.why_confusing_grammar') }}</p>
+            <p>{{ __('messages.why_listening_skills') }}</p>
+            <p>{{ __('messages.why_no_motivation') }}</p>
         </div>
     </div>
 </div>
 
-<div class="fab-container">
-    <button class="fab main-fab" id="fabMain"><i class="fa-solid fa-list"></i></button>
-    <div class="fab-menu">
-        <a href="" class="fab fab-item">📄</a>
-        <a href="" class="fab fab-item">⚙️</a>
-        <a href="{{ route('get.index_add_vocabulary')}}" class="fab fab-item">+</a>
-    </div>
-</div>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const fabMain = document.getElementById("fabMain");
-        const fabMenu = document.querySelector(".fab-menu");
+    document.addEventListener("DOMContentLoaded", function () {
+        let navItem = document.querySelector(".nav-item a.nav-link");
 
-        fabMain.addEventListener("click", () => {
-            fabMenu.classList.toggle("openfad");
+        navItem.style.display = "none";
+
+        navItem.addEventListener("mouseover", function () {
+            dropdown.style.display = "none";
         });
+
     });
 </script>
 

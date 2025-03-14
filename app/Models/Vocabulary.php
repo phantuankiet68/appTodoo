@@ -9,7 +9,7 @@ class Vocabulary extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'user_id','lesson_id', 'language', 'name', 'meaning', 'example', 'translation','pronunciation', 'level', 'status'
+        'user_id','lesson_id','difficulty', 'language', 'name', 'meaning', 'example', 'translation','pronunciation', 'level', 'status'
     ];
 
     public function lesson()

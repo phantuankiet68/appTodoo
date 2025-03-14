@@ -279,9 +279,26 @@ return [
 
     'Explanation'=>'Explanation',
     'Learn vocabulary'=>'Learn vocabulary',
+    'importance' => '🌍 The Importance of English in the Future',
+    'description' => 'English is not just a language, but a key 🔑 to unlocking global opportunities...',
+    'advice_title' => '💡 Tips for Learning English Effectively:',
+    'practice' => '✅ Practice daily: Read newspapers, watch movies, and listen to podcasts in English to create a natural learning environment. 📖🎧',
+    'confidence' => '✅ Be confident in speaking: Don\'t be afraid to make mistakes! Every conversation brings you closer to fluency. 🗣️',
+    'vocabulary' => '✅ Learn vocabulary smartly: Use vocabulary apps, take notes, and apply them in real-life situations. 📝',
+    'community' => '✅ Join communities: Connect with fellow learners, join clubs, or take online courses. 🌐',
+    'writing' => '✅ Practice writing: Keep a journal, write emails, or short essays in English to improve your expression. ✍️',
+    'future' => '🌍 The future belongs to those who are ready to seize opportunities! Start learning English today to become the best version of yourself.',
 
-
-    
+    'why_cant_learn' => "Why can't I learn English well?",
+    'why_difficult' => "Why is English so difficult to learn?",
+    'why_forget' => "Why do I forget English words so quickly?",
+    'why_not_fluent' => "Why can't I speak English fluently?",
+    'why_nervous' => "Why do I feel nervous when speaking English?",
+    'why_bad_pronunciation' => "Why is my English pronunciation so bad?",
+    'why_understand_but_not_speak' => "Why do I understand English but can't speak it?",
+    'why_confusing_grammar' => "Why does English grammar confuse me?",
+    'why_listening_skills' => "Why do I struggle with English listening skills?",
+    'why_no_motivation' => "Why do I feel unmotivated to learn English?",
 
 
 

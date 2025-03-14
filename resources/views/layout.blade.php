@@ -221,14 +221,16 @@
     <script src="{{ asset('js/layout.js') }}"></script>
     <div class="modal" id="CreateLogin">
         <div class="ModelCreateLogin">
-            <form method="POST" action="{{ url(app()->getLocale() . '/login') }}">
+            <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="login">
                     <div class="title">{{ __('messages.Login') }}</div>
                     <div class="group">
+                        <label for="email">Email</label>
                         <input type="email" name="email" placeholder="{{ __('messages.Enter email...') }}">
                     </div>
                     <div class="group">
+                        <label for="password">Password</label>
                         <input type="password" id="password" name="password" placeholder="{{ __('messages.Enter password...') }}">
                         <span id="showPassword">
                             <i class="fa-solid fa-eye" id="toggle-password"></i>
@@ -240,17 +242,6 @@
                     <div class="signIn">
                         <button type="submit">{{ __('messages.Login') }}</button>
                     </div>
-                    {{-- <div class="or">
-                        {{ __('messages.Or continue with') }}
-                    </div>
-                    <div class="list">
-                        <a href="" class="item">
-                            <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="">
-                        </a>
-                        <a href="" class="item">
-                            <img src="https://museumandgallery.org/wp-content/uploads/2020/03/Facebook-Icon-Facebook-Logo-Social-Media-Fb-Logo-Facebook-Logo-PNG-and-Vector-with-Transparent-Background-for-Free-Download.png" alt="">
-                        </a>
-                    </div> --}}
                     <div class="register">
                      {{ __('messages.Not a member?') }} <a href="#register" class="btn-login" onclick="Register();">{{ __('messages.Register now') }}</a>
                     </div>
@@ -282,32 +273,38 @@
         <div class="ModelCreateRegister">
         <form  action="{{ route('register') }}" method="POST" onsubmit="return validateForm()">
             @csrf
-            <div class="login">
-                <div class="title">Đăng ký!</div>
-                <div class="des">
-                    We are glad to have you back! <br> beeb missed!
-                </div>
+            <div class="register">
+                <div class="title">Đăng ký</div>
                 <div class="group">
+                    <label for="full_name">Họ và tên</label>
                     <input type="text" class="input-name" name="full_name" id="full_name" placeholder="Nhập Họ và tên">
                 </div>
                 <div class="group">
+                    <label for="email">Email</label>
                     <input type="email" name="email" placeholder="Nhập email">
                 </div>
                 <div class="group">
-                    <input type="password" name="password" placeholder="Nhập password">
+                    <label for="password">Password</label>
+                    <input type="text" id="password_register" name="password" readonly>
                 </div>
                 <div class="group">
-                    <input type="password" class="input-name" name="password_confirmation" id="password_confirmation" placeholder="Nhập confirm password">
-                    <span class="input-error" id="password_confirmation_error"></span>
+                    <label for="password_confirmation">Confirmation Password</label>
+                    <input type="text" class="input-name" name="password_confirmation" id="password_confirmation" readonly>
                 </div>
                 <div class="group">
-                    <input type="text" class="input-name" name="phone" id="phone" placeholder="Nhập phone">
+                    <label for="phone">Phone</label>
+                    <input type="text" class="input-name" name="phone" id="phone">
                 </div>
                 <div class="group">
-                    <input type="text" class="input-name" name="address" id="address" placeholder="Nhập địa chỉ">
+                    <label for="address">Address</label>
+                    <input type="text" class="input-name" name="address" id="address">
                 </div>
                 <div class="group">
-                    <input type="text" class="input-name" name="gender" id="gender" placeholder="Nhập giới tính">
+                    <label for="gender">Gender</label>
+                    <select name="gender">
+                        <option value="0">Nam</option>
+                        <option value="1">Nữ</option>
+                    </select>
                 </div>
                 <input type="hidden" class="input-name" name="roles" value="0">
                 <div class="signIn">
@@ -382,6 +379,33 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script>
+        
+        function generatePassword(length = 20) {
+            const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
+            let password = "";
+            for (let i = 0; i < length; i++) {
+                password += charset.charAt(Math.floor(Math.random() * charset.length));
+            }
+            return password;
+        }
+
+        function autoFillPasswords() {
+            if (window.location.hash === "#register") {
+                const passwordField = document.getElementById("password_register");
+                const confirmPasswordField = document.getElementById("password_confirmation");
+
+                if (passwordField && confirmPasswordField) {
+                    const generatedPassword = generatePassword();
+                    passwordField.value = generatedPassword;
+                    confirmPasswordField.value = generatedPassword;
+                }
+            }
+        }
+
+        window.addEventListener("load", autoFillPasswords);
+        window.addEventListener("hashchange", autoFillPasswords);
+
+
         var swiper = new Swiper(".mySwiper", {
             spaceBetween: 30,
             grabCursor: true,
@@ -414,9 +438,9 @@
         var indexValue = 1;
         showImg(indexValue);
 
-        // Tự động chuyển ảnh sau mỗi 10 giây
+
         setInterval(function() {
-        side_slide(1); // Chuyển sang ảnh kế tiếp
+        side_slide(1);
         }, 10000);
 
         function btm_slide(e) {

@@ -43,7 +43,7 @@
         <div class="croll-sidebar">
             <ul class="features-list">
                 <li class="features-item inbox active">
-                    <a href="{{ route('home.index') }}" class="d-flex align-items">
+                    <a href="{{ route('home.index') }}" data-link="home" class="d-flex align-items">
                         <i class="bx bxs-home-alt features-item-icon inbox-icon"><span class="status"></span></i>
                         <i class="fa-solid fa-house"></i>
                         <span class="features-item-text">{{ __('messages.Dashboard') }}</span>
@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li class="features-item spam">
-                    <a href="{{ route('messages.index') }}" class="d-flex align-items">
+                    <a href="{{ route('messages.index') }}" data-link="message" class="d-flex align-items">
                         <i class="bx bxs-chat features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Message') }}</span>
                         <span class="inbox-number yellow">99</span>
@@ -59,7 +59,7 @@
                     </a>
                 </li>
                 <li class="features-item trash">
-                    <a href="{{ route('expenses.index') }}" class="d-flex align-items">
+                    <a href="{{ route('expenses.index') }}" data-link="expense" class="d-flex align-items">
                         <i class="bx bxs-bar-chart-alt-2 features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Expenses') }}</span>
                         <span class="inbox-number light-blue">99</span>
@@ -68,7 +68,7 @@
                 </li>
                 
                 <li class="features-item spam">
-                    <a href="{{ route('notes.index') }}" class="d-flex align-items">
+                    <a href="{{ route('notes.index') }}"  data-link="note" class="d-flex align-items">
                         <i class="bx bx-edit features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Note') }}</span>
                         <span class="inbox-number blue">99</span>
@@ -77,7 +77,7 @@
                 </li>
                 
                 <li class="features-item star">
-                    <a href="{{ route('tasks.index') }}" class="d-flex align-items">
+                    <a href="{{ route('tasks.index') }}" data-link="task" class="d-flex align-items">
                         <i class="bx bx-star features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Tasks') }}</span>
                         <span class="inbox-number green">99</span>
@@ -85,7 +85,7 @@
                     </a>
                 </li>
                 <li class="features-item draft">
-                    <a href="{{ route('projects.index') }}" class="d-flex align-items">
+                    <a href="{{ route('projects.index') }}" data-link="project" class="d-flex align-items">
                         <i class="bx bx-file-blank features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Project') }}</span>
                         <span class="inbox-number organ">99</span>
@@ -96,7 +96,7 @@
           
             <ul class="category-list">
                 <li class="features-item spam">
-                    <a href="{{ route('englishs.index') }}" class="d-flex align-items">
+                    <a href="{{ route('englishs.index') }}" data-link="english" class="d-flex align-items">
                         <i class="bx bxs-add-to-queue features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.English') }}</span>
                         <span class="inbox-number blue">99</span>
@@ -104,7 +104,7 @@
                     </a>
                 </li>
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items">
+                    <a href="" class="d-flex align-items" data-link="japanese">
                         <i class="bx bxs-add-to-queue features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Japanese') }}</span>
                         <span class="inbox-number blue">99</span>
@@ -112,7 +112,7 @@
                     </a>
                 </li>
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items">
+                    <a href="" class="d-flex align-items" data-link="question">
                         <i class="bx bxs-add-to-queue features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Question') }}</span>
                         <span class="inbox-number blue">99</span>
@@ -120,7 +120,7 @@
                     </a>
                 </li>
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items">
+                    <a href="" class="d-flex align-items" data-link="note">
                         <i class="bx bx-edit features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Note') }}</span>
                         <span class="inbox-number blue">99</span>
@@ -131,7 +131,7 @@
 
             <ul class="chat-list">
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items">
+                    <a href="" class="d-flex align-items" data-link="code">
                         <i class="bx bx-code-block features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Code') }}</span>
                         <span class="inbox-number blue">99</span>
@@ -139,7 +139,7 @@
                     </a>
                 </li>
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items">
+                    <a href="" class="d-flex align-items" data-link="component">
                         <i class="bx bx-code-block features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Component') }}</span>
                         <span class="inbox-number blue">99</span>
@@ -147,7 +147,7 @@
                     </a>
                 </li>
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items">
+                    <a href="" class="d-flex align-items" data-link="error">
                         <i class="bx bx-alarm-exclamation features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Error') }}</span>
                         <span class="inbox-number blue">99</span>
@@ -155,7 +155,7 @@
                     </a>
                 </li>
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items">
+                    <a href="" class="d-flex align-items" data-link="remove">
                         <i class="bx bxs-folder-minus features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Remove') }}</span>
                         <span class="inbox-number blue">99</span>
@@ -579,6 +579,37 @@
                 toggleIcon.classList.add('fa-eye');
             }
         });
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuItems = document.querySelectorAll(".features-item a");
+
+            const activeLink = localStorage.getItem("activeLinkItem");
+
+            if (activeLink) {
+                menuItems.forEach(item => {
+                    if (item.dataset.link === activeLink) {
+                        item.closest(".features-item").classList.add("active");
+                    } else {
+                        item.closest(".features-item").classList.remove("active");
+                    }
+                });
+            }
+
+            menuItems.forEach(item => {
+                item.addEventListener("click", function (e) {
+                    e.preventDefault();
+
+                    const selectedLink = this.dataset.link;
+                    localStorage.setItem("activeLinkItem", selectedLink);
+
+                    menuItems.forEach(i => i.closest(".features-item").classList.remove("active"));
+
+                    this.closest(".features-item").classList.add("active");
+
+                    window.location.href = this.href;
+                });
+            });
+        });
+
     </script>
     <script src="{{ asset('js/layout.js') }}"></script>
 </body>

@@ -11,6 +11,7 @@ class QuizItem extends Model
     protected $fillable = [
         'lesson_id', 
         'quiz_category_id',
+        'difficulty', 
         'question', 
         'option_a', 
         'option_b', 
