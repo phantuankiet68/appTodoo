@@ -7156,9 +7156,8 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 10px;
     background: #fff;
-    height: 32vh;
+    height: 56vh;
     border-radius: 5px;
     overflow: auto;
     padding: 10px;
@@ -7663,6 +7662,7 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding-right: 6px;
 }
 
 .english-left-body-search{
@@ -7705,7 +7705,6 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 .english-left-footer {
     background-color: #fff;
     padding: 10px;
-    border: 1px solid #d7d7d7;
     border-radius: 5px;
     line-height: 1.8;
 }
@@ -7739,4 +7738,35 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     flex-direction: column;
     height: 69vh;
     overflow: auto;
+}
+
+.bg-blue-hover:hover{
+    background: #6fbeff;
+    color: #ffff;
+}
+
+.english-left-footer-choose{
+    display: flex;
+    gap: 10px;
+}
+
+.english-left-footer-card {
+    height: 22vh;
+    background: linear-gradient(to right, rgb(255 0 0 / 90%), rgb(0 170 255 / 90%)), url(../assets/images/backgroundw1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: overlay;
+    width: 25%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.english-left-footer-card p {
+    color: #ffb24a;
+    font-size: 25px;
+    line-height: 1.3;
 }

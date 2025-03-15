@@ -964,12 +964,11 @@ header nav a#logo {
 }
 header nav ul a {
     color: #161616;
-    font-size: 16px;
+    font-size: 15px;
     background-color: #ffff;
-    padding: 6px 20px;
+    padding: 6px 17px;
     border-radius: 20px;
 }
-
 /*-- SideMenu --*/
 #ham-menu {
     display: none;
@@ -2515,7 +2514,7 @@ a.google span {
 .about-left {
     width: 50%;
     height: 100%;
-    min-height: 74vh;
+    min-height: 68vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2569,7 +2568,7 @@ a.google span {
 .about-right {
     width: 50%;
     height: 100%;
-    min-height: 74vh;
+    min-height: 68vh;
     background-color: #ffffff;
     padding: 20px;
     border-radius: 5px;
@@ -2867,6 +2866,10 @@ a.google span {
     flex-direction: column;
     gap: 6px;
     margin-top: 8px;
+}
+
+.about-right-content p{
+    font-size: 13px;
 }
 
 .product-right-img{
@@ -4343,6 +4346,7 @@ blockquote .author {
 .card p {
     line-height: 2em;
     color: #625a71;
+    font-size: 15px;
 }
 .card:hover {
     background-position: 0;
@@ -4370,7 +4374,7 @@ blockquote .author {
 }
 
 .swiper-wrapper .card.card-interface {
-    max-height: 370px;
+    max-height: 335px;
     border-radius: 5px;
     text-decoration: none;
     color: coral;
@@ -4383,7 +4387,7 @@ blockquote .author {
 }
 
 .swiper-wrapper .card.card-interface p{
-    font-size: 16px;
+    font-size: 15px;
     color: #7c7c7c;
     text-align: left;
 }
@@ -4536,7 +4540,7 @@ blockquote .author {
 }
 
 .swiper-wrapper .card.card-interface .name {
-    font-size: 16px;
+    font-size: 13px;
     color: #7c7c7c;
 }
 

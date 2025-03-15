@@ -289,4 +289,24 @@ return [
     'why_listening_skills' => "Tại sao tôi gặp khó khăn với kỹ năng nghe tiếng Anh?",
     'why_no_motivation' => "Tại sao tôi cảm thấy thiếu động lực khi học tiếng Anh?",
 
+    'title' => '🈚 Tầm Quan Trọng của Tiếng Nhật Trong Tương Lai 🇯🇵',
+    'intro' => 'Tiếng Nhật không chỉ là một ngôn ngữ mà còn là chìa khóa mở ra nhiều cơ hội trong công việc, học tập và giao lưu văn hóa. Dưới đây là một số lý do tại sao tiếng Nhật ngày càng quan trọng trong tương lai:',
+
+    'job_opportunity' => '1️⃣. Cơ Hội Việc Làm & Hợp Tác Quốc Tế',
+    'job_opportunity_desc' => '➡️Nhật Bản là một trong những nền kinh tế lớn nhất thế giới với nhiều công ty đa quốc gia như Toyota, Sony, Honda, Nintendo, SoftBank. Nhu cầu tuyển dụng nhân sự biết tiếng Nhật ngày càng tăng, đặc biệt trong các ngành IT, kỹ thuật, thương mại và dịch vụ khách hàng. Các doanh nghiệp Nhật Bản đầu tư mạnh vào Việt Nam, tạo ra nhiều cơ hội làm việc cho người biết tiếng Nhật.',
+
+    'scholarship' => '2️⃣. Cánh Cửa Du Học & Học Bổng',
+    'scholarship_desc' => '➡️Chính phủ Nhật Bản cung cấp nhiều học bổng MEXT, JASSO cho sinh viên quốc tế. Nhiều trường đại học Nhật Bản thuộc top đầu thế giới, cung cấp chương trình học chất lượng cao với nhiều ngành học tiên tiến.',
+
+    'technology' => '3️⃣. Công Nghệ & Đổi Mới',
+    'technology_desc' => '➡️Nhật Bản đi đầu trong công nghệ AI, robot, điện tử, game và anime. Biết tiếng Nhật giúp tiếp cận nhanh chóng với tài liệu, nghiên cứu và công nghệ mới nhất từ Nhật Bản.',
+
+    'culture' => '4️⃣. Văn Hóa & Giải Trí',
+    'culture_desc' => '➡️Tiếng Nhật mở ra cơ hội trải nghiệm trực tiếp manga, anime, J-pop, văn học và ẩm thực Nhật Bản. Dễ dàng du lịch, kết bạn và giao lưu văn hóa với người Nhật.',
+
+    'global_influence' => '5️⃣. Sự Ảnh Hưởng Toàn Cầu của Nhật Bản',
+    'global_influence_desc' => '➡️Nhật Bản là thành viên quan trọng trong các tổ chức kinh tế, chính trị thế giới như G7, G20, APEC. Tiếng Nhật là ngôn ngữ quan trọng trong thương mại quốc tế, đặc biệt ở khu vực châu Á.',
+
+    'conclusion' => '💡 Kết Luận: Học tiếng Nhật không chỉ giúp bạn mở rộng cơ hội nghề nghiệp mà còn giúp bạn hiểu biết sâu sắc hơn về một nền văn hóa đặc sắc và một quốc gia có ảnh hưởng mạnh mẽ đến thế giới. 🚀🇯🇵',
+    
 ];

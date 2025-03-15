@@ -46,7 +46,7 @@
         </div>
         <div class="english-right-body">
             @foreach ($lessons as $item)
-                <a href="{{ route('showLesson', urlencode($item->name)) }}">{{ $item->name }}</a>
+                <a href="{{ route('showLesson', urlencode($item->name)) }}">{{ $item->name }}: {{ $item->title }}</a>
             @endforeach
         </div>
     </div>
