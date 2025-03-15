@@ -6,7 +6,7 @@
     <div class="english-vocabulary-item d-flex space-between gap-10">
         <div class="w-50 bg-white h-full p-10 border-radius-5">
             <h3>>> {{ __('messages.Lesson') }}</h3>
-            <form id="vocabularyForm" action="{{ route('lessons.store') }}" method="POST" class="mt-10">
+            <form action="{{ route('lessons.store') }}" method="POST" class="mt-10">
             @csrf
                 <p class="title-nav"><i class="fa-solid fa-plus"></i> {{ __('messages.Add Lesson') }}</p>
                 <div class="w-full mt-10">
@@ -17,7 +17,7 @@
                     <label>{{ __('messages.Title') }}</label>
                     <input type="text" name="title" class="w-full input  mt-5"/> 
                 </div>
-                <input type="hidden" name="difficulty" value="1"/> 
+                <input type="hidden" name="difficulty" value="2"/> 
                 <div class="w-full mt-10">
                     <div class="w-full d-flex gap-5 flex-direction">
                         <label>{{ __('messages.Language') }}</label>
@@ -45,7 +45,7 @@
             </div>
         </div>
         <div class="w-50 bg-white h-full p-10 border-radius-5">
-            <h3>>{{ __('messages.Vocabulary') }}</h3>
+            <h3>>> {{ __('messages.Vocabulary') }}</h3>
             <form action="{{ route('vocabulary.store') }}" method="POST" class="mt-10">
             @csrf
                 <p class="title-nav"><i class="fa-solid fa-plus"></i> {{ __('messages.Add Vocabulary') }}</p>
@@ -53,7 +53,7 @@
                 <div class="w-full mt-10">
                     <div class="w-full d-flex gap-5 flex-direction">
                         <label>{{ __('messages.Lesson') }}</label>
-                        <select class="seclect" name="lesson_id" id="lesson_id">
+                        <select class="seclect" name="lesson_id">
                             @foreach ($lessons as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
@@ -61,44 +61,46 @@
                     </div>
                 </div>
 
+                <input type="hidden" name="difficulty" value="2"/> 
+
                 <div class="w-full mt-10">
                     <div class="w-full d-flex gap-5 flex-direction">
                         <label>{{ __('messages.Language') }}</label>
-                        <select class="seclect" name="language" id="language">
+                        <select class="seclect" name="language">
                             <option value="1">Việt Nam</option>
                             <option value="2">English</option>
                             <option value="3">Japan</option>
                         </select>
                     </div>
                 </div>
-                <input type="hidden" name="difficulty" value="1"/> 
+
                 <div class="w-full mt-10">
                     <label>{{ __('messages.Name') }}</label>
-                    <input type="text" name="name" id="name" class="w-full input mt-5" required /> 
+                    <input type="text" name="name" class="w-full input mt-5" required /> 
                 </div>
 
                 <div class="w-full mt-10">
                     <label>{{ __('messages.Meaning') }}</label>
-                    <input type="text" name="meaning" id="meaning" class="w-full input mt-5" required /> 
+                    <input type="text" name="meaning" class="w-full input mt-5" required /> 
                 </div>
 
                 <div class="w-full mt-10">
                     <label>{{ __('messages.Example') }}</label>
-                    <input type="text" name="example" id="example" class="w-full input mt-5" /> 
+                    <input type="text" name="example" class="w-full input mt-5" /> 
                 </div>
 
                 <div class="w-full mt-10">
                     <label>{{ __('messages.Translation') }}</label>
-                    <input type="text" name="translation" id="translation" class="w-full input mt-5" /> 
+                    <input type="text" name="translation" class="w-full input mt-5" /> 
                 </div>
                 <div class="w-full mt-10">
                     <label>{{ __('messages.Pronunciation') }}</label>
-                    <input type="text" name="pronunciation" id="pronunciation" class="w-full input mt-5" /> 
+                    <input type="text" name="pronunciation" class="w-full input mt-5" /> 
                 </div>
                 <div class="w-full mt-10">
                     <div class="w-full d-flex gap-5 flex-direction">
                         <label>{{ __('messages.Level') }}</label>
-                        <select class="seclect" name="level" id="level">
+                        <select class="seclect" name="level">
                             <option value="1">Basic</option>
                             <option value="2">Pro</option>
                         </select>
@@ -106,25 +108,24 @@
                 </div>
                 <div class="w-full mt-10">
                     <div class="w-full d-flex gap-5 flex-direction">
-                        <select class="seclect" name="status" id="status">
+                        <select class="seclect" name="status">
                             <option value="1">{{ __('messages.Show') }}</option>
                             <option value="0">{{ __('messages.Hide') }}</option>
                         </select>
                     </div>
                 </div>
-                <button id="submit" class="button mt-10" type="submit">{{ __('messages.Submit') }}</button>
-                <button id="edit" class="button mt-10" type="submit" style="display: none;">{{ __('messages.Edit') }}</button>
+                <button class="button mt-10" type="submit">{{ __('messages.Submit') }}</button>
             </form>
         </div>
     </div>
     <div class="english-vocabulary-item">
         <div class="english-vocabulary-item-top">
-            <a href="{{ route('englishs.index') }}">Back</a>
-            <a href="{{ route('get.index_add_vocabulary')}}" class="active">Vocabulary</a>
-            <a href="{{ route('get.index_add_passage')}}">Passage</a>
-            <a href="{{ route('get.index_add_structure')}}">Structure</a>
-            <a href="{{ route('get.index_quiz_item')}}">Test Vocabulary</a>
-            <a href="{{ route('get.index_quiz_structure')}}">Test Structure</a>
+            <a href="{{ route('japaneses.index') }}">Back</a>
+            <a href="{{ route('japanese.index_add_vocabulary')}}" class="active">Vocabulary</a>
+            <a href="{{ route('japanese.index_add_passage')}}">Passage</a>
+            <a href="{{ route('japanese.index_add_structure')}}">Structure</a>
+            <a href="{{ route('japanese.index_quiz_item')}}">Test Vocabulary</a>
+            <a href="{{ route('japanese.index_quiz_structure')}}">Test Structure</a>
         </div>
         <div class="english-vocabulary-item-search">
             <div class="w-full m-10">
@@ -146,18 +147,7 @@
                     <p style="width:30%; font-size: 13px;">{{ $item->meaning }}</p>
                     <p style="width:30%; font-size: 13px;">{{ $item->pronunciation }}</p>
                     <p style="width:12%; font-size: 13px; text-align: center;">
-                        <button class="edit-english" onclick="editVocabulary(this)" 
-                                data-id="{{ $item->id }}" 
-                                data-name="{{ $item->name }}" 
-                                data-structure="{{ $item->structure }}" 
-                                data-example="{{ $item->example }}" 
-                                data-translation="{{ $item->translation }}" 
-                                data-explanation="{{ $item->explanation }}" 
-                                data-pronunciation="{{ $item->pronunciation }}" 
-                                data-meaning="{{ $item->meaning }}" 
-                                data-level="{{ $item->level }}" 
-                                data-status="{{ $item->status }}" 
-                                data-lesson="{{ $item->lesson_id }}">
+                        <button class="edit-english" onclick="editStructure(this)">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
                         <button class="delete-english" onclick="deleteStructure(this)">
@@ -213,16 +203,19 @@
 @endif
 
 
-<!-- <script>
+<script>
     document.addEventListener("DOMContentLoaded", function () {
+        // Lấy tất cả các input và select trong form
         const inputs = document.querySelectorAll("input, select");
 
+        // Duyệt qua từng input và kiểm tra nếu đã lưu trong localStorage thì điền vào
         inputs.forEach(input => {
             let savedValue = localStorage.getItem(input.name);
             if (savedValue) {
                 input.value = savedValue;
             }
 
+            // Khi có thay đổi thì lưu vào localStorage
             input.addEventListener("input", function () {
                 localStorage.setItem(input.name, input.value);
             });
@@ -232,7 +225,7 @@
             });
         });
     });
-</script> -->
+</script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -257,38 +250,6 @@
     });
 </script>
 <script>
-    function editVocabulary(button) {
-        const id = button.getAttribute("data-id");
-        const name = button.getAttribute("data-name") || "";
-        const example = button.getAttribute("data-example") || "";
-        const translation = button.getAttribute("data-translation") || "";
-        const pronunciation = button.getAttribute("data-pronunciation") || "";
-        const meaning = button.getAttribute("data-meaning") || "";
-        const level = button.getAttribute("data-level") || "1";
-        const status = button.getAttribute("data-status") || "1";
-        const lessonId = button.getAttribute("data-lesson") || "";
-
-        // Cập nhật giá trị vào form dựa theo ID
-        document.getElementById("name").value = name;
-        document.getElementById("example").value = example;
-        document.getElementById("translation").value = translation;
-        document.getElementById("pronunciation").value = pronunciation;
-        document.getElementById("meaning").value = meaning;
-        document.getElementById("level").value = level;
-        document.getElementById("status").value = status;
-        document.getElementById("lesson_id").value = lessonId;
-
-        // Cập nhật action của form
-        const form = document.getElementById("vocabularyForm");
-        form.action = `/v1/vocabulary/update/${id}`;
-
-        // Hiển thị nút "Edit", ẩn nút "Submit"
-        document.getElementById("submit").style.display = "none";
-        document.getElementById("edit").style.display = "block";
-    }
-
-
-
    document.addEventListener("DOMContentLoaded", function () {
     function searchVocabulary() {
         let query = document.getElementById("searchVocabulary").value;
@@ -342,7 +303,7 @@
                 let name = lessonDiv.querySelector(".input-name").value;
                 let title = lessonDiv.querySelector(".input-title").value;
 
-                fetch(`/v1/lessons/update/${lessonId}`, {
+                fetch(`/v1/englishs/lessons/update/${lessonId}`, {
                     method: "PUT", 
                     headers: {
                         "Content-Type": "application/json",

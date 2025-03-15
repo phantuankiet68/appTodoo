@@ -7,30 +7,28 @@
         <div class="w-full bg-white h-full p-10 border-radius-5">
             <form id="quizForm" action="{{ route('storeQuizItem.store') }}" method="POST" class="mt-10">
             @csrf
-            <div class="w-full mt-10 d-flex gap-10">
-                    <div class="w-50 d-flex gap-5 flex-direction">
-                        <label>{{ __('messages.Lesson') }}</label>
+                <div class="w-full mt-10">
+                    <div class="w-full d-flex gap-5 flex-direction">
+                        <label for="lesson_id">{{ __('messages.Lesson') }}</label>
                         <select class="seclect" name="lesson_id">
                             @foreach ($lessons as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="w-50 d-flex gap-5 flex-direction">
-                        <div class="w-full d-flex gap-5 flex-direction">
-                            <label>{{ __('messages.Language') }}</label>
-                            <select class="seclect" name="language">
-                                <option value="1">Việt Nam</option>
-                                <option value="2">English</option>
-                                <option value="3">Japan</option>
-                            </select>
-                        </div>
-                    </div>
                 </div>
-                <input type="hidden" name="quiz_category_id" value="2" required /> 
+                <div class="w-full d-flex gap-5 flex-direction mt-5">
+                    <label>{{ __('messages.Language') }}</label>
+                    <select class="seclect" name="language">
+                        <option value="1">Việt Nam</option>
+                        <option value="2">English</option>
+                        <option value="3">Japan</option>
+                    </select>
+                </div>
 
-                <input type="hidden" name="difficulty" value="1"/> 
-
+                <input type="hidden" name="status" value="1" required /> 
+                <input type="hidden" name="quiz_category_id" value="1" required /> 
+                
                 <div class="w-full mt-10">
                     <label for="question">Question</label>
                     <input type="text" name="question" class="w-full input mt-5" required /> 
@@ -75,16 +73,6 @@
                         </select>
                     </div>
                 </div>
-                <div class="w-full mt-10">
-                    <div class="w-full d-flex gap-5 flex-direction">
-                        <label for="name">{{ __('messages.Status') }}</label>
-                        <select class="seclect" name="status">
-                            <option value="1">{{ __('messages.Show') }}</option>
-                            <option value="0">{{ __('messages.Hide') }}</option>
-                        </select>
-                    </div>
-                </div>
-
                 <button id="submit" class="button mt-10" type="submit">{{ __('messages.Submit') }}</button>
                 <button id="edit" class="button mt-10" type="submit" style="display: none;">{{ __('messages.Edit') }}</button>
             </form>
@@ -92,12 +80,12 @@
     </div>
     <div class="w-70">
         <div class="english-vocabulary-item-top">
-            <a href="{{ route('englishs.index') }}">Back</a>
-            <a href="{{ route('get.index_add_vocabulary')}}">Vocabulary</a>
-            <a href="{{ route('get.index_add_passage')}}">Passage</a>
-            <a href="{{ route('get.index_add_structure')}}">Structure</a>
-            <a href="{{ route('get.index_quiz_item')}}">Test Vocabulary</a>
-            <a href="{{ route('get.index_quiz_structure')}}" class="active">Test Structure</a>
+            <a href="{{ route('japaneses.index') }}">Back</a>
+            <a href="{{ route('japanese.index_add_vocabulary')}}">Vocabulary</a>
+            <a href="{{ route('japanese.index_add_passage')}}">Passage</a>
+            <a href="{{ route('japanese.index_add_structure')}}">Structure</a>
+            <a href="{{ route('japanese.index_quiz_item')}}" class="active">Test Vocabulary </a>
+            <a href="{{ route('japanese.index_quiz_structure')}}">Test Structure</a>
         </div>
         <div class="w-full h-full d-flex flex-direction gap-10">
             <div class="english-vocabulary-theader">
@@ -109,6 +97,9 @@
             </div>
             @foreach ($quizItems as $item)
             <div class="english-vocabulary-tbody">
+                <div class="trustTitle1" style="width:25%">
+                    <p>{{ $item->explanation }}</p>
+                </div>
                 <p style="width:25%">{{ $item->question }}</p>
                 <p style="width:15%">{{ $item->correct_answer }}</p>
                 <div class="trustTitle1" style="width:35%">
@@ -191,6 +182,23 @@
 
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("quizForm");
+        const inputs = form.querySelectorAll("input, select");
+        
+        inputs.forEach(input => {
+            const savedValue = localStorage.getItem(input.name);
+            if (savedValue) {
+                input.value = savedValue;
+            }
+        });
+
+        inputs.forEach(input => {
+            input.addEventListener("input", function () {
+                localStorage.setItem(input.name, input.value);
+            });
+        });
+    });
     document.addEventListener('DOMContentLoaded', function() {
         const popup = document.querySelector('#popup-success');
         if (popup) {
@@ -213,23 +221,6 @@
     });
 </script>
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let inputs = document.querySelectorAll("input, select");
-
-        inputs.forEach(input => {
-            let storedValue = localStorage.getItem(input.name);
-            if (storedValue) {
-                input.value = storedValue;
-            }
-
-            input.addEventListener("input", function () {
-                localStorage.setItem(input.name, input.value);
-            });
-        });
-
-    });
-
-
     function editQuizItem(button) {
         let id = button.getAttribute("data-id");
         let question = button.getAttribute("data-question");

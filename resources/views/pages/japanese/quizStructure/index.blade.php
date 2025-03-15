@@ -7,7 +7,7 @@
         <div class="w-full bg-white h-full p-10 border-radius-5">
             <form id="quizForm" action="{{ route('storeQuizItem.store') }}" method="POST" class="mt-10">
             @csrf
-            <div class="w-full mt-10 d-flex gap-10">
+                <div class="w-full mt-10 d-flex gap-10">
                     <div class="w-50 d-flex gap-5 flex-direction">
                         <label>{{ __('messages.Lesson') }}</label>
                         <select class="seclect" name="lesson_id">
@@ -29,46 +29,46 @@
                 </div>
                 <input type="hidden" name="quiz_category_id" value="2" required /> 
 
-                <input type="hidden" name="difficulty" value="1"/> 
+                <input type="hidden" name="difficulty" value="2"/> 
 
                 <div class="w-full mt-10">
-                    <label for="question">Question</label>
+                    <label>Question</label>
                     <input type="text" name="question" class="w-full input mt-5" required /> 
                 </div>
 
                 <div class="w-full mt-10">
-                    <label for="option_a">Option A</label>
+                    <label>Option A</label>
                     <input type="text" name="option_a" class="w-full input mt-5" required /> 
                 </div>
 
                 <div class="w-full mt-10">
-                    <label for="option_b">Option B</label>
+                    <label>Option B</label>
                     <input type="text" name="option_b" class="w-full input mt-5" required /> 
                 </div>
 
                 <div class="w-full mt-10">
-                    <label for="option_c">Option C</label>
+                    <label>Option C</label>
                     <input type="text" name="option_c" class="w-full input mt-5" required /> 
                 </div>
 
                 <div class="w-full mt-10">
-                    <label for="option_d">Option D</label>
+                    <label>Option D</label>
                     <input type="text" name="option_d" class="w-full input mt-5" required /> 
                 </div>
 
                 <div class="w-full mt-10">
-                    <label for="correct_answer">Answer</label>
+                    <label>Answer</label>
                     <input type="text" name="correct_answer" class="w-full input mt-5" /> 
                 </div>
 
                 <div class="w-full mt-10">
-                    <label for="explanation">Explanation</label>
+                    <label>Explanation</label>
                     <input type="text" name="explanation" class="w-full input mt-5" required /> 
                 </div>
 
                 <div class="w-full mt-10">
                     <div class="w-full d-flex gap-5 flex-direction">
-                        <label for="name">{{ __('messages.Level') }}</label>
+                        <label>{{ __('messages.Level') }}</label>
                         <select class="seclect" name="level">
                             <option value="1">Basic</option>
                             <option value="2">Pro</option>
@@ -77,7 +77,7 @@
                 </div>
                 <div class="w-full mt-10">
                     <div class="w-full d-flex gap-5 flex-direction">
-                        <label for="name">{{ __('messages.Status') }}</label>
+                        <label>{{ __('messages.Status') }}</label>
                         <select class="seclect" name="status">
                             <option value="1">{{ __('messages.Show') }}</option>
                             <option value="0">{{ __('messages.Hide') }}</option>
@@ -92,14 +92,17 @@
     </div>
     <div class="w-70">
         <div class="english-vocabulary-item-top">
-            <a href="{{ route('englishs.index') }}">Back</a>
-            <a href="{{ route('get.index_add_vocabulary')}}">Vocabulary</a>
-            <a href="{{ route('get.index_add_passage')}}">Passage</a>
-            <a href="{{ route('get.index_add_structure')}}">Structure</a>
-            <a href="{{ route('get.index_quiz_item')}}">Test Vocabulary</a>
-            <a href="{{ route('get.index_quiz_structure')}}" class="active">Test Structure</a>
+            <a href="{{ route('japaneses.index') }}">Back</a>
+            <a href="{{ route('japanese.index_add_vocabulary')}}">Vocabulary</a>
+            <a href="{{ route('japanese.index_add_passage')}}">Passage</a>
+            <a href="{{ route('japanese.index_add_structure')}}">Structure</a>
+            <a href="{{ route('japanese.index_quiz_item')}}">Test Vocabulary</a>
+            <a href="{{ route('japanese.index_quiz_structure')}}" class="active">Test Structure</a>
         </div>
-        <div class="w-full h-full d-flex flex-direction gap-10">
+        <div class="w-full">
+            <input type="text" name="search" id="searchQuiz" class="w-full input-search" placeholder="Tìm kiếm câu hỏi..." oninput="searchQuiz()"/>
+        </div>
+        <div class="w-full h-full d-flex flex-direction gap-10 mt-10">
             <div class="english-vocabulary-theader">
                 <p style="width:25%">Question</p>
                 <p style="width:15%">Answer</p>
@@ -107,9 +110,12 @@
                 <p style="width:10%; text-align: center;">{{ __('messages.Level') }}</p>
                 <p style="width:15%; text-align: center;">{{ __('messages.Action') }}</p>
             </div>
+            <div class="w-full classqiz">
             @foreach ($quizItems as $item)
             <div class="english-vocabulary-tbody">
-                <p style="width:25%">{{ $item->question }}</p>
+                <div class="trustTitle1" style="width:25%">
+                    <p>{{ $item->question }}</p>
+                </div>
                 <p style="width:15%">{{ $item->correct_answer }}</p>
                 <div class="trustTitle1" style="width:35%">
                     <p>{{ $item->explanation }}</p>
@@ -144,6 +150,7 @@
                 </p>
             </div>
             @endforeach
+            </div>
         </div>
     </div>
 </div>
@@ -188,6 +195,55 @@
         </ul>
     </div>
 @endif
+
+<script>
+    function searchQuiz() {
+        let query = document.getElementById('searchQuiz').value;
+
+        fetch("{{ route('quiz.search_quiz_structure') }}?query=" + query)
+            .then(response => response.json())
+            .then(data => {
+                let quizContainer = document.querySelector('.classqiz');
+                quizContainer.innerHTML = '';
+
+                data.forEach(item => {
+                    let levelText = item.level == 1 ? '<p class="basic text-center">Basic</p>' : '<p class="show text-center">Pro</p>';
+
+                    quizContainer.innerHTML += `
+                        <div class="english-vocabulary-tbody">
+                            <div class="trustTitle1" style="width:25%">
+                                <p>${item.question}</p>
+                            </div>
+                            <p style="width:15%">${item.correct_answer}</p>
+                            <div class="trustTitle1" style="width:35%">
+                                <p>${item.explanation}</p>
+                            </div>
+                            <div style="width:10%;display: flex; justify-content: center;">${levelText}</div>
+                            <p style="width:15%; text-align: center;">
+                                <button class="edit-english" onclick="editQuizItem(this)" 
+                                    data-id="${item.id}" 
+                                    data-question="${item.question}" 
+                                    data-option-a="${item.option_a}" 
+                                    data-option-b="${item.option_b}" 
+                                    data-option-c="${item.option_c}" 
+                                    data-option-d="${item.option_d}" 
+                                    data-correct-answer="${item.correct_answer}" 
+                                    data-explanation="${item.explanation}" 
+                                    data-level="${item.level}" 
+                                    data-status="${item.status}" 
+                                    data-lesson-id="${item.lesson_id}">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </button>
+                                <button class="delete-english" onclick="deleteStructure(this)">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </p>
+                        </div>
+                    `;
+                });
+            });
+    }
+</script>
 
 
 <script>

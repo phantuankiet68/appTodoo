@@ -29,8 +29,8 @@
                         </div>
                     </div>
                 </div>
-
-                <input type="hidden" name="difficulty" value="1"/> 
+                
+                <input type="hidden" name="difficulty" value="2"/> 
 
                 <div class="w-full mt-10">
                     <label for="name">{{ __('messages.Name') }}</label>
@@ -80,12 +80,12 @@
     </div>
     <div class="english-vocabulary-item">
         <div class="english-vocabulary-item-top">
-            <a href="{{ route('englishs.index') }}">Back</a>
-            <a href="{{ route('get.index_add_vocabulary')}}">Vocabulary</a>
-            <a href="{{ route('get.index_add_passage')}}">Passage</a>
-            <a href="{{ route('get.index_add_structure')}}"  class="active">Structure</a>
-            <a href="{{ route('get.index_quiz_item')}}">Test Vocabulary</a>
-            <a href="{{ route('get.index_quiz_structure')}}">Test Structure</a>
+            <a href="{{ route('japaneses.index') }}">Back</a>
+            <a href="{{ route('japanese.index_add_vocabulary')}}">Vocabulary</a>
+            <a href="{{ route('japanese.index_add_passage')}}">Passage</a>
+            <a href="{{ route('japanese.index_add_structure')}}"  class="active">Structure</a>
+            <a href="{{ route('japanese.index_quiz_item')}}">Test Vocabulary</a>
+            <a href="{{ route('japanese.index_quiz_structure')}}">Test Structure</a>
         </div>
         <div class="w-full h-full d-flex flex-direction gap-10">
             <div class="english-vocabulary-theader">

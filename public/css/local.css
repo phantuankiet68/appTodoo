@@ -7158,7 +7158,7 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     gap: 10px;
     margin-top: 10px;
     background: #fff;
-    height: 76vh;
+    height: 32vh;
     border-radius: 5px;
     overflow: auto;
     padding: 10px;
@@ -7730,4 +7730,13 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     line-height: 1.5;
     font-size: 12.5px;
     border-radius: 5px;
+}
+
+
+.classqiz{
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    height: 69vh;
+    overflow: auto;
 }

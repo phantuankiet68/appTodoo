@@ -69,16 +69,6 @@
 
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let navItem = document.querySelector(".nav-item a.nav-link");
-
-        navItem.style.display = "none";
-
-        navItem.addEventListener("mouseover", function () {
-            dropdown.style.display = "none";
-        });
-
-    });
     let correctCount = 0;
     let incorrectCount = 0;
     let totalQuestions = document.querySelectorAll(".ckeck-vocabulary").length;

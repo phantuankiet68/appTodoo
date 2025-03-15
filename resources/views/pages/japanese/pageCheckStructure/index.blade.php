@@ -45,12 +45,12 @@
     </div>
     <div class="english-right">
         <div class="english-right-top">
-            <a href="{{ route('showLesson', urlencode($lesson->name)) }}">{{ __('messages.Passage') }}</a>
-            <a href="{{ route('showVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Vocabulary learning') }}</a>
-            <a href="{{ route('showStructure', urlencode($lesson->name)) }}" >{{ __('messages.Structure learning') }}</a>
-            <a  href="{{ route('showLearnVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Learn vocabulary') }}</a>
-            <a href="{{ route('showCheckVocabulary', urlencode($lesson->name)) }}" class="active">{{ __('messages.Vocabulary checking') }}</a>
-            <a href="{{ route('showCheckStructure', urlencode($lesson->name)) }}">{{ __('messages.Structure checking') }}</a>
+            <a href="{{ route('japanese.showLesson', urlencode($lesson->name)) }}">{{ __('messages.Passage') }}</a>
+            <a href="{{ route('japanese.showVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Vocabulary learning') }}</a>
+            <a href="{{ route('japanese.showStructure', urlencode($lesson->name)) }}" >{{ __('messages.Structure learning') }}</a>
+            <a  href="{{ route('japanese.showLearnVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Learn vocabulary') }}</a>
+            <a href="{{ route('japanese.showCheckVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Vocabulary checking') }}</a>
+            <a href="{{ route('japanese.showCheckStructure', urlencode($lesson->name)) }}" class="active">{{ __('messages.Structure checking') }}</a>
         </div>
         <div class="english-right-body-show">
             <p>{{ __('messages.why_cant_learn') }}</p>
@@ -76,7 +76,6 @@
     function checkAnswer(element, correctAnswer, explanation, index) {
         let parentDiv = element.closest(".ckeck-vocabulary");
 
-        // Kiểm tra nếu đã chọn trước đó thì không làm gì cả
         if (parentDiv.getAttribute("data-answered") === "true") {
             return;
         }
@@ -87,42 +86,32 @@
         let incorrectDiv = parentDiv.querySelector(".incorrect");
         let explanationText = incorrectDiv.querySelector(".explanation-text");
 
-        // Ẩn thông báo trước khi kiểm tra
         correctDiv.classList.add("hidden");
         incorrectDiv.classList.add("hidden");
 
-        // Xóa class cũ khỏi câu hỏi
         questionElement.classList.remove("success", "red");
 
         if (selectedOption === correctAnswer) {
             correctDiv.classList.remove("hidden");
-            questionElement.classList.add("success"); // Thêm class success nếu chọn đúng
+            questionElement.classList.add("success");
             correctCount++;
         } else {
             incorrectDiv.classList.remove("hidden");
             explanationText.innerText = explanation;
-            questionElement.classList.add("red"); // Thêm class red nếu chọn sai
+            questionElement.classList.add("red");
             incorrectCount++;
         }
 
-        // Đánh dấu câu hỏi này đã được trả lời
         parentDiv.setAttribute("data-answered", "true");
 
-        // Cập nhật số lượng câu đúng/sai
         document.getElementById("correct-count").innerText = correctCount;
         document.getElementById("incorrect-count").innerText = incorrectCount;
 
-        // Kiểm tra nếu đã trả lời hết tất cả câu hỏi
         let answeredQuestions = document.querySelectorAll('.ckeck-vocabulary[data-answered="true"]').length;
         if (answeredQuestions === totalQuestions) {
             alert(`Hoàn thành! Kết quả:\n✅ Đúng: ${correctCount}\n❌ Sai: ${incorrectCount}`);
         }
     }
-
-
-
-
-
 
 </script>
 

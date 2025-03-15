@@ -17,8 +17,16 @@
                         </select>
                     </div>
                 </div>
+                <div class="w-full d-flex gap-5 flex-direction mt-5">
+                    <label>{{ __('messages.Language') }}</label>
+                    <select class="seclect" name="language">
+                        <option value="1">Việt Nam</option>
+                        <option value="2">English</option>
+                        <option value="3">Japan</option>
+                    </select>
+                </div>
 
-                <input type="hidden" name="language" value="2" required /> 
+                <input type="hidden" name="status" value="1" required /> 
                 <input type="hidden" name="quiz_category_id" value="1" required /> 
                 
                 <div class="w-full mt-10">
@@ -65,15 +73,6 @@
                         </select>
                     </div>
                 </div>
-                <div class="w-full mt-10">
-                    <div class="w-full d-flex gap-5 flex-direction">
-                        <label for="name">{{ __('messages.Status') }}</label>
-                        <select class="seclect" name="status">
-                            <option value="1">{{ __('messages.Show') }}</option>
-                            <option value="0">{{ __('messages.Hide') }}</option>
-                        </select>
-                    </div>
-                </div>
                 <button id="submit" class="button mt-10" type="submit">{{ __('messages.Submit') }}</button>
                 <button id="edit" class="button mt-10" type="submit" style="display: none;">{{ __('messages.Edit') }}</button>
             </form>
@@ -98,6 +97,9 @@
             </div>
             @foreach ($quizItems as $item)
             <div class="english-vocabulary-tbody">
+                <div class="trustTitle1" style="width:25%">
+                    <p>{{ $item->explanation }}</p>
+                </div>
                 <p style="width:25%">{{ $item->question }}</p>
                 <p style="width:15%">{{ $item->correct_answer }}</p>
                 <div class="trustTitle1" style="width:35%">
@@ -180,6 +182,23 @@
 
 
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("quizForm");
+        const inputs = form.querySelectorAll("input, select");
+        
+        inputs.forEach(input => {
+            const savedValue = localStorage.getItem(input.name);
+            if (savedValue) {
+                input.value = savedValue;
+            }
+        });
+
+        inputs.forEach(input => {
+            input.addEventListener("input", function () {
+                localStorage.setItem(input.name, input.value);
+            });
+        });
+    });
     document.addEventListener('DOMContentLoaded', function() {
         const popup = document.querySelector('#popup-success');
         if (popup) {

@@ -104,7 +104,7 @@
                     </a>
                 </li>
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items" data-link="japanese">
+                    <a href="{{ route('japaneses.index') }}" class="d-flex align-items" data-link="japanese">
                         <i class="bx bxs-add-to-queue features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Japanese') }}</span>
                         <span class="inbox-number blue">99</span>

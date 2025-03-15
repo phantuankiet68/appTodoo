@@ -45,12 +45,12 @@
     </div>
     <div class="english-right">
         <div class="english-right-top">
-            <a href="{{ route('showLesson', urlencode($lesson->name)) }}">{{ __('messages.Passage') }}</a>
-            <a href="{{ route('showVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Vocabulary learning') }}</a>
-            <a href="{{ route('showStructure', urlencode($lesson->name)) }}" >{{ __('messages.Structure learning') }}</a>
-            <a  href="{{ route('showLearnVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Learn vocabulary') }}</a>
-            <a href="{{ route('showCheckVocabulary', urlencode($lesson->name)) }}" class="active">{{ __('messages.Vocabulary checking') }}</a>
-            <a href="{{ route('showCheckStructure', urlencode($lesson->name)) }}">{{ __('messages.Structure checking') }}</a>
+            <a href="{{ route('japanese.showLesson', urlencode($lesson->name)) }}">{{ __('messages.Passage') }}</a>
+            <a href="{{ route('japanese.showVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Vocabulary learning') }}</a>
+            <a href="{{ route('japanese.showStructure', urlencode($lesson->name)) }}" >{{ __('messages.Structure learning') }}</a>
+            <a  href="{{ route('japanese.showLearnVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Learn vocabulary') }}</a>
+            <a href="{{ route('japanese.showCheckVocabulary', urlencode($lesson->name)) }}" class="active">{{ __('messages.Vocabulary checking') }}</a>
+            <a href="{{ route('japanese.showCheckStructure', urlencode($lesson->name)) }}">{{ __('messages.Structure checking') }}</a>
         </div>
         <div class="english-right-body-show">
             <p>{{ __('messages.why_cant_learn') }}</p>

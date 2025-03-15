@@ -60,7 +60,8 @@ use App\Http\Controllers\V1\V1ExpenseController;
 use App\Http\Controllers\V1\V1NoteController;
 use App\Http\Controllers\V1\V1TaskController;
 use App\Http\Controllers\V1\V1ProjectController;
-use App\Http\Controllers\V1\V1EnglishController;
+use App\Http\Controllers\V1\V1LanguageController;
+use App\Http\Controllers\V1\V1JapaneseController;
 use App\Models\Expense;
 /*
 |--------------------------------------------------------------------------
@@ -157,35 +158,57 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::post('/projects/upload-files/issue', [V1ProjectController::class, 'storeAttachmentProject'])->name('files.store.issue');
     Route::post('/projects/note', [V1ProjectController::class, 'storeNoteProject'])->name('projects.note');
     Route::get('/git/{name?}', [V1ProjectController::class, 'getGit'])->name('get.git');
-    Route::resource('englishs', V1EnglishController::class);
-    Route::get('/vocabulary', [V1EnglishController::class, 'index_add_vocabulary'])->name('get.index_add_vocabulary');
-    Route::post('/store/lesson', [V1EnglishController::class, 'storeLesson'])->name('lessons.store');
-    Route::put('/lessons/update/{id}', [V1EnglishController::class, 'updateLesson']);
-    Route::post('/vocabulary/store', [V1EnglishController::class, 'storeVocabulary'])->name('vocabulary.store');
-    Route::get('/passage', [V1EnglishController::class, 'index_add_passage'])->name('get.index_add_passage');
-    Route::post('/passage/store', [V1EnglishController::class, 'storePassage'])->name('passage.store');
-    Route::put('/passage/{id}', [V1EnglishController::class, 'updatePassage']);
-    Route::delete('/passage/{id}', [V1EnglishController::class, 'deletePassage']);
-    Route::get('/structure', [V1EnglishController::class, 'index_add_structure'])->name('get.index_add_structure');
-    Route::post('/structure/store', [V1EnglishController::class, 'storeStructure'])->name('structure.store');
-    Route::post('/structure/update/{id}', [V1EnglishController::class, 'updateStructure'])->name('structure.update');
-    Route::get('/quizItem', [V1EnglishController::class, 'index_quiz_item'])->name('get.index_quiz_item');
-    Route::post('/quizItem/store', [V1EnglishController::class, 'storeQuizItem'])->name('storeQuizItem.store');
-    Route::post('/quiz-items/update/{id}', [V1EnglishController::class, 'updateQuizItem'])->name('quiz-items.update');
-    Route::get('/quizStructure', [V1EnglishController::class, 'index_quiz_structure'])->name('get.index_quiz_structure');
-
+    
+    Route::resource('englishs', V1LanguageController::class);
+    Route::get('/vocabulary', [V1LanguageController::class, 'index_add_vocabulary'])->name('get.index_add_vocabulary');
+    Route::post('/store/lesson', [V1LanguageController::class, 'storeLesson'])->name('lessons.store');
+    Route::put('/lessons/update/{id}', [V1LanguageController::class, 'updateLesson']);
+    Route::post('/vocabulary/store', [V1LanguageController::class, 'storeVocabulary'])->name('vocabulary.store');
+    Route::get('/passage', [V1LanguageController::class, 'index_add_passage'])->name('get.index_add_passage');
+    Route::post('/passage/store', [V1LanguageController::class, 'storePassage'])->name('passage.store');
+    Route::put('/passage/{id}', [V1LanguageController::class, 'updatePassage']);
+    Route::delete('/passage/{id}', [V1LanguageController::class, 'deletePassage']);
+    Route::get('/structure', [V1LanguageController::class, 'index_add_structure'])->name('get.index_add_structure');
+    Route::post('/structure/store', [V1LanguageController::class, 'storeStructure'])->name('structure.store');
+    Route::post('/structure/update/{id}', [V1LanguageController::class, 'updateStructure'])->name('structure.update');
+    Route::get('/quizItem', [V1LanguageController::class, 'index_quiz_item'])->name('get.index_quiz_item');
+    Route::post('/quizItem/store', [V1LanguageController::class, 'storeQuizItem'])->name('storeQuizItem.store');
+    Route::post('/quiz-items/update/{id}', [V1LanguageController::class, 'updateQuizItem'])->name('quiz-items.update');
+    Route::get('/quizStructure', [V1LanguageController::class, 'index_quiz_structure'])->name('get.index_quiz_structure');
+    Route::post('/vocabulary/update/{id}', [V1LanguageController::class, 'updateVocabulary'])->name('vocabulary.update');
     //Show English
-    Route::get('/search-vocabulary', [V1EnglishController::class, 'searchVocabulary'])->name('search.vocabulary');
-    Route::get('/show/lesson/{name}',[V1EnglishController::class, 'showLesson'])->name('showLesson');
-    Route::get('/show/vocabulary/{name}',[V1EnglishController::class, 'showVocabulary'])->name('showVocabulary');
-    Route::get('/show/structure/{name}',[V1EnglishController::class, 'showStructure'])->name('showStructure');
-    Route::get('/show/learn/vocabulary/{name}',[V1EnglishController::class, 'showLearnVocabulary'])->name('showLearnVocabulary');
-    Route::get('/show/ckeck/vocabulary/{name}',[V1EnglishController::class, 'showCheckVocabulary'])->name('showCheckVocabulary');
-    Route::get('/show/ckeck/structure/{name}',[V1EnglishController::class, 'showCheckStructure'])->name('showCheckStructure');
+    Route::get('/search-vocabulary', [V1LanguageController::class, 'searchVocabulary'])->name('search.vocabulary');
+    Route::get('/show/lesson/{name}',[V1LanguageController::class, 'showLesson'])->name('showLesson');
+    Route::get('/show/vocabulary/{name}',[V1LanguageController::class, 'showVocabulary'])->name('showVocabulary');
+    Route::get('/show/structure/{name}',[V1LanguageController::class, 'showStructure'])->name('showStructure');
+    Route::get('/show/learn/vocabulary/{name}',[V1LanguageController::class, 'showLearnVocabulary'])->name('showLearnVocabulary');
+    Route::get('/show/ckeck/vocabulary/{name}',[V1LanguageController::class, 'showCheckVocabulary'])->name('showCheckVocabulary');
+    Route::get('/show/ckeck/structure/{name}',[V1LanguageController::class, 'showCheckStructure'])->name('showCheckStructure');
     
     //Search vocabulary English
-    Route::get('/vocabulary/search', [V1EnglishController::class, 'indexsearch'])->name('vocabulary.search');
+    Route::get('/vocabulary/search', [V1LanguageController::class, 'indexsearch'])->name('vocabulary.search');
 
+    //Japanese
+    Route::resource('japaneses', V1JapaneseController::class);
+
+    //Search vocabulary English
+    Route::get('/search/vocabulary', [V1JapaneseController::class, 'indexsearch'])->name('vocabulary.search');
+    Route::get('/japanese/vocabulary', [V1JapaneseController::class, 'index_add_vocabulary'])->name('japanese.index_add_vocabulary');
+    Route::get('/japanese/structure', [V1JapaneseController::class, 'index_add_structure'])->name('japanese.index_add_structure');
+    Route::get('/japanese/passage', [V1JapaneseController::class, 'index_add_passage'])->name('japanese.index_add_passage');
+    Route::get('/japanese/quizItem', [V1JapaneseController::class, 'index_quiz_item'])->name('japanese.index_quiz_item');
+    Route::get('/quiz/search', [V1JapaneseController::class, 'search_quiz_structure'])->name('quiz.search_quiz_structure');
+
+
+
+    //Show pages Japanese
+    Route::get('/japanese/show/lesson/{name}',[V1JapaneseController::class, 'showLesson'])->name('japanese.showLesson');
+    Route::get('/japanese/show/vocabulary/{name}',[V1JapaneseController::class, 'showVocabulary'])->name('japanese.showVocabulary');
+    Route::get('/japanese/show/structure/{name}',[V1JapaneseController::class, 'showStructure'])->name('japanese.showStructure');
+    Route::get('/japanese/show/learn/vocabulary/{name}',[V1JapaneseController::class, 'showLearnVocabulary'])->name('japanese.showLearnVocabulary');
+    Route::get('/japanese/show/ckeck/vocabulary/{name}',[V1JapaneseController::class, 'showCheckVocabulary'])->name('japanese.showCheckVocabulary');
+    Route::get('/japanese/show/ckeck/structure/{name}',[V1JapaneseController::class, 'showCheckStructure'])->name('japanese.showCheckStructure');
+    Route::get('/japanese/quizStructure', [V1JapaneseController::class, 'index_quiz_structure'])->name('japanese.index_quiz_structure');
 });
 
 

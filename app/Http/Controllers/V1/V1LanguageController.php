@@ -14,7 +14,7 @@ use App\Models\QuizCategory;
 use Illuminate\Support\Facades\Auth;
 use Exception;
 
-class V1EnglishController extends Controller
+class V1LanguageController extends Controller
 {
     public function index()
     {
@@ -28,8 +28,7 @@ class V1EnglishController extends Controller
     
         $languageId = $languageMap[$locale] ?? 2;
 
-        $lessons = Lesson::where('language', $languageId)
-            ->where('difficulty', 1)
+        $lessons = Lesson::where('difficulty', 1)
             ->orderBy('id', 'asc')
             ->get();
     
@@ -39,7 +38,6 @@ class V1EnglishController extends Controller
             ->pluck('name');
             
         $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
-            ->where('language', operator: $languageId)
             ->where('difficulty', 1)
             ->get();
 
@@ -93,13 +91,11 @@ class V1EnglishController extends Controller
             
         $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
             ->where('difficulty', 1)
-            ->where('language', operator: $languageId)
             ->get();
 
-        $passage = Passage::where('language', $lesson->id)
-            ->where('lesson_id', 1)
-            ->orderBy('id', 'asc')
-            ->with('user', 'lesson')
+        $passage = Passage::with('user', 'lesson')
+            ->where('difficulty', 1)
+            ->where('lesson_id', $lesson->id)
             ->first();
         
         return view('pages.english.pagePassage.index', compact('passage', 'vocabularies','lesson'));
@@ -117,8 +113,7 @@ class V1EnglishController extends Controller
     
         $languageId = $languageMap[$locale] ?? 2;
     
-        $lessons = Lesson::where('language', $languageId)
-            ->where('difficulty', 1)
+        $lessons = Lesson::where('difficulty', 1)
             ->orderBy('id', 'asc')
             ->get();
 
@@ -131,6 +126,7 @@ class V1EnglishController extends Controller
             ->where('difficulty', 1)
             ->orderBy('id', 'desc')
             ->get();
+
 
         return view('pages.english.vocabulary.index', compact('lessons','vocabularies'));
     }
@@ -151,11 +147,6 @@ class V1EnglishController extends Controller
             ->groupBy('name')
             ->havingRaw('COUNT(name) > 1')
             ->pluck('name');
-        
-        $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
-            ->where('difficulty', 1)
-            ->where('language', operator: $languageId)
-            ->get();
 
         $name = urldecode($name);
 
@@ -163,12 +154,11 @@ class V1EnglishController extends Controller
     
         $vocabularie = Vocabulary::where('language', $languageId)
             ->where('difficulty', 1)
-            ->where('language', $lesson->id)
+            ->where('lesson_id', $lesson->id)
             ->orderBy('id', 'asc')
             ->get();
 
-
-        return view('pages.english.pageVocabulary.index', compact('vocabularie', 'vocabularies','lesson'));
+        return view('pages.english.pageVocabulary.index', compact('vocabularie','lesson'));
     }
 
     public function searchVocabulary(Request $request)
@@ -182,6 +172,39 @@ class V1EnglishController extends Controller
         return response()->json($vocabularies);
     }
 
+    public function updateVocabulary(Request $request, $id)
+    {
+        $vocabulary = Vocabulary::find($id);
+        if (!$vocabulary) {
+            return redirect()->back()->with('error', 'Vocabulary not found!');
+        }
+
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'meaning' => 'nullable|string|max:255',
+            'example' => 'nullable|string|max:255',
+            'translation' => 'nullable|string|max:255',
+            'pronunciation' => 'nullable|string|max:255',
+            'level' => 'required|integer|in:1,2',
+            'status' => 'required|integer|in:0,1',
+            'lesson_id' => 'required|exists:lessons,id',
+        ]);
+
+        $vocabulary->update([
+            'name' => $request->name,
+            'meaning' => $request->meaning,
+            'example' => $request->example,
+            'translation' => $request->translation,
+            'pronunciation' => $request->pronunciation,
+            'level' => $request->level,
+            'status' => $request->status,
+            'lesson_id' => $request->lesson_id,
+        ]);
+
+        return redirect()->back()->with('success', 'Vocabulary updated successfully!');
+    }
+
+
     public function index_add_passage()
     {
         $locale = session('locale', 'en');
@@ -194,8 +217,7 @@ class V1EnglishController extends Controller
     
         $languageId = $languageMap[$locale] ?? 2;
 
-        $lessons = Lesson::where('language', $languageId)
-            ->where('difficulty', 1)
+        $lessons = Lesson::where('difficulty', 1)
             ->orderBy('id', 'asc')
             ->get();
 
@@ -221,13 +243,12 @@ class V1EnglishController extends Controller
         ];
     
         $languageId = $languageMap[$locale] ?? 2;
-        $lessons = Lesson::where('language', $languageId)
-            ->where('difficulty', 1)
+        $lessons = Lesson::where('difficulty', 1)
             ->orderBy('id', 'asc')
             ->get();
 
         $structures = Structure::whereHas('lesson', function ($query) {
-            $query->where('language', 2);
+            $query;
         })
         ->orderBy('id', 'asc')
         ->where('difficulty', 1)
@@ -255,7 +276,7 @@ class V1EnglishController extends Controller
     
         $structures = Structure::where('language', $languageId)
             ->where('difficulty', 1)
-            ->where('language', $lesson->id)
+            ->where('lesson_id', $lesson->id)
             ->orderBy('id', 'asc')
             ->get();
 
@@ -281,7 +302,7 @@ class V1EnglishController extends Controller
     
         $vocabularie = Vocabulary::where('language', $languageId)
             ->where('difficulty', 1)
-            ->where('language', $lesson->id)
+            ->where('lesson_id', $lesson->id)
             ->orderBy('id', 'asc')
             ->get();
 
@@ -305,11 +326,21 @@ class V1EnglishController extends Controller
 
         $lesson = Lesson::where('name', $name)->where('difficulty', 1)->first();
     
-        $quizItem = QuizItem::where('difficulty', 1)
-            ->where('lesson_id', $lesson->id)
-            ->where('quiz_category_id', 1)
+        $duplicatedNames = QuizItem::select('question')
+            ->groupBy('question')
+            ->havingRaw('COUNT(DISTINCT language) = 3')
+            ->pluck('question');
+
+        $quizItem = QuizItem::whereIn('question', $duplicatedNames)
+            ->where('language', $languageId)
+            ->where([
+                ['difficulty', '=', 1],
+                ['lesson_id', '=', $lesson->id],
+                ['quiz_category_id', '=', 1]
+            ])
             ->orderBy('id', 'asc')
             ->get();
+
 
         return view('pages.english.pageCkeckVocabulary.index', compact('quizItem','lesson'));
     }
@@ -358,8 +389,7 @@ class V1EnglishController extends Controller
     
         $languageId = $languageMap[$locale] ?? 2;
 
-        $lessons = Lesson::where('language', $languageId)
-            ->where('difficulty', 1)
+        $lessons = Lesson::where('difficulty', 1)
             ->orderBy('id', 'asc')
             ->get();
 
@@ -386,8 +416,8 @@ class V1EnglishController extends Controller
     
         $languageId = $languageMap[$locale] ?? 2;
 
-        $lessons = Lesson::where('language', $languageId)
-            ->orderBy('id', 'asc')
+        $lessons = Lesson::where('difficulty', 1)
+        ->orderBy('id', 'asc')
             ->get();
 
         $categories = QuizCategory::all();
@@ -415,7 +445,6 @@ class V1EnglishController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'title' => 'required|string|max:255',
-            'language' => 'required',
         ]);
 
         try {
@@ -423,8 +452,7 @@ class V1EnglishController extends Controller
                 'user_id' => Auth::id(),
                 'name' => $request->name,
                 'title' => $request->title,
-                'difficulty' => 1,
-                'language' => $request->language,
+                'difficulty' => $request->difficulty,
             ]);
 
             return redirect()->back()->with('success', __('messages.Lesson added successfully!'));
@@ -451,7 +479,7 @@ class V1EnglishController extends Controller
             Vocabulary::create([
                 'user_id'       => Auth::id(),
                 'lesson_id'     => $request->lesson_id,
-                'difficulty' => 1,
+                'difficulty'    => $request->difficulty,
                 'language'      => $request->language,
                 'name'          => $request->name,
                 'meaning'       => $request->meaning,
@@ -481,7 +509,7 @@ class V1EnglishController extends Controller
 
         Passage::create([
             'user_id'       => Auth::id(),
-            'difficulty' => 1,
+            'difficulty' => $request->difficulty,
             'lesson_id' => $request->lesson_id,
             'language' => $request->language,
             'description' => $request->description,
@@ -507,7 +535,7 @@ class V1EnglishController extends Controller
         Structure::create([
             'lesson_id' => $request->lesson_id,
             'user_id' => Auth::id(),
-            'difficulty' => 1,
+            'difficulty' => $request->difficulty,
             'name' => $request->name,
             'structure' => $request->structure,
             'example' => $request->example,
@@ -540,7 +568,7 @@ class V1EnglishController extends Controller
         QuizItem::create([
             'lesson_id' => $request->lesson_id,
             'quiz_category_id' => $request->quiz_category_id,
-            'difficulty' => 1,
+            'difficulty' => $request->difficulty,
             'question' => $request->question,
             'option_a' => $request->option_a,
             'option_b' => $request->option_b,
