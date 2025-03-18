@@ -25,6 +25,7 @@
                         <option value="3">Japan</option>
                     </select>
                 </div>
+                <input type="hidden" name="difficulty" value="2"/> 
 
                 <input type="hidden" name="status" value="1" required /> 
                 <input type="hidden" name="quiz_category_id" value="1" required /> 
@@ -90,18 +91,18 @@
         <div class="w-full h-full d-flex flex-direction gap-10">
             <div class="english-vocabulary-theader">
                 <p style="width:25%">Question</p>
-                <p style="width:15%">Answer</p>
+                <p style="width:15%;display: flex; justify-content: center;">Answer</p>
                 <p style="width:35%">Explanation</p>
                 <p style="width:10%; text-align: center;">{{ __('messages.Level') }}</p>
                 <p style="width:15%; text-align: center;">{{ __('messages.Action') }}</p>
             </div>
+            <div class="overflow-auto height-74 d-flex flex-direction gap-10">
             @foreach ($quizItems as $item)
             <div class="english-vocabulary-tbody">
                 <div class="trustTitle1" style="width:25%">
-                    <p>{{ $item->explanation }}</p>
+                    <p>{{ $item->question }}</p>
                 </div>
-                <p style="width:25%">{{ $item->question }}</p>
-                <p style="width:15%">{{ $item->correct_answer }}</p>
+                <p style="width:15%; display: flex; justify-content: center;">{{ $item->correct_answer }}</p>
                 <div class="trustTitle1" style="width:35%">
                     <p>{{ $item->explanation }}</p>
                 </div>
@@ -135,6 +136,7 @@
                 </p>
             </div>
             @endforeach
+            </div>
         </div>
     </div>
 </div>

@@ -92,6 +92,7 @@ class V1JapaneseController extends Controller
             ->pluck('name');
             
         $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
+            ->where('lesson_id', $lesson->id)
             ->where('language', $languageId)
             ->where('difficulty', 2)
             ->get();
@@ -208,19 +209,10 @@ class V1JapaneseController extends Controller
         $name = urldecode($name);
 
         $lesson = Lesson::where('name', $name)->where('difficulty', 2)->first();
-    
-        $duplicatedNames = QuizItem::select('question')
-            ->groupBy('question')
-            ->havingRaw('COUNT(DISTINCT language) = 3')
-            ->pluck('question');
 
-        $quizItem = QuizItem::whereIn('question', $duplicatedNames)
-            ->where('language', $languageId)
-            ->where([
-                ['difficulty', '=', 2],
-                ['lesson_id', '=', $lesson->id],
-                ['quiz_category_id', '=', 1]
-            ])
+        $quizItem = QuizItem::where('language', $languageId)
+            ->where('lesson_id', $lesson->id)
+            ->where('difficulty', 2)
             ->orderBy('id', 'asc')
             ->get();
 
@@ -345,6 +337,7 @@ class V1JapaneseController extends Controller
             'en' => 2,
             'ja' => 3,
         ];
+            
     
         $languageId = $languageMap[$locale] ?? 2;
 
@@ -354,9 +347,9 @@ class V1JapaneseController extends Controller
 
         $categories = QuizCategory::all();
 
-        $quizItems = QuizItem::where('quiz_category_id', 2)
-            ->where('difficulty', 1)
-            ->orderBy('id', 'asc')
+        $quizItems = QuizItem::where('quiz_category_id', 1)
+            ->where('difficulty', 2)
+            ->orderBy('id', 'desc')
             ->with('user', 'lesson')
             ->get();
 
