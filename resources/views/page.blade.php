@@ -112,7 +112,7 @@
                     </a>
                 </li>
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items" data-link="question">
+                    <a href="{{ route('questions.index') }}" class="d-flex align-items" data-link="question">
                         <i class="bx bxs-add-to-queue features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Question') }}</span>
                         <span class="inbox-number blue">99</span>

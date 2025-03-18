@@ -62,6 +62,7 @@ use App\Http\Controllers\V1\V1TaskController;
 use App\Http\Controllers\V1\V1ProjectController;
 use App\Http\Controllers\V1\V1LanguageController;
 use App\Http\Controllers\V1\V1JapaneseController;
+use App\Http\Controllers\V1\V1QuestionController;
 use App\Models\Expense;
 /*
 |--------------------------------------------------------------------------
@@ -209,6 +210,13 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::get('/japanese/show/ckeck/vocabulary/{name}',[V1JapaneseController::class, 'showCheckVocabulary'])->name('japanese.showCheckVocabulary');
     Route::get('/japanese/show/ckeck/structure/{name}',[V1JapaneseController::class, 'showCheckStructure'])->name('japanese.showCheckStructure');
     Route::get('/japanese/quizStructure', [V1JapaneseController::class, 'index_quiz_structure'])->name('japanese.index_quiz_structure');
+
+    //Show pages Question
+    Route::get('questions', [V1QuestionController::class, 'index'])->name('questions.index');
+    Route::get('question-index-add', [V1QuestionController::class, 'index_add'])->name('questions.add');
+    Route::post('/questions/store/', [V1QuestionController::class, 'store'])->name('questions.store');
+    Route::get('/questions/{categoryId}', [V1QuestionController::class, 'getByCategory'])->name('questions.byCategory');
+
 });
 
 
