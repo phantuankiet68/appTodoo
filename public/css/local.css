@@ -4813,9 +4813,8 @@ button {
 
 .expense-info-body-right-top{
     width: 100%;
-    height: 19vh;
     background-color: #fff;
-    padding: 15px;
+    padding: 5px;
     border-radius: 5px;
 }
 
@@ -4826,14 +4825,13 @@ button {
     gap: 10px;
 }
 
-.expense-info-body-right-top-body p{
+.expense-info-body-right-top-body p {
     padding: 10px;
     background: #fddaa4;
     border-radius: 5px;
-    min-width: 158px;
+    min-width: 148px;
     color: #333333 !important;
 }
-
 
 .note-container {
     width: 100%;
@@ -5024,7 +5022,6 @@ button {
 }
 
 .task {
-    position: relative;
     background: white;
     color: black;
     box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
@@ -5032,7 +5029,6 @@ button {
     height: auto;
     font-size: 16px;
     cursor: move;
-    overflow: hidden;
 }
 
 
@@ -5750,7 +5746,6 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     flex-direction: column;
     width: 20%;
     margin-right: 10px;
-    background-color: #fff !important;
 }
 .progress-bar .bar {
     width: 100%;
@@ -6513,7 +6508,7 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 }
 
 .form-input-category label {
-    width: 30%;
+    width: 33%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -7326,6 +7321,24 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 }
 
 
+.editor-container #text-inputEdit {
+    margin-top: 10px;
+    border: 1px solid #dddddd;
+    padding: 10px;
+    height: 45vh;
+    outline: none;
+    border-radius: 5px;
+    line-height: 1.6;
+    overflow: auto;
+}
+
+#text-inputEdit b,#text-inputEdit strong {
+    font-weight: bold !important;
+}
+#text-inputEdit i,#text-inputEdit em {
+    font-style: italic !important;
+}
+
 
 .editor-container .active {
     background-color: #e0e9ff;
@@ -7920,4 +7933,27 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 .accordion-content.show {
     display: block !important;
     min-width: 100% !important;
+}
+
+.title-model{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.modelTask{
+    line-height: 1.6;
+}
+
+.showStatus{
+    padding: 5px 20px;
+    background: #40e9fc;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.showCurrentStart{
+    padding: 5px 20px;
+    background: #59ff8c !important;
+    color: #fff;
+    border-radius: 5px;
 }

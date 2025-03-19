@@ -45,20 +45,19 @@
                         <p style="width: 20%;">{{ $item->current_date }}</p>
                         <p style="width: 50%;">{{ $item->title }}</p>
                         <p style="width: 15%;">{{ $item->money }}K VND</p>
-                        <button style="width: 15%;padding: 10px 5px;background: #fe4c4c;color: #fff;border-radius: 5px;; cursor: pointer;" onclick="deleteExpense('{{ $item->id }}')">{{ __('messages.Remove') }}</button>
+                        <button style="width: 15%;padding: 10px 5px;background: #fe4c4c;color: #fff;border-radius: 5px;; cursor: pointer;" onclick="deleteExpense('{{ $item->id }}')"><i class="fa-solid fa-trash"></i></button>
                     </div>
                 @endforeach
             </div>
-            
         </div>
         <div class="expense-info-body-right">
             <div class="expense-info-body-right-top">
                 <div class="expense-info-body-right-top-body">
                     @foreach ($monthlyTotals as $month => $total)
                         @if (app()->getLocale() === 'ja')
-                            <p>{{ $month }}{{ __('messages.Month') }}: {{ $total }}K VND</p>
+                            <p>{{ $month }}{{ __('messages.Month') }}: {{ $total }}K</p>
                         @else
-                            <p>{{ __('messages.Month') }} {{ $month }}: {{ $total }}K VND</p>
+                            <p>{{ __('messages.Month') }} {{ $month }}: {{ $total }}K</p>
                         @endif
                     @endforeach
                 </div>

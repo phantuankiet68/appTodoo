@@ -147,7 +147,6 @@
     <div class="ModelCreateTodo">
         <form id="contentForm" method="POST" action="{{ route('tasks.store') }}">
             @csrf
-            <h2>{{ __('messages.Add new') }}</h2>
             <div class="form-btn">
                 <button type="submit">{{ __('messages.Save changes') }}</button>
             </div>
@@ -160,7 +159,8 @@
             </div>
             <div class="form-textarea-category">
                 <label for="description">{{ __('messages.Content') }}</label>
-                <textarea class="textarea" name="description" id="editor"></textarea>
+                <textarea name="description" id="hiddenDescription" style="display: none;"></textarea>
+                @include('pages.components.editor.index', ['name' => 'description'])
             </div>
             <div class="form-group-info">
                 <div class="form-input-category">
@@ -182,60 +182,13 @@
     </div>
 </div>
 
-
 <div class="model" id="showTask">
-    <div class="ModelCreateTodo">
-        <div class="buttonAction">
-            <button class="edit" onclick="showTab('edit')"><i class="fa-solid fa-pen-to-square"></i> {{ __('messages.Edit') }}</button>
-            <button class="delete" onclick="showTab('delete')"><i class="fa-solid fa-trash"></i> {{ __('messages.Delete') }}</button>
-        </div>
-
-        <div class="editContentQuestion" id="edit">
-            <form method="POST" id="edit-task-form" action="">
-                @csrf
-                @method('PUT')
-                <input type="hidden" id="task_id" name="task_id" value=""/>
-                @if (Auth::check())
-                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"/>
-                @endif
-                <div class="form-input-category">
-                    <label for="name">{{ __('messages.Name') }}</label>
-                    <input type="text" class="input-name" name="name" id="showNameEdit">
-                </div>
-                <div class="form-textarea-category">
-                    <label for="description">{{ __('messages.Content') }}</label>
-                    <textarea class="textarea" name="description" id="editor1"></textarea>
-                </div>
-                <div class="form-group-info">
-                    <div class="form-input-category">
-                        <label for="current_start">{{ __('messages.Start Date') }}</label>
-                        <input type="date" class="input-name" id="showCurrentEdit" name="current_start">
-                    </div>
-                    <div class="form-select-category">
-                        <label for="status">{{ __('messages.Status') }}</label>
-                        <select name="status" id="status">
-                            <option value="1">{{ __('messages.Show') }}</option>
-                            <option value="0">{{ __('messages.Hide') }}</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-btn">
-                    <button type="submit">{{ __('messages.Update') }}</button>
-                </div>
-            </form>
-        </div>
-
-        <div class="deleteContentQuestion" id="delete" style="display: none;">
-            <form method="POST" id="delete-Code">
-                @csrf
-                @method('DELETE')
-                <input type="hidden" id="task_id" name="task_id" />
-                <h3 class="text-center px-10">{{ __('messages.Are you sure you want to delete?') }}</h3>
-                <p class="text-center" id="showNameDelete"></p> 
-                <div class="form-btn-delete">
-                    <button type="submit">{{ __('messages.Delete') }}</button>
-                </div>
-            </form>
+    <div class="ModelCreateTodo modelTask">
+        <p class="title-model" id="showName"></p>
+        <p id="showDescription" class="mt-10"></p>
+        <div class="d-flex w-full space-between mt-10">
+            <p id="showStatus" class="showStatus"></p>
+            <p id="showCurrentStart" class="showCurrentStart">✅</p>
         </div>
         <div class="BtnCloseCategoryTask" onclick="closeDeleteTask()">
             <p>X</p>
@@ -268,27 +221,19 @@
     </div>
 @endif
 
-<script>
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .then(editor => {
-            editorInstance = editor; 
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    ClassicEditor
-        .create(document.querySelector('#editor1'))
-        .then(editor => {
-            editorInstance = editor; 
-        })
-        .catch(error => {
-            console.error(error);
-        });
-
-</script>
+<script src="{{ asset('js/editor/index.js') }}"></script>
 
 <script>
+    document.getElementById("contentForm").addEventListener("submit", function() {
+        let editorContent = document.getElementById("text-input").innerHTML; 
+        document.getElementById("hiddenDescription").value = editorContent;
+    });
+
+    document.getElementById("contentForm").addEventListener("submit", function() {
+        let editorContent = document.getElementById("text-input").innerHTML; 
+        document.getElementById("edit-task-form").value = editorContent;
+    });
+
     document.addEventListener('DOMContentLoaded', function() {
         const popup = document.querySelector('#popup-success');
         if (popup) {
@@ -319,16 +264,10 @@
     }
 
 
-
-    function showTab(tab) {
-        document.getElementById('edit').style.display = 'none';
-        document.getElementById('delete').style.display = 'none';
-        document.getElementById(tab).style.display = 'block';
-    }
-
     function showTaskPopup(taskId) {
         const showTaskPopup = document.getElementById('showTask');
         showTaskPopup.style.display = 'block';
+
         fetch(`/v1/tasks/${taskId}`)
         .then(response => {
             if (!response.ok) {
@@ -337,52 +276,12 @@
             return response.json();
         })
         .then(data => {
-            if (document.getElementById('showName')) {
-                document.getElementById('showName').innerHTML = data.name || "N/A";
-            }
-
-            if (document.getElementById('showNameEdit')) {
-                document.getElementById('showNameEdit').value = data.name || "";
-            }
-
-            if (document.getElementById('showCurrentEdit')) {
-                document.getElementById('showCurrentEdit').value = data.current_start || "";
-            }
-
-            if (document.getElementById('showNameDelete')) {
-                document.getElementById('showNameDelete').innerHTML = data.name || "";
-            }
-
-            if (editorInstance) {
-                editorInstance.setData(data.description);
-            } else {
-                console.error("⚠️ Editor instance not found.");
-            }
-
-            if (document.getElementById('task_id')) {
-                document.getElementById('task_id').value = data.id || "";
-            }
+            document.getElementById('showName').textContent = "✅" + data.name || 'Không có tên';
+            document.getElementById('showDescription').innerHTML = data.description && data.description.trim() !== '' ? data.description : 'Không có mô tả';
+            document.getElementById('showStatus').textContent = data.status || 'Chưa có trạng thái';
+            document.getElementById('showCurrentStart').textContent = data.current_start ? data.current_start : 'Chưa bắt đầu';
         })
         .catch(error => console.error('Error fetching task:', error));
-    }
-
-    document.getElementById('edit-task-form').onsubmit = function(event) {
-        event.preventDefault();
-
-        const taskIdInput = document.getElementById('task_id');
-        if (!taskIdInput) {
-            console.error("Task ID input not found.");
-            return;
-        }
-
-        const taskId = taskIdInput.value;
-        if (!taskId) {
-            console.error("Task ID is empty.");
-            return;
-        }
-
-        this.action = `/v1/tasks/${taskId}`; 
-        this.submit();
     }
 
     function closeCreateTask() {
@@ -444,13 +343,12 @@
             lane.appendChild(draggingTask);
         });
     });
-
     function updateTaskStatus(taskId, newStatus) {
         fetch(`/update-status/${taskId}`, {
-            method: 'PATCH', // hoặc 'PUT', tùy thuộc vào API của bạn
+            method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': '{{ csrf_token() }}' // Thêm token CSRF nếu cần
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
             },
             body: JSON.stringify({ status: newStatus })
         })

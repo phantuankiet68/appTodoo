@@ -119,14 +119,6 @@
                         <span class="tooltip">{{ __('messages.Question') }}</span>
                     </a>
                 </li>
-                <li class="features-item spam">
-                    <a href="" class="d-flex align-items" data-link="note">
-                        <i class="bx bx-edit features-item-icon"></i>
-                        <span class="features-item-text">{{ __('messages.Note') }}</span>
-                        <span class="inbox-number blue">99</span>
-                        <span class="tooltip">{{ __('messages.Note') }}</span>
-                    </a>
-                </li>
             </ul>
 
             <ul class="chat-list">
