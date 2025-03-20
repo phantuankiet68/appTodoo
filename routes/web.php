@@ -63,6 +63,7 @@ use App\Http\Controllers\V1\V1ProjectController;
 use App\Http\Controllers\V1\V1LanguageController;
 use App\Http\Controllers\V1\V1JapaneseController;
 use App\Http\Controllers\V1\V1QuestionController;
+use App\Http\Controllers\V1\V1CodeController;
 use App\Models\Expense;
 /*
 |--------------------------------------------------------------------------
@@ -216,6 +217,10 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::get('question-index-add', [V1QuestionController::class, 'index_add'])->name('questions.add');
     Route::post('/questions/store/', [V1QuestionController::class, 'store'])->name('questions.store');
     Route::get('/questions/{categoryId}', [V1QuestionController::class, 'getByCategory'])->name('questions.byCategory');
+
+    
+    //Japanese
+    Route::resource('code', V1CodeController::class);
 
 });
 

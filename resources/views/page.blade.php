@@ -123,7 +123,7 @@
 
             <ul class="chat-list">
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items" data-link="code">
+                    <a href="{{ route('code.index') }}" class="d-flex align-items" data-link="code">
                         <i class="bx bx-code-block features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Code') }}</span>
                         <span class="inbox-number blue">99</span>
