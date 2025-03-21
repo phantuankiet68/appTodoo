@@ -287,37 +287,37 @@
                         <p class="img"><img src="{{ asset('assets/images/service1.png') }}" alt=""></p>
                         <p class="date">Phan Tuấn Kiệt</p>
                         <p class="date">Cute</p>
-                        <p class="time">Đang hoạt động</p>
+                        <p class="time">✅</p>
                     </div>
                     <div class="body-table">
                         <p class="img"><img src="{{ asset('assets/images/service1.png') }}" alt=""></p>
                         <p class="date">Phan Tuấn Kiệt</p>
                         <p class="date">Cute</p>
-                        <p class="time">Đang hoạt động</p>
+                        <p class="time">✅</p>
                     </div>
                     <div class="body-table">
                         <p class="img"><img src="{{ asset('assets/images/service1.png') }}" alt=""></p>
                         <p class="date">Phan Tuấn Kiệt</p>
                         <p class="date">Cute</p>
-                        <p class="time">Đang hoạt động</p>
+                        <p class="time">✅</p>
                     </div>
                     <div class="body-table">
                         <p class="img"><img src="{{ asset('assets/images/service1.png') }}" alt=""></p>
                         <p class="date">Phan Tuấn Kiệt</p>
                         <p class="date">Cute</p>
-                        <p class="time">Đang hoạt động</p>
+                        <p class="time">✅</p>
                     </div>
                     <div class="body-table">
                         <p class="img"><img src="{{ asset('assets/images/service1.png') }}" alt=""></p>
                         <p class="date">Phan Tuấn Kiệt</p>
                         <p class="date">Cute</p>
-                        <p class="time">Đang hoạt động</p>
+                        <p class="time">✅</p>
                     </div>
                     <div class="body-table">
                         <p class="img"><img src="{{ asset('assets/images/service1.png') }}" alt=""></p>
                         <p class="date">Phan Tuấn Kiệt</p>
                         <p class="date">Cute</p>
-                        <p class="time">Đang hoạt động</p>
+                        <p class="time">✅</p>
                     </div>
 
                 </div>
@@ -362,7 +362,7 @@
                 <i class="fa-solid fa-chalkboard"></i> Tiền còn lại
             </div>
             <div class="service-value-right">
-                <p>500000-300000 = 200000 VND</p>
+                <p>200000 VND</p>
             </div>
         </div>
         

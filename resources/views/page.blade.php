@@ -131,7 +131,7 @@
                     </a>
                 </li>
                 <li class="features-item spam">
-                    <a href="" class="d-flex align-items" data-link="component">
+                    <a href="{{ route('components.index') }}" class="d-flex align-items" data-link="component">
                         <i class="bx bx-code-block features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Component') }}</span>
                         <span class="inbox-number blue">99</span>

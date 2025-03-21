@@ -64,6 +64,7 @@ use App\Http\Controllers\V1\V1LanguageController;
 use App\Http\Controllers\V1\V1JapaneseController;
 use App\Http\Controllers\V1\V1QuestionController;
 use App\Http\Controllers\V1\V1CodeController;
+use App\Http\Controllers\V1\V1ComponentController;
 use App\Models\Expense;
 /*
 |--------------------------------------------------------------------------
@@ -221,6 +222,9 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     
     //Japanese
     Route::resource('code', V1CodeController::class);
+
+    //Component
+    Route::resource('components', V1ComponentController::class);
 
 });
 

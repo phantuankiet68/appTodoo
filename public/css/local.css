@@ -514,7 +514,7 @@ body {
 }
 
 .chat-list {
-    padding: 2.1rem 0;
+    padding: 1.1rem 0;
     font-size: 1.2rem;
 }
 
@@ -2219,7 +2219,7 @@ border-radius: 4px;
     justify-content: space-between;
     gap: 2rem;
     color: #000;
-    height: 90vh;
+    max-height: 90vh;
     padding: 10px;
 }
 
@@ -4112,8 +4112,9 @@ button {
     background-color: #fff;
     padding: 10px;
     border-radius: 5px;
-    min-height: 55vh;
+    min-height: 47vh;
 }
+
 .dashboard-left-column-card-item{
     display: flex;
     justify-content: space-between;
@@ -4151,7 +4152,8 @@ button {
 
 .body-table-scroll {
     width: 100%;
-    height: 45vh;
+    height: 40vh;
+    padding-right: 5px;
     overflow: auto;
 }
 
@@ -4262,7 +4264,7 @@ button {
 
 .dashboard-right-column-card .dashboard-left-column-card-table .header-table p,
 .dashboard-right-column-card .dashboard-left-column-card-table .body-table p {
-    width: 26%;
+    width: 32%;
 }
 
 .dashboard-right-column-card .dashboard-left-column-card-table .header-table p:nth-child(1),
@@ -4277,7 +4279,7 @@ button {
 
 .dashboard-right-column-card .dashboard-left-column-card-table .header-table p:nth-child(4),
 .dashboard-right-column-card .dashboard-left-column-card-table .body-table p:nth-child(4) {
-    width: 33%;
+    width: 20%;
     text-align: center;
 }
 
@@ -4304,18 +4306,18 @@ button {
     background-color: #fff;
     padding: 10px;
     border-radius: 5px;
-    min-height: 33vh;
+    min-height: 42vh;
 }
 
 .body-table-scroll-right {
     width: 100%;
-    height: 22.6vh;
+    height: 30vh;
     overflow: auto;
 }
 
-.service-value{
+.service-value {
     width: 100%;
-    min-height: 10vh;
+    min-height: 8vh;
     background-color: #fff;
     border-radius: 5px;
     padding: 0 20px;
@@ -4323,6 +4325,7 @@ button {
     align-items: center;
     justify-content: space-between;
 }
+
 .service-value-left{
     display: flex;
     gap: 10px;
@@ -8078,4 +8081,53 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     border: 1px solid #d7d7d7;
     padding: 5px 10px;
     border-radius: 5px;
+}
+
+.component{
+    height: 90vh;
+    overflow: auto;
+    padding-right: 10px;
+}
+
+.component-container { display: flex; gap: 10px; }
+.component-sidebar {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 90vh;
+    overflow: auto;
+    padding-bottom: 10px;
+    padding-right: 10px;
+}
+.dropzone{ flex-grow: 1; border: 2px dashed #ccc; padding: 20px; position: relative; }
+.draggable {
+    padding: 15px;
+    background-color: #ffffff;
+    cursor: grab;
+    border-radius: 5px;
+}
+.draggable:hover { 
+    background: #00ff84;
+    color: #ffffff;
+}
+.editable { border: 1px dashed #aaa; padding: 5px; cursor: text; }
+.tab-menu { display: flex; gap: 10px; margin-bottom: 10px; }
+.tab-menu button { padding: 5px 10px; cursor: pointer; }
+.toolbar {max-width: 30%; display: none; position: absolute; background: #fff; border: 1px solid #ddd; padding: 10px; box-shadow: 2px 2px 5px rgba(0,0,0,0.2); }
+.toolbar button, .toolbar input, .toolbar select {
+    padding: 6px 10px;
+    border: 1px solid #d7d7d7;
+    border-radius: 5px;
+    outline: none;
+}
+
+.toolbar .margin input {
+    width: 24.2%;
+}
+.row { display: flex; gap: 10px; margin: 10px 0; border: 1px solid #ddd; padding: 10px; }
+.column { flex: 1; border: 1px dashed #aaa; padding: 10px; min-height: 50px; }
+
+.toolbar label{
+    font-size: 13px;
 }
