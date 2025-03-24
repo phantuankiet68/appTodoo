@@ -23,6 +23,7 @@
                 <div class="draggable" draggable="true" data-type="card"> <i class="fa-solid fa-plus"></i> {{ __('messages.Card') }}</div>
                 <div class="draggable" draggable="true" data-type="image"><i class="fa-solid fa-plus"></i> {{ __('messages.Image') }}</div>
                 <div class="draggable" draggable="true" data-type="table"><i class="fa-solid fa-plus"></i> {{ __('messages.Table') }}</div>
+                <div class="draggable" draggable="true" data-type="table"><button id="downloadBtn"><i class="fa-solid fa-download"></i> Download</button></div>
             </div>
             <div class="dropzone" id="dropzone"></div>
             
@@ -199,6 +200,21 @@
         draggable.addEventListener('dragstart', (e) => {
             e.dataTransfer.setData('type', e.target.getAttribute('data-type'));
         });
+    });
+
+    document.getElementById("downloadBtn").addEventListener("click", function () {
+        const dropzoneContent = document.getElementById("dropzone").innerHTML;
+        
+        // Tạo file HTML
+        const blob = new Blob([`<html><body>${dropzoneContent}</body></html>`], { type: "text/html" });
+
+        // Tạo link tải file
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = "design.html"; // Tên file tải xuống
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
     });
 
     dropzones.forEach(dropzone => {

@@ -41,6 +41,7 @@ class V1JapaneseController extends Controller
         $vocabularies = Vocabulary::whereIn('name', $duplicatedNames)
             ->where('language', $languageId)
             ->where('difficulty', 2)
+            ->orderBy('id', 'desc')
             ->get();
 
         return view('pages.japanese.index', compact( 'vocabularies','lessons'));
@@ -212,6 +213,7 @@ class V1JapaneseController extends Controller
 
         $quizItem = QuizItem::where('language', $languageId)
             ->where('lesson_id', $lesson->id)
+            ->where('quiz_category_id', 1)
             ->where('difficulty', 2)
             ->orderBy('id', 'asc')
             ->get();

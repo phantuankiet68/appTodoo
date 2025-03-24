@@ -7650,6 +7650,7 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     background: #ffff;
     width: 100%;
     border-radius: 5px;
+    line-height: 1.8;
 }
 
 .ckeck-vocabulary-value{
