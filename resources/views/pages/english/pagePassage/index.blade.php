@@ -22,6 +22,7 @@
         @endif
     </div>
     <div class="english-right">
+
         <div class="english-right-top">
             <a href="{{ route('showLesson', urlencode($lesson->name)) }}" class="active">{{ __('messages.Passage') }}</a>
             <a href="{{ route('showVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Vocabulary learning') }}</a>

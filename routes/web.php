@@ -65,6 +65,7 @@ use App\Http\Controllers\V1\V1JapaneseController;
 use App\Http\Controllers\V1\V1QuestionController;
 use App\Http\Controllers\V1\V1CodeController;
 use App\Http\Controllers\V1\V1ComponentController;
+use App\Http\Controllers\V1\V1KanjiController;
 use App\Models\Expense;
 /*
 |--------------------------------------------------------------------------
@@ -219,7 +220,8 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::post('/questions/store/', [V1QuestionController::class, 'store'])->name('questions.store');
     Route::get('/questions/{categoryId}', [V1QuestionController::class, 'getByCategory'])->name('questions.byCategory');
 
-    
+    Route::resource('kanji', V1KanjiController::class);
+
     //Japanese
     Route::resource('code', V1CodeController::class);
 

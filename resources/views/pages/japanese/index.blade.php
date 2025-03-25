@@ -32,19 +32,19 @@
                 <p class="english-show-translation">{{ __('messages.Translation') }}: <span id="word-translation"></span></p>
             </div>
             <div class="english-left-footer-choose">
-                <a class="english-left-footer-card">
+                <a href="#" class="english-left-footer-card">
                     <p>🈚</p>
                     <p>漢字</p>
                 </a>
-                <a class="english-left-footer-card">
+                <a href="#" class="english-left-footer-card">
                     <p>✍️</p>
                     <p>試験</p>
                 </a>
-                <a class="english-left-footer-card">
+                <a href="#" class="english-left-footer-card">
                     <p>📝</p>
                     <p>面接質問</p>
                 </a>
-                <a class="english-left-footer-card">
+                <a href="#" class="english-left-footer-card">
                     <p>🔝</p>
                     <p>高度</p>
                 </a>
@@ -71,7 +71,6 @@
             @endforeach
         </div>
         <div class="w-full d-flex flex-direction gap-10 mt-10">
-            <a class="w-full p-10 bg-white border-radius-5 bg-blue-hover" href="https://mazii.net/vi-VN/mazii-ai" target="_blank">📚 Mazii</a>
             <a class="w-full p-10 bg-white border-radius-5 bg-blue-hover" href="https://chatgpt.com/" target="_blank">🤖 Chat GPT</a>
             <a class="w-full p-10 bg-white border-radius-5 bg-blue-hover" href="https://www.blackbox.ai/" target="_blank">💬 blackbox AI</a>
             <a class="w-full p-10 bg-white border-radius-5 bg-blue-hover" href="https://you.com/" target="_blank">📖 You AI</a>

@@ -7123,7 +7123,11 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 .english-right{
     width: 25%;
     height: 90vh;
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
 }
+
 
 .english-right-top {
     display: flex;
@@ -7742,8 +7746,6 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 10px;
-    height: 66vh;
     border-radius: 5px;
     overflow: auto;
 }
@@ -8131,4 +8133,91 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 
 .toolbar label{
     font-size: 13px;
+}
+
+.show-image-footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(90deg, #5D9FFF 0%, #B8DCFF 50%, #6BBBFF 100%), url(../assets/images/service2.png);
+    background-blend-mode: color;
+    background-size: cover;
+    padding: 10px 20px;
+    background-position: 51%;
+    border-radius: 5px;
+}
+
+.show-image{
+    width: 50%;
+    height: auto;
+}
+
+@keyframes tiltImage {
+    0% { transform: rotate(0deg); } 
+    25% { transform: rotate(10deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-10deg); }
+    100% { transform: rotate(0deg); }
+}
+@keyframes gradientMove {
+    0% { background: linear-gradient(90deg, #2CD8D5, #C5C1FF, #FFBAC3); }
+    50% { background: linear-gradient(90deg, #FFBAC3, #2CD8D5, #C5C1FF); }
+    100% { background: linear-gradient(90deg, #2CD8D5, #C5C1FF, #FFBAC3); }
+}
+
+
+.show-image img{
+    width: 100%;
+    height: auto;
+    animation: tiltImage 2s infinite ease-in-out;
+}
+
+.mit {
+    width: 48%;
+    padding: 15px 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 12.5px;
+    cursor: pointer;
+}
+
+.kanji-left{
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.kanji-left-list {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: auto;
+    height: 90vh;
+    padding-right: 8px;
+}
+
+.kanji-left-card{
+    width: 100%;
+    background: radial-gradient(circle, #2CD8D5 0%, #C5C1FF 50%, #FFBAC3 100%);
+    padding: 5px;
+    border-radius: 5px;
+}
+.animated-gradient {
+    width: 100%;
+    height: auto;
+    animation: gradientMove 5s infinite alternate;
+    background-size: 200% 200%;
+}
+
+.kanji-left-card-body{
+    background: #fff;
+    padding: 5px;
+    line-height: 1.6;
+}
+
+.kanji-left-write{
+    width: 60%;
+    background-color: #fff;
 }

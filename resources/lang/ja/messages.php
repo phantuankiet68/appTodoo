@@ -361,4 +361,11 @@ return [
     'Enter border radius (px)'=>'境界線の半径を入力(px)',
     'Enter URL action'=>'アクションURLを入力',
 
+    'Go back'=>'戻る',
+    'Mind Map'=>'マインドマップ',
+    'Classification Chart'=>'分類図',
+    'Flowchart'=>'フローチャート ',
+    'Comparison Chart'=>'比較図',
+    'SWOT Analysis Chart'=>'SWOT分析図',
+    'Voice'=>'声',
 ];

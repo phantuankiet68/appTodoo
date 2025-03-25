@@ -22,6 +22,9 @@
         @endif
     </div>
     <div class="english-right">
+        <div class="back p-10 bg-white border-radius-5">
+            <a href="{{ route('japaneses.index')}}" class="d-flex gap-5 w-full"><i class="fa-solid fa-clock-rotate-left"></i>{{ __('messages.Go back') }}</a>
+        </div>
         <div class="english-right-top">
             <a href="{{ route('japanese.showLesson', urlencode($lesson->name)) }}" class="active">{{ __('messages.Passage') }}</a>
             <a href="{{ route('japanese.showVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Vocabulary learning') }}</a>
@@ -30,17 +33,20 @@
             <a href="{{ route('japanese.showCheckVocabulary', urlencode($lesson->name)) }}">{{ __('messages.Vocabulary checking') }}</a>
             <a href="{{ route('japanese.showCheckStructure', urlencode($lesson->name)) }}">{{ __('messages.Structure checking') }}</a>
         </div>
-        <div class="english-right-body-show">
-            <p>{{ __('messages.why_cant_learn') }}</p>
-            <p>{{ __('messages.why_difficult') }}</p>
-            <p>{{ __('messages.why_forget') }}</p>
-            <p>{{ __('messages.why_not_fluent') }}</p>
-            <p>{{ __('messages.why_nervous') }}</p>
-            <p>{{ __('messages.why_bad_pronunciation') }}</p>
-            <p>{{ __('messages.why_understand_but_not_speak') }}</p>
-            <p>{{ __('messages.why_confusing_grammar') }}</p>
-            <p>{{ __('messages.why_listening_skills') }}</p>
-            <p>{{ __('messages.why_no_motivation') }}</p>
+        <div class="show-more">
+            <div class="english-right-body-show">
+                <p>✅{{ __('messages.Mind Map') }}</p>
+                <p>✅{{ __('messages.Classification Chart') }}</p>
+                <p>✅{{ __('messages.Flowchart') }}</p>
+                <p>✅{{ __('messages.Comparison Chart') }}</p>
+                <p>✅{{ __('messages.SWOT Analysis Chart') }}</p>
+            </div>
+        </div>
+        <div class="show-image-footer">
+            <div class="show-image">
+                <img src="{{ asset('assets/images/ai.png') }}">
+                <button class="button">{{ __('messages.Voice') }}</button>
+            </div>
         </div>
     </div>
 </div>

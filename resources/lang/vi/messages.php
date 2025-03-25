@@ -347,4 +347,11 @@ return [
     'Enter URL'=>'Enter URL',
     'Enter border radius (px)'=>'Enter border radius (px)',
     'Enter URL action'=>'Enter URL action',
+    'Go back'=>'Quay lại',
+    'Mind Map'=>'Sơ đồ tư duy',
+    'Classification Chart'=>'Sơ đồ phân loại',
+    'Flowchart'=>'Sơ đồ tiến trình ',
+    'Comparison Chart'=>'Sơ đồ so sánh',
+    'SWOT Analysis Chart'=>'Sơ đồ SWOT',
+    'Voice'=>'Giọng nói',
 ];

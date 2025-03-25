@@ -360,4 +360,14 @@ return [
     'Enter URL'=>'Enter URL',
     'Enter border radius (px)'=>'Enter border radius (px)',
     'Enter URL action'=>'Enter URL action',
+
+    'Go back'=>'Go back',
+    'Mind Map'=>'Mind Map',
+    'Classification Chart'=>'Classification Chart',
+    'Flowchart'=>'Flowchart',
+    'Comparison Chart'=>'Comparison Chart',
+    'SWOT Analysis Chart'=>'SWOT Analysis Chart',
+    'Voice'=>'Voice',
+
+    
 ];
