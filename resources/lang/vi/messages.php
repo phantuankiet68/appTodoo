@@ -354,4 +354,10 @@ return [
     'Comparison Chart'=>'Sơ đồ so sánh',
     'SWOT Analysis Chart'=>'Sơ đồ SWOT',
     'Voice'=>'Giọng nói',
+    'Multiple-choice test'=>'Kiểm tra trắc nghiệm',
+    'Writing test'=>'Kiểm tra văn viết',
+    'Related passage'=>'Đoạn văn liên quan',
+    'Learned quantity'=>'Số lương đã học',
+    'Number of correct answers'=>'Số lượng câu đúng',
+    'Successfully completed'=>'Hoàn thành đạt',
 ];

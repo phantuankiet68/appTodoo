@@ -13,9 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->unsignedBigInteger('question_category_id')->after('user_id');
-            $table->foreign('question_category_id')->references('id')->on('question_categories')->onDelete('cascade');
+        Schema::create('lesson_kanjis', function (Blueprint $table) {
+            $table->id();
+            $table->string('lesson', 50);
+            $table->string('title', 255);
+            $table->string('level', 50);
+            $table->timestamps();
         });
     }
 
@@ -26,7 +29,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('questions', function (Blueprint $table) {
+        Schema::table('lesson_kanjis', function (Blueprint $table) {
             //
         });
     }

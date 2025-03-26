@@ -5,105 +5,64 @@
 <div class="english-info">
     <div class="kanji-left">
         <div class="kanji-left-list">
+            @foreach ( $Kanji as $item )
             <div class="kanji-left-card animated-gradient">
                 <div class="kanji-left-card-body">
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
+                    <p>🔹Kanji: {{ $item->kanji }}</p>
+                    <p>🔹Nghĩa Hán tự: {{ $item->meaning_han }}</p>
+                    <p>🔹Âm Hán Nhật: {{ $item->onyomi }}</p>
+                    <p>📍Ví dụ câu: {{ $item->example_sentence }}</p>
+                    <p>➡️ Nghĩa của câu: {{ $item->example_meaning }}</p>
                 </div>
             </div>
-            <div class="kanji-left-card animated-gradient">
-                <div class="kanji-left-card-body">
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                </div>
-            </div>
-            <div class="kanji-left-card animated-gradient">
-                <div class="kanji-left-card-body">
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                </div>
-            </div>
-            <div class="kanji-left-card animated-gradient">
-                <div class="kanji-left-card-body">
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                </div>
-            </div>
-            <div class="kanji-left-card animated-gradient">
-                <div class="kanji-left-card-body">
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                </div>
-            </div>
-            <div class="kanji-left-card animated-gradient">
-                <div class="kanji-left-card-body">
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                </div>
-            </div>
-            <div class="kanji-left-card animated-gradient">
-                <div class="kanji-left-card-body">
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                </div>
-            </div>
-            <div class="kanji-left-card animated-gradient">
-                <div class="kanji-left-card-body">
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                </div>
-            </div>
-            <div class="kanji-left-card animated-gradient">
-                <div class="kanji-left-card-body">
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                    <p>học hỏi thêm</p>
-                </div>
-            </div>
-            
+            @endforeach
         </div>
         <div class="kanji-left-write">
         
         </div>
     </div>
     <div class="english-right">
+        <div class="back p-10 bg-white border-radius-5">
+            <a href="{{ route('japaneses.index')}}" class="d-flex gap-5 w-full"><i class="fa-solid fa-clock-rotate-left"></i>{{ __('messages.Go back') }}</a>
+        </div>
+        <div class="back p-10 bg-white border-radius-5">
+            <a href="{{ route('japaneses.index')}}" class="d-flex gap-5 w-full"><i class="fa-solid fa-pen-to-square"></i>{{ __('messages.Multiple-choice test') }}</a>
+        </div>
+        <div class="back p-10 bg-white border-radius-5">
+            <a href="{{ route('japaneses.index')}}" class="d-flex gap-5 w-full"><i class="fa-solid fa-pen-to-square"></i>{{ __('messages.Writing test') }}</a>
+        </div>
+        <div class="back p-10 bg-white border-radius-5">
+            <a href="{{ route('japaneses.index')}}" class="d-flex gap-5 w-full"><i class="fa-solid fa-bookmark"></i>{{ __('messages.Related passage') }}</a>
+        </div>
+        <div class="back p-10 bg-white border-radius-5">
+            <a href="{{ route('japaneses.index')}}" class="d-flex gap-5 w-full"><i class="fa-solid fa-check"></i>{{ __('messages.Learned quantity') }}: 5</a>
+        </div>
+        <div class="back p-10 bg-white border-radius-5">
+            <a href="{{ route('japaneses.index')}}" class="d-flex gap-5 w-full"><i class="fa-solid fa-check"></i>{{ __('messages.Successfully completed') }}: 1</a>
+        </div>
         <div class="english-right-body">
 
         </div>
-        <div class="w-full d-flex flex-direction gap-10 mt-10">
-            <a class="w-full p-10 bg-white border-radius-5 bg-blue-hover" href="https://chatgpt.com/" target="_blank">🤖 Chat GPT</a>
-            <a class="w-full p-10 bg-white border-radius-5 bg-blue-hover" href="https://www.blackbox.ai/" target="_blank">💬 blackbox AI</a>
-            <a class="w-full p-10 bg-white border-radius-5 bg-blue-hover" href="https://you.com/" target="_blank">📖 You AI</a>
-            <a class="w-full p-10 bg-white border-radius-5 bg-blue-hover" href="https://www.perplexity.ai/" target="_blank">🔤 Perplexity AI</a>
-        </div>
+    </div>
+</div>
+<div class="fab-container">
+    <button class="fab main-fab" id="fabMain"><i class="fa-solid fa-list"></i></button>
+    <div class="fab-menu">
+        <a href="" class="fab fab-item">📄</a>
+        <a href="" class="fab fab-item">⚙️</a>
+        <a href="{{ route('kanji.index_add')}}" class="fab fab-item">+</a>
     </div>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const fabMain = document.getElementById("fabMain");
+        const fabMenu = document.querySelector(".fab-menu");
 
+        fabMain.addEventListener("click", () => {
+            fabMenu.classList.toggle("openfad");
+        });
+    });
+
+</script>
 @endsection

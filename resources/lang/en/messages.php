@@ -368,6 +368,10 @@ return [
     'Comparison Chart'=>'Comparison Chart',
     'SWOT Analysis Chart'=>'SWOT Analysis Chart',
     'Voice'=>'Voice',
-
+    'Multiple-choice test'=>'Multiple-choice test',
+    'Writing test'=>'Writing test',
+    'Related passage'=>'Related passage',
+    'Learned quantity'=>'Learned quantity',
+    'Successfully completed'=>'Successfully completed',
     
 ];

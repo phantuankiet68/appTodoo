@@ -368,4 +368,9 @@ return [
     'Comparison Chart'=>'比較図',
     'SWOT Analysis Chart'=>'SWOT分析図',
     'Voice'=>'声',
+    'Multiple-choice test'=>'選択式テスト',
+    'Writing test'=>'記述式テスト',
+    'Related passage'=>'関連する段落',
+    'Learned quantity'=>'学習量',
+    'Successfully completed'=>'達成完了',
 ];

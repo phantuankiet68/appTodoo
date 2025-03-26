@@ -219,14 +219,23 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::get('question-index-add', [V1QuestionController::class, 'index_add'])->name('questions.add');
     Route::post('/questions/store/', [V1QuestionController::class, 'store'])->name('questions.store');
     Route::get('/questions/{categoryId}', [V1QuestionController::class, 'getByCategory'])->name('questions.byCategory');
-
+    
+    //Kanji
     Route::resource('kanji', V1KanjiController::class);
+    Route::get('kanjis', [V1KanjiController::class, 'index_add'])->name('kanji.index_add');
+    Route::get('/kanjis/test', [V1KanjiController::class, 'index_test'])->name('kanji.index_test');
+    Route::post('/kanjis/lesson', [V1KanjiController::class, 'storeLesson'])->name('kanjis.store');
+    Route::post('/kanjis/test', [V1KanjiController::class, 'storeTest'])->name('kanjis.storeTest');
+    Route::get('/show/kanjis/test/{id}', [V1KanjiController::class, 'showTest'])->name('kanji.show_test');
+    Route::put('/kanjis/test/update/{id}', [V1KanjiController::class, 'updateTest']);
+    Route::delete('/kanjis/test/delete/{id}', [V1KanjiController::class, 'destroyTest']);
 
     //Japanese
     Route::resource('code', V1CodeController::class);
 
     //Component
     Route::resource('components', V1ComponentController::class);
+    
 
 });
 

@@ -233,7 +233,9 @@ border-spacing: 0;
     background: antiquewhite;
     border-radius: 5px;
 }
-
+.wrap{
+    flex-wrap: wrap;
+}
 .collapse .features-item-text {
     font-size: 1px !important;
 }
@@ -4683,8 +4685,6 @@ button {
 
 .expense-info-top{
     width: 100%;
-    padding: 20px;
-    background: #fff;
     border-radius: 5px;
 }
 
@@ -4702,7 +4702,7 @@ button {
 .form-design .input-big input {
     width: 100%;
     padding: 8px 10px;
-    border: 1px solid #bdbdbd;
+    border: none;
     border-radius: 2px;
     font-size: 15px;
     outline: none;
@@ -4715,7 +4715,7 @@ button {
 .form-design .input-normal input {
     width: 100%;
     padding: 8px 10px;
-    border: 1px solid #bdbdbd;
+    border: none;
     border-radius: 2px;
     font-size: 15px;
     outline: none;
@@ -4785,12 +4785,14 @@ button {
     border-radius: 5px;
     background: #fff;
 }
-.expense-info-body-left-tbody-scroll{
-    height: 74vh;
+
+.expense-info-body-left-tbody-scroll {
+    height: 70vh;
     overflow: auto;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding-right: 10px;
 }
 
 #expenseChart{
@@ -6347,7 +6349,7 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     font-size: 15px;
 }
 .w-20{
-    width: 20%;
+    width: 19.5%;
 }
 .w-25{
     width: 25%;
@@ -6361,6 +6363,13 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 
 .w-40{
     width: 40%;
+}
+
+.button-submit {
+    width: 100%;
+    padding: 10px;
+    background: #71ff8b;
+    border-radius: 5px;
 }
 
 .project-teams-Leader-search{
@@ -6982,7 +6991,7 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 }
 
 .seclect{
-    padding: 6px 10px;
+    padding:8px 10px;
     border: 1px solid #d7d7d7;
     border-radius: 5px;
     outline: none;
@@ -7020,7 +7029,15 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     border: 1px solid #d7d7d7;
     border-radius: 5px;
     outline: none;
-    padding: 6px 10px;
+    padding:8px 10px;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.gap-6{
+    gap: 6px;
 }
 
 .button{
@@ -7362,8 +7379,15 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 }
 
 .english-vocabulary-item{
-    width: 50%;
+    width: 25%;
     height: 90vh;
+}
+
+.english-vocabulary-item-body{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .english-vocabulary-right{
@@ -7451,20 +7475,21 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 
 .english-vocabulary-item-top {
     width: 100%;
-    min-height: 5vh;
     background: #fff;
-    margin-bottom: 10px;
     border-radius: 5px;
     display: flex;
     padding: 10px;
     justify-content: space-between;
+    gap: 10px;
 }
 
 .english-vocabulary-item-top a {
-    padding: 10px;
+    padding: 7px 10px;
     border: 1px solid #d7d7d7;
     border-radius: 5px;
     font-size: 13px;
+    display: flex;
+    align-items: center;
 }
 
 .english-vocabulary-item-top a:hover {
@@ -7538,6 +7563,14 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
     gap: 5px;
 }
 
+.kanji-tbody-scroll {
+    height: 63vh;
+    overflow: auto;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 .english-show-vocabulary{
     display: flex;
     gap: 20px;
@@ -8189,7 +8222,7 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 }
 
 .kanji-left-list {
-    width: 40%;
+    width: 32%;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -8200,7 +8233,7 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 
 .kanji-left-card{
     width: 100%;
-    background: radial-gradient(circle, #2CD8D5 0%, #C5C1FF 50%, #FFBAC3 100%);
+    background: radial-gradient(circle, #7deeff 0%, #ffe0bc 50%, #ffaab5 100%);
     padding: 5px;
     border-radius: 5px;
 }
@@ -8218,6 +8251,69 @@ tr.sub-task.hidden th:nth-child(odd), td:nth-child(odd){
 }
 
 .kanji-left-write{
-    width: 60%;
+    width: 68%;
     background-color: #fff;
+}
+
+.modelEditKanji {
+    padding: 30px;
+    position: absolute;
+    width: 100%;
+    max-width: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 10px;
+    z-index: 100;
+    background-color: #fff;
+}
+
+#kanjiEdit,#kanjiDelete{
+    display: none;
+}
+
+.modelDeleteKanji{
+    padding: 30px;
+    position: absolute;
+    width: 100%;
+    max-width: 25%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 10px;
+    z-index: 100;
+    background-color: #fff;
+}
+
+.delete{
+    padding: 10px;
+    background: red;
+    color: azure;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.kanji-test-item{
+    width: 30%;
+    height: 90vh;
+}
+
+.kanji-item-body {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.kanji-tbody-test-scroll {
+    height: 75vh;
+    overflow: auto;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#editTestKanji{
+    display: none;
 }

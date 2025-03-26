@@ -32,7 +32,7 @@
                 <p class="english-show-translation">{{ __('messages.Translation') }}: <span id="word-translation"></span></p>
             </div>
             <div class="english-left-footer-choose">
-                <a href="#" class="english-left-footer-card">
+                <a href="{{ route('kanji.index')}}" class="english-left-footer-card">
                     <p>🈚</p>
                     <p>漢字</p>
                 </a>
