@@ -229,6 +229,8 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::get('/show/kanjis/test/{id}', [V1KanjiController::class, 'showTest'])->name('kanji.show_test');
     Route::put('/kanjis/test/update/{id}', [V1KanjiController::class, 'updateTest']);
     Route::delete('/kanjis/test/delete/{id}', [V1KanjiController::class, 'destroyTest']);
+    Route::get('/kanji/lesson/{lesson_id}', [V1KanjiController::class, 'showLessonKanji'])->name('kanji.lesson');
+
 
     //Japanese
     Route::resource('code', V1CodeController::class);

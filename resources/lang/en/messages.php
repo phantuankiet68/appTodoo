@@ -373,5 +373,35 @@ return [
     'Related passage'=>'Related passage',
     'Learned quantity'=>'Learned quantity',
     'Successfully completed'=>'Successfully completed',
+
+    'Kanji'=>'Kanji',
+    'Meaning of Kanji'=>'Meaning of Kanji',
+    'Onyomi & Kunyomi'=>'Onyomi & Kunyomi',
+    'Meaning of the sentence'=>'Meaning of the sentence',
+    'Learning Kanji vocabulary'=>'Learning Kanji vocabulary',
+    'Compounds'=>'Compounds',
+    'Related words'=>'Related words',
+    'kanji_rules' => [
+        'title' => '🔰 Basic Kanji Writing Rules',
+        'rule1' => '1️⃣ Horizontal first - Vertical later',
+        'desc1' => '🔹 When a Kanji character has both horizontal and vertical strokes, you should write the horizontal stroke first.',
+        'example1' => '🖊 十 (じゅう) → Write the horizontal stroke first, then the vertical stroke.',
+
+        'rule2' => '2️⃣ Left first - Right later',
+        'desc2' => '🔹 When a Kanji character has a left and right part, you should write the left part first.',
+        'example2' => '🖊 行 (こう) → Write the radical 彳 (on the left) first, then write the remaining part.',
+
+        'rule3' => '3️⃣ Top first - Bottom later',
+        'desc3' => '🔹 When a Kanji character has a top and bottom part, you should write the top part first, then the bottom part.',
+        'example3' => '🖊 二 (に) → Write the top stroke first, then the bottom stroke.',
+
+        'rule4' => '4️⃣ Outside first - Inside later',
+        'desc4' => '🔹 When a Kanji character has an outer enclosing part and an inner part, you should write the outer strokes first, then the inner part.',
+        'example4' => '🖊 日 (にち) → Write the outer strokes first, then write the inner stroke.',
+
+        'rule5' => '5️⃣ Middle first - Sides later',
+        'desc5' => '🔹 When a Kanji character has a center stroke and symmetrical sides, you should write the center stroke first, then the side strokes.',
+        'example5' => '🖊 小 (しょう) → Write the center vertical stroke first, then the left and right strokes.',
+    ],
     
 ];

@@ -360,4 +360,33 @@ return [
     'Learned quantity'=>'Số lương đã học',
     'Number of correct answers'=>'Số lượng câu đúng',
     'Successfully completed'=>'Hoàn thành đạt',
+    'Kanji'=>'Kanji',
+    'Meaning of Kanji'=>'Nghĩa Hán tự',
+    'Onyomi & Kunyomi'=>'Âm Hán Nhật',
+    'Meaning of the sentence'=>'Nghĩa của câu',
+    'Learning Kanji vocabulary'=>'Học từ vựng Kanji',
+    'Compounds'=>'Từ ghép',
+    'Related words'=>'Từ liên quan',
+    'kanji_rules' => [
+        'title' => '🔰Quy tắc viết Kanji cơ bản',
+        'rule1' => '1️⃣ Ngang trước - Dọc sau',
+        'desc1' => '🔹 Khi một chữ Kanji có cả nét ngang và nét dọc, bạn cần viết nét ngang trước.',
+        'example1' => '🖊 十 (じゅう) → Viết nét ngang trước, sau đó mới đến nét dọc.',
+        
+        'rule2' => '2️⃣ Trái trước - Phải sau',
+        'desc2' => '🔹 Khi một Kanji có phần bên trái và bên phải, bạn phải viết phần bên trái trước.',
+        'example2' => '🖊 行 (こう) → Viết bộ 彳 (bộ Xích, bên trái) trước, sau đó mới viết phần còn lại.',
+        
+        'rule3' => '3️⃣ Trên trước - Dưới sau',
+        'desc3' => '🔹 Khi một chữ Kanji có phần trên và phần dưới, bạn viết phần trên trước rồi mới đến phần dưới.',
+        'example3' => '🖊 二 (に) → Viết nét trên trước, rồi mới viết nét dưới.',
+        
+        'rule4' => '4️⃣ Ngoài trước - Trong sau',
+        'desc4' => '🔹 Khi một chữ Kanji có phần bao quanh bên ngoài và phần bên trong, bạn phải viết nét bên ngoài trước, rồi mới viết phần bên trong.',
+        'example4' => '🖊 日 (にち) → Viết nét bao quanh trước, sau đó mới viết nét bên trong.',
+        
+        'rule5' => '5️⃣ Giữa trước - Hai bên sau',
+        'desc5' => '🔹 Khi một chữ Kanji có phần trung tâm và hai bên đối xứng, bạn viết phần trung tâm trước rồi mới viết hai bên.',
+        'example5' => '🖊 小 (しょう) → Viết nét dọc ở giữa trước, rồi mới viết hai nét bên trái và phải.',
+    ],
 ];

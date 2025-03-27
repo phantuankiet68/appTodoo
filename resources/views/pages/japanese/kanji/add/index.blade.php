@@ -139,8 +139,10 @@
                     <p style="width:10%; font-size: 13px;">{{ $item->meaning_han }}</p>
                     @if ($item->language == 1)
                         <p style="width:10%; font-size: 13px; text-align: center;">VN</p>
-                    @else
+                    @elseif($item->language == 2)
                         <p style="width:10%; font-size: 13px; text-align: center;">EN</p>
+                    @else
+                        <p style="width:10%; font-size: 13px; text-align: center;">JA</p>
                     @endif
                     <p style="width:20%; font-size: 13px;">{{ $item->onyomi }}</p>
                     <div style="width:30%;" class="trustTitle1">

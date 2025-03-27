@@ -13,11 +13,67 @@ use Illuminate\Database\QueryException;
 
 class V1KanjiController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $Kanji = Kanji::all();
-        return view('pages.japanese.kanji.index', compact('Kanji'));
+        $locale = session('locale', 'en');
+
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+
+        $languageId = $languageMap[$locale] ?? 2;
+        
+        $search = $request->input('search');
+
+        // Truy vấn toàn bộ danh sách Kanji (giữ nguyên)
+        $kanji = Kanji::where('language', $languageId)
+            ->orderBy('id', 'desc')
+            ->get();
+
+        // Tạo biến $kanjis rỗng nếu chưa tìm kiếm
+        $kanjis = collect();
+
+        if (!empty($search)) {
+            $kanjis = Kanji::where('language', $languageId)
+                ->where(function ($q) use ($search) {
+                    $q->where('kanji', 'LIKE', "%{$search}%")
+                    ->orWhere('meaning_han', 'LIKE', "%{$search}%")
+                    ->orWhere('onyomi', 'LIKE', "%{$search}%")
+                    ->orWhere('example_sentence', 'LIKE', "%{$search}%");
+                })
+                ->orderBy('id', 'desc')
+                ->get();
+        }
+
+        $lessons = LessonKanji::all();
+
+        return view('pages.japanese.kanji.index', compact('kanji', 'kanjis', 'lessons', 'search'));
     }
+
+    public function showLessonKanji($lesson_id)
+    {
+        $locale = session('locale', 'en');
+
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+
+        $languageId = $languageMap[$locale] ?? 2;
+
+        $kanjis = Kanji::where('language', $languageId)
+                    ->where('lesson_kanjis_id', $lesson_id)
+                    ->orderBy('id', 'asc')
+                    ->get();
+
+        $lesson = LessonKanji::findOrFail($lesson_id);
+
+        return view('pages.japanese.kanji.showKanji.index', compact('kanjis', 'lesson'));
+    }
+
 
     public function index_add(Request $request)
     {
