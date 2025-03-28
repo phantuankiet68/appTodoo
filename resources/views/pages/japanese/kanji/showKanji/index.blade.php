@@ -52,7 +52,7 @@
         </div>
         <div class="d-flex gap-10 wrap">
             <div class="group back w-48 bg-white border-radius-5">
-                <a href="{{ route('japaneses.index')}}" class="d-flex  flex-direction align-items-center gap-5 w-full"><i class="fa-solid fa-pen-to-square"></i>{{ __('messages.Multiple-choice test') }}</a>
+                <a href="{{ route('kanji.test', ['lesson_id' => $lesson->id]) }}" class="d-flex  flex-direction align-items-center gap-5 w-full"><i class="fa-solid fa-pen-to-square"></i>{{ __('messages.Multiple-choice test') }}</a>
             </div>
             <div class="group back w-48 bg-white border-radius-5">
                 <a href="{{ route('japaneses.index')}}" class="d-flex  flex-direction align-items-center gap-5 w-full"><i class="fa-solid fa-pen-to-square"></i>{{ __('messages.Writing test') }}</a>
@@ -67,28 +67,50 @@
         <div class="back p-10 bg-white border-radius-5 d-flex gap-5">
             <i class="fa-solid fa-hourglass-start"></i>Thời gian đã học: 30:00:00
         </div>
+        <div class="cookie w-full bg-white d-flex flex-direction gap-10">
+            <h3>Fortune Cookie</h3>
+            <h1>🥠</h1>
+            <p id="fortuneMessage">Click the cookie to get your fortune!</p>
+            <button id="openCookie">Open Cookie</button>
+        </div>
     </div>
 </div>
 
 <script>
+    let fortunes = [
+        "You will have a great day today! 🌟",
+        "Something unexpected will make you smile. 😊",
+        "Success is coming your way! 🚀",
+        "A pleasant surprise is waiting for you. 🎁",
+        "You will make a new friend soon. 🤝",
+        "An exciting opportunity will present itself. 🎉",
+        "Happiness is closer than you think! ❤️",
+        "Be patient. Good things take time. ⏳",
+        "A big change is coming in your life. Embrace it! 🔄",
+        "Your kindness will return to you in unexpected ways. 💖",
+        "You will soon cross paths with someone important. 🌍",
+        "Good fortune will follow you wherever you go. 🍀",
+        "A dream you have will soon come true. 🌙",
+        "Trust your instincts; they will guide you well. 🧭",
+        "Adventure is out there—be ready! 🏔️",
+        "You will soon receive great news. 📩",
+    ];
+
+    document.getElementById("openCookie").addEventListener("click", function () {
+        let randomIndex = Math.floor(Math.random() * fortunes.length);
+        document.getElementById("fortuneMessage").innerText = fortunes[randomIndex];
+    });
+
     let currentKanji = "何";
     function updateKanjiCanvas(kanji, meaning, onyomi, compounds, related_words, example, exampleMeaning) {
         const canvas = document.getElementById("kanjiCanvas");
         const ctx = canvas.getContext("2d");
 
-        // Cập nhật chữ Kanji mới
         currentKanji = kanji;
-
-        // Xóa nét vẽ cũ
         drawnStrokes = [];
-
-        // Xóa nội dung cũ trên canvas
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Vẽ lại Kanji mới
         drawKanjiSample();
 
-        // Cập nhật thông tin Kanji
         if (document.getElementById("kanjiText")) {
             document.getElementById("kanjiText").innerHTML = `🔹Kanji: ${kanji} ||🔹Meaning of Kanji: ${meaning} || 🔹Onyomi & Kunyomi: ${onyomi}`;
         }
@@ -112,19 +134,15 @@
     let drawing = false;
     let drawnStrokes = [];
 
-    // Hàm vẽ Kanji mẫu (đã sửa)
     function drawKanjiSample() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Vẽ chữ Kanji mờ
         ctx.font = "220px Arial";
         ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText(currentKanji, canvas.width / 2, canvas.height / 2);
 
-        // Vẽ lại nét đã vẽ
-        ctx.strokeStyle = "blue";
+        ctx.strokeStyle = "red";
         ctx.lineWidth = 15;
         ctx.lineCap = "round";
         for (let stroke of drawnStrokes) {
@@ -174,15 +192,5 @@
 
 
 </script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const fabMain = document.getElementById("fabMain");
-        const fabMenu = document.querySelector(".fab-menu");
 
-        fabMain.addEventListener("click", () => {
-            fabMenu.classList.toggle("openfad");
-        });
-    });
-
-</script>
 @endsection

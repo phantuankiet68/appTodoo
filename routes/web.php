@@ -67,6 +67,7 @@ use App\Http\Controllers\V1\V1CodeController;
 use App\Http\Controllers\V1\V1ComponentController;
 use App\Http\Controllers\V1\V1KanjiController;
 use App\Models\Expense;
+use App\Models\Blog; // Nếu có bài
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -230,6 +231,8 @@ Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], functi
     Route::put('/kanjis/test/update/{id}', [V1KanjiController::class, 'updateTest']);
     Route::delete('/kanjis/test/delete/{id}', [V1KanjiController::class, 'destroyTest']);
     Route::get('/kanji/lesson/{lesson_id}', [V1KanjiController::class, 'showLessonKanji'])->name('kanji.lesson');
+
+    Route::get('/kanji/test/{lesson_id}', [V1KanjiController::class, 'showTestKanji'])->name('kanji.test');
 
 
     //Japanese

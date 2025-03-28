@@ -1,4 +1,7 @@
 @extends('layout')
+
+@section('metaTitle', 'Trang Chủ - Học Tiếng Nhật & Lập Trình')
+@section('metaDescription', 'Trang chủ của website cung cấp kiến thức học tiếng Nhật, tự học tiếng Anh và lập trình.')
 @section('content')
 <div class="hero">
     <div class="page-left-item">

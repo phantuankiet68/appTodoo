@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <title>@yield('metaTitle', 'Default Title')</title>
+    <title>@yield('metaTitle', 'Default Title')</title>
     <meta name="description" content="{{ $metaDescription ?? 'Mô tả mặc định của trang' }}">
     <meta name="keywords" content="học tiếng Nhật, tự học tiếng Nhật, phương pháp học Nhật ngữ, lập trình, tiếng Anh">
     <meta property="og:title" content="{{ $metaTitle ?? 'Mô tả mặc định của trang'  }}">
     <meta property="og:description" content="{{ $metaDescription ?? 'Mô tả mặc định của trang' }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ asset('images/default-og-image.jpg') }}"> -->
+    <meta property="og:image" content="{{ asset('images/default-og-image.jpg') }}">
     <meta name="robots" content="index, follow">
     <!-- <link rel="stylesheet" href="{{ asset('css/layout.css') }}"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -25,7 +25,23 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images//logo-website.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images//logo-website.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images//logo-website.png') }}">
-    </head>
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Cách viết blog chuẩn SEO trong Laravel",
+        "author": {
+            "@type": "Person",
+            "name": "Tên bạn"
+        },
+        "datePublished": "2025-03-28",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://tryskill.io.vn/blogs"
+        }
+        }
+    </script>
+</head>
 <body>
     @php
         $locale = session()->get('locale', 'vi');

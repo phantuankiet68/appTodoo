@@ -75,6 +75,29 @@ class V1KanjiController extends Controller
     }
 
 
+    public function showTestKanji($lesson_id)
+    {
+        $locale = session('locale', 'en');
+
+        $languageMap = [
+            'vi' => 1,
+            'en' => 2,
+            'ja' => 3,
+        ];
+
+        $languageId = $languageMap[$locale] ?? 2;
+
+        $test_kanjis = TestKanji::where('language', $languageId)
+                    ->where('lesson_kanjis_id', $lesson_id)
+                    ->orderBy('id', 'asc')
+                    ->get();
+
+        $lesson = LessonKanji::findOrFail($lesson_id);
+
+        return view('pages.japanese.kanji.showTest.index', compact('test_kanjis', 'lesson'));
+    }
+
+
     public function index_add(Request $request)
     {
         $search = $request->input('search');
