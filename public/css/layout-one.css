@@ -82,13 +82,13 @@ body {
 
 .banner {
     width: 100%;
-    height: 68vh;
+    height: 66vh;
     position: relative;
     display: flex;
     padding: 20px;
     gap: 20px;
     max-width: 1350px;
-    background: #d7eef7;
+    background: #fff;
 }
 .banner-left{
     width: 74%;
@@ -159,9 +159,9 @@ body {
     gap: 10px;
 }
 
-.banner-right-top{
+.banner-right-top {
     width: 100%;
-    height: 49%;
+    height: 48.8%;
     position: relative;
 }
 
@@ -806,8 +806,8 @@ header {
     position: fixed;
     width: 100%;
     padding: 1rem 5rem;
-    z-index: 5; 
-    background: rgb(255 142 55 / 40%);
+    z-index: 5;
+    background: rgb(210 20 20 / 70%);
     box-shadow: 0 2rem 1.5rem rgba(0, 0, 0, 0.05);
 }
 
@@ -1032,11 +1032,11 @@ nav ul a:hover {
     display: none;
     place-items: center;
     z-index: 2000;
-    height: 5rem;
-    width: 5rem;
-    right: 3rem;
-    bottom: 3rem;
-    background-color: var(--base-shade-1);
+    height: 4rem;
+    width: 4rem;
+    right: 2rem;
+    bottom: 50%;
+    background-color: #ff5656;
     color: var(--white-shade-1);
     border: none;
     outline: none;
@@ -2481,7 +2481,7 @@ a.google span {
     align-items: center;
     justify-content: space-between;
     padding: 10px;
-    border-bottom: 2px solid #35c2fe;
+    border-bottom: 2px solid #d31b1b;
     margin-bottom: 15px;
     background: #fff;
 }
@@ -2489,16 +2489,16 @@ a.google span {
     font-size: 30px;
     letter-spacing: 3px;
     line-height: 18px;
-    color: #35c2fe;
+    color: #d31b1b;
     text-transform: uppercase;
 }
 
 .layout-tile-btn a{
     font-size: 18px;
     text-decoration: none;
-    color: #35c2fe;
+    color: #d31b1b;
 }
-.about{
+.about {
     position: relative;
     width: 100%;
     min-height: 70vh;
@@ -2508,9 +2508,8 @@ a.google span {
     align-items: center;
     z-index: 2;
     gap: 20px;
-    
+    box-shadow: rgb(136 165 191 / 4%) 6px 2px 16px 0px, rgb(136 165 191 / 11%) -6px -2px 16px 0px;
 }
-
 .about-left {
     width: 50%;
     height: 100%;
@@ -2523,6 +2522,7 @@ a.google span {
 }
 
 .about-left-img {
+    position: relative;
     width: 100%;
     height: 90%;
     border-radius: 10px;
@@ -2532,9 +2532,19 @@ a.google span {
     flex-wrap: wrap;
     gap: 25px;
 }
+.about-left-img::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    border-radius: 10px;
+}
 
 .about-left-img img {
-    width: 90%;
+    width: 100%;
     height: auto;
     min-height: 272px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -2566,12 +2576,16 @@ a.google span {
 }
 
 .about-right {
-    width: 50%;
+    position: absolute;
+    width: 47%;
     height: 100%;
     min-height: 68vh;
-    background-color: #ffffff;
     padding: 20px;
-    border-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    left: 0;
+    background: #ffff;
+    z-index: 2;
 }
 
 .about-right h1{
@@ -2580,7 +2594,7 @@ a.google span {
     font-size: 3rem;
     font-weight: 700;
     line-height: 1.2;
-    color: #011A41;
+    color: #002779;
     word-spacing: 0;
 }
 
@@ -2592,9 +2606,10 @@ a.google span {
 }
 
 .about-right-footer {
+    margin-top: 24px;
     display: flex;
     align-items: center;
-    padding: 15px;
+    padding: 20px;
     border: 1px solid #d6d6d7;
     justify-content: space-between;
     border-radius: 10px;
@@ -2609,7 +2624,7 @@ a.google span {
 .about-right-footer-box .about-icon{
     width: 50px;
     height: 50px;
-    background: #35c2fe;
+    background: #d31b1b;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -2869,7 +2884,7 @@ a.google span {
 }
 
 .about-right-content p{
-    font-size: 13px;
+    font-size: 15px;
 }
 
 .product-right-img{
@@ -4313,13 +4328,14 @@ blockquote .author {
     cursor: pointer;
     background: #ffffff;
     min-height: 36vh;
+    box-shadow: rgb(136 165 191 / 4%) 6px 2px 16px 0px, rgb(136 165 191 / 11%) -6px -2px 16px 0px;
 }
 .card .icon {
     font-size: 2.5em;
     height: 2em;
     width: 2em;
     margin: auto;
-    background-color: #35c2fe;
+    background-color: #d31b1b;
     display: grid;
     place-items: center;
     border-radius: 50%;
@@ -4395,21 +4411,37 @@ blockquote .author {
 .banner-title {
     position: absolute;
     top: 12%;
-    left: 5%;
-    width: 46%;
+    left: 3%;
+    width: 39%;
 }
 
 .banner-title h1 {
     font-size: 50px;
-    color: #4f88ff;
+    color: #002779;
     font-weight: 900;
     margin-bottom: 0;
-    margin-left: 218px;
+    text-align: center;
 }
 
-.banner-title p.p-file{
-    margin-top: 30px;
+.register-btn{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
+
+.register-btn button{
+    padding: 9px 30px;
+    background: brown;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.register-btn button:hover{
+    opacity: .8;
+}
+
 
 
 .swiper-wrapper .card .card-content{
@@ -4448,7 +4480,7 @@ blockquote .author {
     width: 100%;
     height: 30%;
     border-radius: 20px 20px 0 0;
-    background: linear-gradient(106.32deg, #00c2ff 14.23%,
+    background: linear-gradient(106.32deg, #d31b1b 14.23%,
     rgba(255, 25, 25, 0) 139.97%);
 }
 .box3{
@@ -4540,13 +4572,13 @@ blockquote .author {
 }
 
 .swiper-wrapper .card.card-interface .name {
-    font-size: 13px;
+    font-size: 15px;
     color: #7c7c7c;
 }
 
 
 .swiper-wrapper .card .b2 button{
-    background: #14bff2;
+    background: #d31b1b;
 }
 .swiper-wrapper .card .b3 button{
     background: #f337e2;
@@ -5125,4 +5157,122 @@ blockquote .author {
 
 .card-team .b2 button {
     background: #14bff2;
+}
+
+/* Định dạng icon chat */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+}
+
+
+#chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #51d9ff;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes shake-rotate {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(90deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform: rotate(-90deg); }
+}
+
+#chat-icon i {
+    animation: shake-rotate 1s infinite;
+}
+/* Cửa sổ chat */
+#chat-box {
+    display: none;
+    position: fixed;
+    bottom: 51px;
+    right: 81px;
+    width: 300px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+/* Header chat */
+#chat-header {
+    background: #51d9ff;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px 10px 0 0;
+    font-size: 13px;
+}
+
+#chat-messages {
+    height: 250px;
+    overflow-y: auto;
+    padding: 10px;
+    background: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Ô nhập tin nhắn */
+#chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #d7d7d7;
+}
+
+#message {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #d7d7d7;
+    outline: none;
+}
+
+#chat-messages div {
+    font-size: 13px;
+    background: #fff;
+    padding: 8px 5px;
+    box-shadow: rgb(136 165 191 / 4%) 6px 2px 16px 0px, rgb(136 165 191 / 11%) -6px -2px 16px 0px;
+    border-radius: 5px;
+}
+
+#send {
+    background: #51d9ff;
+    color: white;
+    border: none;
+    padding: 1px 10px;
+    cursor: pointer;
+}
+
+.closeLive{
+    background: red;
+    color: #fff;
+    padding: 0 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.closeLive:hover{
+    opacity: .8;
 }

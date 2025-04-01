@@ -250,11 +250,11 @@
                 <div class="login">
                     <div class="title">{{ __('messages.Login') }}</div>
                     <div class="group">
-                        <label for="email">Email</label>
+                        <label>Email</label>
                         <input type="email" name="email" placeholder="{{ __('messages.Enter email...') }}">
                     </div>
                     <div class="group">
-                        <label for="password">Password</label>
+                        <label>Password</label>
                         <input type="password" id="password" name="password" placeholder="{{ __('messages.Enter password...') }}">
                         <span id="showPassword">
                             <i class="fa-solid fa-eye" id="toggle-password"></i>
@@ -300,31 +300,31 @@
             <div class="register">
                 <div class="title">Đăng ký</div>
                 <div class="group">
-                    <label for="full_name">Họ và tên</label>
+                    <label>Họ và tên</label>
                     <input type="text" class="input-name" name="full_name" id="full_name" placeholder="Nhập Họ và tên">
                 </div>
                 <div class="group">
-                    <label for="email">Email</label>
+                    <label>Email</label>
                     <input type="email" name="email" placeholder="Nhập email">
                 </div>
                 <div class="group">
-                    <label for="password">Password</label>
+                    <label>Password</label>
                     <input type="text" id="password_register" name="password" readonly>
                 </div>
                 <div class="group">
-                    <label for="password_confirmation">Confirmation Password</label>
+                    <label>Confirmation Password</label>
                     <input type="text" class="input-name" name="password_confirmation" id="password_confirmation" readonly>
                 </div>
                 <div class="group">
-                    <label for="phone">Phone</label>
+                    <label>Phone</label>
                     <input type="text" class="input-name" name="phone" id="phone">
                 </div>
                 <div class="group">
-                    <label for="address">Address</label>
+                    <label>Address</label>
                     <input type="text" class="input-name" name="address" id="address">
                 </div>
                 <div class="group">
-                    <label for="gender">Gender</label>
+                    <label>Gender</label>
                     <select name="gender">
                         <option value="0">Nam</option>
                         <option value="1">Nữ</option>
@@ -357,6 +357,23 @@
             </div>
         </div>
     </div>
+    <div id="chat-icon"><i class="fas fa-headset"></i></div>
+
+    <!-- Cửa sổ chat -->
+    <div id="chat-box">
+        <div id="chat-header">
+            <span><i class="fas fa-headset"></i> Live Chat</span>
+            <div>
+                <p id="close-chat" class="closeLive">✖</p>
+            </div>
+        </div>
+        <div id="chat-messages"></div>
+        <div id="chat-input">
+            <input type="text" id="message" placeholder="Nhập tin nhắn...">
+            <button id="send">Gửi</button>
+        </div>
+    </div>
+
 
 
     @if (session('success'))
@@ -404,6 +421,136 @@
 
     <script>
         
+        document.addEventListener("DOMContentLoaded", function () {
+            const chatIcon = document.getElementById("chat-icon");
+            const chatBox = document.getElementById("chat-box");
+            const sendButton = document.getElementById("send");
+            const messageInput = document.getElementById("message");
+            const chatMessages = document.getElementById("chat-messages");
+            const closeChat = document.getElementById("close-chat");
+
+            // Lấy ngôn ngữ từ URL
+            function getLanguageFromURL() {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get("lang") || "vi"; // Mặc định là "vi"
+            }
+
+            closeChat.addEventListener("click", function () {
+                chatBox.style.display = "none";
+            });
+
+            let currentLanguage = getLanguageFromURL(); // Gán ngôn ngữ từ URL
+
+            const translations = {
+                vi: {
+                    suggestions: ["Làm sao để liên hệ với hỗ trợ?", "Bạn có thể giới thiệu về dịch vụ không?", "Tôi muốn biết về giá cả của sản phẩm."],
+                    responses: {
+                        "Làm sao để liên hệ với hỗ trợ?": "Bạn có thể liên hệ với chúng tôi qua email tuankietity@gmail.com hoặc hotline 0867105900.",
+                        "Bạn có thể giới thiệu về dịch vụ không?": "Chúng tôi cung cấp các dịch vụ hỗ trợ khách hàng 24/7, phát triển web, và nhiều hơn nữa!",
+                        "Tôi muốn biết về giá cả của sản phẩm.": "Vui lòng truy cập trang sản phẩm để xem thông tin chi tiết về giá cả."
+                    },
+                    adminQuestion: "Bạn muốn tôi giúp đỡ gì ở bạn?"
+                },
+                en: {
+                    suggestions: ["How can I contact support?", "Can you introduce the service?", "I want to know the product pricing."],
+                    responses: {
+                        "How can I contact support?": "You can contact us via email tuankietity@gmail.com or hotline 0867105900.",
+                        "Can you introduce the service?": "We provide 24/7 customer support, web development, and more!",
+                        "I want to know the product pricing.": "Please visit the product page for detailed pricing information."
+                    },
+                    adminQuestion: "How can I help you?"
+                },
+                ja: {
+                    suggestions: ["サポートに連絡するにはどうすればよいですか？", "サービスについて紹介できますか？", "商品の価格を知りたいです。"],
+                    responses: {
+                        "サポートに連絡するにはどうすればよいですか？": "メール tuankietity@gmail.com またはホットライン 0867105900 でお問い合わせください。",
+                        "サービスについて紹介できますか？": "私たちは24時間365日のカスタマーサポート、Web開発などを提供しています！",
+                        "商品の価格を知りたいです。": "商品の価格について詳しくは商品ページをご覧ください。"
+                    },
+                    adminQuestion: "どのようにお手伝いできますか？"
+                }
+            };
+
+            let isFirstOpen = true;
+
+            chatIcon.addEventListener("click", function () {
+                chatBox.style.display = "block";
+
+                if (isFirstOpen) {
+                    addAdminMessage(translations[currentLanguage].adminQuestion);
+                    showSuggestions();
+                    isFirstOpen = false;
+                }
+            });
+
+            sendButton.addEventListener("click", function () {
+                sendMessage();
+            });
+
+            messageInput.addEventListener("keypress", function (event) {
+                if (event.key === "Enter") {
+                    sendMessage();
+                }
+            });
+
+            function sendMessage(text = null) {
+                const messageText = text || messageInput.value.trim();
+                if (messageText !== "") {
+                    addUserMessage(messageText);
+                    messageInput.value = "";
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                    if (translations[currentLanguage].responses[messageText]) {
+                        setTimeout(() => addAdminMessage(translations[currentLanguage].responses[messageText]), 500);
+                    }
+                }
+            }
+
+            function addUserMessage(message) {
+                const messageElement = document.createElement("div");
+                messageElement.textContent = "Bạn: " + message;
+                chatMessages.appendChild(messageElement);
+            }
+
+            function addAdminMessage(message) {
+                const messageElement = document.createElement("div");
+                messageElement.textContent = "Admin: " + message;
+                messageElement.style.color = "red";
+                chatMessages.appendChild(messageElement);
+            }
+
+            function showSuggestions() {
+                const suggestionBox = document.createElement("div");
+                suggestionBox.style.marginTop = "10px";
+
+                translations[currentLanguage].suggestions.forEach(suggestion => {
+                    const button = document.createElement("button");
+                    button.textContent = suggestion;
+                    button.style.display = "block";
+                    button.style.margin = "5px 0";
+                    button.style.padding = "5px";
+                    button.style.background = "#fff";
+                    button.style.border = "1px solid #d7d7d7";
+                    button.style.cursor = "pointer";
+                    button.style.borderRadius = "5px";
+                    button.style.fontSize = "13px";
+
+                    button.addEventListener("click", function () {
+                        sendMessage(suggestion);
+                        suggestionBox.remove(); 
+                    });
+
+                    suggestionBox.appendChild(button);
+                });
+
+                chatMessages.appendChild(suggestionBox);
+            }
+        });
+
+
+
+
+
         function generatePassword(length = 20) {
             const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+";
             let password = "";
@@ -459,45 +606,6 @@
                 }
             }
         });
-        var indexValue = 1;
-        showImg(indexValue);
-
-
-        setInterval(function() {
-        side_slide(1);
-        }, 10000);
-
-        function btm_slide(e) {
-        showImg(indexValue = e);
-        }
-
-        function side_slide(e) {
-        showImg(indexValue += e);
-        }
-
-        function showImg(e) {
-        var i;
-        const img = document.querySelectorAll('.banner-left .content .images img');
-        const slider = document.querySelectorAll('.btm-slides span');
-
-        if (e > img.length) {
-            indexValue = 1;
-        }
-        if (e < 1) {
-            indexValue = img.length;
-        }
-
-        for (i = 0; i < img.length; i++) {
-            img[i].style.display = "none";
-        }
-
-        for (i = 0; i < slider.length; i++) {
-            slider[i].style.background = "rgba(255,255,255,0.1)";
-        }
-
-        img[indexValue - 1].style.display = "block";
-        slider[indexValue - 1].style.background = "white";
-        }
 
         document.addEventListener("DOMContentLoaded", function () {
             const buttons = document.querySelectorAll(".service-right-slide button");

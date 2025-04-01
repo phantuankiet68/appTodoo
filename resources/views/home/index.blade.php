@@ -10,25 +10,22 @@
                 <div class="content">
                     <div class="banner-title">
                         <h1>TRYSKILL</h1>
-                        <p class="p-file">{{ __('messages.🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟') }}</p>
-                        <p>{{ __('messages.💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!') }}</p>
-                        <p>{{ __('messages.📌 Let learn, grow, and conquer new challenges together! Are you ready? 😃') }}</p>
+                        <p class="p-file">➡️{{ __('messages.A Place to Mark the Journey & Develop Skills.') }}</p>
+                        <div class="d-flex">
+                            <p>➡️</p>
+                            <p>{{ __('messages.If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!') }}</p>
+                        </div>
+                        <div class="d-flex">
+                            <p>➡️</p>
+                            <p>{{ __('messages.Let learn, grow, and conquer new challenges together! Are you ready? 😃') }}</p>
+                        </div>
+                        <br/>
+                        <div class="register-btn">
+                            <button>Đăng ký ngay</button>
+                        </div>
                     </div>
                     <div class="images">
-                        <img src="{{asset('assets/images/w-3.jpg')}}">
-                        <img src="{{asset('assets/images/w-2.jpg')}}">
-                        <img src="{{asset('assets/images/w-1.jpg')}}">
-                    </div>
-                    <div class="btm-slides">
-                        <span onclick="btm_slide(1)"></span>
-                        <span onclick="btm_slide(2)"></span>
-                        <span onclick="btm_slide(3)"></span>
-                    </div>
-                    <div class="sliders left" onclick="side_slide(-1)">
-                        <span class="fas fa-angle-left"></span>
-                    </div>
-                    <div class="sliders right" onclick="side_slide(1)">
-                        <span class="fas fa-angle-right"></span>
+                        <img src="{{asset('assets/images/banner.png')}}">
                     </div>
                 </div>
             </div>
@@ -87,38 +84,10 @@
     </div>
 </div>
 </section>
-<section id="about">
-    <div class="layout-tile">
-        <h3>{{ __('messages.Wiki') }}</h3>
-        <div class="layout-tile-btn">
-            <a href="{{ route('wikis.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
-        </div>
-    </div>
-    <div class="wiki-body">
-        <div class="swiper mySwiper container">
-            <div class="swiper-wrapper content">
-                @foreach($wikis as $item)
-                <a href="{{ route('wikis.view', $item->id) }}" class="swiper-slide card card-interface">
-                    <img src="{{ asset($item->image_path) }}" />
-                    <p class="name">{{ $item->title }}</p>
-                </a>
-                @endforeach
-            </div>
-        </div>
-    </div>
-</section>
 <section class="about-container">
-    <div class="layout-tile">
-        <h3>{{ __('messages.About') }}</h3>
-        <div class="layout-tile-btn">
-            <a href="">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
-        </div>
-    </div>
     <div class="about">
-        <div class="about-left">
-            <div class="about-left-img">
-                <img src="{{asset('assets/images/product-home.png')}}" />
-            </div>
+        <div class="about-left-img">
+            <img src="{{asset('assets/images/about.png')}}" />
         </div>
         <div class="about-right">
             <h1>{{ __('messages.We help you better understand AI, coding, English, and Japanese') }}</h1>
@@ -144,6 +113,27 @@
                         <span>{{ __('messages.Confirmation') }}</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="layout-tile">
+        <h3>{{ __('messages.Wiki') }}</h3>
+        <div class="layout-tile-btn">
+            <a href="{{ route('wikis.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="wiki-body">
+        <div class="swiper mySwiper container">
+            <div class="swiper-wrapper content">
+                @foreach($wikis as $item)
+                <a href="{{ route('wikis.view', $item->id) }}" class="swiper-slide card card-interface">
+                    <img src="{{ asset($item->image_path) }}" />
+                    <p class="name">{{ $item->title }}</p>
+                </a>
+                @endforeach
             </div>
         </div>
     </div>
@@ -381,19 +371,19 @@
                 <form class="contact-form" action="{{ route('send.contact') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="name">{{ __('messages.Name') }}</label>
+                        <label>{{ __('messages.Name') }}</label>
                         <input type="text" name="name" placeholder="{{ __('messages.Name') }}" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">{{ __('messages.Email') }}</label>
+                        <label>{{ __('messages.Email') }}</label>
                         <input type="email" name="email" placeholder="{{ __('messages.Email') }}" required>
                     </div>
                     <div class="form-group">
-                        <label for="subject">{{ __('messages.Subject') }}</label>
+                        <label>{{ __('messages.Subject') }}</label>
                         <input type="text" name="subject" placeholder="{{ __('messages.Subject') }}" required>
                     </div>
                     <div class="form-group">
-                        <label for="message">{{ __('messages.Message') }}</label>
+                        <label>{{ __('messages.Message') }}</label>
                         <textarea name="message" placeholder="{{ __('messages.Message') }}" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="btn">{{ __('messages.Send') }}</button>

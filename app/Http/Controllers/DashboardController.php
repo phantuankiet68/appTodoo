@@ -25,7 +25,6 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $ideas = Idea::with(['user'])->get();
         
         $user = Auth::user();
         $sum_user = User::count();
@@ -60,7 +59,7 @@ class DashboardController extends Controller
         $percentage_component = ($sum_component / 200) * 100;
         $subtraction_component = (200 - $sum_component);
         
-        return view('dashboard.index',compact('ideas','user','sum_user','sum_post','percentage_post','subtraction_post','sum_event','percentage_event','subtraction_event','percentage_issue','subtraction_issue','sum_issue','sum_task','sum_japanese','sum_english','sum_component','percentage','subtraction_user','percentage_task','subtraction_task','percentage_japanese','subtraction_japanese','percentage_english','subtraction_english','percentage_component','subtraction_component',));
+        return view('dashboard.index',compact('user','sum_user','sum_post','percentage_post','subtraction_post','sum_event','percentage_event','subtraction_event','percentage_issue','subtraction_issue','sum_issue','sum_task','sum_japanese','sum_english','sum_component','percentage','subtraction_user','percentage_task','subtraction_task','percentage_japanese','subtraction_japanese','percentage_english','subtraction_english','percentage_component','subtraction_component',));
     }
 
     public function getMonthlyCosts()

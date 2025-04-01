@@ -29,7 +29,7 @@ return [
     'Marketing'=>'Marketing',
     'Web Development'=>'Web Development',
     'Help optimize websites, improve search rankings, and achieve sustainable revenue growth'=>'Help optimize websites, improve search rankings, and achieve sustainable revenue growth',
-    'Help you understand competitors, identify opportunities, and develop optimal strategies to excel in the market'=>'Help you understand competitors, identify opportunities, and develop optimal strategies to excel in the market',
+    'Help you understand competitors, identify opportunities, and develop optimal strategies to excel in the market'=>'Help you understand competitors, identify opportunities,develop optimal strategies to excel in the market',
     'Help build a strong brand, increase engagement, and attract customers through social media platforms'=>'Help build a strong brand, increase engagement, and attract customers through social media platforms',
     'Provide professional website design and development solutions, optimizing user experience'=>'Provide professional website design and development solutions, optimizing user experience',
     'We help you better understand AI, coding, English, and Japanese'=>'We help you better understand AI, coding, English, and Japanese',
@@ -104,10 +104,10 @@ return [
 
     
     'There are no new notifications at the moment! Please log in to see more details.'=>'There are no new notifications at the moment! Please log in to see more details.',
-    '🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟'=>'🌟 Personal Website – A Place to Mark the Journey & Develop Skills 🌟',
-    '💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!'=>'💻 If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!',
+    'A Place to Mark the Journey & Develop Skills.'=>'A Place to Mark the Journey & Develop Skills.',
+    'If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!'=>'If you are passionate about technology, want to learn how to write efficient code, or explore the world of programming from scratch, then this is the place for you!',
     '🌏 Additionally, I provide English and Japanese learning resources to help you improve your language skills, so you can confidently communicate and work in an international environment.'=>'🌏 Additionally, I provide English and Japanese learning resources to help you improve your language skills, so you can confidently communicate and work in an international environment.',
-    '📌 Let learn, grow, and conquer new challenges together! Are you ready? 😃'=>'📌 Let learn, grow, and conquer new challenges together! Are you ready? 😃',
+    'Let learn, grow, and conquer new challenges together! Are you ready? 😃'=>'Let learn, grow, and conquer new challenges together! Are you ready? 😃',
 
     'Total Quantity'=>'Total Quantity',
     'Total Views'=>'Total Views',
