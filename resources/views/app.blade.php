@@ -50,6 +50,7 @@
                             <li><a href="{{ route('interfaces.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> Interface</div></a></li>
                             <li><a href="{{ route('wikis.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> Wiki</div></a></li>
                             <li><a href="{{ route('blogs.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> {{ __('messages.Blog') }}</div></a></li>
+                            <li><a href="{{ route('products.index') }}"><div class="subBoxMenu"><i class="fa-solid fa-diamond"></i> Product</div></a></li>
                         </ul>
                     </li>
                     <div class="title-menu"><span>{{ __('messages.Application') }}</span></div>

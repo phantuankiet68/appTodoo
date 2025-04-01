@@ -11,7 +11,7 @@ use App\Models\documentHome;
 use App\Models\interfaceHome;
 use App\Models\wikiHome;
 use App\Models\Blog;
-
+use App\Models\HomeProduct;
 
 class HomeController extends Controller
 {
@@ -39,7 +39,7 @@ class HomeController extends Controller
         $interfaces = interfaceHome::where('language', $languageId)->orderBy('id', 'desc')->limit(6)->get();
         $wikis = wikiHome::where('language', $languageId)->orderBy('id', 'desc')->limit(6)->get();
         $blogs = Blog::where('language', $languageId)->orderBy('id', 'desc')->limit(6)->get();
-
+        $products = HomeProduct::where('language', $languageId)->orderBy('id', 'desc')->limit(6)->get();
         // Tạo meta tự động dựa trên nội dung
         $metaTitle = "TriSkill - Cộng đồng chia sẻ kiến thức lập trình, tiếng Anh và tiếng Nhật";
         $metaDescription = "Khám phá phương pháp học tiếng Nhật hiệu quả, lập trình hiện đại và rèn luyện tiếng Anh theo phong cách chuyên nghiệp.";
@@ -49,7 +49,7 @@ class HomeController extends Controller
             $metaDescription = substr(strip_tags($blogs->first()->content), 0, 160) ?? $metaDescription;
         }
 
-        return view('home.index', compact('blogs', 'news', 'projects', 'teams', 'documents', 'interfaces', 'wikis', 'metaTitle', 'metaDescription'));
+        return view('home.index', compact('products','blogs', 'news', 'projects', 'teams', 'documents', 'interfaces', 'wikis', 'metaTitle', 'metaDescription'));
     }
 
 

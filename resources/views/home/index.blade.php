@@ -117,41 +117,28 @@
         </div>
     </div>
 </section>
-
 <section id="about">
     <div class="layout-tile">
-        <h3>{{ __('messages.Wiki') }}</h3>
+        <h3>{{ __('messages.Product') }}</h3>
         <div class="layout-tile-btn">
-            <a href="{{ route('wikis.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
+            <a href="{{ route('products.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
         </div>
     </div>
     <div class="wiki-body">
         <div class="swiper mySwiper container">
             <div class="swiper-wrapper content">
-                @foreach($wikis as $item)
-                <a href="{{ route('wikis.view', $item->id) }}" class="swiper-slide card card-interface">
-                    <img src="{{ asset($item->image_path) }}" />
-                    <p class="name">{{ $item->title }}</p>
-                </a>
-                @endforeach
-            </div>
-        </div>
-    </div>
-</section>
-<section id="about">
-    <div class="layout-tile">
-        <h3>{{ __('messages.New Experience') }}</h3>
-        <div class="layout-tile-btn">
-            <a href="{{ route('new_experience.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
-        </div>
-    </div>
-    <div class="wiki-body">
-        <div class="swiper mySwiper container">
-            <div class="swiper-wrapper content">
-                @foreach($interfaces as $item)
-                <a href="{{ route('new_experience.view', $item->id) }}" class="swiper-slide card card-interface">
+                @foreach($products as $item)
+                <a href="{{ route('products.view', ['slug' => $item->slug]) }}" class="swiper-slide card card-product">
                     <img src="{{ asset($item->image_path) }}" alt="">
-                    <p>{{ $item->title }}</p>
+                    <div class="card-product-list created_at-product">
+                        <p><i class="fa-solid fa-calendar-days"></i> {{ $item->created_at->format('Y-m-d') }}</p>
+                        <p>{{ $item->user->full_name}}</p>
+                    </div>
+                    <div class="text-truncate4">{!! $item->description !!}</div>
+                    <div class="button b2">
+                        <button class="aboutMe">{{ __('messages.Contact Me') }}</button>
+                        <button class="hireMe">{{ __('messages.Hire Me') }}</button>
+                    </div>
                 </a>
                 @endforeach
             </div>
@@ -248,6 +235,26 @@
         </div>
     </div>
 </section>
+<section id="about">
+    <div class="layout-tile">
+        <h3>{{ __('messages.Wiki') }}</h3>
+        <div class="layout-tile-btn">
+            <a href="{{ route('wikis.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
+        </div>
+    </div>
+    <div class="wiki-body">
+        <div class="swiper mySwiper container">
+            <div class="swiper-wrapper content">
+                @foreach($wikis as $item)
+                <a href="{{ route('wikis.view', $item->id) }}" class="swiper-slide card card-interface">
+                    <img src="{{ asset($item->image_path) }}" />
+                    <p class="name">{{ $item->title }}</p>
+                </a>
+                @endforeach
+            </div>
+        </div>
+    </div>
+</section>
 <section  id="Team">
     <div class="layout-tile">
         <h3>{{ __('messages.Team') }}</h3>
@@ -318,26 +325,6 @@
 </section>
 <section id="about">
     <div class="layout-tile">
-        <h3>{{ __('messages.New Experience') }}</h3>
-        <div class="layout-tile-btn">
-            <a href="{{ route('new_experience.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
-        </div>
-    </div>
-    <div class="wiki-body">
-        <div class="swiper mySwiper container">
-            <div class="swiper-wrapper content">
-                @foreach($interfaces as $item)
-                <a href="{{ route('new_experience.view', $item->id) }}" class="swiper-slide card card-interface">
-                    <img src="{{ asset($item->image_path) }}" alt="">
-                    <p>{{ $item->title }}</p>
-                </a>
-                @endforeach
-            </div>
-        </div>
-    </div>
-</section>
-<section id="about">
-    <div class="layout-tile">
         <h3>{{ __('messages.Blog') }}</h3>
         <div class="layout-tile-btn">
             <a href="{{ route('blogs.list') }}">{{ __('messages.More here') }} <i class="fa-solid fa-circle-right"></i></a>
@@ -345,7 +332,7 @@
     </div>
     <div class="blog_container">
         <div class="blog_products">
-                @foreach($blogs as $item)
+            @foreach($blogs as $item)
             <a href="{{ route('blogs.view', $item->id) }}" class="blog_product">
                 <div class="blog_product-img">
                     <img src="{{ asset($item->image_path) }}" />

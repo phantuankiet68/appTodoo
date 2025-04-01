@@ -54,6 +54,7 @@ use App\Http\Controllers\Home\HomeDocumentController;
 use App\Http\Controllers\Home\HomeInterfaceController;
 use App\Http\Controllers\Home\HomeWikiController;
 use App\Http\Controllers\Home\HomeBlogController;
+use App\Http\Controllers\Home\HomeProductController;
 use App\Http\Controllers\V1\V1DashboardController;
 use App\Http\Controllers\V1\V1MessageController;
 use App\Http\Controllers\V1\V1ExpenseController;
@@ -135,6 +136,11 @@ Route::get('/blogs', [HomeBlogController::class, 'index_home'])->name('blogs.lis
 Route::get('/blogs/{id}', [HomeBlogController::class, 'view'])->name('blogs.view');
 Route::post('/blogs/store_like/{id}', [HomeBlogController::class, 'store_like'])->name('store_like.blogs');
 Route::post('/blogs/store_share/{id}', [HomeBlogController::class, 'store_share'])->name('store_share.blogs');
+
+
+//product
+Route::get('/products', [HomeProductController::class, 'index_home'])->name('products.list');
+Route::get('/products/{slug}', [HomeProductController::class, 'show'])->name('products.view');
 
 
 Route::group(['prefix' => 'v1', 'middleware' => ['auth', 'role.check'],], function () {
@@ -265,6 +271,8 @@ Route::group(['middleware' => ['auth', 'role.check']], function() {
     Route::resource('/v2/teams', HomeTeamController::class);
 
     Route::resource('/v2/documents', HomeDocumentController::class);
+
+    Route::resource('/v2/products', HomeProductController::class);
 
     Route::resource('/v2/interfaces', HomeInterfaceController::class);
     Route::get('/interfaces/show/{id}', [HomeInterfaceController::class, 'show'])->name('interfaces.show');

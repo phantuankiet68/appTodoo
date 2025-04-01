@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{ asset('css/media-layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/local.css') }}">
     <link rel="stylesheet" href="{{ asset('css/dark.css') }}">
-    <link href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.0.9/css/boxicons.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images//logo-website.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images//logo-website.png') }}">
@@ -146,14 +146,14 @@
                         <span class="tooltip">{{ __('messages.Error') }}</span>
                     </a>
                 </li>
-                <li class="features-item spam">
+                <!-- <li class="features-item spam">
                     <a href="" class="d-flex align-items" data-link="remove">
                         <i class="bx bxs-folder-minus features-item-icon"></i>
                         <span class="features-item-text">{{ __('messages.Remove') }}</span>
                         <span class="inbox-number blue">99</span>
                         <span class="tooltip">{{ __('messages.Remove') }}</span>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
